@@ -34,6 +34,7 @@ import * as TaskFactory from './factory/task';
 import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
 import TaskName from './factory/taskName';
 import TaskStatus from './factory/taskStatus';
+import * as ReserveTransactionFactory from './factory/transaction/reserve';
 import TransactionStatusType from './factory/transactionStatusType';
 import TransactionTasksExportationStatus from './factory/transactionTasksExportationStatus';
 import TransactionType from './factory/transactionType';
@@ -154,6 +155,22 @@ export import taskExecutionResult = TaskExecutionResultFactory;
 export import taskName = TaskName;
 export import taskStatus = TaskStatus;
 export namespace transaction {
+    export type IStartParams<T extends TransactionType> =
+        T extends TransactionType.Reserve ? ReserveTransactionFactory.IStartParams :
+        never;
+    export type IAttributes<T extends TransactionType> =
+        T extends TransactionType.Reserve ? ReserveTransactionFactory.IAttributes :
+        never;
+    export type ITransaction<T extends TransactionType> =
+        T extends TransactionType.Reserve ? ReserveTransactionFactory.ITransaction :
+        never;
+    export type IResult<T extends TransactionType> =
+        T extends TransactionType.Reserve ? ReserveTransactionFactory.IResult :
+        never;
+    export type IPotentialActions<T extends TransactionType> =
+        T extends TransactionType.Reserve ? ReserveTransactionFactory.IPotentialActions :
+        never;
+    export import reserve = ReserveTransactionFactory;
 }
 export import ticketType = TicketTypeFactory;
 export import transactionStatusType = TransactionStatusType;
