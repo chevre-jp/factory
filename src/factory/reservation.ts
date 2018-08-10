@@ -1,8 +1,8 @@
-import IMultilingualString from './multilingualString';
 import PlaceType from './placeType';
 import PriceCurrency from './priceCurrency';
 import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
+import { ITicketType } from './ticketType';
 import * as URLFactory from './url';
 
 /**
@@ -10,9 +10,8 @@ import * as URLFactory from './url';
  */
 export interface IUnderName {
     typeOf: string;
-    name: IMultilingualString;
+    name: string;
 }
-
 /**
  * seat interface
  */
@@ -36,7 +35,18 @@ export interface ISeat {
      */
     seatSection: string;
 }
-
+export interface IAcceptedTicket {
+    /**
+     * 座席
+     */
+    ticketedSeat: ISeat;
+    /**
+     * 券種
+     */
+    ticketType: {
+        id: string;
+    };
+}
 /**
  * 予約チケット情報
  */
@@ -69,7 +79,7 @@ export interface ITicket {
     /**
      * The number or id of the ticket.
      */
-    ticketNumber: string;
+    ticketNumber?: string;
     /**
      * Where the ticket can be printed.
      */
@@ -79,16 +89,18 @@ export interface ITicket {
      * such as "barcode128:AB34" (ISO-15417 barcodes), "qrCode:AB34" (QR codes),
      * "aztecCode:AB34" (Aztec codes), "barcodeEAN:1234" (EAN codes) and "barcodeUPCA:1234" (UPCA codes).
      */
-    ticketToken: string;
+    ticketToken?: string;
     /**
      * The person or organization the reservation is for.
      */
     underName: IUnderName;
+    /**
+     * 券種
+     */
+    ticketType: ITicketType;
 }
-
 /**
  * 予約インターフェース
- * reservation interface
  * Describes a reservation for travel, dining or an event. Some reservations require tickets.
  * Note: This type is for information about actual reservations,
  * e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
@@ -152,8 +164,9 @@ export interface IReservation {
      */
     reservationFor: any;
     /**
+     * A unique identifier for the reservation.
      */
-    reservationNumber: string;
+    reservationId: string;
     /**
      * Current status of the reservation.
      */

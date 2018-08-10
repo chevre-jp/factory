@@ -24,6 +24,7 @@ import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
 import PlaceType from './factory/placeType';
 import PriceCurrency from './factory/priceCurrency';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
+import * as ReservationFactory from './factory/reservation';
 import * as EventReservationFactory from './factory/reservation/event';
 import ReservationStatusType from './factory/reservationStatusType';
 import ReservationType from './factory/reservationType';
@@ -142,6 +143,7 @@ export namespace place {
 export import placeType = PlaceType;
 export import quantitativeValue = QuantitativeValueFactory;
 export namespace reservation {
+    export import ITicket = ReservationFactory.ITicket;
     // tslint:disable-next-line:no-shadowed-variable
     export import event = EventReservationFactory;
 }

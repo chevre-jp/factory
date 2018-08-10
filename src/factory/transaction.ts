@@ -18,7 +18,7 @@ export interface IStartParams<T extends TransactionType, TAgent, TRecipient, TOb
     /**
      * 取引物受取者
      */
-    recipient: TRecipient;
+    recipient?: TRecipient;
     /**
      * 取引対象
      */
@@ -54,7 +54,7 @@ export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TSta
     /**
      * 取引開始日時
      */
-    startDate?: Date;
+    startDate: Date;
     /**
      * 取引終了日時
      */
