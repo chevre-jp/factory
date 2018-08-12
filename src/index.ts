@@ -1,8 +1,6 @@
 /**
  * factory
  */
-import * as pecorinoFactory from '@pecorino/factory';
-
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import ActionStatusType from './factory/actionStatusType';
@@ -45,10 +43,8 @@ import * as URLFactory from './factory/url';
 import ErrorCode from './factory/errorCode';
 import * as errors from './factory/errors';
 
-export import pecorino = pecorinoFactory;
 export import errors = errors;
 export import errorCode = ErrorCode;
-
 export import actionStatusType = ActionStatusType;
 export import actionType = ActionType;
 export namespace action {
@@ -73,33 +69,26 @@ export namespace action {
         export namespace offer {
         }
     }
-
     export namespace interact {
     }
-
     export namespace trade {
     }
-
     export namespace transfer {
         export namespace give {
         }
-
         export namespace print {
         }
-
         /**
          * 返却アクション
          * returnはネームスペース名に使えないのでreturnAction
          */
         export namespace returnAction {
         }
-
         export namespace send {
             export namespace message {
             }
         }
     }
-
     export namespace consume {
         export namespace use {
         }
@@ -113,7 +102,6 @@ export namespace creativeWork {
     export import movie = MovieCreativeWorkFactory;
 }
 export import creativeWorkType = CreativeWorkType;
-
 export namespace event {
     export type IAttributes<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.IAttributes :
