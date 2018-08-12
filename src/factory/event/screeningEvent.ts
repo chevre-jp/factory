@@ -1,12 +1,10 @@
-import * as _ from 'lodash';
-
-import ArgumentError from '../error/argument';
-
 import * as EventFactory from '../event';
 import * as ScreeningEventSeriesFactory from '../event/screeningEventSeries';
 import EventStatusType from '../eventStatusType';
 import EventType from '../eventType';
+import ItemAvailability from '../itemAvailability';
 import IMultilingualString from '../multilingualString';
+import * as MovieTheaterFactory from '../place/movieTheater';
 import PlaceType from '../placeType';
 
 /**
@@ -48,53 +46,20 @@ export interface ISearchConditions {
      */
     workPerformedIds?: string[];
 }
-
-/**
- * item availability interface
- * 上映イベント空席状況表現インターフェース
- * 表現を変更する場合、このインターフェースを変更して対応する
- */
-export type IItemAvailability = number;
-
-/**
- * 座席数から在庫状況表現を生成する
- * @param numberOfAvailableSeats 空席数
- * @param numberOfAllSeats 全座席数
- */
-// tslint:disable-next-line:no-single-line-block-comment
-/* istanbul ignore next */
-export function createItemAvailability(numberOfAvailableSeats: number, numberOfAllSeats: number): IItemAvailability {
-    if (!_.isInteger(numberOfAvailableSeats)) {
-        throw new ArgumentError('numberOfAvailableSeats', 'numberOfAvailableSeats must be number.');
-    }
-    if (!_.isInteger(numberOfAllSeats)) {
-        throw new ArgumentError('numberOfAllSeats', 'numberOfAllSeats must be number.');
-    }
-
-    if (numberOfAllSeats === 0) {
-        return 0;
-    }
-
-    // 残席数より空席率を算出
-    // tslint:disable-next-line:no-magic-numbers
-    return Math.floor(numberOfAvailableSeats / numberOfAllSeats * 100);
+export interface ISeatOffer {
+    typeOf: 'Offer';
+    availability: ItemAvailability;
 }
-
-/**
- * event offer interface
- */
-export interface IOffer {
-    typeOf: string;
-    availability: IItemAvailability | null;
-    url: string;
+export interface ISeatWithOffer extends MovieTheaterFactory.ISeat {
+    offers?: ISeatOffer[];
 }
-
+export interface IScreeningRoomSectionOffer extends MovieTheaterFactory.IScreeningRoomSection {
+    containsPlace: ISeatWithOffer[];
+}
 /**
- * event with offer interface
+ * 上映イベントに対するオファーインターフェース
  */
-export type IEventWithOffer = IEvent & {
-    offer: IOffer;
-};
+export type IOffer = IScreeningRoomSectionOffer;
 export interface IAttributes extends EventFactory.IAttributes<EventType.ScreeningEvent> {
     /**
      * 上映作品

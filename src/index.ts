@@ -16,6 +16,7 @@ import * as ScreeningEventFactory from './factory/event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeries';
 import EventStatusType from './factory/eventStatusType';
 import EventType from './factory/eventType';
+import ItemAvailability from './factory/itemAvailability';
 import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
 import * as OrganizationFactory from './factory/organization';
@@ -127,6 +128,7 @@ export namespace event {
 }
 export import eventStatusType = EventStatusType;
 export import eventType = EventType;
+export import itemAvailability = ItemAvailability;
 export type multilingualString = IMultilingualString;
 export namespace offer {
     export import OfferType = OfferFactory.OfferType;
