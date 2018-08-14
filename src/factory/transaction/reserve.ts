@@ -17,11 +17,8 @@ export interface IAgent {
     name: string;
     url?: string;
 }
+// tslint:disable-next-line:no-empty-interface
 export interface IResult {
-    /**
-     * 取引結果としてのイベント予約
-     */
-    reservations: EventReservationFactory.IReservation<IScreeningEvent>[];
 }
 /**
  * エラーインターフェース
@@ -36,9 +33,11 @@ export interface IObjectWithoutDetail {
 /**
  * 取引対象物インターフェース
  */
-export interface IObject extends IObjectWithoutDetail {
+export interface IObject {
+    clientUser?: IClientUser;
     event: IScreeningEvent;
-    tickets: ReservationFactory.ITicket[];
+    reservations: EventReservationFactory.IReservation<IScreeningEvent>[];
+    notes: string;
 }
 export interface IPotentialActions {
     reserve: any;
