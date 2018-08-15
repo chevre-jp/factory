@@ -3,6 +3,7 @@
  */
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
+import * as ReserveActionFactory from './factory/action/reserve';
 import ActionStatusType from './factory/actionStatusType';
 import ActionType from './factory/actionType';
 
@@ -31,6 +32,8 @@ import * as TicketTypeFactory from './factory/ticketType';
 import { UnitCode } from './factory/unitCode';
 
 import * as TaskFactory from './factory/task';
+import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
+import * as ReserveTaskFactory from './factory/task/reserve';
 import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
 import TaskName from './factory/taskName';
 import TaskStatus from './factory/taskStatus';
@@ -93,6 +96,7 @@ export namespace action {
         export namespace use {
         }
     }
+    export import reserve = ReserveActionFactory;
 }
 export import clientUser = ClientUserFactory;
 export namespace creativeWork {
@@ -142,6 +146,8 @@ export import reservationType = ReservationType;
 export namespace task {
     export import IAttributes = TaskFactory.IAttributes;
     export import ITask = TaskFactory.ITask;
+    export import cancelReservation = CancelReservationTaskFactory;
+    export import reserve = ReserveTaskFactory;
 }
 export import taskExecutionResult = TaskExecutionResultFactory;
 export import taskName = TaskName;

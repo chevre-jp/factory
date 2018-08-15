@@ -31,7 +31,6 @@ export interface ISeat {
     seatRow: string;
     /**
      * 座席セクション
-     * The section location of the reserved seat (e.g. Orchestra).
      */
     seatSection: string;
 }
@@ -112,6 +111,10 @@ export interface IReservation {
      */
     typeOf: ReservationType;
     /**
+     * 予約ID
+     */
+    id: string;
+    /**
      * Any additional text to appear on a ticket, such as additional privileges or identifiers.
      */
     additionalTicketText: string;
@@ -164,9 +167,9 @@ export interface IReservation {
      */
     reservationFor: any;
     /**
-     * A unique identifier for the reservation.
+     * 予約番号
      */
-    reservationId: string;
+    reservationNumber: string;
     /**
      * Current status of the reservation.
      */

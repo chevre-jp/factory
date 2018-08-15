@@ -3,18 +3,9 @@
  */
 enum ActionType {
     AuthorizeAction = 'AuthorizeAction',
-    CheckInAction = 'CheckInAction',
-    GiveAction = 'GiveAction',
-    OrderAction = 'OrderAction',
-    PayAction = 'PayAction',
-    PrintAction = 'PrintAction',
-    RefundAction = 'RefundAction',
-    RegisterAction = 'RegisterAction',
+    ReserveAction = 'ReserveAction',
     ReturnAction = 'ReturnAction',
     SendAction = 'SendAction',
-    UnRegisterAction = 'UnRegisterAction',
-    UpdateAction = 'UpdateAction',
     UseAction = 'UseAction'
 }
-
 export default ActionType;
