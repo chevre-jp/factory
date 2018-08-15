@@ -3,6 +3,7 @@
  */
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
+import * as CancelReservationActionFactory from './factory/action/cancel/reservation';
 import * as ReserveActionFactory from './factory/action/reserve';
 import ActionStatusType from './factory/actionStatusType';
 import ActionType from './factory/actionType';
@@ -37,6 +38,7 @@ import * as ReserveTaskFactory from './factory/task/reserve';
 import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
 import TaskName from './factory/taskName';
 import TaskStatus from './factory/taskStatus';
+import * as CancelReservationTransactionFactory from './factory/transaction/cancelReservation';
 import * as ReserveTransactionFactory from './factory/transaction/reserve';
 import TransactionStatusType from './factory/transactionStatusType';
 import TransactionTasksExportationStatus from './factory/transactionTasksExportationStatus';
@@ -71,6 +73,10 @@ export namespace action {
         // tslint:disable-next-line:no-shadowed-variable
         export namespace offer {
         }
+    }
+    export namespace cancel {
+        // tslint:disable-next-line:no-shadowed-variable
+        export import reservation = CancelReservationActionFactory;
     }
     export namespace interact {
     }
@@ -154,20 +160,26 @@ export import taskName = TaskName;
 export import taskStatus = TaskStatus;
 export namespace transaction {
     export type IStartParams<T extends TransactionType> =
+        T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IStartParams :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IStartParams :
         never;
     export type IAttributes<T extends TransactionType> =
+        T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IAttributes :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IAttributes :
         never;
     export type ITransaction<T extends TransactionType> =
+        T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ITransaction :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ITransaction :
         never;
     export type IResult<T extends TransactionType> =
+        T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IResult :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IResult :
         never;
     export type IPotentialActions<T extends TransactionType> =
+        T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IPotentialActions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IPotentialActions :
         never;
+    export import cancelReservation = CancelReservationTransactionFactory;
     export import reserve = ReserveTransactionFactory;
 }
 export import ticketType = TicketTypeFactory;
