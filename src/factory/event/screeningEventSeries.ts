@@ -1,4 +1,4 @@
-import CreativeWorkType from '../creativeWorkType';
+import { ICreativeWork as IMovie } from '../creativeWork/movie';
 import * as EventFactory from '../event';
 import EventStatusType from '../eventStatusType';
 import EventType from '../eventType';
@@ -44,32 +44,9 @@ export interface ISearchConditions {
     workPerformedIds?: string[];
 }
 /**
- * performed work interface
  * 上映作品インターフェース
  */
-export interface IWorkPerformed {
-    /**
-     * 作品識別子
-     */
-    identifier: string;
-    /**
-     * 作品原題
-     */
-    name: string;
-    /**
-     * 上映時間
-     */
-    duration: string;
-    /**
-     * 映倫区分(PG12,R15,R18)
-     */
-    contentRating?: string;
-    /**
-     * スキーマタイプ
-     */
-    typeOf: CreativeWorkType;
-}
-
+export type IWorkPerformed = IMovie;
 export interface IOrganizer {
     typeOf: OrganizationType;
     identifier: string;

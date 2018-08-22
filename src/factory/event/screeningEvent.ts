@@ -8,8 +8,7 @@ import * as MovieTheaterFactory from '../place/movieTheater';
 import PlaceType from '../placeType';
 
 /**
- * search conditions interface
- * 個々の上映イベントの検索条件インターフェース
+ * 上映イベントの検索条件インターフェース
  */
 export interface ISearchConditions {
     /**
@@ -110,6 +109,6 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     ticketTypeGroup: string;
 }
 /**
- * 個々の上映イベントインターフェース
+ * 上映イベントインターフェース
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;

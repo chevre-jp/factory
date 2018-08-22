@@ -1,7 +1,7 @@
 import * as CreativeWorkFactory from '../creativeWork';
 
 /**
- * movie creativeWork interface
+ * 映画作品インターフェース
  */
 export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
     identifier: string;
