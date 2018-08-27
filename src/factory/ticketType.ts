@@ -12,6 +12,15 @@ export interface ITicketTypeAttributes {
 export type ITicketType = ITicketTypeAttributes & {
     id: string;
 };
+/**
+ * 検索条件インターフェース
+ */
+export interface ITicketTypeSearchConditions {
+    limit?: number;
+    page?: number;
+    id?: string;
+    name?: string;
+}
 export interface ITicketTypeGroupAttributes {
     name: IMultilingualString;
     ticketTypes: string[];
@@ -22,3 +31,12 @@ export interface ITicketTypeGroupAttributes {
 export type ITicketTypeGroup = ITicketTypeGroupAttributes & {
     id: string;
 };
+/**
+ * 検索条件インターフェース
+ */
+export interface ITicketTypeGroupSearchConditions {
+    limit?: number;
+    page?: number;
+    id?: string;
+    name?: string;
+}
