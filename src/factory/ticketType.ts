@@ -1,20 +1,24 @@
 import IMultilingualString from './multilingualString';
 
-/**
- * 券種インターフェース
- */
-export interface ITicketType {
-    id: string;
+export interface ITicketTypeAttributes {
     name: IMultilingualString;
     description: IMultilingualString;
     notes: IMultilingualString;
     charge: number;
 }
 /**
- * 券種グループインターフェース
+ * 券種インターフェース
  */
-export interface ITicketTypeGroup {
+export type ITicketType = ITicketTypeAttributes & {
     id: string;
+};
+export interface ITicketTypeGroupAttributes {
     name: IMultilingualString;
     ticketTypes: string[];
 }
+/**
+ * 券種グループインターフェース
+ */
+export type ITicketTypeGroup = ITicketTypeGroupAttributes & {
+    id: string;
+};
