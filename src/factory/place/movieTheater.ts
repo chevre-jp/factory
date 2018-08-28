@@ -84,3 +84,11 @@ export type IPlace = IPlaceWithoutScreeningRoom & {
      */
     containsPlace: IScreeningRoom[];
 };
+export interface ISearchConditions {
+    limit?: number;
+    page?: number;
+    /**
+     * 名称
+     */
+    name?: string;
+}
