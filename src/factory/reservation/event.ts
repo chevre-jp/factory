@@ -18,6 +18,8 @@ export interface IReservation<T extends IReservationFor> extends ReservationFact
  * 検索条件
  */
 export interface ISearchConditions {
+    limit?: number;
+    page?: number;
     /**
      * 予約IDリスト
      */
@@ -26,4 +28,19 @@ export interface ISearchConditions {
      * 予約ステータスリスト
      */
     reservationStatuses?: ReservationStatusType[];
+    /**
+     * 予約対象
+     */
+    reservationFor?: {
+        typeOf?: EventType;
+        id?: string;
+    };
+    /**
+     * 更新日時
+     */
+    modifiedFrom?: Date;
+    /**
+     * 更新日時
+     */
+    modifiedThrough?: Date;
 }
