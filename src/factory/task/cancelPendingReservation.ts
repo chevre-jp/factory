@@ -10,7 +10,7 @@ export interface IData {
     actionAttributes: ICancelReservationActionAttributes[];
 }
 export interface IAttributes extends TaskFactory.IAttributes {
-    name: TaskName.cancelPendingReservation;
+    name: TaskName.CancelPendingReservation;
     data: IData;
 }
 export type ITask = IExtendId<IAttributes>;
