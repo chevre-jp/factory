@@ -23,15 +23,18 @@ export interface IAttributes<T extends EventType> {
      */
     description?: IMultilingualString;
     /**
-     * 開場日時(in ISO 8601 date format)
+     * 開場日時
+     * ISO 8601 date format
      */
     doorTime?: Date;
     /**
-     * イベント上演時間 in ISO 8601 date format.
+     * イベント上演時間
+     * ISO 8601 date format
      */
     duration?: string;
     /**
-     * 終了日時(in ISO 8601 date format)
+     * 終了日時
+     * ISO 8601 date format
      */
     endDate?: Date;
     /**
@@ -57,7 +60,8 @@ export interface IAttributes<T extends EventType> {
      */
     remainingAttendeeCapacity?: number;
     /**
-     * 開始日時(in ISO 8601 date format)
+     * 開始日時
+     * ISO 8601 date format
      */
     startDate?: Date;
     /**

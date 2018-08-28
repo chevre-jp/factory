@@ -11,24 +11,40 @@ import PlaceType from '../placeType';
  * 上映イベントの検索条件インターフェース
  */
 export interface ISearchConditions {
+    limit?: number;
+    page?: number;
     /**
      * イベント名称
      */
     name?: string;
     /**
-     * 開始日時(in ISO 8601 date format) from
+     * 開催中 from
+     * ISO 8601 date format
+     */
+    inSessionFrom?: Date;
+    /**
+     * 開催中 through
+     * ISO 8601 date format
+     */
+    inSessionThrough?: Date;
+    /**
+     * 開始日時 from
+     * ISO 8601 date format
      */
     startFrom?: Date;
     /**
-     * 開始日時(in ISO 8601 date format) through
+     * 開始日時 through
+     * ISO 8601 date format
      */
     startThrough?: Date;
     /**
-     * 終了日時(in ISO 8601 date format) from
+     * 終了日時 from
+     * ISO 8601 date format
      */
     endFrom?: Date;
     /**
-     * 終了日時(in ISO 8601 date format) through
+     * 終了日時 through
+     * ISO 8601 date format
      */
     endThrough?: Date;
     /**
@@ -37,13 +53,18 @@ export interface ISearchConditions {
      */
     eventStatuses?: EventStatusType[];
     /**
-     * 親イベント(劇場の上映イベント)が実施される場所の識別子リスト
+     * 親イベント情報
      */
-    superEventLocationIds?: string[];
-    /**
-     * イベントで上演される作品識別子リスト
-     */
-    workPerformedIds?: string[];
+    superEvent?: {
+        /**
+         * 親イベント(劇場の上映イベント)が実施される場所の識別子リスト
+         */
+        locationBranchCodes?: string[];
+        /**
+         * イベントで上演される作品識別子リスト
+         */
+        workPerformedIdentifiers?: string[];
+    };
 }
 export interface ISeatOffer {
     typeOf: 'Offer';
@@ -87,15 +108,18 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      */
     name: IMultilingualString;
     /**
-     * 開場日時(in ISO 8601 date format)
+     * 開場日時
+     * ISO 8601 date format
      */
     doorTime?: Date;
     /**
-     * 終了日時(in ISO 8601 date format)
+     * 終了日時(
+     * ISO 8601 date format
      */
     endDate: Date;
     /**
-     * 開始日時(in ISO 8601 date format)
+     * 開始日時
+     * ISO 8601 date format
      */
     startDate: Date;
     /**

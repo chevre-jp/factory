@@ -10,38 +10,58 @@ import PlaceType from '../placeType';
  * 上映イベントの検索条件インターフェース
  */
 export interface ISearchConditions {
+    limit?: number;
+    page?: number;
     /**
      * イベント名称
      */
     name?: string;
     /**
-     * 開始日時(in ISO 8601 date format) from
+     * 開催中 from
+     * ISO 8601 date format
+     */
+    inSessionFrom?: Date;
+    /**
+     * 開催中 through
+     * ISO 8601 date format
+     */
+    inSessionThrough?: Date;
+    /**
+     * 開始日時 from
+     * ISO 8601 date format
      */
     startFrom?: Date;
     /**
-     * 開始日時(in ISO 8601 date format) through
+     * 開始日時 through
+     * ISO 8601 date format
      */
     startThrough?: Date;
     /**
-     * 終了日時(in ISO 8601 date format) from
+     * 終了日時 from
+     * ISO 8601 date format
      */
     endFrom?: Date;
     /**
-     * 終了日時(in ISO 8601 date format) through
+     * 終了日時 through
+     * ISO 8601 date format
      */
     endThrough?: Date;
     /**
      * イベントステータス
      */
     eventStatuses?: EventStatusType[];
-    /**
-     * イベント(劇場の上映イベント)が実施される場所の識別子リスト
-     */
-    locationIds?: string[];
-    /**
-     * イベントで上演される作品識別子リスト
-     */
-    workPerformedIds?: string[];
+    location?: {
+        /**
+         * 場所の識別子リスト
+         */
+        branchCodes?: string[];
+    };
+    workPerformed?: {
+        /**
+         * イベントで上演される作品識別子リスト
+         */
+        identifiers?: string[];
+    };
 }
 /**
  * 上映作品インターフェース
@@ -104,11 +124,13 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      */
     name: IMultilingualString;
     /**
-     * 公演終了予定日(in ISO 8601 date format)
+     * 公演終了予定日
+     * ISO 8601 date format
      */
     endDate?: Date;
     /**
-     * 公演開始予定日(in ISO 8601 date format)
+     * 公演開始予定日
+     * ISO 8601 date format
      */
     startDate?: Date;
 }
