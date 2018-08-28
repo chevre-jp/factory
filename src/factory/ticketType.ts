@@ -23,6 +23,8 @@ export interface ITicketTypeSearchConditions {
 }
 export interface ITicketTypeGroupAttributes {
     name: IMultilingualString;
+    description: IMultilingualString;
+    notes: IMultilingualString;
     ticketTypes: string[];
 }
 /**
