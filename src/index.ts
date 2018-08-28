@@ -33,6 +33,7 @@ import * as TicketTypeFactory from './factory/ticketType';
 import { UnitCode } from './factory/unitCode';
 
 import * as TaskFactory from './factory/task';
+import * as CancelPendingReservationTaskFactory from './factory/task/cancelPendingReservation';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
 import * as ReserveTaskFactory from './factory/task/reserve';
 import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
@@ -152,6 +153,7 @@ export import reservationType = ReservationType;
 export namespace task {
     export import IAttributes = TaskFactory.IAttributes;
     export import ITask = TaskFactory.ITask;
+    export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
     export import reserve = ReserveTaskFactory;
 }

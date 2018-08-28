@@ -3,6 +3,7 @@
  */
 enum TaskName {
     Reserve = 'reserve',
-    CancelReservation = 'cancelReservation'
+    CancelReservation = 'cancelReservation',
+    cancelPendingReservation = 'cancelPendingReservation'
 }
 export default TaskName;
