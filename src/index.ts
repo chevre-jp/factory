@@ -29,6 +29,7 @@ import * as ReservationFactory from './factory/reservation';
 import * as EventReservationFactory from './factory/reservation/event';
 import ReservationStatusType from './factory/reservationStatusType';
 import ReservationType from './factory/reservationType';
+import SortType from './factory/sortType';
 import * as TicketTypeFactory from './factory/ticketType';
 import { UnitCode } from './factory/unitCode';
 
@@ -157,6 +158,7 @@ export namespace task {
     export import cancelReservation = CancelReservationTaskFactory;
     export import reserve = ReserveTaskFactory;
 }
+export import sortType = SortType;
 export import taskExecutionResult = TaskExecutionResultFactory;
 export import taskName = TaskName;
 export import taskStatus = TaskStatus;

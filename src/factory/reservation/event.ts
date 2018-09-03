@@ -2,6 +2,7 @@ import * as EventFactory from '../event';
 import EventType from '../eventType';
 import * as ReservationFactory from '../reservation';
 import ReservationStatusType from '../reservationStatusType';
+import SortType from '../sortType';
 
 export type IReservationFor = EventFactory.IEvent<EventFactory.IAttributes<EventType>>;
 /**
@@ -15,11 +16,21 @@ export interface IReservation<T extends IReservationFor> extends ReservationFact
     reservationFor: T;
 }
 /**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    modifiedTime?: SortType;
+    bookingTime?: SortType;
+    reservationNumber?: SortType;
+    price?: SortType;
+}
+/**
  * 検索条件
  */
 export interface ISearchConditions {
     limit?: number;
     page?: number;
+    sort?: ISortOrder;
     /**
      * 予約IDリスト
      */

@@ -1,5 +1,6 @@
 import IMultilingualString from '../multilingualString';
 import * as PlaceFactory from '../place';
+import SortType from '../sortType';
 
 /**
  * 場所としての座席インターフェース
@@ -25,7 +26,6 @@ export interface IScreeningRoomSection extends PlaceFactory.IPlace {
      */
     branchCode: string;
 }
-
 /**
  * 場所としての上映室インターフェース
  */
@@ -43,7 +43,6 @@ export interface IScreeningRoom extends PlaceFactory.IPlace {
      */
     name: IMultilingualString;
 }
-
 /**
  * place interface without screening room
  */
@@ -74,7 +73,6 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
      */
     telephone: string;
 }
-
 /**
  * 劇場施設インターフェース
  */
@@ -84,9 +82,16 @@ export type IPlace = IPlaceWithoutScreeningRoom & {
      */
     containsPlace: IScreeningRoom[];
 };
+/**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    branchCode?: SortType;
+}
 export interface ISearchConditions {
     limit?: number;
     page?: number;
+    sort?: ISortOrder;
     /**
      * 名称
      */

@@ -22,7 +22,6 @@ npm install @chevre/factory
 
 | Name    | Required | Value            | Purpose |
 |---------|----------|------------------|---------|
-| `DEBUG` | false    | chevre-factory:* | Debug   |
 
 ## License
 

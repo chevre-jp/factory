@@ -1,4 +1,5 @@
 import * as CreativeWorkFactory from '../creativeWork';
+import SortType from '../sortType';
 
 /**
  * 映画作品インターフェース
@@ -16,11 +17,19 @@ export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
     contentRating: string;
 }
 /**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    identifier?: SortType;
+    name?: SortType;
+}
+/**
  * 検索条件インターフェース
  */
 export interface ISearchConditions {
     limit?: number;
     page?: number;
+    sort?: ISortOrder;
     identifier?: string;
     name?: string;
 }

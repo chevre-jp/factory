@@ -3,7 +3,7 @@ import PriceCurrency from './priceCurrency';
 import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
 import { ITicketType } from './ticketType';
-import * as URLFactory from './url';
+import { IURL } from './url';
 
 /**
  * under name interface
@@ -74,7 +74,7 @@ export interface ITicket {
     /**
      * Where the ticket can be downloaded.
      */
-    ticketDownloadUrl?: URLFactory.IURL;
+    ticketDownloadUrl?: IURL;
     /**
      * The number or id of the ticket.
      */
@@ -82,7 +82,7 @@ export interface ITicket {
     /**
      * Where the ticket can be printed.
      */
-    ticketPrintUrl?: URLFactory.IURL;
+    ticketPrintUrl?: IURL;
     /**
      * If the barcode image is hosted on your site, the value of the field is URL of the image, or a barcode or QR URI,
      * such as "barcode128:AB34" (ISO-15417 barcodes), "qrCode:AB34" (QR codes),
@@ -129,15 +129,15 @@ export interface IReservation {
     /**
      * Web page where reservation can be cancelled.
      */
-    cancelReservationUrl?: URLFactory.IURL;
+    cancelReservationUrl?: IURL;
     /**
      * Webpage where the passenger can check in.
      */
-    checkinUrl?: URLFactory.IURL;
+    checkinUrl?: IURL;
     /**
      * Web page where reservation can be confirmed.
      */
-    confirmReservationUrl?: URLFactory.IURL;
+    confirmReservationUrl?: IURL;
     /**
      * Time the reservation was last modified.
      */
@@ -145,7 +145,7 @@ export interface IReservation {
     /**
      * Web page where reservation can be modified.
      */
-    modifyReservationUrl?: URLFactory.IURL;
+    modifyReservationUrl?: IURL;
     /**
      * Number of seats if unreserved seating.
      */

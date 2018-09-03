@@ -5,64 +5,8 @@ import EventType from '../eventType';
 import IMultilingualString from '../multilingualString';
 import OrganizationType from '../organizationType';
 import PlaceType from '../placeType';
+import SortType from '../sortType';
 
-/**
- * 上映イベントの検索条件インターフェース
- */
-export interface ISearchConditions {
-    limit?: number;
-    page?: number;
-    /**
-     * イベント名称
-     */
-    name?: string;
-    /**
-     * 開催中 from
-     * ISO 8601 date format
-     */
-    inSessionFrom?: Date;
-    /**
-     * 開催中 through
-     * ISO 8601 date format
-     */
-    inSessionThrough?: Date;
-    /**
-     * 開始日時 from
-     * ISO 8601 date format
-     */
-    startFrom?: Date;
-    /**
-     * 開始日時 through
-     * ISO 8601 date format
-     */
-    startThrough?: Date;
-    /**
-     * 終了日時 from
-     * ISO 8601 date format
-     */
-    endFrom?: Date;
-    /**
-     * 終了日時 through
-     * ISO 8601 date format
-     */
-    endThrough?: Date;
-    /**
-     * イベントステータス
-     */
-    eventStatuses?: EventStatusType[];
-    location?: {
-        /**
-         * 場所の識別子リスト
-         */
-        branchCodes?: string[];
-    };
-    workPerformed?: {
-        /**
-         * イベントで上演される作品識別子リスト
-         */
-        identifiers?: string[];
-    };
-}
 /**
  * 上映作品インターフェース
  */
@@ -139,3 +83,68 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
  * 劇場作品に相当
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
+/**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    endDate?: SortType;
+    startDate?: SortType;
+}
+/**
+ * 上映イベントの検索条件インターフェース
+ */
+export interface ISearchConditions {
+    limit?: number;
+    page?: number;
+    sort?: ISortOrder;
+    /**
+     * イベント名称
+     */
+    name?: string;
+    /**
+     * 開催中 from
+     * ISO 8601 date format
+     */
+    inSessionFrom?: Date;
+    /**
+     * 開催中 through
+     * ISO 8601 date format
+     */
+    inSessionThrough?: Date;
+    /**
+     * 開始日時 from
+     * ISO 8601 date format
+     */
+    startFrom?: Date;
+    /**
+     * 開始日時 through
+     * ISO 8601 date format
+     */
+    startThrough?: Date;
+    /**
+     * 終了日時 from
+     * ISO 8601 date format
+     */
+    endFrom?: Date;
+    /**
+     * 終了日時 through
+     * ISO 8601 date format
+     */
+    endThrough?: Date;
+    /**
+     * イベントステータス
+     */
+    eventStatuses?: EventStatusType[];
+    location?: {
+        /**
+         * 場所の識別子リスト
+         */
+        branchCodes?: string[];
+    };
+    workPerformed?: {
+        /**
+         * イベントで上演される作品識別子リスト
+         */
+        identifiers?: string[];
+    };
+}

@@ -6,66 +6,8 @@ import ItemAvailability from '../itemAvailability';
 import IMultilingualString from '../multilingualString';
 import * as MovieTheaterFactory from '../place/movieTheater';
 import PlaceType from '../placeType';
+import SortType from '../sortType';
 
-/**
- * 上映イベントの検索条件インターフェース
- */
-export interface ISearchConditions {
-    limit?: number;
-    page?: number;
-    /**
-     * イベント名称
-     */
-    name?: string;
-    /**
-     * 開催中 from
-     * ISO 8601 date format
-     */
-    inSessionFrom?: Date;
-    /**
-     * 開催中 through
-     * ISO 8601 date format
-     */
-    inSessionThrough?: Date;
-    /**
-     * 開始日時 from
-     * ISO 8601 date format
-     */
-    startFrom?: Date;
-    /**
-     * 開始日時 through
-     * ISO 8601 date format
-     */
-    startThrough?: Date;
-    /**
-     * 終了日時 from
-     * ISO 8601 date format
-     */
-    endFrom?: Date;
-    /**
-     * 終了日時 through
-     * ISO 8601 date format
-     */
-    endThrough?: Date;
-    /**
-     * イベントステータス
-     * イベントがキャンセル、あるいは、延期された場合に主に使用されます。
-     */
-    eventStatuses?: EventStatusType[];
-    /**
-     * 親イベント情報
-     */
-    superEvent?: {
-        /**
-         * 親イベント(劇場の上映イベント)が実施される場所の識別子リスト
-         */
-        locationBranchCodes?: string[];
-        /**
-         * イベントで上演される作品識別子リスト
-         */
-        workPerformedIdentifiers?: string[];
-    };
-}
 export interface ISeatOffer {
     typeOf: 'Offer';
     availability: ItemAvailability;
@@ -136,3 +78,72 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
  * 上映イベントインターフェース
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
+/**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    doorTime?: SortType;
+    endDate?: SortType;
+    startDate?: SortType;
+}
+/**
+ * 上映イベントの検索条件インターフェース
+ */
+export interface ISearchConditions {
+    limit?: number;
+    page?: number;
+    sort?: ISortOrder;
+    /**
+     * イベント名称
+     */
+    name?: string;
+    /**
+     * 開催中 from
+     * ISO 8601 date format
+     */
+    inSessionFrom?: Date;
+    /**
+     * 開催中 through
+     * ISO 8601 date format
+     */
+    inSessionThrough?: Date;
+    /**
+     * 開始日時 from
+     * ISO 8601 date format
+     */
+    startFrom?: Date;
+    /**
+     * 開始日時 through
+     * ISO 8601 date format
+     */
+    startThrough?: Date;
+    /**
+     * 終了日時 from
+     * ISO 8601 date format
+     */
+    endFrom?: Date;
+    /**
+     * 終了日時 through
+     * ISO 8601 date format
+     */
+    endThrough?: Date;
+    /**
+     * イベントステータス
+     * イベントがキャンセル、あるいは、延期された場合に主に使用されます。
+     */
+    eventStatuses?: EventStatusType[];
+    /**
+     * 親イベント情報
+     */
+    superEvent?: {
+        ids?: string[];
+        /**
+         * 親イベント(劇場の上映イベント)が実施される場所の識別子リスト
+         */
+        locationBranchCodes?: string[];
+        /**
+         * イベントで上演される作品識別子リスト
+         */
+        workPerformedIdentifiers?: string[];
+    };
+}
