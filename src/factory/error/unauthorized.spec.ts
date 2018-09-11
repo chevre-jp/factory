@@ -1,8 +1,6 @@
 /**
  * UnauthorizedErrorテスト
- * @ignore
  */
-
 import * as assert from 'assert';
 
 import UnauthorizedError from './unauthorized';

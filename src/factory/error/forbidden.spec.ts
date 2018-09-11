@@ -1,8 +1,6 @@
 /**
  * ForbiddenErrorテスト
- * @ignore
  */
-
 import * as assert from 'assert';
 
 import ForbiddenError from './forbidden';

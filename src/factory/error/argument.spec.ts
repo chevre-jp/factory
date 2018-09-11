@@ -1,8 +1,6 @@
 /**
  * ArgumentErrorテスト
- * @ignore
  */
-
 import * as assert from 'assert';
 
 import ArgumentError from './argument';

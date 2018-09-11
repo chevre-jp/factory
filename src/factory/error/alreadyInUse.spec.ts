@@ -1,8 +1,6 @@
 /**
  * AlreadyInUseErrorテスト
- * @ignore
  */
-
 import * as assert from 'assert';
 
 import AlreadyInUseError from './alreadyInUse';

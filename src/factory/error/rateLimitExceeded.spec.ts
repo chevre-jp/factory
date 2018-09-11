@@ -1,8 +1,6 @@
 /**
  * RateLimitExceededErrorテスト
- * @ignore
  */
-
 import * as assert from 'assert';
 
 import RateLimitExceededError from './rateLimitExceeded';

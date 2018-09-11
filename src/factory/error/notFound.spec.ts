@@ -1,8 +1,6 @@
 /**
  * NotFoundErrorテスト
- * @ignore
  */
-
 import * as assert from 'assert';
 
 import NotFoundError from './notFound';

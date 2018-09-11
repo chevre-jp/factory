@@ -1,8 +1,6 @@
 /**
  * NotImplementedErrorテスト
- * @ignore
  */
-
 import * as assert from 'assert';
 
 import NotImplementedError from './notImplemented';

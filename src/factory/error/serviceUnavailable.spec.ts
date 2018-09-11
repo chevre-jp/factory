@@ -1,8 +1,6 @@
 /**
  * ServiceUnavailableErrorテスト
- * @ignore
  */
-
 import * as assert from 'assert';
 
 import ServiceUnavailableError from './serviceUnavailable';

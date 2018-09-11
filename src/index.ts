@@ -145,6 +145,7 @@ export namespace place {
 export import placeType = PlaceType;
 export import quantitativeValue = QuantitativeValueFactory;
 export namespace reservation {
+    export import IUnderName = ReservationFactory.IUnderName;
     export import ITicket = ReservationFactory.ITicket;
     // tslint:disable-next-line:no-shadowed-variable
     export import event = EventReservationFactory;

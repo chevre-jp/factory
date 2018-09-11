@@ -1,8 +1,6 @@
 /**
  * ArgumentNullErrorテスト
- * @ignore
  */
-
 import * as assert from 'assert';
 
 import ArgumentNullError from './argumentNull';
