@@ -184,6 +184,10 @@ export namespace transaction {
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IPotentialActions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IPotentialActions :
         never;
+    export type ISearchConditions<T extends TransactionType> =
+        T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ISearchConditions :
+        T extends TransactionType.Reserve ? ReserveTransactionFactory.ISearchConditions :
+        never;
     export import cancelReservation = CancelReservationTransactionFactory;
     export import reserve = ReserveTransactionFactory;
 }

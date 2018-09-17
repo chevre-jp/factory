@@ -50,3 +50,5 @@ export type ITransaction = IExtendId<IAttributes>;
 export interface IAttributes
     extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
 }
+export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.Reserve> {
+}

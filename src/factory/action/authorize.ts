@@ -16,8 +16,7 @@ export type IPurpose = any;
 /**
  * アクション属性インターフェース
  */
-export interface IAttributes<TObject, TResult> extends ActionFactory.IAttributes<TObject, TResult> {
-    typeOf: ActionType.AuthorizeAction;
+export interface IAttributes<TObject, TResult> extends ActionFactory.IAttributes<ActionType.AuthorizeAction, TObject, TResult> {
     purpose: IPurpose;
     recipient: ActionFactory.IParticipant;
 }

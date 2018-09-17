@@ -28,8 +28,7 @@ export interface IPurpose {
 /**
  * アクション属性インターフェース
  */
-export interface IAttributes extends ActionFactory.IAttributes<IObject, IResult> {
-    typeOf: ActionType.CancelAction;
+export interface IAttributes extends ActionFactory.IAttributes<ActionType.CancelAction, IObject, IResult> {
     purpose: IPurpose;
 }
 /**

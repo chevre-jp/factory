@@ -8,8 +8,7 @@ export type IObject = any;
 export type IResult = any;
 export type IPurpose = any;
 
-export interface IAttributes<TObject, TResult> extends ActionFactory.IAttributes<TObject, TResult> {
-    typeOf: ActionType.UseAction;
+export interface IAttributes<TObject, TResult> extends ActionFactory.IAttributes<ActionType.UseAction, TObject, TResult> {
     agent: IAgent;
     purpose?: IPurpose;
 }

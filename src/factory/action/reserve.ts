@@ -28,8 +28,7 @@ export interface IPurpose {
 /**
  * アクション属性インターフェース
  */
-export interface IAttributes extends ActionFactory.IAttributes<IObject, IResult> {
-    typeOf: ActionType.ReserveAction;
+export interface IAttributes extends ActionFactory.IAttributes<ActionType.ReserveAction, IObject, IResult> {
     purpose: IPurpose;
 }
 /**
