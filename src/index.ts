@@ -19,19 +19,25 @@ import EventType from './factory/eventType';
 import ItemAvailability from './factory/itemAvailability';
 import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
+import OfferType from './factory/offerType';
 import * as OrganizationFactory from './factory/organization';
 import OrganizationType from './factory/organizationType';
 import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
 import PlaceType from './factory/placeType';
 import PriceCurrency from './factory/priceCurrency';
+import * as PriceSpecificationFactory from './factory/priceSpecification';
+import * as VideoFormatChargeSpecificationFactory from './factory/priceSpecification/videoFormatChargeSpecification';
+import PriceSpecificationType from './factory/priceSpecificationType';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
 import * as ReservationFactory from './factory/reservation';
 import * as EventReservationFactory from './factory/reservation/event';
 import ReservationStatusType from './factory/reservationStatusType';
 import ReservationType from './factory/reservationType';
 import SortType from './factory/sortType';
+import SoundFormatType from './factory/soundFormatType';
 import * as TicketTypeFactory from './factory/ticketType';
 import { UnitCode } from './factory/unitCode';
+import VideoFormatType from './factory/videoFormatType';
 
 import * as TaskFactory from './factory/task';
 import * as CancelPendingReservationTaskFactory from './factory/task/cancelPendingReservation';
@@ -131,9 +137,9 @@ export import eventType = EventType;
 export import itemAvailability = ItemAvailability;
 export type multilingualString = IMultilingualString;
 export namespace offer {
-    export import OfferType = OfferFactory.OfferType;
     export import IOffer = OfferFactory.IOffer;
 }
+export type offerType = OfferType;
 export namespace organization {
     export import IOrganization = OrganizationFactory.IOrganization;
 }
@@ -143,10 +149,17 @@ export namespace place {
     export import movieTheater = MovieTheaterPlaceFactory;
 }
 export import placeType = PlaceType;
+export namespace priceSpecification {
+    export type IPriceSpecification<T extends PriceSpecificationType> =
+        T extends PriceSpecificationType.VideoFormatChargeSpecification ? VideoFormatChargeSpecificationFactory.IPriceSpecification :
+        PriceSpecificationFactory.IPriceSpecification<PriceSpecificationType>;
+}
+export import priceSpecificationType = PriceSpecificationType;
 export import quantitativeValue = QuantitativeValueFactory;
 export namespace reservation {
-    export import IUnderName = ReservationFactory.IUnderName;
+    export import TicketType = ReservationFactory.TicketType;
     export import ITicket = ReservationFactory.ITicket;
+    export import IUnderName = ReservationFactory.IUnderName;
     // tslint:disable-next-line:no-shadowed-variable
     export import event = EventReservationFactory;
 }
@@ -160,6 +173,7 @@ export namespace task {
     export import reserve = ReserveTaskFactory;
 }
 export import sortType = SortType;
+export import soundFormatType = SoundFormatType;
 export import taskExecutionResult = TaskExecutionResultFactory;
 export import taskName = TaskName;
 export import taskStatus = TaskStatus;
@@ -197,3 +211,4 @@ export import transactionTasksExportationStatus = TransactionTasksExportationSta
 export import transactionType = TransactionType;
 export import unitCode = UnitCode;
 export import url = URLFactory;
+export import videoFormatType = VideoFormatType;

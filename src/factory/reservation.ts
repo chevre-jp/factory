@@ -5,6 +5,7 @@ import ReservationType from './reservationType';
 import { ITicketType } from './ticketType';
 import { IURL } from './url';
 
+export type TicketType = 'Ticket';
 /**
  * under name interface
  */
@@ -34,23 +35,11 @@ export interface ISeat {
      */
     seatSection: string;
 }
-export interface IAcceptedTicket {
-    /**
-     * 座席
-     */
-    ticketedSeat: ISeat;
-    /**
-     * 券種
-     */
-    ticketType: {
-        id: string;
-    };
-}
 /**
  * 予約チケット情報
  */
 export interface ITicket {
-    typeOf: string;
+    typeOf: TicketType;
     /**
      * The date the ticket was issued.
      */

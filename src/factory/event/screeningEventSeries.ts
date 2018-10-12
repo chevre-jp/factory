@@ -6,7 +6,17 @@ import IMultilingualString from '../multilingualString';
 import OrganizationType from '../organizationType';
 import PlaceType from '../placeType';
 import SortType from '../sortType';
+import SoundFormatType from '../soundFormatType';
+import VideoFormatType from '../videoFormatType';
 
+export interface IVideoFormat {
+    typeOf: VideoFormatType;
+    name: string;
+}
+export interface ISoundFormat {
+    typeOf: SoundFormatType;
+    name: string;
+}
 /**
  * 上映作品インターフェース
  */
@@ -22,9 +32,13 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      */
     subtitleLanguage?: string;
     /**
-     * 映像区分(２D、３D)
+     * 上映方式
      */
-    videoFormat?: string;
+    videoFormat: IVideoFormat[];
+    /**
+     * 音響方式
+     */
+    soundFormat: ISoundFormat[];
     /**
      * 上映作品
      */

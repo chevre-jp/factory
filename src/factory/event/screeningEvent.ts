@@ -4,12 +4,37 @@ import EventStatusType from '../eventStatusType';
 import EventType from '../eventType';
 import ItemAvailability from '../itemAvailability';
 import IMultilingualString from '../multilingualString';
+import { IOffer } from '../offer';
+import OfferType from '../offerType';
 import * as MovieTheaterFactory from '../place/movieTheater';
 import PlaceType from '../placeType';
+import { IPriceSpecification as IVideoFormatChargeSpecification } from '../priceSpecification/videoFormatChargeSpecification';
+import * as ReservationFactory from '../reservation';
 import SortType from '../sortType';
 
+export type ITicketPriceSpecification = IVideoFormatChargeSpecification;
+/**
+ * チケットオファーインターフェース
+ */
+export interface ITicketOffer extends IOffer {
+    id: string;
+    name: IMultilingualString;
+    description: IMultilingualString;
+    priceSpecification: ITicketPriceSpecification[];
+}
+export interface IAcceptedTicketOfferWithoutDetail {
+    id: string;
+    /**
+     * 座席
+     */
+    ticketedSeat: ReservationFactory.ISeat;
+}
+export type IAcceptedTicketOffer = IAcceptedTicketOfferWithoutDetail & ITicketOffer;
+/**
+ * 座席オファーインターフェース
+ */
 export interface ISeatOffer {
-    typeOf: 'Offer';
+    typeOf: OfferType;
     availability: ItemAvailability;
 }
 export interface ISeatWithOffer extends MovieTheaterFactory.ISeat {
