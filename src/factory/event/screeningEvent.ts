@@ -8,11 +8,12 @@ import { IOffer } from '../offer';
 import OfferType from '../offerType';
 import * as MovieTheaterFactory from '../place/movieTheater';
 import PlaceType from '../placeType';
+import { IPriceSpecification as ISoundFormatChargeSpecification } from '../priceSpecification/soundFormatChargeSpecification';
 import { IPriceSpecification as IVideoFormatChargeSpecification } from '../priceSpecification/videoFormatChargeSpecification';
 import * as ReservationFactory from '../reservation';
 import SortType from '../sortType';
 
-export type ITicketPriceSpecification = IVideoFormatChargeSpecification;
+export type ITicketPriceSpecification = IVideoFormatChargeSpecification | ISoundFormatChargeSpecification;
 /**
  * チケットオファーインターフェース
  */

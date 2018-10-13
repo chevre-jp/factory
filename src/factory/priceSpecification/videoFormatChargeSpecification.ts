@@ -7,7 +7,7 @@ import VideoFormatType from '../videoFormatType';
  */
 export type IPriceSpecification = BaseSpecification<PriceSpecificationType.VideoFormatChargeSpecification> & {
     /**
-     * 適用上映方式
+     * 適用方式
      */
     appliesToVideoFormat: VideoFormatType;
 };

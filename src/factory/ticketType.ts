@@ -4,7 +4,7 @@ export interface ITicketTypeAttributes {
     name: IMultilingualString;
     description: IMultilingualString;
     notes: IMultilingualString;
-    charge: number;
+    price: number;
 }
 /**
  * 券種インターフェース
