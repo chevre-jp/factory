@@ -26,7 +26,9 @@ import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
 import PlaceType from './factory/placeType';
 import PriceCurrency from './factory/priceCurrency';
 import * as PriceSpecificationFactory from './factory/priceSpecification';
+import * as CompoundPriceSpecificationFactory from './factory/priceSpecification/compoundPriceSpecification';
 import * as SoundFormatChargeSpecificationFactory from './factory/priceSpecification/soundFormatChargeSpecification';
+import * as UnitPriceSpecificationFactory from './factory/priceSpecification/unitPriceSpecification';
 import * as VideoFormatChargeSpecificationFactory from './factory/priceSpecification/videoFormatChargeSpecification';
 import PriceSpecificationType from './factory/priceSpecificationType';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
@@ -153,9 +155,17 @@ export import placeType = PlaceType;
 export namespace priceSpecification {
     export type IPriceSpecification<T extends PriceSpecificationType> =
         T extends PriceSpecificationType.SoundFormatChargeSpecification ? SoundFormatChargeSpecificationFactory.IPriceSpecification :
+        T extends PriceSpecificationType.UnitPriceSpecification ? UnitPriceSpecificationFactory.IPriceSpecification :
         T extends PriceSpecificationType.VideoFormatChargeSpecification ? VideoFormatChargeSpecificationFactory.IPriceSpecification :
         PriceSpecificationFactory.IPriceSpecification<PriceSpecificationType>;
-    export type ISearchConditions<T extends PriceSpecificationType> = PriceSpecificationFactory.ISearchConditions<T>;
+    export type ISearchConditions<T extends PriceSpecificationType> =
+        PriceSpecificationFactory.ISearchConditions<T>;
+}
+export namespace compoundPriceSpecification {
+    export type IPriceSpecification<T extends PriceSpecificationType> =
+        CompoundPriceSpecificationFactory.IPriceSpecification<priceSpecification.IPriceSpecification<T>>;
+    export type ISearchConditions<T extends PriceSpecificationType> =
+        CompoundPriceSpecificationFactory.ISearchConditions<T>;
 }
 export import priceSpecificationType = PriceSpecificationType;
 export import quantitativeValue = QuantitativeValueFactory;

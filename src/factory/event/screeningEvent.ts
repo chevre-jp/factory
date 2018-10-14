@@ -8,12 +8,21 @@ import { IOffer } from '../offer';
 import OfferType from '../offerType';
 import * as MovieTheaterFactory from '../place/movieTheater';
 import PlaceType from '../placeType';
+import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as ISoundFormatChargeSpecification } from '../priceSpecification/soundFormatChargeSpecification';
+import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
 import { IPriceSpecification as IVideoFormatChargeSpecification } from '../priceSpecification/videoFormatChargeSpecification';
 import * as ReservationFactory from '../reservation';
 import SortType from '../sortType';
 
-export type ITicketPriceSpecification = IVideoFormatChargeSpecification | ISoundFormatChargeSpecification;
+/**
+ * 上映イベントに対して有効なチケット価格仕様要素インターフェース
+ */
+export type ITicketPriceComponent = IVideoFormatChargeSpecification | IUnitPriceSpecification | ISoundFormatChargeSpecification;
+/**
+ * 上映イベントに対して有効なチケット価格仕様インターフェース
+ */
+export type ITicketPriceSpecification = ICompoundPriceSpecification<ITicketPriceComponent>;
 /**
  * チケットオファーインターフェース
  */
@@ -21,7 +30,7 @@ export interface ITicketOffer extends IOffer {
     id: string;
     name: IMultilingualString;
     description: IMultilingualString;
-    priceSpecification: ITicketPriceSpecification[];
+    priceSpecification: ITicketPriceSpecification;
 }
 export interface IAcceptedTicketOfferWithoutDetail {
     id: string;

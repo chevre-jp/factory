@@ -6,6 +6,7 @@ import SoundFormatType from '../soundFormatType';
  * 音響方式チャージャ価格仕様インターフェース
  */
 export type IPriceSpecification = BaseSpecification<PriceSpecificationType.SoundFormatChargeSpecification> & {
+    price: number;
     /**
      * 適用方式
      */

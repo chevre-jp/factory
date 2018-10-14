@@ -19,7 +19,7 @@ export interface IOffer {
     /**
      * The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.
      */
-    price: number;
+    price?: number;
     /**
      * The currency (in 3-letter ISO 4217 format) of the price or a price component,
      * when attached to PriceSpecification and its subtypes.
@@ -42,7 +42,7 @@ export interface IOffer {
      */
     eligibleRegion?: any;
     /**
-     * 価格仕様リスト
+     * 価格仕様
      */
-    priceSpecification?: IPriceSpecification<PriceSpecificationType>[];
+    priceSpecification?: IPriceSpecification<PriceSpecificationType>;
 }

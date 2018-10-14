@@ -1,3 +1,4 @@
+import IMultilingualString from './multilingualString';
 import PriceCurrency from './priceCurrency';
 import PriceSpecificationType from './priceSpecificationType';
 import { IQuantitativeValue } from './quantitativeValue';
@@ -8,11 +9,13 @@ import SortType from './sortType';
  */
 export interface IPriceSpecification<T extends PriceSpecificationType> {
     typeOf: T;
+    name?: string | IMultilingualString;
+    description?: string | IMultilingualString;
     eligibleQuantity?: IQuantitativeValue;
     eligibleTransactionVolume?: IPriceSpecification<PriceSpecificationType>[];
     maxPrice?: number;
     minPrice?: number;
-    price: number;
+    price?: number;
     priceCurrency: PriceCurrency;
     validFrom?: Date;
     validThrough?: Date;
@@ -31,6 +34,9 @@ export interface ISearchConditions<T extends PriceSpecificationType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    /**
+     * 価格仕様タイプ
+     */
     typeOf: T;
     validFrom?: Date;
     validThrough?: Date;

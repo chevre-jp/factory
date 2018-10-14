@@ -5,5 +5,9 @@ export enum UnitCode {
     /**
      * 秒
      */
-    Sec = 'SEC'
+    Sec = 'SEC',
+    /**
+     * no unit
+     */
+    C62 = 'C62'
 }
