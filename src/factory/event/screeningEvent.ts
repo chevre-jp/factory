@@ -9,6 +9,7 @@ import OfferType from '../offerType';
 import * as MovieTheaterFactory from '../place/movieTheater';
 import PlaceType from '../placeType';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
+import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
 import { IPriceSpecification as ISoundFormatChargeSpecification } from '../priceSpecification/soundFormatChargeSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
 import { IPriceSpecification as IVideoFormatChargeSpecification } from '../priceSpecification/videoFormatChargeSpecification';
@@ -18,7 +19,10 @@ import SortType from '../sortType';
 /**
  * 上映イベントに対して有効なチケット価格仕様要素インターフェース
  */
-export type ITicketPriceComponent = IVideoFormatChargeSpecification | IUnitPriceSpecification | ISoundFormatChargeSpecification;
+export type ITicketPriceComponent = IMovieTicketTypeChargeSpecification
+    | IVideoFormatChargeSpecification
+    | IUnitPriceSpecification
+    | ISoundFormatChargeSpecification;
 /**
  * 上映イベントに対して有効なチケット価格仕様インターフェース
  */

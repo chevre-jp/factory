@@ -7,6 +7,10 @@ enum PriceSpecificationType {
      */
     CompoundPriceSpecification = 'CompoundPriceSpecification',
     /**
+     * ムビチケ券種区分チャージ仕様
+     */
+    MovieTicketTypeChargeSpecification = 'MovieTicketTypeChargeSpecification',
+    /**
      * 音響方式チャージ仕様
      */
     SoundFormatChargeSpecification = 'SoundFormatChargeSpecification',
