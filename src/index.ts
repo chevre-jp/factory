@@ -173,9 +173,11 @@ export namespace compoundPriceSpecification {
 export import priceSpecificationType = PriceSpecificationType;
 export import quantitativeValue = QuantitativeValueFactory;
 export namespace reservation {
-    export import TicketType = ReservationFactory.TicketType;
+    export import IReservation = ReservationFactory.IReservation;
+    export import ISeat = ReservationFactory.ISeat;
     export import ITicket = ReservationFactory.ITicket;
     export import IUnderName = ReservationFactory.IUnderName;
+    export import TicketType = ReservationFactory.TicketType;
     // tslint:disable-next-line:no-shadowed-variable
     export import event = EventReservationFactory;
 }
