@@ -1,3 +1,4 @@
+import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
 import OfferType from './offerType';
 import PriceCurrency from './priceCurrency';
@@ -16,6 +17,7 @@ export interface IOffer {
     id?: string;
     name?: string | IMultilingualString;
     description?: string | IMultilingualString;
+    availability?: ItemAvailability;
     /**
      * The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.
      */

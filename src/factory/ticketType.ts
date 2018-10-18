@@ -1,3 +1,4 @@
+import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
 
 export interface ITicketTypeAttributes {
@@ -5,6 +6,10 @@ export interface ITicketTypeAttributes {
     description: IMultilingualString;
     notes: IMultilingualString;
     price: number;
+    /**
+     * 在庫状況(オンラインor店頭のコントロールが可能)
+     */
+    availability: ItemAvailability;
 }
 /**
  * 券種インターフェース

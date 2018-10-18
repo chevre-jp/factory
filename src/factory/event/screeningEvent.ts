@@ -5,7 +5,6 @@ import EventType from '../eventType';
 import ItemAvailability from '../itemAvailability';
 import IMultilingualString from '../multilingualString';
 import { IOffer } from '../offer';
-import OfferType from '../offerType';
 import * as MovieTheaterFactory from '../place/movieTheater';
 import PlaceType from '../placeType';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
@@ -35,6 +34,7 @@ export interface ITicketOffer extends IOffer {
     name: IMultilingualString;
     description: IMultilingualString;
     priceSpecification: ITicketPriceSpecification;
+    availability: ItemAvailability;
 }
 export interface IAcceptedTicketOfferWithoutDetail {
     id: string;
@@ -47,8 +47,7 @@ export type IAcceptedTicketOffer = IAcceptedTicketOfferWithoutDetail & ITicketOf
 /**
  * 座席オファーインターフェース
  */
-export interface ISeatOffer {
-    typeOf: OfferType;
+export interface ISeatOffer extends IOffer {
     availability: ItemAvailability;
 }
 export interface ISeatWithOffer extends MovieTheaterFactory.ISeat {
