@@ -4,7 +4,7 @@ import EventStatusType from '../eventStatusType';
 import EventType from '../eventType';
 import ItemAvailability from '../itemAvailability';
 import IMultilingualString from '../multilingualString';
-import { IOffer } from '../offer';
+import * as OfferFactory from '../offer';
 import * as MovieTheaterFactory from '../place/movieTheater';
 import PlaceType from '../placeType';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
@@ -12,9 +12,32 @@ import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../p
 import { IPriceSpecification as ISoundFormatChargeSpecification } from '../priceSpecification/soundFormatChargeSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
 import { IPriceSpecification as IVideoFormatChargeSpecification } from '../priceSpecification/videoFormatChargeSpecification';
+import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
 import SortType from '../sortType';
 
+/**
+ * 上映イベントに対するオファーインターフェース
+ */
+export interface IOffer extends OfferFactory.IOffer {
+    /**
+     * 情報提供終了日時
+     */
+    availabilityEnds: Date;
+    /**
+     * 情報提供開始日時
+     */
+    availabilityStarts: Date;
+    eligibleQuantity: IQuantitativeValue;
+    /**
+     * 販売可能期間from
+     */
+    validFrom: Date;
+    /**
+     * 販売可能期間through
+     */
+    validThrough: Date;
+}
 /**
  * 上映イベントに対して有効なチケット価格仕様要素インターフェース
  */
@@ -47,7 +70,7 @@ export type IAcceptedTicketOffer = IAcceptedTicketOfferWithoutDetail & ITicketOf
 /**
  * 座席オファーインターフェース
  */
-export interface ISeatOffer extends IOffer {
+export interface ISeatOffer extends OfferFactory.IOffer {
     availability: ItemAvailability;
 }
 export interface ISeatWithOffer extends MovieTheaterFactory.ISeat {
@@ -56,10 +79,6 @@ export interface ISeatWithOffer extends MovieTheaterFactory.ISeat {
 export interface IScreeningRoomSectionOffer extends MovieTheaterFactory.IScreeningRoomSection {
     containsPlace: ISeatWithOffer[];
 }
-/**
- * 上映イベントに対するオファーインターフェース
- */
-export type IOffer = IScreeningRoomSectionOffer;
 export interface IAttributes extends EventFactory.IAttributes<EventType.ScreeningEvent> {
     /**
      * 上映作品
@@ -111,6 +130,10 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      * 券種グループID
      */
     ticketTypeGroup: string;
+    /**
+     * 販売情報
+     */
+    offers: IOffer;
 }
 /**
  * 上映イベントインターフェース
@@ -123,6 +146,12 @@ export interface ISortOrder {
     doorTime?: SortType;
     endDate?: SortType;
     startDate?: SortType;
+}
+export interface IOfferSearchConditions {
+    availableFrom?: Date;
+    availableThrough?: Date;
+    validFrom?: Date;
+    validThrough?: Date;
 }
 /**
  * 上映イベントの検索条件インターフェース
@@ -184,4 +213,8 @@ export interface ISearchConditions {
          */
         workPerformedIdentifiers?: string[];
     };
+    /**
+     * 販売情報
+     */
+    offers?: IOfferSearchConditions;
 }
