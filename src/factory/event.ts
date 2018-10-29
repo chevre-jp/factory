@@ -2,7 +2,7 @@ import * as CreativeWorkFactory from './creativeWork';
 import EventStatusType from './eventStatusType';
 import EventType from './eventType';
 import IMultilingualString from './multilingualString';
-// import * as OfferFactory from './offer';
+import * as OfferFactory from './offer';
 import * as PlaceFactory from './place';
 
 export interface IAttributes<T extends EventType> {
@@ -54,7 +54,7 @@ export interface IAttributes<T extends EventType> {
      * An offer to provide this item—for example, an offer to sell a product,
      * rent the DVD of a movie, perform a service, or give away tickets to an event.
      */
-    // offers?: OfferFactory.IOffer[];
+    offers?: OfferFactory.IOffer | OfferFactory.IOffer[];
     /**
      * 残り収容人数
      */

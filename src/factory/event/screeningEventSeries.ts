@@ -3,12 +3,19 @@ import * as EventFactory from '../event';
 import EventStatusType from '../eventStatusType';
 import EventType from '../eventType';
 import IMultilingualString from '../multilingualString';
+import * as OfferFactory from '../offer';
 import OrganizationType from '../organizationType';
 import PlaceType from '../placeType';
 import SortType from '../sortType';
 import SoundFormatType from '../soundFormatType';
 import VideoFormatType from '../videoFormatType';
 
+/**
+ * 上映イベントシリーズに対するオファーインターフェース
+ */
+// tslint:disable-next-line:no-empty-interface
+export interface IOffer extends OfferFactory.IOffer {
+}
 export interface IVideoFormat {
     typeOf: VideoFormatType;
     name: string;
@@ -91,6 +98,10 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      * ISO 8601 date format
      */
     startDate?: Date;
+    /**
+     * 販売情報
+     */
+    offers?: IOffer;
 }
 /**
  * 上映イベントインターフェース

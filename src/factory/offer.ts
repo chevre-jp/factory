@@ -1,6 +1,7 @@
 import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
 import OfferType from './offerType';
+import PaymentMethodType from './paymentMethodType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
@@ -18,6 +19,10 @@ export interface IOffer {
     id?: string;
     name?: string | IMultilingualString;
     description?: string | IMultilingualString;
+    /**
+     * The payment method(s) accepted by seller for this offer.
+     */
+    acceptedPaymentMethod?: PaymentMethodType[];
     /**
      * The availability of this item—for example In stock, Out of stock, Pre-order, etc.
      */
