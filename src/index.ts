@@ -22,6 +22,7 @@ import * as OfferFactory from './factory/offer';
 import OfferType from './factory/offerType';
 import * as OrganizationFactory from './factory/organization';
 import OrganizationType from './factory/organizationType';
+import PaymentMethodType from './factory/paymentMethodType';
 import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
 import PlaceType from './factory/placeType';
 import PriceCurrency from './factory/priceCurrency';
@@ -148,6 +149,7 @@ export namespace organization {
     export import IOrganization = OrganizationFactory.IOrganization;
 }
 export import organizationType = OrganizationType;
+export import paymentMethodType = PaymentMethodType;
 export import priceCurrency = PriceCurrency;
 export namespace place {
     export import movieTheater = MovieTheaterPlaceFactory;
