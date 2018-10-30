@@ -45,6 +45,7 @@ import { UnitCode } from './factory/unitCode';
 import VideoFormatType from './factory/videoFormatType';
 
 import * as TaskFactory from './factory/task';
+import * as AggregateScreeningEventTaskFactory from './factory/task/aggregateScreeningEvent';
 import * as CancelPendingReservationTaskFactory from './factory/task/cancelPendingReservation';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
 import * as ReserveTaskFactory from './factory/task/reserve';
@@ -188,6 +189,7 @@ export import reservationType = ReservationType;
 export namespace task {
     export import IAttributes = TaskFactory.IAttributes;
     export import ITask = TaskFactory.ITask;
+    export import aggregateScreeningEvent = AggregateScreeningEventTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
     export import reserve = ReserveTaskFactory;

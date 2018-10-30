@@ -171,4 +171,12 @@ export interface IReservation {
      * The person or organization the reservation is for.
      */
     underName: IUnderName;
+    /**
+     * チェックイン(発券)済かどうか
+     */
+    checkedIn: Boolean;
+    /**
+     * 出席(入場)済かどうか
+     */
+    attended: Boolean;
 }

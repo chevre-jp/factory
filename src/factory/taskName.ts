@@ -4,6 +4,7 @@
 enum TaskName {
     Reserve = 'reserve',
     CancelReservation = 'cancelReservation',
-    CancelPendingReservation = 'cancelPendingReservation'
+    CancelPendingReservation = 'cancelPendingReservation',
+    AggregateScreeningEvent = 'aggregateScreeningEvent'
 }
 export default TaskName;

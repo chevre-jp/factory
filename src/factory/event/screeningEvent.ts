@@ -134,6 +134,14 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      * 販売情報
      */
     offers: IOffer;
+    /**
+     * 発券数
+     */
+    checkInCount: Number;
+    /**
+     * 参加数
+     */
+    attendeeCount: Number;
 }
 /**
  * 上映イベントインターフェース
