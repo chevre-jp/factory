@@ -1,5 +1,13 @@
 import * as CreativeWorkFactory from '../creativeWork';
+import * as OfferFactory from '../offer';
 import SortType from '../sortType';
+
+/**
+ * 映画作品に対するオファーインターフェース
+ */
+// tslint:disable-next-line:no-empty-interface
+export interface IOffer extends OfferFactory.IOffer {
+}
 
 /**
  * 映画作品インターフェース
@@ -15,6 +23,10 @@ export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
      * 映倫区分(PG12,R15,R18)
      */
     contentRating: string;
+    /**
+     * 販売情報
+     */
+    offers?: IOffer;
 }
 /**
  * ソート条件インターフェース
