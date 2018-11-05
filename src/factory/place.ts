@@ -5,12 +5,10 @@ import PlaceType from './placeType';
  * 場所インターフェース
  */
 export interface IPlace {
-    /**
-     * スキーマタイプ
-     */
     typeOf: PlaceType;
     id?: string;
     name?: IMultilingualString;
+    alternateName?: IMultilingualString;
     description?: IMultilingualString;
     address?: IMultilingualString;
     branchCode?: string;

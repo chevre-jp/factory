@@ -5,12 +5,11 @@ import { IQuantitativeValue } from '../quantitativeValue';
 import SortType from '../sortType';
 
 /**
- * 場所としての座席インターフェース
+ * 座席インターフェース
  */
 export interface ISeat extends PlaceFactory.IPlace {
     /**
-     * 枝番号
-     * 座席コードに相当
+     * 枝番号(座席コードに相当)
      */
     branchCode: string;
 }
@@ -23,13 +22,12 @@ export interface IScreeningRoomSection extends PlaceFactory.IPlace {
      */
     containsPlace: ISeat[];
     /**
-     * 枝番号
-     * セクションコードに相当
+     * 枝番号(セクションコードに相当)
      */
     branchCode: string;
 }
 /**
- * 場所としての上映室インターフェース
+ * 上映室インターフェース
  */
 export interface IScreeningRoom extends PlaceFactory.IPlace {
     /**
@@ -49,7 +47,6 @@ export interface IScreeningRoom extends PlaceFactory.IPlace {
 /**
  * 劇場に対するオファーインターフェース
  */
-// tslint:disable-next-line:no-empty-interface
 export interface IOffer extends OfferFactory.IOffer {
     /**
      * 上映イベント開始後の販売猶予期間
@@ -78,10 +75,6 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
      * 劇場名称(カナ)
      */
     kanaName: string;
-    /**
-     * 劇場住所
-     */
-    address?: IMultilingualString;
     /**
      * 電話番号
      */
