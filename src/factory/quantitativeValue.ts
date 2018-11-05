@@ -10,6 +10,14 @@ export interface IQuantitativeValue {
      */
     unitCode: UnitCode;
     /**
+     * The upper value of some characteristic or property.
+     */
+    maxValue?: number;
+    /**
+     * The lower value of some characteristic or property.
+     */
+    minValue?: number;
+    /**
      * 値
      */
     value: number;

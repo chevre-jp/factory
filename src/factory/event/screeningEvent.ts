@@ -225,4 +225,8 @@ export interface ISearchConditions {
      * 販売情報
      */
     offers?: IOfferSearchConditions;
+    /**
+     * 券種グループID
+     */
+    ticketTypeGroups?: string[];
 }

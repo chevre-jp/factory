@@ -24,6 +24,19 @@ export interface ISortOrder {
     reservationNumber?: SortType;
     price?: SortType;
 }
+
+export interface IReservationForSearchConditions {
+    typeOf?: EventType;
+    id?: string;
+    ids?: string[];
+    superEvent?: {
+        id?: string;
+        ids?: string[];
+    };
+    startFrom?: Date;
+    startThrough?: Date;
+}
+
 /**
  * 検索条件
  */
@@ -42,10 +55,7 @@ export interface ISearchConditions {
     /**
      * 予約対象
      */
-    reservationFor?: {
-        typeOf?: EventType;
-        id?: string;
-    };
+    reservationFor?: IReservationForSearchConditions;
     /**
      * 更新日時
      */

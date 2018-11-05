@@ -4,6 +4,7 @@
 interface IMultilingualString {
     ja: string;
     en: string;
+    kr?: string;
 }
 
 export default IMultilingualString;

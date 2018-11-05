@@ -1,5 +1,7 @@
 import IMultilingualString from '../multilingualString';
+import * as OfferFactory from '../offer';
 import * as PlaceFactory from '../place';
+import { IQuantitativeValue } from '../quantitativeValue';
 import SortType from '../sortType';
 
 /**
@@ -43,6 +45,18 @@ export interface IScreeningRoom extends PlaceFactory.IPlace {
      */
     name: IMultilingualString;
 }
+
+/**
+ * 劇場に対するオファーインターフェース
+ */
+// tslint:disable-next-line:no-empty-interface
+export interface IOffer extends OfferFactory.IOffer {
+    /**
+     * 上映イベント開始後の販売猶予期間
+     */
+    availabilityGraceTime?: IQuantitativeValue;
+}
+
 /**
  * place interface without screening room
  */
@@ -72,6 +86,10 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
      * 電話番号
      */
     telephone: string;
+    /**
+     * 販売情報
+     */
+    offers?: IOffer;
 }
 /**
  * 劇場施設インターフェース

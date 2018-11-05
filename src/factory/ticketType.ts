@@ -1,7 +1,8 @@
 import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
+import { IOffer } from './offer';
 
-export interface ITicketTypeAttributes {
+export interface ITicketTypeAttributes extends IOffer {
     name: IMultilingualString;
     description: IMultilingualString;
     notes: IMultilingualString;

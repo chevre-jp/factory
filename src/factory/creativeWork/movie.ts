@@ -32,4 +32,6 @@ export interface ISearchConditions {
     sort?: ISortOrder;
     identifier?: string;
     name?: string;
+    datePublishedFrom?: Date;
+    datePublishedThrough?: Date;
 }
