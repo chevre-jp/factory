@@ -3,6 +3,7 @@ import PriceCurrency from './priceCurrency';
 import PriceSpecificationType from './priceSpecificationType';
 import { IQuantitativeValue } from './quantitativeValue';
 import SortType from './sortType';
+import { UnitCode } from './unitCode';
 
 /**
  * 価格仕様インターフェース
@@ -11,7 +12,7 @@ export interface IPriceSpecification<T extends PriceSpecificationType> {
     typeOf: T;
     name?: string | IMultilingualString;
     description?: string | IMultilingualString;
-    eligibleQuantity?: IQuantitativeValue;
+    eligibleQuantity?: IQuantitativeValue<UnitCode>;
     eligibleTransactionVolume?: IPriceSpecification<PriceSpecificationType>[];
     maxPrice?: number;
     minPrice?: number;

@@ -2,6 +2,7 @@ import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import { IQuantitativeValue } from './quantitativeValue';
+import { UnitCode } from './unitCode';
 
 export interface ITicketTypeAttributes extends IOffer {
     name: IMultilingualString;
@@ -15,7 +16,7 @@ export interface ITicketTypeAttributes extends IOffer {
     /**
      * 適用量(価格単位や量制限のコントロールが可能)
      */
-    eligibleQuantity: IQuantitativeValue;
+    eligibleQuantity: IQuantitativeValue<UnitCode.C62>;
 }
 /**
  * 券種インターフェース

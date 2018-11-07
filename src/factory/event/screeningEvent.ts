@@ -15,6 +15,7 @@ import { IPriceSpecification as IVideoFormatChargeSpecification } from '../price
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
 import SortType from '../sortType';
+import { UnitCode } from '../unitCode';
 
 /**
  * 上映イベントに対するオファーインターフェース
@@ -28,7 +29,7 @@ export interface IOffer extends OfferFactory.IOffer {
      * 情報提供開始日時
      */
     availabilityStarts: Date;
-    eligibleQuantity: IQuantitativeValue;
+    eligibleQuantity: IQuantitativeValue<UnitCode.C62>;
     /**
      * 販売可能期間from
      */

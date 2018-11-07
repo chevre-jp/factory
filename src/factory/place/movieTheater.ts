@@ -3,6 +3,7 @@ import * as OfferFactory from '../offer';
 import * as PlaceFactory from '../place';
 import { IQuantitativeValue } from '../quantitativeValue';
 import SortType from '../sortType';
+import { UnitCode } from '../unitCode';
 
 /**
  * 座席インターフェース
@@ -49,9 +50,13 @@ export interface IScreeningRoom extends PlaceFactory.IPlace {
  */
 export interface IOffer extends OfferFactory.IOffer {
     /**
+     * 上映イベント開始前の販売猶予期間
+     */
+    availabilityStartsGraceTime?: IQuantitativeValue<UnitCode.Day>;
+    /**
      * 上映イベント開始後の販売猶予期間
      */
-    availabilityGraceTime?: IQuantitativeValue;
+    availabilityEndsGraceTime?: IQuantitativeValue<UnitCode.Sec>;
 }
 
 /**

@@ -6,6 +6,7 @@ import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
 import { IQuantitativeValue } from './quantitativeValue';
+import { UnitCode } from './unitCode';
 
 /**
  * offer interface
@@ -55,11 +56,11 @@ export interface IOffer {
     /**
      * オファーが有効となる期間
      */
-    eligibleDuration?: IQuantitativeValue;
+    eligibleDuration?: IQuantitativeValue<UnitCode.Sec>;
     /**
      * オファーの有効となる数
      */
-    eligibleQuantity?: IQuantitativeValue;
+    eligibleQuantity?: IQuantitativeValue<UnitCode>;
     /**
      * オファーが有効となる地域
      */
