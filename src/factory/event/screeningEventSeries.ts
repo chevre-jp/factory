@@ -57,7 +57,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
         /**
          * スキーマタイプ
          */
-        typeOf: PlaceType;
+        typeOf: PlaceType.MovieTheater;
         /**
          * 場所ID
          */
@@ -74,6 +74,9 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
          * 場所名称(カナ)
          */
         kanaName: string;
+        alternateName?: IMultilingualString;
+        description?: IMultilingualString;
+        address?: IMultilingualString;
     };
     organizer?: IOrganizer;
     /**

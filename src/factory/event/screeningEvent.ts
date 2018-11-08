@@ -92,7 +92,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
         /**
          * 場所タイプ
          */
-        typeOf: PlaceType;
+        typeOf: PlaceType.ScreeningRoom;
         /**
          * 場所枝番号
          * スクリーンコードに該当します。
@@ -102,6 +102,9 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
          * 場所名称
          */
         name: IMultilingualString;
+        alternateName?: IMultilingualString;
+        description?: IMultilingualString;
+        address?: IMultilingualString;
     };
     /**
      * イベント名称
