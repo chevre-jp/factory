@@ -1,9 +1,32 @@
+import { IAccountTitle } from './accountTitle';
 import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import { IQuantitativeValue } from './quantitativeValue';
 import { UnitCode } from './unitCode';
 
+/**
+ * 勘定インターフェース
+ */
+export interface IAccounting {
+    typeOf: 'Accounting';
+    /**
+     * 営業収益
+     */
+    operatingRevenue: IAccountTitle;
+    /**
+     * 営業外収益
+     */
+    nonOperatingRevenue?: IAccountTitle;
+    /**
+     * 売掛金
+     */
+    accountsReceivable: number;
+}
+
+/**
+ * 券種属性インターフェース
+ */
 export interface ITicketTypeAttributes extends IOffer {
     name: IMultilingualString;
     alternateName?: IMultilingualString;
@@ -17,7 +40,12 @@ export interface ITicketTypeAttributes extends IOffer {
      * 適用量(価格単位や量制限のコントロールが可能)
      */
     eligibleQuantity: IQuantitativeValue<UnitCode.C62>;
+    /**
+     * 勘定内容
+     */
+    accounting: IAccounting;
 }
+
 /**
  * 券種インターフェース
  */

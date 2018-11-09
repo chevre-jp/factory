@@ -8,6 +8,7 @@ import * as ReserveActionFactory from './factory/action/reserve';
 import ActionStatusType from './factory/actionStatusType';
 import ActionType from './factory/actionType';
 
+import * as AccountTitleFactory from './factory/accountTitle';
 import * as ClientUserFactory from './factory/clientUser';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import * as MovieCreativeWorkFactory from './factory/creativeWork/movie';
@@ -118,6 +119,7 @@ export namespace action {
     }
     export import reserve = ReserveActionFactory;
 }
+export import accountTitle = AccountTitleFactory;
 export import clientUser = ClientUserFactory;
 export namespace creativeWork {
     export namespace message {
