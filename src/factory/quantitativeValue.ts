@@ -20,5 +20,5 @@ export interface IQuantitativeValue<T extends UnitCode> {
     /**
      * 値
      */
-    value: number;
+    value?: number;
 }

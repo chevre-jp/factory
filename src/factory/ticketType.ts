@@ -41,6 +41,11 @@ export interface ITicketTypeAttributes extends IOffer {
      */
     eligibleQuantity: IQuantitativeValue<UnitCode.C62>;
     /**
+     * 有効なムビチケ券種区分
+     * この値が存在すれば、値の券種区分のムビチケが必須
+     */
+    eligibleMovieTicketType?: string;
+    /**
      * 勘定内容
      */
     accounting: IAccounting;
@@ -52,6 +57,7 @@ export interface ITicketTypeAttributes extends IOffer {
 export type ITicketType = ITicketTypeAttributes & {
     id: string;
 };
+
 /**
  * 検索条件インターフェース
  */
@@ -61,18 +67,21 @@ export interface ITicketTypeSearchConditions {
     id?: string;
     name?: string;
 }
+
 export interface ITicketTypeGroupAttributes {
     name: IMultilingualString;
     alternateName?: IMultilingualString;
     description: IMultilingualString;
     ticketTypes: string[];
 }
+
 /**
  * 券種グループインターフェース
  */
 export type ITicketTypeGroup = ITicketTypeGroupAttributes & {
     id: string;
 };
+
 /**
  * 検索条件インターフェース
  */
