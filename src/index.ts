@@ -34,6 +34,7 @@ import * as SoundFormatChargeSpecificationFactory from './factory/priceSpecifica
 import * as UnitPriceSpecificationFactory from './factory/priceSpecification/unitPriceSpecification';
 import * as VideoFormatChargeSpecificationFactory from './factory/priceSpecification/videoFormatChargeSpecification';
 import PriceSpecificationType from './factory/priceSpecificationType';
+import * as PropertyValueFactory from './factory/propertyValue';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
 import * as ReservationFactory from './factory/reservation';
 import * as EventReservationFactory from './factory/reservation/event';
@@ -176,6 +177,7 @@ export namespace compoundPriceSpecification {
         CompoundPriceSpecificationFactory.ISearchConditions<T>;
 }
 export import priceSpecificationType = PriceSpecificationType;
+export import propertyValue = PropertyValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
 export namespace reservation {
     export import IReservation = ReservationFactory.IReservation;

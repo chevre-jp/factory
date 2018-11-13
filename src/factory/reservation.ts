@@ -1,18 +1,28 @@
 import PlaceType from './placeType';
 import PriceCurrency from './priceCurrency';
+import { IPropertyValue } from './propertyValue';
 import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
 import { ITicketType } from './ticketType';
 import { IURL } from './url';
 
 export type TicketType = 'Ticket';
+
 /**
  * under name interface
  */
 export interface IUnderName {
     typeOf: string;
     name: string;
+    additionalName?: string;
+    identifier?: IPropertyValue<string>[];
+    email?: string;
+    familyName?: string;
+    gender?: string;
+    givenName?: string;
+    telephone?: string;
 }
+
 /**
  * seat interface
  */
@@ -35,6 +45,7 @@ export interface ISeat {
      */
     seatSection: string;
 }
+
 /**
  * 予約チケット情報
  */
@@ -87,12 +98,14 @@ export interface ITicket {
      */
     ticketType: ITicketType;
 }
+
 /**
  * 予約インターフェース
  * Describes a reservation for travel, dining or an event. Some reservations require tickets.
  * Note: This type is for information about actual reservations,
  * e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
  * For offers of tickets, restaurant reservations, flights, or rental cars, use Offer.
+ * @see https://schema.org/Reservation
  */
 export interface IReservation {
     /**
