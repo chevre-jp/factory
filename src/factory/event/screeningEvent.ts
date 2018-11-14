@@ -57,7 +57,7 @@ export type ITicketPriceSpecification = ICompoundPriceSpecification<ITicketPrice
  * チケットオファーインターフェース
  */
 
-export interface ITicketOffer extends OfferFactory.IOffer {
+export interface ITicketOffer extends IOffer {
     id: string;
     name: IMultilingualString;
     description: IMultilingualString;
