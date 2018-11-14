@@ -39,6 +39,7 @@ export interface IOffer extends OfferFactory.IOffer {
      */
     validThrough: Date;
 }
+
 /**
  * 上映イベントに対して有効なチケット価格仕様要素インターフェース
  */
@@ -46,20 +47,24 @@ export type ITicketPriceComponent = IMovieTicketTypeChargeSpecification
     | IVideoFormatChargeSpecification
     | IUnitPriceSpecification
     | ISoundFormatChargeSpecification;
+
 /**
  * 上映イベントに対して有効なチケット価格仕様インターフェース
  */
 export type ITicketPriceSpecification = ICompoundPriceSpecification<ITicketPriceComponent>;
+
 /**
  * チケットオファーインターフェース
  */
-export interface ITicketOffer extends IOffer {
+
+export interface ITicketOffer extends OfferFactory.IOffer {
     id: string;
     name: IMultilingualString;
     description: IMultilingualString;
     priceSpecification: ITicketPriceSpecification;
     availability: ItemAvailability;
 }
+
 export interface IAcceptedTicketOfferWithoutDetail {
     id: string;
     /**
@@ -67,19 +72,27 @@ export interface IAcceptedTicketOfferWithoutDetail {
      */
     ticketedSeat: ReservationFactory.ISeat;
 }
+
 export type IAcceptedTicketOffer = IAcceptedTicketOfferWithoutDetail & ITicketOffer;
+
 /**
  * 座席オファーインターフェース
  */
 export interface ISeatOffer extends OfferFactory.IOffer {
     availability: ItemAvailability;
 }
+
 export interface ISeatWithOffer extends MovieTheaterFactory.ISeat {
     offers?: ISeatOffer[];
 }
+
 export interface IScreeningRoomSectionOffer extends MovieTheaterFactory.IScreeningRoomSection {
     containsPlace: ISeatWithOffer[];
 }
+
+/**
+ * 上映イベント属性インターフェース
+ */
 export interface IAttributes extends EventFactory.IAttributes<EventType.ScreeningEvent> {
     /**
      * 上映作品
@@ -147,10 +160,12 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      */
     attendeeCount: Number;
 }
+
 /**
  * 上映イベントインターフェース
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
+
 /**
  * ソート条件インターフェース
  */
@@ -159,12 +174,14 @@ export interface ISortOrder {
     endDate?: SortType;
     startDate?: SortType;
 }
+
 export interface IOfferSearchConditions {
     availableFrom?: Date;
     availableThrough?: Date;
     validFrom?: Date;
     validThrough?: Date;
 }
+
 /**
  * 上映イベントの検索条件インターフェース
  */
