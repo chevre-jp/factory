@@ -2,6 +2,7 @@ import { ICreativeWork as IMovie } from '../creativeWork/movie';
 import * as EventFactory from '../event';
 import EventStatusType from '../eventStatusType';
 import EventType from '../eventType';
+import { ILanguage } from '../language';
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import OrganizationType from '../organizationType';
@@ -37,7 +38,11 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     /**
      * 字幕利用可能言語
      */
-    subtitleLanguage?: string;
+    subtitleLanguage?: ILanguage | null;
+    /**
+     * 吹替利用可能言語
+     */
+    dubLanguage?: ILanguage | null;
     /**
      * 上映方式
      */
