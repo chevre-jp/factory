@@ -19,6 +19,7 @@ export interface IOffer {
     typeOf: OfferType;
     id?: string;
     name?: string | IMultilingualString;
+    alternateName?: string | IMultilingualString;
     description?: string | IMultilingualString;
     /**
      * The payment method(s) accepted by seller for this offer.

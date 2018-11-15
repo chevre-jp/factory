@@ -12,4 +12,9 @@ export type IPriceSpecification = BaseSpecification<PriceSpecificationType.UnitP
      * 基準数量
      */
     referenceQuantity: IQuantitativeValue<UnitCode>;
+    /**
+     * 適用ムビチケ券種区分
+     * この値が存在すれば、値の券種区分のムビチケが必須
+     */
+    appliesToMovieTicketType?: string;
 };
