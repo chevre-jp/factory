@@ -2,6 +2,7 @@ import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
+import SortType from './sortType';
 
 // tslint:disable-next-line:no-empty-interface
 export interface IPriceSpecification extends IUnitPriceSpecification {
@@ -34,13 +35,33 @@ export type ITicketType = ITicketTypeAttributes & {
 };
 
 /**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    'name.ja'?: SortType;
+    'name.en'?: SortType;
+    'priceSpecification.price'?: SortType;
+}
+
+/**
+ * 価格仕様検索条件インターフェース
+ */
+export interface ITicketTypePriceSpecificationSearchConditions {
+    minPrice?: number;
+    maxPrice?: number;
+}
+
+/**
  * 検索条件インターフェース
  */
 export interface ITicketTypeSearchConditions {
     limit?: number;
     page?: number;
+    sort?: ISortOrder;
     id?: string;
+    ids?: string[];
     name?: string;
+    priceSpecification?: ITicketTypePriceSpecificationSearchConditions;
 }
 
 export interface ITicketTypeGroupAttributes {

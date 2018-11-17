@@ -41,6 +41,7 @@ import * as ReservationFactory from './factory/reservation';
 import * as EventReservationFactory from './factory/reservation/event';
 import ReservationStatusType from './factory/reservationStatusType';
 import ReservationType from './factory/reservationType';
+import * as ServiceTypeFactory from './factory/serviceType';
 import SortType from './factory/sortType';
 import SoundFormatType from './factory/soundFormatType';
 import * as TicketTypeFactory from './factory/ticketType';
@@ -200,6 +201,7 @@ export namespace task {
     export import cancelReservation = CancelReservationTaskFactory;
     export import reserve = ReserveTaskFactory;
 }
+export import serviceType = ServiceTypeFactory;
 export import sortType = SortType;
 export import soundFormatType = SoundFormatType;
 export import taskExecutionResult = TaskExecutionResultFactory;

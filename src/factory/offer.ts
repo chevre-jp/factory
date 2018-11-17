@@ -42,14 +42,9 @@ export interface IOffer {
      */
     availableAtOrFrom?: any;
     /**
-     * The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.
+     * A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
      */
-    price?: number;
-    /**
-     * The currency (in 3-letter ISO 4217 format) of the price or a price component,
-     * when attached to PriceSpecification and its subtypes.
-     */
-    priceCurrency: PriceCurrency;
+    category?: any;
     /**
      * オファーの有効な顧客タイプ
      */
@@ -67,7 +62,20 @@ export interface IOffer {
      */
     eligibleRegion?: any;
     /**
-     * 価格仕様
+     * The item being offered.
+     */
+    itemOffered?: any;
+    /**
+     * The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.
+     */
+    price?: number;
+    /**
+     * The currency (in 3-letter ISO 4217 format) of the price or a price component,
+     * when attached to PriceSpecification and its subtypes.
+     */
+    priceCurrency: PriceCurrency;
+    /**
+     * One or more detailed price specifications, indicating the unit price and delivery or payment charges.
      */
     priceSpecification?: IPriceSpecification<PriceSpecificationType>;
     /**
