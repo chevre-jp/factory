@@ -1,5 +1,7 @@
 import PlaceType from './placeType';
 import PriceCurrency from './priceCurrency';
+import { IPriceSpecification } from './priceSpecification';
+import PriceSpecificationType from './priceSpecificationType';
 import { IPropertyValue } from './propertyValue';
 import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
@@ -49,7 +51,7 @@ export interface ISeat {
 /**
  * 予約チケット情報
  */
-export interface ITicket {
+export interface ITicket<T extends IPriceSpecification<PriceSpecificationType>> {
     typeOf: TicketType;
     /**
      * The date the ticket was issued.
@@ -62,7 +64,7 @@ export interface ITicket {
     /**
      * The total price for the reservation or ticket, including applicable taxes, shipping, etc.
      */
-    totalPrice: number;
+    totalPrice: T;
     /**
      * The currency (in 3-letter ISO 4217 format) of the Reservation's price.
      */
@@ -107,7 +109,7 @@ export interface ITicket {
  * For offers of tickets, restaurant reservations, flights, or rental cars, use Offer.
  * @see https://schema.org/Reservation
  */
-export interface IReservation {
+export interface IReservation<T extends IPriceSpecification<PriceSpecificationType>> {
     /**
      * type of object
      */
@@ -155,7 +157,7 @@ export interface IReservation {
     /**
      * Total price of the Reservation.
      */
-    price: number;
+    price: T;
     /**
      * The currency (in 3-letter ISO 4217 format) of the Reservation's price.
      */
@@ -179,7 +181,7 @@ export interface IReservation {
     /**
      * A ticket associated with the reservation.
      */
-    reservedTicket: ITicket;
+    reservedTicket: ITicket<T>;
     /**
      * The person or organization the reservation is for.
      */
