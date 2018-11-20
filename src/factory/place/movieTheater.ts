@@ -1,9 +1,19 @@
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import * as PlaceFactory from '../place';
+import { IQualitativeValue } from '../qualitativeValue';
 import { IQuantitativeValue } from '../quantitativeValue';
 import SortType from '../sortType';
 import { UnitCode } from '../unitCode';
+
+/**
+ * 座席タイプ
+ */
+export enum SeatingType {
+    WheelChair = 'WheelChair'
+}
+
+export type ISeatingType = IQualitativeValue<SeatingType>;
 
 /**
  * 座席インターフェース
@@ -13,7 +23,12 @@ export interface ISeat extends PlaceFactory.IPlace {
      * 枝番号(座席コードに相当)
      */
     branchCode: string;
+    /**
+     * 座席タイプ
+     */
+    seatingType?: ISeatingType;
 }
+
 /**
  * 上映セクションインターフェース
  */

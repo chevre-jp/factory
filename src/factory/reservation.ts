@@ -3,6 +3,7 @@ import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
 import { IPropertyValue } from './propertyValue';
+import { IQualitativeValue } from './qualitativeValue';
 import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
 import { ITicketType } from './ticketType';
@@ -33,7 +34,7 @@ export interface ISeat {
     /**
      * The cabin/class of the seat.
      */
-    seatingType: string;
+    seatingType: IQualitativeValue<string>;
     /**
      * The location of the reserved seat (e.g., 27B).
      */
