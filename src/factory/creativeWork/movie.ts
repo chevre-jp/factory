@@ -11,14 +11,15 @@ export interface IOffer extends OfferFactory.IOffer {
 
 /**
  * 映画作品インターフェース
+ * @see https://schema.org/Movie
  */
 export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
     identifier: string;
     name: string;
     /**
-     * 上映時間
+     * The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format.
      */
-    duration: string;
+    duration?: string;
     /**
      * 販売情報
      */
