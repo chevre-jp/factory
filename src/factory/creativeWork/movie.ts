@@ -34,6 +34,11 @@ export interface ISortOrder {
     name?: SortType;
 }
 
+export interface IOfferSearchConditions {
+    availableFrom?: Date;
+    availableThrough?: Date;
+}
+
 /**
  * 検索条件インターフェース
  */
@@ -45,4 +50,5 @@ export interface ISearchConditions {
     name?: string;
     datePublishedFrom?: Date;
     datePublishedThrough?: Date;
+    offers: IOfferSearchConditions;
 }
