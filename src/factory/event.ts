@@ -4,6 +4,7 @@ import EventType from './eventType';
 import IMultilingualString from './multilingualString';
 import * as OfferFactory from './offer';
 import * as PlaceFactory from './place';
+import { IPropertyValue } from './propertyValue';
 
 export interface IAttributes<T extends EventType> {
     /**
@@ -18,6 +19,8 @@ export interface IAttributes<T extends EventType> {
      * イベント名称
      */
     name: IMultilingualString;
+    alternateName?: IMultilingualString | null;
+    alternativeHeadline?: IMultilingualString | null;
     /**
      * イベント説明
      */
@@ -42,6 +45,7 @@ export interface IAttributes<T extends EventType> {
      * イベントがキャンセル、あるいは、延期された場合に主に使用されます。
      */
     eventStatus: EventStatusType;
+    headline?: IMultilingualString | null;
     /**
      * イベントが実行される場所
      */
@@ -68,6 +72,7 @@ export interface IAttributes<T extends EventType> {
      * イベントで上演される作品
      */
     workPerformed?: CreativeWorkFactory.ICreativeWork;
+    additionalProperty?: IPropertyValue<string>[];
 }
 /**
  * イベントインターフェース

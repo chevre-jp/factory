@@ -2,6 +2,8 @@ import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
+import { IPropertyValue } from './propertyValue';
+import { IServiceType } from './serviceType';
 import SortType from './sortType';
 
 // tslint:disable-next-line:no-empty-interface
@@ -9,9 +11,18 @@ export interface IPriceSpecification extends IUnitPriceSpecification {
 }
 
 /**
+ * 券種カテゴリーインターフェース
+ */
+export interface ITicketTypeCategory {
+    id: string;
+}
+
+/**
  * 券種属性インターフェース
  * 券種はイベントに対するオファーのベースを定義するものです
  * 基本的には、単価仕様を定義します
+ * @see https://schema.org/Offer
+ * @see https://schema.org/Product
  */
 export interface ITicketTypeAttributes extends IOffer {
     name: IMultilingualString;
@@ -25,6 +36,19 @@ export interface ITicketTypeAttributes extends IOffer {
      * 座席単価仕様
      */
     priceSpecification: IPriceSpecification;
+    /**
+     * A category for the item.
+     */
+    category?: ITicketTypeCategory;
+    /**
+     * The color of the product.
+     */
+    color?: string;
+    /**
+     * A property-value pair representing an additional characteristics of the entitity,
+     * e.g. a product feature or another characteristic for which there is no matching property in schema.org.
+     */
+    additionalProperty?: IPropertyValue<string>[];
 }
 
 /**
@@ -64,11 +88,19 @@ export interface ITicketTypeSearchConditions {
     priceSpecification?: ITicketTypePriceSpecificationSearchConditions;
 }
 
+export interface IService {
+    /**
+     * 興行区分
+     */
+    serviceType: IServiceType;
+}
+
 export interface ITicketTypeGroupAttributes {
     name: IMultilingualString;
     alternateName?: IMultilingualString;
     description: IMultilingualString;
     ticketTypes: string[];
+    itemOffered: IService;
 }
 
 /**

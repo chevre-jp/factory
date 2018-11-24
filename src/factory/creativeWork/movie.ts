@@ -10,6 +10,14 @@ export interface IOffer extends OfferFactory.IOffer {
 }
 
 /**
+ * 配給者インターフェース
+ */
+export interface IDistributor {
+    id: string;
+    name: string;
+}
+
+/**
  * 映画作品インターフェース
  * @see https://schema.org/Movie
  */
@@ -24,6 +32,10 @@ export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
      * 販売情報
      */
     offers?: IOffer;
+    /**
+     * 配給者
+     */
+    distributor?: IDistributor;
 }
 
 /**

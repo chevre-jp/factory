@@ -89,10 +89,6 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      */
     kanaName: string;
     /**
-     * 作品タイトル名省略
-     */
-    alternativeHeadline: string;
-    /**
      * イベント名称
      */
     name: IMultilingualString;

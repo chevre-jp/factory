@@ -11,12 +11,15 @@ export interface ICopyrightHolder {
 export interface ICreativeWork {
     identifier: string;
     name: string;
+    alternateName?: string | null;
+    alternativeHeadline?: string | null;
     contentRating?: string | null;
-    copyrightHolder?: ICopyrightHolder;
-    copyrightYear?: number;
+    copyrightHolder?: ICopyrightHolder | null;
+    copyrightYear?: number | null;
     datePublished?: Date;
-    description?: string;
-    license?: string;
-    thumbnailUrl?: string;
+    description?: string | null;
+    headline?: string | null;
+    license?: string | null;
+    thumbnailUrl?: string | null;
     typeOf: CreativeWorkType;
 }

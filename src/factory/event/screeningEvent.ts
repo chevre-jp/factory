@@ -19,17 +19,6 @@ import SortType from '../sortType';
 import { UnitCode } from '../unitCode';
 
 /**
- * 上映イベントに対するオファーカテゴリーインターフェース
- */
-export interface IOfferCategory {
-    /**
-     * 券種グループID
-     */
-    id: string;
-    name: IMultilingualString;
-}
-
-/**
  * イベントのサービスインターフェース
  */
 export interface IService {
@@ -44,6 +33,11 @@ export interface IService {
  */
 export interface IOffer extends OfferFactory.IOffer {
     /**
+     * オファー(券種)グループID
+     */
+    id: string;
+    name: IMultilingualString;
+    /**
      * 情報提供終了日時
      */
     availabilityEnds: Date;
@@ -51,7 +45,6 @@ export interface IOffer extends OfferFactory.IOffer {
      * 情報提供開始日時
      */
     availabilityStarts: Date;
-    category: IOfferCategory;
     eligibleQuantity: IQuantitativeValue<UnitCode.C62>;
     itemOffered: IService;
     /**
@@ -196,6 +189,7 @@ export interface ISortOrder {
 }
 
 export interface IOfferSearchConditions {
+    ids?: string[];
     availableFrom?: Date;
     availableThrough?: Date;
     validFrom?: Date;
@@ -266,8 +260,4 @@ export interface ISearchConditions {
      * 販売情報
      */
     offers?: IOfferSearchConditions;
-    /**
-     * 券種グループID
-     */
-    ticketTypeGroups?: string[];
 }
