@@ -111,11 +111,12 @@ export type ITicketTypeGroup = ITicketTypeGroupAttributes & {
 };
 
 /**
- * 検索条件インターフェース
+ * 券種グループ検索条件インターフェース
  */
 export interface ITicketTypeGroupSearchConditions {
     limit?: number;
     page?: number;
     id?: string;
     name?: string;
+    ticketTypes?: string[];
 }
