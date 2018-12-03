@@ -44,6 +44,8 @@ export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
 export interface ISortOrder {
     identifier?: SortType;
     name?: SortType;
+    datePublished?: SortType;
+    'offers.availabilityEnds'?: SortType;
 }
 
 export interface IOfferSearchConditions {
