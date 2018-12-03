@@ -73,6 +73,10 @@ export interface ISortOrder {
 export interface ITicketTypePriceSpecificationSearchConditions {
     minPrice?: number;
     maxPrice?: number;
+    accounting?: {
+        minAccountsReceivable?: number;
+        maxAccountsReceivable?: number;
+    };
 }
 
 /**
