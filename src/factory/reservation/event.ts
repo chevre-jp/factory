@@ -63,6 +63,10 @@ export interface ISearchConditions {
      */
     ids?: string[];
     /**
+     * 予約番号リスト
+     */
+    reservationNumbers?: string[];
+    /**
      * 予約ステータスリスト
      */
     reservationStatuses?: ReservationStatusType[];
