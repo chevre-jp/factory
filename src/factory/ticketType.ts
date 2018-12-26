@@ -2,7 +2,6 @@ import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
-import { IPropertyValue } from './propertyValue';
 import { IServiceType } from './serviceType';
 import SortType from './sortType';
 
@@ -44,11 +43,6 @@ export interface ITicketTypeAttributes extends IOffer {
      * The color of the product.
      */
     color?: string;
-    /**
-     * A property-value pair representing an additional characteristics of the entitity,
-     * e.g. a product feature or another characteristic for which there is no matching property in schema.org.
-     */
-    additionalProperty?: IPropertyValue<string>[];
 }
 
 /**
