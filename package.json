@@ -43,7 +43,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/mocha": "^5.2.1",
-    "@types/node": "^8.10.38",
+    "@types/node": "^8.10.39",
     "@types/power-assert": "^1.5.0",
     "@types/sinon": "^4.3.3",
     "coveralls": "^3.0.1",
@@ -53,11 +53,11 @@
     "mocha": "^5.2.0",
     "nyc": "^12.0.2",
     "power-assert": "^1.6.1",
-    "rimraf": "^2.6.2",
+    "rimraf": "^2.6.3",
     "sinon": "^5.1.0",
-    "snyk": "^1.117.1",
+    "snyk": "^1.120.1",
     "ts-node": "^7.0.1",
-    "tslint": "^5.11.0",
+    "tslint": "^5.12.0",
     "tslint-microsoft-contrib": "^5.2.1",
     "typescript": "^3.2.2"
   },
