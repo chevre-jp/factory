@@ -74,9 +74,57 @@ export interface IAttributes<T extends EventType> {
     workPerformed?: CreativeWorkFactory.ICreativeWork;
     additionalProperty?: IPropertyValue<any>[];
 }
+
 /**
  * イベントインターフェース
  */
 export type IEvent<T extends IAttributes<EventType>> = T & {
     id: string;
 };
+
+export interface ISearchConditions<T extends EventType> {
+    limit?: number;
+    page?: number;
+    /**
+     * イベントタイプ
+     */
+    typeOf: T;
+    /**
+     * イベント名称
+     */
+    name?: string;
+    /**
+     * 開催中 from
+     * ISO 8601 date format
+     */
+    inSessionFrom?: Date;
+    /**
+     * 開催中 through
+     * ISO 8601 date format
+     */
+    inSessionThrough?: Date;
+    /**
+     * 開始日時 from
+     * ISO 8601 date format
+     */
+    startFrom?: Date;
+    /**
+     * 開始日時 through
+     * ISO 8601 date format
+     */
+    startThrough?: Date;
+    /**
+     * 終了日時 from
+     * ISO 8601 date format
+     */
+    endFrom?: Date;
+    /**
+     * 終了日時 through
+     * ISO 8601 date format
+     */
+    endThrough?: Date;
+    /**
+     * イベントステータス
+     */
+    eventStatuses?: EventStatusType[];
+}

@@ -1,6 +1,5 @@
 import * as EventFactory from '../event';
 import * as ScreeningEventSeriesFactory from '../event/screeningEventSeries';
-import EventStatusType from '../eventStatusType';
 import EventType from '../eventType';
 import ItemAvailability from '../itemAvailability';
 import IMultilingualString from '../multilingualString';
@@ -199,49 +198,8 @@ export interface IOfferSearchConditions {
 /**
  * 上映イベントの検索条件インターフェース
  */
-export interface ISearchConditions {
-    limit?: number;
-    page?: number;
+export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEvent> {
     sort?: ISortOrder;
-    /**
-     * イベント名称
-     */
-    name?: string;
-    /**
-     * 開催中 from
-     * ISO 8601 date format
-     */
-    inSessionFrom?: Date;
-    /**
-     * 開催中 through
-     * ISO 8601 date format
-     */
-    inSessionThrough?: Date;
-    /**
-     * 開始日時 from
-     * ISO 8601 date format
-     */
-    startFrom?: Date;
-    /**
-     * 開始日時 through
-     * ISO 8601 date format
-     */
-    startThrough?: Date;
-    /**
-     * 終了日時 from
-     * ISO 8601 date format
-     */
-    endFrom?: Date;
-    /**
-     * 終了日時 through
-     * ISO 8601 date format
-     */
-    endThrough?: Date;
-    /**
-     * イベントステータス
-     * イベントがキャンセル、あるいは、延期された場合に主に使用されます。
-     */
-    eventStatuses?: EventStatusType[];
     /**
      * 親イベント情報
      */

@@ -132,6 +132,10 @@ export namespace creativeWork {
 }
 export import creativeWorkType = CreativeWorkType;
 export namespace event {
+    export type ISearchConditions<T extends EventType> =
+        T extends EventType.ScreeningEvent ? ScreeningEventFactory.ISearchConditions :
+        T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ISearchConditions :
+        never;
     export type IAttributes<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.IAttributes :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.IAttributes :
