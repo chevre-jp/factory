@@ -1,34 +1,41 @@
+import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
 /**
  * 勘定科目インターフェース
+ * @see https://pending.schema.org/CategoryCode
  */
 export interface IAccountTitle {
     typeOf: 'AccountTitle';
     /**
-     * 科目コード
+     * A short textual code that uniquely identifies the value.
      */
-    identifier: string;
+    codeValue: string;
     /**
-     * 科目名
+     * The name of the item.
      */
     name: string;
     /**
-     * 内容
+     * A description of the item.
      */
     description?: string;
     /**
-     * 分類
+     * A CategoryCodeSet that contains this catagory code.
      */
-    category?: IAccountTitle;
+    inCodeSet?: IAccountTitle;
+    /**
+     * A Category code contained in this code set.
+     */
+    hasCategoryCode?: IAccountTitle[];
+    additionalProperty?: IPropertyValue<any>[];
 }
 
 /**
  * ソート条件インターフェース
  */
 export interface ISortOrder {
-    'category.category.identifier'?: SortType;
-    'category.category.name'?: SortType;
+    codeValue?: SortType;
+    name?: SortType;
 }
 
 /**
@@ -38,5 +45,14 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
-    identifier?: string;
+    codeValue?: string;
+    name?: string;
+    inCodeSet?: {
+        codeValue?: string;
+        name?: string;
+        inCodeSet?: {
+            codeValue?: string;
+            name?: string;
+        };
+    };
 }

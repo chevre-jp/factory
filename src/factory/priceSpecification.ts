@@ -20,7 +20,7 @@ export interface IAccounting {
      */
     nonOperatingRevenue?: IAccountTitle;
     /**
-     * 売掛金
+     * 売上金額
      */
     accountsReceivable: number;
 }
@@ -36,7 +36,13 @@ export interface IPriceSpecification<T extends PriceSpecificationType> {
     eligibleTransactionVolume?: IPriceSpecification<PriceSpecificationType>[];
     maxPrice?: number;
     minPrice?: number;
+    /**
+     * 発生金額
+     */
     price?: number;
+    /**
+     * 通貨
+     */
     priceCurrency: PriceCurrency;
     validFrom?: Date;
     validThrough?: Date;
