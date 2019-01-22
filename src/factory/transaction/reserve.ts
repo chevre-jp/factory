@@ -54,7 +54,6 @@ export interface IObjectWithoutDetail {
     clientUser?: IClientUser;
     event: { id: string };
     acceptedOffer: IAcceptedTicketOfferWithoutDetail[];
-    notes: string;
 }
 /**
  * 取引対象物インターフェース
@@ -63,7 +62,6 @@ export interface IObject {
     clientUser?: IClientUser;
     event: IScreeningEvent;
     reservations: EventReservationFactory.IReservation<IScreeningEvent>[];
-    notes: string;
 }
 export interface IPotentialActions {
     reserve: ReserveActionFactory.IAttributes[];

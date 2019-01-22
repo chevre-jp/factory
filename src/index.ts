@@ -13,6 +13,7 @@ import * as ClientUserFactory from './factory/clientUser';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import * as MovieCreativeWorkFactory from './factory/creativeWork/movie';
 import CreativeWorkType from './factory/creativeWorkType';
+import * as EventFactory from './factory/event';
 import * as ScreeningEventFactory from './factory/event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeries';
 import EventStatusType from './factory/eventStatusType';
@@ -135,15 +136,15 @@ export namespace event {
     export type ISearchConditions<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.ISearchConditions :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ISearchConditions :
-        never;
+        EventFactory.ISearchConditions<T>;
     export type IAttributes<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.IAttributes :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.IAttributes :
-        never;
+        EventFactory.IAttributes<T>;
     export type IEvent<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.IEvent :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.IEvent :
-        never;
+        EventFactory.IEvent<EventFactory.IAttributes<T>>;
     export import screeningEvent = ScreeningEventFactory;
     export import screeningEventSeries = ScreeningEventSeriesFactory;
 }

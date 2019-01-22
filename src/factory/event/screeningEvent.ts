@@ -13,9 +13,24 @@ import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecific
 import { IPriceSpecification as IVideoFormatChargeSpecification } from '../priceSpecification/videoFormatChargeSpecification';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
+import ReservationType from '../reservationType';
 import { IServiceType } from '../serviceType';
 import SortType from '../sortType';
 import { UnitCode } from '../unitCode';
+
+export interface IServiceOutput {
+    typeOf: ReservationType;
+    reservedTicket?: {
+        typeOf: ReservationFactory.TicketType;
+        /**
+         * チケットに割り当てられる座席
+         * 指定席でない場合、存在しない
+         */
+        ticketedSeat?: {
+            typeOf: PlaceType.Seat;
+        };
+    };
+}
 
 /**
  * イベントのサービスインターフェース
@@ -25,6 +40,10 @@ export interface IService {
      * 興行区分
      */
     serviceType: IServiceType;
+    /**
+     * サービスアウトプット
+     */
+    serviceOutput?: IServiceOutput;
 }
 
 /**
@@ -72,7 +91,6 @@ export type ITicketPriceSpecification = ICompoundPriceSpecification<ITicketPrice
 /**
  * チケットオファーインターフェース
  */
-
 export interface ITicketOffer extends IOffer {
     id: string;
     name: IMultilingualString;
@@ -81,14 +99,26 @@ export interface ITicketOffer extends IOffer {
     availability: ItemAvailability;
 }
 
+/**
+ * 受け入れられたチケットオファー(詳細なし)
+ */
 export interface IAcceptedTicketOfferWithoutDetail {
+    /**
+     * オファーID
+     * チケットオファー検索結果から選択されたもの
+     */
     id: string;
     /**
      * 座席
+     * 指定席イベントの場合、座席を指定
+     * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
      */
-    ticketedSeat: ReservationFactory.ISeat;
+    ticketedSeat?: ReservationFactory.ISeat;
 }
 
+/**
+ * 受け入れられたチケットオファー
+ */
 export type IAcceptedTicketOffer = IAcceptedTicketOfferWithoutDetail & ITicketOffer;
 
 /**

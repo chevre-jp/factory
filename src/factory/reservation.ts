@@ -72,8 +72,9 @@ export interface ITicket<T extends IPriceSpecification<PriceSpecificationType>> 
     priceCurrency: PriceCurrency;
     /**
      * The seat associated with the ticket.
+     * 座席指定でない場合、この値は存在しない
      */
-    ticketedSeat: ISeat;
+    ticketedSeat?: ISeat;
     /**
      * Where the ticket can be downloaded.
      */
