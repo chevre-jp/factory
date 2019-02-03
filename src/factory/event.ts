@@ -20,7 +20,7 @@ export interface IAttributes<T extends EventType> {
      */
     name: IMultilingualString;
     alternateName?: IMultilingualString | null;
-    alternativeHeadline?: IMultilingualString | null;
+    alternativeHeadline?: IMultilingualString | string | null;
     /**
      * イベント説明
      */

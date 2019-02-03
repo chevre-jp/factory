@@ -1,3 +1,5 @@
+import * as COA from '@motionpicture/coa-service';
+
 import { ICreativeWork as IMovie } from '../creativeWork/movie';
 import * as EventFactory from '../event';
 import EventType from '../eventType';
@@ -16,10 +18,12 @@ import VideoFormatType from '../videoFormatType';
 // tslint:disable-next-line:no-empty-interface
 export interface IOffer extends OfferFactory.IOffer {
 }
+
 export interface IVideoFormat {
     typeOf: VideoFormatType;
     name: string;
 }
+
 export interface ISoundFormat {
     typeOf: SoundFormatType;
     name: string;
@@ -45,7 +49,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     /**
      * 上映方式
      */
-    videoFormat: IVideoFormat[];
+    videoFormat: IVideoFormat[] | COA.services.master.IKubunNameResult;
     /**
      * 音響方式
      */

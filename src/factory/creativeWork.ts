@@ -1,8 +1,12 @@
+import * as COA from '@motionpicture/coa-service';
+
 import CreativeWorkType from './creativeWorkType';
 
 export interface ICopyrightHolder {
     name: string;
 }
+
+export type IContentRating = COA.services.master.IKubunNameResult | string | null;
 
 /**
  * 作品インターフェース
@@ -13,7 +17,7 @@ export interface ICreativeWork {
     name: string;
     alternateName?: string | null;
     alternativeHeadline?: string | null;
-    contentRating?: string | null;
+    contentRating?: IContentRating;
     copyrightHolder?: ICopyrightHolder | null;
     copyrightYear?: number | null;
     datePublished?: Date;
