@@ -5,6 +5,7 @@ import IMultilingualString from './multilingualString';
 import * as OfferFactory from './offer';
 import * as PlaceFactory from './place';
 import { IPropertyValue } from './propertyValue';
+import SortType from './sortType';
 
 /**
  * CinemaSunshine向けのオファーインターフェース
@@ -91,9 +92,20 @@ export type IEvent<T extends IAttributes<EventType>> = T & {
     id: string;
 };
 
+/**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    name?: string;
+    doorTime?: SortType;
+    endDate?: SortType;
+    startDate?: SortType;
+}
+
 export interface ISearchConditions<T extends EventType> {
     limit?: number;
     page?: number;
+    sort?: ISortOrder;
     /**
      * イベントタイプ
      */

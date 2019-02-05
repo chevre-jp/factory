@@ -17,7 +17,6 @@ import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
 import ReservationType from '../reservationType';
 import { IServiceType } from '../serviceType';
-import SortType from '../sortType';
 import { UnitCode } from '../unitCode';
 
 export interface IServiceOutput {
@@ -268,11 +267,7 @@ export type IEvent = EventFactory.IEvent<IAttributes>;
 /**
  * ソート条件インターフェース
  */
-export interface ISortOrder {
-    doorTime?: SortType;
-    endDate?: SortType;
-    startDate?: SortType;
-}
+export type ISortOrder = EventFactory.ISortOrder;
 
 export interface IOfferSearchConditions {
     ids?: string[];
@@ -286,7 +281,6 @@ export interface IOfferSearchConditions {
  * 上映イベントの検索条件インターフェース
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEvent> {
-    sort?: ISortOrder;
     /**
      * 親イベント情報
      */

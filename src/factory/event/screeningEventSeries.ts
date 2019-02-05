@@ -8,7 +8,6 @@ import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import OrganizationType from '../organizationType';
 import PlaceType from '../placeType';
-import SortType from '../sortType';
 import SoundFormatType from '../soundFormatType';
 import VideoFormatType from '../videoFormatType';
 
@@ -143,13 +142,12 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
  * 劇場作品に相当
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
+
 /**
  * ソート条件インターフェース
  */
-export interface ISortOrder {
-    endDate?: SortType;
-    startDate?: SortType;
-}
+export type ISortOrder = EventFactory.ISortOrder;
+
 /**
  * 上映イベントの検索条件インターフェース
  */
