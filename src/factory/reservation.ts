@@ -1,3 +1,5 @@
+import * as COA from '@motionpicture/coa-service';
+
 import PlaceType from './placeType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
@@ -50,6 +52,28 @@ export interface ISeat {
 }
 
 /**
+ * COA券種情報
+ */
+export type ICOATicketInfoWithDetails = COA.services.reserve.IUpdReserveTicket & {
+    /**
+     * チケット名
+     */
+    ticketName: string;
+    /**
+     * チケット名（カナ）
+     */
+    ticketNameKana: string;
+    /**
+     * チケット名（英）
+     */
+    ticketNameEng: string;
+    /**
+     * ポイント割引の場合の消費ポイント
+     */
+    usePoint: number;
+};
+
+/**
  * 予約チケット情報
  */
 export interface ITicket<T extends IPriceSpecification<PriceSpecificationType>> {
@@ -65,7 +89,7 @@ export interface ITicket<T extends IPriceSpecification<PriceSpecificationType>> 
     /**
      * The total price for the reservation or ticket, including applicable taxes, shipping, etc.
      */
-    totalPrice: T;
+    totalPrice: T | number;
     /**
      * The currency (in 3-letter ISO 4217 format) of the Reservation's price.
      */
@@ -101,6 +125,10 @@ export interface ITicket<T extends IPriceSpecification<PriceSpecificationType>> 
      * 券種
      */
     ticketType: ITicketType;
+    /**
+     * COA券種情報
+     */
+    coaTicketInfo?: ICOATicketInfoWithDetails;
 }
 
 /**
@@ -159,7 +187,7 @@ export interface IReservation<T extends IPriceSpecification<PriceSpecificationTy
     /**
      * Total price of the Reservation.
      */
-    price: T;
+    price: T | number;
     /**
      * The currency (in 3-letter ISO 4217 format) of the Reservation's price.
      */

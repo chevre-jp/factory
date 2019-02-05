@@ -1,3 +1,5 @@
+import * as COA from '@motionpicture/coa-service';
+
 import * as EventFactory from '../event';
 import * as ScreeningEventSeriesFactory from '../event/screeningEventSeries';
 import EventType from '../eventType';
@@ -136,6 +138,56 @@ export interface IScreeningRoomSectionOffer extends MovieTheaterFactory.IScreeni
     containsPlace: ISeatWithOffer[];
 }
 
+export interface ICOAInfo {
+    theaterCode: string;
+    dateJouei: string;
+    titleCode: string;
+    titleBranchNum: string;
+    timeBegin: string;
+    timeEnd: string;
+    screenCode: string;
+    /**
+     * トレーラー時間
+     * トレーラー含む本編以外の時間（分）
+     */
+    trailerTime: number;
+    /**
+     * サービス区分
+     * 「通常興行」「レイトショー」など
+     */
+    kbnService?: COA.services.master.IKubunNameResult;
+    /**
+     * 音響区分
+     */
+    kbnAcoustic?: COA.services.master.IKubunNameResult;
+    /**
+     * サービスデイ名称
+     * 「映画の日」「レディースデイ」など ※割引区分、割引コード、特定日等の組み合わせで登録するため名称で連携の方が容易
+     */
+    nameServiceDay: string;
+    /**
+     * 購入可能枚数
+     */
+    availableNum: number;
+    /**
+     * 予約開始日
+     * 予約可能になる日付(YYYYMMDD)
+     */
+    rsvStartDate: string;
+    /**
+     * 予約終了日
+     * 予約終了になる日付(YYYYMMDD)
+     */
+    rsvEndDate: string;
+    /**
+     * 先行予約フラグ
+     * 先行予約の場合は'1'、それ以外は'0'
+     */
+    flgEarlyBooking: string;
+}
+
+export type IOffer4cinemasunshine = EventFactory.IOffer4cinemasunshine;
+
 /**
  * 上映イベント属性インターフェース
  */
@@ -192,7 +244,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     /**
      * 販売情報
      */
-    offers: IOffer;
+    offers: IOffer | EventFactory.IOffer4cinemasunshine;
     /**
      * 発券数
      */
@@ -201,6 +253,11 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      * 参加数
      */
     attendeeCount: Number;
+    /**
+     * その他COA情報
+     * @deprecated 基本的にCinemaSunshineの互換性維持目的であり、そのうち廃止予定
+     */
+    coaInfo?: ICOAInfo;
 }
 
 /**
