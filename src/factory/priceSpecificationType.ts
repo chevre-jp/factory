@@ -19,7 +19,7 @@ enum PriceSpecificationType {
      */
     UnitPriceSpecification = 'UnitPriceSpecification',
     /**
-     * 上映方式チャージし仕様
+     * 上映方式チャージ仕様
      */
     VideoFormatChargeSpecification = 'VideoFormatChargeSpecification'
 }

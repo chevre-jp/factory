@@ -1,6 +1,13 @@
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
+export interface IDefinedTerm {
+    typeOf: 'DefinedTerm';
+    termCode: string;
+    name?: string;
+    description?: string;
+}
+
 /**
  * 勘定科目インターフェース
  * @see https://pending.schema.org/CategoryCode
@@ -14,7 +21,7 @@ export interface IAccountTitle {
     /**
      * The name of the item.
      */
-    name: string;
+    name?: string;
     /**
      * A description of the item.
      */
@@ -27,7 +34,15 @@ export interface IAccountTitle {
      * A Category code contained in this code set.
      */
     hasCategoryCode?: IAccountTitle[];
-    additionalProperty?: IPropertyValue<any>[];
+    /**
+     * A DefinedTermSet that contains this term.
+     */
+    inDefinedTermSet?: IDefinedTerm;
+    /**
+     * A Defined Term contained in this term set.
+     */
+    hasDefinedTerm?: IDefinedTerm[];
+    additionalProperty?: IPropertyValue<string>[];
 }
 
 /**
