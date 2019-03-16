@@ -185,8 +185,6 @@ export interface ICOAInfo {
     flgEarlyBooking: string;
 }
 
-export type IOffer4cinemasunshine = EventFactory.IOffer4cinemasunshine;
-
 /**
  * 上映イベント属性インターフェース
  */
@@ -243,7 +241,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     /**
      * 販売情報
      */
-    offers: IOffer | EventFactory.IOffer4cinemasunshine;
+    offers: IOffer;
     /**
      * 発券数
      */

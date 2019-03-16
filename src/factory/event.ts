@@ -7,15 +7,6 @@ import * as PlaceFactory from './place';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
-/**
- * CinemaSunshine向けのオファーインターフェース
- */
-export interface IOffer4cinemasunshine {
-    typeOf: string;
-    availability: number | null;
-    url: string;
-}
-
 export interface IAttributes<T extends EventType> {
     /**
      * イベントタイプ
@@ -68,7 +59,7 @@ export interface IAttributes<T extends EventType> {
      * An offer to provide this item—for example, an offer to sell a product,
      * rent the DVD of a movie, perform a service, or give away tickets to an event.
      */
-    offers?: OfferFactory.IOffer | OfferFactory.IOffer[] | IOffer4cinemasunshine;
+    offers?: OfferFactory.IOffer | OfferFactory.IOffer[];
     /**
      * 残り収容人数
      */

@@ -29,7 +29,7 @@ export interface IOffer {
     /**
      * The availability of this item—for example In stock, Out of stock, Pre-order, etc.
      */
-    availability?: ItemAvailability;
+    availability?: ItemAvailability | number;
     /**
      * The end of the availability of the product or service included in the offer.
      */
