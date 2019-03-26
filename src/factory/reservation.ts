@@ -81,19 +81,19 @@ export interface ITicket<T extends IPriceSpecification<PriceSpecificationType>> 
     /**
      * The date the ticket was issued.
      */
-    dateIssued: Date;
+    dateIssued?: Date;
     /**
      * The organization issuing the ticket or permit.
      */
-    issuedBy: IUnderName;
+    issuedBy?: IUnderName;
     /**
      * The total price for the reservation or ticket, including applicable taxes, shipping, etc.
      */
-    totalPrice: T | number;
+    totalPrice?: T | number;
     /**
      * The currency (in 3-letter ISO 4217 format) of the Reservation's price.
      */
-    priceCurrency: PriceCurrency;
+    priceCurrency?: PriceCurrency;
     /**
      * The seat associated with the ticket.
      * 座席指定でない場合、この値は存在しない
@@ -120,7 +120,7 @@ export interface ITicket<T extends IPriceSpecification<PriceSpecificationType>> 
     /**
      * The person or organization the reservation is for.
      */
-    underName: IUnderName;
+    underName?: IUnderName;
     /**
      * 券種
      */
@@ -151,7 +151,7 @@ export interface IReservation<T extends IPriceSpecification<PriceSpecificationTy
     /**
      * Any additional text to appear on a ticket, such as additional privileges or identifiers.
      */
-    additionalTicketText: string;
+    additionalTicketText?: string;
     /**
      * Who made the reservation.
      */
@@ -187,11 +187,11 @@ export interface IReservation<T extends IPriceSpecification<PriceSpecificationTy
     /**
      * Total price of the Reservation.
      */
-    price: T | number;
+    price?: T | number;
     /**
      * The currency (in 3-letter ISO 4217 format) of the Reservation's price.
      */
-    priceCurrency: PriceCurrency;
+    priceCurrency?: PriceCurrency;
     /**
      * Any membership in a frequent flyer, hotel loyalty program, etc. being applied to the reservation.
      */
