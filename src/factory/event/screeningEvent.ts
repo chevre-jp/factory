@@ -192,7 +192,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     /**
      * 上映作品
      */
-    workPerformed: ScreeningEventSeriesFactory.IWorkPerformed;
+    workPerformed?: ScreeningEventSeriesFactory.IWorkPerformed;
     /**
      * 上映場所
      */
@@ -241,15 +241,15 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     /**
      * 販売情報
      */
-    offers: IOffer;
+    offers?: IOffer;
     /**
      * 発券数
      */
-    checkInCount: Number;
+    checkInCount?: Number;
     /**
      * 参加数
      */
-    attendeeCount: Number;
+    attendeeCount?: Number;
     /**
      * その他COA情報
      * @deprecated 基本的にCinemaSunshineの互換性維持目的であり、そのうち廃止予定

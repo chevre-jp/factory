@@ -175,7 +175,7 @@ export interface IReservation<T extends IPriceSpecification<PriceSpecificationTy
     /**
      * Time the reservation was last modified.
      */
-    modifiedTime: Date;
+    modifiedTime?: Date;
     /**
      * Web page where reservation can be modified.
      */
@@ -207,7 +207,7 @@ export interface IReservation<T extends IPriceSpecification<PriceSpecificationTy
     /**
      * Current status of the reservation.
      */
-    reservationStatus: ReservationStatusType;
+    reservationStatus?: ReservationStatusType;
     /**
      * A ticket associated with the reservation.
      */
@@ -215,13 +215,13 @@ export interface IReservation<T extends IPriceSpecification<PriceSpecificationTy
     /**
      * The person or organization the reservation is for.
      */
-    underName: IUnderName;
+    underName?: IUnderName;
     /**
      * チェックイン(発券)済かどうか
      */
-    checkedIn: Boolean;
+    checkedIn?: Boolean;
     /**
      * 出席(入場)済かどうか
      */
-    attended: Boolean;
+    attended?: Boolean;
 }
