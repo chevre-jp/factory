@@ -26,15 +26,15 @@ export interface ITicketTypeCategory {
 export interface ITicketTypeAttributes extends IOffer {
     name: IMultilingualString;
     alternateName?: IMultilingualString;
-    description: IMultilingualString;
+    description?: IMultilingualString;
     /**
      * 在庫状況(オンラインor店頭のコントロールが可能)
      */
-    availability: ItemAvailability;
+    availability?: ItemAvailability;
     /**
-     * 座席単価仕様
+     * 単価仕様
      */
-    priceSpecification: IPriceSpecification;
+    priceSpecification?: IPriceSpecification;
     /**
      * A category for the item.
      */
