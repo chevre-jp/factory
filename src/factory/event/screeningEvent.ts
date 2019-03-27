@@ -95,9 +95,7 @@ export type ITicketPriceSpecification = ICompoundPriceSpecification<ITicketPrice
 export interface ITicketOffer extends IOffer {
     id: string;
     name: IMultilingualString;
-    description: IMultilingualString;
     priceSpecification: ITicketPriceSpecification;
-    availability: ItemAvailability;
 }
 
 /**

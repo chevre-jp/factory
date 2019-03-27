@@ -26,7 +26,6 @@ export interface ITicketTypeCategory {
 export interface ITicketTypeAttributes extends IOffer {
     name: IMultilingualString;
     alternateName?: IMultilingualString;
-    description?: IMultilingualString;
     /**
      * 在庫状況(オンラインor店頭のコントロールが可能)
      */
