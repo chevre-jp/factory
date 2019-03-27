@@ -247,3 +247,27 @@ export import transactionType = TransactionType;
 export import unitCode = UnitCode;
 export import url = URLFactory;
 export import videoFormatType = VideoFormatType;
+
+import * as AggregationFactory from './factory/aggregation';
+import * as BoxOfficeTypeFactory from './factory/boxOfficeType';
+import * as DistributionsFactory from './factory/distributions/distribute';
+import * as SubjectFactory from './factory/subject';
+
+/**
+ * @deprecated 東映ローカライズなのでそのうち廃止
+ */
+export import agregation = AggregationFactory;
+/**
+ * @deprecated 東映ローカライズなのでそのうち廃止
+ */
+export import boxOfficeType = BoxOfficeTypeFactory;
+/**
+ * @deprecated 東映ローカライズなのでそのうち廃止
+ */
+export namespace distributions {
+    export import distribute = DistributionsFactory;
+}
+/**
+ * @deprecated 東映ローカライズなのでそのうち廃止
+ */
+export import subject = SubjectFactory;
