@@ -273,6 +273,18 @@ export interface IOfferSearchConditions {
     availableThrough?: Date;
     validFrom?: Date;
     validThrough?: Date;
+    itemOffered?: {
+        serviceType?: {
+            ids?: string[];
+        };
+        serviceOutput?: {
+            reservedTicket?: {
+                ticketedSeat?: {
+                    typeOfs?: string[];
+                };
+            };
+        };
+    };
 }
 
 /**
