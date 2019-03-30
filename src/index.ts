@@ -187,17 +187,58 @@ export namespace compoundPriceSpecification {
 export import priceSpecificationType = PriceSpecificationType;
 export import propertyValue = PropertyValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
+
 export namespace reservation {
-    export import IReservation = ReservationFactory.IReservation;
-    export import ISeat = ReservationFactory.ISeat;
-    export import ITicket = ReservationFactory.ITicket;
-    export import IUnderName = ReservationFactory.IUnderName;
-    export import TicketType = ReservationFactory.TicketType;
-    // tslint:disable-next-line:no-shadowed-variable
-    export import event = EventReservationFactory;
+    export type IPriceSpecification<T extends ReservationType> =
+        T extends ReservationType.EventReservation
+        ? EventReservationFactory.IPriceSpecification
+        : ReservationFactory.IPriceSpecification;
+
+    export type IReservationFor<T extends ReservationType> =
+        T extends ReservationType.EventReservation
+        ? EventReservationFactory.IReservationFor
+        : ReservationFactory.IReservationFor;
+
+    export type IReservation<T extends ReservationType> =
+        T extends ReservationType.EventReservation
+        ? EventReservationFactory.IReservation
+        : ReservationFactory.IReservation<IPriceSpecification<T>>;
+
+    export type ISearchConditions<T extends ReservationType> =
+        T extends ReservationType.EventReservation
+        ? EventReservationFactory.ISearchConditions
+        : ReservationFactory.ISearchConditions<T>;
+
+    export type ISortOrder<T extends ReservationType> =
+        T extends ReservationType.EventReservation
+        ? ReservationFactory.ISortOrder
+        : ReservationFactory.ISortOrder;
+
+    export type ISeat<T extends ReservationType> =
+        T extends ReservationType.EventReservation
+        ? ReservationFactory.ISeat
+        : ReservationFactory.ISeat;
+
+    export type ITicket<T extends ReservationType> =
+        T extends ReservationType.EventReservation
+        ? ReservationFactory.ITicket<IPriceSpecification<T>>
+        : ReservationFactory.ITicket<IPriceSpecification<T>>;
+
+    export type IUnderName<T extends ReservationType> =
+        T extends ReservationType.EventReservation
+        ? ReservationFactory.IUnderName
+        : ReservationFactory.IUnderName;
+
+    export type TicketType<T extends ReservationType> =
+        T extends ReservationType.EventReservation
+        ? ReservationFactory.TicketType
+        : ReservationFactory.TicketType;
 }
+
 export import reservationStatusType = ReservationStatusType;
+
 export import reservationType = ReservationType;
+
 export namespace task {
     export import IAttributes = TaskFactory.IAttributes;
     export import ITask = TaskFactory.ITask;
@@ -212,6 +253,7 @@ export import soundFormatType = SoundFormatType;
 export import taskExecutionResult = TaskExecutionResultFactory;
 export import taskName = TaskName;
 export import taskStatus = TaskStatus;
+
 export namespace transaction {
     export type IStartParams<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IStartParams :
@@ -240,6 +282,7 @@ export namespace transaction {
     export import cancelReservation = CancelReservationTransactionFactory;
     export import reserve = ReserveTransactionFactory;
 }
+
 export import ticketType = TicketTypeFactory;
 export import transactionStatusType = TransactionStatusType;
 export import transactionTasksExportationStatus = TransactionTasksExportationStatus;
@@ -249,7 +292,6 @@ export import url = URLFactory;
 export import videoFormatType = VideoFormatType;
 
 import * as AggregationFactory from './factory/aggregation';
-import * as BoxOfficeTypeFactory from './factory/boxOfficeType';
 import * as DistributionsFactory from './factory/distributions/distribute';
 import * as SubjectFactory from './factory/subject';
 
@@ -258,9 +300,10 @@ import * as SubjectFactory from './factory/subject';
  */
 export import agregation = AggregationFactory;
 /**
- * @deprecated 東映ローカライズなのでそのうち廃止
+ * @alias Use serviceType
+ * @deprecated Use serviceType
  */
-export import boxOfficeType = BoxOfficeTypeFactory;
+export import boxOfficeType = serviceType;
 /**
  * @deprecated 東映ローカライズなのでそのうち廃止
  */

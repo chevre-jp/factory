@@ -1,4 +1,5 @@
-import * as EventFactory from '../event';
+// import * as EventFactory from '../event';
+import { IEvent as IScreeningEvent } from '../event/screeningEvent';
 import EventType from '../eventType';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
@@ -6,10 +7,10 @@ import { IPriceSpecification as ISoundFormatChargeSpecification } from '../price
 import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
 import { IPriceSpecification as IVideoFormatChargeSpecification } from '../priceSpecification/videoFormatChargeSpecification';
 import * as ReservationFactory from '../reservation';
-import ReservationStatusType from '../reservationStatusType';
-import SortType from '../sortType';
+import ReservationType from '../reservationType';
 
-export type IReservationFor = EventFactory.IEvent<EventFactory.IAttributes<EventType>>;
+// export type IReservationFor = EventFactory.IEvent<EventFactory.IAttributes<EventType>>;
+export type IReservationFor = IScreeningEvent;
 
 export type IPriceComponentSpecification = IMovieTicketTypeChargeSpecification
     | IVideoFormatChargeSpecification
@@ -22,21 +23,11 @@ export type IPriceSpecification = ICompoundPriceSpecification<IPriceComponentSpe
  * イベント予約インターフェース
  * どんなタイプのイベントに対する予約か
  */
-export interface IReservation<T extends IReservationFor> extends ReservationFactory.IReservation<IPriceSpecification> {
+export interface IReservation extends ReservationFactory.IReservation<IPriceSpecification> {
     /**
      * The thing -- restaurant, movie, event, flight, etc. -- the reservation is for.
      */
-    reservationFor: T;
-}
-
-/**
- * ソート条件インターフェース
- */
-export interface ISortOrder {
-    modifiedTime?: SortType;
-    bookingTime?: SortType;
-    reservationNumber?: SortType;
-    price?: SortType;
+    reservationFor: IReservationFor;
 }
 
 export interface IReservationForSearchConditions {
@@ -54,32 +45,9 @@ export interface IReservationForSearchConditions {
 /**
  * 検索条件
  */
-export interface ISearchConditions {
-    limit?: number;
-    page?: number;
-    sort?: ISortOrder;
-    /**
-     * 予約IDリスト
-     */
-    ids?: string[];
-    /**
-     * 予約番号リスト
-     */
-    reservationNumbers?: string[];
-    /**
-     * 予約ステータスリスト
-     */
-    reservationStatuses?: ReservationStatusType[];
+export interface ISearchConditions extends ReservationFactory.ISearchConditions<ReservationType.EventReservation> {
     /**
      * 予約対象
      */
     reservationFor?: IReservationForSearchConditions;
-    /**
-     * 更新日時
-     */
-    modifiedFrom?: Date;
-    /**
-     * 更新日時
-     */
-    modifiedThrough?: Date;
 }

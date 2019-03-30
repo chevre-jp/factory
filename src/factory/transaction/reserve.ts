@@ -61,7 +61,7 @@ export interface IObjectWithoutDetail {
 export interface IObject {
     clientUser?: IClientUser;
     event: IScreeningEvent;
-    reservations: EventReservationFactory.IReservation<IScreeningEvent>[];
+    reservations: EventReservationFactory.IReservation[];
 }
 export interface IPotentialActions {
     reserve: ReserveActionFactory.IAttributes[];

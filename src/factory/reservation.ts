@@ -2,16 +2,19 @@ import * as COA from '@motionpicture/coa-service';
 
 import PlaceType from './placeType';
 import PriceCurrency from './priceCurrency';
-import { IPriceSpecification } from './priceSpecification';
+import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
 import { IPropertyValue } from './propertyValue';
 import { IQualitativeValue } from './qualitativeValue';
 import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
+import SortType from './sortType';
 import { ITicketType } from './ticketType';
 import { IURL } from './url';
 
 export type TicketType = 'Ticket';
+
+export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;
 
 /**
  * under name interface
@@ -73,10 +76,12 @@ export type ICOATicketInfoWithDetails = COA.services.reserve.IUpdReserveTicket &
     usePoint: number;
 };
 
+export type IReservationFor = any;
+
 /**
  * 予約チケット情報
  */
-export interface ITicket<T extends IPriceSpecification<PriceSpecificationType>> {
+export interface ITicket<T extends IPriceSpecification> {
     typeOf: TicketType;
     /**
      * The date the ticket was issued.
@@ -139,7 +144,7 @@ export interface ITicket<T extends IPriceSpecification<PriceSpecificationType>> 
  * For offers of tickets, restaurant reservations, flights, or rental cars, use Offer.
  * @see https://schema.org/Reservation
  */
-export interface IReservation<T extends IPriceSpecification<PriceSpecificationType>> {
+export interface IReservation<T extends IPriceSpecification> {
     /**
      * type of object
      */
@@ -199,7 +204,7 @@ export interface IReservation<T extends IPriceSpecification<PriceSpecificationTy
     /**
      * The thing -- restaurant, movie, event, flight, etc. -- the reservation is for.
      */
-    reservationFor: any;
+    reservationFor: IReservationFor;
     /**
      * 予約番号
      */
@@ -224,4 +229,42 @@ export interface IReservation<T extends IPriceSpecification<PriceSpecificationTy
      * 出席(入場)済かどうか
      */
     attended?: Boolean;
+}
+
+/**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    modifiedTime?: SortType;
+    bookingTime?: SortType;
+}
+
+/**
+ * 検索条件
+ */
+export interface ISearchConditions<T extends ReservationType> {
+    typeOf: T;
+    limit?: number;
+    page?: number;
+    sort?: ISortOrder;
+    /**
+     * 予約IDリスト
+     */
+    ids?: string[];
+    /**
+     * 予約番号リスト
+     */
+    reservationNumbers?: string[];
+    /**
+     * 予約ステータスリスト
+     */
+    reservationStatuses?: ReservationStatusType[];
+    /**
+     * 更新日時
+     */
+    modifiedFrom?: Date;
+    /**
+     * 更新日時
+     */
+    modifiedThrough?: Date;
 }

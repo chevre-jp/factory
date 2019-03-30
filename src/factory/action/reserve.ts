@@ -1,13 +1,12 @@
 import * as ActionFactory from '../action';
 import ActionType from '../actionType';
-import { IEvent as IScreeningEvent } from '../event/screeningEvent';
 import { IReservation as IEventReservation } from '../reservation/event';
 import TransactionType from '../transactionType';
 
 /**
  * 予約対象インターフェース
  */
-export type IObject = IEventReservation<IScreeningEvent>;
+export type IObject = IEventReservation;
 /**
  * 予約結果インターフェース
  */

@@ -14,9 +14,7 @@ export interface IServiceType {
  * ソート条件インターフェース
  */
 export interface ISortOrder {
-    startDate?: SortType;
-    endDate?: SortType;
-    status?: SortType;
+    _id?: SortType;
 }
 
 /**
