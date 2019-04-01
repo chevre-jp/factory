@@ -5,7 +5,7 @@ enum PriceSpecificationType {
     /**
      * 基本価格仕様
      */
-    PriceSpecificationType = 'PriceSpecificationType',
+    PriceSpecification = 'PriceSpecification',
     /**
      * 複合価格仕様
      */
