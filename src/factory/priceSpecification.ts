@@ -33,7 +33,7 @@ export interface IPriceSpecification<T extends PriceSpecificationType> {
     name?: string | IMultilingualString;
     description?: string | IMultilingualString;
     eligibleQuantity?: IQuantitativeValue<UnitCode>;
-    eligibleTransactionVolume?: IPriceSpecification<PriceSpecificationType>[];
+    eligibleTransactionVolume?: IPriceSpecification<PriceSpecificationType>;
     maxPrice?: number;
     minPrice?: number;
     /**
@@ -52,12 +52,14 @@ export interface IPriceSpecification<T extends PriceSpecificationType> {
      */
     accounting?: IAccounting;
 }
+
 /**
  * ソート条件インターフェース
  */
 export interface ISortOrder {
     price?: SortType;
 }
+
 /**
  * 検索条件インターフェース
  */

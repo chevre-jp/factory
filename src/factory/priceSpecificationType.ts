@@ -3,6 +3,10 @@
  */
 enum PriceSpecificationType {
     /**
+     * 基本価格仕様
+     */
+    PriceSpecificationType = 'PriceSpecificationType',
+    /**
      * 複合価格仕様
      */
     CompoundPriceSpecification = 'CompoundPriceSpecification',
@@ -23,4 +27,5 @@ enum PriceSpecificationType {
      */
     VideoFormatChargeSpecification = 'VideoFormatChargeSpecification'
 }
+
 export default PriceSpecificationType;
