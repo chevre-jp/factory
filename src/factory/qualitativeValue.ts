@@ -5,5 +5,5 @@ import { IPropertyValue } from './propertyValue';
  */
 export interface IQualitativeValue<T extends string> {
     typeOf: T;
-    additionalProperty?: IPropertyValue<any>[];
+    additionalProperty?: IPropertyValue<string>[];
 }

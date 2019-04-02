@@ -1,6 +1,7 @@
 import * as COA from '@motionpicture/coa-service';
 
 import CreativeWorkType from './creativeWorkType';
+import { IPropertyValue } from './propertyValue';
 
 export interface ICopyrightHolder {
     name: string;
@@ -26,4 +27,5 @@ export interface ICreativeWork {
     license?: string | null;
     thumbnailUrl?: string | null;
     typeOf: CreativeWorkType;
+    additionalProperty?: IPropertyValue<string>[];
 }

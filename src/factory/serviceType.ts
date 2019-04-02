@@ -1,3 +1,4 @@
+import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
 /**
@@ -8,6 +9,7 @@ export interface IServiceType {
     id: string;
     name: string;
     description?: string;
+    additionalProperty?: IPropertyValue<string>[];
 }
 
 /**

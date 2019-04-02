@@ -73,7 +73,7 @@ export interface IAttributes<T extends EventType> {
      * イベントで上演される作品
      */
     workPerformed?: CreativeWorkFactory.ICreativeWork;
-    additionalProperty?: IPropertyValue<any>[];
+    additionalProperty?: IPropertyValue<string>[];
 }
 
 /**

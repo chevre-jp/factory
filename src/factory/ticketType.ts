@@ -2,6 +2,7 @@ import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
+import { IPropertyValue } from './propertyValue';
 import { IServiceType } from './serviceType';
 import SortType from './sortType';
 
@@ -98,6 +99,7 @@ export interface ITicketTypeGroupAttributes {
     description: IMultilingualString;
     ticketTypes: string[];
     itemOffered: IService;
+    additionalProperty?: IPropertyValue<string>[];
 }
 
 /**
