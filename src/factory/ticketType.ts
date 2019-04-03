@@ -58,9 +58,7 @@ export type ITicketType = ITicketTypeAttributes & {
  * ソート条件インターフェース
  */
 export interface ISortOrder {
-    'name.ja'?: SortType;
-    'name.en'?: SortType;
-    'priceSpecification.price'?: SortType;
+    _id?: SortType;
 }
 
 /**
@@ -69,6 +67,9 @@ export interface ISortOrder {
 export interface ITicketTypePriceSpecificationSearchConditions {
     minPrice?: number;
     maxPrice?: number;
+    referenceQuantity?: {
+        value?: number;
+    };
     accounting?: {
         minAccountsReceivable?: number;
         maxAccountsReceivable?: number;
@@ -86,6 +87,9 @@ export interface ITicketTypeSearchConditions {
     ids?: string[];
     name?: string;
     priceSpecification?: ITicketTypePriceSpecificationSearchConditions;
+    category?: {
+        ids?: string[];
+    };
 }
 
 export interface IService {
