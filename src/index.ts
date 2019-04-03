@@ -46,6 +46,7 @@ import * as ServiceTypeFactory from './factory/serviceType';
 import SortType from './factory/sortType';
 import SoundFormatType from './factory/soundFormatType';
 import * as TicketTypeFactory from './factory/ticketType';
+import TicketTypeCategory from './factory/ticketTypeCategory';
 import { UnitCode } from './factory/unitCode';
 import VideoFormatType from './factory/videoFormatType';
 
@@ -284,6 +285,8 @@ export namespace transaction {
 }
 
 export import ticketType = TicketTypeFactory;
+export import ticketTypeCategory = TicketTypeCategory;
+
 export import transactionStatusType = TransactionStatusType;
 export import transactionTasksExportationStatus = TransactionTasksExportationStatus;
 export import transactionType = TransactionType;
