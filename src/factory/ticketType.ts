@@ -58,7 +58,7 @@ export type ITicketType = ITicketTypeAttributes & {
  * ソート条件インターフェース
  */
 export interface ISortOrder {
-    _id?: SortType;
+    'priceSpecification.price'?: SortType;
 }
 
 /**
