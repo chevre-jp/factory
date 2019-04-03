@@ -5,6 +5,7 @@ import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecifica
 import { IPropertyValue } from './propertyValue';
 import { IServiceType } from './serviceType';
 import SortType from './sortType';
+import TicketTypeCategory from './ticketTypeCategory';
 
 // tslint:disable-next-line:no-empty-interface
 export interface IPriceSpecification extends IUnitPriceSpecification {
@@ -14,7 +15,8 @@ export interface IPriceSpecification extends IUnitPriceSpecification {
  * 券種カテゴリーインターフェース
  */
 export interface ITicketTypeCategory {
-    id: string;
+    id: TicketTypeCategory;
+    name?: string;
 }
 
 /**

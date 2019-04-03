@@ -291,25 +291,13 @@ export import unitCode = UnitCode;
 export import url = URLFactory;
 export import videoFormatType = VideoFormatType;
 
-import * as AggregationFactory from './factory/aggregation';
-import * as DistributionsFactory from './factory/distributions/distribute';
+import * as DistributorFactory from './factory/distributor';
 import * as SubjectFactory from './factory/subject';
 
 /**
  * @deprecated 東映ローカライズなのでそのうち廃止
  */
-export import agregation = AggregationFactory;
-/**
- * @alias Use serviceType
- * @deprecated Use serviceType
- */
-export import boxOfficeType = serviceType;
-/**
- * @deprecated 東映ローカライズなのでそのうち廃止
- */
-export namespace distributions {
-    export import distribute = DistributionsFactory;
-}
+export import distributor = DistributorFactory;
 /**
  * @deprecated 東映ローカライズなのでそのうち廃止
  */
