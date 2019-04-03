@@ -22,6 +22,7 @@ export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationT
 export interface IUnderName {
     typeOf: string;
     name: string;
+    description?: string;
     additionalName?: string;
     identifier?: IPropertyValue<string>[];
     email?: string;
@@ -29,6 +30,7 @@ export interface IUnderName {
     gender?: string;
     givenName?: string;
     telephone?: string;
+    url?: string;
 }
 
 /**
@@ -229,6 +231,7 @@ export interface IReservation<T extends IPriceSpecification> {
      * 出席(入場)済かどうか
      */
     attended?: Boolean;
+    additionalProperty?: IPropertyValue<string>[];
 }
 
 /**
