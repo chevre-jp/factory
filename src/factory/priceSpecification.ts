@@ -4,7 +4,9 @@ import PriceCurrency from './priceCurrency';
 import PriceSpecificationType from './priceSpecificationType';
 import { IQuantitativeValue } from './quantitativeValue';
 import SortType from './sortType';
+import SoundFormatType from './soundFormatType';
 import { UnitCode } from './unitCode';
+import VideoFormatType from './videoFormatType';
 
 /**
  * 勘定インターフェース
@@ -29,6 +31,7 @@ export interface IAccounting {
  * 価格仕様インターフェース
  */
 export interface IPriceSpecification<T extends PriceSpecificationType> {
+    id?: string;
     typeOf: T;
     name?: string | IMultilingualString;
     description?: string | IMultilingualString;
@@ -67,10 +70,13 @@ export interface ISearchConditions<T extends PriceSpecificationType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
-    /**
-     * 価格仕様タイプ
-     */
-    typeOf: T;
+    ids?: string[];
+    typeOf?: T;
     validFrom?: Date;
     validThrough?: Date;
+    appliesToVideoFormats?: VideoFormatType[];
+    appliesToSoundFormats?: SoundFormatType[];
+    appliesToMovieTicket?: {
+        serviceTypes?: string[];
+    };
 }
