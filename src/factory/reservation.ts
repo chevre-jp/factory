@@ -5,7 +5,7 @@ import PriceCurrency from './priceCurrency';
 import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
 import { IPropertyValue } from './propertyValue';
-import { IQualitativeValue } from './qualitativeValue';
+import { ISeatingType } from './qualitativeValue/seatingType';
 import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
 import SortType from './sortType';
@@ -15,6 +15,8 @@ import { IURL } from './url';
 export type TicketType = 'Ticket';
 
 export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;
+
+export type ISeatingType = ISeatingType;
 
 /**
  * under name interface
@@ -41,7 +43,7 @@ export interface ISeat {
     /**
      * The cabin/class of the seat.
      */
-    seatingType: IQualitativeValue<string>;
+    seatingType?: ISeatingType;
     /**
      * The location of the reserved seat (e.g., 27B).
      */
@@ -239,7 +241,6 @@ export interface IReservation<T extends IPriceSpecification> {
  */
 export interface ISortOrder {
     modifiedTime?: SortType;
-    bookingTime?: SortType;
 }
 
 /**

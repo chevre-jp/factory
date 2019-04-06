@@ -1,7 +1,7 @@
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import * as PlaceFactory from '../place';
-import { IQualitativeValue } from '../qualitativeValue';
+import { ISeatingType } from '../qualitativeValue/seatingType';
 import { IQuantitativeValue } from '../quantitativeValue';
 import SortType from '../sortType';
 import { UnitCode } from '../unitCode';
@@ -9,18 +9,19 @@ import { UnitCode } from '../unitCode';
 /**
  * 座席タイプ
  */
-export enum SeatingType {
-    WheelChair = 'WheelChair'
-}
+// export enum SeatingType {
+//     WheelChair = 'WheelChair'
+// }
 
-export type ISeatingType = IQualitativeValue<SeatingType>;
+export type ISeatingType = ISeatingType;
 
 /**
  * 座席インターフェース
  */
 export interface ISeat extends PlaceFactory.IPlace {
     /**
-     * 枝番号(座席コードに相当)
+     * 枝番号
+     * 座席コードに相当
      */
     branchCode: string;
     /**
@@ -42,6 +43,7 @@ export interface IScreeningRoomSection extends PlaceFactory.IPlace {
      */
     branchCode: string;
 }
+
 /**
  * 上映室インターフェース
  */
@@ -104,6 +106,7 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
      */
     offers?: IOffer;
 }
+
 /**
  * 劇場施設インターフェース
  */
@@ -113,12 +116,14 @@ export type IPlace = IPlaceWithoutScreeningRoom & {
      */
     containsPlace: IScreeningRoom[];
 };
+
 /**
  * ソート条件インターフェース
  */
 export interface ISortOrder {
     branchCode?: SortType;
 }
+
 export interface ISearchConditions {
     limit?: number;
     page?: number;

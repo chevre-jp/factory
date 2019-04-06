@@ -37,6 +37,8 @@ import * as UnitPriceSpecificationFactory from './factory/priceSpecification/uni
 import * as VideoFormatChargeSpecificationFactory from './factory/priceSpecification/videoFormatChargeSpecification';
 import PriceSpecificationType from './factory/priceSpecificationType';
 import * as PropertyValueFactory from './factory/propertyValue';
+import * as QualitativeValueFactory from './factory/qualitativeValue';
+import * as SeatingTypeFactory from './factory/qualitativeValue/seatingType';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
 import * as ReservationFactory from './factory/reservation';
 import * as EventReservationFactory from './factory/reservation/event';
@@ -187,6 +189,12 @@ export namespace compoundPriceSpecification {
 }
 export import priceSpecificationType = PriceSpecificationType;
 export import propertyValue = PropertyValueFactory;
+
+export namespace qualitativeValue {
+    export import IQualitativeValue = QualitativeValueFactory.IQualitativeValue;
+    export import seatingType = SeatingTypeFactory;
+}
+
 export import quantitativeValue = QuantitativeValueFactory;
 
 export namespace reservation {
