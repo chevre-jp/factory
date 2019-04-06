@@ -263,12 +263,37 @@ export interface ISearchConditions<T extends ReservationType> {
      * 予約ステータスリスト
      */
     reservationStatuses?: ReservationStatusType[];
-    /**
-     * 更新日時
-     */
     modifiedFrom?: Date;
-    /**
-     * 更新日時
-     */
     modifiedThrough?: Date;
+    /**
+     * 予約チケット
+     */
+    reservedTicket?: {
+        /**
+         * 座席
+         */
+        ticketedSeat?: {
+            seatNumbers?: string[];
+            seatRows?: string[];
+            seatSections?: string[];
+        };
+        /**
+         * 券種
+         */
+        ticketType?: {
+            ids?: string[];
+            category?: {
+                ids?: string[];
+            };
+        };
+    };
+    /**
+     * チケットホルダー
+     */
+    underName?: {
+        id?: string;
+        name?: string;
+        email?: string;
+        telephone?: string;
+    };
 }
