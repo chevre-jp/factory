@@ -296,4 +296,12 @@ export interface ISearchConditions<T extends ReservationType> {
         email?: string;
         telephone?: string;
     };
+    /**
+     * チェックイン(発券)済かどうか
+     */
+    checkedIn?: Boolean;
+    /**
+     * 出席(入場)済かどうか
+     */
+    attended?: Boolean;
 }
