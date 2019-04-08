@@ -22,6 +22,7 @@ import ItemAvailability from './factory/itemAvailability';
 import * as LanguageFactory from './factory/language';
 import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
+import * as ProductOfferFactory from './factory/offer/product';
 import OfferType from './factory/offerType';
 import * as OrganizationFactory from './factory/organization';
 import OrganizationType from './factory/organizationType';
@@ -158,6 +159,7 @@ export import language = LanguageFactory;
 export type multilingualString = IMultilingualString;
 export namespace offer {
     export import IOffer = OfferFactory.IOffer;
+    export import product = ProductOfferFactory;
 }
 export type offerType = OfferType;
 export namespace organization {

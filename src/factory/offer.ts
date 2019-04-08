@@ -27,6 +27,12 @@ export interface IOffer {
      */
     acceptedPaymentMethod?: PaymentMethodType[];
     /**
+     * An additional offer that can only be obtained in combination with the first base offer
+     * (e.g. supplements and extensions that are available for a surcharge).
+     */
+    addOn?: IOffer[];
+    availableAddOn?: IOffer[];
+    /**
      * The availability of this item—for example In stock, Out of stock, Pre-order, etc.
      */
     availability?: ItemAvailability | number;
