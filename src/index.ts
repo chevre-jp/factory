@@ -66,7 +66,6 @@ import * as ReserveTransactionFactory from './factory/transaction/reserve';
 import TransactionStatusType from './factory/transactionStatusType';
 import TransactionTasksExportationStatus from './factory/transactionTasksExportationStatus';
 import TransactionType from './factory/transactionType';
-import * as URLFactory from './factory/url';
 
 import ErrorCode from './factory/errorCode';
 import * as errors from './factory/errors';
@@ -301,7 +300,6 @@ export import transactionStatusType = TransactionStatusType;
 export import transactionTasksExportationStatus = TransactionTasksExportationStatus;
 export import transactionType = TransactionType;
 export import unitCode = UnitCode;
-export import url = URLFactory;
 export import videoFormatType = VideoFormatType;
 
 import * as DistributorFactory from './factory/distributor';

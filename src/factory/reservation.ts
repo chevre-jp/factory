@@ -1,5 +1,6 @@
 import * as COA from '@motionpicture/coa-service';
 
+import { IOffer } from './offer';
 import PlaceType from './placeType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
@@ -10,7 +11,6 @@ import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
 import SortType from './sortType';
 import { ITicketType } from './ticketType';
-import { IURL } from './url';
 
 export type TicketType = 'Ticket';
 
@@ -111,7 +111,7 @@ export interface ITicket<T extends IPriceSpecification> {
     /**
      * Where the ticket can be downloaded.
      */
-    ticketDownloadUrl?: IURL;
+    ticketDownloadUrl?: string;
     /**
      * The number or id of the ticket.
      */
@@ -119,7 +119,7 @@ export interface ITicket<T extends IPriceSpecification> {
     /**
      * Where the ticket can be printed.
      */
-    ticketPrintUrl?: IURL;
+    ticketPrintUrl?: string;
     /**
      * If the barcode image is hosted on your site, the value of the field is URL of the image, or a barcode or QR URI,
      * such as "barcode128:AB34" (ISO-15417 barcodes), "qrCode:AB34" (QR codes),
@@ -172,15 +172,15 @@ export interface IReservation<T extends IPriceSpecification> {
     /**
      * Web page where reservation can be cancelled.
      */
-    cancelReservationUrl?: IURL;
+    cancelReservationUrl?: string;
     /**
      * Webpage where the passenger can check in.
      */
-    checkinUrl?: IURL;
+    checkinUrl?: string;
     /**
      * Web page where reservation can be confirmed.
      */
-    confirmReservationUrl?: IURL;
+    confirmReservationUrl?: string;
     /**
      * Time the reservation was last modified.
      */
@@ -188,7 +188,7 @@ export interface IReservation<T extends IPriceSpecification> {
     /**
      * Web page where reservation can be modified.
      */
-    modifyReservationUrl?: IURL;
+    modifyReservationUrl?: string;
     /**
      * Number of seats if unreserved seating.
      */
@@ -234,6 +234,11 @@ export interface IReservation<T extends IPriceSpecification> {
      */
     attended?: Boolean;
     additionalProperty?: IPropertyValue<string>[];
+    /**
+     * An additional offer that can only be obtained in combination with the first base offer
+     * (e.g. supplements and extensions that are available for a surcharge).
+     */
+    addOn?: IOffer[];
 }
 
 /**
