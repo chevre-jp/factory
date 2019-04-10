@@ -6,7 +6,7 @@ enum TaskName {
     CancelReservation = 'cancelReservation',
     CancelPendingReservation = 'cancelPendingReservation',
     AggregateScreeningEvent = 'aggregateScreeningEvent',
-    ImportEventsFromCOA = 'importOffersFromCOA',
+    ImportEventsFromCOA = 'importEventsFromCOA',
     ImportOffersFromCOA = 'importOffersFromCOA'
 }
 export default TaskName;
