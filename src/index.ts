@@ -57,6 +57,7 @@ import * as TaskFactory from './factory/task';
 import * as AggregateScreeningEventTaskFactory from './factory/task/aggregateScreeningEvent';
 import * as CancelPendingReservationTaskFactory from './factory/task/cancelPendingReservation';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
+import * as ImportOffersFromCOATaskFactory from './factory/task/importOffersFromCOA';
 import * as ReserveTaskFactory from './factory/task/reserve';
 import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
 import TaskName from './factory/taskName';
@@ -251,10 +252,14 @@ export import reservationType = ReservationType;
 
 export namespace task {
     export import IAttributes = TaskFactory.IAttributes;
+    export import IData = TaskFactory.IData;
+    export import ISearchConditions = TaskFactory.ISearchConditions;
     export import ITask = TaskFactory.ITask;
+
     export import aggregateScreeningEvent = AggregateScreeningEventTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
+    export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
     export import reserve = ReserveTaskFactory;
 }
 export import serviceType = ServiceTypeFactory;
