@@ -40,6 +40,15 @@ export interface IOrganizer {
 export interface ICOAInfo {
     titleBranchNum: string;
     /**
+     * 映倫区分
+     */
+    kbnEirin?: COA.services.master.IKubunNameResult;
+    /**
+     * 映像区分
+     * ２D、３D
+     */
+    kbnEizou?: COA.services.master.IKubunNameResult;
+    /**
      * 上映方式区分(ＩＭＡＸ，４ＤＸ等)
      */
     kbnJoueihousiki?: COA.services.master.IKubunNameResult;

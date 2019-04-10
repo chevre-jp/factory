@@ -57,6 +57,7 @@ import * as TaskFactory from './factory/task';
 import * as AggregateScreeningEventTaskFactory from './factory/task/aggregateScreeningEvent';
 import * as CancelPendingReservationTaskFactory from './factory/task/cancelPendingReservation';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
+import * as ImportEventsFromCOATaskFactory from './factory/task/importEventsFromCOA';
 import * as ImportOffersFromCOATaskFactory from './factory/task/importOffersFromCOA';
 import * as ReserveTaskFactory from './factory/task/reserve';
 import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
@@ -259,6 +260,7 @@ export namespace task {
     export import aggregateScreeningEvent = AggregateScreeningEventTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
+    export import importEventsFromCOA = ImportEventsFromCOATaskFactory;
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
     export import reserve = ReserveTaskFactory;
 }
