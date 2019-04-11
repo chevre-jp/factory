@@ -268,6 +268,8 @@ export interface ISearchConditions<T extends ReservationType> {
      * 予約ステータスリスト
      */
     reservationStatuses?: ReservationStatusType[];
+    bookingFrom?: Date;
+    bookingThrough?: Date;
     modifiedFrom?: Date;
     modifiedThrough?: Date;
     /**
