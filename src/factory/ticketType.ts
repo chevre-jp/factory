@@ -86,6 +86,8 @@ export interface ITicketTypeSearchConditions {
     sort?: ISortOrder;
     id?: string;
     ids?: string[];
+    identifier?: string;
+    identifiers?: string[];
     name?: string;
     priceSpecification?: ITicketTypePriceSpecificationSearchConditions;
     category?: {
@@ -124,6 +126,7 @@ export interface ITicketTypeGroupSearchConditions {
     limit?: number;
     page?: number;
     id?: string;
+    identifier?: string;
     name?: string;
     ticketTypes?: string[];
 }

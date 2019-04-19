@@ -58,6 +58,8 @@ export interface ISearchConditions {
     sort?: ISortOrder;
     id?: string;
     ids?: string[];
+    identifier?: string;
+    identifiers?: string[];
     name?: string;
     priceSpecification?: IPriceSpecificationSearchConditions;
     category?: {

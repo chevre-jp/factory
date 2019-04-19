@@ -29,4 +29,5 @@ export interface ISearchConditions {
     sort?: ISortOrder;
     name?: string;
     ids?: string[];
+    identifiers?: string[];
 }
