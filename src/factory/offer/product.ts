@@ -19,6 +19,7 @@ export interface IItemOffered {
  * プロダクトオファーインターフェース
  */
 export interface IOffer extends IBaseOffer {
+    identifier: string;
     /**
      * 単価仕様
      */

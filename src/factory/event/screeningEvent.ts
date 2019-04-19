@@ -55,6 +55,7 @@ export interface IOffer extends OfferFactory.IOffer {
      * オファー(券種)グループID
      */
     id: string;
+    identifier?: any;
     name: IMultilingualString;
     /**
      * 情報提供終了日時
@@ -94,6 +95,7 @@ export type ITicketPriceSpecification = ICompoundPriceSpecification<ITicketPrice
  */
 export interface ITicketOffer extends IOffer {
     id: string;
+    identifier: string;
     name: IMultilingualString;
     priceSpecification: ITicketPriceSpecification;
 }

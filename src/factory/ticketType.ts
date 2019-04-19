@@ -27,6 +27,7 @@ export interface ITicketTypeCategory {
  * @see https://schema.org/Product
  */
 export interface ITicketTypeAttributes extends IOffer {
+    identifier: string;
     name: IMultilingualString;
     alternateName?: IMultilingualString;
     /**
@@ -100,6 +101,7 @@ export interface IService {
 }
 
 export interface ITicketTypeGroupAttributes {
+    identifier: string;
     name: IMultilingualString;
     alternateName?: IMultilingualString;
     description: IMultilingualString;

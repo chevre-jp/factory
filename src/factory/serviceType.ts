@@ -7,6 +7,7 @@ import SortType from './sortType';
 export interface IServiceType {
     typeOf: 'ServiceType';
     id: string;
+    identifier: string;
     name: string;
     description?: string;
     additionalProperty?: IPropertyValue<string>[];
