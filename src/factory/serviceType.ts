@@ -1,3 +1,5 @@
+import IMultilingualString from './multilingualString';
+import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
@@ -5,10 +7,11 @@ import SortType from './sortType';
  * サービスタイプ(興行区分)インターフェース
  */
 export interface IServiceType {
+    project: IProject;
     typeOf: 'ServiceType';
     id: string;
     identifier: string;
-    name: string;
+    name: string | IMultilingualString;
     description?: string;
     additionalProperty?: IPropertyValue<string>[];
 }
