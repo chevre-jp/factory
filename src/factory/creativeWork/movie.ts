@@ -60,6 +60,7 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    project?: { ids?: string[] };
     identifier?: string;
     name?: string;
     datePublishedFrom?: Date;

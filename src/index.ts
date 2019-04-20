@@ -24,7 +24,6 @@ import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
 import * as ProductOfferFactory from './factory/offer/product';
 import OfferType from './factory/offerType';
-import * as OrganizationFactory from './factory/organization';
 import OrganizationType from './factory/organizationType';
 import PaymentMethodType from './factory/paymentMethodType';
 import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
@@ -37,6 +36,7 @@ import * as SoundFormatChargeSpecificationFactory from './factory/priceSpecifica
 import * as UnitPriceSpecificationFactory from './factory/priceSpecification/unitPriceSpecification';
 import * as VideoFormatChargeSpecificationFactory from './factory/priceSpecification/videoFormatChargeSpecification';
 import PriceSpecificationType from './factory/priceSpecificationType';
+import * as project from './factory/project';
 import * as PropertyValueFactory from './factory/propertyValue';
 import * as QualitativeValueFactory from './factory/qualitativeValue';
 import * as SeatingTypeFactory from './factory/qualitativeValue/seatingType';
@@ -163,9 +163,6 @@ export namespace offer {
     export import product = ProductOfferFactory;
 }
 export type offerType = OfferType;
-export namespace organization {
-    export import IOrganization = OrganizationFactory.IOrganization;
-}
 export import organizationType = OrganizationType;
 export import paymentMethodType = PaymentMethodType;
 export import priceCurrency = PriceCurrency;
@@ -191,6 +188,7 @@ export namespace compoundPriceSpecification {
         CompoundPriceSpecificationFactory.ISearchConditions<T>;
 }
 export import priceSpecificationType = PriceSpecificationType;
+export import project = project;
 export import propertyValue = PropertyValueFactory;
 
 export namespace qualitativeValue {

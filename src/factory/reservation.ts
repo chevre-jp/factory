@@ -5,6 +5,7 @@ import PlaceType from './placeType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
+import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { ISeatingType } from './qualitativeValue/seatingType';
 import ReservationStatusType from './reservationStatusType';
@@ -149,6 +150,7 @@ export interface ITicket<T extends IPriceSpecification> {
  * @see https://schema.org/Reservation
  */
 export interface IReservation<T extends IPriceSpecification> {
+    project: IProject;
     /**
      * type of object
      */
@@ -256,6 +258,7 @@ export interface ISearchConditions<T extends ReservationType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    project?: { ids?: string[] };
     /**
      * 予約IDリスト
      */

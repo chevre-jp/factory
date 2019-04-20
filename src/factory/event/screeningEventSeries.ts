@@ -8,6 +8,7 @@ import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import OrganizationType from '../organizationType';
 import PlaceType from '../placeType';
+import { IProject } from '../project';
 import SoundFormatType from '../soundFormatType';
 import VideoFormatType from '../videoFormatType';
 
@@ -93,6 +94,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      * 上映場所
      */
     location: {
+        project: IProject;
         /**
          * スキーマタイプ
          */

@@ -1,6 +1,7 @@
 import IMultilingualString from '../multilingualString';
 import { IOffer as IBaseOffer } from '../offer';
 import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
+import { IProject } from '../project';
 import { IPropertyValue } from '../propertyValue';
 import SortType from '../sortType';
 
@@ -19,6 +20,7 @@ export interface IItemOffered {
  * プロダクトオファーインターフェース
  */
 export interface IOffer extends IBaseOffer {
+    project: IProject;
     identifier: string;
     /**
      * 単価仕様
@@ -56,6 +58,7 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    project?: { ids?: string[] };
     id?: string;
     ids?: string[];
     identifier?: string;

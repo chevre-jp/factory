@@ -1,6 +1,7 @@
 import * as COA from '@motionpicture/coa-service';
 
 import CreativeWorkType from './creativeWorkType';
+import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 
 export interface ICopyrightHolder {
@@ -14,6 +15,7 @@ export type IContentRating = COA.services.master.IKubunNameResult | string | nul
  * @see https://schema.org/CreativeWork
  */
 export interface ICreativeWork {
+    project: IProject;
     identifier: string;
     name: string;
     alternateName?: string | null;

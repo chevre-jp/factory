@@ -2,6 +2,7 @@ import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
+import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IServiceType } from './serviceType';
 import SortType from './sortType';
@@ -27,6 +28,7 @@ export interface ITicketTypeCategory {
  * @see https://schema.org/Product
  */
 export interface ITicketTypeAttributes extends IOffer {
+    project: IProject;
     identifier: string;
     name: IMultilingualString;
     alternateName?: IMultilingualString;
@@ -84,6 +86,7 @@ export interface ITicketTypeSearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    project?: { ids?: string[] };
     id?: string;
     ids?: string[];
     identifier?: string;
@@ -103,6 +106,7 @@ export interface IService {
 }
 
 export interface ITicketTypeGroupAttributes {
+    project: IProject;
     identifier: string;
     name: IMultilingualString;
     alternateName?: IMultilingualString;
@@ -125,6 +129,7 @@ export type ITicketTypeGroup = ITicketTypeGroupAttributes & {
 export interface ITicketTypeGroupSearchConditions {
     limit?: number;
     page?: number;
+    project?: { ids?: string[] };
     id?: string;
     identifier?: string;
     name?: string;

@@ -1,3 +1,4 @@
+import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
@@ -13,6 +14,7 @@ export interface IDefinedTerm {
  * @see https://pending.schema.org/CategoryCode
  */
 export interface IAccountTitle {
+    project: IProject;
     typeOf: 'AccountTitle';
     /**
      * A short textual code that uniquely identifies the value.
@@ -60,6 +62,7 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    project?: { ids?: string[] };
     codeValue?: string;
     name?: string;
     inCodeSet?: {

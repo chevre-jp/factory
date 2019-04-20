@@ -2,6 +2,7 @@ import { IAccountTitle } from './accountTitle';
 import IMultilingualString from './multilingualString';
 import PriceCurrency from './priceCurrency';
 import PriceSpecificationType from './priceSpecificationType';
+import { IProject } from './project';
 import { IQuantitativeValue } from './quantitativeValue';
 import SortType from './sortType';
 import SoundFormatType from './soundFormatType';
@@ -31,6 +32,7 @@ export interface IAccounting {
  * 価格仕様インターフェース
  */
 export interface IPriceSpecification<T extends PriceSpecificationType> {
+    project: IProject;
     id?: string;
     typeOf: T;
     name?: string | IMultilingualString;
@@ -70,6 +72,7 @@ export interface ISearchConditions<T extends PriceSpecificationType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    project?: { ids?: string[] };
     ids?: string[];
     typeOf?: T;
     validFrom?: Date;

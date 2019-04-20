@@ -1,7 +1,10 @@
+import { IProject } from './project';
+
 /**
  * 配給インターフェース
  */
 export interface IDistributor {
+    project: IProject;
     id: string;
     name: string;
 }
@@ -12,6 +15,7 @@ export interface IDistributor {
 export interface ISearchConditions {
     limit?: number;
     page?: number;
+    project?: { ids?: string[] };
     name?: string;
     id?: string;
 }

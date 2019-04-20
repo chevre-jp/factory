@@ -13,6 +13,7 @@ import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../p
 import { IPriceSpecification as ISoundFormatChargeSpecification } from '../priceSpecification/soundFormatChargeSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
 import { IPriceSpecification as IVideoFormatChargeSpecification } from '../priceSpecification/videoFormatChargeSpecification';
+import { IProject } from '../project';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
 import ReservationType from '../reservationType';
@@ -197,6 +198,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      * 上映場所
      */
     location: {
+        project: IProject;
         /**
          * 場所タイプ
          */
