@@ -16,6 +16,7 @@ export type IContentRating = COA.services.master.IKubunNameResult | string | nul
  */
 export interface ICreativeWork {
     project: IProject;
+    id: string;
     identifier: string;
     name: string;
     alternateName?: string | null;
