@@ -121,14 +121,21 @@ export type IPlace = IPlaceWithoutScreeningRoom & {
  * ソート条件インターフェース
  */
 export interface ISortOrder {
-    branchCode?: SortType;
+    createdAt?: SortType;
 }
 
 export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    /**
+     * プロジェクト
+     */
     project?: { ids?: string[] };
+    /**
+     * ブランチコード
+     */
+    branchCodes?: string[];
     /**
      * 名称
      */
