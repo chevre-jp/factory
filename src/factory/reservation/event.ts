@@ -34,9 +34,21 @@ export interface IReservationForSearchConditions {
     typeOf?: EventType;
     id?: string;
     ids?: string[];
+    location?: {
+        ids?: string[];
+        branchCodes?: string[];
+    };
     superEvent?: {
         id?: string;
         ids?: string[];
+        workPerformed?: {
+            ids?: string[];
+            identifiers?: string[];
+        };
+        location?: {
+            ids?: string[];
+            branchCodes?: string[];
+        };
     };
     startFrom?: Date;
     startThrough?: Date;
