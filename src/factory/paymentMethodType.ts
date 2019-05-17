@@ -1,7 +1,7 @@
 /**
  * 決済方法タイプ
  */
-enum PaymentMethodType {
+export enum PaymentMethodType {
     /**
      * 現金
      */
@@ -21,6 +21,9 @@ enum PaymentMethodType {
     /**
      * ムビチケ
      */
-    MovieTicket = 'MovieTicket'
+    MovieTicket = 'MovieTicket',
+    /**
+     * その他
+     */
+    Others = 'Others'
 }
-export default PaymentMethodType;

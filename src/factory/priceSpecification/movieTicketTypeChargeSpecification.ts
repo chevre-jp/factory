@@ -1,4 +1,4 @@
-import PaymentMethodType from '../paymentMethodType';
+import { PaymentMethodType } from '../paymentMethodType';
 import { IPriceSpecification as BaseSpecification } from '../priceSpecification';
 import PriceSpecificationType from '../priceSpecificationType';
 import VideoFormatType from '../videoFormatType';

@@ -1,7 +1,7 @@
 import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
 import OfferType from './offerType';
-import PaymentMethodType from './paymentMethodType';
+import { PaymentMethodType } from './paymentMethodType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';

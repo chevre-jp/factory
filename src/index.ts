@@ -25,7 +25,7 @@ import * as OfferFactory from './factory/offer';
 import * as ProductOfferFactory from './factory/offer/product';
 import OfferType from './factory/offerType';
 import OrganizationType from './factory/organizationType';
-import PaymentMethodType from './factory/paymentMethodType';
+import { PaymentMethodType } from './factory/paymentMethodType';
 import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
 import PlaceType from './factory/placeType';
 import PriceCurrency from './factory/priceCurrency';
