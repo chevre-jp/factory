@@ -28,6 +28,7 @@ export interface IUnderName {
     description?: string;
     additionalName?: string;
     identifier?: IPropertyValue<string>[];
+    id?: string;
     email?: string;
     familyName?: string;
     gender?: string;
@@ -244,6 +245,47 @@ export interface IReservation<T extends IPriceSpecification> {
 }
 
 /**
+ * チケットホルダー検索条件インターフェース
+ */
+export interface IUnderNameSearchConditions {
+    id?: string;
+    name?: string;
+    email?: string;
+    telephone?: string;
+    givenName?: string;
+    familyName?: string;
+    identifier?: {
+        $all?: IPropertyValue<string>[];
+        $in?: IPropertyValue<string>[];
+        $nin?: IPropertyValue<string>[];
+    };
+    identifiers?: IPropertyValue<string>[];
+}
+
+/**
+ * 予約チケット検索条件インターフェース
+ */
+export interface IReservedTicketSearchConditions {
+    /**
+     * 座席
+     */
+    ticketedSeat?: {
+        seatNumbers?: string[];
+        seatRows?: string[];
+        seatSections?: string[];
+    };
+    /**
+     * 券種
+     */
+    ticketType?: {
+        ids?: string[];
+        category?: {
+            ids?: string[];
+        };
+    };
+}
+
+/**
  * ソート条件インターフェース
  */
 export interface ISortOrder {
@@ -268,6 +310,14 @@ export interface ISearchConditions<T extends ReservationType> {
      */
     reservationNumbers?: string[];
     /**
+     * 予約番号(正規表現)
+     */
+    reservationNumber?: string;
+    /**
+     * 追加チケットテキスト(正規表現)
+     */
+    additionalTicketText?: string;
+    /**
      * 予約ステータスリスト
      */
     reservationStatuses?: ReservationStatusType[];
@@ -278,34 +328,11 @@ export interface ISearchConditions<T extends ReservationType> {
     /**
      * 予約チケット
      */
-    reservedTicket?: {
-        /**
-         * 座席
-         */
-        ticketedSeat?: {
-            seatNumbers?: string[];
-            seatRows?: string[];
-            seatSections?: string[];
-        };
-        /**
-         * 券種
-         */
-        ticketType?: {
-            ids?: string[];
-            category?: {
-                ids?: string[];
-            };
-        };
-    };
+    reservedTicket?: IReservedTicketSearchConditions;
     /**
      * チケットホルダー
      */
-    underName?: {
-        id?: string;
-        name?: string;
-        email?: string;
-        telephone?: string;
-    };
+    underName?: IUnderNameSearchConditions;
     /**
      * チェックイン(発券)済かどうか
      */
@@ -314,4 +341,9 @@ export interface ISearchConditions<T extends ReservationType> {
      * 出席(入場)済かどうか
      */
     attended?: Boolean;
+    additionalProperty?: {
+        $all?: IPropertyValue<string>[];
+        $in?: IPropertyValue<string>[];
+        $nin?: IPropertyValue<string>[];
+    };
 }

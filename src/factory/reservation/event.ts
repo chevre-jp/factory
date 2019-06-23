@@ -52,6 +52,8 @@ export interface IReservationForSearchConditions {
     };
     startFrom?: Date;
     startThrough?: Date;
+    endFrom?: Date;
+    endThrough?: Date;
 }
 
 /**
