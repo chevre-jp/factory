@@ -299,6 +299,9 @@ export namespace transaction {
 }
 
 export import ticketType = TicketTypeFactory;
+/**
+ * @deprecated
+ */
 export import ticketTypeCategory = TicketTypeCategory;
 
 export import transactionStatusType = TransactionStatusType;
