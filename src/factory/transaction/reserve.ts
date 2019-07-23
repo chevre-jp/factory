@@ -97,5 +97,22 @@ export interface IAttributes
     extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
 }
 
+export interface IObjectSearchConditions {
+    reservations?: {
+        id?: {
+            $in?: string[];
+        };
+        reservationNumber?: {
+            $in?: string[];
+        };
+        reservationFor?: {
+            id?: {
+                $in?: string[];
+            };
+        };
+    };
+}
+
 export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.Reserve> {
+    object?: IObjectSearchConditions;
 }
