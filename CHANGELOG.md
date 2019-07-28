@@ -17,3 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v1.0.0 - 2019-07-28
+
+### Added
+
+- Release
+
+Initial release
+
