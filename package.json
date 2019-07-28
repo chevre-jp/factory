@@ -1,0 +1,70 @@
+{
+  "name": "@chevre/factory",
+  "version": "1.0.0",
+  "description": "Chevre Factory Library for Javascript",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "doc/",
+    "example/",
+    "lib/"
+  ],
+  "directories": {
+    "doc": "./doc",
+    "lib": "./lib",
+    "example": "./example",
+    "test": "./test"
+  },
+  "scripts": {
+    "build": "tsc",
+    "check": "npm run tslint",
+    "clean": "rimraf ./lib \"npm-debug.log*\" ./doc ./coverage ./.nyc_output",
+    "doc": "echo \"implementing...\" && exit 0",
+    "mocha": "mocha",
+    "nyc": "nyc mocha \"src/**/*.spec.ts\"",
+    "coverage": "npm run nyc && nyc report --reporter=text-lcov | coveralls",
+    "snyk": "snyk wizard",
+    "test": "npm run check && npm run coverage",
+    "tslint": "tslint --project tsconfig.json -c tslint.json --exclude \"**/*.spec.ts\" \"src/**/*.ts\"",
+    "preversion": "npm run clean && npm run build && npm test && npm run doc",
+    "version": "git add -A",
+    "postversion": "git push origin --tags",
+    "prepublishOnly": "npm run clean && npm run build && npm test && npm run doc"
+  },
+  "author": {
+    "name": "Motionpicture co.,ltd."
+  },
+  "contributors": [
+    {
+      "name": "Tetsu Yamazaki",
+      "email": "yamazaki@motionpicture.jp"
+    }
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^8.10.51",
+    "@types/power-assert": "^1.5.0",
+    "@types/sinon": "^4.3.3",
+    "coveralls": "^3.0.5",
+    "http-signature": "^1.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
+    "power-assert": "^1.6.1",
+    "rimraf": "^2.6.3",
+    "sinon": "^5.1.0",
+    "snyk": "^1.199.2",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.18.0",
+    "tslint-microsoft-contrib": "^5.2.1",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "@motionpicture/coa-service": "7.0.0-alpha.0",
+    "setprototypeof": "^1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chevre-jp/factory.git"
+  }
+}
