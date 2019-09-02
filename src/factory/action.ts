@@ -5,20 +5,21 @@ import { IProject } from './project';
 
 /**
  * アクションへの関係者インターフェース
- * 関係者を表現する最低限のインターフェース
- * 継承先にて、インターフェースが強化される可能性あり
  */
 export interface IParticipant {
     typeOf: string;
     id?: string;
     name?: string;
+    url?: string;
 }
+
 /**
  * アクション目的インターフェース
  */
 export interface IPurpose {
     typeOf: string;
 }
+
 /**
  * アクション属性
  */
@@ -61,6 +62,7 @@ export interface IAttributes<T extends ActionType, TObject, TResult> {
      */
     potentialActions?: any;
 }
+
 /**
  * アクション動的属性インターフェース
  * リポジトリーに保管時にセット、あるいは変更される
@@ -79,6 +81,7 @@ export interface IDynamicAttributes {
      */
     endDate?: Date;
 }
+
 /**
  * 抽象アクションインターフェース
  */

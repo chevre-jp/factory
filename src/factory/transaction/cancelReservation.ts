@@ -56,6 +56,40 @@ export interface IObject {
     reservations?: IEventReservation[];
 }
 
+/**
+ * 予約通知パラメータ
+ */
+export interface IInformReservationParams {
+    /**
+     * 通知先
+     */
+    recipient?: {
+        /**
+         * 通知URL
+         */
+        url?: string;
+    };
+}
+
+export interface IPotentialActionsParams {
+    cancelReservation?: {
+        potentialActions?: {
+            informReservation?: IInformReservationParams[];
+        };
+    };
+}
+
+/**
+ * 取引確定パラメーターインターフェース
+ */
+export interface IConfirmParams {
+    id: string;
+    /**
+     * 取引確定後アクション
+     */
+    potentialActions?: IPotentialActionsParams;
+}
+
 export interface IPotentialActions {
     cancelReservation: ICancelReservationActionAttributes[];
 }
