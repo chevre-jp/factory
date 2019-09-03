@@ -49,6 +49,29 @@ export interface IConfirmingReservation {
 }
 
 /**
+ * 予約通知パラメータ
+ */
+export interface IInformReservationParams {
+    /**
+     * 通知先
+     */
+    recipient?: {
+        /**
+         * 通知URL
+         */
+        url?: string;
+    };
+}
+
+export interface IPotentialActionsParams {
+    reserve?: {
+        potentialActions?: {
+            informReservation?: IInformReservationParams[];
+        };
+    };
+}
+
+/**
  * 予約確定パラメーターインターフェース
  */
 export interface IConfirmParams {
@@ -59,6 +82,10 @@ export interface IConfirmParams {
          */
         reservations: IConfirmingReservation[];
     };
+    /**
+     * 予約確定後アクション
+     */
+    potentialActions?: IPotentialActionsParams;
 }
 
 // tslint:disable-next-line:no-empty-interface

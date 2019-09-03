@@ -4,6 +4,7 @@
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as CancelReservationActionFactory from './factory/action/cancel/reservation';
+import * as InformActionFactory from './factory/action/interact/inform';
 import * as ReserveActionFactory from './factory/action/reserve';
 import ActionStatusType from './factory/actionStatusType';
 import ActionType from './factory/actionType';
@@ -59,9 +60,12 @@ import * as CancelReservationTaskFactory from './factory/task/cancelReservation'
 import * as ImportEventsFromCOATaskFactory from './factory/task/importEventsFromCOA';
 import * as ImportOffersFromCOATaskFactory from './factory/task/importOffersFromCOA';
 import * as ReserveTaskFactory from './factory/task/reserve';
+import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
+
 import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
 import TaskName from './factory/taskName';
 import TaskStatus from './factory/taskStatus';
+
 import * as CancelReservationTransactionFactory from './factory/transaction/cancelReservation';
 import * as ReserveTransactionFactory from './factory/transaction/reserve';
 import TransactionStatusType from './factory/transactionStatusType';
@@ -101,8 +105,11 @@ export namespace action {
         // tslint:disable-next-line:no-shadowed-variable
         export import reservation = CancelReservationActionFactory;
     }
+
     export namespace interact {
+        export import inform = InformActionFactory;
     }
+
     export namespace trade {
     }
     export namespace transfer {
@@ -260,7 +267,9 @@ export namespace task {
     export import importEventsFromCOA = ImportEventsFromCOATaskFactory;
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
     export import reserve = ReserveTaskFactory;
+    export import triggerWebhook = TriggerWebhookTaskFactory;
 }
+
 export import serviceType = ServiceTypeFactory;
 export import sortType = SortType;
 export import soundFormatType = SoundFormatType;

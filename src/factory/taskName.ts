@@ -7,6 +7,10 @@ enum TaskName {
     CancelPendingReservation = 'cancelPendingReservation',
     AggregateScreeningEvent = 'aggregateScreeningEvent',
     ImportEventsFromCOA = 'importEventsFromCOA',
-    ImportOffersFromCOA = 'importOffersFromCOA'
+    ImportOffersFromCOA = 'importOffersFromCOA',
+    /**
+     * ウェブフックをたたく
+     */
+    TriggerWebhook = 'triggerWebhook'
 }
 export default TaskName;
