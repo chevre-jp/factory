@@ -107,8 +107,12 @@ export interface IObjectWithoutDetail {
  */
 export interface IObject {
     clientUser?: IClientUser;
-    event: IScreeningEvent;
-    reservations: EventReservationFactory.IReservation[];
+    event?: IScreeningEvent;
+    /**
+     * 予約番号
+     */
+    reservationNumber?: string;
+    reservations?: EventReservationFactory.IReservation[];
 }
 
 export interface IPotentialActions {
