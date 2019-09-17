@@ -14,6 +14,7 @@ export type IStartParamsWithoutDetail = TransactionFactory.IStartParams<Transact
  * 取引開始パラメーターインターフェース
  */
 export type IStartParams = TransactionFactory.IStartParams<TransactionType.Reserve, IAgent, undefined, IObject>;
+
 export interface IAgent {
     typeOf: string;
     id?: string;
@@ -96,10 +97,11 @@ export interface IResult {
  * エラーインターフェース
  */
 export type IError = any;
+
 export interface IObjectWithoutDetail {
+    acceptedOffer?: IAcceptedTicketOfferWithoutDetail[];
     clientUser?: IClientUser;
-    event: { id: string };
-    acceptedOffer: IAcceptedTicketOfferWithoutDetail[];
+    event?: { id: string };
 }
 
 /**
