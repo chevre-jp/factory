@@ -28,6 +28,9 @@ export interface IReservation extends ReservationFactory.IReservation<IPriceSpec
      * The thing -- restaurant, movie, event, flight, etc. -- the reservation is for.
      */
     reservationFor: IReservationFor;
+    reservationNumber: string;
+    reservedTicket: ReservationFactory.ITicket<IPriceSpecification>;
+    typeOf: ReservationType.EventReservation;
 }
 
 export interface IReservationForSearchConditions {
