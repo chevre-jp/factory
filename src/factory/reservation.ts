@@ -159,7 +159,7 @@ export interface IReservation<T extends IPriceSpecification> {
     /**
      * 予約ID
      */
-    id: string;
+    id?: string;
     /**
      * Any additional text to appear on a ticket, such as additional privileges or identifiers.
      */
