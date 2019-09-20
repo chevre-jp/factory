@@ -44,6 +44,7 @@ import * as SeatingTypeFactory from './factory/qualitativeValue/seatingType';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
 import * as ReservationFactory from './factory/reservation';
 import * as EventReservationFactory from './factory/reservation/event';
+import * as ReservationPackageFactory from './factory/reservation/reservationPackage';
 import ReservationStatusType from './factory/reservationStatusType';
 import ReservationType from './factory/reservationType';
 import * as ServiceTypeFactory from './factory/serviceType';
@@ -206,49 +207,44 @@ export import quantitativeValue = QuantitativeValueFactory;
 
 export namespace reservation {
     export type IPriceSpecification<T extends ReservationType> =
-        T extends ReservationType.EventReservation
-        ? EventReservationFactory.IPriceSpecification
-        : ReservationFactory.IPriceSpecification;
+        T extends ReservationType.EventReservation ? EventReservationFactory.IPriceSpecification :
+        T extends ReservationType.ReservationPackage ? ReservationPackageFactory.IPriceSpecification :
+        ReservationFactory.IPriceSpecification;
 
     export type IReservationFor<T extends ReservationType> =
-        T extends ReservationType.EventReservation
-        ? EventReservationFactory.IReservationFor
-        : ReservationFactory.IReservationFor;
+        T extends ReservationType.EventReservation ? EventReservationFactory.IReservationFor :
+        T extends ReservationType.ReservationPackage ? ReservationFactory.IReservationFor :
+        ReservationFactory.IReservationFor;
 
     export type IReservation<T extends ReservationType> =
-        T extends ReservationType.EventReservation
-        ? EventReservationFactory.IReservation
-        : ReservationFactory.IReservation<IPriceSpecification<T>>;
+        T extends ReservationType.EventReservation ? EventReservationFactory.IReservation :
+        T extends ReservationType.ReservationPackage ? ReservationPackageFactory.IReservation :
+        ReservationFactory.IReservation<ReservationFactory.IPriceSpecification>;
 
     export type ISearchConditions<T extends ReservationType> =
-        T extends ReservationType.EventReservation
-        ? EventReservationFactory.ISearchConditions
-        : ReservationFactory.ISearchConditions<T>;
+        T extends ReservationType.EventReservation ? EventReservationFactory.ISearchConditions :
+        T extends ReservationType.ReservationPackage ? ReservationPackageFactory.ISearchConditions :
+        ReservationPackageFactory.ISearchConditions;
 
     export type ISortOrder<T extends ReservationType> =
-        T extends ReservationType.EventReservation
-        ? ReservationFactory.ISortOrder
-        : ReservationFactory.ISortOrder;
+        T extends ReservationType.EventReservation ? ReservationFactory.ISortOrder :
+        ReservationFactory.ISortOrder;
 
     export type ISeat<T extends ReservationType> =
-        T extends ReservationType.EventReservation
-        ? ReservationFactory.ISeat
-        : ReservationFactory.ISeat;
+        T extends ReservationType.EventReservation ? ReservationFactory.ISeat :
+        ReservationFactory.ISeat;
 
     export type ITicket<T extends ReservationType> =
-        T extends ReservationType.EventReservation
-        ? ReservationFactory.ITicket<IPriceSpecification<T>>
-        : ReservationFactory.ITicket<IPriceSpecification<T>>;
+        T extends ReservationType.EventReservation ? ReservationFactory.ITicket<IPriceSpecification<T>> :
+        ReservationFactory.ITicket<IPriceSpecification<T>>;
 
     export type IUnderName<T extends ReservationType> =
-        T extends ReservationType.EventReservation
-        ? ReservationFactory.IUnderName
-        : ReservationFactory.IUnderName;
+        T extends ReservationType.EventReservation ? ReservationFactory.IUnderName :
+        ReservationFactory.IUnderName;
 
     export type TicketType<T extends ReservationType> =
-        T extends ReservationType.EventReservation
-        ? ReservationFactory.TicketType
-        : ReservationFactory.TicketType;
+        T extends ReservationType.EventReservation ? ReservationFactory.TicketType :
+        ReservationFactory.TicketType;
 }
 
 export import reservationStatusType = ReservationStatusType;

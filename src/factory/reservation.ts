@@ -159,7 +159,7 @@ export interface IReservation<T extends IPriceSpecification> {
     /**
      * 予約ID
      */
-    id: string;
+    id?: string;
     /**
      * Any additional text to appear on a ticket, such as additional privileges or identifiers.
      */
@@ -195,7 +195,7 @@ export interface IReservation<T extends IPriceSpecification> {
     /**
      * Number of seats if unreserved seating.
      */
-    numSeats: number;
+    numSeats?: number;
     /**
      * Total price of the Reservation.
      */
@@ -211,11 +211,11 @@ export interface IReservation<T extends IPriceSpecification> {
     /**
      * The thing -- restaurant, movie, event, flight, etc. -- the reservation is for.
      */
-    reservationFor: IReservationFor;
+    reservationFor?: IReservationFor;
     /**
-     * 予約番号
+     * The number or id of the reservation.
      */
-    reservationNumber: string;
+    reservationNumber?: string;
     /**
      * Current status of the reservation.
      */
@@ -223,7 +223,7 @@ export interface IReservation<T extends IPriceSpecification> {
     /**
      * A ticket associated with the reservation.
      */
-    reservedTicket: ITicket<T>;
+    reservedTicket?: ITicket<T>;
     /**
      * The person or organization the reservation is for.
      */

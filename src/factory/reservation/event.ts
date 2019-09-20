@@ -1,4 +1,3 @@
-// import * as EventFactory from '../event';
 import { IEvent as IScreeningEvent } from '../event/screeningEvent';
 import EventType from '../eventType';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
@@ -9,7 +8,6 @@ import { IPriceSpecification as IVideoFormatChargeSpecification } from '../price
 import * as ReservationFactory from '../reservation';
 import ReservationType from '../reservationType';
 
-// export type IReservationFor = EventFactory.IEvent<EventFactory.IAttributes<EventType>>;
 export type IReservationFor = IScreeningEvent;
 
 export type IPriceComponentSpecification = IMovieTicketTypeChargeSpecification
@@ -24,10 +22,11 @@ export type IPriceSpecification = ICompoundPriceSpecification<IPriceComponentSpe
  * どんなタイプのイベントに対する予約か
  */
 export interface IReservation extends ReservationFactory.IReservation<IPriceSpecification> {
-    /**
-     * The thing -- restaurant, movie, event, flight, etc. -- the reservation is for.
-     */
+    id: string;
     reservationFor: IReservationFor;
+    reservationNumber: string;
+    reservedTicket: ReservationFactory.ITicket<IPriceSpecification>;
+    typeOf: ReservationType.EventReservation;
 }
 
 export interface IReservationForSearchConditions {

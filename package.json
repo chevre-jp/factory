@@ -1,6 +1,6 @@
 {
   "name": "@chevre/factory",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Chevre Factory Library for Javascript",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -23,7 +23,6 @@
     "mocha": "mocha",
     "nyc": "nyc mocha \"src/**/*.spec.ts\"",
     "coverage": "npm run nyc && nyc report --reporter=text-lcov | coveralls",
-    "snyk": "snyk wizard",
     "test": "npm run check && npm run coverage",
     "tslint": "tslint --project tsconfig.json -c tslint.json --exclude \"**/*.spec.ts\" \"src/**/*.ts\"",
     "preversion": "npm run clean && npm run build && npm test && npm run doc",
@@ -53,14 +52,13 @@
     "power-assert": "^1.6.1",
     "rimraf": "^2.6.3",
     "sinon": "^5.1.0",
-    "snyk": "^1.199.2",
     "ts-node": "^7.0.1",
     "tslint": "^5.18.0",
     "tslint-microsoft-contrib": "^5.2.1",
-    "typescript": "^3.5.3"
+    "typescript": "^3.6.3"
   },
   "dependencies": {
-    "@motionpicture/coa-service": "7.0.0-alpha.0",
+    "@motionpicture/coa-service": "^7.0.0",
     "setprototypeof": "^1.2.0"
   },
   "repository": {

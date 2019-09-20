@@ -18,6 +18,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v2.0.0 - 2019-09-20
+
+### Added
+
+- 予約パッケージインターフェースを追加
+
+### Changed
+
+- 予約取引の予約番号発行プロセスと仮予約プロセスを分離
+- 予約インターフェースの汎用性拡張
+
 ## v1.1.0 - 2019-09-03
 
 ### Added

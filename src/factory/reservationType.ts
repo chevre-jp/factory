@@ -2,6 +2,8 @@
  * 予約タイプ
  */
 enum ReservationType {
-    EventReservation = 'EventReservation'
+    EventReservation = 'EventReservation',
+    ReservationPackage = 'ReservationPackage'
 }
+
 export default ReservationType;
