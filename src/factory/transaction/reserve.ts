@@ -99,11 +99,19 @@ export interface IResult {
  */
 export type IError = any;
 
+/**
+ * 予約ステータス変更時イベントインターフェース
+ */
+export interface IOnReservationStatusChanged {
+    informReservation?: IInformReservationParams[];
+}
+
 export interface IObjectWithoutDetail {
     acceptedOffer?: IAcceptedTicketOfferWithoutDetail[];
     clientUser?: IClientUser;
     event?: { id: string };
     reservationFor?: { id: string };
+    onReservationStatusChanged?: IOnReservationStatusChanged;
 }
 
 export type IReservationFor = IScreeningEvent;
@@ -118,6 +126,7 @@ export interface IObject extends IReservationPackage {
     reservationFor?: IReservationFor;
     reservations?: ISubReservation[];
     subReservation?: ISubReservation[];
+    onReservationStatusChanged?: IOnReservationStatusChanged;
 }
 
 export interface IPotentialActions {
