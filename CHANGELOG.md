@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- プロジェクト設定インターフェースを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v2.2.0 - 2019-10-27
+
+### Added
+
+- プロジェクト設定インターフェースを追加
 
 ## v2.1.0 - 2019-10-24
 
