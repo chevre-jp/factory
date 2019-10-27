@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v2.2.0 - 2019-10-27
+
+### Added
+
+- プロジェクト設定インターフェースを追加
+
 ## v2.1.0 - 2019-10-24
 
 ### Added
