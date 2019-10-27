@@ -1,4 +1,41 @@
 /**
+ * 通知パラメータ
+ */
+export interface IInformParams {
+    /**
+     * 通知先
+     */
+    recipient?: {
+        /**
+         * 通知URL
+         */
+        url?: string;
+    };
+}
+
+/**
+ * イベント変更時イベントインターフェース
+ */
+export interface IOnEventChanged {
+    informEvent?: IInformParams[];
+}
+
+/**
+ * 予約ステータス変更時イベントインターフェース
+ */
+export interface IOnReservationStatusChanged {
+    informReservation?: IInformParams[];
+}
+
+/**
+ * プロジェクト設定インターフェース
+ */
+export interface ISettings {
+    onEventChanged?: IOnEventChanged;
+    onReservationStatusChanged?: IOnReservationStatusChanged;
+}
+
+/**
  * プロジェクトインターフェース
  */
 export interface IProject {
@@ -7,7 +44,9 @@ export interface IProject {
     alternateName?: string;
     description?: string;
     email?: string;
+    logo?: string;
     name?: string;
     telephone?: string;
     url?: string;
+    settings?: ISettings;
 }
