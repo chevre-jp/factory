@@ -30,6 +30,13 @@ export interface IResult {
  */
 export type IError = any;
 
+/**
+ * 予約ステータス変更時イベントインターフェース
+ */
+export interface IOnReservationStatusChanged {
+    informReservation?: IInformReservationParams[];
+}
+
 export interface IObjectWithoutDetail {
     clientUser?: IClientUser;
     /**
@@ -45,6 +52,7 @@ export interface IObjectWithoutDetail {
     reservation?: {
         id?: string;
     };
+    onReservationStatusChanged?: IOnReservationStatusChanged;
 }
 
 /**
@@ -54,6 +62,7 @@ export interface IObject {
     clientUser?: IClientUser;
     transaction?: IReserveTransaction;
     reservations?: IEventReservation[];
+    onReservationStatusChanged?: IOnReservationStatusChanged;
 }
 
 /**
