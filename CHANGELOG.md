@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 予約検索条件を拡張
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v2.4.0 - 2019-11-19
+
+### Added
+
+- 予約検索条件を拡張
 
 ## v2.3.0 - 2019-10-27
 
