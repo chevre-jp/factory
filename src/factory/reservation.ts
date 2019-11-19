@@ -25,14 +25,16 @@ export type ISeatingType = ISeatingType;
 export interface IUnderName {
     typeOf: string;
     name: string;
-    description?: string;
     additionalName?: string;
-    identifier?: IPropertyValue<string>[];
-    id?: string;
+    address?: string;
+    age?: string;
+    description?: string;
     email?: string;
     familyName?: string;
     gender?: string;
     givenName?: string;
+    id?: string;
+    identifier?: IPropertyValue<string>[];
     telephone?: string;
     url?: string;
 }
@@ -258,6 +260,7 @@ export interface IUnderNameSearchConditions {
         $all?: IPropertyValue<string>[];
         $in?: IPropertyValue<string>[];
         $nin?: IPropertyValue<string>[];
+        $elemMatch?: any;
     };
     identifiers?: IPropertyValue<string>[];
 }
@@ -285,6 +288,13 @@ export interface IReservedTicketSearchConditions {
     };
 }
 
+export interface IStringSearchConditions {
+    $eq?: string;
+    $ne?: string;
+    $in?: string[];
+    $nin?: string[];
+}
+
 /**
  * ソート条件インターフェース
  */
@@ -302,21 +312,25 @@ export interface ISearchConditions<T extends ReservationType> {
     sort?: ISortOrder;
     project?: { ids?: string[] };
     /**
-     * 予約IDリスト
+     * IDリスト
      */
     ids?: string[];
+    /**
+     * ID
+     */
+    id?: IStringSearchConditions;
     /**
      * 予約番号リスト
      */
     reservationNumbers?: string[];
     /**
-     * 予約番号(正規表現)
+     * 予約番号
      */
-    reservationNumber?: string;
+    reservationNumber?: string | IStringSearchConditions;
     /**
-     * 追加チケットテキスト(正規表現)
+     * 追加チケットテキスト
      */
-    additionalTicketText?: string;
+    additionalTicketText?: string | IStringSearchConditions;
     /**
      * 予約ステータスリスト
      */
@@ -345,5 +359,6 @@ export interface ISearchConditions<T extends ReservationType> {
         $all?: IPropertyValue<string>[];
         $in?: IPropertyValue<string>[];
         $nin?: IPropertyValue<string>[];
+        $elemMatch?: any;
     };
 }
