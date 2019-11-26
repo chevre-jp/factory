@@ -7,7 +7,7 @@ import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecif
 import PriceSpecificationType from './priceSpecificationType';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
-import { ISeatingType } from './qualitativeValue/seatingType';
+import { ISeatingType as ISeatingTypeQualitativeValue } from './qualitativeValue/seatingType';
 import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
 import SortType from './sortType';
@@ -17,7 +17,7 @@ export type TicketType = 'Ticket';
 
 export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;
 
-export type ISeatingType = ISeatingType;
+export type ISeatingType = ISeatingTypeQualitativeValue;
 
 /**
  * under name interface

@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v2.4.1 - 2019-11-26
+
+### Changed
+
+- update typescript
+
 ## v2.4.0 - 2019-11-19
 
 ### Added
