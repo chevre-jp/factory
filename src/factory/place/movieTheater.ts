@@ -1,7 +1,7 @@
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import * as PlaceFactory from '../place';
-import { ISeatingType } from '../qualitativeValue/seatingType';
+import { ISeatingType as ISeatingTypeQualitativeValue } from '../qualitativeValue/seatingType';
 import { IQuantitativeValue } from '../quantitativeValue';
 import SortType from '../sortType';
 import { UnitCode } from '../unitCode';
@@ -13,7 +13,7 @@ import { UnitCode } from '../unitCode';
 //     WheelChair = 'WheelChair'
 // }
 
-export type ISeatingType = ISeatingType;
+export type ISeatingType = ISeatingTypeQualitativeValue;
 
 /**
  * 座席インターフェース
