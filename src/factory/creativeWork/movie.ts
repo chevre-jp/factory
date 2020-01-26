@@ -61,7 +61,9 @@ export interface ISearchConditions {
     page?: number;
     sort?: ISortOrder;
     project?: { ids?: string[] };
-    identifier?: string;
+    identifier?: string | {
+        $eq?: string;
+    };
     name?: string;
     datePublishedFrom?: Date;
     datePublishedThrough?: Date;

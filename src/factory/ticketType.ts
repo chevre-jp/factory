@@ -89,7 +89,9 @@ export interface ITicketTypeSearchConditions {
     project?: { ids?: string[] };
     id?: string;
     ids?: string[];
-    identifier?: string;
+    identifier?: string | {
+        $eq?: string;
+    };
     identifiers?: string[];
     name?: string;
     priceSpecification?: ITicketTypePriceSpecificationSearchConditions;
@@ -131,7 +133,9 @@ export interface ITicketTypeGroupSearchConditions {
     page?: number;
     project?: { ids?: string[] };
     id?: string;
-    identifier?: string;
+    identifier?: string | {
+        $eq?: string;
+    };
     name?: string;
     ticketTypes?: string[];
 }
