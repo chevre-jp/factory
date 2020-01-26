@@ -63,13 +63,19 @@ export interface ISearchConditions {
     page?: number;
     sort?: ISortOrder;
     project?: { ids?: string[] };
-    codeValue?: string;
+    codeValue?: string | {
+        $eq?: string;
+    };
     name?: string;
     inCodeSet?: {
-        codeValue?: string;
+        codeValue?: string | {
+            $eq?: string;
+        };
         name?: string;
         inCodeSet?: {
-            codeValue?: string;
+            codeValue?: string | {
+                $eq?: string;
+            };
             name?: string;
         };
     };
