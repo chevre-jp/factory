@@ -10,11 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 作品検索条件拡張
-- 券種検索条件拡張
-- 券種グループ検索条件拡張
-- 勘定科目検索条件拡張
-
 ### Deprecated
 
 ### Removed
@@ -22,6 +17,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v2.5.0 - 2020-01-26
+
+### Changed
+
+- 作品検索条件拡張
+- 券種検索条件拡張
+- 券種グループ検索条件拡張
+- 勘定科目検索条件拡張
 
 ## v2.4.1 - 2019-11-26
 
