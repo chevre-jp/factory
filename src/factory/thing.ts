@@ -1,3 +1,4 @@
+import IMultilingualString from './multilingualString';
 import { IPropertyValue } from './propertyValue';
 
 /**
@@ -28,7 +29,7 @@ export interface IThing {
     /**
      * The name of the item.
      */
-    name?: string;
+    name?: string | IMultilingualString;
     /**
      * URL of the item.
      */
