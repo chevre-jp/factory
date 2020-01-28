@@ -5,6 +5,10 @@ import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as CancelReservationActionFactory from './factory/action/cancel/reservation';
 import * as InformActionFactory from './factory/action/interact/inform';
+import * as RegisterActionFactory from './factory/action/interact/register';
+import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
+import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
+import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
 import * as ReserveActionFactory from './factory/action/reserve';
 import ActionStatusType from './factory/actionStatusType';
 import ActionType from './factory/actionType';
@@ -37,6 +41,7 @@ import * as SoundFormatChargeSpecificationFactory from './factory/priceSpecifica
 import * as UnitPriceSpecificationFactory from './factory/priceSpecification/unitPriceSpecification';
 import * as VideoFormatChargeSpecificationFactory from './factory/priceSpecification/videoFormatChargeSpecification';
 import PriceSpecificationType from './factory/priceSpecificationType';
+import * as ProgramMembershipFactory from './factory/programMembership';
 import * as project from './factory/project';
 import * as PropertyValueFactory from './factory/propertyValue';
 import * as QualitativeValueFactory from './factory/qualitativeValue';
@@ -68,6 +73,7 @@ import TaskName from './factory/taskName';
 import TaskStatus from './factory/taskStatus';
 
 import * as CancelReservationTransactionFactory from './factory/transaction/cancelReservation';
+import * as RegisterProgramMembershipTransactionFactory from './factory/transaction/registerProgramMembership';
 import * as ReserveTransactionFactory from './factory/transaction/reserve';
 import TransactionStatusType from './factory/transactionStatusType';
 import TransactionTasksExportationStatus from './factory/transactionTasksExportationStatus';
@@ -109,6 +115,22 @@ export namespace action {
 
     export namespace interact {
         export import inform = InformActionFactory;
+        export namespace register {
+            // tslint:disable-next-line:no-shadowed-variable
+            export import IAction = RegisterActionFactory.IAction;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import IAttributes = RegisterActionFactory.IAttributes;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import programMembership = RegisterProgramMembershipActionFactory;
+        }
+        export namespace unRegister {
+            // tslint:disable-next-line:no-shadowed-variable
+            export import IAction = UnRegisterActionFactory.IAction;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import IAttributes = UnRegisterActionFactory.IAttributes;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import programMembership = UnRegisterProgramMembershipActionFactory;
+        }
     }
 
     export namespace trade {
@@ -195,6 +217,7 @@ export namespace compoundPriceSpecification {
         CompoundPriceSpecificationFactory.ISearchConditions<T>;
 }
 export import priceSpecificationType = PriceSpecificationType;
+export import programMembership = ProgramMembershipFactory;
 export import project = project;
 export import propertyValue = PropertyValueFactory;
 
@@ -276,29 +299,36 @@ export import taskStatus = TaskStatus;
 export namespace transaction {
     export type IStartParams<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IStartParams :
+        T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IStartParams :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IStartParams :
         never;
     export type IAttributes<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IAttributes :
+        T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IAttributes :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IAttributes :
         never;
     export type ITransaction<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ITransaction :
+        T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.ITransaction :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ITransaction :
         never;
     export type IResult<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IResult :
+        T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IResult :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IResult :
         never;
     export type IPotentialActions<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IPotentialActions :
+        T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IPotentialActions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IPotentialActions :
         never;
     export type ISearchConditions<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ISearchConditions :
+        T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.ISearchConditions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ISearchConditions :
         never;
     export import cancelReservation = CancelReservationTransactionFactory;
+    export import registerProgramMembership = RegisterProgramMembershipTransactionFactory;
     export import reserve = ReserveTransactionFactory;
 }
 

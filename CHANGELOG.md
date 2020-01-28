@@ -8,6 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- メンバーシップインターフェースを追加
+- メンバーシップ登録アクションインターフェースを追加
+- メンバーシップ登録解除アクションインターフェースを追加
+- メンバーシップ登録取引インターフェースを追加
+
 ### Changed
 
 ### Deprecated
