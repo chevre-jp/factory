@@ -17,6 +17,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- サービスタイプをカテゴリーコードに統合
+
 ### Deprecated
 
 ### Removed
