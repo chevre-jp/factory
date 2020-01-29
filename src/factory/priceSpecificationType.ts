@@ -7,6 +7,10 @@ enum PriceSpecificationType {
      */
     PriceSpecification = 'PriceSpecification',
     /**
+     * カテゴリーコードチャージ仕様
+     */
+    CategoryCodeChargeSpecification = 'CategoryCodeChargeSpecification',
+    /**
      * 複合価格仕様
      */
     CompoundPriceSpecification = 'CompoundPriceSpecification',

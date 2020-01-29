@@ -8,6 +8,7 @@ import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import * as MovieTheaterFactory from '../place/movieTheater';
 import PlaceType from '../placeType';
+import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
 import { IPriceSpecification as ISoundFormatChargeSpecification } from '../priceSpecification/soundFormatChargeSpecification';
@@ -81,7 +82,8 @@ export interface IOffer extends OfferFactory.IOffer {
 /**
  * 上映イベントに対して有効なチケット価格仕様要素インターフェース
  */
-export type ITicketPriceComponent = IMovieTicketTypeChargeSpecification
+export type ITicketPriceComponent = ICategoryCodeChargeSpecification
+    | IMovieTicketTypeChargeSpecification
     | IVideoFormatChargeSpecification
     | IUnitPriceSpecification
     | ISoundFormatChargeSpecification;

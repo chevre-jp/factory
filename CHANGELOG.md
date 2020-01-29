@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - メンバーシップ登録解除アクションインターフェースを追加
 - メンバーシップ登録取引インターフェースを追加
 - カテゴリーコードインターフェースを追加
+- カテゴリーコードチャージ仕様インターフェースを追加
 
 ### Changed
 

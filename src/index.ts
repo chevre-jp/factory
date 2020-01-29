@@ -36,6 +36,7 @@ import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
 import PlaceType from './factory/placeType';
 import PriceCurrency from './factory/priceCurrency';
 import * as PriceSpecificationFactory from './factory/priceSpecification';
+import * as CategoryCodeChargeSpecificationFactory from './factory/priceSpecification/categoryCodeChargeSpecification';
 import * as CompoundPriceSpecificationFactory from './factory/priceSpecification/compoundPriceSpecification';
 import * as MovieTicketTypeChargeSpecificationFactory from './factory/priceSpecification/movieTicketTypeChargeSpecification';
 import * as SoundFormatChargeSpecificationFactory from './factory/priceSpecification/soundFormatChargeSpecification';
@@ -203,6 +204,7 @@ export namespace place {
 export import placeType = PlaceType;
 export namespace priceSpecification {
     export type IPriceSpecification<T extends PriceSpecificationType> =
+        T extends PriceSpecificationType.CategoryCodeChargeSpecification ? CategoryCodeChargeSpecificationFactory.IPriceSpecification :
         T extends PriceSpecificationType.MovieTicketTypeChargeSpecification ?
         MovieTicketTypeChargeSpecificationFactory.IPriceSpecification :
         T extends PriceSpecificationType.SoundFormatChargeSpecification ? SoundFormatChargeSpecificationFactory.IPriceSpecification :
