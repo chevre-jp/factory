@@ -33,6 +33,7 @@ import OfferType from './factory/offerType';
 import OrganizationType from './factory/organizationType';
 import { PaymentMethodType } from './factory/paymentMethodType';
 import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
+import * as SeatPlaceFactory from './factory/place/seat';
 import PlaceType from './factory/placeType';
 import PriceCurrency from './factory/priceCurrency';
 import * as PriceSpecificationFactory from './factory/priceSpecification';
@@ -47,7 +48,6 @@ import * as ProgramMembershipFactory from './factory/programMembership';
 import * as project from './factory/project';
 import * as PropertyValueFactory from './factory/propertyValue';
 import * as QualitativeValueFactory from './factory/qualitativeValue';
-import * as SeatingTypeFactory from './factory/qualitativeValue/seatingType';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
 import * as ReservationFactory from './factory/reservation';
 import * as EventReservationFactory from './factory/reservation/event';
@@ -200,6 +200,7 @@ export import paymentMethodType = PaymentMethodType;
 export import priceCurrency = PriceCurrency;
 export namespace place {
     export import movieTheater = MovieTheaterPlaceFactory;
+    export import seat = SeatPlaceFactory;
 }
 export import placeType = PlaceType;
 export namespace priceSpecification {
@@ -225,11 +226,7 @@ export import programMembership = ProgramMembershipFactory;
 export import project = project;
 export import propertyValue = PropertyValueFactory;
 
-export namespace qualitativeValue {
-    export import IQualitativeValue = QualitativeValueFactory.IQualitativeValue;
-    export import seatingType = SeatingTypeFactory;
-}
-
+export import qualitativeValue = QualitativeValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
 
 export namespace reservation {

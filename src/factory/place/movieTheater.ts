@@ -1,66 +1,11 @@
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import * as PlaceFactory from '../place';
-import { ISeatingType as ISeatingTypeQualitativeValue } from '../qualitativeValue/seatingType';
+import PlaceType from '../placeType';
 import { IQuantitativeValue } from '../quantitativeValue';
-import SortType from '../sortType';
+// import SortType from '../sortType';
 import { UnitCode } from '../unitCode';
-
-/**
- * 座席タイプ
- */
-// export enum SeatingType {
-//     WheelChair = 'WheelChair'
-// }
-
-export type ISeatingType = ISeatingTypeQualitativeValue;
-
-/**
- * 座席インターフェース
- */
-export interface ISeat extends PlaceFactory.IPlace {
-    /**
-     * 枝番号
-     * 座席コードに相当
-     */
-    branchCode: string;
-    /**
-     * 座席タイプ
-     */
-    seatingType?: ISeatingType;
-}
-
-/**
- * 上映セクションインターフェース
- */
-export interface IScreeningRoomSection extends PlaceFactory.IPlace {
-    /**
-     * 座席リスト
-     */
-    containsPlace: ISeat[];
-    /**
-     * 枝番号(セクションコードに相当)
-     */
-    branchCode: string;
-}
-
-/**
- * 上映室インターフェース
- */
-export interface IScreeningRoom extends PlaceFactory.IPlace {
-    /**
-     * 上映セクションリスト
-     */
-    containsPlace: IScreeningRoomSection[];
-    /**
-     * 枝番号
-     */
-    branchCode: string;
-    /**
-     * 上映室名称
-     */
-    name: IMultilingualString;
-}
+import { IPlace as ISeat, IPlaceWithOffer as ISeatWithOffer } from './seat';
 
 /**
  * 劇場に対するオファーインターフェース
@@ -77,9 +22,48 @@ export interface IOffer extends OfferFactory.IOffer {
 }
 
 /**
+ * 上映セクションインターフェース
+ */
+export interface IScreeningRoomSection extends PlaceFactory.IPlace {
+    typeOf: PlaceType.ScreeningRoomSection;
+    /**
+     * 座席リスト
+     */
+    containsPlace: ISeat[];
+    /**
+     * 枝番号
+     */
+    branchCode: string;
+}
+
+export interface IScreeningRoomSectionOffer extends IScreeningRoomSection {
+    containsPlace: ISeatWithOffer[];
+}
+
+/**
+ * 上映室インターフェース
+ */
+export interface IScreeningRoom extends PlaceFactory.IPlace {
+    typeOf: PlaceType.ScreeningRoom;
+    /**
+     * 上映セクションリスト
+     */
+    containsPlace: IScreeningRoomSection[];
+    /**
+     * 枝番号
+     */
+    branchCode: string;
+    /**
+     * 名称
+     */
+    name: IMultilingualString;
+}
+
+/**
  * place interface without screening room
  */
 export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
+    typeOf: PlaceType.MovieTheater;
     id: string;
     /**
      * スクリーン数
@@ -88,13 +72,13 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
     /**
      * 枝番号
      */
-    branchCode: string; // 劇場コード
+    branchCode: string;
     /**
-     * 劇場名称
+     * 名称
      */
     name: IMultilingualString;
     /**
-     * 劇場名称(カナ)
+     * 名称(カナ)
      */
     kanaName: string;
     /**
@@ -108,7 +92,7 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
 }
 
 /**
- * 劇場施設インターフェース
+ * 劇場インターフェース
  */
 export type IPlace = IPlaceWithoutScreeningRoom & {
     /**
@@ -120,9 +104,7 @@ export type IPlace = IPlaceWithoutScreeningRoom & {
 /**
  * ソート条件インターフェース
  */
-export interface ISortOrder {
-    createdAt?: SortType;
-}
+export type ISortOrder = any;
 
 export interface ISearchConditions {
     limit?: number;
@@ -133,7 +115,7 @@ export interface ISearchConditions {
      */
     project?: { ids?: string[] };
     /**
-     * ブランチコード
+     * 枝番号
      */
     branchCodes?: string[];
     /**

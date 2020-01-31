@@ -1,13 +1,13 @@
 import * as COA from '@motionpicture/coa-service';
 
 import { IOffer } from './offer';
+import * as SeatFactory from './place/seat';
 import PlaceType from './placeType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
-import { ISeatingType as ISeatingTypeQualitativeValue } from './qualitativeValue/seatingType';
 import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
 import SortType from './sortType';
@@ -17,7 +17,7 @@ export type TicketType = 'Ticket';
 
 export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;
 
-export type ISeatingType = ISeatingTypeQualitativeValue;
+export type ISeatingType = SeatFactory.ISeatingType;
 
 /**
  * under name interface

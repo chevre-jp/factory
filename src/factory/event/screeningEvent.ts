@@ -3,10 +3,8 @@ import * as COA from '@motionpicture/coa-service';
 import * as EventFactory from '../event';
 import * as ScreeningEventSeriesFactory from '../event/screeningEventSeries';
 import EventType from '../eventType';
-import ItemAvailability from '../itemAvailability';
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
-import * as MovieTheaterFactory from '../place/movieTheater';
 import PlaceType from '../placeType';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
@@ -124,21 +122,6 @@ export interface IAcceptedTicketOfferWithoutDetail {
  * 受け入れられたチケットオファー
  */
 export type IAcceptedTicketOffer = IAcceptedTicketOfferWithoutDetail & ITicketOffer;
-
-/**
- * 座席オファーインターフェース
- */
-export interface ISeatOffer extends OfferFactory.IOffer {
-    availability: ItemAvailability;
-}
-
-export interface ISeatWithOffer extends MovieTheaterFactory.ISeat {
-    offers?: ISeatOffer[];
-}
-
-export interface IScreeningRoomSectionOffer extends MovieTheaterFactory.IScreeningRoomSection {
-    containsPlace: ISeatWithOffer[];
-}
 
 export interface ICOAInfo {
     theaterCode: string;
