@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - サービスタイプをカテゴリーコードに統合
+- 配給区分をカテゴリーコードに統合
 - 座席に対するオファーインターフェースを拡張
 
 ### Deprecated

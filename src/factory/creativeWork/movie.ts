@@ -13,8 +13,9 @@ export interface IOffer extends OfferFactory.IOffer {
  * 配給者インターフェース
  */
 export interface IDistributor {
-    id: string;
-    name: string;
+    id?: string;
+    name?: string;
+    distributorType?: string;
 }
 
 /**

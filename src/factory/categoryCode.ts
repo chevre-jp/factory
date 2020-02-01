@@ -22,7 +22,11 @@ export enum CategorySetIdentifier {
     /**
      * 興行区分
      */
-    ServiceType = 'ServiceType'
+    ServiceType = 'ServiceType',
+    /**
+     * 配給区分
+     */
+    DistributorType = 'DistributorType'
 }
 
 /**
