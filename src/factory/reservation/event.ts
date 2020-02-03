@@ -3,9 +3,7 @@ import EventType from '../eventType';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
-import { IPriceSpecification as ISoundFormatChargeSpecification } from '../priceSpecification/soundFormatChargeSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
-import { IPriceSpecification as IVideoFormatChargeSpecification } from '../priceSpecification/videoFormatChargeSpecification';
 import * as ReservationFactory from '../reservation';
 import ReservationType from '../reservationType';
 
@@ -13,9 +11,7 @@ export type IReservationFor = IScreeningEvent;
 
 export type IPriceComponentSpecification = ICategoryCodeChargeSpecification
     | IMovieTicketTypeChargeSpecification
-    | IVideoFormatChargeSpecification
-    | IUnitPriceSpecification
-    | ISoundFormatChargeSpecification;
+    | IUnitPriceSpecification;
 
 export type IPriceSpecification = ICompoundPriceSpecification<IPriceComponentSpecification>;
 

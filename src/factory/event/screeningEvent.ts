@@ -9,9 +9,7 @@ import PlaceType from '../placeType';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
-import { IPriceSpecification as ISoundFormatChargeSpecification } from '../priceSpecification/soundFormatChargeSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
-import { IPriceSpecification as IVideoFormatChargeSpecification } from '../priceSpecification/videoFormatChargeSpecification';
 import { IProject } from '../project';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
@@ -82,9 +80,7 @@ export interface IOffer extends OfferFactory.IOffer {
  */
 export type ITicketPriceComponent = ICategoryCodeChargeSpecification
     | IMovieTicketTypeChargeSpecification
-    | IVideoFormatChargeSpecification
-    | IUnitPriceSpecification
-    | ISoundFormatChargeSpecification;
+    | IUnitPriceSpecification;
 
 /**
  * 上映イベントに対して有効なチケット価格仕様インターフェース

@@ -7,6 +7,7 @@ import { IPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
 import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
+import SortType from './sortType';
 import { UnitCode } from './unitCode';
 
 /**
@@ -98,4 +99,45 @@ export interface IOffer {
      * e.g. a product feature or another characteristic for which there is no matching property in schema.org.
      */
     additionalProperty?: IPropertyValue<string>[];
+}
+
+/**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    'priceSpecification.price'?: SortType;
+}
+
+/**
+ * 価格仕様検索条件インターフェース
+ */
+export interface IPriceSpecificationSearchConditions {
+    minPrice?: number;
+    maxPrice?: number;
+    referenceQuantity?: {
+        value?: number;
+    };
+    accounting?: {
+        minAccountsReceivable?: number;
+        maxAccountsReceivable?: number;
+    };
+}
+
+/**
+ * 検索条件インターフェース
+ */
+export interface ISearchConditions {
+    limit?: number;
+    page?: number;
+    sort?: ISortOrder;
+    project?: { id?: { $eq?: string } };
+    id?: { $eq?: string };
+    identifier?: { $eq?: string };
+    priceSpecification?: IPriceSpecificationSearchConditions;
+    // category?: {
+    //     ids?: string[];
+    // };
+    itemOffered?: {
+        typeOf?: { $eq?: string };
+    };
 }

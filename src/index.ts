@@ -40,9 +40,7 @@ import * as PriceSpecificationFactory from './factory/priceSpecification';
 import * as CategoryCodeChargeSpecificationFactory from './factory/priceSpecification/categoryCodeChargeSpecification';
 import * as CompoundPriceSpecificationFactory from './factory/priceSpecification/compoundPriceSpecification';
 import * as MovieTicketTypeChargeSpecificationFactory from './factory/priceSpecification/movieTicketTypeChargeSpecification';
-import * as SoundFormatChargeSpecificationFactory from './factory/priceSpecification/soundFormatChargeSpecification';
 import * as UnitPriceSpecificationFactory from './factory/priceSpecification/unitPriceSpecification';
-import * as VideoFormatChargeSpecificationFactory from './factory/priceSpecification/videoFormatChargeSpecification';
 import PriceSpecificationType from './factory/priceSpecificationType';
 import * as ProgramMembershipFactory from './factory/programMembership';
 import * as project from './factory/project';
@@ -192,6 +190,7 @@ export import language = LanguageFactory;
 export type multilingualString = IMultilingualString;
 export namespace offer {
     export import IOffer = OfferFactory.IOffer;
+    export import ISearchConditions = OfferFactory.ISearchConditions;
     export import product = ProductOfferFactory;
 }
 export type offerType = OfferType;
@@ -208,9 +207,7 @@ export namespace priceSpecification {
         T extends PriceSpecificationType.CategoryCodeChargeSpecification ? CategoryCodeChargeSpecificationFactory.IPriceSpecification :
         T extends PriceSpecificationType.MovieTicketTypeChargeSpecification ?
         MovieTicketTypeChargeSpecificationFactory.IPriceSpecification :
-        T extends PriceSpecificationType.SoundFormatChargeSpecification ? SoundFormatChargeSpecificationFactory.IPriceSpecification :
         T extends PriceSpecificationType.UnitPriceSpecification ? UnitPriceSpecificationFactory.IPriceSpecification :
-        T extends PriceSpecificationType.VideoFormatChargeSpecification ? VideoFormatChargeSpecificationFactory.IPriceSpecification :
         PriceSpecificationFactory.IPriceSpecification<PriceSpecificationType>;
     export type ISearchConditions<T extends PriceSpecificationType> =
         PriceSpecificationFactory.ISearchConditions<T>;
