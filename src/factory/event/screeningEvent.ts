@@ -97,6 +97,13 @@ export interface ITicketOffer extends IOffer {
     priceSpecification: ITicketPriceSpecification;
 }
 
+export interface IAcceptedAddOn {
+    /**
+     * アドオンID
+     */
+    id: string;
+}
+
 /**
  * 受け入れられたチケットオファー(詳細なし)
  */
@@ -107,11 +114,15 @@ export interface IAcceptedTicketOfferWithoutDetail {
      */
     id: string;
     /**
-     * 座席
+     * 座席指定
      * 指定席イベントの場合、座席を指定
      * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
      */
     ticketedSeat?: ReservationFactory.ISeat;
+    /**
+     * 受け入れるアドオン
+     */
+    addOn?: IAcceptedAddOn[];
 }
 
 /**

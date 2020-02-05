@@ -6,7 +6,6 @@ import { IProject } from './project';
 import { IQuantitativeValue } from './quantitativeValue';
 import SortType from './sortType';
 import { UnitCode } from './unitCode';
-import VideoFormatType from './videoFormatType';
 
 /**
  * 勘定インターフェース
@@ -76,7 +75,7 @@ export interface ISearchConditions<T extends PriceSpecificationType> {
     typeOf?: T;
     validFrom?: Date;
     validThrough?: Date;
-    appliesToVideoFormats?: VideoFormatType[];
+    appliesToVideoFormats?: string[];
     appliesToMovieTicket?: {
         serviceTypes?: string[];
     };

@@ -188,6 +188,7 @@ export import itemAvailability = ItemAvailability;
 export import language = LanguageFactory;
 export type multilingualString = IMultilingualString;
 export namespace offer {
+    export import IAddOn = OfferFactory.IAddOn;
     export import IOffer = OfferFactory.IOffer;
     export import ISearchConditions = OfferFactory.ISearchConditions;
     export import product = ProductOfferFactory;
