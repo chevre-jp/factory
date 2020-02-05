@@ -12,6 +12,16 @@ import { IThing } from './thing';
 import { UnitCode } from './unitCode';
 
 /**
+ * オファーカテゴリーインターフェース
+ */
+export interface ICategory {
+    project: IProject;
+    id?: string;
+    codeValue?: string;
+    name?: any;
+}
+
+/**
  * アドオンインターフェース
  */
 export type IAddOn = IOffer;
@@ -56,7 +66,7 @@ export interface IOffer extends IThing {
     /**
      * A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
      */
-    category?: any;
+    category?: ICategory;
     /**
      * オファーの有効な顧客タイプ
      */

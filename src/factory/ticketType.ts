@@ -12,15 +12,6 @@ export interface IPriceSpecification extends IUnitPriceSpecification {
 }
 
 /**
- * 券種カテゴリーインターフェース
- */
-export interface ITicketTypeCategory {
-    project: IProject;
-    id: string;
-    name?: string;
-}
-
-/**
  * 券種属性インターフェース
  * 券種はイベントに対するオファーのベースを定義するものです
  * 基本的には、単価仕様を定義します
@@ -40,10 +31,6 @@ export interface ITicketTypeAttributes extends IOffer {
      * 単価仕様
      */
     priceSpecification?: IPriceSpecification;
-    /**
-     * A category for the item.
-     */
-    category?: ITicketTypeCategory;
     /**
      * The color of the product.
      */

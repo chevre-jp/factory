@@ -26,7 +26,11 @@ export enum CategorySetIdentifier {
     /**
      * 配給区分
      */
-    DistributorType = 'DistributorType'
+    DistributorType = 'DistributorType',
+    /**
+     * オファーカテゴリータイプ
+     */
+    OfferCategoryType = 'OfferCategoryType'
 }
 
 /**
