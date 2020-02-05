@@ -54,7 +54,6 @@ import ReservationStatusType from './factory/reservationStatusType';
 import ReservationType from './factory/reservationType';
 import * as ServiceTypeFactory from './factory/serviceType';
 import SortType from './factory/sortType';
-import SoundFormatType from './factory/soundFormatType';
 import * as TicketTypeFactory from './factory/ticketType';
 import { UnitCode } from './factory/unitCode';
 import VideoFormatType from './factory/videoFormatType';
@@ -289,7 +288,6 @@ export namespace task {
 
 export import serviceType = ServiceTypeFactory;
 export import sortType = SortType;
-export import soundFormatType = SoundFormatType;
 export import taskExecutionResult = TaskExecutionResultFactory;
 export import taskName = TaskName;
 export import taskStatus = TaskStatus;

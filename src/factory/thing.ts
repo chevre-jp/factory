@@ -13,11 +13,11 @@ export interface IThing {
     /**
      * An alias for the item.
      */
-    alternateName?: string;
+    alternateName?: string | IMultilingualString;
     /**
      * A description of the item.
      */
-    description?: string;
+    description?: string | IMultilingualString;
     /**
      * The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc.
      */

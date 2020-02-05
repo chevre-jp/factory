@@ -5,7 +5,6 @@ import PriceSpecificationType from './priceSpecificationType';
 import { IProject } from './project';
 import { IQuantitativeValue } from './quantitativeValue';
 import SortType from './sortType';
-import SoundFormatType from './soundFormatType';
 import { UnitCode } from './unitCode';
 import VideoFormatType from './videoFormatType';
 
@@ -78,7 +77,6 @@ export interface ISearchConditions<T extends PriceSpecificationType> {
     validFrom?: Date;
     validThrough?: Date;
     appliesToVideoFormats?: VideoFormatType[];
-    appliesToSoundFormats?: SoundFormatType[];
     appliesToMovieTicket?: {
         serviceTypes?: string[];
     };

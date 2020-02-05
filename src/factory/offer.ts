@@ -1,14 +1,20 @@
 import ItemAvailability from './itemAvailability';
-import IMultilingualString from './multilingualString';
 import OfferType from './offerType';
 import { PaymentMethodType } from './paymentMethodType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
+import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
 import SortType from './sortType';
+import { IThing } from './thing';
 import { UnitCode } from './unitCode';
+
+/**
+ * アドオンインターフェース
+ */
+export type IAddOn = IOffer;
 
 /**
  * offer interface
@@ -17,12 +23,10 @@ import { UnitCode } from './unitCode';
  * to stream a TV show over the internet, to repair a motorcycle, or to loan a book.
  * @see https://schema.org/Offer
  */
-export interface IOffer {
+export interface IOffer extends IThing {
+    project: IProject;
     typeOf: OfferType;
     id?: string;
-    name?: string | IMultilingualString;
-    alternateName?: string | IMultilingualString;
-    description?: string | IMultilingualString;
     /**
      * The payment method(s) accepted by seller for this offer.
      */
@@ -31,8 +35,8 @@ export interface IOffer {
      * An additional offer that can only be obtained in combination with the first base offer
      * (e.g. supplements and extensions that are available for a surcharge).
      */
-    addOn?: IOffer[];
-    availableAddOn?: IOffer[];
+    addOn?: IAddOn[];
+    // availableAddOn?: IOffer[];
     /**
      * The availability of this item—for example In stock, Out of stock, Pre-order, etc.
      */

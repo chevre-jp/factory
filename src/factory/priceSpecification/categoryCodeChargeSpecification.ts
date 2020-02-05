@@ -5,7 +5,7 @@ import PriceSpecificationType from '../priceSpecificationType';
 /**
  * カテゴリーコードチャージ仕様インターフェース
  */
-export type IPriceSpecification = BaseSpecification<PriceSpecificationType.VideoFormatChargeSpecification> & {
+export type IPriceSpecification = BaseSpecification<PriceSpecificationType.CategoryCodeChargeSpecification> & {
     price: number;
     /**
      * 適用カテゴリーコード

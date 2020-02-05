@@ -9,8 +9,6 @@ import * as OfferFactory from '../offer';
 import OrganizationType from '../organizationType';
 import PlaceType from '../placeType';
 import { IProject } from '../project';
-import SoundFormatType from '../soundFormatType';
-import VideoFormatType from '../videoFormatType';
 
 /**
  * 上映イベントシリーズに対するオファーインターフェース
@@ -20,12 +18,12 @@ export interface IOffer extends OfferFactory.IOffer {
 }
 
 export interface IVideoFormat {
-    typeOf: VideoFormatType;
+    typeOf: string;
     name: string;
 }
 
 export interface ISoundFormat {
-    typeOf: SoundFormatType;
+    typeOf: string;
     name: string;
 }
 /**
