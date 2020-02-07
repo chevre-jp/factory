@@ -26,9 +26,8 @@ export interface IOffer extends OfferFactory.IOffer {
 
 /**
  * 座席タイプインターフェース
- * Object型はtttsへの互換性
  */
-export type ISeatingType = string | { typeOf: string };
+export type ISeatingType = string | string[];
 
 /**
  * 座席インターフェース
