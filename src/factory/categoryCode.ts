@@ -61,6 +61,7 @@ export interface ISearchConditions {
     page?: number;
     sort?: any;
     project?: { id?: { $eq?: string } };
+    id?: { $eq?: string };
     name?: { $regex?: string };
     codeValue?: { $eq?: string };
     inCodeSet?: {

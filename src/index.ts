@@ -26,9 +26,9 @@ import EventStatusType from './factory/eventStatusType';
 import EventType from './factory/eventType';
 import ItemAvailability from './factory/itemAvailability';
 import * as LanguageFactory from './factory/language';
+import * as MonetaryAmountFactory from './factory/monetaryAmount';
 import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
-import * as ProductOfferFactory from './factory/offer/product';
 import OfferType from './factory/offerType';
 import OrganizationType from './factory/organizationType';
 import { PaymentMethodType } from './factory/paymentMethodType';
@@ -186,13 +186,9 @@ export import eventStatusType = EventStatusType;
 export import eventType = EventType;
 export import itemAvailability = ItemAvailability;
 export import language = LanguageFactory;
+export import monetaryAmount = MonetaryAmountFactory;
 export type multilingualString = IMultilingualString;
-export namespace offer {
-    export import IAddOn = OfferFactory.IAddOn;
-    export import IOffer = OfferFactory.IOffer;
-    export import ISearchConditions = OfferFactory.ISearchConditions;
-    export import product = ProductOfferFactory;
-}
+export import offer = OfferFactory;
 export type offerType = OfferType;
 export import organizationType = OrganizationType;
 export import paymentMethodType = PaymentMethodType;

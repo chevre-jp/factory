@@ -1,4 +1,6 @@
+import { ICategoryCode } from './categoryCode';
 import ItemAvailability from './itemAvailability';
+import { IMonetaryAmount } from './monetaryAmount';
 import OfferType from './offerType';
 import { PaymentMethodType } from './paymentMethodType';
 import PriceCurrency from './priceCurrency';
@@ -25,6 +27,9 @@ export interface ICategory {
  * アドオンインターフェース
  */
 export type IAddOn = IOffer;
+
+export type IEligibleCategoryCode = ICategoryCode;
+export type IEligibleMonetaryAmount = IMonetaryAmount;
 
 /**
  * offer interface
@@ -68,9 +73,22 @@ export interface IOffer extends IThing {
      */
     category?: ICategory;
     /**
-     * オファーの有効な顧客タイプ
+     * 有効な顧客タイプ
      */
     eligibleCustomerType?: any;
+    /**
+     * 有効なムビチケ券種区分
+     */
+    eligibleMovieTicketType?: IEligibleCategoryCode[];
+    /**
+     * 有効な座席タイプ
+     */
+    eligibleSeatingType?: IEligibleCategoryCode[];
+    /**
+     * 有効な金額
+     * 6ポイントで無料、などの設定に使用
+     */
+    eligibleMonetaryAmount?: IEligibleMonetaryAmount[];
     /**
      * オファーが有効となる期間
      */
