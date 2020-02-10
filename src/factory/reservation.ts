@@ -43,7 +43,7 @@ export interface IUnderName {
  * seat interface
  */
 export interface ISeat {
-    typeOf: PlaceType;
+    typeOf: PlaceType.Seat;
     /**
      * The cabin/class of the seat.
      */

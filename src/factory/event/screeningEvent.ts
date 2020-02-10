@@ -102,7 +102,7 @@ export interface IAcceptedAddOn {
     /**
      * アドオンID
      */
-    id: string;
+    id?: string;
 }
 
 /**
