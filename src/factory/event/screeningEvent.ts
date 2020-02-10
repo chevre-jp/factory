@@ -11,6 +11,7 @@ import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpec
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
 import { IProject } from '../project';
+import { IPropertyValue } from '../propertyValue';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
 import ReservationType from '../reservationType';
@@ -123,6 +124,10 @@ export interface IAcceptedTicketOfferWithoutDetail {
     itemOffered?: {
         serviceOutput?: {
             typeOf: ReservationType;
+            /**
+             * 追加特性
+             */
+            additionalProperty?: IPropertyValue<string>[];
             /**
              * 予約追加テキスト
              */
