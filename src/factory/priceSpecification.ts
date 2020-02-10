@@ -70,9 +70,27 @@ export interface ISearchConditions<T extends PriceSpecificationType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
-    project?: { ids?: string[] };
+    project?: {
+        id?: { $eq?: string };
+        ids?: string[];
+    };
+    id?: { $eq?: string };
     ids?: string[];
     typeOf?: T;
+    appliesToCategoryCode?: {
+        $elemMatch?: any;
+        codeValue?: {
+            $eq?: string;
+            $in?: string[];
+        };
+        inCodeSet?: {
+            identifier?: {
+                $eq?: string;
+                $in?: string[];
+            };
+
+        };
+    };
     validFrom?: Date;
     validThrough?: Date;
     appliesToVideoFormats?: string[];
