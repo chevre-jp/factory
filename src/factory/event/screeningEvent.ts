@@ -114,11 +114,28 @@ export interface IAcceptedTicketOfferWithoutDetail {
      */
     id: string;
     /**
-     * 座席指定
+     * 予約座席指定
+     * @deprecated Use itemOffered.serviceOutput.reservedTicket.ticketedSeat
      * 指定席イベントの場合、座席を指定
      * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
      */
     ticketedSeat?: ReservationFactory.ISeat;
+    itemOffered?: {
+        serviceOutput?: {
+            typeOf: ReservationType;
+            /**
+             * 予約追加テキスト
+             */
+            additionalTicketText?: string;
+            reservedTicket?: {
+                typeOf: ReservationFactory.TicketType;
+                /**
+                 * 予約座席指定
+                 */
+                ticketedSeat?: ReservationFactory.ISeat;
+            };
+        };
+    };
     /**
      * 受け入れるアドオン
      */
