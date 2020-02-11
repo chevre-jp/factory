@@ -105,6 +105,16 @@ export interface IAcceptedAddOn {
     id?: string;
 }
 
+export interface IAcceptedSubReservation {
+    reservedTicket?: {
+        typeOf: ReservationFactory.TicketType;
+        /**
+         * 予約座席指定
+         */
+        ticketedSeat?: ReservationFactory.ISeat;
+    };
+}
+
 /**
  * 受け入れられたチケットオファー(詳細なし)
  */
@@ -139,6 +149,7 @@ export interface IAcceptedTicketOfferWithoutDetail {
                  */
                 ticketedSeat?: ReservationFactory.ISeat;
             };
+            subReservation?: IAcceptedSubReservation[];
         };
     };
     /**

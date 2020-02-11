@@ -227,6 +227,10 @@ export interface IReservation<T extends IPriceSpecification> {
      */
     reservedTicket?: ITicket<T>;
     /**
+     * The individual reservations included in the package. Typically a repeated property.
+     */
+    subReservation?: any[];
+    /**
      * The person or organization the reservation is for.
      */
     underName?: IUnderName;

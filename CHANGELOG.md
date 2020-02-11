@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 単価仕様に適用アドオンを拡張
 - オファー適用条件拡張
 - イベントのacceptedOfferを拡張
+- 予約インターフェースにsubReservationを追加
 
 ### Deprecated
 

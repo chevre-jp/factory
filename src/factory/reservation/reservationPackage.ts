@@ -11,6 +11,9 @@ export type ISubReservation = ReservationFactory.IReservation<IPriceSpecificatio
  * 予約パッケージインターフェース
  */
 export interface IReservation extends ReservationFactory.IReservation<IPriceSpecification> {
+    /**
+     * The individual reservations included in the package. Typically a repeated property.
+     */
     subReservation?: ISubReservation[];
     typeOf: ReservationType.ReservationPackage;
 }
