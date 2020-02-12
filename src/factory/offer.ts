@@ -32,6 +32,22 @@ export type IEligibleCategoryCode = ICategoryCode;
 export type IEligibleMonetaryAmount = IMonetaryAmount;
 
 /**
+ * 適用サブ予約条件インターフェース
+ */
+export interface IEligibleSubReservation {
+    /**
+     * 席数
+     */
+    amountOfThisGood: number;
+    typeOfGood: {
+        /**
+         * 適用座席タイプ
+         */
+        seatingType: string;
+    };
+}
+
+/**
  * offer interface
  * An offer to transfer some rights to an item or to provide a service
  * — for example, an offer to sell tickets to an event, to rent the DVD of a movie,
@@ -89,6 +105,10 @@ export interface IOffer extends IThing {
      * 6ポイントで無料、などの設定に使用
      */
     eligibleMonetaryAmount?: IEligibleMonetaryAmount[];
+    /**
+     * 適用サブ予約条件
+     */
+    eligibleSubReservation?: IEligibleSubReservation[];
     /**
      * オファーが有効となる期間
      */
