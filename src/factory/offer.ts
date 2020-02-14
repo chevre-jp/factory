@@ -147,6 +147,10 @@ export interface IOffer extends IThing {
      */
     validThrough?: Date;
     /**
+     * レート制限
+     */
+    validRateLimit?: any;
+    /**
      * A property-value pair representing an additional characteristics of the entitity,
      * e.g. a product feature or another characteristic for which there is no matching property in schema.org.
      */
