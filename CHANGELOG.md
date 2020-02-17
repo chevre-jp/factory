@@ -28,6 +28,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 予約インターフェースにsubReservationを追加
 - オファーに適用サブ予約条件を追加
 - オファーにレート制限を追加
+- 自由席許可属性を場所インターフェースに追加
 
 ### Deprecated
 

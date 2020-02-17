@@ -1,4 +1,3 @@
-// import { ICategoryCode } from '../categoryCode';
 import ItemAvailability from '../itemAvailability';
 import * as OfferFactory from '../offer';
 import * as PlaceFactory from '../place';

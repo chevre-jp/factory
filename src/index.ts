@@ -33,6 +33,8 @@ import OfferType from './factory/offerType';
 import OrganizationType from './factory/organizationType';
 import { PaymentMethodType } from './factory/paymentMethodType';
 import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
+import * as ScreeningRoomPlaceFactory from './factory/place/screeningRoom';
+import * as ScreeningRoomSectionPlaceFactory from './factory/place/screeningRoomSection';
 import * as SeatPlaceFactory from './factory/place/seat';
 import PlaceType from './factory/placeType';
 import PriceCurrency from './factory/priceCurrency';
@@ -195,6 +197,8 @@ export import paymentMethodType = PaymentMethodType;
 export import priceCurrency = PriceCurrency;
 export namespace place {
     export import movieTheater = MovieTheaterPlaceFactory;
+    export import screeningRoom = ScreeningRoomPlaceFactory;
+    export import screeningRoomSection = ScreeningRoomSectionPlaceFactory;
     export import seat = SeatPlaceFactory;
 }
 export import placeType = PlaceType;
