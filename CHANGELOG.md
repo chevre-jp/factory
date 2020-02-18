@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - カテゴリーコードインターフェースを追加
 - カテゴリーコードチャージ仕様インターフェースを追加
 - オファーカテゴリータイプを追加
+- イベントに集計属性を追加
 
 ### Changed
 

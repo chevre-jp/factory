@@ -5,6 +5,7 @@ import * as ScreeningEventSeriesFactory from '../event/screeningEventSeries';
 import EventType from '../eventType';
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
+import OfferType from '../offerType';
 import PlaceType from '../placeType';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
@@ -17,6 +18,38 @@ import * as ReservationFactory from '../reservation';
 import ReservationType from '../reservationType';
 import { IServiceType } from '../serviceType';
 import { UnitCode } from '../unitCode';
+
+/**
+ * 予約集計インターフェース
+ */
+export interface IAggregateReservation {
+    typeOf: 'AggregateReservation';
+    aggregateDate: Date;
+    checkInCount?: number;
+    attendeeCount?: number;
+    reservationCount?: number;
+}
+
+/**
+ * 予約集計つきオファーインターフェース
+ */
+export interface IOfferWithAggregateReservation {
+    typeOf: OfferType.Offer;
+    id?: string;
+    identifier?: string;
+    aggregateReservation?: IAggregateReservation;
+    maximumAttendeeCapacity?: number;
+    remainingAttendeeCapacity?: number;
+}
+
+/**
+ * オファー集計インターフェース
+ */
+export interface IAggregateOffer {
+    typeOf: OfferType.AggregateOffer;
+    offerCount?: number;
+    offers?: IOfferWithAggregateReservation[];
+}
 
 export interface IServiceOutput {
     typeOf: ReservationType;
@@ -277,6 +310,14 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      * 参加数
      */
     attendeeCount?: Number;
+    /**
+     * 予約集計
+     */
+    aggregateReservation?: IAggregateReservation;
+    /**
+     * オファー集計
+     */
+    aggregateOffer?: IAggregateOffer;
     /**
      * その他COA情報
      * @deprecated 基本的にCinemaSunshineの互換性維持目的であり、そのうち廃止予定

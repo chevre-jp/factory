@@ -4,6 +4,10 @@ import { IThing } from './thing';
 
 export enum CategorySetIdentifier {
     /**
+     * 口座タイプ
+     */
+    AccountType = 'AccountType',
+    /**
      * 座席タイプ
      */
     SeatingType = 'SeatingType',
