@@ -84,6 +84,9 @@ export interface ITicketTypeSearchConditions {
     priceSpecification?: ITicketTypePriceSpecificationSearchConditions;
     category?: {
         ids?: string[];
+        codeValue?: {
+            $in?: string[];
+        };
     };
 }
 

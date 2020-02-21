@@ -190,9 +190,11 @@ export interface ISearchConditions {
     id?: { $eq?: string };
     identifier?: { $eq?: string };
     priceSpecification?: IPriceSpecificationSearchConditions;
-    // category?: {
-    //     ids?: string[];
-    // };
+    category?: {
+        codeValue?: {
+            $in?: string[];
+        };
+    };
     itemOffered?: {
         typeOf?: { $eq?: string };
     };

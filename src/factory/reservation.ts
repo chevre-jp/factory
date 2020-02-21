@@ -288,6 +288,9 @@ export interface IReservedTicketSearchConditions {
         ids?: string[];
         category?: {
             ids?: string[];
+            codeValue?: {
+                $in?: string[];
+            };
         };
     };
 }
