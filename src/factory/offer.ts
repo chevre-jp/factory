@@ -168,14 +168,18 @@ export interface ISortOrder {
  * 価格仕様検索条件インターフェース
  */
 export interface IPriceSpecificationSearchConditions {
-    minPrice?: number;
-    maxPrice?: number;
+    price?: {
+        $gte?: number;
+        $lte?: number;
+    };
     referenceQuantity?: {
-        value?: number;
+        value?: { $eq?: number };
     };
     accounting?: {
-        minAccountsReceivable?: number;
-        maxAccountsReceivable?: number;
+        accountsReceivable?: {
+            $gte?: number;
+            $lte?: number;
+        };
     };
 }
 
@@ -187,7 +191,10 @@ export interface ISearchConditions {
     page?: number;
     sort?: ISortOrder;
     project?: { id?: { $eq?: string } };
-    id?: { $eq?: string };
+    id?: {
+        $eq?: string;
+        $in?: string[];
+    };
     identifier?: { $eq?: string };
     priceSpecification?: IPriceSpecificationSearchConditions;
     category?: {

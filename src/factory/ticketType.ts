@@ -121,11 +121,20 @@ export type ITicketTypeGroup = ITicketTypeGroupAttributes & {
 export interface ITicketTypeGroupSearchConditions {
     limit?: number;
     page?: number;
-    project?: { ids?: string[] };
+    project?: {
+        id?: { $eq?: string };
+        ids?: string[];
+    };
     id?: string;
     identifier?: string | {
         $eq?: string;
     };
     name?: string;
     ticketTypes?: string[];
+    itemListElement?: {
+        id?: { $in?: string[] };
+    };
+    itemOffered?: {
+        typeOf?: { $eq?: string };
+    };
 }
