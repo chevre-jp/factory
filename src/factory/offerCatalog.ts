@@ -8,7 +8,7 @@ import { IThing } from './thing';
 
 export interface IItemOffered {
     typeOf: string;
-    serviceType: IServiceType;
+    serviceType?: IServiceType;
 }
 
 export interface IItemListElement {

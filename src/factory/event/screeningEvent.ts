@@ -72,7 +72,7 @@ export interface IService {
     /**
      * 興行区分
      */
-    serviceType: IServiceType;
+    serviceType?: IServiceType;
     /**
      * サービスアウトプット
      */
