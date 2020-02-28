@@ -3,8 +3,6 @@ import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IProject } from './project';
-import { IPropertyValue } from './propertyValue';
-import { IServiceType } from './serviceType';
 import SortType from './sortType';
 
 // tslint:disable-next-line:no-empty-interface
@@ -87,54 +85,5 @@ export interface ITicketTypeSearchConditions {
         codeValue?: {
             $in?: string[];
         };
-    };
-}
-
-export interface IService {
-    /**
-     * 興行区分
-     */
-    serviceType: IServiceType;
-}
-
-export interface ITicketTypeGroupAttributes {
-    project: IProject;
-    identifier: string;
-    name: IMultilingualString;
-    alternateName?: IMultilingualString;
-    description: IMultilingualString;
-    ticketTypes: string[];
-    itemOffered: IService;
-    additionalProperty?: IPropertyValue<string>[];
-}
-
-/**
- * 券種グループインターフェース
- */
-export type ITicketTypeGroup = ITicketTypeGroupAttributes & {
-    id: string;
-};
-
-/**
- * 券種グループ検索条件インターフェース
- */
-export interface ITicketTypeGroupSearchConditions {
-    limit?: number;
-    page?: number;
-    project?: {
-        id?: { $eq?: string };
-        ids?: string[];
-    };
-    id?: string;
-    identifier?: string | {
-        $eq?: string;
-    };
-    name?: string;
-    ticketTypes?: string[];
-    itemListElement?: {
-        id?: { $in?: string[] };
-    };
-    itemOffered?: {
-        typeOf?: { $eq?: string };
     };
 }
