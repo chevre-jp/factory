@@ -8,33 +8,37 @@ export enum CategorySetIdentifier {
      */
     AccountType = 'AccountType',
     /**
-     * 座席タイプ
+     * レーティングタイプ
      */
-    SeatingType = 'SeatingType',
-    /**
-     * 上映方式タイプ
-     */
-    VideoFormatType = 'VideoFormatType',
-    /**
-     * 音響方式タイプ
-     */
-    SoundFormatType = 'SoundFormatType',
-    /**
-     * ムビチケ券種区分
-     */
-    MovieTicketType = 'MovieTicketType',
-    /**
-     * 興行区分
-     */
-    ServiceType = 'ServiceType',
+    ContentRatingType = 'ContentRatingType',
     /**
      * 配給区分
      */
     DistributorType = 'DistributorType',
     /**
+     * ムビチケ券種区分
+     */
+    MovieTicketType = 'MovieTicketType',
+    /**
      * オファーカテゴリータイプ
      */
-    OfferCategoryType = 'OfferCategoryType'
+    OfferCategoryType = 'OfferCategoryType',
+    /**
+     * 座席タイプ
+     */
+    SeatingType = 'SeatingType',
+    /**
+     * サービス区分
+     */
+    ServiceType = 'ServiceType',
+    /**
+     * 音響方式タイプ
+     */
+    SoundFormatType = 'SoundFormatType',
+    /**
+     * 上映方式タイプ
+     */
+    VideoFormatType = 'VideoFormatType'
 }
 
 /**

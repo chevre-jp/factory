@@ -49,14 +49,12 @@ export interface ISearchConditions {
     sort?: ISortOrder;
     project?: {
         id?: { $eq?: string };
-        ids?: string[];
     };
     id?: string;
     identifier?: string | {
         $eq?: string;
     };
     name?: string;
-    ticketTypes?: string[];
     itemListElement?: {
         id?: { $in?: string[] };
     };
