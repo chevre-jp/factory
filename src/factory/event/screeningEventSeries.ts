@@ -71,11 +71,11 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     /**
      * 字幕利用可能言語
      */
-    subtitleLanguage?: ILanguage | null;
+    subtitleLanguage?: ILanguage;
     /**
      * 吹替利用可能言語
      */
-    dubLanguage?: ILanguage | null;
+    dubLanguage?: ILanguage;
     /**
      * 上映方式
      */

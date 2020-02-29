@@ -8,7 +8,7 @@ export interface ICopyrightHolder {
     name: string;
 }
 
-export type IContentRating = COA.services.master.IKubunNameResult | string | null;
+export type IContentRating = COA.services.master.IKubunNameResult | string;
 
 /**
  * 作品インターフェース
@@ -19,16 +19,16 @@ export interface ICreativeWork {
     id: string;
     identifier: string;
     name: string;
-    alternateName?: string | null;
-    alternativeHeadline?: string | null;
+    alternateName?: string;
+    alternativeHeadline?: string;
     contentRating?: IContentRating;
-    copyrightHolder?: ICopyrightHolder | null;
-    copyrightYear?: number | null;
+    copyrightHolder?: ICopyrightHolder;
+    copyrightYear?: number;
     datePublished?: Date;
-    description?: string | null;
-    headline?: string | null;
-    license?: string | null;
-    thumbnailUrl?: string | null;
+    description?: string;
+    headline?: string;
+    license?: string;
+    thumbnailUrl?: string;
     typeOf: CreativeWorkType;
     additionalProperty?: IPropertyValue<string>[];
 }

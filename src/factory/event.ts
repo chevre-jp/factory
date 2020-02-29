@@ -22,8 +22,8 @@ export interface IAttributes<T extends EventType> {
      * イベント名称
      */
     name: IMultilingualString;
-    alternateName?: IMultilingualString | null;
-    alternativeHeadline?: IMultilingualString | string | null;
+    alternateName?: IMultilingualString;
+    alternativeHeadline?: IMultilingualString | string;
     /**
      * イベント説明
      */
@@ -48,7 +48,7 @@ export interface IAttributes<T extends EventType> {
      * イベントがキャンセル、あるいは、延期された場合に主に使用されます。
      */
     eventStatus: EventStatusType;
-    headline?: IMultilingualString | null;
+    headline?: IMultilingualString;
     /**
      * イベントが実行される場所
      */
