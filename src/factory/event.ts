@@ -142,4 +142,29 @@ export interface ISearchConditions<T extends EventType> {
      * イベントステータス
      */
     eventStatuses?: EventStatusType[];
+    location?: {
+        branchCode?: {
+            $eq?: string;
+        };
+        /**
+         * 場所の識別子リスト
+         */
+        branchCodes?: string[];
+    };
+    superEvent?: {
+        ids?: string[];
+        location?: {
+            id?: {
+                $eq?: string;
+            };
+        };
+        /**
+         * 親イベント(劇場の上映イベント)が実施される場所の識別子リスト
+         */
+        locationBranchCodes?: string[];
+        /**
+         * イベントで上演される作品識別子リスト
+         */
+        workPerformedIdentifiers?: string[];
+    };
 }

@@ -162,12 +162,6 @@ export type ISortOrder = EventFactory.ISortOrder;
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEventSeries> {
     sort?: ISortOrder;
-    location?: {
-        /**
-         * 場所の識別子リスト
-         */
-        branchCodes?: string[];
-    };
     workPerformed?: {
         /**
          * イベントで上演される作品識別子リスト

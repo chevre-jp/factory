@@ -360,20 +360,6 @@ export interface IOfferSearchConditions {
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEvent> {
     /**
-     * 親イベント情報
-     */
-    superEvent?: {
-        ids?: string[];
-        /**
-         * 親イベント(劇場の上映イベント)が実施される場所の識別子リスト
-         */
-        locationBranchCodes?: string[];
-        /**
-         * イベントで上演される作品識別子リスト
-         */
-        workPerformedIdentifiers?: string[];
-    };
-    /**
      * 販売情報
      */
     offers?: IOfferSearchConditions;

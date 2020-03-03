@@ -76,6 +76,9 @@ export interface ISearchConditions {
      * プロジェクト
      */
     project?: { ids?: string[] };
+    id?: {
+        $eq?: string;
+    };
     /**
      * 枝番号
      */
