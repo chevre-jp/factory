@@ -27,7 +27,7 @@ export interface IOfferCatalog extends IThing {
     /**
      * @deprecated Use itemListElement
      */
-    ticketTypes: string[];
+    // ticketTypes: string[];
     itemListElement: IItemListElement[];
     itemOffered: IItemOffered;
     additionalProperty?: IPropertyValue<string>[];
