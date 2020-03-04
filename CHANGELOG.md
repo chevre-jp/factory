@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v3.0.0 - 2020-03-04
+
+### Added
+
 - メンバーシップインターフェースを追加
 - メンバーシップ登録アクションインターフェースを追加
 - メンバーシップ登録解除アクションインターフェースを追加
@@ -31,14 +45,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - オファーに適用サブ予約条件を追加
 - オファーにレート制限を追加
 - 自由席許可属性を場所インターフェースに追加
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v2.5.0 - 2020-01-26
 
