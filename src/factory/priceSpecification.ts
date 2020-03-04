@@ -5,9 +5,7 @@ import PriceSpecificationType from './priceSpecificationType';
 import { IProject } from './project';
 import { IQuantitativeValue } from './quantitativeValue';
 import SortType from './sortType';
-import SoundFormatType from './soundFormatType';
 import { UnitCode } from './unitCode';
-import VideoFormatType from './videoFormatType';
 
 /**
  * 勘定インターフェース
@@ -72,13 +70,30 @@ export interface ISearchConditions<T extends PriceSpecificationType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
-    project?: { ids?: string[] };
+    project?: {
+        id?: { $eq?: string };
+        ids?: string[];
+    };
+    id?: { $eq?: string };
     ids?: string[];
     typeOf?: T;
+    appliesToCategoryCode?: {
+        $elemMatch?: any;
+        codeValue?: {
+            $eq?: string;
+            $in?: string[];
+        };
+        inCodeSet?: {
+            identifier?: {
+                $eq?: string;
+                $in?: string[];
+            };
+
+        };
+    };
     validFrom?: Date;
     validThrough?: Date;
-    appliesToVideoFormats?: VideoFormatType[];
-    appliesToSoundFormats?: SoundFormatType[];
+    appliesToVideoFormats?: string[];
     appliesToMovieTicket?: {
         serviceTypes?: string[];
     };

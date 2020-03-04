@@ -1,5 +1,9 @@
 /**
  * オファータイプ
  */
-type OfferType = 'Offer';
+enum OfferType {
+    Offer = 'Offer',
+    AggregateOffer = 'AggregateOffer'
+}
+
 export default OfferType;

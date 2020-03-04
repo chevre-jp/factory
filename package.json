@@ -1,6 +1,6 @@
 {
   "name": "@chevre/factory",
-  "version": "2.5.0",
+  "version": "3.0.0",
   "description": "Chevre Factory Library for Javascript",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -53,9 +53,9 @@
     "rimraf": "^2.6.3",
     "sinon": "^5.1.0",
     "ts-node": "^8.5.2",
-    "tslint": "^5.20.1",
+    "tslint": "^6.0.0",
     "tslint-microsoft-contrib": "^6.2.0",
-    "typescript": "^3.7.2"
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "@motionpicture/coa-service": "^7.0.0",

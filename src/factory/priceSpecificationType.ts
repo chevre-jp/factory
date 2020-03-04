@@ -7,6 +7,10 @@ enum PriceSpecificationType {
      */
     PriceSpecification = 'PriceSpecification',
     /**
+     * カテゴリーコードチャージ仕様
+     */
+    CategoryCodeChargeSpecification = 'CategoryCodeChargeSpecification',
+    /**
      * 複合価格仕様
      */
     CompoundPriceSpecification = 'CompoundPriceSpecification',
@@ -15,17 +19,9 @@ enum PriceSpecificationType {
      */
     MovieTicketTypeChargeSpecification = 'MovieTicketTypeChargeSpecification',
     /**
-     * 音響方式チャージ仕様
-     */
-    SoundFormatChargeSpecification = 'SoundFormatChargeSpecification',
-    /**
      * 単価仕様
      */
-    UnitPriceSpecification = 'UnitPriceSpecification',
-    /**
-     * 上映方式チャージ仕様
-     */
-    VideoFormatChargeSpecification = 'VideoFormatChargeSpecification'
+    UnitPriceSpecification = 'UnitPriceSpecification'
 }
 
 export default PriceSpecificationType;

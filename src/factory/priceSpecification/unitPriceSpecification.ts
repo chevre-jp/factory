@@ -1,3 +1,4 @@
+import { IAddOn } from '../offer';
 import { IPriceSpecification as BaseSpecification } from '../priceSpecification';
 import PriceSpecificationType from '../priceSpecificationType';
 import { IQuantitativeValue } from '../quantitativeValue';
@@ -14,7 +15,11 @@ export type IPriceSpecification = BaseSpecification<PriceSpecificationType.UnitP
     referenceQuantity: IQuantitativeValue<UnitCode>;
     /**
      * 適用ムビチケ券種区分
-     * この値が存在すれば、値の券種区分のムビチケが必須
      */
     appliesToMovieTicketType?: string;
+    /**
+     * 適用アドオン
+     * アドオンを指定された場合に適用される
+     */
+    appliesToAddOn?: IAddOn[];
 };

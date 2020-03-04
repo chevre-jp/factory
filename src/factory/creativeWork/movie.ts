@@ -13,8 +13,9 @@ export interface IOffer extends OfferFactory.IOffer {
  * 配給者インターフェース
  */
 export interface IDistributor {
-    id: string;
-    name: string;
+    id?: string;
+    name?: string;
+    distributorType?: string;
 }
 
 /**
@@ -27,7 +28,7 @@ export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
     /**
      * The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format.
      */
-    duration?: string | null;
+    duration?: string;
     /**
      * 販売情報
      */

@@ -1,13 +1,13 @@
 import * as COA from '@motionpicture/coa-service';
 
 import { IOffer } from './offer';
+import * as SeatFactory from './place/seat';
 import PlaceType from './placeType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
-import { ISeatingType as ISeatingTypeQualitativeValue } from './qualitativeValue/seatingType';
 import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
 import SortType from './sortType';
@@ -17,7 +17,7 @@ export type TicketType = 'Ticket';
 
 export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;
 
-export type ISeatingType = ISeatingTypeQualitativeValue;
+export type ISeatingType = SeatFactory.ISeatingType;
 
 /**
  * under name interface
@@ -43,7 +43,7 @@ export interface IUnderName {
  * seat interface
  */
 export interface ISeat {
-    typeOf: PlaceType;
+    typeOf: PlaceType.Seat;
     /**
      * The cabin/class of the seat.
      */
@@ -227,6 +227,10 @@ export interface IReservation<T extends IPriceSpecification> {
      */
     reservedTicket?: ITicket<T>;
     /**
+     * The individual reservations included in the package. Typically a repeated property.
+     */
+    subReservation?: any[];
+    /**
      * The person or organization the reservation is for.
      */
     underName?: IUnderName;
@@ -284,6 +288,9 @@ export interface IReservedTicketSearchConditions {
         ids?: string[];
         category?: {
             ids?: string[];
+            codeValue?: {
+                $in?: string[];
+            };
         };
     };
 }

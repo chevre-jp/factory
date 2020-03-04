@@ -3,21 +3,10 @@ import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IProject } from './project';
-import { IPropertyValue } from './propertyValue';
-import { IServiceType } from './serviceType';
 import SortType from './sortType';
 
 // tslint:disable-next-line:no-empty-interface
 export interface IPriceSpecification extends IUnitPriceSpecification {
-}
-
-/**
- * 券種カテゴリーインターフェース
- */
-export interface ITicketTypeCategory {
-    project: IProject;
-    id: string;
-    name?: string;
 }
 
 /**
@@ -40,10 +29,6 @@ export interface ITicketTypeAttributes extends IOffer {
      * 単価仕様
      */
     priceSpecification?: IPriceSpecification;
-    /**
-     * A category for the item.
-     */
-    category?: ITicketTypeCategory;
     /**
      * The color of the product.
      */
@@ -97,45 +82,8 @@ export interface ITicketTypeSearchConditions {
     priceSpecification?: ITicketTypePriceSpecificationSearchConditions;
     category?: {
         ids?: string[];
+        codeValue?: {
+            $in?: string[];
+        };
     };
-}
-
-export interface IService {
-    /**
-     * 興行区分
-     */
-    serviceType: IServiceType;
-}
-
-export interface ITicketTypeGroupAttributes {
-    project: IProject;
-    identifier: string;
-    name: IMultilingualString;
-    alternateName?: IMultilingualString;
-    description: IMultilingualString;
-    ticketTypes: string[];
-    itemOffered: IService;
-    additionalProperty?: IPropertyValue<string>[];
-}
-
-/**
- * 券種グループインターフェース
- */
-export type ITicketTypeGroup = ITicketTypeGroupAttributes & {
-    id: string;
-};
-
-/**
- * 券種グループ検索条件インターフェース
- */
-export interface ITicketTypeGroupSearchConditions {
-    limit?: number;
-    page?: number;
-    project?: { ids?: string[] };
-    id?: string;
-    identifier?: string | {
-        $eq?: string;
-    };
-    name?: string;
-    ticketTypes?: string[];
 }

@@ -3,22 +3,53 @@ import * as COA from '@motionpicture/coa-service';
 import * as EventFactory from '../event';
 import * as ScreeningEventSeriesFactory from '../event/screeningEventSeries';
 import EventType from '../eventType';
-import ItemAvailability from '../itemAvailability';
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
-import * as MovieTheaterFactory from '../place/movieTheater';
+import OfferType from '../offerType';
 import PlaceType from '../placeType';
+import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
-import { IPriceSpecification as ISoundFormatChargeSpecification } from '../priceSpecification/soundFormatChargeSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
-import { IPriceSpecification as IVideoFormatChargeSpecification } from '../priceSpecification/videoFormatChargeSpecification';
 import { IProject } from '../project';
+import { IPropertyValue } from '../propertyValue';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
 import ReservationType from '../reservationType';
 import { IServiceType } from '../serviceType';
 import { UnitCode } from '../unitCode';
+
+/**
+ * 予約集計インターフェース
+ */
+export interface IAggregateReservation {
+    typeOf: 'AggregateReservation';
+    aggregateDate: Date;
+    checkInCount?: number;
+    attendeeCount?: number;
+    reservationCount?: number;
+}
+
+/**
+ * 予約集計つきオファーインターフェース
+ */
+export interface IOfferWithAggregateReservation {
+    typeOf: OfferType.Offer;
+    id?: string;
+    identifier?: string;
+    aggregateReservation?: IAggregateReservation;
+    maximumAttendeeCapacity?: number;
+    remainingAttendeeCapacity?: number;
+}
+
+/**
+ * オファー集計インターフェース
+ */
+export interface IAggregateOffer {
+    typeOf: OfferType.AggregateOffer;
+    offerCount?: number;
+    offers?: IOfferWithAggregateReservation[];
+}
 
 export interface IServiceOutput {
     typeOf: ReservationType;
@@ -41,7 +72,7 @@ export interface IService {
     /**
      * 興行区分
      */
-    serviceType: IServiceType;
+    serviceType?: IServiceType;
     /**
      * サービスアウトプット
      */
@@ -81,10 +112,9 @@ export interface IOffer extends OfferFactory.IOffer {
 /**
  * 上映イベントに対して有効なチケット価格仕様要素インターフェース
  */
-export type ITicketPriceComponent = IMovieTicketTypeChargeSpecification
-    | IVideoFormatChargeSpecification
-    | IUnitPriceSpecification
-    | ISoundFormatChargeSpecification;
+export type ITicketPriceComponent = ICategoryCodeChargeSpecification
+    | IMovieTicketTypeChargeSpecification
+    | IUnitPriceSpecification;
 
 /**
  * 上映イベントに対して有効なチケット価格仕様インターフェース
@@ -101,6 +131,23 @@ export interface ITicketOffer extends IOffer {
     priceSpecification: ITicketPriceSpecification;
 }
 
+export interface IAcceptedAddOn {
+    /**
+     * アドオンID
+     */
+    id?: string;
+}
+
+export interface IAcceptedSubReservation {
+    reservedTicket?: {
+        typeOf: ReservationFactory.TicketType;
+        /**
+         * 予約座席指定
+         */
+        ticketedSeat?: ReservationFactory.ISeat;
+    };
+}
+
 /**
  * 受け入れられたチケットオファー(詳細なし)
  */
@@ -110,33 +157,39 @@ export interface IAcceptedTicketOfferWithoutDetail {
      * チケットオファー検索結果から選択されたもの
      */
     id: string;
+    itemOffered?: {
+        serviceOutput?: {
+            typeOf: ReservationType;
+            /**
+             * 追加特性
+             */
+            additionalProperty?: IPropertyValue<string>[];
+            /**
+             * 予約追加テキスト
+             */
+            additionalTicketText?: string;
+            reservedTicket?: {
+                typeOf: ReservationFactory.TicketType;
+                /**
+                 * 予約座席指定
+                 * 指定席イベントの場合、座席を指定
+                 * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
+                 */
+                ticketedSeat?: ReservationFactory.ISeat;
+            };
+            subReservation?: IAcceptedSubReservation[];
+        };
+    };
     /**
-     * 座席
-     * 指定席イベントの場合、座席を指定
-     * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
+     * 受け入れるアドオン
      */
-    ticketedSeat?: ReservationFactory.ISeat;
+    addOn?: IAcceptedAddOn[];
 }
 
 /**
  * 受け入れられたチケットオファー
  */
 export type IAcceptedTicketOffer = IAcceptedTicketOfferWithoutDetail & ITicketOffer;
-
-/**
- * 座席オファーインターフェース
- */
-export interface ISeatOffer extends OfferFactory.IOffer {
-    availability: ItemAvailability;
-}
-
-export interface ISeatWithOffer extends MovieTheaterFactory.ISeat {
-    offers?: ISeatOffer[];
-}
-
-export interface IScreeningRoomSectionOffer extends MovieTheaterFactory.IScreeningRoomSection {
-    containsPlace: ISeatWithOffer[];
-}
 
 export interface ICOAInfo {
     theaterCode: string;
@@ -211,7 +264,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
         /**
          * 場所名称
          */
-        name: IMultilingualString;
+        name?: IMultilingualString;
         alternateName?: IMultilingualString;
         description?: IMultilingualString;
         address?: IMultilingualString;
@@ -253,6 +306,14 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      */
     attendeeCount?: Number;
     /**
+     * 予約集計
+     */
+    aggregateReservation?: IAggregateReservation;
+    /**
+     * オファー集計
+     */
+    aggregateOffer?: IAggregateOffer;
+    /**
      * その他COA情報
      * @deprecated 基本的にCinemaSunshineの互換性維持目的であり、そのうち廃止予定
      */
@@ -293,20 +354,6 @@ export interface IOfferSearchConditions {
  * 上映イベントの検索条件インターフェース
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEvent> {
-    /**
-     * 親イベント情報
-     */
-    superEvent?: {
-        ids?: string[];
-        /**
-         * 親イベント(劇場の上映イベント)が実施される場所の識別子リスト
-         */
-        locationBranchCodes?: string[];
-        /**
-         * イベントで上演される作品識別子リスト
-         */
-        workPerformedIdentifiers?: string[];
-    };
     /**
      * 販売情報
      */

@@ -1,13 +1,51 @@
+import { ICategoryCode } from './categoryCode';
 import ItemAvailability from './itemAvailability';
-import IMultilingualString from './multilingualString';
+import { IMonetaryAmount } from './monetaryAmount';
 import OfferType from './offerType';
 import { PaymentMethodType } from './paymentMethodType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
+import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
+import SortType from './sortType';
+import { IThing } from './thing';
 import { UnitCode } from './unitCode';
+
+/**
+ * オファーカテゴリーインターフェース
+ */
+export interface ICategory {
+    project: IProject;
+    id?: string;
+    codeValue?: string;
+    name?: any;
+}
+
+/**
+ * アドオンインターフェース
+ */
+export type IAddOn = IOffer;
+
+export type IEligibleCategoryCode = ICategoryCode;
+export type IEligibleMonetaryAmount = IMonetaryAmount;
+
+/**
+ * 適用サブ予約条件インターフェース
+ */
+export interface IEligibleSubReservation {
+    /**
+     * 席数
+     */
+    amountOfThisGood: number;
+    typeOfGood: {
+        /**
+         * 適用座席タイプ
+         */
+        seatingType: string;
+    };
+}
 
 /**
  * offer interface
@@ -16,12 +54,10 @@ import { UnitCode } from './unitCode';
  * to stream a TV show over the internet, to repair a motorcycle, or to loan a book.
  * @see https://schema.org/Offer
  */
-export interface IOffer {
+export interface IOffer extends IThing {
+    project: IProject;
     typeOf: OfferType;
     id?: string;
-    name?: string | IMultilingualString;
-    alternateName?: string | IMultilingualString;
-    description?: string | IMultilingualString;
     /**
      * The payment method(s) accepted by seller for this offer.
      */
@@ -30,8 +66,8 @@ export interface IOffer {
      * An additional offer that can only be obtained in combination with the first base offer
      * (e.g. supplements and extensions that are available for a surcharge).
      */
-    addOn?: IOffer[];
-    availableAddOn?: IOffer[];
+    addOn?: IAddOn[];
+    // availableAddOn?: IOffer[];
     /**
      * The availability of this item—for example In stock, Out of stock, Pre-order, etc.
      */
@@ -51,11 +87,28 @@ export interface IOffer {
     /**
      * A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
      */
-    category?: any;
+    category?: ICategory;
     /**
-     * オファーの有効な顧客タイプ
+     * 有効な顧客タイプ
      */
     eligibleCustomerType?: any;
+    /**
+     * 有効なムビチケ券種区分
+     */
+    eligibleMovieTicketType?: IEligibleCategoryCode[];
+    /**
+     * 有効な座席タイプ
+     */
+    eligibleSeatingType?: IEligibleCategoryCode[];
+    /**
+     * 有効な金額
+     * 6ポイントで無料、などの設定に使用
+     */
+    eligibleMonetaryAmount?: IEligibleMonetaryAmount[];
+    /**
+     * 適用サブ予約条件
+     */
+    eligibleSubReservation?: IEligibleSubReservation[];
     /**
      * オファーが有効となる期間
      */
@@ -94,8 +147,62 @@ export interface IOffer {
      */
     validThrough?: Date;
     /**
+     * レート制限
+     */
+    validRateLimit?: any;
+    /**
      * A property-value pair representing an additional characteristics of the entitity,
      * e.g. a product feature or another characteristic for which there is no matching property in schema.org.
      */
     additionalProperty?: IPropertyValue<string>[];
+}
+
+/**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    'priceSpecification.price'?: SortType;
+}
+
+/**
+ * 価格仕様検索条件インターフェース
+ */
+export interface IPriceSpecificationSearchConditions {
+    price?: {
+        $gte?: number;
+        $lte?: number;
+    };
+    referenceQuantity?: {
+        value?: { $eq?: number };
+    };
+    accounting?: {
+        accountsReceivable?: {
+            $gte?: number;
+            $lte?: number;
+        };
+    };
+}
+
+/**
+ * 検索条件インターフェース
+ */
+export interface ISearchConditions {
+    limit?: number;
+    page?: number;
+    sort?: ISortOrder;
+    project?: { id?: { $eq?: string } };
+    id?: {
+        $eq?: string;
+        $in?: string[];
+    };
+    identifier?: { $eq?: string };
+    priceSpecification?: IPriceSpecificationSearchConditions;
+    category?: {
+        codeValue?: {
+            $in?: string[];
+        };
+    };
+    itemOffered?: {
+        typeOf?: { $eq?: string };
+    };
 }

@@ -9,6 +9,10 @@ enum TransactionType {
     /**
      * 座席予約キャンセル
      */
-    CancelReservation = 'CancelReservation'
+    CancelReservation = 'CancelReservation',
+    /**
+     * メンバーシップ登録
+     */
+    RegisterProgramMembership = 'RegisterProgramMembership'
 }
 export default TransactionType;

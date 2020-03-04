@@ -9,8 +9,6 @@ import * as OfferFactory from '../offer';
 import OrganizationType from '../organizationType';
 import PlaceType from '../placeType';
 import { IProject } from '../project';
-import SoundFormatType from '../soundFormatType';
-import VideoFormatType from '../videoFormatType';
 
 /**
  * 上映イベントシリーズに対するオファーインターフェース
@@ -20,12 +18,12 @@ export interface IOffer extends OfferFactory.IOffer {
 }
 
 export interface IVideoFormat {
-    typeOf: VideoFormatType;
+    typeOf: string;
     name: string;
 }
 
 export interface ISoundFormat {
-    typeOf: SoundFormatType;
+    typeOf: string;
     name: string;
 }
 /**
@@ -73,11 +71,11 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     /**
      * 字幕利用可能言語
      */
-    subtitleLanguage?: ILanguage | null;
+    subtitleLanguage?: ILanguage;
     /**
      * 吹替利用可能言語
      */
-    dubLanguage?: ILanguage | null;
+    dubLanguage?: ILanguage;
     /**
      * 上映方式
      */
@@ -110,11 +108,11 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
         /**
          * 場所名称
          */
-        name: IMultilingualString;
+        name?: IMultilingualString;
         /**
          * 場所名称(カナ)
          */
-        kanaName: string;
+        kanaName?: string;
         alternateName?: IMultilingualString;
         description?: IMultilingualString;
         address?: IMultilingualString;
@@ -164,12 +162,6 @@ export type ISortOrder = EventFactory.ISortOrder;
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEventSeries> {
     sort?: ISortOrder;
-    location?: {
-        /**
-         * 場所の識別子リスト
-         */
-        branchCodes?: string[];
-    };
     workPerformed?: {
         /**
          * イベントで上演される作品識別子リスト

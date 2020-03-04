@@ -22,8 +22,8 @@ export interface IAttributes<T extends EventType> {
      * イベント名称
      */
     name: IMultilingualString;
-    alternateName?: IMultilingualString | null;
-    alternativeHeadline?: IMultilingualString | string | null;
+    alternateName?: IMultilingualString;
+    alternativeHeadline?: IMultilingualString | string;
     /**
      * イベント説明
      */
@@ -48,7 +48,7 @@ export interface IAttributes<T extends EventType> {
      * イベントがキャンセル、あるいは、延期された場合に主に使用されます。
      */
     eventStatus: EventStatusType;
-    headline?: IMultilingualString | null;
+    headline?: IMultilingualString;
     /**
      * イベントが実行される場所
      */
@@ -142,4 +142,29 @@ export interface ISearchConditions<T extends EventType> {
      * イベントステータス
      */
     eventStatuses?: EventStatusType[];
+    location?: {
+        branchCode?: {
+            $eq?: string;
+        };
+        /**
+         * 場所の識別子リスト
+         */
+        branchCodes?: string[];
+    };
+    superEvent?: {
+        ids?: string[];
+        location?: {
+            id?: {
+                $eq?: string;
+            };
+        };
+        /**
+         * 親イベント(劇場の上映イベント)が実施される場所の識別子リスト
+         */
+        locationBranchCodes?: string[];
+        /**
+         * イベントで上演される作品識別子リスト
+         */
+        workPerformedIdentifiers?: string[];
+    };
 }
