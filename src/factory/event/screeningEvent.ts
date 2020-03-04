@@ -157,13 +157,6 @@ export interface IAcceptedTicketOfferWithoutDetail {
      * チケットオファー検索結果から選択されたもの
      */
     id: string;
-    /**
-     * 予約座席指定
-     * @deprecated Use itemOffered.serviceOutput.reservedTicket.ticketedSeat
-     * 指定席イベントの場合、座席を指定
-     * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
-     */
-    ticketedSeat?: ReservationFactory.ISeat;
     itemOffered?: {
         serviceOutput?: {
             typeOf: ReservationType;
@@ -179,6 +172,8 @@ export interface IAcceptedTicketOfferWithoutDetail {
                 typeOf: ReservationFactory.TicketType;
                 /**
                  * 予約座席指定
+                 * 指定席イベントの場合、座席を指定
+                 * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
                  */
                 ticketedSeat?: ReservationFactory.ISeat;
             };
@@ -269,7 +264,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
         /**
          * 場所名称
          */
-        name: IMultilingualString;
+        name?: IMultilingualString;
         alternateName?: IMultilingualString;
         description?: IMultilingualString;
         address?: IMultilingualString;

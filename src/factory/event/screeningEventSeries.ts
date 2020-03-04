@@ -108,11 +108,11 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
         /**
          * 場所名称
          */
-        name: IMultilingualString;
+        name?: IMultilingualString;
         /**
          * 場所名称(カナ)
          */
-        kanaName: string;
+        kanaName?: string;
         alternateName?: IMultilingualString;
         description?: IMultilingualString;
         address?: IMultilingualString;
