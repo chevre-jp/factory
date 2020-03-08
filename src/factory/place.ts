@@ -11,9 +11,6 @@ export interface IPlace extends IThing {
     project: IProject;
     typeOf: PlaceType;
     id?: string;
-    // name?: IMultilingualString;
-    // alternateName?: IMultilingualString;
-    // description?: IMultilingualString;
     address?: IMultilingualString;
     branchCode?: string;
     containedInPlace?: IPlace;
