@@ -14,8 +14,7 @@ export interface IOffer extends OfferFactory.IOffer {
  */
 export interface IDistributor {
     id?: string;
-    name?: string;
-    distributorType?: string;
+    codeValue?: string;
 }
 
 /**
