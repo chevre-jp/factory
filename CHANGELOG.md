@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.1.0 - 2020-03-09
+
+### Changed
+
+- オファー検索条件拡張
+
 ## v3.0.1 - 2020-03-08
 
 ### Changed

@@ -195,7 +195,14 @@ export interface ISearchConditions {
         $eq?: string;
         $in?: string[];
     };
-    identifier?: { $eq?: string };
+    identifier?: {
+        $eq?: string;
+        $in?: string[];
+        $regex?: string;
+    };
+    name?: {
+        $regex?: string;
+    };
     priceSpecification?: IPriceSpecificationSearchConditions;
     category?: {
         codeValue?: {
