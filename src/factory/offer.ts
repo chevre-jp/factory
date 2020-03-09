@@ -5,6 +5,7 @@ import OfferType from './offerType';
 import { PaymentMethodType } from './paymentMethodType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
+import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
@@ -155,6 +156,17 @@ export interface IOffer extends IThing {
      * e.g. a product feature or another characteristic for which there is no matching property in schema.org.
      */
     additionalProperty?: IPropertyValue<string>[];
+}
+
+/**
+ * 単価オファーインターフェース
+ */
+export interface IUnitPriceOffer extends IOffer {
+    identifier: string;
+    /**
+     * 単価仕様
+     */
+    priceSpecification?: IUnitPriceSpecification;
 }
 
 /**

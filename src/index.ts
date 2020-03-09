@@ -57,7 +57,6 @@ import ReservationStatusType from './factory/reservationStatusType';
 import ReservationType from './factory/reservationType';
 import * as ServiceTypeFactory from './factory/serviceType';
 import SortType from './factory/sortType';
-import * as TicketTypeFactory from './factory/ticketType';
 import { UnitCode } from './factory/unitCode';
 import VideoFormatType from './factory/videoFormatType';
 
@@ -191,7 +190,9 @@ export import itemAvailability = ItemAvailability;
 export import language = LanguageFactory;
 export import monetaryAmount = MonetaryAmountFactory;
 export type multilingualString = IMultilingualString;
+
 export import offer = OfferFactory;
+
 export import offerCatalog = OfferCatalogFactory;
 export import offerType = OfferType;
 export import organizationType = OrganizationType;
@@ -330,8 +331,6 @@ export namespace transaction {
     export import registerProgramMembership = RegisterProgramMembershipTransactionFactory;
     export import reserve = ReserveTransactionFactory;
 }
-
-export import ticketType = TicketTypeFactory;
 
 export import transactionStatusType = TransactionStatusType;
 export import transactionTasksExportationStatus = TransactionTasksExportationStatus;
