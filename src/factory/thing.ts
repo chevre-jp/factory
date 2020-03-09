@@ -15,6 +15,10 @@ export interface IThing {
      */
     alternateName?: string | IMultilingualString;
     /**
+     * The color of the product.
+     */
+    color?: string;
+    /**
      * A description of the item.
      */
     description?: string | IMultilingualString;

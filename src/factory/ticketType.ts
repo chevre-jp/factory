@@ -1,9 +1,7 @@
 import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
-import { IOffer } from './offer';
+import { IOffer, ISearchConditions } from './offer';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
-import { IProject } from './project';
-import SortType from './sortType';
 
 // tslint:disable-next-line:no-empty-interface
 export interface IPriceSpecification extends IUnitPriceSpecification {
@@ -17,7 +15,6 @@ export interface IPriceSpecification extends IUnitPriceSpecification {
  * @see https://schema.org/Product
  */
 export interface ITicketTypeAttributes extends IOffer {
-    project: IProject;
     identifier: string;
     name: IMultilingualString;
     alternateName?: IMultilingualString;
@@ -29,10 +26,6 @@ export interface ITicketTypeAttributes extends IOffer {
      * 単価仕様
      */
     priceSpecification?: IPriceSpecification;
-    /**
-     * The color of the product.
-     */
-    color?: string;
 }
 
 /**
@@ -43,47 +36,6 @@ export type ITicketType = ITicketTypeAttributes & {
 };
 
 /**
- * ソート条件インターフェース
- */
-export interface ISortOrder {
-    'priceSpecification.price'?: SortType;
-}
-
-/**
- * 価格仕様検索条件インターフェース
- */
-export interface ITicketTypePriceSpecificationSearchConditions {
-    minPrice?: number;
-    maxPrice?: number;
-    referenceQuantity?: {
-        value?: number;
-    };
-    accounting?: {
-        minAccountsReceivable?: number;
-        maxAccountsReceivable?: number;
-    };
-}
-
-/**
  * 検索条件インターフェース
  */
-export interface ITicketTypeSearchConditions {
-    limit?: number;
-    page?: number;
-    sort?: ISortOrder;
-    project?: { ids?: string[] };
-    id?: string;
-    ids?: string[];
-    identifier?: string | {
-        $eq?: string;
-    };
-    identifiers?: string[];
-    name?: string;
-    priceSpecification?: ITicketTypePriceSpecificationSearchConditions;
-    category?: {
-        ids?: string[];
-        codeValue?: {
-            $in?: string[];
-        };
-    };
-}
+export type ITicketTypeSearchConditions = ISearchConditions;
