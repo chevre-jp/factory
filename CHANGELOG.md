@@ -18,6 +18,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.0.0 - 2020-03-26
+
+### Changed
+
+- 券種検索条件をオファー検索条件に統合
+- 券種インターフェースを単価オファーインターフェースとして再定義
+- 予約検索条件拡張
+
+### Removed
+
+- 上映方式区分を削除
+- 旧科目を削除
+- 旧配給を削除
+
 ## v3.1.0 - 2020-03-09
 
 ### Changed

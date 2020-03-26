@@ -69,8 +69,9 @@ export interface IServiceOutput {
  * イベントのサービスインターフェース
  */
 export interface IService {
+    typeOf?: string;
     /**
-     * 興行区分
+     * サービス区分
      */
     serviceType?: IServiceType;
     /**
@@ -83,12 +84,6 @@ export interface IService {
  * 上映イベントに対するオファーインターフェース
  */
 export interface IOffer extends OfferFactory.IOffer {
-    /**
-     * オファー(券種)グループID
-     */
-    id: string;
-    identifier?: any;
-    name: IMultilingualString;
     /**
      * 情報提供終了日時
      */
@@ -124,10 +119,8 @@ export type ITicketPriceSpecification = ICompoundPriceSpecification<ITicketPrice
 /**
  * チケットオファーインターフェース
  */
-export interface ITicketOffer extends IOffer {
-    id: string;
+export interface ITicketOffer extends OfferFactory.IOffer {
     identifier: string;
-    name: IMultilingualString;
     priceSpecification: ITicketPriceSpecification;
 }
 

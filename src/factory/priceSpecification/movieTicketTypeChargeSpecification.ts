@@ -1,7 +1,6 @@
 import { PaymentMethodType } from '../paymentMethodType';
 import { IPriceSpecification as BaseSpecification } from '../priceSpecification';
 import PriceSpecificationType from '../priceSpecificationType';
-import VideoFormatType from '../videoFormatType';
 
 export interface IMovieTicket {
     typeOf: PaymentMethodType.MovieTicket;
@@ -27,7 +26,7 @@ export type IPriceSpecification = BaseSpecification<PriceSpecificationType.Movie
     /**
      * 適用上映方式
      */
-    appliesToVideoFormat: VideoFormatType;
+    appliesToVideoFormat: string;
     /**
      * 適用ムビチケ券種区分
      */

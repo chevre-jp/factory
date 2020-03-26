@@ -1,6 +1,6 @@
 import * as COA from '@motionpicture/coa-service';
 
-import { IOffer } from './offer';
+import { IUnitPriceOffer } from './offer';
 import * as SeatFactory from './place/seat';
 import PlaceType from './placeType';
 import PriceCurrency from './priceCurrency';
@@ -11,9 +11,9 @@ import { IPropertyValue } from './propertyValue';
 import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
 import SortType from './sortType';
-import { ITicketType } from './ticketType';
 
 export type TicketType = 'Ticket';
+export type ITicketType = IUnitPriceOffer;
 
 export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;
 
@@ -247,7 +247,7 @@ export interface IReservation<T extends IPriceSpecification> {
      * An additional offer that can only be obtained in combination with the first base offer
      * (e.g. supplements and extensions that are available for a surcharge).
      */
-    addOn?: IOffer[];
+    // addOn?: IOffer[];
 }
 
 /**

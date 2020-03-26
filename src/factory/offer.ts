@@ -5,6 +5,7 @@ import OfferType from './offerType';
 import { PaymentMethodType } from './paymentMethodType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
+import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
@@ -158,6 +159,17 @@ export interface IOffer extends IThing {
 }
 
 /**
+ * 単価オファーインターフェース
+ */
+export interface IUnitPriceOffer extends IOffer {
+    identifier: string;
+    /**
+     * 単価仕様
+     */
+    priceSpecification?: IUnitPriceSpecification;
+}
+
+/**
  * ソート条件インターフェース
  */
 export interface ISortOrder {
@@ -190,6 +202,12 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    availableAtOrFrom?: {
+        id?: {
+            $eq?: string;
+            $in?: string[];
+        };
+    };
     project?: { id?: { $eq?: string } };
     id?: {
         $eq?: string;

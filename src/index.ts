@@ -57,9 +57,7 @@ import ReservationStatusType from './factory/reservationStatusType';
 import ReservationType from './factory/reservationType';
 import * as ServiceTypeFactory from './factory/serviceType';
 import SortType from './factory/sortType';
-import * as TicketTypeFactory from './factory/ticketType';
 import { UnitCode } from './factory/unitCode';
-import VideoFormatType from './factory/videoFormatType';
 
 import * as TaskFactory from './factory/task';
 import * as AggregateScreeningEventTaskFactory from './factory/task/aggregateScreeningEvent';
@@ -191,7 +189,9 @@ export import itemAvailability = ItemAvailability;
 export import language = LanguageFactory;
 export import monetaryAmount = MonetaryAmountFactory;
 export type multilingualString = IMultilingualString;
+
 export import offer = OfferFactory;
+
 export import offerCatalog = OfferCatalogFactory;
 export import offerType = OfferType;
 export import organizationType = OrganizationType;
@@ -331,22 +331,7 @@ export namespace transaction {
     export import reserve = ReserveTransactionFactory;
 }
 
-export import ticketType = TicketTypeFactory;
-
 export import transactionStatusType = TransactionStatusType;
 export import transactionTasksExportationStatus = TransactionTasksExportationStatus;
 export import transactionType = TransactionType;
 export import unitCode = UnitCode;
-export import videoFormatType = VideoFormatType;
-
-import * as DistributorFactory from './factory/distributor';
-import * as SubjectFactory from './factory/subject';
-
-/**
- * @deprecated 東映ローカライズなのでそのうち廃止
- */
-export import distributor = DistributorFactory;
-/**
- * @deprecated 東映ローカライズなのでそのうち廃止
- */
-export import subject = SubjectFactory;
