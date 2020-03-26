@@ -202,6 +202,12 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    availableAtOrFrom?: {
+        id?: {
+            $eq?: string;
+            $in?: string[];
+        };
+    };
     project?: { id?: { $eq?: string } };
     id?: {
         $eq?: string;
