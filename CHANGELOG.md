@@ -18,6 +18,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- 上映方式区分を削除
+- 旧科目を削除
+- 旧配給を削除
+
 ### Fixed
 
 ### Security
