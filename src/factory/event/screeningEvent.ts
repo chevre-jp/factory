@@ -251,7 +251,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
         typeOf: PlaceType.ScreeningRoom;
         /**
          * 場所枝番号
-         * スクリーンコードに該当します。
+         * スクリーンコードに相当
          */
         branchCode: string;
         /**
@@ -261,6 +261,11 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
         alternateName?: IMultilingualString;
         description?: IMultilingualString;
         address?: IMultilingualString;
+        /**
+         * イベント固有のキャパシティ
+         * 施設のキャパシティに依存しない場合に使用
+         */
+        maximumAttendeeCapacity?: number;
     };
     /**
      * イベント名称
