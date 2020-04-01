@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.1.0 - 2020-04-01
+
+### Added
+
+- イベントに固有のキャパシティ設定を追加
+
 ## v4.0.0 - 2020-03-26
 
 ### Changed
