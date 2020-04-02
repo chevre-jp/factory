@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- オファーに供給者属性を追加
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.2.0 - 2020-04-02
+
+### Changed
+
+- オファーに供給者属性を追加
 
 ## v4.1.0 - 2020-04-01
 
