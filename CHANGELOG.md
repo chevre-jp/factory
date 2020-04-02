@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- オファーに供給者属性を追加
+
 ### Deprecated
 
 ### Removed

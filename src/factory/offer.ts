@@ -49,6 +49,18 @@ export interface IEligibleSubReservation {
 }
 
 /**
+ * 供給者インターフェース
+ */
+export interface IOfferedBy extends IThing {
+    typeOf?: string;
+    /**
+     * オファー供給者ID
+     * 販売者IDに相当
+     */
+    id?: string;
+}
+
+/**
  * offer interface
  * An offer to transfer some rights to an item or to provide a service
  * — for example, an offer to sell tickets to an event, to rent the DVD of a movie,
@@ -126,6 +138,7 @@ export interface IOffer extends IThing {
      * The item being offered.
      */
     itemOffered?: any;
+    offeredBy?: IOfferedBy;
     /**
      * The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.
      */
