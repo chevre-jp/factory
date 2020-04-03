@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.3.0 - 2020-04-03
+
+### Added
+
+- オファーに販売者属性を追加
+
 ## v4.2.0 - 2020-04-02
 
 ### Changed
