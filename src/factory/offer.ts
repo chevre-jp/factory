@@ -49,14 +49,10 @@ export interface IEligibleSubReservation {
 }
 
 /**
- * 供給者インターフェース
+ * 販売者インターフェース
  */
-export interface IOfferedBy extends IThing {
+export interface ISeller extends IThing {
     typeOf?: string;
-    /**
-     * オファー供給者ID
-     * 販売者IDに相当
-     */
     id?: string;
 }
 
@@ -138,7 +134,7 @@ export interface IOffer extends IThing {
      * The item being offered.
      */
     itemOffered?: any;
-    offeredBy?: IOfferedBy;
+    offeredBy?: any;
     /**
      * The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.
      */
@@ -152,6 +148,10 @@ export interface IOffer extends IThing {
      * One or more detailed price specifications, indicating the unit price and delivery or payment charges.
      */
     priceSpecification?: IPriceSpecification<PriceSpecificationType>;
+    /**
+     * An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider.
+     */
+    seller?: ISeller;
     /**
      * The date when the item becomes valid.
      */
