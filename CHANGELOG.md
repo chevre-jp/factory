@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.4.0 - 2020-04-11
+
+### Added
+
+- 劇場にPOS属性を追加
+
 ## v4.3.0 - 2020-04-03
 
 ### Added

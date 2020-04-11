@@ -21,6 +21,18 @@ export interface IOffer extends OfferFactory.IOffer {
     availabilityEndsGraceTime?: IQuantitativeValue<UnitCode.Sec>;
 }
 
+export type POSType = 'POS';
+
+/**
+ * POSインターフェース
+ * 管理者が識別しやすいようPOSの属性を指定します
+ */
+export interface IPOS {
+    typeOf: POSType;
+    id: string;
+    name: string;
+}
+
 /**
  * place interface without screening room
  */
@@ -35,6 +47,10 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
      * 枝番号
      */
     branchCode: string;
+    /**
+     * Points-of-Sales operated by the organization or person.
+     */
+    hasPOS?: IPOS[];
     /**
      * 名称
      */
