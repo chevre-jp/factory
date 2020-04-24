@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.5.0 - 2020-04-24
+
+### Added
+
+- プロジェクトにイベントインポート期間設定を追加
+
 ## v4.4.0 - 2020-04-11
 
 ### Added
