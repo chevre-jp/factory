@@ -33,6 +33,7 @@ export interface IOnReservationStatusChanged {
  * プロジェクト設定インターフェース
  */
 export interface ISettings {
+    importEventsInWeeks?: number;
     onEventChanged?: IOnEventChanged;
     onReservationStatusChanged?: IOnReservationStatusChanged;
 }
