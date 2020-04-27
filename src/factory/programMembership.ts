@@ -17,6 +17,8 @@ export interface IMembershipFor {
  * @see https://schema.org/ProgramMembership
  */
 export interface IProgramMembership extends IThing {
+    project: IProject;
+    typeOf: ProgramMembershipType;
     /**
      * The organization (airline, travelers' club, etc.) the membership is made with.
      */
@@ -42,8 +44,6 @@ export interface IProgramMembership extends IThing {
      * The program providing the membership.
      */
     programName?: string;
-    project: IProject;
-    typeOf: ProgramMembershipType;
 }
 
 /**

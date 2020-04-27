@@ -21,6 +21,7 @@ export interface IItemListElement {
  */
 export interface IOfferCatalog extends IThing {
     project: IProject;
+    typeOf: 'OfferCatalog';
     id?: string;
     identifier: string;
     name: IMultilingualString;

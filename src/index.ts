@@ -55,6 +55,8 @@ import * as EventReservationFactory from './factory/reservation/event';
 import * as ReservationPackageFactory from './factory/reservation/reservationPackage';
 import ReservationStatusType from './factory/reservationStatusType';
 import ReservationType from './factory/reservationType';
+import * as ServiceFactory from './factory/service';
+import * as WebAPIServiceFactory from './factory/service/webAPI';
 import * as ServiceTypeFactory from './factory/serviceType';
 import SortType from './factory/sortType';
 import { UnitCode } from './factory/unitCode';
@@ -287,6 +289,13 @@ export namespace task {
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
     export import reserve = ReserveTaskFactory;
     export import triggerWebhook = TriggerWebhookTaskFactory;
+}
+
+export namespace service {
+    export import IHasOfferCatalog = ServiceFactory.IHasOfferCatalog;
+    export import IService = ServiceFactory.IService;
+    export import IServiceOutput = ServiceFactory.IServiceOutput;
+    export import webAPI = WebAPIServiceFactory;
 }
 
 export import serviceType = ServiceTypeFactory;
