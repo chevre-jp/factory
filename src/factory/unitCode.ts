@@ -3,6 +3,10 @@
  */
 export enum UnitCode {
     /**
+     * 年
+     */
+    Ann = 'ANN',
+    /**
      * no unit
      */
     C62 = 'C62',
