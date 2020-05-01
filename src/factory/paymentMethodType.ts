@@ -7,7 +7,7 @@ export enum PaymentMethodType {
      */
     Cash = 'Cash',
     /**
-     * 内部口座決済
+     * 口座決済
      */
     Account = 'Account',
     /**
@@ -15,9 +15,13 @@ export enum PaymentMethodType {
      */
     EMoney = 'EMoney',
     /**
-     * クレジットカード決済
+     * クレジットカード
      */
     CreditCard = 'CreditCard',
+    /**
+     * MGチケット
+     */
+    MGTicket = 'MGTicket',
     /**
      * ムビチケ
      */
@@ -25,5 +29,9 @@ export enum PaymentMethodType {
     /**
      * その他
      */
-    Others = 'Others'
+    Others = 'Others',
+    /**
+     * プリペイドカード
+     */
+    PrepaidCard = 'PrepaidCard'
 }

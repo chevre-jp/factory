@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 決済方法にMGTicketを追加
+- 決済方法にPrepaidCardを追加
+
 ### Changed
 
 ### Deprecated
