@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.8.0 - 2020-05-01
+
+### Added
+
+- 決済方法にMGTicketを追加
+- 決済方法にPrepaidCardを追加
+
 ## v4.7.0 - 2020-04-29
 
 ### Changed
