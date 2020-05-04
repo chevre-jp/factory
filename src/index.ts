@@ -7,6 +7,7 @@ import * as CancelReservationActionFactory from './factory/action/cancel/reserva
 import * as InformActionFactory from './factory/action/interact/inform';
 import * as RegisterActionFactory from './factory/action/interact/register';
 import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
+import * as RegisterServiceActionFactory from './factory/action/interact/register/service';
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
 import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
 import * as ReserveActionFactory from './factory/action/reserve';
@@ -67,6 +68,7 @@ import * as CancelPendingReservationTaskFactory from './factory/task/cancelPendi
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
 import * as ImportEventsFromCOATaskFactory from './factory/task/importEventsFromCOA';
 import * as ImportOffersFromCOATaskFactory from './factory/task/importOffersFromCOA';
+import * as RegisterServiceTaskFactory from './factory/task/registerService';
 import * as ReserveTaskFactory from './factory/task/reserve';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
 
@@ -76,6 +78,7 @@ import TaskStatus from './factory/taskStatus';
 
 import * as CancelReservationTransactionFactory from './factory/transaction/cancelReservation';
 import * as RegisterProgramMembershipTransactionFactory from './factory/transaction/registerProgramMembership';
+import * as RegisterServiceTransactionFactory from './factory/transaction/registerService';
 import * as ReserveTransactionFactory from './factory/transaction/reserve';
 import TransactionStatusType from './factory/transactionStatusType';
 import TransactionTasksExportationStatus from './factory/transactionTasksExportationStatus';
@@ -124,6 +127,8 @@ export namespace action {
             export import IAttributes = RegisterActionFactory.IAttributes;
             // tslint:disable-next-line:no-shadowed-variable
             export import programMembership = RegisterProgramMembershipActionFactory;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import service = RegisterServiceActionFactory;
         }
         export namespace unRegister {
             // tslint:disable-next-line:no-shadowed-variable
@@ -287,6 +292,7 @@ export namespace task {
     export import cancelReservation = CancelReservationTaskFactory;
     export import importEventsFromCOA = ImportEventsFromCOATaskFactory;
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
+    export import registerService = RegisterServiceTaskFactory;
     export import reserve = ReserveTaskFactory;
     export import triggerWebhook = TriggerWebhookTaskFactory;
 }
@@ -308,35 +314,42 @@ export namespace transaction {
     export type IStartParams<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IStartParams :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IStartParams :
+        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IStartParams :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IStartParams :
         never;
     export type IAttributes<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IAttributes :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IAttributes :
+        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IAttributes :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IAttributes :
         never;
     export type ITransaction<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ITransaction :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.ITransaction :
+        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ITransaction :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ITransaction :
         never;
     export type IResult<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IResult :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IResult :
+        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IResult :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IResult :
         never;
     export type IPotentialActions<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IPotentialActions :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IPotentialActions :
+        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IPotentialActions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IPotentialActions :
         never;
     export type ISearchConditions<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ISearchConditions :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.ISearchConditions :
+        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ISearchConditions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ISearchConditions :
         never;
     export import cancelReservation = CancelReservationTransactionFactory;
     export import registerProgramMembership = RegisterProgramMembershipTransactionFactory;
+    export import registerService = RegisterServiceTransactionFactory;
     export import reserve = ReserveTransactionFactory;
 }
 

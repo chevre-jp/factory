@@ -13,6 +13,10 @@ enum TransactionType {
     /**
      * メンバーシップ登録
      */
-    RegisterProgramMembership = 'RegisterProgramMembership'
+    RegisterProgramMembership = 'RegisterProgramMembership',
+    /**
+     * サービス登録
+     */
+    RegisterService = 'RegisterService'
 }
 export default TransactionType;
