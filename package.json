@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "@motionpicture/coa-service": "^7.0.0",
+    "@pecorino/factory": "^4.0.0",
     "setprototypeof": "^1.2.0"
   },
   "repository": {

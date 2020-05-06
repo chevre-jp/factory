@@ -3,6 +3,10 @@
  */
 enum TransactionType {
     /**
+     * 通貨転送
+     */
+    MoneyTransfer = 'MoneyTransfer',
+    /**
      * 座席予約
      */
     Reserve = 'Reserve',

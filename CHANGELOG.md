@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - サービス登録取引を追加
 - 決済方法インターフェースを追加
+- 通貨転送取引を追加
 
 ### Changed
 

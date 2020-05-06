@@ -11,6 +11,8 @@ import * as RegisterServiceActionFactory from './factory/action/interact/registe
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
 import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
 import * as ReserveActionFactory from './factory/action/reserve';
+import * as MoneyTransferActionFactory from './factory/action/transfer/moneyTransfer';
+
 import ActionStatusType from './factory/actionStatusType';
 import ActionType from './factory/actionType';
 
@@ -68,10 +70,12 @@ import { UnitCode } from './factory/unitCode';
 
 import * as TaskFactory from './factory/task';
 import * as AggregateScreeningEventTaskFactory from './factory/task/aggregateScreeningEvent';
+import * as CancelMoneyTransferTaskFactory from './factory/task/cancelMoneyTransfer';
 import * as CancelPendingReservationTaskFactory from './factory/task/cancelPendingReservation';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
 import * as ImportEventsFromCOATaskFactory from './factory/task/importEventsFromCOA';
 import * as ImportOffersFromCOATaskFactory from './factory/task/importOffersFromCOA';
+import * as MoneyTransferTaskFactory from './factory/task/moneyTransfer';
 import * as RegisterServiceTaskFactory from './factory/task/registerService';
 import * as ReserveTaskFactory from './factory/task/reserve';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
@@ -81,6 +85,7 @@ import TaskName from './factory/taskName';
 import TaskStatus from './factory/taskStatus';
 
 import * as CancelReservationTransactionFactory from './factory/transaction/cancelReservation';
+import * as MoneyTransferTransactionFactory from './factory/transaction/moneyTransfer';
 import * as RegisterProgramMembershipTransactionFactory from './factory/transaction/registerProgramMembership';
 import * as RegisterServiceTransactionFactory from './factory/transaction/registerService';
 import * as ReserveTransactionFactory from './factory/transaction/reserve';
@@ -146,7 +151,9 @@ export namespace action {
 
     export namespace trade {
     }
+
     export namespace transfer {
+        export import moneyTransfer = MoneyTransferActionFactory;
         export namespace give {
         }
         export namespace print {
@@ -162,12 +169,14 @@ export namespace action {
             }
         }
     }
+
     export namespace consume {
         export namespace use {
         }
     }
     export import reserve = ReserveActionFactory;
 }
+
 export import accountTitle = AccountTitleFactory;
 export import categoryCode = CategoryCodeFactory;
 export import clientUser = ClientUserFactory;
@@ -312,10 +321,12 @@ export namespace task {
     export import ITask = TaskFactory.ITask;
 
     export import aggregateScreeningEvent = AggregateScreeningEventTaskFactory;
+    export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
     export import importEventsFromCOA = ImportEventsFromCOATaskFactory;
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
+    export import moneyTransfer = MoneyTransferTaskFactory;
     export import registerService = RegisterServiceTaskFactory;
     export import reserve = ReserveTaskFactory;
     export import triggerWebhook = TriggerWebhookTaskFactory;
@@ -337,41 +348,49 @@ export import taskStatus = TaskStatus;
 export namespace transaction {
     export type IStartParams<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IStartParams :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IStartParams :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IStartParams :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IStartParams :
         never;
     export type IAttributes<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IAttributes :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IAttributes :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IAttributes :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IAttributes :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IAttributes :
         never;
     export type ITransaction<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ITransaction :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ITransaction :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.ITransaction :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ITransaction :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ITransaction :
         never;
     export type IResult<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IResult :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IResult :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IResult :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IResult :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IResult :
         never;
     export type IPotentialActions<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IPotentialActions :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IPotentialActions :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IPotentialActions :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IPotentialActions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IPotentialActions :
         never;
     export type ISearchConditions<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ISearchConditions :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ISearchConditions :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.ISearchConditions :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ISearchConditions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ISearchConditions :
         never;
+
     export import cancelReservation = CancelReservationTransactionFactory;
+    export import moneyTransfer = MoneyTransferTransactionFactory;
     export import registerProgramMembership = RegisterProgramMembershipTransactionFactory;
     export import registerService = RegisterServiceTransactionFactory;
     export import reserve = ReserveTransactionFactory;
