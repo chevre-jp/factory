@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - サービス登録取引を追加
+- 決済方法インターフェースを追加
 
 ### Changed
 

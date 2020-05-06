@@ -45,10 +45,8 @@ export interface IPotentialActionsParams {
  * 確定パラメーターインターフェース
  */
 export interface IConfirmParams {
+    id?: string;
     object?: any;
-    /**
-     * 確定後アクション
-     */
     potentialActions?: IPotentialActionsParams;
 }
 
