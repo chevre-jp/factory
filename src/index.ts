@@ -7,9 +7,12 @@ import * as CancelReservationActionFactory from './factory/action/cancel/reserva
 import * as InformActionFactory from './factory/action/interact/inform';
 import * as RegisterActionFactory from './factory/action/interact/register';
 import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
+import * as RegisterServiceActionFactory from './factory/action/interact/register/service';
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
 import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
 import * as ReserveActionFactory from './factory/action/reserve';
+import * as MoneyTransferActionFactory from './factory/action/transfer/moneyTransfer';
+
 import ActionStatusType from './factory/actionStatusType';
 import ActionType from './factory/actionType';
 
@@ -32,6 +35,10 @@ import * as OfferFactory from './factory/offer';
 import * as OfferCatalogFactory from './factory/offerCatalog';
 import OfferType from './factory/offerType';
 import OrganizationType from './factory/organizationType';
+import * as PaymentCardFactory from './factory/paymentMethod/paymentCard';
+import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
+import * as MGTicketFactory from './factory/paymentMethod/paymentCard/mgTicket';
+import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTicket';
 import { PaymentMethodType } from './factory/paymentMethodType';
 import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
 import * as ScreeningRoomPlaceFactory from './factory/place/screeningRoom';
@@ -63,10 +70,13 @@ import { UnitCode } from './factory/unitCode';
 
 import * as TaskFactory from './factory/task';
 import * as AggregateScreeningEventTaskFactory from './factory/task/aggregateScreeningEvent';
+import * as CancelMoneyTransferTaskFactory from './factory/task/cancelMoneyTransfer';
 import * as CancelPendingReservationTaskFactory from './factory/task/cancelPendingReservation';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
 import * as ImportEventsFromCOATaskFactory from './factory/task/importEventsFromCOA';
 import * as ImportOffersFromCOATaskFactory from './factory/task/importOffersFromCOA';
+import * as MoneyTransferTaskFactory from './factory/task/moneyTransfer';
+import * as RegisterServiceTaskFactory from './factory/task/registerService';
 import * as ReserveTaskFactory from './factory/task/reserve';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
 
@@ -75,7 +85,9 @@ import TaskName from './factory/taskName';
 import TaskStatus from './factory/taskStatus';
 
 import * as CancelReservationTransactionFactory from './factory/transaction/cancelReservation';
+import * as MoneyTransferTransactionFactory from './factory/transaction/moneyTransfer';
 import * as RegisterProgramMembershipTransactionFactory from './factory/transaction/registerProgramMembership';
+import * as RegisterServiceTransactionFactory from './factory/transaction/registerService';
 import * as ReserveTransactionFactory from './factory/transaction/reserve';
 import TransactionStatusType from './factory/transactionStatusType';
 import TransactionTasksExportationStatus from './factory/transactionTasksExportationStatus';
@@ -124,6 +136,8 @@ export namespace action {
             export import IAttributes = RegisterActionFactory.IAttributes;
             // tslint:disable-next-line:no-shadowed-variable
             export import programMembership = RegisterProgramMembershipActionFactory;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import service = RegisterServiceActionFactory;
         }
         export namespace unRegister {
             // tslint:disable-next-line:no-shadowed-variable
@@ -137,7 +151,9 @@ export namespace action {
 
     export namespace trade {
     }
+
     export namespace transfer {
+        export import moneyTransfer = MoneyTransferActionFactory;
         export namespace give {
         }
         export namespace print {
@@ -153,12 +169,14 @@ export namespace action {
             }
         }
     }
+
     export namespace consume {
         export namespace use {
         }
     }
     export import reserve = ReserveActionFactory;
 }
+
 export import accountTitle = AccountTitleFactory;
 export import categoryCode = CategoryCodeFactory;
 export import clientUser = ClientUserFactory;
@@ -197,7 +215,25 @@ export import offer = OfferFactory;
 export import offerCatalog = OfferCatalogFactory;
 export import offerType = OfferType;
 export import organizationType = OrganizationType;
+
 export import paymentMethodType = PaymentMethodType;
+
+export namespace paymentMethod {
+    export type ISearchConditions = any;
+    export type IPaymentMethod<T extends PaymentMethodType> =
+        T extends PaymentMethodType.CreditCard ? CreditCardFactory.ICheckedCard :
+        T extends PaymentMethodType.MGTicket ? MGTicketFactory.IMGTicket :
+        T extends PaymentMethodType.MovieTicket ? MovieTicketFactory.IMovieTicket :
+        never;
+
+    export namespace paymentCard {
+        export import IPaymentCard = PaymentCardFactory.IPaymentCard;
+        export import creditCard = CreditCardFactory;
+        export import mgTicket = MGTicketFactory;
+        export import movieTicket = MovieTicketFactory;
+    }
+}
+
 export import priceCurrency = PriceCurrency;
 export namespace place {
     export import movieTheater = MovieTheaterPlaceFactory;
@@ -283,10 +319,13 @@ export namespace task {
     export import ITask = TaskFactory.ITask;
 
     export import aggregateScreeningEvent = AggregateScreeningEventTaskFactory;
+    export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
     export import importEventsFromCOA = ImportEventsFromCOATaskFactory;
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
+    export import moneyTransfer = MoneyTransferTaskFactory;
+    export import registerService = RegisterServiceTaskFactory;
     export import reserve = ReserveTaskFactory;
     export import triggerWebhook = TriggerWebhookTaskFactory;
 }
@@ -307,36 +346,51 @@ export import taskStatus = TaskStatus;
 export namespace transaction {
     export type IStartParams<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IStartParams :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IStartParams :
+        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IStartParams :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IStartParams :
         never;
     export type IAttributes<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IAttributes :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IAttributes :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IAttributes :
+        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IAttributes :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IAttributes :
         never;
     export type ITransaction<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ITransaction :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ITransaction :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.ITransaction :
+        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ITransaction :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ITransaction :
         never;
     export type IResult<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IResult :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IResult :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IResult :
+        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IResult :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IResult :
         never;
     export type IPotentialActions<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IPotentialActions :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IPotentialActions :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IPotentialActions :
+        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IPotentialActions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IPotentialActions :
         never;
     export type ISearchConditions<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ISearchConditions :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ISearchConditions :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.ISearchConditions :
+        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ISearchConditions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ISearchConditions :
         never;
+
     export import cancelReservation = CancelReservationTransactionFactory;
+    export import moneyTransfer = MoneyTransferTransactionFactory;
     export import registerProgramMembership = RegisterProgramMembershipTransactionFactory;
+    export import registerService = RegisterServiceTransactionFactory;
     export import reserve = ReserveTransactionFactory;
 }
 

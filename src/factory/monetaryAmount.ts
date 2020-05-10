@@ -21,11 +21,11 @@ export interface IMonetaryAmount extends IThing {
     /**
      * The date when the item becomes valid.
      */
-    validFrom?: number;
+    validFrom?: Date;
     /**
      * The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
      */
-    validThrough?: number;
+    validThrough?: Date;
     /**
      * The value of the quantitative value or property value node.
      */

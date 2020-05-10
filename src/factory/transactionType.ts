@@ -3,6 +3,10 @@
  */
 enum TransactionType {
     /**
+     * 通貨転送
+     */
+    MoneyTransfer = 'MoneyTransfer',
+    /**
      * 座席予約
      */
     Reserve = 'Reserve',
@@ -13,6 +17,10 @@ enum TransactionType {
     /**
      * メンバーシップ登録
      */
-    RegisterProgramMembership = 'RegisterProgramMembership'
+    RegisterProgramMembership = 'RegisterProgramMembership',
+    /**
+     * サービス登録
+     */
+    RegisterService = 'RegisterService'
 }
 export default TransactionType;

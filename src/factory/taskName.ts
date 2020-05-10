@@ -8,6 +8,9 @@ enum TaskName {
     AggregateScreeningEvent = 'aggregateScreeningEvent',
     ImportEventsFromCOA = 'importEventsFromCOA',
     ImportOffersFromCOA = 'importOffersFromCOA',
+    CancelMoneyTransfer = 'cancelMoneyTransfer',
+    MoneyTransfer = 'moneyTransfer',
+    RegisterService = 'registerService',
     /**
      * ウェブフックをたたく
      */

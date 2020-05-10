@@ -1,6 +1,6 @@
 {
   "name": "@chevre/factory",
-  "version": "4.8.0",
+  "version": "4.9.0",
   "description": "Chevre Factory Library for Javascript",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "@motionpicture/coa-service": "^7.0.0",
+    "@pecorino/factory": "^4.0.0",
     "setprototypeof": "^1.2.0"
   },
   "repository": {
