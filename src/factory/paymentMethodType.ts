@@ -3,21 +3,21 @@
  */
 export enum PaymentMethodType {
     /**
-     * 現金
-     */
-    Cash = 'Cash',
-    /**
      * 口座決済
      */
     Account = 'Account',
     /**
-     * 電子マネー
+     * 現金
      */
-    EMoney = 'EMoney',
+    Cash = 'Cash',
     /**
      * クレジットカード
      */
     CreditCard = 'CreditCard',
+    /**
+     * 電子マネー
+     */
+    EMoney = 'EMoney',
     /**
      * MGチケット
      */
@@ -31,7 +31,7 @@ export enum PaymentMethodType {
      */
     Others = 'Others',
     /**
-     * プリペイドカード
+     * 決済カード
      */
-    PrepaidCard = 'PrepaidCard'
+    PaymentCard = 'PaymentCard'
 }

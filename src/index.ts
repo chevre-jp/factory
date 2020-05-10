@@ -35,10 +35,10 @@ import * as OfferFactory from './factory/offer';
 import * as OfferCatalogFactory from './factory/offerCatalog';
 import OfferType from './factory/offerType';
 import OrganizationType from './factory/organizationType';
+import * as PaymentCardFactory from './factory/paymentMethod/paymentCard';
 import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
 import * as MGTicketFactory from './factory/paymentMethod/paymentCard/mgTicket';
 import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTicket';
-import * as PrepaidCardFactory from './factory/paymentMethod/paymentCard/prepaidCard';
 import { PaymentMethodType } from './factory/paymentMethodType';
 import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
 import * as ScreeningRoomPlaceFactory from './factory/place/screeningRoom';
@@ -220,19 +220,17 @@ export import paymentMethodType = PaymentMethodType;
 
 export namespace paymentMethod {
     export type ISearchConditions = any;
-
     export type IPaymentMethod<T extends PaymentMethodType> =
         T extends PaymentMethodType.CreditCard ? CreditCardFactory.ICheckedCard :
         T extends PaymentMethodType.MGTicket ? MGTicketFactory.IMGTicket :
         T extends PaymentMethodType.MovieTicket ? MovieTicketFactory.IMovieTicket :
-        T extends PaymentMethodType.PrepaidCard ? PrepaidCardFactory.IPrepaidCard :
         never;
 
     export namespace paymentCard {
+        export import IPaymentCard = PaymentCardFactory.IPaymentCard;
         export import creditCard = CreditCardFactory;
         export import mgTicket = MGTicketFactory;
         export import movieTicket = MovieTicketFactory;
-        export import prepaidCard = PrepaidCardFactory;
     }
 }
 
