@@ -15,6 +15,10 @@ export interface IStartParams<T extends TransactionType, TAgent, TRecipient, TOb
      */
     typeOf: T;
     /**
+     * 取引番号
+     */
+    transactionNumber?: string;
+    /**
      * 取引主体
      */
     agent: TAgent;
