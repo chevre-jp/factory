@@ -8,6 +8,11 @@ import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
+export interface IHasOfferCatalog {
+    typeOf: 'OfferCatalog';
+    id?: string;
+}
+
 export interface IAttributes<T extends EventType> {
     project: IProject;
     /**
@@ -48,6 +53,10 @@ export interface IAttributes<T extends EventType> {
      * イベントがキャンセル、あるいは、延期された場合に主に使用されます。
      */
     eventStatus: EventStatusType;
+    /**
+     * Indicates an OfferCatalog listing for this Organization, Person, or Service.
+     */
+    hasOfferCatalog?: IHasOfferCatalog;
     headline?: IMultilingualString;
     /**
      * イベントが実行される場所
