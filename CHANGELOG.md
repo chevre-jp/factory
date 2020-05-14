@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- イベントにhasOfferCatalogを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.12.0 - 2020-05-14
+
+### Added
+
+- イベントにhasOfferCatalogを追加
 
 ## v4.11.0 - 2020-05-13
 
