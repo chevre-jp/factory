@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 通貨転送取引開始パラメータ調整
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.13.0 - 2020-05-15
+
+### Changed
+
+- 通貨転送取引開始パラメータ調整
 
 ## v4.12.0 - 2020-05-14
 
