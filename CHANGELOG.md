@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.13.0 - 2020-05-15
+
+### Changed
+
+- 通貨転送取引開始パラメータ調整
+
 ## v4.12.0 - 2020-05-14
 
 ### Added
