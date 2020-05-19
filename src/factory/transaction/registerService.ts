@@ -9,6 +9,8 @@ export type IStartParamsWithoutDetail =
 
 /**
  * 取引開始パラメーターインターフェース
+ * サービス: MembershipService,PaymentCard,AccountであればserviceOutputを発行する
+ * サービス: MoneyTransferであればMoneyTransferを実行する(Project or Seller -> Agent)
  */
 export type IStartParams = TransactionFactory.IStartParams<TransactionType.RegisterService, IAgent, undefined, IObject>;
 

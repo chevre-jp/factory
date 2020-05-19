@@ -7,19 +7,25 @@ enum TransactionType {
      */
     MoneyTransfer = 'MoneyTransfer',
     /**
-     * 座席予約
+     * 予約
      */
     Reserve = 'Reserve',
     /**
-     * 座席予約キャンセル
+     * 予約キャンセル
      */
     CancelReservation = 'CancelReservation',
+    /**
+     * 決済
+     * PaymentMethod: PaymentCard,Account,CreditCard,PaymentAgency...
+     */
+    Pay = 'Pay',
     /**
      * メンバーシップ登録
      */
     RegisterProgramMembership = 'RegisterProgramMembership',
     /**
      * サービス登録
+     * Service: MembershipService,PaymentCard,Account,MoneyTransfer...
      */
     RegisterService = 'RegisterService'
 }
