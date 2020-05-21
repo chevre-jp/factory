@@ -74,10 +74,11 @@ export interface IPotentialActionsParams {
 }
 
 /**
- * 予約確定パラメーターインターフェース
+ * 確定パラメーターインターフェース
  */
 export interface IConfirmParams {
-    id: string;
+    id?: string;
+    transactionNumber?: string;
     object?: {
         /**
          * 最終的な予約の属性を指定できます
