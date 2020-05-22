@@ -176,4 +176,9 @@ export interface ISearchConditions<T extends EventType> {
          */
         workPerformedIdentifiers?: string[];
     };
+    hasOfferCatalog?: {
+        id?: {
+            $eq?: string;
+        };
+    };
 }

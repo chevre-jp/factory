@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.17.0 - 2020-05-22
+
+### Changed
+
+- イベントのカタログ検索条件を調整
+
 ## v4.16.0 - 2020-05-22
 
 ### Added
