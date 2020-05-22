@@ -329,7 +329,6 @@ export type IEvent = EventFactory.IEvent<IAttributes>;
 export type ISortOrder = EventFactory.ISortOrder;
 
 export interface IOfferSearchConditions {
-    ids?: string[];
     availableFrom?: Date;
     availableThrough?: Date;
     validFrom?: Date;
