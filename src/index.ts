@@ -69,10 +69,12 @@ import SortType from './factory/sortType';
 import { UnitCode } from './factory/unitCode';
 
 import * as TaskFactory from './factory/task';
+import * as AggregateOnProjectTaskFactory from './factory/task/aggregateOnProject';
 import * as AggregateScreeningEventTaskFactory from './factory/task/aggregateScreeningEvent';
 import * as CancelMoneyTransferTaskFactory from './factory/task/cancelMoneyTransfer';
 import * as CancelPendingReservationTaskFactory from './factory/task/cancelPendingReservation';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
+import * as ImportEventCapacitiesFromCOATaskFactory from './factory/task/importEventCapacitiesFromCOA';
 import * as ImportEventsFromCOATaskFactory from './factory/task/importEventsFromCOA';
 import * as ImportOffersFromCOATaskFactory from './factory/task/importOffersFromCOA';
 import * as MoneyTransferTaskFactory from './factory/task/moneyTransfer';
@@ -318,10 +320,12 @@ export namespace task {
     export import ISearchConditions = TaskFactory.ISearchConditions;
     export import ITask = TaskFactory.ITask;
 
+    export import aggregateOnProject = AggregateOnProjectTaskFactory;
     export import aggregateScreeningEvent = AggregateScreeningEventTaskFactory;
     export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
+    export import importEventCapacitiesFromCOA = ImportEventCapacitiesFromCOATaskFactory;
     export import importEventsFromCOA = ImportEventsFromCOATaskFactory;
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
     export import moneyTransfer = MoneyTransferTaskFactory;

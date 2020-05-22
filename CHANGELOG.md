@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- プロジェクト上集計タスクを追加
+- イベントキャパシティインポートタスクを追加
+
 ### Changed
 
 ### Deprecated
