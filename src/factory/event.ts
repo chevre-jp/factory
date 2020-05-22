@@ -179,6 +179,6 @@ export interface ISearchConditions<T extends EventType> {
     hasOfferCatalog?: {
         id?: {
             $eq?: string;
-        }
+        };
     };
 }
