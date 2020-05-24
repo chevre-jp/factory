@@ -1,5 +1,6 @@
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
+import { IOrganization } from '../organization';
 import * as PlaceFactory from '../place';
 import PlaceType from '../placeType';
 import { IQuantitativeValue } from '../quantitativeValue';
@@ -32,6 +33,8 @@ export interface IPOS {
     id: string;
     name: string;
 }
+
+export type IParentOrganization = IOrganization;
 
 /**
  * place interface without screening room
@@ -67,6 +70,10 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
      * 販売情報
      */
     offers?: IOffer;
+    /**
+     * The larger organization that this organization is a subOrganization of, if any.
+     */
+    parentOrganization?: IParentOrganization;
 }
 
 /**
