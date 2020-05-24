@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.18.0 - 2020-05-24
+
+### Added
+
+- 劇場に親組織を追加
+
 ## v4.17.0 - 2020-05-22
 
 ### Changed

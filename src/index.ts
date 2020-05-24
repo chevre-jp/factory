@@ -34,6 +34,7 @@ import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
 import * as OfferCatalogFactory from './factory/offerCatalog';
 import OfferType from './factory/offerType';
+import * as OrganizationFactory from './factory/organization';
 import OrganizationType from './factory/organizationType';
 import * as PaymentCardFactory from './factory/paymentMethod/paymentCard';
 import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
@@ -216,6 +217,8 @@ export import offer = OfferFactory;
 
 export import offerCatalog = OfferCatalogFactory;
 export import offerType = OfferType;
+
+export import organization = OrganizationFactory;
 export import organizationType = OrganizationType;
 
 export import paymentMethodType = PaymentMethodType;
