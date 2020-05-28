@@ -40,7 +40,7 @@ export interface IOnReservationStatusChanged {
 export interface IObjectWithoutDetail {
     clientUser?: IClientUser;
     /**
-     * 予約取引をキーに取り消す場合
+     * 取引をキーに取り消す場合
      */
     transaction?: {
         typeOf: TransactionType;
@@ -51,6 +51,7 @@ export interface IObjectWithoutDetail {
      */
     reservation?: {
         id?: string;
+        reservationNumber?: string;
     };
     onReservationStatusChanged?: IOnReservationStatusChanged;
 }
