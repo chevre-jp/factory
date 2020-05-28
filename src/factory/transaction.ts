@@ -123,4 +123,7 @@ export interface ISearchConditions<T extends TransactionType> {
     agent?: {
         ids?: string[];
     };
+    transactionNumber?: {
+        $eq?: string;
+    };
 }

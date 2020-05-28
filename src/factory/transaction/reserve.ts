@@ -143,6 +143,9 @@ export interface IAttributes extends TransactionFactory.IAttributes<IStartParams
 export type ITransaction = IExtendId<IAttributes>;
 
 export interface IObjectSearchConditions {
+    reservationNumber?: {
+        $eq?: string;
+    };
     reservations?: {
         id?: {
             $in?: string[];
