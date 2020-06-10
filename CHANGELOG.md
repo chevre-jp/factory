@@ -8,7 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- Permitインターフェースを追加
+
 ### Changed
+
+- サービス登録取引を拡張
 
 ### Deprecated
 
