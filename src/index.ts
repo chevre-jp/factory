@@ -41,6 +41,7 @@ import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCa
 import * as MGTicketFactory from './factory/paymentMethod/paymentCard/mgTicket';
 import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTicket';
 import { PaymentMethodType } from './factory/paymentMethodType';
+import * as PermitFactory from './factory/permit';
 import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
 import * as ScreeningRoomPlaceFactory from './factory/place/screeningRoom';
 import * as ScreeningRoomSectionPlaceFactory from './factory/place/screeningRoomSection';
@@ -238,6 +239,8 @@ export namespace paymentMethod {
         export import movieTicket = MovieTicketFactory;
     }
 }
+
+export import permit = PermitFactory;
 
 export import priceCurrency = PriceCurrency;
 export namespace place {
