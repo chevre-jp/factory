@@ -8,11 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- Permitインターフェースを追加
-
 ### Changed
-
-- サービス登録取引を拡張
 
 ### Deprecated
 
@@ -21,6 +17,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.21.0 - 2020-06-10
+
+### Added
+
+- Permitインターフェースを追加
+
+### Changed
+
+- サービス登録取引を拡張
 
 ## v4.20.0 - 2020-05-28
 
