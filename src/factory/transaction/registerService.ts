@@ -50,6 +50,7 @@ export interface IPotentialActionsParams {
  */
 export interface IConfirmParams {
     id?: string;
+    transactionNumber?: string;
     endDate?: Date;
     object?: any;
     potentialActions?: IPotentialActionsParams;
