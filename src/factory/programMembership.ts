@@ -1,3 +1,4 @@
+import { IOrganization } from './organization';
 import { IProject } from './project';
 import { IQuantitativeValue } from './quantitativeValue';
 import { IThing } from './thing';
@@ -11,6 +12,8 @@ export interface IMembershipFor {
     id: string;
 }
 
+export type IHostingOrganization = IOrganization;
+
 /**
  * Used to describe membership in a loyalty programs
  * (e.g. "StarAliance"), traveler clubs (e.g. "AAA"), purchase clubs ("Safeway Club"), etc.
@@ -22,7 +25,7 @@ export interface IProgramMembership extends IThing {
     /**
      * The organization (airline, travelers' club, etc.) the membership is made with.
      */
-    hostingOrganization?: any;
+    hostingOrganization?: IHostingOrganization;
     /**
      * target program
      */
@@ -44,24 +47,4 @@ export interface IProgramMembership extends IThing {
      * The program providing the membership.
      */
     programName?: string;
-}
-
-/**
- * メンバーシップ検索条件インターフェース
- */
-export interface ISearchConditions {
-    limit?: number;
-    page?: number;
-    // sort?: ISortOrder;
-    project?: {
-        id?: {
-            $eq?: string;
-        };
-    };
-    id?: {
-        $eq?: string;
-    };
-    membershipNumber?: {
-        $eq?: string;
-    };
 }
