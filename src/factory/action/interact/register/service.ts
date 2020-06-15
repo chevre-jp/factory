@@ -1,9 +1,12 @@
+import { IAttributes as IMoneyTransferActionAttributes } from '../../transfer/moneyTransfer';
 import * as RegisterActionFactory from '../register';
 
 export type IObject = any;
 export type IResult = any;
 
-export type IPotentialActions = any;
+export interface IPotentialActions {
+    moneyTransfer: IMoneyTransferActionAttributes[];
+}
 
 export interface IAttributes extends RegisterActionFactory.IAttributes<IObject, IResult> {
     potentialActions?: IPotentialActions;

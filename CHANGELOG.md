@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.23.0 - 2020-06-15
+
+### Added
+
+- サービス登録後アクションにMoneyTransferを追加
+
 ## v4.22.0 - 2020-06-11
 
 ### Changed
