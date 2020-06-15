@@ -8,8 +8,7 @@ import TransactionType from '../../transactionType';
 /**
  * 進行中取引インターフェース
  */
-export type IPendingTransaction =
-    pecorino.transaction.deposit.ITransaction
+export type IPendingTransaction = pecorino.transaction.deposit.ITransaction
     | pecorino.transaction.transfer.ITransaction
     | pecorino.transaction.withdraw.ITransaction;
 
@@ -36,7 +35,12 @@ export interface IPaymentCard {
 export type ILocation = IAnonymousLocation | IPaymentCard;
 
 export interface IObject {
-    pendingTransaction: IPendingTransaction;
+    typeOf: pecorino.transactionType;
+    transactionNumber?: string;
+    /**
+     * 取引承認済の場合、進行中取引
+     */
+    pendingTransaction?: IPendingTransaction;
 }
 
 export type IResult = any;
