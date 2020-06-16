@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.25.0 - 2020-06-15
+
+### Added
+
+- サービスのポイント特典をエクスポート
+
 ## v4.24.0 - 2020-06-15
 
 ### Changed

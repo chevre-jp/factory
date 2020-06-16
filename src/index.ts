@@ -342,6 +342,7 @@ export namespace task {
 
 export namespace service {
     export import IHasOfferCatalog = ServiceFactory.IHasOfferCatalog;
+    export import IPointAward = ServiceFactory.IPointAward;
     export import IService = ServiceFactory.IService;
     export import IServiceOutput = ServiceFactory.IServiceOutput;
     export import webAPI = WebAPIServiceFactory;
