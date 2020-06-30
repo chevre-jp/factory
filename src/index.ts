@@ -54,6 +54,7 @@ import * as CompoundPriceSpecificationFactory from './factory/priceSpecification
 import * as MovieTicketTypeChargeSpecificationFactory from './factory/priceSpecification/movieTicketTypeChargeSpecification';
 import * as UnitPriceSpecificationFactory from './factory/priceSpecification/unitPriceSpecification';
 import PriceSpecificationType from './factory/priceSpecificationType';
+import * as ProductFactory from './factory/product';
 import * as ProgramMembershipFactory from './factory/programMembership';
 import * as project from './factory/project';
 import * as PropertyValueFactory from './factory/propertyValue';
@@ -268,6 +269,7 @@ export namespace compoundPriceSpecification {
 }
 export import priceSpecificationType = PriceSpecificationType;
 export import programMembership = ProgramMembershipFactory;
+export import product = ProductFactory;
 export import project = project;
 export import propertyValue = PropertyValueFactory;
 
@@ -343,7 +345,7 @@ export namespace task {
 export namespace service {
     export import IHasOfferCatalog = ServiceFactory.IHasOfferCatalog;
     export import IPointAward = ServiceFactory.IPointAward;
-    export import IService = ServiceFactory.IService;
+    export import IService = ServiceFactory.IProduct;
     export import IServiceOutput = ServiceFactory.IServiceOutput;
     export import webAPI = WebAPIServiceFactory;
 }
