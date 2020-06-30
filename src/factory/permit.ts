@@ -1,8 +1,8 @@
 import { IMonetaryAmount } from './monetaryAmount';
 import { IOrganization } from './organization';
+import { IProduct } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
-import { IService } from './service';
 import { IThing } from './thing';
 
 /**
@@ -24,7 +24,7 @@ export interface IPermit extends IThing {
     /**
      * The service through with the permit was granted.
      */
-    issuedThrough?: IService;
+    issuedThrough?: IProduct;
     /**
      * The target audience for this permit.
      */
