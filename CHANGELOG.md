@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.27.0 - 2020-07-08
+
+### Changed
+
+- オファーと価格仕様のappliesToMovieTicketTypeをappliesToMovieTicketに変更
+
 ## v4.26.0 - 2020-06-30
 
 ### Added
