@@ -28,10 +28,6 @@ export type IPriceSpecification = BaseSpecification<PriceSpecificationType.Movie
      */
     appliesToVideoFormat: string;
     /**
-     * 適用ムビチケ券種区分
-     */
-    appliesToMovieTicketType: string;
-    /**
      * 適用ムビチケ
      */
     appliesToMovieTicket?: IMovieTicket;
