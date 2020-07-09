@@ -35,5 +35,5 @@ export interface IAttributes extends IPaymentCard {
  * ムビチケインターフェース
  */
 export interface IMovieTicket extends IAttributes {
-    typeOf: PaymentMethodType.MovieTicket;
+    typeOf: PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket;
 }

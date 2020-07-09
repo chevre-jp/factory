@@ -3,7 +3,7 @@ import { IPriceSpecification as BaseSpecification } from '../priceSpecification'
 import PriceSpecificationType from '../priceSpecificationType';
 
 export interface IMovieTicket {
-    typeOf: PaymentMethodType.MovieTicket;
+    typeOf: PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket;
     /**
      * 購入管理番号(ムビチケ購入番号)
      */

@@ -38,7 +38,6 @@ import * as OrganizationFactory from './factory/organization';
 import OrganizationType from './factory/organizationType';
 import * as PaymentCardFactory from './factory/paymentMethod/paymentCard';
 import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
-import * as MGTicketFactory from './factory/paymentMethod/paymentCard/mgTicket';
 import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTicket';
 import { PaymentMethodType } from './factory/paymentMethodType';
 import * as PermitFactory from './factory/permit';
@@ -66,6 +65,7 @@ import * as ReservationPackageFactory from './factory/reservation/reservationPac
 import ReservationStatusType from './factory/reservationStatusType';
 import ReservationType from './factory/reservationType';
 import * as ServiceFactory from './factory/service';
+import * as PaymentServiceFactory from './factory/service/paymentService';
 import * as WebAPIServiceFactory from './factory/service/webAPI';
 import * as ServiceTypeFactory from './factory/serviceType';
 import SortType from './factory/sortType';
@@ -229,14 +229,13 @@ export namespace paymentMethod {
     export type ISearchConditions = any;
     export type IPaymentMethod<T extends PaymentMethodType> =
         T extends PaymentMethodType.CreditCard ? CreditCardFactory.ICheckedCard :
-        T extends PaymentMethodType.MGTicket ? MGTicketFactory.IMGTicket :
+        T extends PaymentMethodType.MGTicket ? MovieTicketFactory.IMovieTicket :
         T extends PaymentMethodType.MovieTicket ? MovieTicketFactory.IMovieTicket :
         never;
 
     export namespace paymentCard {
         export import IPaymentCard = PaymentCardFactory.IPaymentCard;
         export import creditCard = CreditCardFactory;
-        export import mgTicket = MGTicketFactory;
         export import movieTicket = MovieTicketFactory;
     }
 }
@@ -347,6 +346,7 @@ export namespace service {
     export import IPointAward = ServiceFactory.IPointAward;
     export import IService = ServiceFactory.IProduct;
     export import IServiceOutput = ServiceFactory.IServiceOutput;
+    export import paymentService = PaymentServiceFactory;
     export import webAPI = WebAPIServiceFactory;
 }
 
