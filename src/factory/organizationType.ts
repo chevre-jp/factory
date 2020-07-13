@@ -1,10 +1,8 @@
 /**
  * 組織タイプ
  */
-
-enum OrganizationType {
+export enum OrganizationType {
     Corporation = 'Corporation',
-    MovieTheater = 'MovieTheater'
+    MovieTheater = 'MovieTheater',
+    Project = 'Project'
 }
-
-export default OrganizationType;

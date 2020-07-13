@@ -1,7 +1,7 @@
 import * as mvtkapi from '@movieticket/reserve-api-nodejs-client';
 
 import * as ActionFactory from '../../../action';
-import OrganizationType from '../../../organizationType';
+import { OrganizationType } from '../../../organizationType';
 import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
 import { PaymentMethodType } from '../../../paymentMethodType';
 import * as CheckActionFactory from '../../check';

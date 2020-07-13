@@ -37,7 +37,7 @@ import * as OfferFactory from './factory/offer';
 import * as OfferCatalogFactory from './factory/offerCatalog';
 import OfferType from './factory/offerType';
 import * as OrganizationFactory from './factory/organization';
-import OrganizationType from './factory/organizationType';
+import { OrganizationType } from './factory/organizationType';
 import * as PaymentCardFactory from './factory/paymentMethod/paymentCard';
 import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
 import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTicket';
@@ -66,6 +66,7 @@ import * as EventReservationFactory from './factory/reservation/event';
 import * as ReservationPackageFactory from './factory/reservation/reservationPackage';
 import ReservationStatusType from './factory/reservationStatusType';
 import ReservationType from './factory/reservationType';
+import * as SellerFactory from './factory/seller';
 import * as ServiceFactory from './factory/service';
 import * as PaymentServiceFactory from './factory/service/paymentService';
 import * as WebAPIServiceFactory from './factory/service/webAPI';
@@ -331,6 +332,8 @@ export namespace reservation {
 export import reservationStatusType = ReservationStatusType;
 
 export import reservationType = ReservationType;
+
+export import seller = SellerFactory;
 
 export namespace task {
     export import IAttributes = TaskFactory.IAttributes;
