@@ -1,3 +1,4 @@
+import { OrganizationType } from './organizationType';
 import { IService as IPaymentService } from './service/paymentService';
 import SortType from './sortType';
 
@@ -44,7 +45,7 @@ export interface ISettings {
  * プロジェクトインターフェース
  */
 export interface IProject {
-    typeOf: 'Project';
+    typeOf: OrganizationType.Project;
     id: string;
     alternateName?: string;
     description?: string;

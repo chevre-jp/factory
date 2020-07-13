@@ -46,6 +46,7 @@ export type ITransaction<TStartParams, TResult, TError, TPotentialActions> =
  * 取引属性インターフェース
  */
 export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TStartParams & {
+    purpose?: any;
     /**
      * 取引状態
      */
