@@ -8,9 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 決済取引インターフェースを追加
-- 販売者インターフェースを追加
-
 ### Changed
 
 ### Deprecated
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.29.0 - 2020-07-13
+
+### Added
+
+- 決済取引インターフェースを追加
+- 販売者インターフェースを追加
 
 ## v4.28.0 - 2020-07-09
 
