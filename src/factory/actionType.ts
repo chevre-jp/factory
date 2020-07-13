@@ -4,8 +4,10 @@
 enum ActionType {
     AuthorizeAction = 'AuthorizeAction',
     CancelAction = 'CancelAction',
+    CheckAction = 'CheckAction',
     InformAction = 'InformAction',
     MoneyTransfer = 'MoneyTransfer',
+    PayAction = 'PayAction',
     RegisterAction = 'RegisterAction',
     ReserveAction = 'ReserveAction',
     ReturnAction = 'ReturnAction',

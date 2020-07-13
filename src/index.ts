@@ -4,6 +4,7 @@
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as CancelReservationActionFactory from './factory/action/cancel/reservation';
+import * as CheckMovieTicketActionFactory from './factory/action/check/paymentMethod/movieTicket';
 import * as InformActionFactory from './factory/action/interact/inform';
 import * as RegisterActionFactory from './factory/action/interact/register';
 import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
@@ -11,6 +12,7 @@ import * as RegisterServiceActionFactory from './factory/action/interact/registe
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
 import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
 import * as ReserveActionFactory from './factory/action/reserve';
+import * as PayActionFactory from './factory/action/trade/pay';
 import * as MoneyTransferActionFactory from './factory/action/transfer/moneyTransfer';
 
 import ActionStatusType from './factory/actionStatusType';
@@ -91,6 +93,7 @@ import TaskStatus from './factory/taskStatus';
 
 import * as CancelReservationTransactionFactory from './factory/transaction/cancelReservation';
 import * as MoneyTransferTransactionFactory from './factory/transaction/moneyTransfer';
+import * as PayTransactionFactory from './factory/transaction/pay';
 import * as RegisterProgramMembershipTransactionFactory from './factory/transaction/registerProgramMembership';
 import * as RegisterServiceTransactionFactory from './factory/transaction/registerService';
 import * as ReserveTransactionFactory from './factory/transaction/reserve';
@@ -132,6 +135,13 @@ export namespace action {
         export import reservation = CancelReservationActionFactory;
     }
 
+    export namespace check {
+        // tslint:disable-next-line:no-shadowed-variable
+        export namespace paymentMethod {
+            export import movieTicket = CheckMovieTicketActionFactory;
+        }
+    }
+
     export namespace interact {
         export import inform = InformActionFactory;
         export namespace register {
@@ -155,6 +165,7 @@ export namespace action {
     }
 
     export namespace trade {
+        export import pay = PayActionFactory;
     }
 
     export namespace transfer {
@@ -360,6 +371,7 @@ export namespace transaction {
     export type IStartParams<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IStartParams :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams :
+        T extends TransactionType.Pay ? PayTransactionFactory.IStartParams :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IStartParams :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IStartParams :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IStartParams :
@@ -367,6 +379,7 @@ export namespace transaction {
     export type IAttributes<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IAttributes :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IAttributes :
+        T extends TransactionType.Pay ? PayTransactionFactory.IAttributes :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IAttributes :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IAttributes :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IAttributes :
@@ -374,6 +387,7 @@ export namespace transaction {
     export type ITransaction<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ITransaction :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ITransaction :
+        T extends TransactionType.Pay ? PayTransactionFactory.ITransaction :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.ITransaction :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ITransaction :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ITransaction :
@@ -381,6 +395,7 @@ export namespace transaction {
     export type IResult<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IResult :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IResult :
+        T extends TransactionType.Pay ? PayTransactionFactory.IResult :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IResult :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IResult :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IResult :
@@ -388,6 +403,7 @@ export namespace transaction {
     export type IPotentialActions<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IPotentialActions :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IPotentialActions :
+        T extends TransactionType.Pay ? PayTransactionFactory.IPotentialActions :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IPotentialActions :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IPotentialActions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IPotentialActions :
@@ -395,6 +411,7 @@ export namespace transaction {
     export type ISearchConditions<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ISearchConditions :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ISearchConditions :
+        T extends TransactionType.Pay ? PayTransactionFactory.ISearchConditions :
         T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.ISearchConditions :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ISearchConditions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ISearchConditions :
@@ -402,6 +419,7 @@ export namespace transaction {
 
     export import cancelReservation = CancelReservationTransactionFactory;
     export import moneyTransfer = MoneyTransferTransactionFactory;
+    export import pay = PayTransactionFactory;
     export import registerProgramMembership = RegisterProgramMembershipTransactionFactory;
     export import registerService = RegisterServiceTransactionFactory;
     export import reserve = ReserveTransactionFactory;

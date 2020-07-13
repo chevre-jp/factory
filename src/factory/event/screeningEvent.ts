@@ -16,6 +16,7 @@ import { IPropertyValue } from '../propertyValue';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
 import ReservationType from '../reservationType';
+import * as WebAPIFactory from '../service/webAPI';
 import { IServiceType } from '../serviceType';
 import { UnitCode } from '../unitCode';
 
@@ -80,6 +81,8 @@ export interface IService {
     serviceOutput?: IServiceOutput;
 }
 
+export type IOfferedThrough = WebAPIFactory.IService<WebAPIFactory.Identifier>;
+
 /**
  * 上映イベントに対するオファーインターフェース
  */
@@ -94,6 +97,10 @@ export interface IOffer extends OfferFactory.IOffer {
     availabilityStarts: Date;
     eligibleQuantity: IQuantitativeValue<UnitCode.C62>;
     itemOffered: IService;
+    /**
+     * オファー供給サービス
+     */
+    offeredThrough?: IOfferedThrough;
     /**
      * 販売可能期間from
      */
