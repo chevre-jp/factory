@@ -1,12 +1,10 @@
 import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
+import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { PaymentMethodType } from './paymentMethodType';
-import { IProject } from './project';
-import { IPropertyValue } from './propertyValue';
-import SortType from './sortType';
-import { IThing } from './thing';
+// import SortType from './sortType';
 
 /**
  * 場所インターフェース
@@ -29,21 +27,7 @@ export interface ILocation {
 /**
  * 親組織インターフェース
  */
-export interface IParentOrganization {
-    /**
-     * スキーマタイプ
-     */
-    typeOf: OrganizationType;
-    /**
-     * 組織識別子
-     */
-    identifier?: any;
-    /**
-     * 組織名称
-     */
-    name: IMultilingualString;
-    telephone?: string;
-}
+export type IParentOrganization = IOrganization;
 
 export type IAcceptedPaymentMethodType = PaymentMethodType | string;
 
@@ -138,9 +122,8 @@ export type IAreaServed = any;
 
 export type IHasMerchantReturnPolicy = IMerchantReturnPolicy[];
 
-export interface IAttributes<T extends OrganizationType> extends IThing {
-    project: IProject;
-    typeOf: T;
+export interface ISeller extends IOrganization {
+    typeOf: OrganizationType;
     hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
     parentOrganization?: IParentOrganization;
     legalName?: IMultilingualString;
@@ -149,32 +132,19 @@ export interface IAttributes<T extends OrganizationType> extends IThing {
      * A pointer to products or services offered by the organization or person.
      */
     makesOffer?: IMakesOffer[];
-    telephone?: string;
     paymentAccepted?: IPaymentAccepted<IAcceptedPaymentMethodType>[];
     /**
      * The geographic area where a service or offered item is provided.
      */
     areaServed?: IAreaServed[];
-    /**
-     * A property-value pair representing an additional characteristics of the entitity,
-     * e.g. a product feature or another characteristic for which there is no matching property in schema.org.
-     */
-    additionalProperty?: IPropertyValue<string>[];
 }
-
-/**
- * 組織インターフェース
- */
-export type IOrganization<T extends IAttributes<OrganizationType>> = T & {
-    id: string;
-};
 
 /**
  * ソート条件インターフェース
  */
-export interface ISortOrder {
-    'location.branchCode'?: SortType;
-}
+// export interface ISortOrder {
+//     'location.branchCode'?: SortType;
+// }
 
 export interface ILocationSearchConditions {
     typeOfs?: string[];
@@ -188,7 +158,7 @@ export interface ILocationSearchConditions {
 export interface ISearchConditions {
     limit?: number;
     page?: number;
-    sort?: ISortOrder;
+    sort?: any;
     project?: {
         id?: { $eq?: string };
         ids?: string[];
