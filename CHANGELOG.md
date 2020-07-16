@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 決済タスクインターフェースを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.30.0 - 2020-07-16
+
+### Added
+
+- 決済タスクインターフェースを追加
 
 ## v4.29.1 - 2020-07-15
 
