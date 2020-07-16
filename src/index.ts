@@ -84,6 +84,7 @@ import * as ImportEventCapacitiesFromCOATaskFactory from './factory/task/importE
 import * as ImportEventsFromCOATaskFactory from './factory/task/importEventsFromCOA';
 import * as ImportOffersFromCOATaskFactory from './factory/task/importOffersFromCOA';
 import * as MoneyTransferTaskFactory from './factory/task/moneyTransfer';
+import * as PayTaskFactory from './factory/task/pay';
 import * as RegisterServiceTaskFactory from './factory/task/registerService';
 import * as ReserveTaskFactory from './factory/task/reserve';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
@@ -350,6 +351,7 @@ export namespace task {
     export import importEventsFromCOA = ImportEventsFromCOATaskFactory;
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
     export import moneyTransfer = MoneyTransferTaskFactory;
+    export import pay = PayTaskFactory;
     export import registerService = RegisterServiceTaskFactory;
     export import reserve = ReserveTaskFactory;
     export import triggerWebhook = TriggerWebhookTaskFactory;

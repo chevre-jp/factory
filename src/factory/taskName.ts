@@ -13,6 +13,7 @@ enum TaskName {
     CancelMoneyTransfer = 'cancelMoneyTransfer',
     MoneyTransfer = 'moneyTransfer',
     RegisterService = 'registerService',
+    Pay = 'pay',
     /**
      * ウェブフックをたたく
      */

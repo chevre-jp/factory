@@ -5,11 +5,12 @@ import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import { PaymentMethodType } from '../../paymentMethodType';
 import PriceCurrency from '../../priceCurrency';
 import { IPropertyValue } from '../../propertyValue';
+import { ISeller } from '../../seller';
+import { PaymentServiceType } from '../../service/paymentService';
 
 export type IAgent = ActionFactory.IParticipant;
-export type IRecipient = ActionFactory.IParticipant;
+export type IRecipient = ISeller;
 export type IPurpose = any;
-export type TypeOfObject = 'PaymentMethod';
 export type AvailablePaymentMethodType = PaymentMethodType | string;
 
 /**
@@ -43,7 +44,7 @@ export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
 }
 
 export interface ICommonPaymentMethod<T extends PaymentMethodType> {
-    typeOf: TypeOfObject;
+    typeOf: PaymentServiceType;
     /**
      * 決済方法
      */
@@ -114,6 +115,8 @@ export type IResult<T> =
 export interface IAttributes<T extends PaymentMethodType | string>
     extends ActionFactory.IAttributes<ActionType.PayAction, IObject<T>, IResult<T>> {
     purpose: IPurpose;
+    recipient?: IRecipient;
+
 }
 
 /**
