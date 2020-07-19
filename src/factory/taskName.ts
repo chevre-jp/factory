@@ -17,6 +17,7 @@ enum TaskName {
     /**
      * ウェブフックをたたく
      */
-    TriggerWebhook = 'triggerWebhook'
+    TriggerWebhook = 'triggerWebhook',
+    VoidPayment = 'voidPayment'
 }
 export default TaskName;

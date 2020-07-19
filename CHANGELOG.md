@@ -8,7 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 決済中止タスクインターフェースを追加
+
 ### Changed
+
+- 決済サービスにCreditCardを追加
 
 ### Deprecated
 
