@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- ペイメントサービスに外部サービス認証情報属性を追加
+
 ### Changed
 
 ### Deprecated
