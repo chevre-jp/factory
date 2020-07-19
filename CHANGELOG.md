@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- ペイメントサービスに外部サービス認証情報属性を追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.32.0 - 2020-07-19
+
+### Added
+
+- ペイメントサービスに外部サービス認証情報属性を追加
 
 ## v4.31.0 - 2020-07-19
 
