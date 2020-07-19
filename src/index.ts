@@ -88,6 +88,7 @@ import * as PayTaskFactory from './factory/task/pay';
 import * as RegisterServiceTaskFactory from './factory/task/registerService';
 import * as ReserveTaskFactory from './factory/task/reserve';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
+import * as VoidPaymentTaskFactory from './factory/task/voidPayment';
 
 import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
 import TaskName from './factory/taskName';
@@ -355,6 +356,7 @@ export namespace task {
     export import registerService = RegisterServiceTaskFactory;
     export import reserve = ReserveTaskFactory;
     export import triggerWebhook = TriggerWebhookTaskFactory;
+    export import voidPayment = VoidPaymentTaskFactory;
 }
 
 export namespace service {

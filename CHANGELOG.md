@@ -18,6 +18,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.31.0 - 2020-07-19
+
+### Added
+
+- 決済中止タスクインターフェースを追加
+
+### Changed
+
+- 決済サービスにCreditCardを追加
+
 ## v4.30.0 - 2020-07-16
 
 ### Added

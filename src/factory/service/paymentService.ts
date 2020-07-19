@@ -7,9 +7,12 @@ export interface IServiceOutput {
 export interface IAvailableChannel {
     typeOf: 'ServiceChannel';
     serviceUrl?: string;
+    siteId?: string;
+    sitePass?: string;
 }
 
 export enum PaymentServiceType {
+    CreditCard = 'CreditCard',
     MovieTicket = 'MovieTicket'
 }
 
