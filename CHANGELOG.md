@@ -18,6 +18,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.33.0 - 2020-07-20
+
+### Added
+
+- 決済取引の確定パラメータを定義
+
+### Removed
+
+- メンバーシップ登録取引を削除
+
 ## v4.32.0 - 2020-07-19
 
 ### Added

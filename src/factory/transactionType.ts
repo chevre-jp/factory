@@ -20,10 +20,6 @@ enum TransactionType {
      */
     Pay = 'Pay',
     /**
-     * メンバーシップ登録
-     */
-    RegisterProgramMembership = 'RegisterProgramMembership',
-    /**
      * サービス登録
      * Service: MembershipService,PaymentCard,Account,MoneyTransfer...
      */
