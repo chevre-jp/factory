@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- メンバーシップ登録取引を削除
+
 ### Fixed
 
 ### Security

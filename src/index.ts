@@ -97,7 +97,6 @@ import TaskStatus from './factory/taskStatus';
 import * as CancelReservationTransactionFactory from './factory/transaction/cancelReservation';
 import * as MoneyTransferTransactionFactory from './factory/transaction/moneyTransfer';
 import * as PayTransactionFactory from './factory/transaction/pay';
-import * as RegisterProgramMembershipTransactionFactory from './factory/transaction/registerProgramMembership';
 import * as RegisterServiceTransactionFactory from './factory/transaction/registerService';
 import * as ReserveTransactionFactory from './factory/transaction/reserve';
 import TransactionStatusType from './factory/transactionStatusType';
@@ -379,7 +378,6 @@ export namespace transaction {
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IStartParams :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams :
         T extends TransactionType.Pay ? PayTransactionFactory.IStartParams :
-        T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IStartParams :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IStartParams :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IStartParams :
         never;
@@ -387,7 +385,6 @@ export namespace transaction {
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IAttributes :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IAttributes :
         T extends TransactionType.Pay ? PayTransactionFactory.IAttributes :
-        T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IAttributes :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IAttributes :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IAttributes :
         never;
@@ -395,7 +392,6 @@ export namespace transaction {
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ITransaction :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ITransaction :
         T extends TransactionType.Pay ? PayTransactionFactory.ITransaction :
-        T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.ITransaction :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ITransaction :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ITransaction :
         never;
@@ -403,7 +399,6 @@ export namespace transaction {
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IResult :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IResult :
         T extends TransactionType.Pay ? PayTransactionFactory.IResult :
-        T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IResult :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IResult :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IResult :
         never;
@@ -411,7 +406,6 @@ export namespace transaction {
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IPotentialActions :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IPotentialActions :
         T extends TransactionType.Pay ? PayTransactionFactory.IPotentialActions :
-        T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.IPotentialActions :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IPotentialActions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IPotentialActions :
         never;
@@ -419,7 +413,6 @@ export namespace transaction {
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ISearchConditions :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ISearchConditions :
         T extends TransactionType.Pay ? PayTransactionFactory.ISearchConditions :
-        T extends TransactionType.RegisterProgramMembership ? RegisterProgramMembershipTransactionFactory.ISearchConditions :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ISearchConditions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ISearchConditions :
         never;
@@ -427,7 +420,6 @@ export namespace transaction {
     export import cancelReservation = CancelReservationTransactionFactory;
     export import moneyTransfer = MoneyTransferTransactionFactory;
     export import pay = PayTransactionFactory;
-    export import registerProgramMembership = RegisterProgramMembershipTransactionFactory;
     export import registerService = RegisterServiceTransactionFactory;
     export import reserve = ReserveTransactionFactory;
 }
