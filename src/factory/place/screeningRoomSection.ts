@@ -1,5 +1,5 @@
 import * as PlaceFactory from '../place';
-import PlaceType from '../placeType';
+import { PlaceType } from '../placeType';
 import { IPlace as ISeat, IPlaceWithOffer as ISeatWithOffer } from './seat';
 
 /**

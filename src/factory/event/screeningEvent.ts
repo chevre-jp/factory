@@ -6,7 +6,7 @@ import EventType from '../eventType';
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import OfferType from '../offerType';
-import PlaceType from '../placeType';
+import { PlaceType } from '../placeType';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';

@@ -1,12 +1,12 @@
 /**
  * 場所タイプ
  */
-
-enum PlaceType {
+export enum PlaceType {
     MovieTheater = 'MovieTheater',
+    Place = 'Place',
     ScreeningRoom = 'ScreeningRoom',
     ScreeningRoomSection = 'ScreeningRoomSection',
     Seat = 'Seat'
 }
 
-export default PlaceType;
+// export default PlaceType;

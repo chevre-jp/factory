@@ -2,7 +2,7 @@ import * as COA from '@motionpicture/coa-service';
 
 import { IUnitPriceOffer } from './offer';
 import * as SeatFactory from './place/seat';
-import PlaceType from './placeType';
+import { PlaceType } from './placeType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';

@@ -7,7 +7,7 @@ import { ILanguage } from '../language';
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import { OrganizationType } from '../organizationType';
-import PlaceType from '../placeType';
+import { PlaceType } from '../placeType';
 import { IProject } from '../project';
 
 /**

@@ -2,7 +2,7 @@ import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import { IOrganization } from '../organization';
 import * as PlaceFactory from '../place';
-import PlaceType from '../placeType';
+import { PlaceType } from '../placeType';
 import { IQuantitativeValue } from '../quantitativeValue';
 // import SortType from '../sortType';
 import { UnitCode } from '../unitCode';
@@ -34,6 +34,8 @@ export interface IPOS {
     name: string;
 }
 
+export type IEntranceGate = PlaceFactory.IPlace;
+
 export type IParentOrganization = IOrganization;
 
 /**
@@ -50,6 +52,10 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
      * 枝番号
      */
     branchCode: string;
+    /**
+     * 入場ゲート
+     */
+    hasEntranceGate?: IEntranceGate[];
     /**
      * Points-of-Sales operated by the organization or person.
      */

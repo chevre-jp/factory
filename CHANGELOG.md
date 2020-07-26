@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.34.0 - 2020-07-26
+
+### Added
+
+- 劇場インターフェースにhasEntranceGateを追加
+
 ## v4.33.0 - 2020-07-20
 
 ### Added
