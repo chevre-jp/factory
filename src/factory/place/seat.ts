@@ -1,7 +1,7 @@
 import ItemAvailability from '../itemAvailability';
 import * as OfferFactory from '../offer';
 import * as PlaceFactory from '../place';
-import PlaceType from '../placeType';
+import { PlaceType } from '../placeType';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 

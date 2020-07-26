@@ -47,7 +47,7 @@ import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
 import * as ScreeningRoomPlaceFactory from './factory/place/screeningRoom';
 import * as ScreeningRoomSectionPlaceFactory from './factory/place/screeningRoomSection';
 import * as SeatPlaceFactory from './factory/place/seat';
-import PlaceType from './factory/placeType';
+import { PlaceType } from './factory/placeType';
 import PriceCurrency from './factory/priceCurrency';
 import * as PriceSpecificationFactory from './factory/priceSpecification';
 import * as CategoryCodeChargeSpecificationFactory from './factory/priceSpecification/categoryCodeChargeSpecification';
