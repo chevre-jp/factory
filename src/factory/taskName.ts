@@ -12,6 +12,7 @@ enum TaskName {
     ImportOffersFromCOA = 'importOffersFromCOA',
     CancelMoneyTransfer = 'cancelMoneyTransfer',
     MoneyTransfer = 'moneyTransfer',
+    Refund = 'refund',
     RegisterService = 'registerService',
     Pay = 'pay',
     /**

@@ -18,6 +18,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.35.0 - 2020-08-25
+
+### Added
+
+- 返金タスクを追加
+- 返金アクションを追加
+- 返金取引を追加
+
 ## v4.34.0 - 2020-07-26
 
 ### Added

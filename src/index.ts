@@ -13,6 +13,7 @@ import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
 import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
 import * as ReserveActionFactory from './factory/action/reserve';
 import * as PayActionFactory from './factory/action/trade/pay';
+import * as RefundActionFactory from './factory/action/trade/refund';
 import * as MoneyTransferActionFactory from './factory/action/transfer/moneyTransfer';
 
 import ActionStatusType from './factory/actionStatusType';
@@ -85,6 +86,7 @@ import * as ImportEventsFromCOATaskFactory from './factory/task/importEventsFrom
 import * as ImportOffersFromCOATaskFactory from './factory/task/importOffersFromCOA';
 import * as MoneyTransferTaskFactory from './factory/task/moneyTransfer';
 import * as PayTaskFactory from './factory/task/pay';
+import * as RefundTaskFactory from './factory/task/refund';
 import * as RegisterServiceTaskFactory from './factory/task/registerService';
 import * as ReserveTaskFactory from './factory/task/reserve';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
@@ -97,6 +99,7 @@ import TaskStatus from './factory/taskStatus';
 import * as CancelReservationTransactionFactory from './factory/transaction/cancelReservation';
 import * as MoneyTransferTransactionFactory from './factory/transaction/moneyTransfer';
 import * as PayTransactionFactory from './factory/transaction/pay';
+import * as RefundTransactionFactory from './factory/transaction/refund';
 import * as RegisterServiceTransactionFactory from './factory/transaction/registerService';
 import * as ReserveTransactionFactory from './factory/transaction/reserve';
 import TransactionStatusType from './factory/transactionStatusType';
@@ -168,6 +171,7 @@ export namespace action {
 
     export namespace trade {
         export import pay = PayActionFactory;
+        export import refund = RefundActionFactory;
     }
 
     export namespace transfer {
@@ -352,6 +356,7 @@ export namespace task {
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
     export import moneyTransfer = MoneyTransferTaskFactory;
     export import pay = PayTaskFactory;
+    export import refund = RefundTaskFactory;
     export import registerService = RegisterServiceTaskFactory;
     export import reserve = ReserveTaskFactory;
     export import triggerWebhook = TriggerWebhookTaskFactory;
@@ -378,6 +383,7 @@ export namespace transaction {
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IStartParams :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams :
         T extends TransactionType.Pay ? PayTransactionFactory.IStartParams :
+        T extends TransactionType.Refund ? RefundTransactionFactory.IStartParams :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IStartParams :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IStartParams :
         never;
@@ -385,6 +391,7 @@ export namespace transaction {
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IAttributes :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IAttributes :
         T extends TransactionType.Pay ? PayTransactionFactory.IAttributes :
+        T extends TransactionType.Refund ? RefundTransactionFactory.IAttributes :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IAttributes :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IAttributes :
         never;
@@ -392,6 +399,7 @@ export namespace transaction {
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ITransaction :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ITransaction :
         T extends TransactionType.Pay ? PayTransactionFactory.ITransaction :
+        T extends TransactionType.Refund ? RefundTransactionFactory.ITransaction :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ITransaction :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ITransaction :
         never;
@@ -399,6 +407,7 @@ export namespace transaction {
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IResult :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IResult :
         T extends TransactionType.Pay ? PayTransactionFactory.IResult :
+        T extends TransactionType.Refund ? RefundTransactionFactory.IResult :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IResult :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IResult :
         never;
@@ -406,6 +415,7 @@ export namespace transaction {
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IPotentialActions :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IPotentialActions :
         T extends TransactionType.Pay ? PayTransactionFactory.IPotentialActions :
+        T extends TransactionType.Refund ? RefundTransactionFactory.IPotentialActions :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IPotentialActions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.IPotentialActions :
         never;
@@ -413,6 +423,7 @@ export namespace transaction {
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ISearchConditions :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ISearchConditions :
         T extends TransactionType.Pay ? PayTransactionFactory.ISearchConditions :
+        T extends TransactionType.Refund ? RefundTransactionFactory.ISearchConditions :
         T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ISearchConditions :
         T extends TransactionType.Reserve ? ReserveTransactionFactory.ISearchConditions :
         never;
@@ -420,6 +431,7 @@ export namespace transaction {
     export import cancelReservation = CancelReservationTransactionFactory;
     export import moneyTransfer = MoneyTransferTransactionFactory;
     export import pay = PayTransactionFactory;
+    export import refund = RefundTransactionFactory;
     export import registerService = RegisterServiceTransactionFactory;
     export import reserve = ReserveTransactionFactory;
 }

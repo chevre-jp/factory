@@ -20,9 +20,14 @@ enum TransactionType {
      */
     Pay = 'Pay',
     /**
+     * 返金
+     */
+    Refund = 'Refund',
+    /**
      * サービス登録
      * Service: MembershipService,PaymentCard,Account,MoneyTransfer...
      */
     RegisterService = 'RegisterService'
 }
+
 export default TransactionType;

@@ -43,7 +43,7 @@ export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
     additionalProperty: IPropertyValue<string>[];
 }
 
-export interface ICommonPaymentMethod<T extends PaymentMethodType> {
+export interface ICommonPaymentMethod<T extends AvailablePaymentMethodType> {
     typeOf: PaymentServiceType;
     /**
      * 決済方法
@@ -91,9 +91,9 @@ export type IPaymentMethodObject<T> =
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentMethod :
     T extends PaymentMethodType.MGTicket ? IMovieTicketPaymentMethod :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentMethod :
-    any;
+    ICommonPaymentMethod<string>;
 
-export type IObject<T extends PaymentMethodType | string> = IPaymentMethodObject<T>[];
+export type IObject<T extends AvailablePaymentMethodType> = IPaymentMethodObject<T>[];
 
 /**
  * クレジットカード決済の場合の結果インターフェース
@@ -112,7 +112,7 @@ export type IResult<T> =
     T extends PaymentMethodType.MovieTicket ? any :
     any;
 
-export interface IAttributes<T extends PaymentMethodType | string>
+export interface IAttributes<T extends AvailablePaymentMethodType>
     extends ActionFactory.IAttributes<ActionType.PayAction, IObject<T>, IResult<T>> {
     purpose: IPurpose;
     recipient?: IRecipient;
@@ -122,4 +122,4 @@ export interface IAttributes<T extends PaymentMethodType | string>
 /**
  * 決済アクションインターフェース
  */
-export type IAction<T extends PaymentMethodType | string> = ActionFactory.IAction<IAttributes<T>>;
+export type IAction<T extends AvailablePaymentMethodType> = ActionFactory.IAction<IAttributes<T>>;
