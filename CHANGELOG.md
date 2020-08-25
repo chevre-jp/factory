@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 返金タスクを追加
+- 返金アクションを追加
+- 返金取引を追加
+
 ### Changed
 
 ### Deprecated

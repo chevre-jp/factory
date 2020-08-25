@@ -13,7 +13,7 @@ export type IAgent = any;
 
 export type IRecipient = IPayRecipient;
 
-export type IObjectWithoutDetail = any;
+export type IObjectWithoutDetail = IObject;
 
 export type IStartParamsWithoutDetail = TransactionFactory.IStartParams<TransactionType.Pay, IAgent, IRecipient, IObject>;
 
