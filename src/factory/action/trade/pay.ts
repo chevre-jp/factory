@@ -1,22 +1,26 @@
+import * as GMO from '@motionpicture/gmo-service';
+
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
 import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import { PaymentMethodType } from '../../paymentMethodType';
-import PriceCurrency from '../../priceCurrency';
 import { IPropertyValue } from '../../propertyValue';
 import { ISeller } from '../../seller';
 import { PaymentServiceType } from '../../service/paymentService';
+import { ITransaction } from '../../transaction/moneyTransfer';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ISeller;
 export type IPurpose = any;
 export type AvailablePaymentMethodType = PaymentMethodType | string;
 
+export type IPendingTransaction = ITransaction;
+
 /**
  * 決済方法インターフェース
  */
-export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
+export interface IPaymentMethod {
     /**
      * The identifier for the account the payment will be applied to.
      */
@@ -24,7 +28,7 @@ export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
     /**
      * 決済方法タイプ
      */
-    typeOf: T;
+    typeOf: AvailablePaymentMethodType;
     /**
      * 決済方法名称
      */
@@ -43,83 +47,38 @@ export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
     additionalProperty: IPropertyValue<string>[];
 }
 
-export interface ICommonPaymentMethod<T extends AvailablePaymentMethodType> {
+export interface IPaymentService {
     typeOf: PaymentServiceType;
     /**
      * 決済方法
      */
-    paymentMethod: IPaymentMethod<T>;
-}
-/**
- * クレジットカード決済の場合のオブジェクトインターフェース
- */
-export interface ICreditCardPaymentMethod extends ICommonPaymentMethod<PaymentMethodType.CreditCard> {
-    /**
-     * 金額
-     */
-    price: number;
-    /**
-     * 通貨
-     */
-    priceCurrency: PriceCurrency;
-    entryTranArgs: any;
-    execTranArgs: any;
-}
-/**
- * 口座決済の場合のオブジェクトインターフェース
- */
-export interface IAccountPaymentMethod extends ICommonPaymentMethod<PaymentMethodType.Account> {
-    pendingTransaction: any;
-}
-
-/**
- * ムビチケ決済の場合のオブジェクトインターフェース
- */
-export interface IMovieTicketPaymentMethod
-    extends ICommonPaymentMethod<PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket> {
+    paymentMethod: IPaymentMethod;
+    pendingTransaction?: IPendingTransaction;
     /**
      * ムビチケリスト
      */
-    movieTickets: IMovieTicket[];
+    movieTickets?: IMovieTicket[];
 }
 
-/**
- * 決済対象の決済方法インターフェース
- */
-export type IPaymentMethodObject<T> =
-    T extends PaymentMethodType.Account ? IAccountPaymentMethod :
-    T extends PaymentMethodType.CreditCard ? ICreditCardPaymentMethod :
-    T extends PaymentMethodType.MGTicket ? IMovieTicketPaymentMethod :
-    T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentMethod :
-    ICommonPaymentMethod<string>;
-
-export type IObject<T extends AvailablePaymentMethodType> = IPaymentMethodObject<T>[];
+export type IObject = IPaymentService[];
 
 /**
- * クレジットカード決済の場合の結果インターフェース
+ * 決済結果
  */
-export interface ICreditCardResult {
+export interface IResult {
     /**
      * クレジットカード売上結果
      */
-    creditCardSales?: any[];
+    creditCardSales?: GMO.services.credit.IAlterTranResult[];
+    seatInfoSyncIn?: any;
+    seatInfoSyncResult?: any;
 }
-
-export type IResult<T> =
-    T extends PaymentMethodType.Account ? any :
-    T extends PaymentMethodType.CreditCard ? ICreditCardResult :
-    T extends PaymentMethodType.MGTicket ? any :
-    T extends PaymentMethodType.MovieTicket ? any :
-    any;
-
-export interface IAttributes<T extends AvailablePaymentMethodType>
-    extends ActionFactory.IAttributes<ActionType.PayAction, IObject<T>, IResult<T>> {
+export interface IAttributes extends ActionFactory.IAttributes<ActionType.PayAction, IObject, IResult> {
     purpose: IPurpose;
     recipient?: IRecipient;
-
 }
 
 /**
  * 決済アクションインターフェース
  */
-export type IAction<T extends AvailablePaymentMethodType> = ActionFactory.IAction<IAttributes<T>>;
+export type IAction = ActionFactory.IAction<IAttributes>;
