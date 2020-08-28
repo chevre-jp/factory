@@ -63,20 +63,12 @@ export interface IMovieTicketInfo {
     stCd: string;
 }
 
-export interface ICashPaymentAccepted {
-    paymentMethodType: PaymentMethodType.Cash;
-}
-
 export interface ICreditCardPaymentAccepted {
     paymentMethodType: PaymentMethodType.CreditCard;
     /**
      * GMO情報
      */
     gmoInfo: IGMOInfo;
-}
-
-export interface IEMoneyPaymentAccepted {
-    paymentMethodType: PaymentMethodType.EMoney;
 }
 
 export interface IAccountPaymentAccepted {
@@ -104,14 +96,8 @@ export interface ICommonPaymentAccepted {
 /**
  * 利用可能決済インターフェース
  */
-export type IPaymentAccepted<T extends IAcceptedPaymentMethodType> =
-    T extends PaymentMethodType.Account ? IAccountPaymentAccepted :
-    T extends PaymentMethodType.Cash ? ICashPaymentAccepted :
-    T extends PaymentMethodType.CreditCard ? ICreditCardPaymentAccepted :
-    T extends PaymentMethodType.EMoney ? IEMoneyPaymentAccepted :
-    T extends PaymentMethodType.MGTicket ? IMovieTicketPaymentAccepted :
-    T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentAccepted :
-    ICommonPaymentAccepted;
+export type IPaymentAccepted =
+    IAccountPaymentAccepted | ICreditCardPaymentAccepted | IMovieTicketPaymentAccepted | ICommonPaymentAccepted;
 
 export type IMakesOffer = IOffer;
 
@@ -132,7 +118,7 @@ export interface ISeller extends IOrganization {
      * A pointer to products or services offered by the organization or person.
      */
     makesOffer?: IMakesOffer[];
-    paymentAccepted?: IPaymentAccepted<IAcceptedPaymentMethodType>[];
+    paymentAccepted?: IPaymentAccepted[];
     /**
      * The geographic area where a service or offered item is provided.
      */
