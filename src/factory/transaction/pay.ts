@@ -47,7 +47,7 @@ export type IAnyPaymentMethod = AvailablePaymentMethodType;
  */
 export declare type ICreditCard = IUncheckedCardRaw | IUncheckedCardTokenized | IUnauthorizedCardOfMember;
 
-export interface IPaymentMethod<T extends IAnyPaymentMethod> {
+export interface IPaymentMethod {
     /**
      * The identifier for the account the payment will be applied to.
      */
@@ -76,7 +76,7 @@ export interface IPaymentMethod<T extends IAnyPaymentMethod> {
     /**
      * 決済方法タイプ
      */
-    typeOf: T;
+    typeOf: IAnyPaymentMethod;
     /**
      * ムビチケリスト
      */
@@ -96,7 +96,7 @@ export interface IPaymentMethod<T extends IAnyPaymentMethod> {
  */
 export interface IObject {
     typeOf: PaymentServiceType;
-    paymentMethod?: IPaymentMethod<IAnyPaymentMethod>;
+    paymentMethod?: IPaymentMethod;
     pendingTransaction?: any;
     entryTranArgs?: GMO.services.credit.IEntryTranArgs;
     entryTranResult?: GMO.services.credit.IEntryTranResult;
@@ -108,7 +108,7 @@ export interface IPotentialActions {
     /**
      * 決済アクション
      */
-    pay: IPayActionAttributes<IAnyPaymentMethod>[];
+    pay: IPayActionAttributes[];
 }
 
 export type ITransaction = IExtendId<IAttributes>;

@@ -1,16 +1,15 @@
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { PaymentMethodType } from '../../paymentMethodType';
 // import { IAttributes as IInformActionAttributes } from '../interact/inform';
-import { AvailablePaymentMethodType, ICommonPaymentMethod } from './pay';
+import { IPaymentService as IPaymentServiceOnPay } from './pay';
 
 export type IRecipient = ActionFactory.IParticipant;
 
-export type IPaymentService<T extends AvailablePaymentMethodType> = ICommonPaymentMethod<T> & {
+export type IPaymentService = IPaymentServiceOnPay & {
     refundFee?: number;
 };
 
-export type IObject<T extends AvailablePaymentMethodType> = IPaymentService<T>[];
+export type IObject = IPaymentService[];
 
 export type IResult = any;
 
@@ -24,9 +23,7 @@ export interface IPotentialActions {
 
 export type IPurpose = any;
 
-export interface IAttributes<T extends AvailablePaymentMethodType>
-    extends ActionFactory.IAttributes<ActionType.RefundAction, IObject<T>, IResult> {
-    // instrument?: IInstrument;
+export interface IAttributes extends ActionFactory.IAttributes<ActionType.RefundAction, IObject, IResult> {
     recipient?: IRecipient;
     purpose: IPurpose;
     potentialActions?: IPotentialActions;
@@ -35,4 +32,4 @@ export interface IAttributes<T extends AvailablePaymentMethodType>
 /**
  * 返金アクションインターフェース
  */
-export type IAction<T extends PaymentMethodType> = ActionFactory.IAction<IAttributes<T>>;
+export type IAction = ActionFactory.IAction<IAttributes>;

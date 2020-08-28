@@ -244,11 +244,7 @@ export import paymentMethodType = PaymentMethodType;
 
 export namespace paymentMethod {
     export type ISearchConditions = any;
-    export type IPaymentMethod<T extends PaymentMethodType> =
-        T extends PaymentMethodType.CreditCard ? CreditCardFactory.ICheckedCard :
-        T extends PaymentMethodType.MGTicket ? MovieTicketFactory.IMovieTicket :
-        T extends PaymentMethodType.MovieTicket ? MovieTicketFactory.IMovieTicket :
-        never;
+    export type IPaymentMethod = CreditCardFactory.ICheckedCard | MovieTicketFactory.IMovieTicket;
 
     export namespace paymentCard {
         export import IPaymentCard = PaymentCardFactory.IPaymentCard;

@@ -11,7 +11,7 @@ export type IRecipient = IRefundRecipient;
 
 export interface IObjectWithoutDetail {
     typeOf: PaymentServiceType;
-    paymentMethod: IPaymentMethod<IAnyPaymentMethod>;
+    paymentMethod: IPaymentMethod;
     refundFee?: number;
 }
 
@@ -47,7 +47,7 @@ export type IAnyPaymentMethod = AvailablePaymentMethodType;
  */
 export interface IObject {
     typeOf: PaymentServiceType;
-    paymentMethod: IPaymentMethod<IAnyPaymentMethod>;
+    paymentMethod: IPaymentMethod;
     refundFee?: number;
 }
 
@@ -55,7 +55,7 @@ export interface IPotentialActions {
     /**
      * 返金アクション
      */
-    refund: IRefundActionAttributes<IAnyPaymentMethod>[];
+    refund: IRefundActionAttributes[];
 }
 
 export type ITransaction = IExtendId<IAttributes>;
