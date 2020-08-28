@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 販売者の対応決済方法インターフェースの汎用性拡張
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.36.0 - 2020-08-28
+
+### Changed
+
+- 販売者の対応決済方法インターフェースの汎用性拡張
 
 ## v4.35.0 - 2020-08-25
 
