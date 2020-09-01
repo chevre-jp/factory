@@ -107,105 +107,26 @@ export type IAction<TAttributes extends IAttributes<ActionType, any, any>> = IEx
  * ソート条件インターフェース
  */
 export interface ISortOrder {
-    // typeOf?: SortType;
-    // actionStatus?: SortType;
     startDate?: SortType;
-    // endDate?: SortType;
 }
 
 /**
  * 検索条件インターフェース
  */
-export interface ISearchConditions<T extends ActionType> {
+export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
     project?: {
         id?: { $eq?: string };
-        ids?: string[];
     };
-    typeOf?: T;
-    actionStatusTypes?: ActionStatusType[];
-    startFrom?: Date;
-    startThrough?: Date;
-    agent?: {
-        typeOf?: {
-            $in?: string[];
-        };
-        id?: {
-            $in?: string[];
-        };
-    };
+    typeOf?: { $eq?: ActionType };
+    actionStatus?: { $in?: ActionStatusType[] };
     object?: {
-        typeOf?: {
-            $in?: string[];
-        };
-        id?: {
-            $in?: string[];
-        };
-        orderNumber?: {
-            $in?: string[];
-        };
         paymentMethod?: {
             paymentMethodId?: {
-                $in?: string[];
+                $eq?: string;
             };
-        };
-        event?: {
-            id?: {
-                $in?: string[];
-            };
-        };
-        acceptedOffer?: {
-            ticketedSeat?: {
-                seatNumber?: {
-                    $in?: string[];
-                };
-            };
-        };
-    };
-    purpose?: {
-        typeOf?: {
-            $in?: string[];
-        };
-        id?: {
-            $in?: string[];
-        };
-        orderNumber?: {
-            $in?: string[];
-        };
-    };
-    result?: {
-        typeOf?: {
-            $in?: string[];
-        };
-        id?: {
-            $in?: string[];
-        };
-        orderNumber?: {
-            $in?: string[];
-        };
-    };
-    fromLocation?: {
-        typeOf?: {
-            $in?: string[];
-        };
-        accountNumber?: {
-            $in?: string[];
-        };
-        accountType?: {
-            $in?: string[];
-        };
-    };
-    toLocation?: {
-        typeOf?: {
-            $in?: string[];
-        };
-        accountNumber?: {
-            $in?: string[];
-        };
-        accountType?: {
-            $in?: string[];
         };
     };
 }
