@@ -118,6 +118,8 @@ export namespace action {
     export import IAttributes = ActionFactory.IAttributes;
     export import IParticipant = ActionFactory.IParticipant;
     export import IPurpose = ActionFactory.IPurpose;
+    export import ISortOrder = ActionFactory.ISortOrder;
+    export import ISearchConditions = ActionFactory.ISearchConditions;
 
     export namespace authorize {
         // tslint:disable-next-line:no-shadowed-variable

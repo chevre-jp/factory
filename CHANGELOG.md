@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- アクション検索条件インターフェースを追加
+
 ### Changed
 
 ### Deprecated
