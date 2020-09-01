@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- アクション検索条件インターフェースを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.38.0 - 2020-09-01
+
+### Added
+
+- アクション検索条件インターフェースを追加
 
 ## v4.37.0 - 2020-08-28
 
