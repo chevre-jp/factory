@@ -124,7 +124,13 @@ export interface ISearchConditions {
     actionStatus?: { $in?: ActionStatusType[] };
     object?: {
         paymentMethod?: {
+            accountId?: {
+                $eq?: string;
+            };
             paymentMethodId?: {
+                $eq?: string;
+            };
+            typeOf?: {
                 $eq?: string;
             };
         };
