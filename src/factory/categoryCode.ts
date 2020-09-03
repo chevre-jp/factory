@@ -16,7 +16,7 @@ export enum CategorySetIdentifier {
      */
     DistributorType = 'DistributorType',
     /**
-     * ムビチケ券種区分
+     * 決済カード(ムビチケ券種)区分
      */
     MovieTicketType = 'MovieTicketType',
     /**
@@ -59,6 +59,12 @@ export interface ICategoryCode extends IThing {
     codeValue: string;
     inCodeSet: ICategoryCodeSet;
     additionalProperty?: IPropertyValue<string>[];
+    paymentMethod?: {
+        /**
+         * 決済カード区分の場合、対応決済方法
+         */
+        typeOf?: string;
+    };
 }
 
 /**
