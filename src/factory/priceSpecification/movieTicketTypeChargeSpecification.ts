@@ -1,9 +1,9 @@
-import { PaymentMethodType } from '../paymentMethodType';
 import { IPriceSpecification as BaseSpecification } from '../priceSpecification';
 import PriceSpecificationType from '../priceSpecificationType';
+import { PaymentServiceType } from '../service/paymentService';
 
 export interface IMovieTicket {
-    typeOf: PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket;
+    typeOf: PaymentServiceType.MovieTicket;
     /**
      * 購入管理番号(ムビチケ購入番号)
      */
@@ -13,9 +13,15 @@ export interface IMovieTicket {
      */
     accessCode?: string;
     /**
-     * 券種区分
+     * 決済カード区分
      */
     serviceType?: string;
+    serviceOutput?: {
+        /**
+         * 決済方法タイプ
+         */
+        typeOf?: string;
+    };
 }
 
 /**

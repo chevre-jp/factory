@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 決済カード区分に対応決済方法を追加
+- ムビチケ券種区分チャージ仕様に対応決済方法を追加
+
 ### Changed
 
 ### Deprecated
