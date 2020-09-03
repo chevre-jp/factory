@@ -4,25 +4,9 @@ import { IOffer } from './offer';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { PaymentMethodType } from './paymentMethodType';
-// import SortType from './sortType';
+import { IPlace } from './place';
 
-/**
- * 場所インターフェース
- */
-export interface ILocation {
-    /**
-     * スキーマタイプ
-     */
-    typeOf: string;
-    /**
-     * 枝番号
-     */
-    branchCode?: string;
-    /**
-     * 場所名称
-     */
-    name: IMultilingualString;
-}
+export type ILocation = IPlace;
 
 /**
  * 親組織インターフェース
@@ -35,10 +19,6 @@ export type IAcceptedPaymentMethodType = PaymentMethodType | string;
  * GMOショップ情報インターフェース
  */
 export interface IGMOInfo {
-    /**
-     * サイトID
-     */
-    siteId: string;
     /**
      * ショップID
      */
@@ -63,41 +43,26 @@ export interface IMovieTicketInfo {
     stCd: string;
 }
 
-export interface ICreditCardPaymentAccepted {
-    paymentMethodType: PaymentMethodType.CreditCard;
-    /**
-     * GMO情報
-     */
-    gmoInfo: IGMOInfo;
-}
-
-export interface IAccountPaymentAccepted {
-    paymentMethodType: PaymentMethodType.Account;
-    /**
-     * 口座タイプ
-     */
-    accountType: string;
-    /**
-     * 口座番号
-     */
-    accountNumber: string;
-}
-
-export interface IMovieTicketPaymentAccepted {
-    paymentMethodType: PaymentMethodType.MovieTicket | PaymentMethodType.MGTicket;
-    movieTicketInfo: IMovieTicketInfo;
-}
-
-export interface ICommonPaymentAccepted {
-    paymentMethodType: IAcceptedPaymentMethodType;
-    identifier?: string;
-}
-
 /**
  * 利用可能決済インターフェース
  */
-export type IPaymentAccepted =
-    IAccountPaymentAccepted | ICreditCardPaymentAccepted | IMovieTicketPaymentAccepted | ICommonPaymentAccepted;
+export interface IPaymentAccepted {
+    paymentMethodType: IAcceptedPaymentMethodType;
+    identifier?: string;
+    /**
+     * 口座タイプ
+     */
+    accountType?: string;
+    /**
+     * 口座番号
+     */
+    accountNumber?: string;
+    /**
+     * GMO情報
+     */
+    gmoInfo?: IGMOInfo;
+    movieTicketInfo?: IMovieTicketInfo;
+}
 
 export type IMakesOffer = IOffer;
 
@@ -139,7 +104,7 @@ export interface ILocationSearchConditions {
 }
 
 /**
- * 組織検索条件インターフェース
+ * 販売者検索条件インターフェース
  */
 export interface ISearchConditions {
     limit?: number;
