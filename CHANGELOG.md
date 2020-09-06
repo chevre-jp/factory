@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.42.0 - 2020-09-06
+
+### Added
+
+- オファーにunacceptedPaymentMethodを追加
+
 ## v4.41.0 - 2020-09-03
 
 ### Added
