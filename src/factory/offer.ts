@@ -2,7 +2,6 @@ import { ICategoryCode } from './categoryCode';
 import ItemAvailability from './itemAvailability';
 import { IMonetaryAmount } from './monetaryAmount';
 import OfferType from './offerType';
-import { PaymentMethodType } from './paymentMethodType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
@@ -70,7 +69,7 @@ export interface IOffer extends IThing {
     /**
      * The payment method(s) accepted by seller for this offer.
      */
-    acceptedPaymentMethod?: PaymentMethodType[];
+    acceptedPaymentMethod?: string[];
     /**
      * An additional offer that can only be obtained in combination with the first base offer
      * (e.g. supplements and extensions that are available for a surcharge).
@@ -152,6 +151,10 @@ export interface IOffer extends IThing {
      * An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider.
      */
     seller?: ISeller;
+    /**
+     * The payment method(s) unaccepted by seller for this offer.
+     */
+    unacceptedPaymentMethod?: string[];
     /**
      * The date when the item becomes valid.
      */
