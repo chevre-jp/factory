@@ -1,7 +1,5 @@
-import { PaymentMethodType } from '../paymentMethodType';
-
 export interface IServiceOutput {
-    typeOf: PaymentMethodType;
+    typeOf: string;
 }
 
 /**

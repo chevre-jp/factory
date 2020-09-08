@@ -1,4 +1,3 @@
-import { PaymentMethodType } from './paymentMethodType';
 import { IProject } from './project';
 import { IThing } from './thing';
 
@@ -7,6 +6,6 @@ import { IThing } from './thing';
  */
 export interface IPaymentMethod extends IThing {
     project: IProject;
-    typeOf: PaymentMethodType;
+    typeOf: string;
     identifier: string;
 }

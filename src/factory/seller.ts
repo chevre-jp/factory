@@ -3,7 +3,6 @@ import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
-import { PaymentMethodType } from './paymentMethodType';
 import { IPlace } from './place';
 
 export type ILocation = IPlace;
@@ -13,7 +12,7 @@ export type ILocation = IPlace;
  */
 export type IParentOrganization = IOrganization;
 
-export type IAcceptedPaymentMethodType = PaymentMethodType | string;
+export type IAcceptedPaymentMethodType = string;
 
 /**
  * GMOショップ情報インターフェース

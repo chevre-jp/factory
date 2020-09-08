@@ -4,7 +4,6 @@ import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
 import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
-import { PaymentMethodType } from '../../paymentMethodType';
 import { IPropertyValue } from '../../propertyValue';
 import { ISeller } from '../../seller';
 import { PaymentServiceType } from '../../service/paymentService';
@@ -13,7 +12,7 @@ import { ITransaction } from '../../transaction/moneyTransfer';
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ISeller;
 export type IPurpose = any;
-export type AvailablePaymentMethodType = PaymentMethodType | string;
+export type AvailablePaymentMethodType = string;
 
 export type IPendingTransaction = ITransaction;
 

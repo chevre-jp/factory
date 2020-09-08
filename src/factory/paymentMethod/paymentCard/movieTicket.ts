@@ -1,5 +1,4 @@
 import EventType from '../../eventType';
-import { PaymentMethodType } from '../../paymentMethodType';
 import { ISeat } from '../../reservation';
 import { IPaymentCard } from '../paymentCard';
 
@@ -35,5 +34,5 @@ export interface IAttributes extends IPaymentCard {
  * ムビチケインターフェース
  */
 export interface IMovieTicket extends IAttributes {
-    typeOf: PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket;
+    typeOf: string;
 }
