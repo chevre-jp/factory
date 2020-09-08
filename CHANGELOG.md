@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 静的な決済方法タイプへの依存を削除
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.43.0 - 2020-09-08
+
+### Changed
+
+- 静的な決済方法タイプへの依存を削除
 
 ## v4.42.0 - 2020-09-06
 
