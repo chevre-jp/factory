@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 決済方法認証アクションの汎用性拡張
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.44.0 - 2020-09-09
+
+### Changed
+
+- 決済方法認証アクションの汎用性拡張
 
 ## v4.43.0 - 2020-09-08
 
