@@ -4,20 +4,22 @@ import * as ActionFactory from '../../../action';
 import { OrganizationType } from '../../../organizationType';
 import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
 import * as CheckActionFactory from '../../check';
+import * as PayActionFactory from '../../trade/pay';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IPurchaseNumberAuthIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
 export type IPurchaseNumberAuthResult = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
-export type ObjectType = string;
 export type IMovieTicketResult = IMovieTicket;
-export interface IObject {
-    typeOf: ObjectType;
-    movieTickets: IMovieTicket[];
+
+export interface IPaymentService extends PayActionFactory.IPaymentService {
     /**
      * 販売者
      */
     seller: { typeOf: OrganizationType; id: string };
 }
+
+export type IObject = IPaymentService[];
+
 export interface IResult {
     purchaseNumberAuthIn: IPurchaseNumberAuthIn;
     purchaseNumberAuthResult: IPurchaseNumberAuthResult;
@@ -26,7 +28,9 @@ export interface IResult {
      */
     movieTickets: IMovieTicketResult[];
 }
+
 export type IError = any;
+
 /**
  * ムビチケ確認アクション属性インターフェース
  */
@@ -34,6 +38,7 @@ export interface IAttributes extends CheckActionFactory.IAttributes<IObject, IRe
     object: IObject;
     agent: IAgent;
 }
+
 /**
  * ムビチケ確認アクションインターフェース
  */
