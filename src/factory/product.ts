@@ -5,6 +5,33 @@ import { IProject } from './project';
 import SortType from './sortType';
 import { IThing } from './thing';
 
+/**
+ * プロダクトタイプ
+ */
+export enum ProductType {
+    /**
+     * 口座
+     */
+    Account = 'Account',
+    /**
+     * イベントサービス
+     */
+    EventService = 'EventService',
+    /**
+     * メンバーシップサービス
+     */
+    MembershipService = 'MembershipService',
+    /**
+     * ペイメントカード
+     */
+    PaymentCard = 'PaymentCard',
+    // PointCard = 'PointCard',
+    /**
+     * アドオン
+     */
+    Product = 'Product'
+}
+
 export interface IHasOfferCatalog {
     typeOf: 'OfferCatalog';
     id?: string;
@@ -27,7 +54,7 @@ export interface IPointAward {
  */
 export interface IProduct extends IThing {
     project: IProject;
-    typeOf: string;
+    typeOf: ProductType;
     id?: string;
     /**
      * Indicates an OfferCatalog listing for this Organization, Person, or Service.
