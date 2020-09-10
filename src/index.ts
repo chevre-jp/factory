@@ -22,6 +22,7 @@ import ActionType from './factory/actionType';
 import * as AccountTitleFactory from './factory/accountTitle';
 import * as CategoryCodeFactory from './factory/categoryCode';
 import * as ClientUserFactory from './factory/clientUser';
+import * as CreativeWorkFactory from './factory/creativeWork';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import * as MovieCreativeWorkFactory from './factory/creativeWork/movie';
 import CreativeWorkType from './factory/creativeWorkType';
@@ -205,6 +206,7 @@ export import accountTitle = AccountTitleFactory;
 export import categoryCode = CategoryCodeFactory;
 export import clientUser = ClientUserFactory;
 export namespace creativeWork {
+    export import ICreativeWork = CreativeWorkFactory.ICreativeWork;
     export namespace message {
         export import email = EmailMessageFactory;
     }

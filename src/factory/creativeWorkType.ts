@@ -1,10 +1,10 @@
 /**
- * 作品タイプ
+ * 著作物タイプ
  */
-
 enum CreativeWorkType {
     EmailMessage = 'EmailMessage',
-    Movie = 'Movie'
+    Movie = 'Movie',
+    WebApplication = 'WebApplication'
 }
 
 export default CreativeWorkType;
