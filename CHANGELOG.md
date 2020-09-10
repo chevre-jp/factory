@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- プロダクトタイプを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.45.0 - 2020-09-10
+
+### Added
+
+- プロダクトタイプを追加
 
 ## v4.44.0 - 2020-09-09
 
