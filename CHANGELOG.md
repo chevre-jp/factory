@@ -8,7 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- サービスアウトプット検索条件追加
+
 ### Changed
+
+- プロダクト検索条件拡張
 
 ### Deprecated
 

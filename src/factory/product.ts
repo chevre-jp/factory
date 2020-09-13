@@ -117,4 +117,17 @@ export interface ISearchConditions {
             };
         };
     };
+    serviceOutput?: {
+        typeOf?: { $eq?: string };
+    };
+}
+
+export interface IServiceOutputSearchConditions {
+    limit?: number;
+    page?: number;
+    sort?: ISortOrder;
+    project?: { id?: { $eq?: string } };
+    id?: { $eq?: string };
+    identifier?: { $eq?: string };
+    typeOf?: { $eq?: string };
 }
