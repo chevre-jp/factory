@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- MoneyTransfer取引のオブジェクトを定義
+- update @pecorino/factory
+
 ### Deprecated
 
 ### Removed
