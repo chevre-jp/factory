@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.48.0 - 2020-09-15
+
+### Changed
+
+- MoneyTransfer取引のオブジェクトを定義
+- update @pecorino/factory
+
 ## v4.47.0 - 2020-09-13
 
 ### Added

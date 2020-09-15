@@ -8,9 +8,11 @@ import TransactionType from '../../transactionType';
 /**
  * 進行中取引インターフェース
  */
-export type IPendingTransaction = pecorino.transaction.deposit.ITransaction
-    | pecorino.transaction.transfer.ITransaction
-    | pecorino.transaction.withdraw.ITransaction;
+export interface IPendingTransaction {
+    typeOf: pecorino.transactionType;
+    id: string;
+    transactionNumber?: string;
+}
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
