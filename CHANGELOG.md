@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 決済に関連するGMOの型をエクスポート
+
 ### Deprecated
 
 ### Removed
