@@ -16,6 +16,8 @@ export type AvailablePaymentMethodType = string;
 
 export type IPendingTransaction = ITransaction;
 
+export import ICreditCardSales = GMO.services.credit.IAlterTranResult;
+
 /**
  * 決済方法インターフェース
  */
@@ -68,7 +70,7 @@ export interface IResult {
     /**
      * クレジットカード売上結果
      */
-    creditCardSales?: GMO.services.credit.IAlterTranResult[];
+    creditCardSales?: ICreditCardSales[];
     seatInfoSyncIn?: any;
     seatInfoSyncResult?: any;
 }

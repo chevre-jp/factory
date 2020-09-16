@@ -47,6 +47,13 @@ export type IAnyPaymentMethod = AvailablePaymentMethodType;
  */
 export declare type ICreditCard = IUncheckedCardRaw | IUncheckedCardTokenized | IUnauthorizedCardOfMember;
 
+export import IEntryTranArgs = GMO.services.credit.IEntryTranArgs;
+export import IEntryTranResult = GMO.services.credit.IEntryTranResult;
+export import IExecTranArgs = GMO.services.credit.IExecTranArgs;
+export import IExecTranResult = GMO.services.credit.IExecTranResult;
+
+export import CreditCardMethod = GMO.utils.util.Method;
+
 export interface IPaymentMethod {
     /**
      * The identifier for the account the payment will be applied to.
@@ -84,7 +91,7 @@ export interface IPaymentMethod {
     /**
      * 支払い方法
      */
-    method?: string;
+    method?: CreditCardMethod;
     /**
      * クレジットカード情報
      */
@@ -98,10 +105,10 @@ export interface IObject {
     typeOf: PaymentServiceType;
     paymentMethod?: IPaymentMethod;
     pendingTransaction?: any;
-    entryTranArgs?: GMO.services.credit.IEntryTranArgs;
-    entryTranResult?: GMO.services.credit.IEntryTranResult;
-    execTranArgs?: GMO.services.credit.IExecTranArgs;
-    execTranResult?: GMO.services.credit.IExecTranResult;
+    entryTranArgs?: IEntryTranArgs;
+    entryTranResult?: IEntryTranResult;
+    execTranArgs?: IExecTranArgs;
+    execTranResult?: IExecTranResult;
 }
 
 export interface IPotentialActions {
