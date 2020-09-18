@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- @motionpicture/gmo-serviceを呼び出さないように調整
+
 ### Deprecated
 
 ### Removed
