@@ -41,20 +41,20 @@ export interface ICOAInfo {
     /**
      * 映倫区分
      */
-    kbnEirin?: COA.services.master.IKubunNameResult;
+    kbnEirin?: COA.factory.master.IKubunNameResult;
     /**
      * 映像区分
      * ２D、３D
      */
-    kbnEizou?: COA.services.master.IKubunNameResult;
+    kbnEizou?: COA.factory.master.IKubunNameResult;
     /**
      * 上映方式区分(ＩＭＡＸ，４ＤＸ等)
      */
-    kbnJoueihousiki?: COA.services.master.IKubunNameResult;
+    kbnJoueihousiki?: COA.factory.master.IKubunNameResult;
     /**
      * 字幕吹替区分(字幕、吹き替え)
      */
-    kbnJimakufukikae?: COA.services.master.IKubunNameResult;
+    kbnJimakufukikae?: COA.factory.master.IKubunNameResult;
     /**
      * ムビチケ使用フラグ
      * 1：ムビチケ使用対象
@@ -79,7 +79,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     /**
      * 上映方式
      */
-    videoFormat: IVideoFormat[] | COA.services.master.IKubunNameResult;
+    videoFormat: IVideoFormat[] | COA.factory.master.IKubunNameResult;
     /**
      * 音響方式
      */
