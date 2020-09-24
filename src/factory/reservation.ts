@@ -65,7 +65,7 @@ export interface ISeat {
 /**
  * COA券種情報
  */
-export type ICOATicketInfoWithDetails = COA.services.reserve.IUpdReserveTicket & {
+export type ICOATicketInfoWithDetails = COA.factory.reserve.IUpdReserveTicket & {
     /**
      * チケット名
      */

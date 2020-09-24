@@ -208,11 +208,11 @@ export interface ICOAInfo {
      * サービス区分
      * 「通常興行」「レイトショー」など
      */
-    kbnService?: COA.services.master.IKubunNameResult;
+    kbnService?: COA.factory.master.IKubunNameResult;
     /**
      * 音響区分
      */
-    kbnAcoustic?: COA.services.master.IKubunNameResult;
+    kbnAcoustic?: COA.factory.master.IKubunNameResult;
     /**
      * サービスデイ名称
      * 「映画の日」「レディースデイ」など ※割引区分、割引コード、特定日等の組み合わせで登録するため名称で連携の方が容易

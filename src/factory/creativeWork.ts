@@ -9,7 +9,7 @@ export interface ICopyrightHolder {
     name: string;
 }
 
-export type IContentRating = COA.services.master.IKubunNameResult | string;
+export type IContentRating = COA.factory.master.IKubunNameResult | string;
 
 /**
  * 作品インターフェース
