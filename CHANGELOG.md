@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.52.0 - 2020-09-28
+
+### Added
+
+- カテゴリーコード分類にPaymentMethodTypeを追加
+- ペイメントサービスタイプにAccountを追加
+
 ## v4.51.0 - 2020-09-24
 
 ### Changed
