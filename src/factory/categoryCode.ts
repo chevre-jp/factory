@@ -24,6 +24,10 @@ export enum CategorySetIdentifier {
      */
     OfferCategoryType = 'OfferCategoryType',
     /**
+     * 決済方法タイプ
+     */
+    PaymentMethodType = 'PaymentMethodType',
+    /**
      * 座席タイプ
      */
     SeatingType = 'SeatingType',

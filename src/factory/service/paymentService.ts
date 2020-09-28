@@ -20,6 +20,7 @@ export interface IAvailableChannel {
 }
 
 export enum PaymentServiceType {
+    Account = 'Account',
     CreditCard = 'CreditCard',
     MovieTicket = 'MovieTicket'
 }

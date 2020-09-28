@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- カテゴリーコード分類にPaymentMethodTypeを追加
+- ペイメントサービスタイプにAccountを追加
+
 ### Changed
 
 ### Deprecated

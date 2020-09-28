@@ -12,8 +12,6 @@ export type ILocation = IPlace;
  */
 export type IParentOrganization = IOrganization;
 
-export type IAcceptedPaymentMethodType = string;
-
 /**
  * GMOショップ情報インターフェース
  */
@@ -46,7 +44,7 @@ export interface IMovieTicketInfo {
  * 利用可能決済インターフェース
  */
 export interface IPaymentAccepted {
-    paymentMethodType: IAcceptedPaymentMethodType;
+    paymentMethodType: string;
     identifier?: string;
     /**
      * 口座タイプ
