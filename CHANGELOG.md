@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 決済取引インターフェースを調整
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.53.0 - 2020-09-28
+
+### Changed
+
+- 決済取引インターフェースを調整
 
 ## v4.52.0 - 2020-09-28
 
