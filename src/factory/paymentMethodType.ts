@@ -29,9 +29,5 @@ export enum PaymentMethodType {
     /**
      * その他
      */
-    Others = 'Others',
-    /**
-     * 決済カード
-     */
-    PaymentCard = 'PaymentCard'
+    Others = 'Others'
 }

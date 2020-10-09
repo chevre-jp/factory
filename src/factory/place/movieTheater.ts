@@ -108,6 +108,10 @@ export interface ISearchConditions {
     id?: {
         $eq?: string;
     };
+    branchCode?: {
+        $eq?: string;
+        $regex?: string;
+    };
     /**
      * 枝番号
      */
@@ -116,4 +120,10 @@ export interface ISearchConditions {
      * 名称
      */
     name?: string;
+    /**
+     * 親組織
+     */
+    parentOrganization?: {
+        id?: { $eq?: string };
+    };
 }
