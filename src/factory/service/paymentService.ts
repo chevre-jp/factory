@@ -1,4 +1,7 @@
 export interface IServiceOutput {
+    /**
+     * 決済方法タイプ
+     */
     typeOf: string;
 }
 
@@ -22,7 +25,8 @@ export interface IAvailableChannel {
 export enum PaymentServiceType {
     Account = 'Account',
     CreditCard = 'CreditCard',
-    MovieTicket = 'MovieTicket'
+    MovieTicket = 'MovieTicket',
+    PaymentCard = 'PaymentCard'
 }
 
 /**
