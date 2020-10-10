@@ -4,6 +4,7 @@ import { IOffer } from './offer';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { IPlace } from './place';
+import { IPropertyValue } from './propertyValue';
 
 export type ILocation = IPlace;
 
@@ -120,4 +121,13 @@ export interface ISearchConditions {
      * 場所
      */
     location?: ILocationSearchConditions;
+    /**
+     * 追加特性
+     */
+    additionalProperty?: {
+        $all?: IPropertyValue<string>[];
+        $in?: IPropertyValue<string>[];
+        $nin?: IPropertyValue<string>[];
+        $elemMatch?: any;
+    };
 }
