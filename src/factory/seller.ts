@@ -96,9 +96,7 @@ export interface ISeller extends IOrganization {
 // }
 
 export interface ILocationSearchConditions {
-    typeOfs?: string[];
     branchCodes?: string[];
-    name?: string;
 }
 
 /**
@@ -112,7 +110,6 @@ export interface ISearchConditions {
         id?: { $eq?: string };
         ids?: string[];
     };
-    typeOfs?: OrganizationType[];
     /**
      * 名称
      */

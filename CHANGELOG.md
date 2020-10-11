@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 販売者検索条件調整
+
 ### Deprecated
 
 ### Removed
