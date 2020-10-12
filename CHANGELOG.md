@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 販売者にbranchCodeを追加
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.56.0 - 2020-10-12
+
+### Changed
+
+- 販売者にbranchCodeを追加
 
 ## v4.55.1 - 2020-10-11
 
