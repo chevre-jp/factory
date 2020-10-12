@@ -5,6 +5,7 @@ import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { IPlace } from './place';
 import { IPropertyValue } from './propertyValue';
+import SortType from './sortType';
 
 export type ILocation = IPlace;
 
@@ -72,31 +73,28 @@ export type IAreaServed = any;
 export type IHasMerchantReturnPolicy = IMerchantReturnPolicy[];
 
 export interface ISeller extends IOrganization {
-    typeOf: OrganizationType;
+    /**
+     * The geographic area where a service or offered item is provided.
+     */
+    areaServed?: IAreaServed[];
+    branchCode?: string;
     hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
-    parentOrganization?: IParentOrganization;
     legalName?: IMultilingualString;
     location?: ILocation;
     /**
      * A pointer to products or services offered by the organization or person.
      */
     makesOffer?: IMakesOffer[];
+    parentOrganization?: IParentOrganization;
     paymentAccepted?: IPaymentAccepted[];
-    /**
-     * The geographic area where a service or offered item is provided.
-     */
-    areaServed?: IAreaServed[];
+    typeOf: OrganizationType;
 }
 
 /**
  * ソート条件インターフェース
  */
-// export interface ISortOrder {
-//     'location.branchCode'?: SortType;
-// }
-
-export interface ILocationSearchConditions {
-    branchCodes?: string[];
+export interface ISortOrder {
+    branchCode?: SortType;
 }
 
 /**
@@ -110,14 +108,14 @@ export interface ISearchConditions {
         id?: { $eq?: string };
         ids?: string[];
     };
+    branchCode?: {
+        $eq?: string;
+        $regex?: string;
+    };
     /**
      * 名称
      */
     name?: string;
-    /**
-     * 場所
-     */
-    location?: ILocationSearchConditions;
     /**
      * 追加特性
      */
