@@ -93,7 +93,10 @@ export interface ISearchConditions {
         $eq?: string;
         $in?: string[];
     };
-    typeOf?: { $eq?: string };
+    typeOf?: {
+        $eq?: string;
+        $in?: string[];
+    };
     offers?: {
         $elemMatch?: {
             availabilityEnds?: {
