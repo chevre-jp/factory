@@ -1,3 +1,5 @@
+import { IProject } from '../project';
+
 export interface IServiceOutput {
     /**
      * 決済方法タイプ
@@ -33,7 +35,10 @@ export enum PaymentServiceType {
  * ペイメントサービスインターフェース
  */
 export interface IService {
+    project: IProject;
     typeOf: PaymentServiceType;
+    id?: string;
     availableChannel?: IAvailableChannel;
+    productID?: string;
     serviceOutput?: IServiceOutput;
 }

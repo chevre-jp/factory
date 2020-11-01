@@ -1,5 +1,4 @@
 import { OrganizationType } from './organizationType';
-import { IService as IPaymentService } from './service/paymentService';
 import SortType from './sortType';
 
 /**
@@ -38,7 +37,6 @@ export interface ISettings {
     importEventsInWeeks?: number;
     onEventChanged?: IOnEventChanged;
     onReservationStatusChanged?: IOnReservationStatusChanged;
-    paymentServices?: IPaymentService[];
 }
 
 /**
@@ -55,6 +53,9 @@ export interface IProject {
     telephone?: string;
     url?: string;
     settings?: ISettings;
+    subscription?: {
+        identifier?: string;
+    };
 }
 
 /**
