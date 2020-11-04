@@ -18,6 +18,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.58.1 - 2020-11-04
+
+### Changed
+
+- update @motionpicture/coa-service
+- update @motionpicture/gmo-service
+- update @pecorino/factory
+
 ## v4.58.0 - 2020-11-01
 
 ### Changed
