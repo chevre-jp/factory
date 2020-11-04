@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- update @motionpicture/coa-service
+- update @motionpicture/gmo-service
+- update @pecorino/factory
+
 ### Deprecated
 
 ### Removed

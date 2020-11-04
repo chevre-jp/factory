@@ -46,10 +46,10 @@ export type IError = any;
  */
 export declare type ICreditCard = IUncheckedCardRaw | IUncheckedCardTokenized | IUnauthorizedCardOfMember;
 
-export import IEntryTranArgs = GMO.services.credit.IEntryTranArgs;
-export import IEntryTranResult = GMO.services.credit.IEntryTranResult;
-export import IExecTranArgs = GMO.services.credit.IExecTranArgs;
-export import IExecTranResult = GMO.services.credit.IExecTranResult;
+export import IEntryTranArgs = GMO.factory.credit.IEntryTranArgs;
+export import IEntryTranResult = GMO.factory.credit.IEntryTranResult;
+export import IExecTranArgs = GMO.factory.credit.IExecTranArgs;
+export import IExecTranResult = GMO.factory.credit.IExecTranResult;
 
 export interface IPaymentMethod {
     /**

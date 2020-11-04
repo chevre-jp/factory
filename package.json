@@ -44,6 +44,8 @@
     "@types/mocha": "^5.2.7",
     "@types/node": "^8.10.51",
     "@types/power-assert": "^1.5.0",
+    "@types/request": "^2.48.5",
+    "@types/request-promise-native": "^1.0.17",
     "@types/sinon": "^4.3.3",
     "coveralls": "^3.0.5",
     "http-signature": "^1.2.0",
@@ -59,9 +61,9 @@
   },
   "dependencies": {
     "@motionpicture/coa-service": "^9.0.0",
-    "@motionpicture/gmo-service": "^4.3.0",
+    "@motionpicture/gmo-service": "^5.0.0",
     "@movieticket/reserve-api-nodejs-client": "^1.0.1",
-    "@pecorino/factory": "^4.5.0",
+    "@pecorino/factory": "^4.6.0",
     "setprototypeof": "^1.2.0"
   },
   "repository": {

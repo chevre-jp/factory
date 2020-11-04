@@ -20,7 +20,7 @@ export interface IPendingTransaction {
     transactionNumber?: string;
 }
 
-export import ICreditCardSales = GMO.services.credit.IAlterTranResult;
+export import ICreditCardSales = GMO.factory.credit.IAlterTranResult;
 
 /**
  * 決済方法インターフェース
