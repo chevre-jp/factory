@@ -11,7 +11,23 @@ import { PaymentServiceType } from '../../service/paymentService';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ISeller;
-export type IPurpose = any;
+
+export interface IOrderAsPayPurpose {
+    typeOf: string;
+    confirmationNumber?: string;
+    orderNumber?: string;
+}
+
+export interface ITransactionAsPayPurpose {
+    typeOf: string;
+    id?: string;
+    transactionNumber?: string;
+}
+
+export type IPayPurpose = IOrderAsPayPurpose | ITransactionAsPayPurpose;
+
+export type IPurpose = IPayPurpose;
+
 export type AvailablePaymentMethodType = string;
 
 export interface IPendingTransaction {
