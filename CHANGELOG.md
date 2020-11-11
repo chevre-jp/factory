@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 決済アクションのpurposeを定義
-- @pecorino/factory
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.59.1 - 2020-11-11
+
+### Changed
+
+- @pecorino/factory
+
+## v4.59.0 - 2020-11-11
+
+### Changed
+
+- 決済アクションのpurposeを定義
 
 ## v4.58.1 - 2020-11-04
 
