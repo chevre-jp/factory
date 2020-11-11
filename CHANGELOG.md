@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - 決済アクションのpurposeを定義
+- @pecorino/factory
 
 ### Deprecated
 

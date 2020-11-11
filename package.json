@@ -63,7 +63,7 @@
     "@motionpicture/coa-service": "^9.0.0",
     "@motionpicture/gmo-service": "^5.0.0",
     "@movieticket/reserve-api-nodejs-client": "^1.0.1",
-    "@pecorino/factory": "^4.6.0",
+    "@pecorino/factory": "4.8.0",
     "setprototypeof": "^1.2.0"
   },
   "repository": {
