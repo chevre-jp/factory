@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 決済取引のagentを定義
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.59.2 - 2020-11-13
+
+### Changed
+
+- 決済取引のagentを定義
 
 ## v4.59.1 - 2020-11-11
 
