@@ -16,7 +16,7 @@ enum TransactionType {
     CancelReservation = 'CancelReservation',
     /**
      * 決済
-     * PaymentMethod: PaymentCard,Account,CreditCard,PaymentAgency...
+     * PaymentMethod: PaymentCard,CreditCard...
      */
     Pay = 'Pay',
     /**
@@ -25,7 +25,7 @@ enum TransactionType {
     Refund = 'Refund',
     /**
      * サービス登録
-     * Service: MembershipService,PaymentCard,Account,MoneyTransfer...
+     * Service: MembershipService,PaymentCard...
      */
     RegisterService = 'RegisterService'
 }

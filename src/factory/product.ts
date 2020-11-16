@@ -10,10 +10,6 @@ import { IThing } from './thing';
  */
 export enum ProductType {
     /**
-     * 口座
-     */
-    Account = 'Account',
-    /**
      * イベントサービス
      */
     EventService = 'EventService',
