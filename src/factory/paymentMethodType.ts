@@ -3,7 +3,7 @@
  */
 export enum PaymentMethodType {
     /**
-     * 口座決済
+     * ポイント決済
      */
     Account = 'Account',
     /**
