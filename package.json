@@ -1,6 +1,6 @@
 {
   "name": "@chevre/factory",
-  "version": "4.59.2",
+  "version": "4.60.0",
   "description": "Chevre Factory Library for Javascript",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
