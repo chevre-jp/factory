@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- 決済方法タイプからAccountを削除
+
 ### Fixed
 
 ### Security
