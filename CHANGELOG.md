@@ -8,11 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 返品ポリシーを追加
-
 ### Changed
-
-- プロジェクトインターフェースを拡張
 
 ### Deprecated
 
@@ -21,6 +17,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.62.0 - 2020-11-18
+
+### Added
+
+- 返品ポリシーを追加
+
+### Changed
+
+- プロジェクトインターフェースを拡張
 
 ## v4.61.0 - 2020-11-18
 
