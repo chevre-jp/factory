@@ -1,18 +1,8 @@
-import { IMerchantReturnPolicy } from './merchantReturnPolicy';
-import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
-import { IPlace } from './place';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
-
-export type ILocation = IPlace;
-
-/**
- * 親組織インターフェース
- */
-export type IParentOrganization = IOrganization;
 
 /**
  * GMOショップ情報インターフェース
@@ -70,22 +60,16 @@ export type IMakesOffer = IOffer;
  */
 export type IAreaServed = any;
 
-export type IHasMerchantReturnPolicy = IMerchantReturnPolicy[];
-
 export interface ISeller extends IOrganization {
     /**
      * The geographic area where a service or offered item is provided.
      */
     areaServed?: IAreaServed[];
     branchCode?: string;
-    hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
-    legalName?: IMultilingualString;
-    location?: ILocation;
     /**
      * A pointer to products or services offered by the organization or person.
      */
     makesOffer?: IMakesOffer[];
-    parentOrganization?: IParentOrganization;
     paymentAccepted?: IPaymentAccepted[];
     typeOf: OrganizationType;
 }

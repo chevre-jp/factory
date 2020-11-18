@@ -18,6 +18,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.62.0 - 2020-11-18
+
+### Added
+
+- 返品ポリシーを追加
+
+### Changed
+
+- プロジェクトインターフェースを拡張
+
 ## v4.61.0 - 2020-11-18
 
 ### Removed
