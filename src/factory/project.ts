@@ -1,3 +1,4 @@
+import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import SortType from './sortType';
 
@@ -42,16 +43,12 @@ export interface ISettings {
 /**
  * プロジェクトインターフェース
  */
-export interface IProject {
+export interface IProject extends IOrganization {
     typeOf: OrganizationType.Project;
     id: string;
     alternateName?: string;
     description?: string;
-    email?: string;
-    logo?: string;
     name?: string;
-    telephone?: string;
-    url?: string;
     settings?: ISettings;
     subscription?: {
         identifier?: string;

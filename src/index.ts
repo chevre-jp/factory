@@ -33,6 +33,7 @@ import EventStatusType from './factory/eventStatusType';
 import EventType from './factory/eventType';
 import ItemAvailability from './factory/itemAvailability';
 import * as LanguageFactory from './factory/language';
+import * as MerchantReturnPolicyFactory from './factory/merchantReturnPolicy';
 import * as MonetaryAmountFactory from './factory/monetaryAmount';
 import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
@@ -233,6 +234,7 @@ export import eventStatusType = EventStatusType;
 export import eventType = EventType;
 export import itemAvailability = ItemAvailability;
 export import language = LanguageFactory;
+export import merchantReturnPolicy = MerchantReturnPolicyFactory;
 export import monetaryAmount = MonetaryAmountFactory;
 export type multilingualString = IMultilingualString;
 

@@ -6,6 +6,35 @@ export enum RefundTypeEnumeration {
     StoreCreditRefund = 'StoreCreditRefund'
 }
 
+export enum ReturnFeesEnumeration {
+    OriginalShippingFees = 'OriginalShippingFees',
+    RestockingFees = 'RestockingFees',
+    ReturnShippingFees = 'ReturnShippingFees'
+}
+
+/**
+ * 返品ポリシーインターフェース
+ * @see https://schema.org/MerchantReturnEnumeration
+ */
+export enum MerchantReturnEnumeration {
+    /**
+     * there is a finite window for product returns.
+     */
+    MerchantReturnFiniteReturnWindow = 'MerchantReturnFiniteReturnWindow',
+    /**
+     * product returns are not permitted.
+     */
+    MerchantReturnNotPermitted = 'MerchantReturnNotPermitted',
+    /**
+     * there is an unlimited window for product returns.
+     */
+    MerchantReturnUnlimitedWindow = 'MerchantReturnUnlimitedWindow',
+    /**
+     * a product return policy is not specified here.
+     */
+    MerchantReturnUnspecified = 'MerchantReturnUnspecified'
+}
+
 export interface IMerchantReturnPolicy extends IThing {
     /**
      * Are in-store returns offered?
@@ -13,13 +42,13 @@ export interface IMerchantReturnPolicy extends IThing {
     inStoreReturnsOffered?: boolean;
     /**
      * The merchantReturnDays property indicates the number of days (from purchase)
-     * within which relevant merchant return policy is applicable.
+     * within which relevant merchant return policy is applicable. Supersedes productReturnDays.
      */
     merchantReturnDays?: number;
     /**
-     * Indicates a Web page or service by URL, for product return.
+     * Indicates a Web page or service by URL, for product return. Supersedes productReturnLink.
      */
-    merchantReturnLink?: any;
+    merchantReturnLink?: string;
     /**
      * A refundType, from an enumerated list.
      */
@@ -27,9 +56,9 @@ export interface IMerchantReturnPolicy extends IThing {
     /**
      * Indicates (via enumerated options) the return fees policy for a MerchantReturnPolicy
      */
-    returnFees?: any;
+    returnFees?: ReturnFeesEnumeration;
     /**
      * A returnPolicyCategory expresses at most one of several enumerated kinds of return.
      */
-    returnPolicyCategory?: any;
+    returnPolicyCategory?: MerchantReturnEnumeration;
 }
