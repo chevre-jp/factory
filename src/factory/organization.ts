@@ -1,7 +1,6 @@
 import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import IMultilingualString from './multilingualString';
 import { IPlace } from './place';
-import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IThing } from './thing';
 
@@ -15,7 +14,6 @@ export type IParentOrganization = IOrganization;
  * 組織インターフェース
  */
 export interface IOrganization extends IThing {
-    project: IProject;
     typeOf: string;
     id?: string;
     email?: string;

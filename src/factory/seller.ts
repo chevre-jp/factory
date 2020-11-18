@@ -1,6 +1,7 @@
 import { IOffer } from './offer';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
+import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
@@ -61,6 +62,7 @@ export type IMakesOffer = IOffer;
 export type IAreaServed = any;
 
 export interface ISeller extends IOrganization {
+    project: IProject;
     /**
      * The geographic area where a service or offered item is provided.
      */
