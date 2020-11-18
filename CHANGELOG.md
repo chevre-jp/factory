@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.61.0 - 2020-11-18
+
+### Removed
+
+- 決済方法タイプからAccountを削除
+
 ## v4.60.0 - 2020-11-16
 
 ### Changed

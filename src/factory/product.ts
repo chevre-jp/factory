@@ -21,7 +21,6 @@ export enum ProductType {
      * ペイメントカード
      */
     PaymentCard = 'PaymentCard',
-    // PointCard = 'PointCard',
     /**
      * アドオン
      */
