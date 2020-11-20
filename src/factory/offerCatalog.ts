@@ -57,5 +57,8 @@ export interface ISearchConditions {
     };
     itemOffered?: {
         typeOf?: { $eq?: string };
+        serviceType?: {
+            codeValue?: { $eq?: string };
+        };
     };
 }
