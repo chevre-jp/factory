@@ -36,6 +36,7 @@ export enum MerchantReturnEnumeration {
 }
 
 export interface IMerchantReturnPolicy extends IThing {
+    typeOf: 'MerchantReturnPolicy';
     /**
      * Are in-store returns offered?
      */

@@ -61,6 +61,10 @@ export interface ISearchConditions {
     page?: number;
     sort?: ISortOrder;
     project?: { ids?: string[] };
+    contentRating?: { $eq?: string };
+    distributor?: {
+        codeValue?: { $eq?: string };
+    };
     identifier?: string | {
         $eq?: string;
     };
