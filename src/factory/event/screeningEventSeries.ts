@@ -162,6 +162,18 @@ export type ISortOrder = EventFactory.ISortOrder;
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEventSeries> {
     sort?: ISortOrder;
+    videoFormat?: {
+        typeOf?: {
+            $eq?: string;
+            $in?: string[];
+        };
+    };
+    soundFormat?: {
+        typeOf?: {
+            $eq?: string;
+            $in?: string[];
+        };
+    };
     workPerformed?: {
         /**
          * イベントで上演される作品識別子リスト

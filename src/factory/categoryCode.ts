@@ -83,6 +83,9 @@ export interface ISearchConditions {
     name?: { $regex?: string };
     codeValue?: { $eq?: string };
     inCodeSet?: {
-        identifier?: { $eq?: string };
+        identifier?: {
+            $eq?: string;
+            $in?: string[];
+        };
     };
 }
