@@ -101,10 +101,6 @@ export interface IOffer extends IThing {
      */
     eligibleCustomerType?: any;
     /**
-     * 有効なムビチケ券種区分
-     */
-    eligibleMovieTicketType?: IEligibleCategoryCode[];
-    /**
      * 有効な座席タイプ
      */
     eligibleSeatingType?: IEligibleCategoryCode[];
@@ -196,6 +192,22 @@ export interface ISortOrder {
  * 価格仕様検索条件インターフェース
  */
 export interface IPriceSpecificationSearchConditions {
+    appliesToMovieTicket?: {
+        /**
+         * 適用決済カード区分
+         */
+        serviceType?: {
+            $eq?: string;
+        };
+        serviceOutput?: {
+            /**
+             * 適用決済方法タイプ
+             */
+            typeOf?: {
+                $eq?: string;
+            };
+        };
+    };
     price?: {
         $gte?: number;
         $lte?: number;
@@ -225,6 +237,14 @@ export interface ISearchConditions {
         };
     };
     project?: { id?: { $eq?: string } };
+    eligibleSeatingType?: {
+        /**
+         * 適用座席区分
+         */
+        codeValue?: {
+            $eq?: string;
+        };
+    };
     id?: {
         $eq?: string;
         $in?: string[];
