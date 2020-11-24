@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- ルームに検索条件を定義
+- ルームセクションに検索条件を定義
+- 座席に名称を追加
+
 ### Changed
 
 ### Deprecated

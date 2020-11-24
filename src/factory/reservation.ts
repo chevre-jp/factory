@@ -237,11 +237,11 @@ export interface IReservation<T extends IPriceSpecification> {
     /**
      * チェックイン(発券)済かどうか
      */
-    checkedIn?: Boolean;
+    checkedIn?: boolean;
     /**
      * 出席(入場)済かどうか
      */
-    attended?: Boolean;
+    attended?: boolean;
     additionalProperty?: IPropertyValue<string>[];
     /**
      * An additional offer that can only be obtained in combination with the first base offer
@@ -357,11 +357,11 @@ export interface ISearchConditions<T extends ReservationType> {
     /**
      * チェックイン(発券)済かどうか
      */
-    checkedIn?: Boolean;
+    checkedIn?: boolean;
     /**
      * 出席(入場)済かどうか
      */
-    attended?: Boolean;
+    attended?: boolean;
     additionalProperty?: {
         $all?: IPropertyValue<string>[];
         $in?: IPropertyValue<string>[];
