@@ -8,10 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- ルームに検索条件を定義
-- ルームセクションに検索条件を定義
-- 座席に名称を追加
-
 ### Changed
 
 ### Deprecated
@@ -21,6 +17,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.67.0 - 2020-11-24
+
+### Added
+
+- ルームに検索条件を定義
+- ルームセクションに検索条件を定義
+- 座席に名称を追加
 
 ## v4.66.0 - 2020-11-24
 
