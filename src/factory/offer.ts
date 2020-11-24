@@ -220,6 +220,12 @@ export interface IPriceSpecificationSearchConditions {
             $gte?: number;
             $lte?: number;
         };
+        operatingRevenue?: {
+            codeValue?: {
+                $eq?: string;
+                $in?: string[];
+            };
+        };
     };
 }
 
