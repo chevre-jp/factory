@@ -81,9 +81,21 @@ export interface ISearchConditions {
     project?: { id?: { $eq?: string } };
     id?: { $eq?: string };
     name?: { $regex?: string };
-    codeValue?: { $eq?: string };
+    codeValue?: {
+        $eq?: string;
+        $in?: string[];
+    };
     inCodeSet?: {
         identifier?: {
+            $eq?: string;
+            $in?: string[];
+        };
+    };
+    paymentMethod?: {
+        /**
+         * 決済カード区分の場合、対応決済方法
+         */
+        typeOf?: {
             $eq?: string;
             $in?: string[];
         };
