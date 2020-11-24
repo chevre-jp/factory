@@ -21,3 +21,22 @@ export interface IPlace extends PlaceFactory.IPlace {
      */
     name: IMultilingualString;
 }
+
+export interface ISearchConditions {
+    limit?: number;
+    page?: number;
+    sort?: any;
+    project?: { id?: { $eq?: string } };
+    branchCode?: {
+        $eq?: string;
+        $regex?: string;
+    };
+    containedInPlace?: {
+        id?: { $eq?: string };
+        branchCode?: { $eq?: string };
+    };
+    name?: {
+        $regex?: string;
+    };
+    openSeatingAllowed?: boolean;
+}

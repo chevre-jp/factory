@@ -20,3 +20,23 @@ export interface IPlace extends PlaceFactory.IPlace {
 export interface IPlaceWithOffer extends IPlace {
     containsPlace: ISeatWithOffer[];
 }
+
+export interface ISearchConditions {
+    limit?: number;
+    page?: number;
+    sort?: any;
+    project?: { id?: { $eq?: string } };
+    branchCode?: {
+        $eq?: string;
+        $regex?: string;
+    };
+    containedInPlace?: {
+        branchCode?: { $eq?: string };
+        containedInPlace: {
+            branchCode?: { $eq?: string };
+        };
+    };
+    name?: {
+        $regex?: string;
+    };
+}

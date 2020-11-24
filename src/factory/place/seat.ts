@@ -1,4 +1,5 @@
 import ItemAvailability from '../itemAvailability';
+import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import * as PlaceFactory from '../place';
 import { PlaceType } from '../placeType';
@@ -37,6 +38,10 @@ export interface IPlace extends PlaceFactory.IPlace {
      * 枝番号
      */
     branchCode: string;
+    /**
+     * 名称
+     */
+    name?: IMultilingualString;
     /**
      * 座席タイプ
      */
