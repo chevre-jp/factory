@@ -38,15 +38,15 @@ export interface IMovieTicketInfo {
  */
 export interface IPaymentAccepted {
     paymentMethodType: string;
-    identifier?: string;
+    // identifier?: string;
     /**
      * 口座タイプ
      */
-    accountType?: string;
+    // accountType?: string;
     /**
      * 口座番号
      */
-    accountNumber?: string;
+    // accountNumber?: string;
     /**
      * GMO情報
      */
