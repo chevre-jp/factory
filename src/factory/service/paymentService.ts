@@ -1,3 +1,4 @@
+import { IOrganization } from '../organization';
 import { IProject } from '../project';
 
 export interface IServiceOutput {
@@ -30,8 +31,32 @@ export enum PaymentServiceType {
     PaymentCard = 'PaymentCard'
 }
 
+export interface IProviderCredentials {
+    /**
+     * GMOショップID
+     */
+    shopId?: string;
+    /**
+     * GMOショップパス
+     */
+    shopPass?: string;
+    /**
+     * ムビチケ興行会社コード
+     */
+    kgygishCd?: string;
+    /**
+     * ムビチケサイトコード
+     */
+    stCd?: string;
+}
+
+export interface IProvider extends IOrganization {
+    credentials?: IProviderCredentials;
+}
+
 /**
  * ペイメントサービスインターフェース
+ * @see https://schema.org/Service
  */
 export interface IService {
     project: IProject;
@@ -39,5 +64,9 @@ export interface IService {
     id?: string;
     availableChannel?: IAvailableChannel;
     productID?: string;
+    /**
+     * ペイメントサービス提供者
+     */
+    provider?: IProvider[];
     serviceOutput?: IServiceOutput;
 }
