@@ -20,6 +20,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.69.0 - 2020-12-01
+
+### Added
+
+- ペイメントサービスにproviderを追加
+
 ## v4.68.0 - 2020-11-24
 
 ### Changed
