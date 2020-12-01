@@ -8,9 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- ペイメントサービスにproviderを追加
-
 ### Changed
+
+- 外部決済サービス認証情報を販売者から決済サービスへ移行
 
 ### Deprecated
 
