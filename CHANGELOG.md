@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- ペイメントサービスにproviderを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.70.0 - 2020-12-01
+
+### Changed
+
+- 外部決済サービス認証情報を販売者から決済サービスへ移行
 
 ## v4.69.0 - 2020-12-01
 

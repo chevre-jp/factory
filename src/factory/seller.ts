@@ -6,52 +6,10 @@ import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
 /**
- * GMOショップ情報インターフェース
- */
-export interface IGMOInfo {
-    /**
-     * ショップID
-     */
-    shopId: string;
-    /**
-     * ショップパス
-     */
-    shopPass?: string;
-}
-
-/**
- * ムビチケショップ情報インターフェース
- */
-export interface IMovieTicketInfo {
-    /**
-     * ムビチケ興行会社コード
-     */
-    kgygishCd: string;
-    /**
-     * ムビチケサイトコード
-     */
-    stCd: string;
-}
-
-/**
  * 利用可能決済インターフェース
  */
 export interface IPaymentAccepted {
     paymentMethodType: string;
-    // identifier?: string;
-    /**
-     * 口座タイプ
-     */
-    // accountType?: string;
-    /**
-     * 口座番号
-     */
-    // accountNumber?: string;
-    /**
-     * GMO情報
-     */
-    gmoInfo?: IGMOInfo;
-    movieTicketInfo?: IMovieTicketInfo;
 }
 
 export type IMakesOffer = IOffer;
