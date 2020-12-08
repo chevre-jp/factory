@@ -15,7 +15,7 @@ export interface IAccounting {
     /**
      * 営業収益
      */
-    operatingRevenue: IAccountTitle;
+    operatingRevenue?: IAccountTitle;
     /**
      * 営業外収益
      */
@@ -23,7 +23,7 @@ export interface IAccounting {
     /**
      * 売上金額
      */
-    accountsReceivable: number;
+    accountsReceivable?: number;
 }
 
 /**
