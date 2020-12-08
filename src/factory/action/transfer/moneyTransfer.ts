@@ -11,6 +11,7 @@ import TransactionType from '../../transactionType';
 export interface IPendingTransaction {
     typeOf: pecorino.transactionType;
     id: string;
+    identifier?: string;
     transactionNumber?: string;
 }
 
@@ -52,6 +53,7 @@ export type IPotentialActions = any;
 export interface ITransactionPurpose {
     typeOf: TransactionType;
     id: string;
+    identifier?: string;
 }
 
 export type IPurpose = ITransactionPurpose;

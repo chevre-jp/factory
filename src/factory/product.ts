@@ -41,6 +41,9 @@ export interface IPointAward {
     typeOf: 'MoneyTransfer';
     amount?: IMonetaryAmount;
     toLocation?: any;
+    description?: string;
+    recipient?: any;
+    purpose?: { identifier?: string };
 }
 
 /**

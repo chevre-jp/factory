@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.71.0 - 2020-12-08
+
+### Changed
+
+- update @pecorino/factory
+- ポイント特典インターフェースを拡張
+
 ## v4.70.1 - 2020-12-08
 
 ### Changed
