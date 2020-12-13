@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- イベントのオファー集計インターフェースを拡張
+
 ### Deprecated
 
 ### Removed

@@ -18,6 +18,7 @@ import * as ReservationFactory from '../reservation';
 import ReservationType from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
 import { IServiceType } from '../serviceType';
+import { IThing } from '../thing';
 import { UnitCode } from '../unitCode';
 
 /**
@@ -34,11 +35,12 @@ export interface IAggregateReservation {
 /**
  * 予約集計つきオファーインターフェース
  */
-export interface IOfferWithAggregateReservation {
+export interface IOfferWithAggregateReservation extends IThing {
     typeOf: OfferType.Offer;
     id?: string;
     identifier?: string;
     aggregateReservation?: IAggregateReservation;
+    category?: OfferFactory.ICategory;
     maximumAttendeeCapacity?: number;
     remainingAttendeeCapacity?: number;
 }
