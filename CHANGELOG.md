@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.71.1 - 2020-12-13
+
+### Changed
+
+- イベントのオファー集計インターフェースを拡張
+
 ## v4.71.0 - 2020-12-08
 
 ### Changed
