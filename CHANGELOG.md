@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.72.0 - 2020-12-16
+
+### Added
+
+- encodingFormatを追加
+- SendEmailMessageタスクを追加
+
 ## v4.71.1 - 2020-12-13
 
 ### Changed
