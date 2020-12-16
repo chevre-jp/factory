@@ -15,6 +15,7 @@ import * as ReserveActionFactory from './factory/action/reserve';
 import * as PayActionFactory from './factory/action/trade/pay';
 import * as RefundActionFactory from './factory/action/trade/refund';
 import * as MoneyTransferActionFactory from './factory/action/transfer/moneyTransfer';
+import * as SendEmailMessageActionFactory from './factory/action/transfer/send/message/email';
 
 import ActionStatusType from './factory/actionStatusType';
 import ActionType from './factory/actionType';
@@ -26,6 +27,7 @@ import * as CreativeWorkFactory from './factory/creativeWork';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import * as MovieCreativeWorkFactory from './factory/creativeWork/movie';
 import CreativeWorkType from './factory/creativeWorkType';
+import * as EncodingFormat from './factory/encodingFormat';
 import * as EventFactory from './factory/event';
 import * as ScreeningEventFactory from './factory/event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeries';
@@ -91,6 +93,7 @@ import * as PayTaskFactory from './factory/task/pay';
 import * as RefundTaskFactory from './factory/task/refund';
 import * as RegisterServiceTaskFactory from './factory/task/registerService';
 import * as ReserveTaskFactory from './factory/task/reserve';
+import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
 import * as VoidPaymentTaskFactory from './factory/task/voidPayment';
 
@@ -192,6 +195,7 @@ export namespace action {
         }
         export namespace send {
             export namespace message {
+                export import email = SendEmailMessageActionFactory;
             }
         }
     }
@@ -230,6 +234,7 @@ export namespace event {
     export import screeningEvent = ScreeningEventFactory;
     export import screeningEventSeries = ScreeningEventSeriesFactory;
 }
+export import encodingFormat = EncodingFormat;
 export import eventStatusType = EventStatusType;
 export import eventType = EventType;
 export import itemAvailability = ItemAvailability;
@@ -362,6 +367,7 @@ export namespace task {
     export import refund = RefundTaskFactory;
     export import registerService = RegisterServiceTaskFactory;
     export import reserve = ReserveTaskFactory;
+    export import sendEmailMessage = SendEmailMessageTaskFactory;
     export import triggerWebhook = TriggerWebhookTaskFactory;
     export import voidPayment = VoidPaymentTaskFactory;
 }

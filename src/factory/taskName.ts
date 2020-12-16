@@ -16,6 +16,10 @@ enum TaskName {
     RegisterService = 'registerService',
     Pay = 'pay',
     /**
+     *  Eメールメッセージ送信
+     */
+    SendEmailMessage = 'sendEmailMessage',
+    /**
      * ウェブフックをたたく
      */
     TriggerWebhook = 'triggerWebhook',
