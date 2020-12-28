@@ -18,6 +18,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.73.0 - 2020-12-28
+
+- アクション検索条件拡張
+- イベントに入場ゲート集計属性を追加
+
 ## v4.72.0 - 2020-12-16
 
 ### Added
