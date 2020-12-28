@@ -30,6 +30,7 @@ export interface IAggregateReservation {
     checkInCount?: number;
     attendeeCount?: number;
     reservationCount?: number;
+    useActionCount?: number;
 }
 
 /**
@@ -52,6 +53,29 @@ export interface IAggregateOffer {
     typeOf: OfferType.AggregateOffer;
     offerCount?: number;
     offers?: IOfferWithAggregateReservation[];
+}
+
+export interface IPlaceWithAggregateOffer {
+    typeOf: PlaceType;
+    identifier?: string;
+    aggregateOffer?: {
+        typeOf: OfferType.AggregateOffer;
+        offers?: {
+            typeOf: OfferType.Offer;
+            id?: string;
+            identifier?: string;
+            category?: OfferFactory.ICategory;
+            aggregateReservation?: IAggregateReservation;
+        }[];
+    };
+}
+
+/**
+ * 入場ゲート集計
+ */
+export interface IAggregateEntranceGate {
+    typeOf: PlaceType.AggregatePlace;
+    places: IPlaceWithAggregateOffer[];
 }
 
 export interface IServiceOutput {
@@ -312,6 +336,10 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      * 参加数
      */
     attendeeCount?: Number;
+    /**
+     * 入場ゲート集計
+     */
+    aggregateEntranceGate?: IAggregateEntranceGate;
     /**
      * 予約集計
      */

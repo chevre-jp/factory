@@ -122,7 +122,13 @@ export interface ISearchConditions {
     };
     typeOf?: { $eq?: ActionType };
     actionStatus?: { $in?: ActionStatusType[] };
+    location?: {
+        identifier?: { $eq?: string };
+    };
     object?: {
+        reservationFor?: {
+            id?: { $eq?: string };
+        };
         paymentMethod?: {
             accountId?: {
                 $eq?: string;
@@ -134,5 +140,6 @@ export interface ISearchConditions {
                 $eq?: string;
             };
         };
+        typeOf?: { $eq?: string };
     };
 }
