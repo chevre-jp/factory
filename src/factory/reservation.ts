@@ -96,6 +96,10 @@ export interface ITicket<T extends IPriceSpecification> {
      */
     dateIssued?: Date;
     /**
+     * The date the ticket was used.
+     */
+    dateUsed?: Date;
+    /**
      * The organization issuing the ticket or permit.
      */
     issuedBy?: IUnderName;
