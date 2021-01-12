@@ -18,6 +18,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.75.0 - 2021-01-12
+
+### Changed
+
+- アクション検索条件拡張
+- オファーカタログ検索条件拡張
+- 予約検索条件拡張
+
 ## v4.74.0 - 2021-01-10
 
 ### Added

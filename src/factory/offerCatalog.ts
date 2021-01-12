@@ -46,6 +46,7 @@ export interface ISearchConditions {
     sort?: ISortOrder;
     project?: {
         id?: { $eq?: string };
+        ids?: string[];
     };
     id?: string;
     identifier?: string | {
