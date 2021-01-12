@@ -126,6 +126,7 @@ export interface ISearchConditions {
         identifier?: { $eq?: string };
     };
     object?: {
+        id?: { $eq?: string };
         reservationFor?: {
             id?: { $eq?: string };
         };

@@ -284,6 +284,7 @@ export interface IReservedTicketSearchConditions {
         seatNumbers?: string[];
         seatRows?: string[];
         seatSections?: string[];
+        seatingType?: { $in?: string[] };
     };
     /**
      * 券種
