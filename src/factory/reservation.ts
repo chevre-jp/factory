@@ -259,11 +259,23 @@ export interface IReservation<T extends IPriceSpecification> {
  */
 export interface IUnderNameSearchConditions {
     id?: string;
-    name?: string;
-    email?: string;
+    name?: string | {
+        $options?: string;
+        $regex?: string;
+    };
+    email?: string | {
+        $options?: string;
+        $regex?: string;
+    };
     telephone?: string;
-    givenName?: string;
-    familyName?: string;
+    givenName?: string | {
+        $options?: string;
+        $regex?: string;
+    };
+    familyName?: string | {
+        $options?: string;
+        $regex?: string;
+    };
     identifier?: {
         $all?: IPropertyValue<string>[];
         $in?: IPropertyValue<string>[];
@@ -305,6 +317,8 @@ export interface IStringSearchConditions {
     $ne?: string;
     $in?: string[];
     $nin?: string[];
+    $options?: string;
+    $regex?: string;
 }
 
 /**
