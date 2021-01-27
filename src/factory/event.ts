@@ -108,6 +108,9 @@ export interface ISearchConditions<T extends EventType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    id?: {
+        $in?: string[];
+    };
     project?: { ids?: string[] };
     /**
      * イベントタイプ

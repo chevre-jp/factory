@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- イベント検索条件拡張
 - 予約検索条件拡張
 
 ### Deprecated
