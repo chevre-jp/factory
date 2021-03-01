@@ -5,6 +5,7 @@ import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as CancelReservationActionFactory from './factory/action/cancel/reservation';
 import * as CheckMovieTicketActionFactory from './factory/action/check/paymentMethod/movieTicket';
+import * as UseReservationActionFactory from './factory/action/consume/use/reservation';
 import * as InformActionFactory from './factory/action/interact/inform';
 import * as RegisterActionFactory from './factory/action/interact/register';
 import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
@@ -202,6 +203,8 @@ export namespace action {
 
     export namespace consume {
         export namespace use {
+            // tslint:disable-next-line:no-shadowed-variable
+            export import reservation = UseReservationActionFactory;
         }
     }
     export import reserve = ReserveActionFactory;

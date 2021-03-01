@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 予約使用アクションを追加
+- 決済サービスタイプにFaceToFaceを追加
+
 ### Changed
 
 ### Deprecated
