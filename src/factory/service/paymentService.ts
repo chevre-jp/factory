@@ -27,6 +27,7 @@ export interface IAvailableChannel {
 
 export enum PaymentServiceType {
     CreditCard = 'CreditCard',
+    FaceToFace = "FaceToFace",
     MovieTicket = 'MovieTicket',
     PaymentCard = 'PaymentCard'
 }
