@@ -8,9 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 予約使用アクションを追加
-- 決済サービスタイプにFaceToFaceを追加
-
 ### Changed
 
 ### Deprecated
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.78.0 - 2021-03-01
+
+### Added
+
+- 予約使用アクションを追加
+- 決済サービスタイプにFaceToFaceを追加
 
 ## v4.77.0 - 2021-01-27
 
