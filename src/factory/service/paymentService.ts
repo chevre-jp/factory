@@ -42,6 +42,10 @@ export interface IProviderCredentials {
      */
     shopPass?: string;
     /**
+     * トークン認証コード
+     */
+    tokenizationCode?: string;
+    /**
      * ムビチケ興行会社コード
      */
     kgygishCd?: string;

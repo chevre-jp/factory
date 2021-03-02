@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.79.0 - 2021-03-02
+
+### Added
+
+- ペイメントサービスのプロバイダー認証情報にトークン認証コードを追加
+
 ## v4.78.1 - 2021-03-01
 
 ### Added
