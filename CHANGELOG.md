@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 予約にbrokerを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.80.0 - 2021-03-07
+
+### Added
+
+- 予約にbrokerを追加
 
 ## v4.79.0 - 2021-03-02
 
