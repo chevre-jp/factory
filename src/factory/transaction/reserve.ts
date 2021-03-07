@@ -33,6 +33,7 @@ export interface IConfirmingReservation {
      * Any additional text to appear on a ticket, such as additional privileges or identifiers.
      */
     additionalTicketText?: string;
+    broker?: ReservationFactory.IBroker;
     reservedTicket?: {
         /**
          * チケット発行者

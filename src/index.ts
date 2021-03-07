@@ -304,6 +304,10 @@ export import qualitativeValue = QualitativeValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
 
 export namespace reservation {
+    export type IBroker<T extends ReservationType> =
+        T extends ReservationType.EventReservation ? ReservationFactory.IBroker :
+        ReservationFactory.IBroker;
+
     export type IPriceSpecification<T extends ReservationType> =
         T extends ReservationType.EventReservation ? EventReservationFactory.IPriceSpecification :
         T extends ReservationType.ReservationPackage ? ReservationPackageFactory.IPriceSpecification :

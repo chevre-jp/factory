@@ -148,6 +148,8 @@ export interface ITicket<T extends IPriceSpecification> {
     coaTicketInfo?: ICOATicketInfoWithDetails;
 }
 
+export type IBroker = IUnderName;
+
 /**
  * 予約インターフェース
  * Describes a reservation for travel, dining or an event. Some reservations require tickets.
@@ -178,6 +180,11 @@ export interface IReservation<T extends IPriceSpecification> {
      * Date the reservation was made.
      */
     bookingTime?: Date;
+    /**
+     * An entity that arranges for an exchange between a buyer and a seller.
+     * In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.
+     */
+    broker?: IBroker;
     /**
      * Web page where reservation can be cancelled.
      */
@@ -285,6 +292,8 @@ export interface IUnderNameSearchConditions {
     identifiers?: IPropertyValue<string>[];
 }
 
+export type IBrokerSearchConditions = IUnderNameSearchConditions;
+
 /**
  * 予約チケット検索条件インターフェース
  */
@@ -357,6 +366,7 @@ export interface ISearchConditions<T extends ReservationType> {
      * 追加チケットテキスト
      */
     additionalTicketText?: string | IStringSearchConditions;
+    broker?: IBrokerSearchConditions;
     /**
      * 予約ステータスリスト
      */
