@@ -24,6 +24,10 @@ export interface IOnEventChanged {
     informEvent?: IInformParams[];
 }
 
+export interface IOnPaymentStatusChanged {
+    informPayment?: IInformParams[];
+}
+
 /**
  * 予約ステータス変更時イベントインターフェース
  */
@@ -37,6 +41,7 @@ export interface IOnReservationStatusChanged {
 export interface ISettings {
     importEventsInWeeks?: number;
     onEventChanged?: IOnEventChanged;
+    onPaymentStatusChanged?: IOnPaymentStatusChanged;
     onReservationStatusChanged?: IOnReservationStatusChanged;
 }
 

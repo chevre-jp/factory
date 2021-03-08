@@ -1,6 +1,6 @@
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-// import { IAttributes as IInformActionAttributes } from '../interact/inform';
+import { IAttributes as IInformActionAttributes } from '../interact/inform';
 import { IPaymentService as IPaymentServiceOnPay, IPayPurpose } from './pay';
 
 export type IRecipient = ActionFactory.IParticipant;
@@ -13,12 +13,10 @@ export type IObject = IPaymentService[];
 
 export type IResult = any;
 
-// tslint:disable-next-line:no-empty-interface
+export type IInformPayment = IInformActionAttributes<any, any>;
+
 export interface IPotentialActions {
-    /**
-     * 通知アクション
-     */
-    // inform?: IInformActionAttributes<any, any>[];
+    informPayment?: IInformPayment[];
 }
 
 export type IPurpose = IPayPurpose;
