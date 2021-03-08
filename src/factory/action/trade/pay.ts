@@ -8,6 +8,7 @@ import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import { IPropertyValue } from '../../propertyValue';
 import { ISeller } from '../../seller';
 import { PaymentServiceType } from '../../service/paymentService';
+import { IAttributes as IInformActionAttributes } from '../interact/inform';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ISeller;
@@ -83,6 +84,12 @@ export interface IPaymentService {
 
 export type IObject = IPaymentService[];
 
+export type IInformPayment = IInformActionAttributes<any, any>;
+
+export interface IPotentialActions {
+    informPayment?: IInformPayment[];
+}
+
 /**
  * 決済結果
  */
@@ -94,7 +101,9 @@ export interface IResult {
     seatInfoSyncIn?: any;
     seatInfoSyncResult?: any;
 }
+
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.PayAction, IObject, IResult> {
+    potentialActions?: IPotentialActions;
     purpose: IPurpose;
     recipient?: IRecipient;
 }
