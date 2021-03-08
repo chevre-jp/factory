@@ -8,9 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- プロジェクトに決済ステータス変更時設定を追加
-- 決済と返金後の通知アクションを追加
-
 ### Changed
 
 ### Deprecated
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.81.0 - 2021-03-08
+
+### Added
+
+- プロジェクトに決済ステータス変更時設定を追加
+- 決済と返金後の通知アクションを追加
 
 ## v4.80.0 - 2021-03-07
 
