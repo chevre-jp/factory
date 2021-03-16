@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 映画作品名称を多言語対応
+
 ### Deprecated
 
 ### Removed
