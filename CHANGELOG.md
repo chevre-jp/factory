@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 映画作品名称を多言語対応
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.82.0 - 2021-03-16
+
+### Changed
+
+- 映画作品名称を多言語対応
 
 ## v4.81.0 - 2021-03-08
 
