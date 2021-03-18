@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- プロジェクトに予約使用時設定を追加
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.83.0 - 2021-03-18
+
+### Changed
+
+- プロジェクトに予約使用時設定を追加
 
 ## v4.82.0 - 2021-03-16
 
