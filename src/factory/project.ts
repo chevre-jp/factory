@@ -36,6 +36,13 @@ export interface IOnReservationStatusChanged {
 }
 
 /**
+ * 予約使用時イベントインターフェース
+ */
+export interface IOnReservationUsed {
+    informAction?: IInformParams[];
+}
+
+/**
  * プロジェクト設定インターフェース
  */
 export interface ISettings {
@@ -43,6 +50,7 @@ export interface ISettings {
     onEventChanged?: IOnEventChanged;
     onPaymentStatusChanged?: IOnPaymentStatusChanged;
     onReservationStatusChanged?: IOnReservationStatusChanged;
+    onReservationUsed?: IOnReservationUsed;
 }
 
 /**
