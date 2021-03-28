@@ -4,12 +4,12 @@ import { PlaceType } from '../placeType';
 import { IPlace as IScreeningRoomSection } from './screeningRoomSection';
 
 /**
- * 上映室インターフェース
+ * ルームインターフェース
  */
 export interface IPlace extends PlaceFactory.IPlace {
     typeOf: PlaceType.ScreeningRoom;
     /**
-     * 上映セクションリスト
+     * セクションリスト
      */
     containsPlace: IScreeningRoomSection[];
     /**
@@ -20,6 +20,14 @@ export interface IPlace extends PlaceFactory.IPlace {
      * 名称
      */
     name: IMultilingualString;
+    /**
+     * 座席数
+     */
+    seatCount?: number;
+    /**
+     * セクション数
+     */
+    sectionCount?: number;
 }
 
 export interface ISearchConditions {
@@ -39,4 +47,8 @@ export interface ISearchConditions {
         $regex?: string;
     };
     openSeatingAllowed?: boolean;
+    $projection?: {
+        seatCount?: 1;
+        sectionCount?: 1;
+    };
 }

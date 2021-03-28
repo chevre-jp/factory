@@ -87,7 +87,7 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
  */
 export type IPlace = IPlaceWithoutScreeningRoom & {
     /**
-     * 上映室リスト
+     * ルームリスト
      */
     containsPlace: IScreeningRoom[];
 };

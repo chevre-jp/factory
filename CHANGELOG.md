@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.84.0 - 2021-03-28
+
+### Changed
+
+- ルームインターフェースを拡張
+
 ## v4.83.0 - 2021-03-18
 
 ### Changed

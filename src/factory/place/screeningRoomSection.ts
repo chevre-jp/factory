@@ -3,7 +3,7 @@ import { PlaceType } from '../placeType';
 import { IPlace as ISeat, IPlaceWithOffer as ISeatWithOffer } from './seat';
 
 /**
- * 上映セクションインターフェース
+ * セクションインターフェース
  */
 export interface IPlace extends PlaceFactory.IPlace {
     typeOf: PlaceType.ScreeningRoomSection;
