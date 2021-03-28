@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- ルームインターフェースを拡張
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.84.0 - 2021-03-28
+
+### Changed
+
+- ルームインターフェースを拡張
 
 ## v4.83.0 - 2021-03-18
 
