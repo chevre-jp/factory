@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.85.0 - 2021-03-31
+
+### Changed
+
+- 予約取消取引開始パラメータからtransactionを削除
+- 予約取消取引開始パラメータを複数予約IDに対応
+
 ## v4.84.0 - 2021-03-28
 
 ### Changed
