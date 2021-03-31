@@ -33,18 +33,14 @@ export type IError = any;
 
 export interface IObjectWithoutDetail {
     clientUser?: IClientUser;
-    /**
-     * 取引をキーに取り消す場合
-     */
-    transaction?: {
-        typeOf: TransactionType;
-        id: string;
-    };
-    /**
-     * 予約をキーに取り消す場合
-     */
     reservation?: {
-        id?: string;
+        /**
+         * 予約IDをキーに取消
+         */
+        id?: string | string[];
+        /**
+         * 予約番号をキーに取消
+         */
         reservationNumber?: string;
     };
     onReservationStatusChanged?: IOnReservationStatusChanged;

@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 予約取消取引開始パラメータからtransactionを削除
+- 予約取消取引開始パラメータを複数予約IDに対応
+
 ### Deprecated
 
 ### Removed
