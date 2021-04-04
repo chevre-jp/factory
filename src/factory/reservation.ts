@@ -367,6 +367,11 @@ export interface ISearchConditions<T extends ReservationType> {
      */
     additionalTicketText?: string | IStringSearchConditions;
     broker?: IBrokerSearchConditions;
+    reservationStatus?: {
+        $eq?: ReservationStatusType;
+        $ne?: ReservationStatusType;
+        $in?: ReservationStatusType[];
+    };
     /**
      * 予約ステータスリスト
      */
