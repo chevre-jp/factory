@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- プロジェクトのイベント変更時設定を廃止
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.87.0 - 2021-04-09
+
+### Changed
+
+- プロジェクトのイベント変更時設定を廃止
 
 ## v4.86.0 - 2021-04-04
 
