@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 注文インターフェースを追加
+- 人物インターフェースを追加
+- 決済ステータスインタフェースを追加
+
 ### Changed
 
 ### Deprecated

@@ -42,13 +42,18 @@ import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
 import * as OfferCatalogFactory from './factory/offerCatalog';
 import OfferType from './factory/offerType';
+import * as OrderFactory from './factory/order';
+import OrderStatus from './factory/orderStatus';
 import * as OrganizationFactory from './factory/organization';
 import { OrganizationType } from './factory/organizationType';
 import * as PaymentCardFactory from './factory/paymentMethod/paymentCard';
 import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
 import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTicket';
 import { PaymentMethodType } from './factory/paymentMethodType';
+import PaymentStatusType from './factory/paymentStatusType';
 import * as PermitFactory from './factory/permit';
+import * as PersonFactory from './factory/person';
+import PersonType from './factory/personType';
 import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
 import * as ScreeningRoomPlaceFactory from './factory/place/screeningRoom';
 import * as ScreeningRoomSectionPlaceFactory from './factory/place/screeningRoomSection';
@@ -250,6 +255,8 @@ export import offer = OfferFactory;
 
 export import offerCatalog = OfferCatalogFactory;
 export import offerType = OfferType;
+export import order = OrderFactory;
+export import orderStatus = OrderStatus;
 
 export import organization = OrganizationFactory;
 export import organizationType = OrganizationType;
@@ -266,8 +273,11 @@ export namespace paymentMethod {
         export import movieTicket = MovieTicketFactory;
     }
 }
+export import paymentStatusType = PaymentStatusType;
 
 export import permit = PermitFactory;
+export import person = PersonFactory;
+export import personType = PersonType;
 
 export import priceCurrency = PriceCurrency;
 export namespace place {
