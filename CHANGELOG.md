@@ -18,6 +18,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.89.0 - 2021-04-12
+
+### Added
+
+- インボイスインターフェースを追加
+
+### Changed
+
+- オファーにofferedThrough属性を追加
+
 ## v4.88.0 - 2021-04-11
 
 ### Added
