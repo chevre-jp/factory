@@ -8,7 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- インボイスインターフェースを追加
+
 ### Changed
+
+- オファーにofferedThrough属性を追加
 
 ### Deprecated
 

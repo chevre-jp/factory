@@ -34,6 +34,7 @@ import * as ScreeningEventFactory from './factory/event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeries';
 import EventStatusType from './factory/eventStatusType';
 import EventType from './factory/eventType';
+import * as InvoiceFactory from './factory/invoice';
 import ItemAvailability from './factory/itemAvailability';
 import * as LanguageFactory from './factory/language';
 import * as MerchantReturnPolicyFactory from './factory/merchantReturnPolicy';
@@ -245,6 +246,7 @@ export namespace event {
 export import encodingFormat = EncodingFormat;
 export import eventStatusType = EventStatusType;
 export import eventType = EventType;
+export import invoice = InvoiceFactory;
 export import itemAvailability = ItemAvailability;
 export import language = LanguageFactory;
 export import merchantReturnPolicy = MerchantReturnPolicyFactory;

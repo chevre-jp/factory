@@ -9,6 +9,7 @@ import PriceSpecificationType from './priceSpecificationType';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
+import * as WebAPIFactory from './service/webAPI';
 import SortType from './sortType';
 import { IThing } from './thing';
 import { UnitCode } from './unitCode';
@@ -54,6 +55,8 @@ export interface ISeller extends IThing {
     typeOf?: string;
     id?: string;
 }
+
+export type IOfferedThrough = WebAPIFactory.IService<WebAPIFactory.Identifier>;
 
 /**
  * offer interface
@@ -130,6 +133,10 @@ export interface IOffer extends IThing {
      */
     itemOffered?: any;
     offeredBy?: any;
+    /**
+     * オファー供給サービス
+     */
+    offeredThrough?: IOfferedThrough;
     /**
      * The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.
      */
