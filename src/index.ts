@@ -73,6 +73,7 @@ import * as project from './factory/project';
 import * as PropertyValueFactory from './factory/propertyValue';
 import * as QualitativeValueFactory from './factory/qualitativeValue';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
+import * as OrderReportFactory from './factory/report/order';
 import * as ReservationFactory from './factory/reservation';
 import * as EventReservationFactory from './factory/reservation/event';
 import * as ReservationPackageFactory from './factory/reservation/reservationPackage';
@@ -314,6 +315,11 @@ export import propertyValue = PropertyValueFactory;
 
 export import qualitativeValue = QualitativeValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
+
+export namespace report {
+    // tslint:disable-next-line:no-shadowed-variable
+    export import order = OrderReportFactory;
+}
 
 export namespace reservation {
     export type IBroker<T extends ReservationType> =
