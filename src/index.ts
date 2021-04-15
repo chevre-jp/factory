@@ -22,6 +22,7 @@ import ActionStatusType from './factory/actionStatusType';
 import ActionType from './factory/actionType';
 
 import * as AccountTitleFactory from './factory/accountTitle';
+import * as AuthorizationFactory from './factory/authorization';
 import * as CategoryCodeFactory from './factory/categoryCode';
 import * as ClientUserFactory from './factory/clientUser';
 import * as CreativeWorkFactory from './factory/creativeWork';
@@ -47,6 +48,7 @@ import * as OrderFactory from './factory/order';
 import OrderStatus from './factory/orderStatus';
 import * as OrganizationFactory from './factory/organization';
 import { OrganizationType } from './factory/organizationType';
+import * as OwnershipInfoFactory from './factory/ownershipInfo';
 import * as PaymentCardFactory from './factory/paymentMethod/paymentCard';
 import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
 import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTicket';
@@ -218,6 +220,7 @@ export namespace action {
 }
 
 export import accountTitle = AccountTitleFactory;
+export import authorization = AuthorizationFactory;
 export import categoryCode = CategoryCodeFactory;
 export import clientUser = ClientUserFactory;
 export namespace creativeWork {
@@ -253,17 +256,14 @@ export import language = LanguageFactory;
 export import merchantReturnPolicy = MerchantReturnPolicyFactory;
 export import monetaryAmount = MonetaryAmountFactory;
 export type multilingualString = IMultilingualString;
-
 export import offer = OfferFactory;
-
 export import offerCatalog = OfferCatalogFactory;
 export import offerType = OfferType;
 export import order = OrderFactory;
 export import orderStatus = OrderStatus;
-
 export import organization = OrganizationFactory;
 export import organizationType = OrganizationType;
-
+export import ownershipInfo = OwnershipInfoFactory;
 export import paymentMethodType = PaymentMethodType;
 
 export namespace paymentMethod {
