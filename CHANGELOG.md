@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- アクションタイプを拡張
+- オファーインターフェースを拡張
+- Thingインターフェースをエクスポート
+
 ### Deprecated
 
 ### Removed

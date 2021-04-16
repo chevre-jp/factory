@@ -87,6 +87,7 @@ import * as PaymentServiceFactory from './factory/service/paymentService';
 import * as WebAPIServiceFactory from './factory/service/webAPI';
 import * as ServiceTypeFactory from './factory/serviceType';
 import SortType from './factory/sortType';
+import * as ThingFactory from './factory/thing';
 import { UnitCode } from './factory/unitCode';
 
 import * as TaskFactory from './factory/task';
@@ -411,6 +412,7 @@ export import sortType = SortType;
 export import taskExecutionResult = TaskExecutionResultFactory;
 export import taskName = TaskName;
 export import taskStatus = TaskStatus;
+export import thing = ThingFactory;
 
 export namespace transaction {
     export type IStartParams<T extends TransactionType> =
