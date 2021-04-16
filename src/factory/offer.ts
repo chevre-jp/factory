@@ -1,6 +1,7 @@
 import { ICategoryCode } from './categoryCode';
 import ItemAvailability from './itemAvailability';
 import { IMonetaryAmount } from './monetaryAmount';
+import * as SeatReservationOfferFactory from './offer/seatReservation';
 import OfferType from './offerType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
@@ -177,6 +178,8 @@ export interface IOffer extends IThing {
     additionalProperty?: IPropertyValue<string>[];
 }
 
+export type IBaseOffer = IOffer;
+
 /**
  * 単価オファーインターフェース
  */
@@ -279,4 +282,28 @@ export interface ISearchConditions {
     itemOffered?: {
         typeOf?: { $eq?: string };
     };
+}
+
+export namespace seatReservation {
+    export import ICOATicketInfo = SeatReservationOfferFactory.ICOATicketInfo;
+    export import ICOATicketInfoWithDetails = SeatReservationOfferFactory.ICOATicketInfoWithDetails;
+    // tslint:disable-next-line:no-shadowed-variable
+    export import IOffer = SeatReservationOfferFactory.IOffer;
+    /**
+     * 座席予約供給情報(詳細つき)インターフェース
+     */
+    export interface IOfferWithDetails extends IBaseOffer {
+        /**
+         * seat section
+         */
+        seatSection: string;
+        /**
+         * seat number
+         */
+        seatNumber: string;
+        /**
+         * ticket info
+         */
+        ticketInfo: ICOATicketInfoWithDetails;
+    }
 }
