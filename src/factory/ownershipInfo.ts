@@ -160,6 +160,11 @@ export interface ISearchConditions {
         id?: { $eq?: string };
         ids?: string[];
     };
+    acquiredFrom?: {
+        id?: {
+            $in?: string[];
+        };
+    };
     ids?: string[];
     /**
      * 所有者
