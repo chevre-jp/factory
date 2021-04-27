@@ -10,9 +10,9 @@ export interface IInformParams {
      * 通知先
      */
     recipient?: {
-        /**
-         * 通知URL
-         */
+        id?: string;
+        typeOf?: any;
+        name?: string;
         url?: string;
     };
 }
@@ -35,6 +35,37 @@ export interface IOnReservationUsed {
     informAction?: IInformParams[];
 }
 
+export interface ICognitoSettings {
+    /**
+     * 顧客ユーザープール
+     */
+    customerUserPool: {
+        id: string;
+    };
+}
+
+/**
+ * 注文ステータス変更時イベントインターフェース
+ */
+export interface IOnOrderStatusChanged {
+    informOrder?: IInformParams[];
+}
+
+/**
+ * ウェブフック設定
+ */
+export interface IWebhookSettings {
+    /**
+     * リクエストタイムアウト
+     * @see https://github.com/request/request#timeouts
+     */
+    timeout?: number;
+}
+
+// export interface IOnRefunded {
+//     informOrder?: IInformParams[];
+// }
+
 /**
  * プロジェクト設定インターフェース
  */
@@ -43,6 +74,17 @@ export interface ISettings {
     onPaymentStatusChanged?: IOnPaymentStatusChanged;
     onReservationStatusChanged?: IOnReservationStatusChanged;
     onReservationUsed?: IOnReservationUsed;
+    cognito?: ICognitoSettings;
+    onOrderStatusChanged?: IOnOrderStatusChanged;
+    webhook?: IWebhookSettings;
+    returnFee?: number;
+
+    // ↓その他の設定
+    sendgridApiKey?: string;
+    transactionWebhookUrls?: string[];
+    useMyCreditCards?: boolean;
+    useTransactionClientUser?: boolean;
+    useUsernameAsGMOMemberId?: boolean;
 }
 
 /**
