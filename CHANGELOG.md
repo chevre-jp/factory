@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- プロジェクト設定を拡張(cinerino設定を移行)
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.94.0 - 2021-04-27
+
+### Changed
+
+- プロジェクト設定を拡張(cinerino設定を移行)
 
 ## v4.93.0 - 2021-04-22
 
