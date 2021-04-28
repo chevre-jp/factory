@@ -28,6 +28,7 @@ import * as ClientUserFactory from './factory/clientUser';
 import * as CreativeWorkFactory from './factory/creativeWork';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import * as MovieCreativeWorkFactory from './factory/creativeWork/movie';
+import * as WebApplicationFactory from './factory/creativeWork/softwareApplication/webApplication';
 import CreativeWorkType from './factory/creativeWorkType';
 import * as EncodingFormat from './factory/encodingFormat';
 import * as EventFactory from './factory/event';
@@ -230,6 +231,9 @@ export namespace creativeWork {
         export import email = EmailMessageFactory;
     }
     export import movie = MovieCreativeWorkFactory;
+    export namespace softwareApplication {
+        export import webApplication = WebApplicationFactory;
+    }
 }
 export import creativeWorkType = CreativeWorkType;
 export namespace event {

@@ -1,3 +1,5 @@
+// tslint:disable-next-line:no-require-imports
+import setPrototypeOf = require('setprototypeof');
 import ErrorCode from '../errorCode';
 
 /**
@@ -12,5 +14,7 @@ export class ChevreError extends Error {
 
         this.name = 'ChevreError';
         this.reason = code;
+
+        setPrototypeOf(this, ChevreError.prototype);
     }
 }
