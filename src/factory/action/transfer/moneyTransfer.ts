@@ -2,8 +2,8 @@ import * as pecorino from '@pecorino/factory';
 
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
+import AssetTransactionType from '../../assetTransactionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
-import TransactionType from '../../transactionType';
 
 /**
  * 進行中取引インターフェース
@@ -51,7 +51,7 @@ export type IResult = any;
 export type IPotentialActions = any;
 
 export interface ITransactionPurpose {
-    typeOf: TransactionType;
+    typeOf: AssetTransactionType;
     id: string;
     identifier?: string;
 }
