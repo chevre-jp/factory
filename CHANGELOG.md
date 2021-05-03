@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.96.0 - 2021-05-03
+
+### Changed
+
+- 資産取引のネームスペースを変更
+
 ## v4.95.0 - 2021-04-29
 
 ### Added

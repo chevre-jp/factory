@@ -418,7 +418,7 @@ export import taskName = TaskName;
 export import taskStatus = TaskStatus;
 export import thing = ThingFactory;
 
-export namespace transaction {
+export namespace assetTransaction {
     export type IStartParams<T extends TransactionType> =
         T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IStartParams :
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams :
@@ -478,5 +478,5 @@ export namespace transaction {
 
 export import transactionStatusType = TransactionStatusType;
 export import transactionTasksExportationStatus = TransactionTasksExportationStatus;
-export import transactionType = TransactionType;
+export import assetTransactionType = TransactionType;
 export import unitCode = UnitCode;
