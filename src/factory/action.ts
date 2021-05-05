@@ -119,14 +119,30 @@ export interface ISearchConditions {
     sort?: ISortOrder;
     project?: {
         id?: { $eq?: string };
+        ids?: string[];
     };
-    typeOf?: { $eq?: ActionType };
+    typeOf?: ActionType | { $eq?: ActionType };
     actionStatus?: { $in?: ActionStatusType[] };
+    actionStatusTypes?: ActionStatusType[];
+    agent?: {
+        typeOf?: {
+            $in?: string[];
+        };
+        id?: {
+            $in?: string[];
+        };
+    };
     location?: {
         identifier?: { $eq?: string };
     };
     object?: {
-        id?: { $eq?: string };
+        id?: {
+            $eq?: string;
+            $in?: string[];
+        };
+        orderNumber?: {
+            $in?: string[];
+        };
         reservationFor?: {
             id?: { $eq?: string };
         };
@@ -141,6 +157,70 @@ export interface ISearchConditions {
                 $eq?: string;
             };
         };
-        typeOf?: { $eq?: string };
+        paymentMethodId?: {
+            $eq?: string;
+        };
+        event?: {
+            id?: {
+                $in?: string[];
+            };
+        };
+        acceptedOffer?: {
+            ticketedSeat?: {
+                seatNumber?: {
+                    $in?: string[];
+                };
+            };
+        };
+        typeOf?: {
+            $eq?: string;
+            $in?: string[];
+        };
+    };
+    startFrom?: Date;
+    startThrough?: Date;
+    purpose?: {
+        typeOf?: {
+            $in?: string[];
+        };
+        id?: {
+            $in?: string[];
+        };
+        orderNumber?: {
+            $in?: string[];
+        };
+    };
+    result?: {
+        typeOf?: {
+            $in?: string[];
+        };
+        id?: {
+            $in?: string[];
+        };
+        orderNumber?: {
+            $in?: string[];
+        };
+    };
+    fromLocation?: {
+        typeOf?: {
+            $in?: string[];
+        };
+        accountNumber?: {
+            $in?: string[];
+        };
+        accountType?: {
+            $in?: string[];
+        };
+    };
+    toLocation?: {
+        typeOf?: {
+            $in?: string[];
+        };
+        accountNumber?: {
+            $in?: string[];
+        };
+        accountType?: {
+            $in?: string[];
+        };
     };
 }

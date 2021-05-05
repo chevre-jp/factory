@@ -123,6 +123,12 @@ import AssetTransactionType from './factory/assetTransactionType';
 import TransactionStatusType from './factory/transactionStatusType';
 import TransactionTasksExportationStatus from './factory/transactionTasksExportationStatus';
 
+import * as TransactionFactory from './factory/transaction';
+// import * as MoneyTransferTransactionFactory from './factory/transaction/moneyTransfer';
+// import * as PlaceOrderTransactionFactory from './factory/transaction/placeOrder';
+// import * as ReturnOrderTransactionFactory from './factory/transaction/returnOrder';
+import TransactionType from './factory/transactionType';
+
 import ErrorCode from './factory/errorCode';
 import * as errors from './factory/errors';
 
@@ -475,7 +481,45 @@ export namespace assetTransaction {
     export import registerService = RegisterServiceAssetTransactionFactory;
     export import reserve = ReserveAssetTransactionFactory;
 }
-
+export namespace transaction {
+    export import IPassportBeforeStart = TransactionFactory.IPassportBeforeStart;
+    export import ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
+    export import ISortOrder = TransactionFactory.ISortOrder;
+    // export type ISearchConditions<T extends TransactionType> =
+    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ISearchConditions :
+    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ISearchConditions :
+    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ISearchConditions :
+    //     never;
+    // export type IStartParams<T extends TransactionType> =
+    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams :
+    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IStartParams :
+    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IStartParams :
+    //     never;
+    // export type IResult<T extends TransactionType> =
+    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IResult :
+    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IResult :
+    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IResult :
+    //     never;
+    // export type IPotentialActions<T extends TransactionType> =
+    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IPotentialActions :
+    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IPotentialActions :
+    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IPotentialActions :
+    //     never;
+    // export type IAttributes<T extends TransactionType> =
+    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IAttributes :
+    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IAttributes :
+    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IAttributes :
+    //     never;
+    // export type ITransaction<T extends TransactionType> =
+    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ITransaction :
+    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ITransaction :
+    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ITransaction :
+    //     never;
+    // export import moneyTransfer = MoneyTransferTransactionFactory;
+    // export import placeOrder = PlaceOrderTransactionFactory;
+    // export import returnOrder = ReturnOrderTransactionFactory;
+}
+export import transactionType = TransactionType;
 export import transactionStatusType = TransactionStatusType;
 export import transactionTasksExportationStatus = TransactionTasksExportationStatus;
 export import assetTransactionType = AssetTransactionType;

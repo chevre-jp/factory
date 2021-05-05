@@ -8,7 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- cinerinoから取引タイプを移行
+
 ### Changed
+
+- アクション検索条件拡張
 
 ### Deprecated
 
