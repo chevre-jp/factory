@@ -113,14 +113,20 @@ import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
 import TaskName from './factory/taskName';
 import TaskStatus from './factory/taskStatus';
 
-import * as CancelReservationTransactionFactory from './factory/transaction/cancelReservation';
-import * as MoneyTransferTransactionFactory from './factory/transaction/moneyTransfer';
-import * as PayTransactionFactory from './factory/transaction/pay';
-import * as RefundTransactionFactory from './factory/transaction/refund';
-import * as RegisterServiceTransactionFactory from './factory/transaction/registerService';
-import * as ReserveTransactionFactory from './factory/transaction/reserve';
+import * as CancelReservationAssetTransactionFactory from './factory/assetTransaction/cancelReservation';
+import * as MoneyTransferAssetTransactionFactory from './factory/assetTransaction/moneyTransfer';
+import * as PayAssetTransactionFactory from './factory/assetTransaction/pay';
+import * as RefundAssetTransactionFactory from './factory/assetTransaction/refund';
+import * as RegisterServiceAssetTransactionFactory from './factory/assetTransaction/registerService';
+import * as ReserveAssetTransactionFactory from './factory/assetTransaction/reserve';
+import AssetTransactionType from './factory/assetTransactionType';
 import TransactionStatusType from './factory/transactionStatusType';
 import TransactionTasksExportationStatus from './factory/transactionTasksExportationStatus';
+
+import * as TransactionFactory from './factory/transaction';
+// import * as MoneyTransferTransactionFactory from './factory/transaction/moneyTransfer';
+// import * as PlaceOrderTransactionFactory from './factory/transaction/placeOrder';
+// import * as ReturnOrderTransactionFactory from './factory/transaction/returnOrder';
 import TransactionType from './factory/transactionType';
 
 import ErrorCode from './factory/errorCode';
@@ -419,64 +425,102 @@ export import taskStatus = TaskStatus;
 export import thing = ThingFactory;
 
 export namespace assetTransaction {
-    export type IStartParams<T extends TransactionType> =
-        T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IStartParams :
-        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams :
-        T extends TransactionType.Pay ? PayTransactionFactory.IStartParams :
-        T extends TransactionType.Refund ? RefundTransactionFactory.IStartParams :
-        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IStartParams :
-        T extends TransactionType.Reserve ? ReserveTransactionFactory.IStartParams :
+    export type IStartParams<T extends AssetTransactionType> =
+        T extends AssetTransactionType.CancelReservation ? CancelReservationAssetTransactionFactory.IStartParams :
+        T extends AssetTransactionType.MoneyTransfer ? MoneyTransferAssetTransactionFactory.IStartParams :
+        T extends AssetTransactionType.Pay ? PayAssetTransactionFactory.IStartParams :
+        T extends AssetTransactionType.Refund ? RefundAssetTransactionFactory.IStartParams :
+        T extends AssetTransactionType.RegisterService ? RegisterServiceAssetTransactionFactory.IStartParams :
+        T extends AssetTransactionType.Reserve ? ReserveAssetTransactionFactory.IStartParams :
         never;
-    export type IAttributes<T extends TransactionType> =
-        T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IAttributes :
-        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IAttributes :
-        T extends TransactionType.Pay ? PayTransactionFactory.IAttributes :
-        T extends TransactionType.Refund ? RefundTransactionFactory.IAttributes :
-        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IAttributes :
-        T extends TransactionType.Reserve ? ReserveTransactionFactory.IAttributes :
+    export type IAttributes<T extends AssetTransactionType> =
+        T extends AssetTransactionType.CancelReservation ? CancelReservationAssetTransactionFactory.IAttributes :
+        T extends AssetTransactionType.MoneyTransfer ? MoneyTransferAssetTransactionFactory.IAttributes :
+        T extends AssetTransactionType.Pay ? PayAssetTransactionFactory.IAttributes :
+        T extends AssetTransactionType.Refund ? RefundAssetTransactionFactory.IAttributes :
+        T extends AssetTransactionType.RegisterService ? RegisterServiceAssetTransactionFactory.IAttributes :
+        T extends AssetTransactionType.Reserve ? ReserveAssetTransactionFactory.IAttributes :
         never;
-    export type ITransaction<T extends TransactionType> =
-        T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ITransaction :
-        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ITransaction :
-        T extends TransactionType.Pay ? PayTransactionFactory.ITransaction :
-        T extends TransactionType.Refund ? RefundTransactionFactory.ITransaction :
-        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ITransaction :
-        T extends TransactionType.Reserve ? ReserveTransactionFactory.ITransaction :
+    export type ITransaction<T extends AssetTransactionType> =
+        T extends AssetTransactionType.CancelReservation ? CancelReservationAssetTransactionFactory.ITransaction :
+        T extends AssetTransactionType.MoneyTransfer ? MoneyTransferAssetTransactionFactory.ITransaction :
+        T extends AssetTransactionType.Pay ? PayAssetTransactionFactory.ITransaction :
+        T extends AssetTransactionType.Refund ? RefundAssetTransactionFactory.ITransaction :
+        T extends AssetTransactionType.RegisterService ? RegisterServiceAssetTransactionFactory.ITransaction :
+        T extends AssetTransactionType.Reserve ? ReserveAssetTransactionFactory.ITransaction :
         never;
-    export type IResult<T extends TransactionType> =
-        T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IResult :
-        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IResult :
-        T extends TransactionType.Pay ? PayTransactionFactory.IResult :
-        T extends TransactionType.Refund ? RefundTransactionFactory.IResult :
-        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IResult :
-        T extends TransactionType.Reserve ? ReserveTransactionFactory.IResult :
+    export type IResult<T extends AssetTransactionType> =
+        T extends AssetTransactionType.CancelReservation ? CancelReservationAssetTransactionFactory.IResult :
+        T extends AssetTransactionType.MoneyTransfer ? MoneyTransferAssetTransactionFactory.IResult :
+        T extends AssetTransactionType.Pay ? PayAssetTransactionFactory.IResult :
+        T extends AssetTransactionType.Refund ? RefundAssetTransactionFactory.IResult :
+        T extends AssetTransactionType.RegisterService ? RegisterServiceAssetTransactionFactory.IResult :
+        T extends AssetTransactionType.Reserve ? ReserveAssetTransactionFactory.IResult :
         never;
-    export type IPotentialActions<T extends TransactionType> =
-        T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.IPotentialActions :
-        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IPotentialActions :
-        T extends TransactionType.Pay ? PayTransactionFactory.IPotentialActions :
-        T extends TransactionType.Refund ? RefundTransactionFactory.IPotentialActions :
-        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.IPotentialActions :
-        T extends TransactionType.Reserve ? ReserveTransactionFactory.IPotentialActions :
+    export type IPotentialActions<T extends AssetTransactionType> =
+        T extends AssetTransactionType.CancelReservation ? CancelReservationAssetTransactionFactory.IPotentialActions :
+        T extends AssetTransactionType.MoneyTransfer ? MoneyTransferAssetTransactionFactory.IPotentialActions :
+        T extends AssetTransactionType.Pay ? PayAssetTransactionFactory.IPotentialActions :
+        T extends AssetTransactionType.Refund ? RefundAssetTransactionFactory.IPotentialActions :
+        T extends AssetTransactionType.RegisterService ? RegisterServiceAssetTransactionFactory.IPotentialActions :
+        T extends AssetTransactionType.Reserve ? ReserveAssetTransactionFactory.IPotentialActions :
         never;
-    export type ISearchConditions<T extends TransactionType> =
-        T extends TransactionType.CancelReservation ? CancelReservationTransactionFactory.ISearchConditions :
-        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ISearchConditions :
-        T extends TransactionType.Pay ? PayTransactionFactory.ISearchConditions :
-        T extends TransactionType.Refund ? RefundTransactionFactory.ISearchConditions :
-        T extends TransactionType.RegisterService ? RegisterServiceTransactionFactory.ISearchConditions :
-        T extends TransactionType.Reserve ? ReserveTransactionFactory.ISearchConditions :
+    export type ISearchConditions<T extends AssetTransactionType> =
+        T extends AssetTransactionType.CancelReservation ? CancelReservationAssetTransactionFactory.ISearchConditions :
+        T extends AssetTransactionType.MoneyTransfer ? MoneyTransferAssetTransactionFactory.ISearchConditions :
+        T extends AssetTransactionType.Pay ? PayAssetTransactionFactory.ISearchConditions :
+        T extends AssetTransactionType.Refund ? RefundAssetTransactionFactory.ISearchConditions :
+        T extends AssetTransactionType.RegisterService ? RegisterServiceAssetTransactionFactory.ISearchConditions :
+        T extends AssetTransactionType.Reserve ? ReserveAssetTransactionFactory.ISearchConditions :
         never;
 
-    export import cancelReservation = CancelReservationTransactionFactory;
-    export import moneyTransfer = MoneyTransferTransactionFactory;
-    export import pay = PayTransactionFactory;
-    export import refund = RefundTransactionFactory;
-    export import registerService = RegisterServiceTransactionFactory;
-    export import reserve = ReserveTransactionFactory;
+    export import cancelReservation = CancelReservationAssetTransactionFactory;
+    export import moneyTransfer = MoneyTransferAssetTransactionFactory;
+    export import pay = PayAssetTransactionFactory;
+    export import refund = RefundAssetTransactionFactory;
+    export import registerService = RegisterServiceAssetTransactionFactory;
+    export import reserve = ReserveAssetTransactionFactory;
 }
-
+export namespace transaction {
+    export import IPassportBeforeStart = TransactionFactory.IPassportBeforeStart;
+    export import ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
+    export import ISortOrder = TransactionFactory.ISortOrder;
+    // export type ISearchConditions<T extends TransactionType> =
+    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ISearchConditions :
+    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ISearchConditions :
+    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ISearchConditions :
+    //     never;
+    // export type IStartParams<T extends TransactionType> =
+    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams :
+    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IStartParams :
+    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IStartParams :
+    //     never;
+    // export type IResult<T extends TransactionType> =
+    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IResult :
+    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IResult :
+    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IResult :
+    //     never;
+    // export type IPotentialActions<T extends TransactionType> =
+    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IPotentialActions :
+    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IPotentialActions :
+    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IPotentialActions :
+    //     never;
+    // export type IAttributes<T extends TransactionType> =
+    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IAttributes :
+    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IAttributes :
+    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IAttributes :
+    //     never;
+    // export type ITransaction<T extends TransactionType> =
+    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ITransaction :
+    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ITransaction :
+    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ITransaction :
+    //     never;
+    // export import moneyTransfer = MoneyTransferTransactionFactory;
+    // export import placeOrder = PlaceOrderTransactionFactory;
+    // export import returnOrder = ReturnOrderTransactionFactory;
+}
+export import transactionType = TransactionType;
 export import transactionStatusType = TransactionStatusType;
 export import transactionTasksExportationStatus = TransactionTasksExportationStatus;
-export import assetTransactionType = TransactionType;
+export import assetTransactionType = AssetTransactionType;
 export import unitCode = UnitCode;

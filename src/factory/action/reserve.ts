@@ -1,7 +1,7 @@
 import * as ActionFactory from '../action';
 import ActionType from '../actionType';
+import AssetTransactionType from '../assetTransactionType';
 import { IReservation as IEventReservation } from '../reservation/event';
-import TransactionType from '../transactionType';
 import { IAttributes as IInformActionAttributes } from './interact/inform';
 
 /**
@@ -21,7 +21,7 @@ export interface IPurpose {
     /**
      * 取引タイプ
      */
-    typeOf: TransactionType;
+    typeOf: AssetTransactionType;
     /**
      * 取引ID
      */

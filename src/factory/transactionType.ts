@@ -1,33 +1,20 @@
 /**
  * 取引タイプ
  */
+
 enum TransactionType {
     /**
      * 通貨転送
      */
     MoneyTransfer = 'MoneyTransfer',
     /**
-     * 予約
+     * 注文取引
      */
-    Reserve = 'Reserve',
+    PlaceOrder = 'PlaceOrder',
     /**
-     * 予約キャンセル
+     * 注文返品取引
      */
-    CancelReservation = 'CancelReservation',
-    /**
-     * 決済
-     * PaymentMethod: PaymentCard,CreditCard...
-     */
-    Pay = 'Pay',
-    /**
-     * 返金
-     */
-    Refund = 'Refund',
-    /**
-     * サービス登録
-     * Service: MembershipService,PaymentCard...
-     */
-    RegisterService = 'RegisterService'
+    ReturnOrder = 'ReturnOrder'
 }
 
 export default TransactionType;
