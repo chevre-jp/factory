@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- cinerinoからアクションを移行
+
 ### Changed
 
 - アクションのIParticipantを拡張
