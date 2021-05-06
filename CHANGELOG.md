@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - cinerinoからアクションを移行
+- cinerinoから取引を移行
 
 ### Changed
 
