@@ -18,6 +18,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.98.0 - 2021-05-06
+
+### Added
+
+- cinerinoからアクションを移行
+- cinerinoから取引を移行
+
+### Changed
+
+- アクションのIParticipantを拡張
+
 ## v4.97.0 - 2021-05-05
 
 ### Added

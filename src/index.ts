@@ -3,9 +3,19 @@
  */
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
+import * as PointAwardAuthorizeActionFactory from './factory/action/authorize/award/point';
+import * as AuthorizeMonetaryAmountOfferActionFactory from './factory/action/authorize/offer/monetaryAmount';
+import * as AuthorizeProductOfferActionFactory from './factory/action/authorize/offer/product';
+import * as AuthorizeSeatReservationOfferActionFactory from './factory/action/authorize/offer/seatReservation';
+import * as AuthorizeAnyPaymentActionFactory from './factory/action/authorize/paymentMethod/any';
 import * as CancelReservationActionFactory from './factory/action/cancel/reservation';
 import * as CheckMovieTicketActionFactory from './factory/action/check/paymentMethod/movieTicket';
+import * as CheckTokenActionFactory from './factory/action/check/token';
 import * as UseReservationActionFactory from './factory/action/consume/use/reservation';
+import * as ConfirmMoneyTransferActionFactory from './factory/action/interact/confirm/moneyTransfer';
+import * as ConfirmPayActionFactory from './factory/action/interact/confirm/pay';
+import * as ConfirmRegisterServiceActionFactory from './factory/action/interact/confirm/registerService';
+import * as ConfirmReservationActionFactory from './factory/action/interact/confirm/reservation';
 import * as InformActionFactory from './factory/action/interact/inform';
 import * as RegisterActionFactory from './factory/action/interact/register';
 import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
@@ -13,10 +23,22 @@ import * as RegisterServiceActionFactory from './factory/action/interact/registe
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
 import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
 import * as ReserveActionFactory from './factory/action/reserve';
+import * as OrderActionFactory from './factory/action/trade/order';
 import * as PayActionFactory from './factory/action/trade/pay';
 import * as RefundActionFactory from './factory/action/trade/refund';
+import * as GiveActionFactory from './factory/action/transfer/give';
+import * as GivePointAwardActionFactory from './factory/action/transfer/give/pointAward';
 import * as MoneyTransferActionFactory from './factory/action/transfer/moneyTransfer';
+import * as PrintActionFactory from './factory/action/transfer/print';
+import * as PrintTicketActionFactory from './factory/action/transfer/print/ticket';
+import * as ReturnOrderActionFactory from './factory/action/transfer/return/order';
+import * as ReturnPaymentMethodActionFactory from './factory/action/transfer/return/paymentMethod';
+import * as ReturnPointAwardActionFactory from './factory/action/transfer/return/pointAward';
+import * as ReturnReservationActionFactory from './factory/action/transfer/return/reservation';
 import * as SendEmailMessageActionFactory from './factory/action/transfer/send/message/email';
+import * as SendOrderActionFactory from './factory/action/transfer/send/order';
+import * as DeleteActionFactory from './factory/action/update/delete';
+import * as DeleteMemberActionFactory from './factory/action/update/delete/member';
 
 import ActionStatusType from './factory/actionStatusType';
 import ActionType from './factory/actionType';
@@ -124,9 +146,9 @@ import TransactionStatusType from './factory/transactionStatusType';
 import TransactionTasksExportationStatus from './factory/transactionTasksExportationStatus';
 
 import * as TransactionFactory from './factory/transaction';
-// import * as MoneyTransferTransactionFactory from './factory/transaction/moneyTransfer';
-// import * as PlaceOrderTransactionFactory from './factory/transaction/placeOrder';
-// import * as ReturnOrderTransactionFactory from './factory/transaction/returnOrder';
+import * as MoneyTransferTransactionFactory from './factory/transaction/moneyTransfer';
+import * as PlaceOrderTransactionFactory from './factory/transaction/placeOrder';
+import * as ReturnOrderTransactionFactory from './factory/transaction/returnOrder';
 import TransactionType from './factory/transactionType';
 
 import ErrorCode from './factory/errorCode';
@@ -138,7 +160,9 @@ export import actionStatusType = ActionStatusType;
 export import actionType = ActionType;
 export namespace action {
     export import IAction = ActionFactory.IAction;
+    export import IAdditionalProperty = ActionFactory.IAdditionalProperty;
     export import IAttributes = ActionFactory.IAttributes;
+    export import IDynamicAttributes = ActionFactory.IDynamicAttributes;
     export import IParticipant = ActionFactory.IParticipant;
     export import IPurpose = ActionFactory.IPurpose;
     export import ISortOrder = ActionFactory.ISortOrder;
@@ -150,14 +174,21 @@ export namespace action {
         // tslint:disable-next-line:no-shadowed-variable
         export import IAttributes = AuthorizeActionFactory.IAttributes;
         export namespace award {
+            export import point = PointAwardAuthorizeActionFactory;
         }
         // tslint:disable-next-line:no-shadowed-variable
         export namespace paymentMethod {
+            export import any = AuthorizeAnyPaymentActionFactory;
         }
         export namespace discount {
         }
         // tslint:disable-next-line:no-shadowed-variable
         export namespace offer {
+            // tslint:disable-next-line:no-shadowed-variable
+            export import monetaryAmount = AuthorizeMonetaryAmountOfferActionFactory;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import product = AuthorizeProductOfferActionFactory;
+            export import seatReservation = AuthorizeSeatReservationOfferActionFactory;
         }
     }
     export namespace cancel {
@@ -170,9 +201,17 @@ export namespace action {
         export namespace paymentMethod {
             export import movieTicket = CheckMovieTicketActionFactory;
         }
+        export import token = CheckTokenActionFactory;
     }
 
     export namespace interact {
+        export namespace confirm {
+            export import moneyTransfer = ConfirmMoneyTransferActionFactory;
+            export import registerService = ConfirmRegisterServiceActionFactory;
+            export import pay = ConfirmPayActionFactory;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import reservation = ConfirmReservationActionFactory;
+        }
         export import inform = InformActionFactory;
         export namespace register {
             // tslint:disable-next-line:no-shadowed-variable
@@ -195,6 +234,8 @@ export namespace action {
     }
 
     export namespace trade {
+        // tslint:disable-next-line:no-shadowed-variable
+        export import order = OrderActionFactory;
         export import pay = PayActionFactory;
         export import refund = RefundActionFactory;
     }
@@ -202,19 +243,53 @@ export namespace action {
     export namespace transfer {
         export import moneyTransfer = MoneyTransferActionFactory;
         export namespace give {
+            // tslint:disable-next-line:no-shadowed-variable
+            export import IAction = GiveActionFactory.IAction;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import IAttributes = GiveActionFactory.IAttributes;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import pointAward = GivePointAwardActionFactory;
         }
+
         export namespace print {
+            // tslint:disable-next-line:no-shadowed-variable
+            export import IAction = PrintActionFactory.IAction;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import IAttributes = PrintActionFactory.IAttributes;
+            export import IRecipient = PrintActionFactory.IRecipient;
+            export import ticket = PrintTicketActionFactory;
         }
+
         /**
          * 返却アクション
          * returnはネームスペース名に使えないのでreturnAction
          */
         export namespace returnAction {
+            // tslint:disable-next-line:no-shadowed-variable
+            export import order = ReturnOrderActionFactory;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import paymentMethod = ReturnPaymentMethodActionFactory;
+            export import pointAward = ReturnPointAwardActionFactory;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import reservation = ReturnReservationActionFactory;
         }
+
         export namespace send {
             export namespace message {
                 export import email = SendEmailMessageActionFactory;
             }
+            // tslint:disable-next-line:no-shadowed-variable
+            export import order = SendOrderActionFactory;
+        }
+    }
+
+    export namespace update {
+        export namespace deleteAction {
+            // tslint:disable-next-line:no-shadowed-variable
+            export import IAction = DeleteActionFactory.IAction;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import IAttributes = DeleteActionFactory.IAttributes;
+            export import member = DeleteMemberActionFactory;
         }
     }
 
@@ -485,39 +560,39 @@ export namespace transaction {
     export import IPassportBeforeStart = TransactionFactory.IPassportBeforeStart;
     export import ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
     export import ISortOrder = TransactionFactory.ISortOrder;
-    // export type ISearchConditions<T extends TransactionType> =
-    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ISearchConditions :
-    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ISearchConditions :
-    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ISearchConditions :
-    //     never;
-    // export type IStartParams<T extends TransactionType> =
-    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams :
-    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IStartParams :
-    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IStartParams :
-    //     never;
-    // export type IResult<T extends TransactionType> =
-    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IResult :
-    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IResult :
-    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IResult :
-    //     never;
-    // export type IPotentialActions<T extends TransactionType> =
-    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IPotentialActions :
-    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IPotentialActions :
-    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IPotentialActions :
-    //     never;
-    // export type IAttributes<T extends TransactionType> =
-    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IAttributes :
-    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IAttributes :
-    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IAttributes :
-    //     never;
-    // export type ITransaction<T extends TransactionType> =
-    //     T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ITransaction :
-    //     T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ITransaction :
-    //     T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ITransaction :
-    //     never;
-    // export import moneyTransfer = MoneyTransferTransactionFactory;
-    // export import placeOrder = PlaceOrderTransactionFactory;
-    // export import returnOrder = ReturnOrderTransactionFactory;
+    export type ISearchConditions<T extends TransactionType> =
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ISearchConditions :
+        T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ISearchConditions :
+        T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ISearchConditions :
+        never;
+    export type IStartParams<T extends TransactionType> =
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams :
+        T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IStartParams :
+        T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IStartParams :
+        never;
+    export type IResult<T extends TransactionType> =
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IResult :
+        T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IResult :
+        T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IResult :
+        never;
+    export type IPotentialActions<T extends TransactionType> =
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IPotentialActions :
+        T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IPotentialActions :
+        T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IPotentialActions :
+        never;
+    export type IAttributes<T extends TransactionType> =
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IAttributes :
+        T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IAttributes :
+        T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IAttributes :
+        never;
+    export type ITransaction<T extends TransactionType> =
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ITransaction :
+        T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ITransaction :
+        T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ITransaction :
+        never;
+    export import moneyTransfer = MoneyTransferTransactionFactory;
+    export import placeOrder = PlaceOrderTransactionFactory;
+    export import returnOrder = ReturnOrderTransactionFactory;
 }
 export import transactionType = TransactionType;
 export import transactionStatusType = TransactionStatusType;
