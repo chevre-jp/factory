@@ -1,4 +1,5 @@
 import { IOrganization } from './organization';
+import { IPerson } from './person';
 import { IProject } from './project';
 import { IQuantitativeValue } from './quantitativeValue';
 import { IThing } from './thing';
@@ -13,6 +14,8 @@ export interface IMembershipFor {
 }
 
 export type IHostingOrganization = IOrganization;
+
+export type IMember = IPerson;
 
 /**
  * Used to describe membership in a loyalty programs
@@ -33,7 +36,7 @@ export interface IProgramMembership extends IThing {
     /**
      * A member of an Organization or a ProgramMembership.
      */
-    // member?: IMember[];
+    member?: IMember[];
     /**
      * A unique identifier for the membership.
      */

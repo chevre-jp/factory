@@ -266,6 +266,28 @@ export interface ICOAInfo {
 }
 
 /**
+ * COA券種情報インターフェース
+ */
+export type ICOAOffer = COA.factory.reserve.IUpdReserveTicket & {
+    /**
+     * チケット名
+     */
+    ticketName: string;
+    /**
+     * チケット名（カナ）
+     */
+    ticketNameKana: string;
+    /**
+     * チケット名（英）
+     */
+    ticketNameEng: string;
+    /**
+     * ポイント割引の場合の消費ポイント
+     */
+    usePoint: number;
+};
+
+/**
  * 上映イベント属性インターフェース
  */
 export interface IAttributes extends EventFactory.IAttributes<EventType.ScreeningEvent> {
