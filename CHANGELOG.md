@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.99.0 - 2021-05-08
+
+### Added
+
+- cinerinoからタスクを移行
+
 ## v4.98.0 - 2021-05-06
 
 ### Added
