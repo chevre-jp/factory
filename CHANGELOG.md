@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.101.0 - 2021-05-13
+
+### Changed
+
+- CreativeWorkの汎用性拡張
+
 ## v4.100.0 - 2021-05-08
 
 ### Added

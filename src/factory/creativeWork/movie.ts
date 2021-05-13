@@ -1,5 +1,6 @@
 import * as CreativeWorkFactory from '../creativeWork';
 import * as OfferFactory from '../offer';
+import { IProject } from '../project';
 import SortType from '../sortType';
 
 /**
@@ -22,6 +23,7 @@ export interface IDistributor {
  * @see https://schema.org/Movie
  */
 export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
+    project: IProject;
     identifier: string;
     /**
      * The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format.
@@ -42,9 +44,9 @@ export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
  */
 export interface ISortOrder {
     identifier?: SortType;
-    name?: SortType;
-    datePublished?: SortType;
-    'offers.availabilityEnds'?: SortType;
+    // name?: SortType;
+    // datePublished?: SortType;
+    // 'offers.availabilityEnds'?: SortType;
 }
 
 export interface IOfferSearchConditions {

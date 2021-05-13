@@ -1,7 +1,6 @@
 import * as COA from '@motionpicture/coa-service';
 
 import CreativeWorkType from './creativeWorkType';
-import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IThing } from './thing';
 
@@ -16,10 +15,8 @@ export type IContentRating = COA.factory.master.IKubunNameResult | string;
  * @see https://schema.org/CreativeWork
  */
 export interface ICreativeWork extends IThing {
-    project: IProject;
     typeOf: CreativeWorkType;
     id?: string;
-    identifier: string;
     alternativeHeadline?: string;
     contentRating?: IContentRating;
     copyrightHolder?: ICopyrightHolder;
