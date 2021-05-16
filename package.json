@@ -1,6 +1,6 @@
 {
   "name": "@chevre/factory",
-  "version": "4.101.0",
+  "version": "4.102.0",
   "description": "Chevre Factory Library for Javascript",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -63,7 +63,6 @@
     "@motionpicture/coa-service": "^9.0.0",
     "@motionpicture/gmo-service": "^5.0.0",
     "@movieticket/reserve-api-nodejs-client": "^1.0.1",
-    "@pecorino/factory": "4.10.0",
     "@waiter/factory": "2.1.0",
     "aws-sdk": "2.447.0",
     "setprototypeof": "^1.2.0"

@@ -1,6 +1,6 @@
 import * as GMO from '@motionpicture/gmo-service';
-import * as pecorino from '@pecorino/factory';
 
+import * as AccountFactory from '../../account';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
@@ -32,7 +32,7 @@ export type IPurpose = IPayPurpose;
 export type AvailablePaymentMethodType = string;
 
 export interface IPendingTransaction {
-    typeOf: pecorino.transactionType;
+    typeOf: AccountFactory.transactionType;
     id: string;
     transactionNumber?: string;
 }

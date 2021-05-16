@@ -18,6 +18,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.102.0 - 2021-05-16
+
+### Added
+
+- 口座インターフェースを追加
+- 口座ステータスを追加
+- 口座転送タスクを追加
+- 口座転送中止タスクを追加
+
+### Changed
+
+- @pecorino/factoryへの依存を排除
+
 ## v4.101.0 - 2021-05-13
 
 ### Changed

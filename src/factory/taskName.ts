@@ -99,6 +99,15 @@ enum TaskName {
     /**
      * 予約中止
      */
-    VoidReserveTransaction = 'voidReserveTransaction'
+    VoidReserveTransaction = 'voidReserveTransaction',
+
+    /**
+     * 口座転送中止
+     */
+    CancelAccountMoneyTransfer = 'cancelAccountMoneyTransfer',
+    /**
+     * 口座転送
+     */
+    AccountMoneyTransfer = 'accountMoneyTransfer'
 }
 export default TaskName;

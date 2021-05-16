@@ -1,14 +1,15 @@
 /**
  * factory
  */
-import * as pecorino from '@pecorino/factory';
 import * as waiter from '@waiter/factory';
 
 import * as cognito from './cognito';
 
 export import cognito = cognito;
-export import pecorino = pecorino;
 export import waiter = waiter;
+
+import * as AccountFactory from './factory/account';
+import AccountStatusType from './factory/accountStatusType';
 
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
@@ -124,9 +125,11 @@ import * as ThingFactory from './factory/thing';
 import { UnitCode } from './factory/unitCode';
 
 import * as TaskFactory from './factory/task';
+import * as AccountMoneyTransferTaskFactory from './factory/task/accountMoneyTransfer';
 import * as AggregateEventReservationsTaskFactory from './factory/task/aggregateEventReservations';
 import * as AggregateOnProjectTaskFactory from './factory/task/aggregateOnProject';
 import * as AggregateScreeningEventTaskFactory from './factory/task/aggregateScreeningEvent';
+import * as CancelAccountMoneyTransferTaskFactory from './factory/task/cancelAccountMoneyTransfer';
 import * as CancelMoneyTransferTaskFactory from './factory/task/cancelMoneyTransfer';
 import * as CancelPendingReservationTaskFactory from './factory/task/cancelPendingReservation';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
@@ -184,6 +187,8 @@ import * as errors from './factory/errors';
 
 export import errors = errors;
 export import errorCode = ErrorCode;
+export import account = AccountFactory;
+export import accountStatusType = AccountStatusType;
 export import actionStatusType = ActionStatusType;
 export import actionType = ActionType;
 export namespace action {
@@ -587,6 +592,9 @@ export namespace task {
     export import triggerWebhook = TriggerWebhookTaskFactory;
     export import voidPayment = VoidPaymentTaskFactory;
     export import orderProgramMembership = OrderProgramMembershipTaskFactory;
+
+    export import accountMoneyTransfer = AccountMoneyTransferTaskFactory;
+    export import cancelAccountMoneyTransfer = CancelAccountMoneyTransferTaskFactory;
 }
 
 export namespace service {

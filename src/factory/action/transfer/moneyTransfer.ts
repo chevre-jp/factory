@@ -1,5 +1,4 @@
-import * as pecorino from '@pecorino/factory';
-
+import * as AccountFactory from '../../account';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import AssetTransactionType from '../../assetTransactionType';
@@ -9,7 +8,7 @@ import { IMonetaryAmount } from '../../monetaryAmount';
  * 進行中取引インターフェース
  */
 export interface IPendingTransaction {
-    typeOf: pecorino.transactionType;
+    typeOf: AccountFactory.transactionType;
     id: string;
     identifier?: string;
     transactionNumber?: string;
@@ -21,7 +20,7 @@ export type IRecipient = ActionFactory.IParticipant;
 /**
  * 匿名ロケーションインターフェース
  */
-export import IAnonymousLocation = pecorino.action.transfer.moneyTransfer.IAnonymousLocation;
+export import IAnonymousLocation = AccountFactory.action.moneyTransfer.IAnonymousLocation;
 
 /**
  * 決済カードインターフェース
@@ -38,7 +37,7 @@ export interface IPaymentCard {
 export type ILocation = IAnonymousLocation | IPaymentCard;
 
 export interface IObject {
-    typeOf: pecorino.transactionType;
+    typeOf: AccountFactory.transactionType;
     transactionNumber?: string;
     /**
      * 取引承認済の場合、進行中取引
