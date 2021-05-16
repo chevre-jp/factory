@@ -8,6 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 口座インターフェースを追加
+- 口座ステータスを追加
+- 口座転送タスクを追加
+- 口座転送中止タスクを追加
+
 ### Changed
 
 ### Deprecated

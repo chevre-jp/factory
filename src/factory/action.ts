@@ -30,6 +30,7 @@ export type IAdditionalProperty = IPropertyValue<string>[];
  * アクション属性
  */
 export interface IAttributes<T extends ActionType, TObject, TResult> {
+    identifier?: string;
     project: IProject;
     /**
      * A property-value pair representing an additional characteristics of the entitity,
