@@ -1,5 +1,4 @@
-import * as pecorino from '@pecorino/factory';
-
+import * as AccountFactory from './account';
 import { IPerson } from './person';
 import * as ProductFactory from './product';
 import { IProject } from './project';
@@ -58,7 +57,7 @@ export type IGood = IReservation | IAccount | IServiceOutput;
 /**
  * 所有対象物インターフェース(対象物詳細有)
  */
-export type IGoodWithDetail = IReservationWithDetail | pecorino.account.IAccount | IServiceOutput;
+export type IGoodWithDetail = IReservationWithDetail | AccountFactory.IAccount | IServiceOutput;
 
 /**
  * 所有者インターフェース

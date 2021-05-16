@@ -1,13 +1,11 @@
 /**
  * factory
  */
-import * as pecorino from '@pecorino/factory';
 import * as waiter from '@waiter/factory';
 
 import * as cognito from './cognito';
 
 export import cognito = cognito;
-export import pecorino = pecorino;
 export import waiter = waiter;
 
 import * as AccountFactory from './factory/account';

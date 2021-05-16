@@ -15,6 +15,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- @pecorino/factoryへの依存を排除
+
 ### Deprecated
 
 ### Removed

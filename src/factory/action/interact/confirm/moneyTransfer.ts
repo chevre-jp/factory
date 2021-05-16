@@ -1,5 +1,4 @@
-import * as pecorino from '@pecorino/factory';
-
+import * as AccountFactory from '../../../account';
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import * as MoneyTransferTransactionFactory from '../../../assetTransaction/moneyTransfer';
@@ -16,7 +15,7 @@ export type IPendingTransaction = MoneyTransferTransactionFactory.ITransaction;
 /**
  * 匿名ロケーションインターフェース
  */
-export import IAnonymousLocation = pecorino.action.transfer.moneyTransfer.IAnonymousLocation;
+export import IAnonymousLocation = AccountFactory.action.moneyTransfer.IAnonymousLocation;
 
 export type AvailablePaymentMethodType = string;
 
