@@ -340,6 +340,9 @@ export interface ISearchConditions {
         id?: { $eq?: string };
         ids?: string[];
     };
+    broker?: {
+        id?: { $eq?: string };
+    };
     /**
      * 販売者条件
      */
