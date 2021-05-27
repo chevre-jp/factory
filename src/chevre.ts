@@ -63,6 +63,7 @@ import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import * as MovieCreativeWorkFactory from './factory/creativeWork/movie';
 import * as WebApplicationFactory from './factory/creativeWork/softwareApplication/webApplication';
 import CreativeWorkType from './factory/creativeWorkType';
+import * as CustomerFactory from './factory/customer';
 import * as EncodingFormat from './factory/encodingFormat';
 import * as EventFactory from './factory/event';
 import * as ScreeningEventFactory from './factory/event/screeningEvent';
@@ -351,6 +352,7 @@ export namespace creativeWork {
     }
 }
 export import creativeWorkType = CreativeWorkType;
+export import customer = CustomerFactory;
 export namespace event {
     export type ISearchConditions<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.ISearchConditions :

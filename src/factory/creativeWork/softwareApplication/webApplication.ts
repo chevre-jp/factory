@@ -5,6 +5,7 @@ import CreativeWorkType from '../../creativeWorkType';
 export interface IAttributes {
     // project: IProject;
     typeOf: CreativeWorkType.WebApplication;
+    id: string;
 }
 
 /**
