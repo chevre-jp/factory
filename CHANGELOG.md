@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.104.0 - 2021-05-27
+
+### Added
+
+- 顧客インターフェースを追加
+
 ## v4.103.0 - 2021-05-24
 
 ### Changed

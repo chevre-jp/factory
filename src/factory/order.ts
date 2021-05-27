@@ -1,4 +1,6 @@
 import { IParticipant } from './action';
+// import { ICreativeWork as IWebApplication } from './creativeWork/softwareApplication/webApplication';
+// import { ICustomer as ICustomerOrganization } from './customer';
 import EventType from './eventType';
 import * as MonetaryAmountFactory from './monetaryAmount';
 import { IOffer } from './offer';
@@ -102,19 +104,23 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOffer {
 }
 
 /**
- * 販売者インターフェース
+ * 販売者
  */
 export type ISeller = ISellerOrganization;
 
+// export type IWebApplicationCustomer = IWebApplication & IPerson;
+// export type IOrganizationCustomer = ICustomerOrganization & IPerson;
+
 /**
- * カスタマーインターフェース
+ * カスタマー
  */
 export type ICustomer = IPerson;
+// export type ICustomer = IPerson | IWebApplicationCustomer | IOrganizationCustomer;
 
 export type IBroker = IPerson;
 
 /**
- * 返品者インターフェース
+ * 返品者
  */
 export type IReturner = IParticipant;
 
