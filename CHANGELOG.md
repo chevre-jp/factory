@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.105.0 - 2021-05-31
+
+### Changed
+
+- 通貨転送取引を口座取引に依存するように変更
+
 ## v4.104.0 - 2021-05-27
 
 ### Added
