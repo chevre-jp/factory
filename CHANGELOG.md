@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.106.0 - 2021-05-31
+
+### Changed
+
+- 取引の金額型を拡張
+
 ## v4.105.0 - 2021-05-31
 
 ### Changed

@@ -23,7 +23,9 @@ export type IError = any;
 
 export interface IObjectWithoutDetail {
     clientUser?: IClientUser;
-    amount: number;
+    amount: number | {
+        value: number;
+    };
     fromLocation: TransactionFactory.ISimpleAccount;
     toLocation: TransactionFactory.ISimpleAccount;
     description?: string;
@@ -37,7 +39,9 @@ export interface IObject {
     /**
      * 金額
      */
-    amount: number;
+    amount: number | {
+        value: number;
+    };
     /**
      * 転送元
      */
