@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 通貨転送取引を口座取引に依存するように変更
+
 ### Deprecated
 
 ### Removed
