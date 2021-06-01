@@ -61,7 +61,7 @@ export interface IProvider extends IOrganization {
 
 /**
  * ペイメントサービスインターフェース
- * @see https://schema.org/Service
+ * {@link https://schema.org/Service}
  */
 export interface IService {
     project: IProject;

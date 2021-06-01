@@ -4,7 +4,7 @@ import { IProject } from '../project';
 import SortType from '../sortType';
 
 /**
- * 映画作品に対するオファーインターフェース
+ * コンテンツに対するオファーインターフェース
  */
 // tslint:disable-next-line:no-empty-interface
 export interface IOffer extends OfferFactory.IOffer {
@@ -19,8 +19,8 @@ export interface IDistributor {
 }
 
 /**
- * 映画作品インターフェース
- * @see https://schema.org/Movie
+ * コンテンツインターフェース
+ * {@link https://schema.org/Movie}
  */
 export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
     project: IProject;

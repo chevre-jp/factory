@@ -45,7 +45,7 @@ export interface ICustomization {
     /**
      * 本文テンプレート
      * 本文をカスタマイズしたい場合、PUGテンプレートを指定
-     * @see https://pugjs.org/api/getting-started.html
+     * {@link https://pugjs.org/api/getting-started.html}
      */
     template?: string;
     /**

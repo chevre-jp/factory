@@ -1,7 +1,7 @@
 /**
  * Media type typically expressed using a MIME format
- * @see http://www.iana.org/assignments/media-types/media-types.xhtml
- * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+ * {@link http://www.iana.org/assignments/media-types/media-types.xhtml}
+ * {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types}
  */
 
 export enum Application {

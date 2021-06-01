@@ -292,7 +292,7 @@ export type ICOAOffer = COA.factory.reserve.IUpdReserveTicket & {
  */
 export interface IAttributes extends EventFactory.IAttributes<EventType.ScreeningEvent> {
     /**
-     * 上映作品
+     * コンテンツ
      */
     workPerformed?: ScreeningEventSeriesFactory.IWorkPerformed;
     /**
@@ -343,7 +343,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     startDate: Date;
     /**
      * 親イベント
-     * 劇場作品に相当
+     * 施設コンテンツに相当
      */
     superEvent: ScreeningEventSeriesFactory.IEvent;
     /**

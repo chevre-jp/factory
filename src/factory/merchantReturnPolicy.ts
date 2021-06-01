@@ -14,7 +14,7 @@ export enum ReturnFeesEnumeration {
 
 /**
  * 返品ポリシーインターフェース
- * @see https://schema.org/MerchantReturnEnumeration
+ * {@link https://schema.org/MerchantReturnEnumeration}
  */
 export enum MerchantReturnEnumeration {
     /**

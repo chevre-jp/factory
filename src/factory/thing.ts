@@ -7,7 +7,7 @@ import { IPropertyValue } from './propertyValue';
 export type IIdentifier = IPropertyValue<string>[];
 
 /**
- * @see https://schema.org/Thing
+ * {@link https://schema.org/Thing}
  */
 export interface IThing {
     /**

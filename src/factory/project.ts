@@ -57,7 +57,7 @@ export interface IOnOrderStatusChanged {
 export interface IWebhookSettings {
     /**
      * リクエストタイムアウト
-     * @see https://github.com/request/request#timeouts
+     * {@link https://github.com/request/request#timeouts}
      */
     timeout?: number;
 }

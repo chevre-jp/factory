@@ -27,7 +27,7 @@ export interface ISoundFormat {
     name: string;
 }
 /**
- * 上映作品インターフェース
+ * コンテンツインターフェース
  */
 export type IWorkPerformed = IMovie;
 export interface IOrganizer {
@@ -85,7 +85,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      */
     soundFormat: ISoundFormat[];
     /**
-     * 上映作品
+     * コンテンツ
      */
     workPerformed: IWorkPerformed;
     /**
@@ -119,7 +119,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     };
     organizer?: IOrganizer;
     /**
-     * 作品タイトル名（カナ）
+     * 名称（カナ）
      */
     kanaName: string;
     /**
@@ -147,8 +147,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     coaInfo?: ICOAInfo;
 }
 /**
- * 上映イベントインターフェース
- * 劇場作品に相当
+ * 施設コンテンツインターフェース
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
 
@@ -176,7 +175,7 @@ export interface ISearchConditions extends EventFactory.ISearchConditions<EventT
     };
     workPerformed?: {
         /**
-         * イベントで上演される作品識別子リスト
+         * イベントで上演されるコンテンツコードリスト
          */
         identifiers?: string[];
     };

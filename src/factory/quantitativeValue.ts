@@ -5,7 +5,7 @@ export type QuantitativeValueType = 'QuantitativeValue';
 
 /**
  * A point value or interval for product characteristics and other purposes.
- * @see https://schema.org/QuantitativeValue
+ * {@link https://schema.org/QuantitativeValue}
  */
 export interface IQuantitativeValue<T extends UnitCode> extends IThing {
     /**

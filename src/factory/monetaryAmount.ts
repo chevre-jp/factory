@@ -2,7 +2,7 @@ import { IThing } from './thing';
 
 /**
  * 金額インターフェース
- * @see https://schema.org/MonetaryAmount
+ * {@link https://schema.org/MonetaryAmount}
  */
 export interface IMonetaryAmount extends IThing {
     typeOf: 'MonetaryAmount';

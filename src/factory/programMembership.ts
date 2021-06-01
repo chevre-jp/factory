@@ -20,7 +20,7 @@ export type IMember = IPerson;
 /**
  * Used to describe membership in a loyalty programs
  * (e.g. "StarAliance"), traveler clubs (e.g. "AAA"), purchase clubs ("Safeway Club"), etc.
- * @see https://schema.org/ProgramMembership
+ * {@link https://schema.org/ProgramMembership}
  */
 export interface IProgramMembership extends IThing {
     project: IProject;

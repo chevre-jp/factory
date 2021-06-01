@@ -23,7 +23,7 @@ export type IError = any;
 
 export interface IObjectWithoutDetail {
     clientUser?: IClientUser;
-    amount: number | {
+    amount: {
         value: number;
     };
     fromLocation: TransactionFactory.ISimpleAccount;
@@ -39,7 +39,7 @@ export interface IObject {
     /**
      * 金額
      */
-    amount: number | {
+    amount: {
         value: number;
     };
     /**

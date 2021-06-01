@@ -164,7 +164,7 @@ export interface ISimpleOrder extends IThing {
 
 /**
  * 注文インターフェース
- * @see https://schema.org/Order
+ * {@link https://schema.org/Order}
  */
 export interface IOrder extends ISimpleOrder {
     /**
@@ -265,7 +265,7 @@ export interface IReservationForSearchConditions {
         };
         workPerformed?: {
             /**
-             * イベントで上演される作品識別子リスト
+             * コンテンツコードリスト
              */
             identifiers?: string[];
         };
