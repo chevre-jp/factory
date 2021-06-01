@@ -24,7 +24,7 @@ export interface ISendEmailMessageParams {
      * Eメールカスタマイズ
      * メール本文をカスタマイズしたい場合、PUGテンプレートを指定
      * 挿入変数として`order`を使用できます
-     * @see https://pugjs.org/api/getting-started.html
+     * {@link https://pugjs.org/api/getting-started.html}
      */
     object?: EmailFactory.ICustomization;
 }

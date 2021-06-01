@@ -46,7 +46,7 @@ export enum CategorySetIdentifier {
 }
 
 /**
- * @see https://schema.org/CategoryCodeSet
+ * {@link https://schema.org/CategoryCodeSet}
  */
 export interface ICategoryCodeSet extends IThing {
     typeOf: 'CategoryCodeSet';
@@ -54,7 +54,7 @@ export interface ICategoryCodeSet extends IThing {
 }
 
 /**
- * @see https://schema.org/CategoryCode
+ * {@link https://schema.org/CategoryCode}
  */
 export interface ICategoryCode extends IThing {
     project: IProject;

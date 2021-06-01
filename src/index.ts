@@ -1,6 +1,3 @@
-/**
- * factory
- */
 import * as chevre from './chevre';
 
 export * from './chevre';

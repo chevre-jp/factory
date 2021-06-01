@@ -48,7 +48,7 @@ export interface IPointAward {
 
 /**
  * プロダクトインターフェース
- * @see https://schema.org/Product
+ * {@link https://schema.org/Product}
  */
 export interface IProduct extends IThing {
     project: IProject;

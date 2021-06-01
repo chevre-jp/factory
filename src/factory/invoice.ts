@@ -16,7 +16,7 @@ export interface IReferenceOrder extends OrderFactory.IOrder {
 
 /**
  * インボイスインターフェース
- * @see https://schema.org/Invoice
+ * {@link https://schema.org/Invoice}
  */
 export interface IInvoice {
     project: IProject;

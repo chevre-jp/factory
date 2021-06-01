@@ -11,7 +11,7 @@ export interface IDefinedTerm {
 
 /**
  * 勘定科目インターフェース
- * @see https://pending.schema.org/CategoryCode
+ * {@link https://pending.schema.org/CategoryCode}
  */
 export interface IAccountTitle {
     project: IProject;

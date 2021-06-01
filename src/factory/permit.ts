@@ -7,7 +7,7 @@ import { IThing } from './thing';
 
 /**
  * A permit issued by an organization, e.g. a parking pass.
- * @see https://schema.org/Permit
+ * {@link https://schema.org/Permit}
  */
 export interface IPermit extends IThing {
     project: IProject;
