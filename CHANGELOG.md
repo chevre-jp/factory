@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 口座取引の金額の型をIMonetaryAmountに統一
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.108.0 - 2021-06-01
+
+### Changed
+
+- 口座取引の金額の型をIMonetaryAmountに統一
 
 ## v4.107.0 - 2021-06-01
 
