@@ -3,17 +3,9 @@
  */
 export enum PaymentMethodType {
     /**
-     * 現金
-     */
-    Cash = 'Cash',
-    /**
      * クレジットカード
      */
     CreditCard = 'CreditCard',
-    /**
-     * 電子マネー
-     */
-    EMoney = 'EMoney',
     /**
      * MGチケット
      */
@@ -21,9 +13,5 @@ export enum PaymentMethodType {
     /**
      * ムビチケ
      */
-    MovieTicket = 'MovieTicket',
-    /**
-     * その他
-     */
-    Others = 'Others'
+    MovieTicket = 'MovieTicket'
 }

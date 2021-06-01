@@ -85,7 +85,7 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.MoneyT
     /**
      * 金額
      */
-    amount: number | IMonetaryAmount;
+    amount: IMonetaryAmount;
     /**
      * 転送元
      */
