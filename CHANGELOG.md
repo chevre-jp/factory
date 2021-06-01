@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.107.0 - 2021-06-01
+
+### Changed
+
+- 通貨転送アクションの金額の型をIMonetaryAmountに統一
+- 決済方法タイプを最適化
+
 ## v4.106.0 - 2021-05-31
 
 ### Changed
