@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- ポイント特典付与インターフェースを定義
-- 単価オファーの提供アイテムインターフェースを定義
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.109.0 - 2021-06-02
+
+### Changed
+
+- ポイント特典付与インターフェースを定義
+- 単価オファーの提供アイテムインターフェースを定義
 
 ## v4.108.0 - 2021-06-01
 
