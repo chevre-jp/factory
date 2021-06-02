@@ -40,7 +40,19 @@ export type IServiceOutput = IPermit;
 export interface IPointAward {
     typeOf: 'MoneyTransfer';
     amount?: IMonetaryAmount;
-    toLocation?: any;
+    /**
+     * 特典付与先
+     */
+    toLocation?: {
+        /**
+         * 口座種別
+         */
+        typeOf?: string;
+        /**
+         * 口座番号
+         */
+        identifier?: string;
+    };
     description?: string;
     recipient?: any;
     purpose?: { identifier?: string };
