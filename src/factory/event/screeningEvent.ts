@@ -155,6 +155,7 @@ export type ITicketPriceSpecification = ICompoundPriceSpecification<ITicketPrice
 export interface ITicketOffer extends OfferFactory.IOffer {
     identifier: string;
     priceSpecification: ITicketPriceSpecification;
+    itemOffered?: OfferFactory.IItemOffered;
 }
 
 export interface IAcceptedAddOn {

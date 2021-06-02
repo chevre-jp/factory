@@ -7,6 +7,7 @@ import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
+import { ProductType } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
@@ -181,6 +182,50 @@ export interface IOffer extends IThing {
 export type IBaseOffer = IOffer;
 
 /**
+ * 単価オファーの提供アイテムインターフェース
+ */
+export interface IItemOffered {
+    project: IProject;
+    typeOf: ProductType;
+    serviceOutput?: {
+        /**
+         * アウトプットタイプ
+         * メンバーシップ区分、決済方法区分など
+         */
+        typeOf?: string;
+        /**
+         * ペイメントカード初期金額
+         */
+        amount?: IMonetaryAmount;
+        /**
+         * ペイメントカード入金設定
+         */
+        depositAmount?: IMonetaryAmount;
+        /**
+         * ペイメントカード決済設定
+         */
+        paymentAmount?: IMonetaryAmount;
+    };
+    /**
+     * 特典
+     */
+    pointAward?: {
+        /**
+         * 付与金額
+         */
+        amount?: IMonetaryAmount;
+        /**
+         * 特典説明
+         */
+        description?: string;
+        /**
+         * 口座種別
+         */
+        typeOf?: string;
+    };
+}
+
+/**
  * 単価オファーインターフェース
  */
 export interface IUnitPriceOffer extends IOffer {
@@ -189,6 +234,7 @@ export interface IUnitPriceOffer extends IOffer {
      * 単価仕様
      */
     priceSpecification?: IUnitPriceSpecification;
+    itemOffered?: IItemOffered;
 }
 
 /**
