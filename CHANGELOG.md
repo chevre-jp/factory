@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.110.0 - 2021-06-04
+
+### Changed
+
+- 受け入れられたオファーのアイテムインターフェースを定義
+
 ## v4.109.0 - 2021-06-02
 
 ### Changed
