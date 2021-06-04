@@ -176,37 +176,45 @@ export interface IAcceptedSubReservation {
 }
 
 /**
+ * 受け入れられたオファーのアイテムインターフェース
+ */
+export interface IAcceptedTicketOfferItemOffered {
+    serviceOutput?: {
+        typeOf: ReservationType;
+        /**
+         * 追加特性
+         */
+        additionalProperty?: IPropertyValue<string>[];
+        /**
+         * 予約追加テキスト
+         */
+        additionalTicketText?: string;
+        reservedTicket?: {
+            typeOf: ReservationFactory.TicketType;
+            /**
+             * 予約座席指定
+             * 指定席イベントの場合、座席を指定
+             * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
+             */
+            ticketedSeat?: ReservationFactory.ISeat;
+        };
+        subReservation?: IAcceptedSubReservation[];
+    };
+}
+
+/**
  * 受け入れられたチケットオファー(詳細なし)
  */
 export interface IAcceptedTicketOfferWithoutDetail {
     /**
      * オファーID
-     * チケットオファー検索結果から選択されたもの
      */
     id: string;
-    itemOffered?: {
-        serviceOutput?: {
-            typeOf: ReservationType;
-            /**
-             * 追加特性
-             */
-            additionalProperty?: IPropertyValue<string>[];
-            /**
-             * 予約追加テキスト
-             */
-            additionalTicketText?: string;
-            reservedTicket?: {
-                typeOf: ReservationFactory.TicketType;
-                /**
-                 * 予約座席指定
-                 * 指定席イベントの場合、座席を指定
-                 * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
-                 */
-                ticketedSeat?: ReservationFactory.ISeat;
-            };
-            subReservation?: IAcceptedSubReservation[];
-        };
-    };
+    /**
+     * アイテム情報
+     * 予約の詳細指定など
+     */
+    itemOffered?: IAcceptedTicketOfferItemOffered;
     /**
      * 受け入れるアドオン
      */
@@ -216,7 +224,9 @@ export interface IAcceptedTicketOfferWithoutDetail {
 /**
  * 受け入れられたチケットオファー
  */
-export type IAcceptedTicketOffer = IAcceptedTicketOfferWithoutDetail & ITicketOffer;
+export type IAcceptedTicketOffer = IAcceptedTicketOfferWithoutDetail & ITicketOffer & {
+    itemOffered?: IAcceptedTicketOfferItemOffered;
+};
 
 export interface ICOAInfo {
     theaterCode: string;
