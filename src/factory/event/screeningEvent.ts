@@ -189,6 +189,10 @@ export interface IAcceptedTicketOfferItemOffered {
          * 予約追加テキスト
          */
         additionalTicketText?: string;
+        // 適用メンバーシップ
+        programMembershipUsed?: {
+            identifier?: string;
+        };
         reservedTicket?: {
             typeOf: ReservationFactory.TicketType;
             /**

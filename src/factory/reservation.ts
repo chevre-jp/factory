@@ -6,6 +6,7 @@ import { PlaceType } from './placeType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
+import { IProgramMembership } from './programMembership';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import ReservationStatusType from './reservationStatusType';
@@ -150,6 +151,8 @@ export interface ITicket<T extends IPriceSpecification> {
 
 export type IBroker = IUnderName;
 
+export type IProgramMembershipUsed = IProgramMembership;
+
 /**
  * 予約インターフェース
  * Describes a reservation for travel, dining or an event. Some reservations require tickets.
@@ -220,7 +223,7 @@ export interface IReservation<T extends IPriceSpecification> {
     /**
      * Any membership in a frequent flyer, hotel loyalty program, etc. being applied to the reservation.
      */
-    programMembershipUsed?: string;
+    programMembershipUsed?: IProgramMembershipUsed;
     /**
      * The thing -- restaurant, movie, event, flight, etc. -- the reservation is for.
      */

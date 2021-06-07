@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.111.0 - 2021-06-07
+
+### Changed
+
+- 予約の使用メンバーシップを定義
+
 ## v4.110.0 - 2021-06-04
 
 ### Changed
