@@ -453,6 +453,10 @@ export namespace reservation {
         T extends ReservationType.ReservationPackage ? ReservationPackageFactory.IPriceSpecification :
         ReservationFactory.IPriceSpecification;
 
+    export type IProgramMembershipUsed<T extends ReservationType> =
+        T extends ReservationType.EventReservation ? ReservationFactory.IProgramMembershipUsed :
+        ReservationFactory.IProgramMembershipUsed;
+
     export type IReservationFor<T extends ReservationType> =
         T extends ReservationType.EventReservation ? EventReservationFactory.IReservationFor :
         T extends ReservationType.ReservationPackage ? ReservationFactory.IReservationFor :
