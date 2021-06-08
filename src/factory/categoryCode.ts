@@ -16,6 +16,10 @@ export enum CategorySetIdentifier {
      */
     DistributorType = 'DistributorType',
     /**
+     * メンバーシップタイプ
+     */
+    MembershipType = 'MembershipType',
+    /**
      * 決済カード(ムビチケ券種)区分
      */
     MovieTicketType = 'MovieTicketType',

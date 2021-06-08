@@ -8,7 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 区分分類にメンバーシップタイプを追加
+
 ### Changed
+
+- オファーに有効なメンバーシップタイプを追加
 
 ### Deprecated
 
