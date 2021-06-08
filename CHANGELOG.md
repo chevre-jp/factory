@@ -8,11 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 区分分類にメンバーシップタイプを追加
-
 ### Changed
-
-- オファーに有効なメンバーシップタイプを追加
 
 ### Deprecated
 
@@ -21,6 +17,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.112.0 - 2021-06-08
+
+### Added
+
+- 区分分類にメンバーシップタイプを追加
+
+### Changed
+
+- オファーに有効なメンバーシップタイプを追加
 
 ## v4.111.0 - 2021-06-07
 
