@@ -106,6 +106,10 @@ export interface IOffer extends IThing {
      */
     eligibleCustomerType?: any;
     /**
+     * 有効なメンバーシップタイプ
+     */
+    eligibleMembershipType?: IEligibleCategoryCode[];
+    /**
      * 有効な座席タイプ
      */
     eligibleSeatingType?: IEligibleCategoryCode[];
