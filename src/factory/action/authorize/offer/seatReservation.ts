@@ -7,9 +7,9 @@ import * as ScreeningEventFactory from '../../../event/screeningEvent';
 import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as OfferFactory from '../../../offer';
 import * as OrderFactory from '../../../order';
-import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
+// import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
 import PriceCurrency from '../../../priceCurrency';
-import { IPropertyValue } from '../../../propertyValue';
+// import { IPropertyValue } from '../../../propertyValue';
 import * as WebAPIFactory from '../../../service/webAPI';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
@@ -65,32 +65,42 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
     acceptedOffers?: IResultAcceptedOffer[];
 }
 
-export type IAcceptedPaymentMethod = IMovieTicket;
+// export type IAcceptedPaymentMethod = IMovieTicket;
 
-export type IAcceptedOffer4chevre = {
-    paymentMethod?: IAcceptedPaymentMethod;
-    additionalProperty: IPropertyValue<string>[];
-} & ScreeningEventFactory.IAcceptedTicketOffer;
+// export type IAcceptedOffer4chevre = {
+//     paymentMethod?: IAcceptedPaymentMethod;
+//     additionalProperty: IPropertyValue<string>[];
+// } & ScreeningEventFactory.IAcceptedTicketOffer;
 
-export type IAcceptedOfferWithoutDetail4chevre = {
-    paymentMethod?: IAcceptedPaymentMethod;
-    additionalProperty: IPropertyValue<string>[];
-} & ScreeningEventFactory.IAcceptedTicketOfferWithoutDetail;
+export type IAcceptedOffer4chevre = ScreeningEventFactory.IAcceptedTicketOffer;
 
-export type IObjectWithoutDetail4chevre = {
-    acceptedOffer: IAcceptedOfferWithoutDetail4chevre[];
-} & ReserveTransactionFactory.IObjectWithoutDetail;
+// export type IAcceptedOfferWithoutDetail4chevre = {
+//     paymentMethod?: IAcceptedPaymentMethod;
+//     additionalProperty: IPropertyValue<string>[];
+// } & ScreeningEventFactory.IAcceptedTicketOfferWithoutDetail;
 
-export type IAcceptedOffer4COA = {
-    paymentMethod?: IAcceptedPaymentMethod;
-    additionalProperty: IPropertyValue<string>[];
-} & ScreeningEventFactory.IAcceptedTicketOfferWithoutDetail
-    & OfferFactory.seatReservation.IOfferWithDetails;
+export type IAcceptedOfferWithoutDetail4chevre = ScreeningEventFactory.IAcceptedTicketOfferWithoutDetail;
 
-export type IAcceptedOfferWithoutDetail4COA = {
-    paymentMethod?: IAcceptedPaymentMethod;
-    additionalProperty: IPropertyValue<string>[];
-} & OfferFactory.seatReservation.IOffer;
+// export type IObjectWithoutDetail4chevre = {
+//     acceptedOffer: IAcceptedOfferWithoutDetail4chevre[];
+// } & ReserveTransactionFactory.IObjectWithoutDetail;
+
+export type IObjectWithoutDetail4chevre = ReserveTransactionFactory.IObjectWithoutDetail;
+
+// export type IAcceptedOffer4COA = {
+//     paymentMethod?: IAcceptedPaymentMethod;
+//     additionalProperty: IPropertyValue<string>[];
+// } & ScreeningEventFactory.IAcceptedTicketOfferWithoutDetail
+//     & OfferFactory.seatReservation.IOfferWithDetails;
+
+export type IAcceptedOffer4COA = ScreeningEventFactory.IAcceptedTicketOfferWithoutDetail & OfferFactory.seatReservation.IOfferWithDetails;
+
+// export type IAcceptedOfferWithoutDetail4COA = {
+//     paymentMethod?: IAcceptedPaymentMethod;
+//     additionalProperty: IPropertyValue<string>[];
+// } & OfferFactory.seatReservation.IOffer;
+
+export type IAcceptedOfferWithoutDetail4COA = OfferFactory.seatReservation.IOffer;
 
 export interface IObjectWithoutDetail4COA {
     acceptedOffer: IAcceptedOfferWithoutDetail4COA[];

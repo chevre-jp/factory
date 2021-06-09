@@ -6,6 +6,7 @@ import EventType from '../eventType';
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import OfferType from '../offerType';
+import { IMovieTicket } from '../paymentMethod/paymentCard/movieTicket';
 import { PlaceType } from '../placeType';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
@@ -206,6 +207,8 @@ export interface IAcceptedTicketOfferItemOffered {
     };
 }
 
+export type IAcceptedPaymentMethod = IMovieTicket;
+
 /**
  * 受け入れられたチケットオファー(詳細なし)
  */
@@ -223,6 +226,8 @@ export interface IAcceptedTicketOfferWithoutDetail {
      * 受け入れるアドオン
      */
     addOn?: IAcceptedAddOn[];
+    paymentMethod?: IAcceptedPaymentMethod;
+    additionalProperty?: IPropertyValue<string>[];
 }
 
 /**
