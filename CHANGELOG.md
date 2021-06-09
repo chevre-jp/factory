@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 予約取引開始パラメータを最適化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.113.0 - 2021-06-09
+
+### Changed
+
+- 予約取引開始パラメータを最適化
 
 ## v4.112.0 - 2021-06-08
 
