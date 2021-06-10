@@ -296,6 +296,14 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    addOn?: {
+        itemOffered?: {
+            /**
+             * アドオンプロダクトID
+             */
+            id?: { $eq?: string };
+        };
+    };
     availableAtOrFrom?: {
         id?: {
             $eq?: string;
