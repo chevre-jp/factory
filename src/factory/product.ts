@@ -99,6 +99,9 @@ export interface ISearchConditions {
     sort?: ISortOrder;
     project?: { id?: { $eq?: string } };
     id?: { $eq?: string };
+    name?: {
+        $regex?: string;
+    };
     productID?: {
         $eq?: string;
         $in?: string[];
