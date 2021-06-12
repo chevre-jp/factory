@@ -311,6 +311,14 @@ export interface ISearchConditions {
         };
     };
     project?: { id?: { $eq?: string } };
+    eligibleMembershipType?: {
+        /**
+         * 適用メンバーシップ区分
+         */
+        codeValue?: {
+            $eq?: string;
+        };
+    };
     eligibleSeatingType?: {
         /**
          * 適用座席区分
