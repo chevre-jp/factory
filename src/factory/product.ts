@@ -138,12 +138,23 @@ export interface ISearchConditions {
     };
 }
 
+/**
+ * サービスアウトプット検索条件
+ */
 export interface IServiceOutputSearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
     project?: { id?: { $eq?: string } };
+    accessCode?: { $eq?: string };
     id?: { $eq?: string };
     identifier?: { $eq?: string };
+    issuedBy?: {
+        id?: { $eq?: string };
+    };
+    issuedThrough?: {
+        id?: { $eq?: string };
+        typeOf?: { $eq?: ProductType };
+    };
     typeOf?: { $eq?: string };
 }
