@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 単価オファーの提供アイテムを最適化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.118.0 - 2021-06-14
+
+### Changed
+
+- 単価オファーの提供アイテムを最適化
 
 ## v4.117.0 - 2021-06-13
 
