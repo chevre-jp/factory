@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 単価オファーの提供アイテムを最適化
+
 ### Deprecated
 
 ### Removed
