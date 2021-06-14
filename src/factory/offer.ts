@@ -189,14 +189,15 @@ export type IBaseOffer = IOffer;
  * 単価オファーの提供アイテムインターフェース
  */
 export interface IItemOffered {
-    project: IProject;
+    // project: IProject;
     typeOf: ProductType;
     serviceOutput?: {
         /**
          * アウトプットタイプ
          * メンバーシップ区分、決済方法区分など
+         * プロダクト側で定義されるはず
          */
-        typeOf?: string;
+        // typeOf?: string;
         /**
          * ペイメントカード初期金額
          */

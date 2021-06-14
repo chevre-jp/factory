@@ -192,6 +192,7 @@ export interface IAcceptedTicketOfferItemOffered {
         additionalTicketText?: string;
         // 適用メンバーシップ
         programMembershipUsed?: {
+            accessCode?: string;
             identifier?: string;
         };
         reservedTicket?: {
