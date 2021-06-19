@@ -4,13 +4,18 @@ import { IThing } from './thing';
 
 export enum CategorySetIdentifier {
     /**
-     * 口座タイプ
+     * 通貨区分
+     * @deprecated Use CurrencyType
      */
     AccountType = 'AccountType',
     /**
      * レーティングタイプ
      */
     ContentRatingType = 'ContentRatingType',
+    /**
+     * 通貨区分
+     */
+    CurrencyType = 'CurrencyType',
     /**
      * 配給区分
      */
