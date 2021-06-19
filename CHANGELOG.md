@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 区分にCurrencyTypeを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.119.0 - 2021-06-19
+
+### Added
+
+- 区分にCurrencyTypeを追加
 
 ## v4.118.0 - 2021-06-14
 
