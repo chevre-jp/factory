@@ -135,6 +135,9 @@ export interface ISearchConditions {
     };
     serviceOutput?: {
         typeOf?: { $eq?: string };
+        amount?: {
+            currency?: { $eq?: string };
+        };
     };
 }
 

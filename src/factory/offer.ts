@@ -320,6 +320,14 @@ export interface ISearchConditions {
             $eq?: string;
         };
     };
+    eligibleMonetaryAmount?: {
+        /**
+         * 適用通貨区分
+         */
+        currency?: {
+            $eq?: string;
+        };
+    };
     eligibleSeatingType?: {
         /**
          * 適用座席区分
