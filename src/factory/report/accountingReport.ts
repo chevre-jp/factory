@@ -7,7 +7,7 @@ export type IAction = IPayAction | IRefundAction;
 /**
  * 経理レポートインターフェース
  */
-export interface IAccountingReoprt {
+export interface IReport {
     mainEntity: IAction;
     isPartOf: {
         mainEntity: IOrder;
