@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 区分からAccountTypeを削除
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.121.0 - 2021-06-21
+
+### Changed
+
+- 区分からAccountTypeを削除
 
 ## v4.120.0 - 2021-06-20
 
