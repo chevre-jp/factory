@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 経理レポートインターフェースを定義
+
 ### Changed
 
 ### Deprecated
