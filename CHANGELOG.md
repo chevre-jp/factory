@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.122.1 - 2021-06-21
+
+### Changed
+
+- 経理レポートインターフェースを調整
+
 ## v4.122.0 - 2021-06-21
 
 ### Added
