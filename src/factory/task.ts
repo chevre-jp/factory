@@ -72,10 +72,6 @@ export interface ISearchConditions<T extends TaskName | string> {
     sort?: ISortOrder;
     project?: {
         id?: { $eq?: string };
-        /**
-         * @deprecated Use id
-         */
-        ids?: string[];
     };
     name?: T;
     statuses?: TaskStatus[];
