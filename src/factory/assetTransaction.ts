@@ -96,7 +96,13 @@ export interface ISearchConditions<T extends AssetTransactionType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
-    project?: { ids?: string[] };
+    project?: {
+        id?: { $eq?: string };
+        /**
+         * @deprecated Use id
+         */
+        ids?: string[];
+    };
     /**
      * 取引タイプ
      */

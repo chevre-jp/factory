@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 全リソース検索条件にproject.id.$eqを追加
+
 ### Deprecated
 
 ### Removed

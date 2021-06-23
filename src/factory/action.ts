@@ -119,6 +119,9 @@ export interface ISearchConditions {
     sort?: ISortOrder;
     project?: {
         id?: { $eq?: string };
+        /**
+         * @deprecated Use id
+         */
         ids?: string[];
     };
     typeOf?: ActionType | { $eq?: ActionType };

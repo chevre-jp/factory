@@ -111,7 +111,13 @@ export interface ISearchConditions<T extends EventType> {
     id?: {
         $in?: string[];
     };
-    project?: { ids?: string[] };
+    project?: {
+        id?: { $eq?: string };
+        /**
+         * @deprecated Use id
+         */
+        ids?: string[];
+    };
     /**
      * イベントタイプ
      */
