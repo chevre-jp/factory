@@ -50,6 +50,9 @@ export interface ISearchConditions {
     sort?: any;
     project?: {
         id?: { $eq?: string };
+        /**
+         * @deprecated Use id
+         */
         ids?: string[];
     };
     branchCode?: {

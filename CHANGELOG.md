@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.124.0 - 2021-06-23
+
+### Changed
+
+- 全リソース検索条件にproject.id.$eqを追加
+
 ## v4.123.0 - 2021-06-23
 
 ### Changed

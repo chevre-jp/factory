@@ -104,7 +104,13 @@ export interface ISearchConditions {
     /**
      * プロジェクト
      */
-    project?: { ids?: string[] };
+    project?: {
+        id?: { $eq?: string };
+        /**
+         * @deprecated Use id
+         */
+        ids?: string[];
+    };
     id?: {
         $eq?: string;
     };
