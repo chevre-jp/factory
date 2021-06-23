@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.123.0 - 2021-06-23
+
+### Changed
+
+- 顧客コードをidentifier->branchCodeと変更
+
 ## v4.122.1 - 2021-06-21
 
 ### Changed
