@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 全リソースのプロジェクトID検索条件を統一
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.125.0 - 2021-06-23
+
+### Changed
+
+- 全リソースのプロジェクトID検索条件を統一
 
 ## v4.124.0 - 2021-06-23
 
