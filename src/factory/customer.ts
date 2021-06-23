@@ -18,8 +18,10 @@ export interface IContactPoint {
  */
 export interface ICustomer extends IOrganization {
     project: IProject;
-    // 顧客コード
-    identifier?: string;
+    /**
+     * 顧客コード
+     */
+    branchCode?: string;
     id: string;
     /**
      * 連絡窓口
@@ -38,7 +40,7 @@ export interface ICustomer extends IOrganization {
 export interface ISearchConditions {
     limit?: number;
     page?: number;
-    identifier?: { $regex?: string };
+    branchCode?: { $regex?: string };
     name?: { $regex?: string };
     project?: { id?: { $eq?: string } };
 }
