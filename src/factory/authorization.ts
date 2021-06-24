@@ -38,10 +38,6 @@ export interface ISearchConditions {
     sort?: ISortOrder;
     project?: {
         id?: { $eq?: string };
-        /**
-         * @deprecated Use id
-         */
-        ids?: string[];
     };
     id?: {
         $in?: string[];

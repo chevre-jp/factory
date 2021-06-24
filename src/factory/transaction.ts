@@ -129,10 +129,6 @@ export interface ISearchConditions<T extends TransactionType> {
     sort?: ISortOrder;
     project?: {
         id?: { $eq?: string };
-        /**
-         * @deprecated Use id
-         */
-        ids?: string[];
     };
     /**
      * 取引タイプ

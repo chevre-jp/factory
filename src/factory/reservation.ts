@@ -350,10 +350,6 @@ export interface ISearchConditions<T extends ReservationType> {
     sort?: ISortOrder;
     project?: {
         id?: { $eq?: string };
-        /**
-         * @deprecated Use id
-         */
-        ids?: string[];
     };
     /**
      * IDリスト
