@@ -98,6 +98,11 @@ export interface ISearchConditions {
     page?: number;
     sort?: ISortOrder;
     project?: { id?: { $eq?: string } };
+    hasOfferCatalog?: {
+        id?: {
+            $eq?: string;
+        };
+    };
     id?: { $eq?: string };
     name?: {
         $regex?: string;
