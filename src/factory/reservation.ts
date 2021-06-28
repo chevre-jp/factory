@@ -1,10 +1,13 @@
 import * as COA from '@motionpicture/coa-service';
 
-import { IUnitPriceOffer } from './offer';
+import IMultilingualString from './multilingualString';
+import * as OfferFactory from './offer';
+import OfferType from './offerType';
 import * as SeatFactory from './place/seat';
 import { PlaceType } from './placeType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
+import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
 import { IProgramMembership } from './programMembership';
 import { IProject } from './project';
@@ -14,7 +17,28 @@ import ReservationType from './reservationType';
 import SortType from './sortType';
 
 export type TicketType = 'Ticket';
-export type ITicketType = IUnitPriceOffer;
+
+// 予約の単価オファーを最適化(属性不足が判明すれば適宜拡張する)
+// export type ITicketType = OfferFactory.IUnitPriceOffer;
+export interface ITicketType {
+    // addOn: []
+    additionalProperty?: IPropertyValue<string>[];
+    // alternateName: { ja: "", en: "" }
+    // availability: "InStock"
+    // availableAtOrFrom: [{ id: "" }, { id: "" }, …]
+    category?: OfferFactory.ICategory;
+    color?: string;
+    description?: string | IMultilingualString;
+    id?: string;
+    identifier: string;
+    // itemOffered: { project: { typeOf: "Project", id: "" }, typeOf: "EventService" }
+    name?: string | IMultilingualString;
+    priceCurrency: PriceCurrency;
+    priceSpecification?: IUnitPriceSpecification;
+    project: IProject;
+    typeOf: OfferType;
+    validRateLimit?: any;
+}
 
 export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;
 

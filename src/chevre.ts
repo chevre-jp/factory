@@ -493,6 +493,10 @@ export namespace reservation {
     export type TicketType<T extends ReservationType> =
         T extends ReservationType.EventReservation ? ReservationFactory.TicketType :
         ReservationFactory.TicketType;
+
+    export type ITicketType<T extends ReservationType> =
+        T extends ReservationType.EventReservation ? ReservationFactory.ITicketType :
+        ReservationFactory.ITicketType;
 }
 
 export import reservationStatusType = ReservationStatusType;
