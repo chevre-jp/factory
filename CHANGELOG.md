@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 予約の単価オファーを最適化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.127.0 - 2021-06-28
+
+### Changed
+
+- 予約の単価オファーを最適化
 
 ## v4.126.0 - 2021-06-24
 
