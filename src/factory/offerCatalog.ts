@@ -47,7 +47,9 @@ export interface ISearchConditions {
     project?: {
         id?: { $eq?: string };
     };
-    id?: string;
+    id?: string | {
+        $in?: string[];
+    };
     identifier?: string | {
         $eq?: string;
     };
