@@ -23,3 +23,26 @@ export interface IMember {
         hasRole: IRole[];
     };
 }
+
+/**
+ * プロジェクトメンバー検索条件
+ */
+export interface ISearchConditions {
+    limit?: number;
+    page?: number;
+    id?: { $eq?: string };
+    project?: { id?: { $eq?: string } };
+    member?: {
+        hasRole?: {
+            roleName?: { $eq?: string };
+        };
+        id?: {
+            $eq?: string;
+            $in?: string[];
+        };
+        name?: { $regex?: string };
+        typeOf?: {
+            $eq?: string;
+        };
+    };
+}
