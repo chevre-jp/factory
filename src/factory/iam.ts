@@ -1,0 +1,25 @@
+import CreativeWorkType from './creativeWorkType';
+import { OrganizationType } from './organizationType';
+import PersonType from './personType';
+
+export enum RoleType {
+    OrganizationRole = 'OrganizationRole'
+}
+export interface IRole {
+    typeOf: RoleType;
+    permissions?: string[];
+    roleName: string;
+    memberOf: { typeOf: OrganizationType.Project; id: string };
+}
+export type IMemberType = PersonType | CreativeWorkType.WebApplication;
+export interface IMember {
+    typeOf: RoleType;
+    project: { typeOf: OrganizationType.Project; id: string };
+    member: {
+        typeOf: IMemberType;
+        id: string;
+        name?: string;
+        username?: string;
+        hasRole: IRole[];
+    };
+}
