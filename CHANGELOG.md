@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.132.0 - 2021-07-05
+
+### Changed
+
+- 予約にissuedThroughを追加
+
 ## v4.131.0 - 2021-07-05
 
 ### Added

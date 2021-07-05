@@ -35,6 +35,9 @@ export interface IReservation {
      * 予約ID
      */
     id?: string;
+    issuedThrough?: {
+        typeOf: ProductFactory.ProductType.EventService;
+    };
     /**
      * 予約番号
      */
