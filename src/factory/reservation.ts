@@ -9,6 +9,7 @@ import PriceCurrency from './priceCurrency';
 import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
+import { ProductType } from './product';
 import { IProgramMembership } from './programMembership';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
@@ -224,6 +225,9 @@ export interface IReservation<T extends IPriceSpecification> {
      * Web page where reservation can be confirmed.
      */
     confirmReservationUrl?: string;
+    issuedThrough?: {
+        typeOf: ProductType.EventService;
+    };
     /**
      * Time the reservation was last modified.
      */
