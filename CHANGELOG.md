@@ -18,6 +18,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.131.0 - 2021-07-05
+
+### Added
+
+- IAMロール検索条件を追加
+
+### Changed
+
+- 予約の適用メンバーシップをトークン化されたメンバーシップに対応
+
 ## v4.130.0 - 2021-07-04
 
 ### Added

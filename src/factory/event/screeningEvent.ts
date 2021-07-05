@@ -176,6 +176,19 @@ export interface IAcceptedSubReservation {
     };
 }
 
+export interface IAcceptedProgramMembershipUsedAsObject {
+    accessCode?: string;
+    identifier?: string;
+}
+/**
+ * トークン化された適用メンバーシップ
+ */
+export type ITokenizedAcceptedProgramMembershipUsed = string;
+/**
+ * 適用メンバーシップ
+ */
+export type IAcceptedProgramMembershipUsed = IAcceptedProgramMembershipUsedAsObject | ITokenizedAcceptedProgramMembershipUsed;
+
 /**
  * 受け入れられたオファーのアイテムインターフェース
  */
@@ -191,10 +204,7 @@ export interface IAcceptedTicketOfferItemOffered {
          */
         additionalTicketText?: string;
         // 適用メンバーシップ
-        programMembershipUsed?: {
-            accessCode?: string;
-            identifier?: string;
-        };
+        programMembershipUsed?: IAcceptedProgramMembershipUsed;
         reservedTicket?: {
             typeOf: ReservationFactory.TicketType;
             /**

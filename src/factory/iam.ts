@@ -11,6 +11,23 @@ export interface IRole {
     roleName: string;
     memberOf: { typeOf: OrganizationType.Project; id: string };
 }
+
+/**
+ * IAMロール検索条件
+ */
+export interface IRoleSearchConditions {
+    limit?: number;
+    page?: number;
+    sort?: any;
+    roleName?: {
+        $eq?: string;
+        $in?: string[];
+    };
+    permissions?: {
+        $eq?: string;
+    };
+}
+
 export type IMemberType = PersonType | CreativeWorkType.WebApplication;
 export interface IMember {
     typeOf: RoleType;
@@ -30,6 +47,7 @@ export interface IMember {
 export interface ISearchConditions {
     limit?: number;
     page?: number;
+    sort?: any;
     id?: { $eq?: string };
     project?: { id?: { $eq?: string } };
     member?: {
