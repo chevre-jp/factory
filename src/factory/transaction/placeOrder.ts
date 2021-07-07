@@ -105,28 +105,28 @@ export interface IConfirmReservationParams {
 /**
  * メンバーシップ登録パラメータ
  */
-export interface IRegisterProgramMembershipParams {
-    object?: {
-        typeOf: 'ProgramMembership';
-        membershipFor: {
-            /**
-             * プロダクトID
-             */
-            id: string;
-        };
-    };
-    potentialActions?: {
-        /**
-         * 次回のメンバーシップ注文タスク
-         */
-        orderProgramMembership?: {
-            /**
-             * メンバーシップ注文後アクション
-             */
-            potentialActions?: IPotentialActionsParams;
-        };
-    };
-}
+// export interface IRegisterProgramMembershipParams {
+//     object?: {
+//         typeOf: 'ProgramMembership';
+//         membershipFor: {
+//             /**
+//              * プロダクトID
+//              */
+//             id: string;
+//         };
+//     };
+//     potentialActions?: {
+//         /**
+//          * 次回のメンバーシップ注文タスク
+//          */
+//         orderProgramMembership?: {
+//             /**
+//              * メンバーシップ注文後アクション
+//              */
+//             potentialActions?: IPotentialActionsParams;
+//         };
+//     };
+// }
 
 type ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
 
@@ -147,7 +147,6 @@ export interface IPotentialActionsParams {
             sendOrder?: {
                 potentialActions?: {
                     confirmReservation?: IConfirmReservationParams[];
-                    // registerProgramMembership?: IRegisterProgramMembershipParams[];
                     sendEmailMessage?: ISendEmailMessageParams[];
                 };
             };

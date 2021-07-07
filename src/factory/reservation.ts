@@ -15,6 +15,7 @@ import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
+import { IServiceType } from './serviceType';
 import SortType from './sortType';
 
 export type TicketType = 'Ticket';
@@ -227,6 +228,7 @@ export interface IReservation<T extends IPriceSpecification> {
     confirmReservationUrl?: string;
     issuedThrough?: {
         typeOf: ProductType.EventService;
+        serviceType?: IServiceType;
     };
     /**
      * Time the reservation was last modified.
