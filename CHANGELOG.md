@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.134.0 - 2021-07-08
+
+### Changed
+
+- プロダクトのserviceTypeを定義
+
 ## v4.133.0 - 2021-07-07
 
 ### Changed
