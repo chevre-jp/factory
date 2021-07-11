@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.135.0 - 2021-07-11
+
+### Changed
+
+- 予約のprogramMembershipUsed型をPermitに変更
+
 ## v4.134.0 - 2021-07-08
 
 ### Changed

@@ -3,6 +3,7 @@ import * as COA from '@motionpicture/coa-service';
 import IMultilingualString from './multilingualString';
 import * as OfferFactory from './offer';
 import OfferType from './offerType';
+import { IPermit } from './permit';
 import * as SeatFactory from './place/seat';
 import { PlaceType } from './placeType';
 import PriceCurrency from './priceCurrency';
@@ -10,7 +11,7 @@ import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecif
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
 import { ProductType } from './product';
-import { IProgramMembership } from './programMembership';
+// import { IProgramMembership } from './programMembership';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import ReservationStatusType from './reservationStatusType';
@@ -177,7 +178,8 @@ export interface ITicket<T extends IPriceSpecification> {
 
 export type IBroker = IUnderName;
 
-export type IProgramMembershipUsed = IProgramMembership;
+// export type IProgramMembershipUsed = IProgramMembership;
+export type IProgramMembershipUsed = IPermit;
 
 /**
  * 予約インターフェース
