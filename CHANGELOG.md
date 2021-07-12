@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- プロダクト検索条件拡張
-- サービスアウトプット検索条件拡張
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.136.0 - 2021-07-12
+
+### Changed
+
+- プロダクト検索条件拡張
+- サービスアウトプット検索条件拡張
 
 ## v4.135.0 - 2021-07-11
 
