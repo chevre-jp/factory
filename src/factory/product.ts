@@ -145,6 +145,9 @@ export interface ISearchConditions {
             currency?: { $eq?: string };
         };
     };
+    serviceType?: {
+        codeValue?: { $eq?: string };
+    };
 }
 
 /**
@@ -163,6 +166,9 @@ export interface IServiceOutputSearchConditions {
     };
     issuedThrough?: {
         id?: { $eq?: string };
+        serviceType?: {
+            codeValue?: { $eq?: string };
+        };
         typeOf?: { $eq?: ProductType };
     };
     typeOf?: { $eq?: string };
