@@ -1,7 +1,7 @@
 import { ICategoryCode, ISearchConditions as ICategoryCodeSearchConditions } from './categoryCode';
 
 /**
- * サービスタイプ(興行区分)インターフェース
+ * サービスタイプインターフェース
  */
 export type IServiceType = ICategoryCode;
 
