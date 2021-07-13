@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.138.0 - 2021-07-13
+
+### Changed
+
+- 販売者の決済サービス資格情報にpaymentUrlを追加
+
 ## v4.137.0 - 2021-07-13
 
 ### Changed
