@@ -47,6 +47,10 @@ export interface IProviderCredentials {
      */
     tokenizationCode?: string;
     /**
+     * 外部決済URL発行が必要な場合値あり
+     */
+    paymentUrl?: string;
+    /**
      * ムビチケ興行会社コード
      */
     kgygishCd?: string;
@@ -57,6 +61,9 @@ export interface IProviderCredentials {
 }
 
 export interface IProvider extends IOrganization {
+    /**
+     * 販売者の決済サービス利用時資格情報
+     */
     credentials?: IProviderCredentials;
 }
 
@@ -71,7 +78,7 @@ export interface IService {
     availableChannel?: IAvailableChannel;
     productID?: string;
     /**
-     * ペイメントサービス提供者
+     * ペイメントサービス提供者(決済サービスを利用する販売者)
      */
     provider?: IProvider[];
     // serviceOutput?: IServiceOutput;
