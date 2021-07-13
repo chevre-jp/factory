@@ -1,5 +1,6 @@
 import { IOrganization } from '../organization';
 import { IProject } from '../project';
+import { IServiceType } from '../serviceType';
 
 export interface IServiceOutput {
     /**
@@ -73,5 +74,9 @@ export interface IService {
      * ペイメントサービス提供者
      */
     provider?: IProvider[];
-    serviceOutput?: IServiceOutput;
+    // serviceOutput?: IServiceOutput;
+    /**
+     * The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
+     */
+    serviceType?: IServiceType;
 }

@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.137.0 - 2021-07-13
+
+### Changed
+
+- 決済サービスにserviceTypeを追加
+
 ## v4.136.0 - 2021-07-12
 
 ### Changed
