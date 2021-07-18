@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 予約開始時の受け入れられたオファーインターフェースを拡張
+- 注文カスタマーインターフェースをウェブアプリケーションにも拡張
+
 ### Deprecated
 
 ### Removed
