@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.139.0 - 2021-07-18
+
+### Changed
+
+- 予約開始時の受け入れられたオファーインターフェースを拡張
+- 注文カスタマーインターフェースをウェブアプリケーションにも拡張
+
 ## v4.138.0 - 2021-07-13
 
 ### Changed

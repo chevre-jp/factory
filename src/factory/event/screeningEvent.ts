@@ -206,6 +206,7 @@ export interface IAcceptedTicketOfferItemOffered {
         // 適用メンバーシップ
         programMembershipUsed?: IAcceptedProgramMembershipUsed;
         reservedTicket?: {
+            issuedBy?: ReservationFactory.IUnderName;
             typeOf: ReservationFactory.TicketType;
             /**
              * 予約座席指定

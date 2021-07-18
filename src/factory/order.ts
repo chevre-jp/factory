@@ -1,12 +1,12 @@
 import { IParticipant } from './action';
-// import { ICreativeWork as IWebApplication } from './creativeWork/softwareApplication/webApplication';
+import { ICreativeWork as IWebApplication } from './creativeWork/softwareApplication/webApplication';
 // import { ICustomer as ICustomerOrganization } from './customer';
 import EventType from './eventType';
 import * as MonetaryAmountFactory from './monetaryAmount';
 import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
 import { OrganizationType } from './organizationType';
-import { IIdentifier as IPersonIdentifier, IPerson } from './person';
+import { IIdentifier as IPersonIdentifier, IPerson, IProfile } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
 import * as ProductFactory from './product';
@@ -108,13 +108,14 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOffer {
  */
 export type ISeller = ISellerOrganization;
 
-// export type IWebApplicationCustomer = IWebApplication & IPerson;
+export type IWebApplicationCustomer = IWebApplication & IProfile;
 // export type IOrganizationCustomer = ICustomerOrganization & IPerson;
 
 /**
  * カスタマー
  */
-export type ICustomer = IPerson;
+// export type ICustomer = IPerson;
+export type ICustomer = IPerson | IWebApplicationCustomer;
 // export type ICustomer = IPerson | IWebApplicationCustomer | IOrganizationCustomer;
 
 export type IBroker = IPerson;
