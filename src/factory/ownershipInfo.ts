@@ -1,5 +1,5 @@
 import * as AccountFactory from './account';
-import { IPerson } from './person';
+import { ICustomer } from './order';
 import * as ProductFactory from './product';
 import { IProject } from './project';
 import { IReservation as IEventReservation } from './reservation/event';
@@ -65,7 +65,7 @@ export type IGoodWithDetail = IReservationWithDetail | AccountFactory.IAccount |
 /**
  * 所有者インターフェース
  */
-export type IOwner = ISeller | IPerson;
+export type IOwner = ISeller | ICustomer;
 
 export type OwnershipInfoType = 'OwnershipInfo';
 
