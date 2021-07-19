@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 取引のIAgentをウェブアプリケーションにも拡張
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.141.0 - 2021-07-19
+
+### Changed
+
+- 取引のIAgentをウェブアプリケーションにも拡張
 
 ## v4.140.0 - 2021-07-19
 
