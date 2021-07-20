@@ -31,7 +31,7 @@ export interface ICustomer extends IOrganization {
      * 名称
      */
     name: IMultilingualString;
-    typeOf: OrganizationType;
+    typeOf: OrganizationType.Organization;
 }
 
 /**
