@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.143.0 - 2021-07-20
+
+### Changed
+
+- 注文カスタマーインターフェースを顧客組織にも拡張
+
 ## v4.142.0 - 2021-07-19
 
 ### Changed
