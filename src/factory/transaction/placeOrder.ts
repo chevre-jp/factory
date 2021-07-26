@@ -18,6 +18,12 @@ export import ISeller = TransactionFactory.ISeller;
  */
 export type IAgent = TransactionFactory.IAgent;
 
+export interface IPaymentMethodByPaymentUrl {
+    typeOf: string;
+    paymentMethodId: string;
+    paymentUrl: string;
+}
+
 export interface IObject {
     broker?: OrderFactory.IBroker;
     customer?: OrderFactory.ICustomer;
@@ -34,6 +40,10 @@ export interface IObject {
      * 注文名称
      */
     name?: string;
+    /**
+     * 外部ロケーションでの決済情報
+     */
+    paymentMethods?: IPaymentMethodByPaymentUrl;
     /**
      * WAITER許可証トークン
      */
