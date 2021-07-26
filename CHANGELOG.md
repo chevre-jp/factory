@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.144.0 - 2021-07-26
+
+### Changed
+
+- 注文取引objectに決済URLによる決済情報を追加
+
 ## v4.143.0 - 2021-07-20
 
 ### Changed
