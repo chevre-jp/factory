@@ -372,6 +372,15 @@ export interface ISortOrder {
     modifiedTime?: SortType;
 }
 
+export interface IProgramMembershipUsedSearchConditions {
+    identifier?: { $eq?: string };
+    issuedThrough?: {
+        serviceType?: {
+            codeValue?: { $eq?: string };
+        };
+    };
+}
+
 /**
  * 検索条件
  */
@@ -439,4 +448,8 @@ export interface ISearchConditions<T extends ReservationType> {
         $nin?: IPropertyValue<string>[];
         $elemMatch?: any;
     };
+    /**
+     * 使用メンバーシップ
+     */
+    programMembershipUsed?: IProgramMembershipUsedSearchConditions;
 }

@@ -11,6 +11,7 @@ import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
 import * as ProductFactory from './product';
 import { IPropertyValue } from './propertyValue';
+import { IProgramMembershipUsedSearchConditions } from './reservation';
 import * as EventReservationFactory from './reservation/event';
 import { ISeller as ISellerOrganization } from './seller';
 import SortType from './sortType';
@@ -339,6 +340,10 @@ export interface IAcceptedOffersSearchConditions {
         ids?: string[];
         reservationFor?: IReservationForSearchConditions;
         reservationNumbers?: string[];
+        /**
+         * 使用メンバーシップ
+         */
+        programMembershipUsed?: IProgramMembershipUsedSearchConditions;
     };
 }
 
