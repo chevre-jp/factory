@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 予約検索条件拡張
-- 注文検索条件拡張
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.145.0 - 2021-07-27
+
+### Changed
+
+- 予約検索条件拡張
+- 注文検索条件拡張
 
 ## v4.144.0 - 2021-07-26
 
