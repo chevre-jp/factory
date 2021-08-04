@@ -1,13 +1,14 @@
 import { IOrganization } from '../organization';
 import { IProject } from '../project';
 import { IServiceType } from '../serviceType';
+import { IThing } from '../thing';
 
-export interface IServiceOutput {
-    /**
-     * 決済方法タイプ
-     */
-    typeOf: string;
-}
+// export interface IServiceOutput {
+//     /**
+//      * 決済方法タイプ
+//      */
+//     typeOf: string;
+// }
 
 /**
  * 外部サービス認証情報
@@ -71,7 +72,7 @@ export interface IProvider extends IOrganization {
  * ペイメントサービスインターフェース
  * {@link https://schema.org/Service}
  */
-export interface IService {
+export interface IService extends IThing {
     project: IProject;
     typeOf: PaymentServiceType;
     id?: string;
