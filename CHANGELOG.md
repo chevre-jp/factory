@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 注文の決済方法にissuedThroughを追加
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.147.0 - 2021-08-04
+
+### Changed
+
+- 注文の決済方法にissuedThroughを追加
 
 ## v4.146.0 - 2021-08-04
 
