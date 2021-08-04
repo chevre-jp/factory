@@ -10,6 +10,7 @@ import * as CreditCardFactory from '../../../paymentMethod/paymentCard/creditCar
 import * as MovieTicketFactory from '../../../paymentMethod/paymentCard/movieTicket';
 import PaymentStatusType from '../../../paymentStatusType';
 import { IPropertyValue } from '../../../propertyValue';
+import { PaymentServiceType } from '../../../service/paymentService';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
@@ -204,6 +205,9 @@ export interface IResult {
      */
     additionalProperty?: IPropertyValue<string>[];
     typeOf: ResultType;
+    issuedThrough: {
+        typeOf: PaymentServiceType;
+    };
 
     /**
      * 転送元口座(Account決済)

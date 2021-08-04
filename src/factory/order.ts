@@ -14,6 +14,7 @@ import { IPropertyValue } from './propertyValue';
 import { IProgramMembershipUsedSearchConditions } from './reservation';
 import * as EventReservationFactory from './reservation/event';
 import { ISeller as ISellerOrganization } from './seller';
+import { PaymentServiceType } from './service/paymentService';
 import SortType from './sortType';
 import { IThing } from './thing';
 
@@ -56,6 +57,9 @@ export interface IPaymentMethod {
      * 追加特性
      */
     additionalProperty: IPropertyValue<string>[];
+    issuedThrough: {
+        typeOf: PaymentServiceType;
+    };
 }
 
 /**
