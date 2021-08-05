@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.148.0 - 2021-08-05
+
+### Removed
+
+- 決済方法タイプを削除
+
 ## v4.147.0 - 2021-08-04
 
 ### Changed
