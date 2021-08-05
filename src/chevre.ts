@@ -88,7 +88,6 @@ import * as OwnershipInfoFactory from './factory/ownershipInfo';
 import * as PaymentCardFactory from './factory/paymentMethod/paymentCard';
 import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
 import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTicket';
-import { PaymentMethodType } from './factory/paymentMethodType';
 import PaymentStatusType from './factory/paymentStatusType';
 import * as PermitFactory from './factory/permit';
 import * as PersonFactory from './factory/person';
@@ -389,7 +388,6 @@ export import orderStatus = OrderStatus;
 export import organization = OrganizationFactory;
 export import organizationType = OrganizationType;
 export import ownershipInfo = OwnershipInfoFactory;
-export import paymentMethodType = PaymentMethodType;
 
 export namespace paymentMethod {
     export type ISearchConditions = any;
