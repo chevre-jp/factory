@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- Eメールメッセージを拡張
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.149.0 - 2021-08-10
+
+### Changed
+
+- Eメールメッセージを拡張
 
 ## v4.148.0 - 2021-08-05
 
