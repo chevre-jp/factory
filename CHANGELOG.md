@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.149.0 - 2021-08-10
+
+### Changed
+
+- Eメールメッセージを拡張
+
 ## v4.148.0 - 2021-08-05
 
 ### Removed

@@ -1,5 +1,6 @@
 import * as CreativeWorkFactory from '../../creativeWork';
 import CreativeWorkType from '../../creativeWorkType';
+import { IThing } from '../../thing';
 
 export interface IParticipant {
     typeOf?: string;
@@ -7,11 +8,17 @@ export interface IParticipant {
     email: string;
 }
 
+export interface IAbout extends IThing {
+    typeOf: 'Thing';
+    identifier: string;
+    name: string;
+}
+
 export interface IAttributes {
     typeOf: CreativeWorkType.EmailMessage;
     sender: IParticipant;
     toRecipient: IParticipant;
-    about: string;
+    about: IAbout;
     text: string;
 }
 
@@ -41,7 +48,7 @@ export interface ICustomization {
     /**
      * 件名
      */
-    about?: string;
+    about?: string | IAbout;
     /**
      * 本文テンプレート
      * 本文をカスタマイズしたい場合、PUGテンプレートを指定
