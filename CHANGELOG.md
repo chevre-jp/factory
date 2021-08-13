@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- EメールメッセージのAboutIdentifierを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.150.0 - 2021-08-13
+
+### Added
+
+- EメールメッセージのAboutIdentifierを追加
 
 ## v4.149.0 - 2021-08-10
 
