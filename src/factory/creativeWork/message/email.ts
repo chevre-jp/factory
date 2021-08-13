@@ -8,9 +8,16 @@ export interface IParticipant {
     email: string;
 }
 
+export enum AboutIdentifier {
+    OnOrderSent = 'OnOrderSent',
+    OnOrderRefunded = 'OnOrderRefunded',
+    OnOrderReturned = 'OnOrderReturned',
+    OnEventStatusChanged = 'OnEventStatusChanged'
+}
+
 export interface IAbout extends IThing {
     typeOf: 'Thing';
-    identifier: string;
+    identifier: AboutIdentifier;
     name: string;
 }
 
