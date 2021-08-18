@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.152.0 - 2021-08-18
+
+### Added
+
+- GatewayTimeoutErrorを追加
+
 ## v4.151.0 - 2021-08-18
 
 ### Changed
