@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- IProgramMembershipの汎用性拡張
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.153.0 - 2021-08-18
+
+### Changed
+
+- IProgramMembershipの汎用性拡張
 
 ## v4.152.0 - 2021-08-18
 
