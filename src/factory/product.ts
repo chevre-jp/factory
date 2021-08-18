@@ -2,6 +2,7 @@ import { IMonetaryAmount } from './monetaryAmount';
 import { IOffer } from './offer';
 import { IPermit } from './permit';
 import { IProject } from './project';
+import { IQuantitativeValue } from './quantitativeValue';
 import { IServiceType } from './serviceType';
 import SortType from './sortType';
 import { IThing } from './thing';
@@ -33,7 +34,10 @@ export interface IHasOfferCatalog {
     id?: string;
 }
 
-export type IServiceOutput = IPermit;
+export type IServiceOutput = IPermit & {
+    membershipPointsEarned?: IQuantitativeValue<any>;
+    automaticRenewal?: boolean;
+};
 
 /**
  * ポイント特典インターフェース
