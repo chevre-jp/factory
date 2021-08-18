@@ -160,7 +160,10 @@ export interface IServiceOutputSearchConditions {
     project?: { id?: { $eq?: string } };
     accessCode?: { $eq?: string };
     id?: { $eq?: string };
-    identifier?: { $eq?: string };
+    identifier?: {
+        $eq?: string;
+        $in?: string[];
+    };
     issuedBy?: {
         id?: { $eq?: string };
     };
