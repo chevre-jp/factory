@@ -1,5 +1,5 @@
 import PersonType from './personType';
-import * as ProgramMembershipFactory from './programMembership';
+import { IProgramMembership } from './programMembership';
 import { IPropertyValue } from './propertyValue';
 import * as ThingFactory from './thing';
 
@@ -57,6 +57,6 @@ export type IPerson = IProfile & {
     /**
      * An Organization (or ProgramMembership) to which this Person or Organization belongs.
      */
-    memberOf?: ProgramMembershipFactory.IProgramMembership;
+    memberOf?: IProgramMembership;
     typeOf: PersonType;
 };
