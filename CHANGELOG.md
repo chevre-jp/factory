@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- メンバーシップ登録解除アクションのオブジェクトを所有権に拡張
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.154.0 - 2021-08-19
+
+### Changed
+
+- メンバーシップ登録解除アクションのオブジェクトを所有権に拡張
 
 ## v4.153.0 - 2021-08-18
 
