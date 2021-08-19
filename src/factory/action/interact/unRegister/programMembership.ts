@@ -1,7 +1,9 @@
-import { IProgramMembership } from '../../../programMembership';
+import { IOwnershipInfo, IServiceOutput } from '../../../ownershipInfo';
+// import { IProgramMembership } from '../../../programMembership';
 import * as UnRegisterActionFactory from '../unRegister';
 
-export type IObject = IProgramMembership;
+export type IObject = IOwnershipInfo<IServiceOutput>;
+// export type IObject = IProgramMembership;
 
 export type IResult = any;
 export type IPotentialActions = any;
