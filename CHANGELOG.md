@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- メンバーシップ登録解除アクションのオブジェクトを所有権に拡張
+
 ### Deprecated
 
 ### Removed
