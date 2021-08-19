@@ -11,7 +11,6 @@ import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecif
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
 import { ProductType } from './product';
-// import { IProgramMembership } from './programMembership';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import ReservationStatusType from './reservationStatusType';
@@ -178,7 +177,6 @@ export interface ITicket<T extends IPriceSpecification> {
 
 export type IBroker = IUnderName;
 
-// export type IProgramMembershipUsed = IProgramMembership;
 export type IProgramMembershipUsed = IPermit;
 
 /**
