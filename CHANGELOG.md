@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- IPermitにdateIssuedを追加
+- 注文と所有権のIServiceOutputを拡張(accountNumber,accountType)
+
 ### Deprecated
 
 ### Removed
