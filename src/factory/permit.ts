@@ -17,6 +17,7 @@ export interface IPermit extends IThing {
     amount?: IMonetaryAmount;
     depositAmount?: IMonetaryAmount;
     paymentAmount?: IMonetaryAmount;
+    dateIssued?: Date;
     /**
      * The organization issuing the ticket or permit.
      */

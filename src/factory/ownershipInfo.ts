@@ -16,7 +16,7 @@ export type IBookingService = WebAPIFactory.IService<WebAPIFactory.Identifier>;
 export interface IAccount {
     typeOf: string;
     /**
-     * 口座タイプ
+     * 通貨
      */
     accountType: string;
     /**
@@ -50,7 +50,10 @@ export interface IReservation {
 
 export type IReservationWithDetail = IReservation & IEventReservation;
 
-export type IServiceOutput = ProductFactory.IServiceOutput;
+export type IServiceOutput = ProductFactory.IServiceOutput & {
+    accountNumber?: string;
+    accountType?: string;
+};
 
 /**
  * 所有対象物インターフェース (Product or Service)
@@ -146,7 +149,7 @@ export interface ITypeOfGoodSearchConditions {
         $in?: string[];
     };
     /**
-     * 口座タイプ
+     * 通貨
      */
     accountType?: string;
 }

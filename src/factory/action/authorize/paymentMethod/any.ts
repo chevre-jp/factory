@@ -39,7 +39,7 @@ export type IPendingTransaction = MoneyTransferTransactionFactory.ITransaction;
 
 export interface IAccount {
     /**
-     * 口座タイプ
+     * 通貨
      */
     accountType: string;
     /**
