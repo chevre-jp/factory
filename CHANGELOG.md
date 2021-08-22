@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.158.0 - 2021-08-22
+
+### Changed
+
+- 所有権を最適化(typeOfGoodをIReservation or IPermitに統一)
+
 ## v4.157.0 - 2021-08-22
 
 ### Added
