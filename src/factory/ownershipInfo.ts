@@ -1,5 +1,6 @@
-import * as AccountFactory from './account';
+// import * as AccountFactory from './account';
 import { ICustomer } from './order';
+import * as PermitFactory from './permit';
 import * as ProductFactory from './product';
 import { IProject } from './project';
 import { IReservation as IEventReservation } from './reservation/event';
@@ -13,18 +14,18 @@ export type IBookingService = WebAPIFactory.IService<WebAPIFactory.Identifier>;
 /**
  * 口座インターフェース
  */
-export interface IAccount {
-    typeOf: string;
-    /**
-     * 通貨
-     */
-    accountType: string;
-    /**
-     * 口座番号
-     */
-    accountNumber: string;
-    identifier?: string;
-}
+// export interface IAccount {
+//     typeOf: string;
+//     /**
+//      * 通貨
+//      */
+//     accountType: string;
+//     /**
+//      * 口座番号
+//      */
+//     accountNumber: string;
+//     identifier?: string;
+// }
 
 /**
  * 予約インターフェース
@@ -50,7 +51,7 @@ export interface IReservation {
 
 export type IReservationWithDetail = IReservation & IEventReservation;
 
-export type IServiceOutput = ProductFactory.IServiceOutput & {
+export type IPermit = PermitFactory.IPermit & {
     accountNumber?: string;
     accountType?: string;
 };
@@ -58,12 +59,14 @@ export type IServiceOutput = ProductFactory.IServiceOutput & {
 /**
  * 所有対象物インターフェース (Product or Service)
  */
-export type IGood = IReservation | IAccount | IServiceOutput;
+// export type IGood = IReservation | IAccount | IPermit;
+export type IGood = IReservation | IPermit;
 
 /**
  * 所有対象物インターフェース(対象物詳細有)
  */
-export type IGoodWithDetail = IReservationWithDetail | AccountFactory.IAccount | IServiceOutput;
+// export type IGoodWithDetail = IReservationWithDetail | AccountFactory.IAccount | IServiceOutput;
+export type IGoodWithDetail = IReservationWithDetail | IPermit;
 
 /**
  * 所有者インターフェース
@@ -151,7 +154,7 @@ export interface ITypeOfGoodSearchConditions {
     /**
      * 通貨
      */
-    accountType?: string;
+    // accountType?: string;
 }
 
 /**

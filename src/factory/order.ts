@@ -6,10 +6,10 @@ import * as MonetaryAmountFactory from './monetaryAmount';
 import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
 import { OrganizationType } from './organizationType';
+import { IPermit } from './permit';
 import { IIdentifier as IPersonIdentifier, IPerson, IProfile } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
-import * as ProductFactory from './product';
 import { IPropertyValue } from './propertyValue';
 import { IProgramMembershipUsedSearchConditions } from './reservation';
 import * as EventReservationFactory from './reservation/event';
@@ -87,7 +87,7 @@ export interface IDiscount {
 
 export type IReservation = EventReservationFactory.IReservation;
 export import IMonetaryAmount = MonetaryAmountFactory.IMonetaryAmount;
-export type IServiceOutput = ProductFactory.IServiceOutput & {
+export type IServiceOutput = IPermit & {
     accountNumber?: string;
     accountType?: string;
 };

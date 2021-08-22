@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 所有権を最適化(typeOfGoodをIReservation or IPermitに統一)
+
 ### Deprecated
 
 ### Removed

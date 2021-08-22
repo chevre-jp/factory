@@ -1,7 +1,7 @@
-import { IOwnershipInfo, IServiceOutput } from '../../../ownershipInfo';
+import { IOwnershipInfo, IPermit } from '../../../ownershipInfo';
 import * as UnRegisterActionFactory from '../unRegister';
 
-export type IObject = IOwnershipInfo<IServiceOutput>;
+export type IObject = IOwnershipInfo<IPermit>;
 
 export type IResult = any;
 export type IPotentialActions = any;
