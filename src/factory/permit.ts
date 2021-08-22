@@ -1,3 +1,4 @@
+import { IAccount } from './account';
 import { IMonetaryAmount } from './monetaryAmount';
 import { IOrganization } from './organization';
 import { IProduct } from './product';
@@ -17,6 +18,7 @@ export interface IPermit extends IThing {
     amount?: IMonetaryAmount;
     depositAmount?: IMonetaryAmount;
     paymentAmount?: IMonetaryAmount;
+    paymentAccount?: IAccount;
     dateIssued?: Date;
     /**
      * The organization issuing the ticket or permit.

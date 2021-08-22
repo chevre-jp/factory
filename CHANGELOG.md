@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.157.0 - 2021-08-22
+
+### Added
+
+- IPermitにpaymentAccountを追加
+
 ## v4.156.0 - 2021-08-20
 
 ### Changed
