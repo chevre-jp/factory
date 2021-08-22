@@ -86,23 +86,23 @@ export interface IAccount {
     /**
      * 口座名義
      */
-    name: string;
+    name?: string;
     /**
      * 残高
      */
-    balance: number;
+    balance?: number;
     /**
      * 利用可能残高
      */
-    availableBalance: number;
+    availableBalance?: number;
     /**
      * 進行中取引リスト
      */
-    pendingTransactions: IPendingTransaction[];
+    pendingTransactions?: IPendingTransaction[];
     /**
      * 口座開設日時
      */
-    openDate: Date;
+    openDate?: Date;
     /**
      * 口座閉鎖日時
      */
@@ -110,7 +110,7 @@ export interface IAccount {
     /**
      * 口座ステータス
      */
-    status: AccountStatusType;
+    status?: AccountStatusType;
 }
 
 /**
