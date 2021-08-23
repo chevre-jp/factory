@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 所有権検索条件からtypeOfGood.accountNumberを削除
-- 所有権検索条件からtypeOfGood.accountTypeを削除
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.159.0 - 2021-08-23
+
+### Changed
+
+- 所有権検索条件からtypeOfGood.accountNumberを削除
+- 所有権検索条件からtypeOfGood.accountTypeを削除
 
 ## v4.158.0 - 2021-08-22
 
