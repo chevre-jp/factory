@@ -6,7 +6,7 @@ import * as MonetaryAmountFactory from './monetaryAmount';
 import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
 import { OrganizationType } from './organizationType';
-import { IPermit } from './permit';
+import * as PermitFactory from './permit';
 import { IIdentifier as IPersonIdentifier, IPerson, IProfile } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
@@ -87,15 +87,15 @@ export interface IDiscount {
 
 export type IReservation = EventReservationFactory.IReservation;
 export import IMonetaryAmount = MonetaryAmountFactory.IMonetaryAmount;
-export type IServiceOutput = IPermit & {
-    accountNumber?: string;
-    accountType?: string;
+export type IPermit = PermitFactory.IPermit & {
+    // accountNumber?: string;
+    // accountType?: string;
 };
 
 /**
  * 注文アイテムインターフェース
  */
-export type IItemOffered = IMonetaryAmount | IReservation | IServiceOutput;
+export type IItemOffered = IMonetaryAmount | IReservation | IPermit;
 
 /**
  * オファーインターフェース

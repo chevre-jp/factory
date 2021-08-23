@@ -37,31 +37,31 @@ export interface IObjectPendingTransaction {
 
 export type IPendingTransaction = MoneyTransferTransactionFactory.ITransaction;
 
-export interface IAccount {
-    /**
-     * 通貨
-     */
-    accountType: string;
-    /**
-     * 口座番号
-     */
-    accountNumber: string;
-}
+// export interface IAccount {
+//     /**
+//      * 通貨
+//      */
+//     accountType: string;
+//     /**
+//      * 口座番号
+//      */
+//     accountNumber: string;
+// }
 
 /**
  * トークン化された口座インターフェース
  */
-export type ITokenizedAccount = string;
+// export type ITokenizedAccount = string;
 
 /**
  * 転送元口座
  */
-export type IFromAccount = IAccount | ITokenizedAccount;
+// export type IFromAccount = IAccount | ITokenizedAccount;
 
 /**
  * 転送先口座
  */
-export type IToAccount = IAccount;
+// export type IToAccount = IAccount;
 
 export type IPaymentCard = MoneyTransferActionFactory.IPaymentCard;
 
@@ -132,12 +132,12 @@ export interface IObject {
      * 転送元口座(Account決済)
      * 出金取引、転送取引の場合指定
      */
-    fromAccount?: IFromAccount;
+    // fromAccount?: IFromAccount;
     /**
      * 転送先口座(Account決済)
      * 入金取引、転送取引の場合指定
      */
-    toAccount?: IToAccount;
+    // toAccount?: IToAccount;
     /**
      * 取引説明(Account決済)
      */
@@ -212,11 +212,11 @@ export interface IResult {
     /**
      * 転送元口座(Account決済)
      */
-    fromAccount?: IAccount;
+    // fromAccount?: IAccount;
     /**
      * 転送先口座(Account決済)
      */
-    toAccount?: IToAccount;
+    // toAccount?: IToAccount;
     /**
      * 進行中取引(Account決済)
      */
