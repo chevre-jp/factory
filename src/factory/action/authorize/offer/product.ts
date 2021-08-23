@@ -10,7 +10,7 @@ export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 export type IService = IProduct;
 export type IObject = OrderFactory.IAcceptedOffer<IService>[];
-export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IServiceOutput>[];
+export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IPermit>[];
 export interface IResult {
     price: number;
     priceCurrency: PriceCurrency;
