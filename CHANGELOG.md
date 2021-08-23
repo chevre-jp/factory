@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 注文アイテムとしてのPermitからaccountNumberを削除
-- 決済承認アクションを最適化
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.160.0 - 2021-08-23
+
+### Changed
+
+- 注文アイテムとしてのPermitからaccountNumberを削除
+- 決済承認アクションを最適化
 
 ## v4.159.0 - 2021-08-23
 
