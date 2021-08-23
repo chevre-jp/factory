@@ -147,10 +147,10 @@ export interface ITypeOfGoodSearchConditions {
             $eq?: string;
         };
     };
-    accountNumber?: {
-        $eq?: string;
-        $in?: string[];
-    };
+    // accountNumber?: {
+    //     $eq?: string;
+    //     $in?: string[];
+    // };
     /**
      * 通貨
      */
