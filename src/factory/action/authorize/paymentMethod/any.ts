@@ -37,32 +37,6 @@ export interface IObjectPendingTransaction {
 
 export type IPendingTransaction = MoneyTransferTransactionFactory.ITransaction;
 
-// export interface IAccount {
-//     /**
-//      * 通貨
-//      */
-//     accountType: string;
-//     /**
-//      * 口座番号
-//      */
-//     accountNumber: string;
-// }
-
-/**
- * トークン化された口座インターフェース
- */
-// export type ITokenizedAccount = string;
-
-/**
- * 転送元口座
- */
-// export type IFromAccount = IAccount | ITokenizedAccount;
-
-/**
- * 転送先口座
- */
-// export type IToAccount = IAccount;
-
 export type IPaymentCard = MoneyTransferActionFactory.IPaymentCard;
 
 /**

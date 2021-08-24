@@ -11,8 +11,10 @@ export interface IObject {
     typeOf: ObjectType;
     amount: number;
     toLocation: {
-        typeOf: string;
-        accountType: string;
+        // ↓おそらく不要なので削除
+        // typeOf: string;
+        // ↓おそらく不要なので削除
+        // accountType: string;
         accountNumber: string;
     };
     description: string;
@@ -29,7 +31,6 @@ export type IPurpose = OrderFactory.ISimpleOrder;
 export type IPotentialActions = any;
 export interface IAttributes extends GiveActionFactory.IAttributes<IObject, IResult> {
     purpose: IPurpose;
-    // toLocation: IToLocation;
 }
 
 /**
