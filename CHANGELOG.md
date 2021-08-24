@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- ポイント付与アクションを最適化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.161.0 - 2021-08-24
+
+### Changed
+
+- ポイント付与アクションを最適化
 
 ## v4.160.0 - 2021-08-23
 
