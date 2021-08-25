@@ -12,22 +12,6 @@ import SortType from './sortType';
 export type IBookingService = WebAPIFactory.IService<WebAPIFactory.Identifier>;
 
 /**
- * 口座インターフェース
- */
-// export interface IAccount {
-//     typeOf: string;
-//     /**
-//      * 通貨
-//      */
-//     accountType: string;
-//     /**
-//      * 口座番号
-//      */
-//     accountNumber: string;
-//     identifier?: string;
-// }
-
-/**
  * 予約インターフェース
  */
 export interface IReservation {
@@ -52,20 +36,18 @@ export interface IReservation {
 export type IReservationWithDetail = IReservation & IEventReservation;
 
 export type IPermit = PermitFactory.IPermit & {
-    accountNumber?: string;
-    accountType?: string;
+    // accountNumber?: string;
+    // accountType?: string;
 };
 
 /**
  * 所有対象物インターフェース (Product or Service)
  */
-// export type IGood = IReservation | IAccount | IPermit;
 export type IGood = IReservation | IPermit;
 
 /**
  * 所有対象物インターフェース(対象物詳細有)
  */
-// export type IGoodWithDetail = IReservationWithDetail | AccountFactory.IAccount | IServiceOutput;
 export type IGoodWithDetail = IReservationWithDetail | IPermit;
 
 /**
