@@ -87,10 +87,7 @@ export interface IDiscount {
 
 export type IReservation = EventReservationFactory.IReservation;
 export import IMonetaryAmount = MonetaryAmountFactory.IMonetaryAmount;
-export type IPermit = PermitFactory.IPermit & {
-    // accountNumber?: string;
-    // accountType?: string;
-};
+export type IPermit = PermitFactory.IPermit;
 
 /**
  * 注文アイテムインターフェース
