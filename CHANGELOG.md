@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- ペイメントカード所有権からtypeOfGood.accountNumberを削除
-- ペイメントカード所有権からtypeOfGood.accountTypeを削除
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.162.0 - 2021-08-25
+
+### Changed
+
+- ペイメントカード所有権からtypeOfGood.accountNumberを削除
+- ペイメントカード所有権からtypeOfGood.accountTypeを削除
 
 ## v4.161.0 - 2021-08-24
 
