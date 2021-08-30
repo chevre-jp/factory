@@ -1,3 +1,4 @@
+import ActionType from './actionType';
 import { IMonetaryAmount } from './monetaryAmount';
 import { IOffer } from './offer';
 import { IPermit } from './permit';
@@ -43,7 +44,7 @@ export type IServiceOutput = IPermit & {
  * ポイント特典インターフェース
  */
 export interface IPointAward {
-    typeOf: 'MoneyTransfer';
+    typeOf: ActionType.MoneyTransfer;
     amount?: IMonetaryAmount;
     /**
      * 特典付与先
