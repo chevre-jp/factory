@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- オファーのポイント特典のtypeOfをMoneyTransferに固定
-- MoneyTransferアクションのIPendingTransactionを拡張
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.163.0 - 2021-08-31
+
+### Changed
+
+- オファーのポイント特典のtypeOfをMoneyTransferに固定
+- MoneyTransferアクションのIPendingTransactionを拡張
 
 ## v4.162.0 - 2021-08-25
 
