@@ -1,7 +1,7 @@
 import * as AccountFactory from '../../../account';
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-// import * as MoneyTransferTransactionFactory from '../../../assetTransaction/moneyTransfer';
+import * as MoneyTransferTransactionFactory from '../../../assetTransaction/moneyTransfer';
 import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as OrderFactory from '../../../order';
 import { IPropertyValue } from '../../../propertyValue';
@@ -10,8 +10,8 @@ import TransactionType from '../../../transactionType';
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
-export type IPendingTransaction = AccountFactory.transaction.ITransaction<AccountFactory.transactionType>;
-// export type IPendingTransaction = MoneyTransferTransactionFactory.ITransaction;
+export type IPendingTransaction = AccountFactory.transaction.ITransaction<AccountFactory.transactionType>
+    | MoneyTransferTransactionFactory.ITransaction;
 
 /**
  * 匿名ロケーションインターフェース
@@ -21,7 +21,7 @@ export import IAnonymousLocation = AccountFactory.action.moneyTransfer.IAnonymou
 export type AvailablePaymentMethodType = string;
 
 /**
- * クレジットカード場所インターフェース
+ * 決済方法インターフェース
  */
 export interface IPaymentMethodLocation {
     /**

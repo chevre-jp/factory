@@ -1,3 +1,4 @@
+import ActionType from './actionType';
 import { ICategoryCode } from './categoryCode';
 import ItemAvailability from './itemAvailability';
 import { IMonetaryAmount } from './monetaryAmount';
@@ -223,10 +224,7 @@ export interface IItemOffered {
          * 特典説明
          */
         description?: string;
-        /**
-         * 口座種別
-         */
-        typeOf?: string;
+        typeOf: ActionType.MoneyTransfer;
     };
 }
 
