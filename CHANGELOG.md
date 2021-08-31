@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - オファーのポイント特典のtypeOfをMoneyTransferに固定
+- MoneyTransferアクションのIPendingTransactionを拡張
 
 ### Deprecated
 
