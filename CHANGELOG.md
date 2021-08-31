@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.163.1 - 2021-08-31
+
+### Changed
+
+- 通貨転送取引のIPendingTransactionを拡張
+
 ## v4.163.0 - 2021-08-31
 
 ### Changed
