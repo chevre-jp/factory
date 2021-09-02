@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 口座のtypeOfをAccountで固定
-- PermitのtypeOfをPermitで固定
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.164.0 - 2021-09-02
+
+### Changed
+
+- 口座のtypeOfをAccountで固定
+- PermitのtypeOfをPermitで固定
 
 ## v4.163.1 - 2021-08-31
 
