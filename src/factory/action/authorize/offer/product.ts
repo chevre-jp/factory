@@ -11,8 +11,7 @@ import * as AuthorizeActionFactory from '../../authorize';
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 export type IService = IProduct;
-// export type IObject = OrderFactory.IAcceptedOffer<IService>[];
-export interface IObject extends IOffer {
+export interface IAcceptedOffer extends IOffer {
     /**
      * オファー対象アイテム
      */
@@ -22,6 +21,8 @@ export interface IObject extends IOffer {
      */
     seller: ISeller;
 }
+// export type IObject = OrderFactory.IAcceptedOffer<IService>[];
+export type IObject = IAcceptedOffer[];
 
 export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IPermit>[];
 export interface IResult {
