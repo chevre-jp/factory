@@ -4,6 +4,7 @@ import ActionType from '../../../actionType';
 import * as MoneyTransferTransactionFactory from '../../../assetTransaction/moneyTransfer';
 import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as OrderFactory from '../../../order';
+import { PermitType } from '../../../permit';
 import { IPropertyValue } from '../../../propertyValue';
 import TransactionType from '../../../transactionType';
 
@@ -54,9 +55,10 @@ export interface IPaymentMethodLocation {
  * ペイメントカードインターフェース
  */
 export interface IPaymentCard {
-    typeOf: string;
+    typeOf: PermitType;
     identifier: string;
     accessCode?: string;
+    hasNoPermit?: boolean;
 }
 
 /**

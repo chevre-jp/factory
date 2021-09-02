@@ -6,13 +6,17 @@ import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IThing } from './thing';
 
+export enum PermitType {
+    Permit = 'Permit'
+}
+
 /**
  * A permit issued by an organization, e.g. a parking pass.
  * {@link https://schema.org/Permit}
  */
 export interface IPermit extends IThing {
     project: IProject;
-    typeOf: string;
+    typeOf: PermitType;
     accessCode?: string;
     additionalProperty?: IPropertyValue<string>[];
     amount?: IMonetaryAmount;
