@@ -74,7 +74,7 @@ export interface IAccount {
     /**
      * 口座種別
      */
-    typeOf: string;
+    typeOf: 'Account';
     /**
      * 通貨
      */

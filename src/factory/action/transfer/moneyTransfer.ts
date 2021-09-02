@@ -3,6 +3,7 @@ import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import AssetTransactionType from '../../assetTransactionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
+import { PermitType } from '../../permit';
 
 /**
  * 進行中取引インターフェース
@@ -26,9 +27,10 @@ export import IAnonymousLocation = AccountFactory.action.moneyTransfer.IAnonymou
  * 決済カードインターフェース
  */
 export interface IPaymentCard {
-    typeOf: string;
+    typeOf: PermitType;
     identifier: string;
     accessCode?: string;
+    hasNoPermit?: boolean;
 }
 
 /**
