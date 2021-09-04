@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 通貨オファー承認アクションを拡張
+
 ### Deprecated
 
 ### Removed
