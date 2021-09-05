@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - 通貨オファー承認アクションを拡張
+- 通貨転送取引のIPendingTransactionを通貨転送資産取引に統一
+
 
 ### Deprecated
 

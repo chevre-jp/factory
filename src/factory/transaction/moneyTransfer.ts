@@ -1,6 +1,5 @@
 import * as waiter from '@waiter/factory';
 
-import { transactionType as AccountTransactionType } from '../account';
 import { IAction as IAuthorizeAction, IAttributes as IAuthorizeActionAttributes } from '../action/authorize';
 import { IAttributes as IMoneyTransferActionAttributes, IPaymentCard } from '../action/interact/confirm/moneyTransfer';
 import AssetTransactionType from '../assetTransactionType';
@@ -34,7 +33,7 @@ export type IFromLocation = IPaymentCard;
 export type IToLocation = IPaymentCard;
 
 export interface IObjectPendingTransaction {
-    typeOf?: AccountTransactionType | AssetTransactionType.MoneyTransfer;
+    typeOf?: AssetTransactionType.MoneyTransfer;
     id?: string;
     transactionNumber?: string;
     identifier?: string;
