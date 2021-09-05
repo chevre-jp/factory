@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.165.0 - 2021-09-05
+
+### Changed
+
+- 通貨オファー承認アクションを拡張
+- 通貨転送取引のIPendingTransactionを通貨転送資産取引に統一
+
 ## v4.164.1 - 2021-09-02
 
 ### Fixed

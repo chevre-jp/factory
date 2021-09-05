@@ -11,8 +11,7 @@ import TransactionType from '../../../transactionType';
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
-export type IPendingTransaction = AccountFactory.transaction.ITransaction<AccountFactory.transactionType>
-    | MoneyTransferTransactionFactory.ITransaction;
+export type IPendingTransaction = MoneyTransferTransactionFactory.ITransaction;
 
 /**
  * 匿名ロケーションインターフェース
