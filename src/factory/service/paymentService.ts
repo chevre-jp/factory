@@ -48,9 +48,10 @@ export interface IProviderCredentials {
      */
     tokenizationCode?: string;
     /**
-     * 外部決済URL発行が必要な場合値あり
+     * 外部決済URL有効時間(秒)
+     * 外部決済URL発行が必要な場合のみ
      */
-    paymentUrl?: string;
+    paymentUrlExpiresInSeconds?: number;
     /**
      * ムビチケ興行会社コード
      */

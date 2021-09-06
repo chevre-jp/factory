@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.166.0 - 2021-09-06
+
+### Changed
+
+- 決済サービスのIProviderCredentialsにpaymentUrlExpiresInSecondsを追加
+
 ## v4.165.0 - 2021-09-05
 
 ### Changed
