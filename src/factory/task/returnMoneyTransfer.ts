@@ -5,7 +5,7 @@ import TaskName from '../taskName';
 
 export type IData = IReturnMoneyTransferActionAttributes;
 export interface IAttributes extends TaskFactory.IAttributes {
-    name: TaskName.ReturnPointAward;
+    name: TaskName.ReturnMoneyTransfer;
     data: IData;
 }
 /**
