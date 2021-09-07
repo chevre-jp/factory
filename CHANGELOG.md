@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 注文返品後アクションに入金返却アクションを追加
+
 ### Changed
 
 - 予約承認アクションのpendingTransactionを最適化

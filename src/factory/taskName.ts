@@ -73,6 +73,10 @@ enum TaskName {
      */
     ReturnOrder = 'returnOrder',
     /**
+     * 入金返却
+     */
+    ReturnMoneyTransfer = 'returnMoneyTransfer',
+    /**
      * ポイントインセンティブ返却
      */
     ReturnPointAward = 'returnPointAward',

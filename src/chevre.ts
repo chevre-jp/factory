@@ -41,6 +41,7 @@ import * as GivePointAwardActionFactory from './factory/action/transfer/give/poi
 import * as MoneyTransferActionFactory from './factory/action/transfer/moneyTransfer';
 import * as PrintActionFactory from './factory/action/transfer/print';
 import * as PrintTicketActionFactory from './factory/action/transfer/print/ticket';
+import * as ReturnMoneyTransferActionFactory from './factory/action/transfer/return/moneyTransfer';
 import * as ReturnOrderActionFactory from './factory/action/transfer/return/order';
 import * as ReturnPaymentMethodActionFactory from './factory/action/transfer/return/paymentMethod';
 import * as ReturnPointAwardActionFactory from './factory/action/transfer/return/pointAward';
@@ -153,6 +154,7 @@ import * as PlaceOrderTaskFactory from './factory/task/placeOrder';
 import * as RefundTaskFactory from './factory/task/refund';
 import * as RegisterServiceTaskFactory from './factory/task/registerService';
 import * as ReserveTaskFactory from './factory/task/reserve';
+import * as ReturnMoneyTransferTaskFactory from './factory/task/returnMoneyTransfer';
 import * as ReturnOrderTaskFactory from './factory/task/returnOrder';
 import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
 import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
@@ -300,6 +302,8 @@ export namespace action {
          * returnはネームスペース名に使えないのでreturnAction
          */
         export namespace returnAction {
+            // tslint:disable-next-line:no-shadowed-variable
+            export import moneyTransfer = ReturnMoneyTransferActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
             export import order = ReturnOrderActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
@@ -522,6 +526,7 @@ export namespace task {
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IData :
         T extends TaskName.ConfirmRefund ? ConfirmRefundTaskFactory.IData :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.IData :
+        T extends TaskName.ReturnMoneyTransfer ? ReturnMoneyTransferTaskFactory.IData :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IData :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IData :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
@@ -546,6 +551,7 @@ export namespace task {
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
         T extends TaskName.ConfirmRefund ? ConfirmRefundTaskFactory.IAttributes :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.IAttributes :
+        T extends TaskName.ReturnMoneyTransfer ? ReturnMoneyTransferTaskFactory.IAttributes :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IAttributes :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IAttributes :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
@@ -570,6 +576,7 @@ export namespace task {
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.ITask :
         T extends TaskName.ConfirmRefund ? ConfirmRefundTaskFactory.ITask :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.ITask :
+        T extends TaskName.ReturnMoneyTransfer ? ReturnMoneyTransferTaskFactory.ITask :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.ITask :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.ITask :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :
