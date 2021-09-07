@@ -3,21 +3,18 @@ import * as COA from '@motionpicture/coa-service';
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import * as ReserveTransactionFactory from '../../../assetTransaction/reserve';
+import AssetTransactionType from '../../../assetTransactionType';
 import * as ScreeningEventFactory from '../../../event/screeningEvent';
 import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as OfferFactory from '../../../offer';
 import * as OrderFactory from '../../../order';
-// import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
 import PriceCurrency from '../../../priceCurrency';
-// import { IPropertyValue } from '../../../propertyValue';
 import * as WebAPIFactory from '../../../service/webAPI';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
-
-// export type IMovieTicket = IMovieTicket;
 
 export enum ObjectType {
     SeatReservation = 'SeatReservation'
@@ -65,40 +62,13 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
     acceptedOffers?: IResultAcceptedOffer[];
 }
 
-// export type IAcceptedPaymentMethod = IMovieTicket;
-
-// export type IAcceptedOffer4chevre = {
-//     paymentMethod?: IAcceptedPaymentMethod;
-//     additionalProperty: IPropertyValue<string>[];
-// } & ScreeningEventFactory.IAcceptedTicketOffer;
-
 export type IAcceptedOffer4chevre = ScreeningEventFactory.IAcceptedTicketOffer;
-
-// export type IAcceptedOfferWithoutDetail4chevre = {
-//     paymentMethod?: IAcceptedPaymentMethod;
-//     additionalProperty: IPropertyValue<string>[];
-// } & ScreeningEventFactory.IAcceptedTicketOfferWithoutDetail;
 
 export type IAcceptedOfferWithoutDetail4chevre = ScreeningEventFactory.IAcceptedTicketOfferWithoutDetail;
 
-// export type IObjectWithoutDetail4chevre = {
-//     acceptedOffer: IAcceptedOfferWithoutDetail4chevre[];
-// } & ReserveTransactionFactory.IObjectWithoutDetail;
-
 export type IObjectWithoutDetail4chevre = ReserveTransactionFactory.IObjectWithoutDetail;
 
-// export type IAcceptedOffer4COA = {
-//     paymentMethod?: IAcceptedPaymentMethod;
-//     additionalProperty: IPropertyValue<string>[];
-// } & ScreeningEventFactory.IAcceptedTicketOfferWithoutDetail
-//     & OfferFactory.seatReservation.IOfferWithDetails;
-
 export type IAcceptedOffer4COA = ScreeningEventFactory.IAcceptedTicketOfferWithoutDetail & OfferFactory.seatReservation.IOfferWithDetails;
-
-// export type IAcceptedOfferWithoutDetail4COA = {
-//     paymentMethod?: IAcceptedPaymentMethod;
-//     additionalProperty: IPropertyValue<string>[];
-// } & OfferFactory.seatReservation.IOffer;
 
 export type IAcceptedOfferWithoutDetail4COA = OfferFactory.seatReservation.IOffer;
 
@@ -124,7 +94,11 @@ export type IObjectWithoutDetail<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.Chevre ? IObjectWithoutDetail4chevre :
     any;
 
-export type IPendingTransaction = ReserveTransactionFactory.ITransaction;
+// export type IPendingTransaction = ReserveTransactionFactory.ITransaction;
+export interface IPendingTransaction {
+    typeOf: AssetTransactionType.Reserve;
+    transactionNumber: string;
+}
 
 /**
  * 承認アクション対象

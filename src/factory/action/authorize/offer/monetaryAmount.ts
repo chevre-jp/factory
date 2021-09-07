@@ -1,20 +1,23 @@
 import * as ActionFactory from '../../../action';
-// import { IAction as IMoneyTransferAction } from '../../../action/transfer/moneyTransfer';
 import ActionType from '../../../actionType';
+import AssetTransactionType from '../../../assetTransactionType';
 import { IMonetaryAmount } from '../../../monetaryAmount';
 import { IOffer } from '../../../offer';
-// import * as OrderFactory from '../../../order';
 import PriceCurrency from '../../../priceCurrency';
 import { ISeller } from '../../../seller';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
-import { IPaymentCard, IPendingTransaction } from '../../interact/confirm/moneyTransfer';
+import { IPaymentCard, IPendingTransaction as ConfirmMoneyTransferPendingTransaction } from '../../interact/confirm/moneyTransfer';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
 export type IRequestBody = any;
-export type IResponseBody = IPendingTransaction;
+export type IResponseBody = ConfirmMoneyTransferPendingTransaction;
+export interface IPendingTransaction {
+    typeOf: AssetTransactionType.MoneyTransfer;
+    transactionNumber: string;
+}
 
 export interface IResult {
     price: number;
@@ -39,14 +42,9 @@ export interface IItemOffered {
     };
 }
 
-// export type IObject = OrderFactory.IAcceptedOffer<IMonetaryAmount> & {
-//     toLocation: IPaymentCard;
-//     pendingTransaction?: IPendingTransaction;
-// };
 export interface IAcceptedOffer extends IOffer {
     itemOffered: IItemOffered;
     seller: ISeller;
-    // pendingTransaction?: IPendingTransaction;
 }
 export type IObject = IAcceptedOffer;
 

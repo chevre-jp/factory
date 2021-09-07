@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 予約承認アクションのpendingTransactionを最適化
+- 通貨承認アクションのpendingTransactionを最適化
+- 決済承認アクションのpendingTransactionを最適化
+
 ### Deprecated
 
 ### Removed
