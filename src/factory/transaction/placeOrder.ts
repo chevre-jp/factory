@@ -1,5 +1,6 @@
 import * as waiter from '@waiter/factory';
 
+import { AccountType } from '../accountType';
 import { IAction as IAuthorizeAction, IAttributes as IAuthorizeActionAttributes } from '../action/authorize';
 import { IObject as IConfirmReservationObject } from '../action/interact/confirm/reservation';
 import { IAttributes as IOrderActionAttributes } from '../action/trade/order';
@@ -22,6 +23,14 @@ export interface IPaymentMethodByPaymentUrl {
     typeOf: string;
     paymentMethodId: string;
     paymentUrl: string;
+}
+
+/**
+ * 注文特典口座インターフェース
+ */
+export interface IAwardAccount {
+    typeOf: AccountType.Account;
+    accountNumber: string;
 }
 
 export interface IObject {
