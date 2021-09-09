@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 予約承認アクションのpendingTransactionを最適化
 - 通貨承認アクションのpendingTransactionを最適化
 - 決済承認アクションのpendingTransactionを最適化
+- 入金注文アイテムをMoneyTransferに拡張
 
 ### Deprecated
 

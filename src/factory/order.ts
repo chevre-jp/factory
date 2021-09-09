@@ -1,4 +1,7 @@
 import { IParticipant } from './action';
+import { IPaymentCard } from './action/interact/confirm/moneyTransfer';
+import ActionType from './actionType';
+import AssetTransactionType from './assetTransactionType';
 import { ICreativeWork as IWebApplication } from './creativeWork/softwareApplication/webApplication';
 import { ICustomer as ICustomerOrganization } from './customer';
 import EventType from './eventType';
@@ -52,7 +55,7 @@ export interface IPaymentMethod {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: IMonetaryAmount;
+    totalPaymentDue?: MonetaryAmountFactory.IMonetaryAmount;
     /**
      * 追加特性
      */
@@ -86,13 +89,32 @@ export interface IDiscount {
 }
 
 export type IReservation = EventReservationFactory.IReservation;
-export import IMonetaryAmount = MonetaryAmountFactory.IMonetaryAmount;
+// export import IMonetaryAmount = MonetaryAmountFactory.IMonetaryAmount;
 export type IPermit = PermitFactory.IPermit;
+export interface IMoneyTransferPendingTransaction {
+    typeOf: AssetTransactionType.MoneyTransfer;
+    transactionNumber: string;
+}
+export interface IMoneyTransfer {
+    typeOf: ActionType.MoneyTransfer;
+    /**
+     * 金額
+     */
+    amount: MonetaryAmountFactory.IMonetaryAmount;
+    description?: string;
+    /**
+     * 転送先
+     */
+    toLocation: IPaymentCard;
+    object?: {
+        pendingTransaction?: IMoneyTransferPendingTransaction;
+    };
+}
 
 /**
  * 注文アイテムインターフェース
  */
-export type IItemOffered = IMonetaryAmount | IReservation | IPermit;
+export type IItemOffered = IMoneyTransfer | IReservation | IPermit;
 
 /**
  * オファーインターフェース

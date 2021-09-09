@@ -14,7 +14,7 @@ import AccountStatusType from './factory/accountStatusType';
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as PointAwardAuthorizeActionFactory from './factory/action/authorize/award/point';
-import * as AuthorizeMonetaryAmountOfferActionFactory from './factory/action/authorize/offer/monetaryAmount';
+import * as AuthorizeMoneyTransferOfferActionFactory from './factory/action/authorize/offer/moneyTransfer';
 import * as AuthorizeProductOfferActionFactory from './factory/action/authorize/offer/product';
 import * as AuthorizeSeatReservationOfferActionFactory from './factory/action/authorize/offer/seatReservation';
 import * as AuthorizeAnyPaymentActionFactory from './factory/action/authorize/paymentMethod/any';
@@ -222,7 +222,7 @@ export namespace action {
         // tslint:disable-next-line:no-shadowed-variable
         export namespace offer {
             // tslint:disable-next-line:no-shadowed-variable
-            export import monetaryAmount = AuthorizeMonetaryAmountOfferActionFactory;
+            export import moneyTransfer = AuthorizeMoneyTransferOfferActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
             export import product = AuthorizeProductOfferActionFactory;
             export import seatReservation = AuthorizeSeatReservationOfferActionFactory;
