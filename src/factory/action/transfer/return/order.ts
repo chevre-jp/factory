@@ -5,6 +5,7 @@ import { IAttributes as IRefundActionAttributes } from '../../transfer/return/pa
 import { IAttributes as ICancelActionAttributes } from '../../transfer/return/reservation';
 import * as ReturnActionFactory from '../return';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../send/message/email';
+import * as ReturnMoneyTransferActionFactory from './moneyTransfer';
 import * as ReturnPointAwardActionFactory from './pointAward';
 
 export type IAgent = ActionFactory.IParticipant;
@@ -30,6 +31,10 @@ export interface IPotentialActions {
      * 返金アクション
      */
     refund: IRefundActionAttributes[];
+    /**
+     * 入金返却アクション
+     */
+    returnMoneyTransfer: ReturnMoneyTransferActionFactory.IAttributes[];
     /**
      * ポイントインセンティブ返却アクション
      */

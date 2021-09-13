@@ -2,7 +2,7 @@ import * as ActionFactory from '../../../action';
 import * as CheckMovieTicketActionFactory from '../../../action/check/paymentMethod/movieTicket';
 import * as MoneyTransferActionFactory from '../../../action/transfer/moneyTransfer';
 import ActionType from '../../../actionType';
-import * as MoneyTransferTransactionFactory from '../../../assetTransaction/moneyTransfer';
+// import * as MoneyTransferTransactionFactory from '../../../assetTransaction/moneyTransfer';
 import * as PayTransactionFactory from '../../../assetTransaction/pay';
 import AssetTransactionType from '../../../assetTransactionType';
 import { IMonetaryAmount } from '../../../monetaryAmount';
@@ -35,7 +35,7 @@ export interface IObjectPendingTransaction {
     transactionNumber?: string;
 }
 
-export type IPendingTransaction = MoneyTransferTransactionFactory.ITransaction;
+// export type IPendingTransaction = MoneyTransferTransactionFactory.ITransaction;
 
 export type IPaymentCard = MoneyTransferActionFactory.IPaymentCard;
 
@@ -194,7 +194,7 @@ export interface IResult {
     /**
      * 進行中取引(Account決済)
      */
-    pendingTransaction?: IPendingTransaction;
+    // pendingTransaction?: IPendingTransaction;
 
     /**
      * 転送元(PaymentCard決済)

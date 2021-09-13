@@ -1,5 +1,6 @@
 import TransactionType from './account/transactionType';
 import AccountStatusType from './accountStatusType';
+import { AccountType } from './accountType';
 import { IProject } from './project';
 import SortType from './sortType';
 
@@ -74,7 +75,7 @@ export interface IAccount {
     /**
      * 口座種別
      */
-    typeOf: 'Account';
+    typeOf: AccountType.Account;
     /**
      * 通貨
      */

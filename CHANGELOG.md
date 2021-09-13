@@ -18,6 +18,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.167.0 - 2021-09-13
+
+### Added
+
+- 注文返品後アクションに入金返却アクションを追加
+
+### Changed
+
+- 予約承認アクションのpendingTransactionを最適化
+- 通貨承認アクションのpendingTransactionを最適化
+- 決済承認アクションのpendingTransactionを最適化
+- 入金注文アイテムをMoneyTransferに拡張
+- 口座タイプをaccountTypeに定義
+
 ## v4.166.0 - 2021-09-06
 
 ### Changed
