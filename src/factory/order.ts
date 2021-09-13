@@ -109,6 +109,7 @@ export interface IMoneyTransfer {
     object?: {
         pendingTransaction?: IMoneyTransferPendingTransaction;
     };
+    name?: string;
 }
 
 /**

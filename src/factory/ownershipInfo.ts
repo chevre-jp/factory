@@ -155,12 +155,15 @@ export interface ISearchConditions {
         };
     };
     ids?: string[];
+    identifiers?: string[];
     /**
      * 所有者
      */
     ownedBy?: {
         id?: string;
     };
+    ownedFromGte?: Date;
+    ownedFromLte?: Date;
     /**
      * 所有期間
      */

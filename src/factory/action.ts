@@ -151,6 +151,7 @@ export interface ISearchConditions {
             };
             paymentMethodId?: {
                 $eq?: string;
+                $in?: string[];
             };
             typeOf?: {
                 $eq?: string;
@@ -197,6 +198,9 @@ export interface ISearchConditions {
             $in?: string[];
         };
         orderNumber?: {
+            $in?: string[];
+        };
+        code?: {
             $in?: string[];
         };
     };

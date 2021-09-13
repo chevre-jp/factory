@@ -17,6 +17,7 @@ import ReservationStatusType from './reservationStatusType';
 import ReservationType from './reservationType';
 import { IServiceType } from './serviceType';
 import SortType from './sortType';
+import { IThing } from './thing';
 
 export type TicketType = 'Ticket';
 
@@ -55,7 +56,7 @@ export interface IUnderName {
     additionalName?: string;
     address?: string;
     age?: string;
-    description?: string;
+    description?: string | IMultilingualString;
     email?: string;
     familyName?: string;
     gender?: string;
@@ -187,7 +188,7 @@ export type IProgramMembershipUsed = IPermit;
  * For offers of tickets, restaurant reservations, flights, or rental cars, use Offer.
  * {@link https://schema.org/Reservation}
  */
-export interface IReservation<T extends IPriceSpecification> {
+export interface IReservation<T extends IPriceSpecification> extends IThing {
     project: IProject;
     /**
      * type of object

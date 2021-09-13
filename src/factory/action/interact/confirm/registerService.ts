@@ -5,11 +5,13 @@ import * as OrderFactory from '../../../order';
 export type IAcceptedOffer = OrderFactory.IAcceptedOffer<any>;
 export type IObject = any;
 export type IResult = any;
+export type IPurpose = OrderFactory.ISimpleOrder;
 
 export type IPotentialActions = any;
 
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.ConfirmAction, IObject, IResult> {
     potentialActions?: IPotentialActions;
+    purpose: IPurpose;
 }
 
 /**
