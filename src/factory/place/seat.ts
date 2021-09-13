@@ -53,6 +53,7 @@ export interface IPlaceWithOffer extends IPlace {
 }
 
 export interface ISearchConditions {
+    $projection?: { [key: string]: number };
     limit?: number;
     page?: number;
     sort?: any;

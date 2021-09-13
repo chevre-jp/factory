@@ -2,6 +2,7 @@ import IMultilingualString from './multilingualString';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { IProject } from './project';
+import SortType from './sortType';
 
 /**
  * 連絡窓口
@@ -35,11 +36,19 @@ export interface ICustomer extends IOrganization {
 }
 
 /**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    startDate?: SortType;
+}
+
+/**
  * 顧客検索条件
  */
 export interface ISearchConditions {
     limit?: number;
     page?: number;
+    sort?: ISortOrder;
     branchCode?: { $regex?: string };
     name?: { $regex?: string };
     project?: { id?: { $eq?: string } };

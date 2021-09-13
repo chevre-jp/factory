@@ -599,6 +599,7 @@ export namespace task {
     export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
+    export import confirmCancelReserve = ConfirmCancelReserveTaskFactory;
     export import importEventCapacitiesFromCOA = ImportEventCapacitiesFromCOATaskFactory;
     export import importEventsFromCOA = ImportEventsFromCOATaskFactory;
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
