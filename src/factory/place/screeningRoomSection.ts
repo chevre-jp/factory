@@ -15,6 +15,10 @@ export interface IPlace extends PlaceFactory.IPlace {
      * 枝番号
      */
     branchCode: string;
+    /**
+     * 座席数
+     */
+    seatCount?: number;
 }
 
 export interface IPlaceWithOffer extends IPlace {

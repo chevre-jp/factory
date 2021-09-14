@@ -1,5 +1,6 @@
 import * as CreativeWorkFactory from '../../creativeWork';
 import CreativeWorkType from '../../creativeWorkType';
+import { IProject } from '../../project';
 import { IThing } from '../../thing';
 
 export interface IParticipant {
@@ -22,6 +23,7 @@ export interface IAbout extends IThing {
 }
 
 export interface IAttributes {
+    project?: IProject;
     typeOf: CreativeWorkType.EmailMessage;
     sender: IParticipant;
     toRecipient: IParticipant;
