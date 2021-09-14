@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- セクションに座席数を追加
-- Eメールメッセージにプロジェクトを追加
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.169.0 - 2021-09-14
+
+### Changed
+
+- セクションに座席数を追加
+- Eメールメッセージにプロジェクトを追加
 
 ## v4.168.0 - 2021-09-13
 
