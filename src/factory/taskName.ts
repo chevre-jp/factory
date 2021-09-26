@@ -7,6 +7,7 @@ enum TaskName {
     CancelPendingReservation = 'cancelPendingReservation',
     AggregateOnProject = 'aggregateOnProject',
     AggregateScreeningEvent = 'aggregateScreeningEvent',
+    AggregateUseActionsOnEvent = 'aggregateUseActionsOnEvent',
     ImportEventCapacitiesFromCOA = 'importEventCapacitiesFromCOA',
     ImportEventsFromCOA = 'importEventsFromCOA',
     ImportOffersFromCOA = 'importOffersFromCOA',
@@ -24,10 +25,6 @@ enum TaskName {
      */
     TriggerWebhook = 'triggerWebhook',
     VoidPayment = 'voidPayment',
-    /**
-     * イベント予約集計
-     */
-    AggregateEventReservations = 'aggregateEventReservations',
     /**
      * 予約取消
      */

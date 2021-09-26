@@ -129,9 +129,9 @@ import { UnitCode } from './factory/unitCode';
 
 import * as TaskFactory from './factory/task';
 import * as AccountMoneyTransferTaskFactory from './factory/task/accountMoneyTransfer';
-import * as AggregateEventReservationsTaskFactory from './factory/task/aggregateEventReservations';
 import * as AggregateOnProjectTaskFactory from './factory/task/aggregateOnProject';
 import * as AggregateScreeningEventTaskFactory from './factory/task/aggregateScreeningEvent';
+import * as AggregateUseActionsOnEventTaskFactory from './factory/task/aggregateUseActionsOnEvent';
 import * as CancelAccountMoneyTransferTaskFactory from './factory/task/cancelAccountMoneyTransfer';
 import * as CancelMoneyTransferTaskFactory from './factory/task/cancelMoneyTransfer';
 import * as CancelPendingReservationTaskFactory from './factory/task/cancelPendingReservation';
@@ -516,7 +516,6 @@ export namespace task {
     // export import ITask = TaskFactory.ITask;
 
     export type IData<T extends TaskName | string> =
-        T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IData :
         T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.IData :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IData :
@@ -541,7 +540,6 @@ export namespace task {
         TaskFactory.IData;
 
     export type IAttributes<T extends TaskName | string> =
-        T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IAttributes :
         T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.IAttributes :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IAttributes :
@@ -566,7 +564,6 @@ export namespace task {
         TaskFactory.IAttributes;
 
     export type ITask<T extends TaskName | string> =
-        T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.ITask :
         T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.ITask :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.ITask :
@@ -596,6 +593,7 @@ export namespace task {
 
     export import aggregateOnProject = AggregateOnProjectTaskFactory;
     export import aggregateScreeningEvent = AggregateScreeningEventTaskFactory;
+    export import aggregateUseActionsOnEvent = AggregateUseActionsOnEventTaskFactory;
     export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;

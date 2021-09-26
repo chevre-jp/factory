@@ -1,7 +1,7 @@
 import { IReservation } from '../../../reservation/event';
 import * as UseActionFactory from '../use';
 
-export type IObject = IReservation;
+export type IObject = IReservation[];
 export type IResult = any;
 
 export type IPotentialActions = any;

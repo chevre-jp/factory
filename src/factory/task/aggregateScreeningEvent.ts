@@ -12,6 +12,6 @@ export interface IAttributes extends TaskFactory.IAttributes {
     data: IData;
 }
 /**
- * 上映イベント集計タスクインターフェース
+ * イベント予約集計タスクインターフェース
  */
 export type ITask = IExtendId<IAttributes>;
