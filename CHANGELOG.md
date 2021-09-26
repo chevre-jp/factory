@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.170.0 - 2021-09-26
+
+### Added
+
+- イベント入場集計タスクを追加
+
 ## v4.169.0 - 2021-09-14
 
 ### Changed
