@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 経理レポート検索条件拡張
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.171.0 - 2021-10-06
+
+### Changed
+
+- 経理レポート検索条件拡張
 
 ## v4.170.0 - 2021-09-26
 
