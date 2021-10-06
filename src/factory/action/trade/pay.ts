@@ -90,6 +90,10 @@ export interface IPotentialActions {
     informPayment?: IInformPayment[];
 }
 
+export interface IInstrument {
+    seatInfoSyncIn?: any;
+}
+
 /**
  * 決済結果
  */
@@ -103,6 +107,7 @@ export interface IResult {
 }
 
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.PayAction, IObject, IResult> {
+    instrument?: IInstrument;
     potentialActions?: IPotentialActions;
     purpose: IPurpose;
     recipient?: IRecipient;
