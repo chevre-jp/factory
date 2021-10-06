@@ -35,5 +35,6 @@ export interface ISearchConditions {
         paymentMethods?: {
             paymentMethodId?: { $eq?: string };
         };
+        seller?: { id?: { $eq?: string } };
     };
 }
