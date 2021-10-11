@@ -2,6 +2,9 @@ import { IThing } from './thing';
 import { UnitCode } from './unitCode';
 
 export type QuantitativeValueType = 'QuantitativeValue';
+export enum StringValue {
+    Infinity = 'Infinity'
+}
 
 /**
  * A point value or interval for product characteristics and other purposes.
@@ -29,5 +32,5 @@ export interface IQuantitativeValue<T extends UnitCode> extends IThing {
     /**
      * The value of the quantitative value or property value node.
      */
-    value?: number;
+    value?: number | StringValue;
 }
