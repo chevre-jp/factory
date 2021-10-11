@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.173.0 - 2021-10-11
+
+### Changed
+
+- IQuantitativeValueをInfinityに対応
+
 ## v4.172.0 - 2021-10-06
 
 ### Changed
