@@ -3,6 +3,7 @@ import ActionType from '../actionType';
 import AssetTransactionType from '../assetTransactionType';
 import { IReservation as IEventReservation } from '../reservation/event';
 import { IAttributes as IInformActionAttributes } from './interact/inform';
+import { IAttributes as IMoneyTransferActionAttributes } from './transfer/moneyTransfer';
 
 /**
  * 予約対象インターフェース
@@ -31,6 +32,7 @@ export interface IPurpose {
 export type IInformReservation = IInformActionAttributes<IObject, any>;
 
 export interface IPotentialActions {
+    moneyTransfer?: IMoneyTransferActionAttributes[];
     /**
      * 予約通知アクション
      */

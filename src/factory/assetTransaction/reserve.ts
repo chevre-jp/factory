@@ -106,7 +106,7 @@ export interface IObject extends IReservationPackage {
     // clientUser?: IClientUser;
     event?: IReservationFor;
     reservationFor?: IReservationFor;
-    reservations?: ISubReservation[];
+    // reservations?: ISubReservation[];
     subReservation?: ISubReservation[];
     onReservationStatusChanged?: IOnReservationStatusChanged;
 }
