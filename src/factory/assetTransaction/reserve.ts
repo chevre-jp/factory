@@ -90,8 +90,6 @@ export type IError = any;
 export interface IObjectWithoutDetail {
     acceptedOffer?: IAcceptedTicketOfferWithoutDetail[];
     broker?: ReservationFactory.IBroker;
-    // clientUser?: IClientUser;
-    // event?: { id: string };
     reservationFor?: { id: string };
     onReservationStatusChanged?: IOnReservationStatusChanged;
 }
@@ -104,7 +102,8 @@ export type ISubReservation = IEventReservation;
  */
 export interface IObject extends IReservationPackage {
     // clientUser?: IClientUser;
-    event?: IReservationFor;
+    // reservationForに対して冗長なので削除
+    // event?: IReservationFor;
     reservationFor?: IReservationFor;
     // reservations?: ISubReservation[];
     subReservation?: ISubReservation[];
