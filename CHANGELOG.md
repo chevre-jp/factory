@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 予約取引のobject.reservationsをobject.subReservationsへ統合
 - 予約取引のobject.eventをobject.reservationForへ統合
+- 予約のreservationForを最適化
 
 
 ### Deprecated
