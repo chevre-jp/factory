@@ -18,6 +18,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.174.0 - 2021-10-19
+
+### Changed
+
+- 予約取引のobject.reservationsをobject.subReservationへ統合
+- 予約取引のobject.eventをobject.reservationForへ統合
+- 予約のreservationForを最適化
+- 予約取引のobject.subReservationからreservationForを削除
+
 ## v4.173.0 - 2021-10-11
 
 ### Changed

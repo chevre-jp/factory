@@ -319,6 +319,34 @@ export type ICOAOffer = COA.factory.reserve.IUpdReserveTicket & {
     usePoint: number;
 };
 
+export type IWorkPerformed = ScreeningEventSeriesFactory.IWorkPerformed;
+export interface ILocation {
+    project: IProject;
+    /**
+     * 場所タイプ
+     */
+    typeOf: PlaceType.ScreeningRoom;
+    /**
+     * 場所枝番号
+     * スクリーンコードに相当
+     */
+    branchCode: string;
+    /**
+     * 場所名称
+     */
+    name?: IMultilingualString;
+    alternateName?: IMultilingualString;
+    description?: IMultilingualString;
+    address?: IMultilingualString;
+    /**
+     * イベント固有のキャパシティ
+     * 施設のキャパシティに依存しない場合に使用
+     */
+    maximumAttendeeCapacity?: number;
+}
+export type ISuperEvent = ScreeningEventSeriesFactory.IEvent;
+export type IName = IMultilingualString;
+
 /**
  * 上映イベント属性インターフェース
  */
@@ -326,38 +354,15 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     /**
      * コンテンツ
      */
-    workPerformed?: ScreeningEventSeriesFactory.IWorkPerformed;
+    workPerformed?: IWorkPerformed;
     /**
      * 上映場所
      */
-    location: {
-        project: IProject;
-        /**
-         * 場所タイプ
-         */
-        typeOf: PlaceType.ScreeningRoom;
-        /**
-         * 場所枝番号
-         * スクリーンコードに相当
-         */
-        branchCode: string;
-        /**
-         * 場所名称
-         */
-        name?: IMultilingualString;
-        alternateName?: IMultilingualString;
-        description?: IMultilingualString;
-        address?: IMultilingualString;
-        /**
-         * イベント固有のキャパシティ
-         * 施設のキャパシティに依存しない場合に使用
-         */
-        maximumAttendeeCapacity?: number;
-    };
+    location: ILocation;
     /**
      * イベント名称
      */
-    name: IMultilingualString;
+    name: IName;
     /**
      * 開場日時
      * ISO 8601 date format
@@ -377,7 +382,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      * 親イベント
      * 施設コンテンツに相当
      */
-    superEvent: ScreeningEventSeriesFactory.IEvent;
+    superEvent: ISuperEvent;
     /**
      * 販売情報
      */
