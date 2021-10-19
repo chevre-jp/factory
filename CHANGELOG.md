@@ -10,9 +10,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 予約取引のobject.reservationsをobject.subReservationsへ統合
+- 予約取引のobject.reservationsをobject.subReservationへ統合
 - 予約取引のobject.eventをobject.reservationForへ統合
 - 予約のreservationForを最適化
+- 予約取引のobject.subReservationからreservationForを削除
 
 
 ### Deprecated

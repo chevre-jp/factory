@@ -100,10 +100,14 @@ export interface IObjectWithoutDetail {
 // IReservationForを最適化
 // export type IReservationFor = IScreeningEvent;
 export type IReservationFor = IEventReservationReservationFor;
-export interface ISubReservation extends IEventReservation {
+export interface IEventReservationWithAnyReservationFor extends IEventReservation {
+    reservationFor: any;
+}
+export interface ISubReservation extends IEventReservationWithAnyReservationFor {
     // tslint:disable-next-line:no-suspicious-comment
     // TODO 取引のsubReservationからはreservationForを削除する
-    reservationFor: IReservationFor;
+    // reservationFor: IReservationFor;
+    reservationFor: undefined;
 }
 
 /**
