@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- イベント予約のsubReservationを定義
-- オファーのvalidRateLimitを定義
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.175.0 - 2021-10-20
+
+### Changed
+
+- イベント予約のsubReservationを定義
+- オファーのvalidRateLimitを定義
 
 ## v4.174.0 - 2021-10-19
 
