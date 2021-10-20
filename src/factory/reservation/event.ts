@@ -47,15 +47,22 @@ export type IPriceComponentSpecification = ICategoryCodeChargeSpecification
 
 export type IPriceSpecification = ICompoundPriceSpecification<IPriceComponentSpecification>;
 
+export interface ISubReservation {
+    reservedTicket: {
+        typeOf: ReservationFactory.TicketType;
+        ticketedSeat: ReservationFactory.ISeat;
+    };
+}
+
 /**
  * イベント予約インターフェース
- * どんなタイプのイベントに対する予約か
  */
 export interface IReservation extends ReservationFactory.IReservation<IPriceSpecification> {
     id: string;
     reservationFor: IReservationFor;
     reservationNumber: string;
     reservedTicket: ReservationFactory.ITicket<IPriceSpecification>;
+    subReservation?: ISubReservation[];
     typeOf: ReservationType.EventReservation;
 }
 

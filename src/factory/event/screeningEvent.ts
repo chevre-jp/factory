@@ -16,6 +16,7 @@ import { IProject } from '../project';
 import { IPropertyValue } from '../propertyValue';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
+import { ISubReservation } from '../reservation/event';
 import ReservationType from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
 import { IServiceType } from '../serviceType';
@@ -166,15 +167,7 @@ export interface IAcceptedAddOn {
     id?: string;
 }
 
-export interface IAcceptedSubReservation {
-    reservedTicket?: {
-        typeOf: ReservationFactory.TicketType;
-        /**
-         * 予約座席指定
-         */
-        ticketedSeat?: ReservationFactory.ISeat;
-    };
-}
+export type IAcceptedSubReservation = ISubReservation;
 
 export interface IAcceptedProgramMembershipUsedAsObject {
     accessCode?: string;

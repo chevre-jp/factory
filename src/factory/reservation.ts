@@ -40,7 +40,7 @@ export interface ITicketType {
     priceSpecification?: IUnitPriceSpecification;
     project: IProject;
     typeOf: OfferType;
-    validRateLimit?: any;
+    validRateLimit?: OfferFactory.IValidRateLimit;
 }
 
 export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;
