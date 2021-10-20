@@ -62,6 +62,15 @@ export interface ISeller extends IThing {
 export type IOfferedThrough = WebAPIFactory.IService<WebAPIFactory.Identifier>;
 
 /**
+ * レート制限インターフェース
+ * どのスコープで何秒に1席までか
+ */
+export interface IValidRateLimit {
+    scope: string;
+    unitInSeconds: number;
+}
+
+/**
  * offer interface
  * An offer to transfer some rights to an item or to provide a service
  * — for example, an offer to sell tickets to an event, to rent the DVD of a movie,
@@ -176,7 +185,7 @@ export interface IOffer extends IThing {
     /**
      * レート制限
      */
-    validRateLimit?: any;
+    validRateLimit?: IValidRateLimit;
     /**
      * A property-value pair representing an additional characteristics of the entitity,
      * e.g. a product feature or another characteristic for which there is no matching property in schema.org.
