@@ -62,13 +62,14 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
     acceptedOffers?: IResultAcceptedOffer[];
 }
 
-export type IAcceptedOffer4chevre = ScreeningEventFactory.IAcceptedTicketOffer;
+export type IAcceptedOffer4chevre = ReserveTransactionFactory.IAcceptedTicketOffer;
 
-export type IAcceptedOfferWithoutDetail4chevre = ScreeningEventFactory.IAcceptedTicketOfferWithoutDetail;
+export type IAcceptedOfferWithoutDetail4chevre = ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail;
 
 export type IObjectWithoutDetail4chevre = ReserveTransactionFactory.IObjectWithoutDetail;
 
-export type IAcceptedOffer4COA = ScreeningEventFactory.IAcceptedTicketOfferWithoutDetail & OfferFactory.seatReservation.IOfferWithDetails;
+export type IAcceptedOffer4COA
+    = ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail & OfferFactory.seatReservation.IOfferWithDetails;
 
 export type IAcceptedOfferWithoutDetail4COA = OfferFactory.seatReservation.IOffer;
 

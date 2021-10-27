@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 予約取引にポイント特典情報を保管
+
 ### Deprecated
 
 ### Removed
