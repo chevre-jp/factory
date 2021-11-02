@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - 予約取引にポイント特典情報を保管
+- 予約取引開始パラメータを最適化
+- サービス登録取引開始パラメータを最適化
 
 ### Deprecated
 

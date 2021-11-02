@@ -48,11 +48,24 @@ export type IAcceptedProgramMembershipUsed = IAcceptedProgramMembershipUsedAsObj
 
 export type IAcceptedSubReservation = ISubReservation4eventReservation;
 
+export interface IAcceptedPointAward {
+    recipient?: any;
+    /**
+     * 特典付与先
+     */
+    toLocation?: {
+        /**
+         * カード番号
+         */
+        identifier?: string;
+    };
+}
+
 /**
  * 受け入れられたオファーのアイテムインターフェース
  */
 export interface IAcceptedTicketOfferItemOffered {
-    pointAward?: IPointAward;
+    pointAward?: IAcceptedPointAward;
     serviceOutput?: {
         typeOf: ReservationType.EventReservation;
         /**

@@ -51,11 +51,11 @@ export interface IPointAward {
      */
     toLocation?: {
         /**
-         * 口座種別
+         * Permit
          */
         typeOf?: string;
         /**
-         * 口座番号
+         * カード番号
          */
         identifier?: string;
     };
