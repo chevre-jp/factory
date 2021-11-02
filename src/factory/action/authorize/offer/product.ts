@@ -1,5 +1,6 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
+import * as RegisterServiceTransactionFactory from '../../../assetTransaction/registerService';
 import { IOffer } from '../../../offer';
 import * as OrderFactory from '../../../order';
 import PriceCurrency from '../../../priceCurrency';
@@ -11,6 +12,7 @@ import * as AuthorizeActionFactory from '../../authorize';
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 export type IService = IProduct;
+export type IAcceptedOfferWithoutDetail = RegisterServiceTransactionFactory.IAcceptedOfferWithoutDetail;
 export interface IAcceptedOffer extends IOffer {
     /**
      * オファー対象アイテム
@@ -21,7 +23,7 @@ export interface IAcceptedOffer extends IOffer {
      */
     seller: ISeller;
 }
-// export type IObject = OrderFactory.IAcceptedOffer<IService>[];
+export type IObjectWithoutDetail = IAcceptedOfferWithoutDetail[];
 export type IObject = IAcceptedOffer[];
 
 export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IPermit>[];

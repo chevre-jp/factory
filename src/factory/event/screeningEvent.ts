@@ -6,17 +6,14 @@ import EventType from '../eventType';
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
 import OfferType from '../offerType';
-import { IMovieTicket } from '../paymentMethod/paymentCard/movieTicket';
 import { PlaceType } from '../placeType';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
 import { IProject } from '../project';
-import { IPropertyValue } from '../propertyValue';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
-import { ISubReservation } from '../reservation/event';
 import ReservationType from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
 import { IServiceType } from '../serviceType';
@@ -81,7 +78,7 @@ export interface IAggregateEntranceGate {
 }
 
 export interface IServiceOutput {
-    typeOf: ReservationType;
+    typeOf: ReservationType.EventReservation;
     reservedTicket?: {
         typeOf: ReservationFactory.TicketType;
         /**
@@ -159,88 +156,6 @@ export interface ITicketOffer extends OfferFactory.IOffer {
     priceSpecification: ITicketPriceSpecification;
     itemOffered?: OfferFactory.IItemOffered;
 }
-
-export interface IAcceptedAddOn {
-    /**
-     * アドオンID
-     */
-    id?: string;
-}
-
-export type IAcceptedSubReservation = ISubReservation;
-
-export interface IAcceptedProgramMembershipUsedAsObject {
-    accessCode?: string;
-    identifier?: string;
-}
-/**
- * トークン化された適用メンバーシップ
- */
-export type ITokenizedAcceptedProgramMembershipUsed = string;
-/**
- * 適用メンバーシップ
- */
-export type IAcceptedProgramMembershipUsed = IAcceptedProgramMembershipUsedAsObject | ITokenizedAcceptedProgramMembershipUsed;
-
-/**
- * 受け入れられたオファーのアイテムインターフェース
- */
-export interface IAcceptedTicketOfferItemOffered {
-    serviceOutput?: {
-        typeOf: ReservationType;
-        /**
-         * 追加特性
-         */
-        additionalProperty?: IPropertyValue<string>[];
-        /**
-         * 予約追加テキスト
-         */
-        additionalTicketText?: string;
-        // 適用メンバーシップ
-        programMembershipUsed?: IAcceptedProgramMembershipUsed;
-        reservedTicket?: {
-            issuedBy?: ReservationFactory.IUnderName;
-            typeOf: ReservationFactory.TicketType;
-            /**
-             * 予約座席指定
-             * 指定席イベントの場合、座席を指定
-             * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
-             */
-            ticketedSeat?: ReservationFactory.ISeat;
-        };
-        subReservation?: IAcceptedSubReservation[];
-    };
-}
-
-export type IAcceptedPaymentMethod = IMovieTicket;
-
-/**
- * 受け入れられたチケットオファー(詳細なし)
- */
-export interface IAcceptedTicketOfferWithoutDetail {
-    /**
-     * オファーID
-     */
-    id: string;
-    /**
-     * アイテム情報
-     * 予約の詳細指定など
-     */
-    itemOffered?: IAcceptedTicketOfferItemOffered;
-    /**
-     * 受け入れるアドオン
-     */
-    addOn?: IAcceptedAddOn[];
-    paymentMethod?: IAcceptedPaymentMethod;
-    additionalProperty?: IPropertyValue<string>[];
-}
-
-/**
- * 受け入れられたチケットオファー
- */
-export type IAcceptedTicketOffer = IAcceptedTicketOfferWithoutDetail & ITicketOffer & {
-    itemOffered?: IAcceptedTicketOfferItemOffered;
-};
 
 export interface ICOAInfo {
     theaterCode: string;

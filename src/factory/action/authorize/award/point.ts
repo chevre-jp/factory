@@ -20,7 +20,7 @@ export interface IObject {
      */
     amount: number;
     /**
-     * 入金先口座番号
+     * 入金先カード番号
      */
     toAccountNumber: string;
     /**
