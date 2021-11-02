@@ -10,10 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 予約取引にポイント特典情報を保管
-- 予約取引開始パラメータを最適化
-- サービス登録取引開始パラメータを最適化
-
 ### Deprecated
 
 ### Removed
@@ -21,6 +17,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.176.0 - 2021-11-02
+
+### Changed
+
+- 予約取引にポイント特典情報を保管
+- 予約取引開始パラメータを最適化
+- サービス登録取引開始パラメータを最適化
 
 ## v4.175.0 - 2021-10-20
 
