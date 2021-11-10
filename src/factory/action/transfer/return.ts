@@ -11,6 +11,6 @@ export interface IAttributes<TObject, TResult> extends ActionFactory.IAttributes
     recipient: ActionFactory.IParticipant;
 }
 /**
- * 返却アクションインたーフェース
+ * 返却アクションインターフェース
  */
 export type IAction<TAttributes extends IAttributes<IObject, IResult>> = ActionFactory.IAction<TAttributes>;

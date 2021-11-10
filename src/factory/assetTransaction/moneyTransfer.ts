@@ -66,4 +66,11 @@ export interface IAttributes extends TransactionFactory.IAttributes<IStartParams
 }
 
 export interface ISearchConditions extends TransactionFactory.ISearchConditions<AssetTransactionType.MoneyTransfer> {
+    object?: {
+        pendingTransaction?: {
+            identifier?: {
+                $eq?: string;
+            };
+        };
+    };
 }

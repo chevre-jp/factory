@@ -4,6 +4,7 @@ import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import * as CancelReservationAssetTransactionFactory from '../../../assetTransaction/cancelReservation';
 import AssetTransactionType from '../../../assetTransactionType';
+import { ISimpleOrder } from '../../../order';
 import { Identifier as WebAPIIdentifier } from '../../../service/webAPI';
 
 export type IAgent = ActionFactory.IParticipant;
@@ -16,7 +17,8 @@ export interface IObject4Chevre {
 export type IObject<T extends WebAPIIdentifier> =
     T extends WebAPIIdentifier.COA ? IObject4COA :
     IObject4Chevre;
-export type IPurpose = any;
+// export type IPurpose = any;
+export type IPurpose = ISimpleOrder;
 export type IResult = any;
 // export type IPotentialActions = any;
 export type IPotentialActions = CancelReservationAssetTransactionFactory.IPotentialActionsParams;
