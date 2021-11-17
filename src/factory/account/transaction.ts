@@ -7,19 +7,6 @@ import TransactionType from './transactionType';
 
 export import IAgent = MoneyTransferActionFactory.IAgent;
 export import IRecipient = MoneyTransferActionFactory.IRecipient;
-// export interface IRecipient {
-//     typeOf: string;
-//     id?: string;
-//     name: string;
-//     url?: string;
-// }
-
-// export interface IAgent {
-//     typeOf: string;
-//     id?: string;
-//     name: string;
-//     url?: string;
-// }
 
 export interface ISimpleAccount {
     accountNumber: string;

@@ -9,12 +9,15 @@ export import ObjectType = AuthorizePointAwardActionObjectType;
  */
 export interface IObject {
     typeOf: ObjectType;
+    /**
+     * 入金識別子
+     */
+    identifier?: string;
     amount: number;
     toLocation: {
-        // ↓おそらく不要なので削除
-        // typeOf: string;
-        // ↓おそらく不要なので削除
-        // accountType: string;
+        /**
+         * 入金先カード番号
+         */
         accountNumber: string;
     };
     description: string;

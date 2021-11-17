@@ -29,6 +29,10 @@ export interface IObjectWithoutDetail {
     fromLocation: TransactionFactory.ISimpleAccount;
     toLocation?: IAnonymousLocation;
     description?: string;
+    /**
+     * 利用可能金額確認をしない場合、force: true
+     */
+    force?: boolean;
 }
 
 /**
