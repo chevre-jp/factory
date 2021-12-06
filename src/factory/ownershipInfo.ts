@@ -129,14 +129,6 @@ export interface ITypeOfGoodSearchConditions {
             $eq?: string;
         };
     };
-    // accountNumber?: {
-    //     $eq?: string;
-    //     $in?: string[];
-    // };
-    /**
-     * 通貨
-     */
-    // accountType?: string;
 }
 
 /**
@@ -160,7 +152,15 @@ export interface ISearchConditions {
      * 所有者
      */
     ownedBy?: {
-        id?: string;
+        id?: string | {
+            $in?: string[];
+        };
+        memberOf?: {
+            membershipNumber?: {
+                $in?: string[];
+            };
+        };
+        typeOf?: { $eq?: string };
     };
     ownedFromGte?: Date;
     ownedFromLte?: Date;
