@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- イベントのカタログ情報にカタログコードを追加
+
 ### Deprecated
 
 ### Removed
