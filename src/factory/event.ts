@@ -11,6 +11,7 @@ import SortType from './sortType';
 export interface IHasOfferCatalog {
     typeOf: 'OfferCatalog';
     id?: string;
+    identifier?: string;
 }
 
 export interface IAttributes<T extends EventType> {

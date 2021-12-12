@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.179.0 - 2021-12-12
+
+### Changed
+
+- イベントのカタログ情報にカタログコードを追加
+
 ## v4.178.0 - 2021-12-06
 
 ### Changed
