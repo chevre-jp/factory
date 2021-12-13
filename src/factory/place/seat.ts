@@ -60,10 +60,14 @@ export interface ISearchConditions {
     project?: { id?: { $eq?: string } };
     branchCode?: {
         $eq?: string;
+        $in?: string[];
         $regex?: string;
     };
     containedInPlace?: {
-        branchCode?: { $eq?: string };
+        branchCode?: {
+            $eq?: string;
+            $in?: string[];
+        };
         containedInPlace: {
             branchCode?: { $eq?: string };
             containedInPlace: {
