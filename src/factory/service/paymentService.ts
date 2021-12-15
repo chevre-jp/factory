@@ -1,4 +1,5 @@
 import { IOrganization } from '../organization';
+import { IAvailableChannel } from '../product';
 import { IProject } from '../project';
 import { IServiceType } from '../serviceType';
 import { IThing } from '../thing';
@@ -9,23 +10,6 @@ import { IThing } from '../thing';
 //      */
 //     typeOf: string;
 // }
-
-/**
- * 外部サービス認証情報
- */
-export interface ICredentials {
-    siteId?: string;
-    sitePass?: string;
-    authorizeServerDomain?: string;
-    clientId?: string;
-    clientSecret?: string;
-}
-
-export interface IAvailableChannel {
-    typeOf: 'ServiceChannel';
-    serviceUrl?: string;
-    credentials?: ICredentials;
-}
 
 export enum PaymentServiceType {
     CreditCard = 'CreditCard',

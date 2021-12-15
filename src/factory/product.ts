@@ -65,6 +65,23 @@ export interface IPointAward {
 }
 
 /**
+ * 外部サービス認証情報
+ */
+export interface ICredentials {
+    siteId?: string;
+    sitePass?: string;
+    authorizeServerDomain?: string;
+    clientId?: string;
+    clientSecret?: string;
+}
+
+export interface IAvailableChannel {
+    typeOf: 'ServiceChannel';
+    serviceUrl?: string;
+    credentials?: ICredentials;
+}
+
+/**
  * プロダクトインターフェース
  * {@link https://schema.org/Product}
  */
@@ -72,6 +89,7 @@ export interface IProduct extends IThing {
     project: IProject;
     typeOf: ProductType;
     id?: string;
+    availableChannel?: IAvailableChannel;
     /**
      * Indicates an OfferCatalog listing for this Organization, Person, or Service.
      */

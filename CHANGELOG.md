@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 決済取引のIPendingTransactionに出金元の口座番号情報を追加
+- プロダクトにavailableChannelを追加
+
 ### Deprecated
 
 ### Removed
