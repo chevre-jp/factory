@@ -77,10 +77,14 @@ export interface IAcceptedOfferWithoutDetail {
     itemOffered: IAcceptedItemOffered;
 }
 
+export interface IItemOffered extends IProduct {
+    serviceOutput: IServiceOutput;
+}
+
 export interface IAcceptedOffer {
     typeOf: OfferType.Offer;
     id: string;
-    itemOffered: IProduct;
+    itemOffered: IItemOffered;
 }
 
 export type IObjectWithoutDetail = IAcceptedOfferWithoutDetail[];

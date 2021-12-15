@@ -17,6 +17,7 @@ export enum PermitType {
 export interface IPermit extends IThing {
     project: IProject;
     typeOf: PermitType;
+    identifier?: string;
     accessCode?: string;
     additionalProperty?: IPropertyValue<string>[];
     amount?: IMonetaryAmount;
