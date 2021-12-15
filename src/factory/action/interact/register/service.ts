@@ -1,7 +1,8 @@
+import { IPermit } from '../../../permit';
 import { IAttributes as IMoneyTransferActionAttributes } from '../../transfer/moneyTransfer';
 import * as RegisterActionFactory from '../register';
 
-export type IObject = any;
+export type IObject = IPermit;
 export type IResult = any;
 
 export interface IPotentialActions {

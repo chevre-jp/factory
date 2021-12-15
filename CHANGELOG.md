@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 決済取引のIPendingTransactionに出金元の口座番号情報を追加
 - プロダクトにavailableChannelを追加
+- サービス登録アクションのIObjectを定義
 
 ### Deprecated
 
