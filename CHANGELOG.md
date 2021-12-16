@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 予約取引の適用メンバーシップ指定に発行サービスIDを必須化
 - 予約取引のポイント特典入金先指定に発行サービスIDを必須化
 - サービス登録取引のポイント特典入金先指定に発行サービスIDを必須化
+- 通貨転送アクションのペイメントカードインターフェースに発行サービスIDを必須化
 
 ### Deprecated
 

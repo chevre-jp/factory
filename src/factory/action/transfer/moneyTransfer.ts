@@ -24,13 +24,19 @@ export type IRecipient = ActionFactory.IParticipant;
 export import IAnonymousLocation = AccountFactory.action.moneyTransfer.IAnonymousLocation;
 
 /**
- * 決済カードインターフェース
+ * ペイメントカードインターフェース
  */
 export interface IPaymentCard {
     typeOf: PermitType;
     identifier: string;
     accessCode?: string;
     hasNoPermit?: boolean;
+    issuedThrough: {
+        /**
+         * カード発行サービスID
+         */
+        id: string;
+    };
 }
 
 /**

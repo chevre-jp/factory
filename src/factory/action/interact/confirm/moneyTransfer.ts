@@ -58,6 +58,12 @@ export interface IPaymentCard {
     identifier: string;
     accessCode?: string;
     hasNoPermit?: boolean;
+    issuedThrough: {
+        /**
+         * カード発行サービスID
+         */
+        id: string;
+    };
 }
 
 /**
