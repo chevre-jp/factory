@@ -61,7 +61,13 @@ export interface IAcceptedPointAward {
         /**
          * カード番号
          */
-        identifier?: string;
+        identifier: string;
+        issuedThrough: {
+            /**
+             * カード発行サービスID
+             */
+            id: string;
+        };
     };
 }
 
