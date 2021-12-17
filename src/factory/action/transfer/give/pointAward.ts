@@ -14,11 +14,21 @@ export interface IObject {
      */
     identifier?: string;
     amount: number;
+    /**
+     * 入金先カード
+     */
     toLocation: {
         /**
          * 入金先カード番号
+         * 口座番号ではないので注意
          */
         accountNumber: string;
+        issuedThrough: {
+            /**
+             * カード発行サービスID
+             */
+            id: string;
+        };
     };
     description: string;
 }
