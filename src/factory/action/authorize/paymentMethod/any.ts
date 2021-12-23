@@ -181,6 +181,10 @@ export interface IResult {
     typeOf: ResultType;
     issuedThrough: {
         typeOf: PaymentServiceType;
+        /**
+         * 発行決済サービスID
+         */
+        id: string;
     };
 
     /**

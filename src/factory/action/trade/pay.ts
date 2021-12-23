@@ -80,6 +80,10 @@ export interface IPaymentMethod {
 export interface IPaymentService {
     typeOf: PaymentServiceType;
     /**
+     * 発行決済サービスID
+     */
+    id: string;
+    /**
      * 決済方法
      */
     paymentMethod: IPaymentMethod;

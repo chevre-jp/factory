@@ -54,7 +54,7 @@ export interface IProvider extends IOrganization {
 }
 
 /**
- * ペイメントサービスインターフェース
+ * 決済サービスインターフェース
  * {@link https://schema.org/Service}
  */
 export interface IService extends IThing {
@@ -64,12 +64,13 @@ export interface IService extends IThing {
     availableChannel?: IAvailableChannel;
     productID?: string;
     /**
-     * ペイメントサービス提供者(決済サービスを利用する販売者)
+     * 決済サービス提供者(決済サービスを利用する販売者)
      */
     provider?: IProvider[];
     // serviceOutput?: IServiceOutput;
     /**
      * The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
+     * 決済サービスの場合、serviceType.codeValueが決済方法区分
      */
     serviceType?: IServiceType;
 }

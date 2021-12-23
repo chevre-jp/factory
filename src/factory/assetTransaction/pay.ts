@@ -107,6 +107,10 @@ export interface IPaymentMethod {
  */
 export interface IObject {
     typeOf: PaymentServiceType;
+    /**
+     * 発行決済サービスID
+     */
+    id?: string;
     paymentMethod?: IPaymentMethod;
     pendingTransaction?: IPendingTransaction;
     entryTranArgs?: IEntryTranArgs;

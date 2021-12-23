@@ -62,6 +62,10 @@ export interface IPaymentMethod {
     additionalProperty: IPropertyValue<string>[];
     issuedThrough: {
         typeOf: PaymentServiceType;
+        /**
+         * 発行決済サービスID
+         */
+        id: string;
     };
 }
 

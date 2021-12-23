@@ -21,9 +21,19 @@ export import ISeller = TransactionFactory.ISeller;
 export type IAgent = TransactionFactory.IAgent;
 
 export interface IPaymentMethodByPaymentUrl {
+    /**
+     * 決済方法区分
+     */
     typeOf: string;
     paymentMethodId: string;
     paymentUrl: string;
+    issuedThrough: {
+        // typeOf: PaymentServiceType;
+        /**
+         * 発行決済サービスID
+         */
+        id: string;
+    };
 }
 
 /**
