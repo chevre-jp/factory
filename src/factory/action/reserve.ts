@@ -36,7 +36,7 @@ export interface IPotentialActions {
     /**
      * 予約通知アクション
      */
-    informReservation?: IInformReservation[];
+    // informReservation?: IInformReservation[];
 }
 
 /**

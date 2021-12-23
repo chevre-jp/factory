@@ -18,6 +18,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - サービス登録取引のポイント特典入金先指定に発行サービスIDを必須化
 - 通貨転送アクションのペイメントカードインターフェースに発行サービスIDを必須化
 - 決済取引オブジェクトに決済サービスIDを追加
+- 旧売上レポートを削除
+- 予約通知を廃止
 
 ### Deprecated
 

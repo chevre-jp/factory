@@ -35,10 +35,7 @@ export interface IReservation {
 
 export type IReservationWithDetail = IReservation & IEventReservation;
 
-export type IPermit = PermitFactory.IPermit & {
-    // accountNumber?: string;
-    // accountType?: string;
-};
+export type IPermit = PermitFactory.IPermit;
 
 /**
  * 所有対象物インターフェース (Product or Service)

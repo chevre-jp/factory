@@ -30,11 +30,12 @@ export interface IPurpose {
 
 export type IInformReservation = IInformActionAttributes<IObject, any>;
 
+// tslint:disable-next-line:no-empty-interface
 export interface IPotentialActions {
     /**
      * 予約通知アクション
      */
-    informReservation?: IInformReservation[];
+    // informReservation?: IInformReservation[];
 }
 
 /**

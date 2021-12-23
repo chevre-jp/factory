@@ -24,9 +24,9 @@ export interface IOnPaymentStatusChanged {
 /**
  * 予約ステータス変更時イベントインターフェース
  */
-export interface IOnReservationStatusChanged {
-    informReservation?: IInformParams[];
-}
+// export interface IOnReservationStatusChanged {
+//     informReservation?: IInformParams[];
+// }
 
 /**
  * 予約使用時イベントインターフェース
@@ -72,7 +72,7 @@ export interface IWebhookSettings {
 export interface ISettings {
     importEventsInWeeks?: number;
     onPaymentStatusChanged?: IOnPaymentStatusChanged;
-    onReservationStatusChanged?: IOnReservationStatusChanged;
+    // onReservationStatusChanged?: IOnReservationStatusChanged;
     onReservationUsed?: IOnReservationUsed;
     cognito?: ICognitoSettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;
