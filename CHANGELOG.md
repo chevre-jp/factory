@@ -10,6 +10,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.181.0 - 2021-12-27
+
+### Changed
+
 - 決済取引のIPendingTransactionに出金元の口座番号情報を追加
 - プロダクトにavailableChannelを追加
 - サービス登録アクションのIObjectを定義
@@ -20,14 +32,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済取引オブジェクトに決済サービスIDを追加
 - 旧売上レポートを削除
 - 予約通知を廃止
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v4.180.0 - 2021-12-13
 
