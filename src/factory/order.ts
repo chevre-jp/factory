@@ -93,7 +93,6 @@ export interface IDiscount {
 }
 
 export type IReservation = EventReservationFactory.IReservation;
-// export import IMonetaryAmount = MonetaryAmountFactory.IMonetaryAmount;
 export type IPermit = PermitFactory.IPermit;
 export interface IMoneyTransferPendingTransaction {
     typeOf: AssetTransactionType.MoneyTransfer;
@@ -152,8 +151,6 @@ export type IOrganizationCustomer = ICustomerOrganization & IProfile;
 /**
  * カスタマー
  */
-// export type ICustomer = IPerson;
-// export type ICustomer = IPerson | IWebApplicationCustomer;
 export type ICustomer = IPerson | IWebApplicationCustomer | IOrganizationCustomer;
 
 export type IBroker = IPerson;

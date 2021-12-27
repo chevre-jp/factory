@@ -33,10 +33,6 @@ export type IInformReservation = IInformActionAttributes<IObject, any>;
 
 export interface IPotentialActions {
     moneyTransfer?: IMoneyTransferActionAttributes[];
-    /**
-     * 予約通知アクション
-     */
-    // informReservation?: IInformReservation[];
 }
 
 /**

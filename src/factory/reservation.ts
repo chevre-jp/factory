@@ -24,17 +24,12 @@ export type TicketType = 'Ticket';
 // 予約の単価オファーを最適化(属性不足が判明すれば適宜拡張する)
 // export type ITicketType = OfferFactory.IUnitPriceOffer;
 export interface ITicketType {
-    // addOn: []
     additionalProperty?: IPropertyValue<string>[];
-    // alternateName: { ja: "", en: "" }
-    // availability: "InStock"
-    // availableAtOrFrom: [{ id: "" }, { id: "" }, …]
     category?: OfferFactory.ICategory;
     color?: string;
     description?: string | IMultilingualString;
     id?: string;
     identifier: string;
-    // itemOffered: { project: { typeOf: "Project", id: "" }, typeOf: "EventService" }
     name?: string | IMultilingualString;
     priceCurrency: PriceCurrency;
     priceSpecification?: IUnitPriceSpecification;

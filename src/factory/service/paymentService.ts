@@ -4,13 +4,6 @@ import { IProject } from '../project';
 import { IServiceType } from '../serviceType';
 import { IThing } from '../thing';
 
-// export interface IServiceOutput {
-//     /**
-//      * 決済方法タイプ
-//      */
-//     typeOf: string;
-// }
-
 export enum PaymentServiceType {
     CreditCard = 'CreditCard',
     FaceToFace = 'FaceToFace',

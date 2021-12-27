@@ -1,4 +1,3 @@
-// import * as AccountFactory from './account';
 import { ICustomer } from './order';
 import * as PermitFactory from './permit';
 import * as ProductFactory from './product';

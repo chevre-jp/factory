@@ -1,4 +1,3 @@
-// import { } from '../event/screeningEvent';
 import {
     ICOAInfo,
     ILocation as IEventLocation,

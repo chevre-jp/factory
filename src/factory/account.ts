@@ -12,10 +12,6 @@ import * as TransferTransactionFactory from './account/transaction/transfer';
 import * as WithdrawTransactionFactory from './account/transaction/withdraw';
 
 export namespace action {
-    // export import IAction = ActionFactory.IAction;
-    // export import IAttributes = ActionFactory.IAttributes;
-    // export import IParticipant = ActionFactory.IParticipant;
-    // export import IPurpose = ActionFactory.IPurpose;
     export import moneyTransfer = MoneyTransferActionFactory;
 }
 

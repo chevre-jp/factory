@@ -3,7 +3,6 @@ import ActionType from '../../../actionType';
 import * as OrderFactory from '../../../order';
 import * as MovieTicketFactory from '../../../paymentMethod/paymentCard/movieTicket';
 import { IInstrument } from '../../authorize/paymentMethod/any';
-// import { IInstrument, IPendingTransaction } from '../../authorize/paymentMethod/any';
 import * as PayActionFactory from '../../trade/pay';
 
 export import IMovieTicket = MovieTicketFactory.IMovieTicket;
@@ -23,7 +22,6 @@ export interface IPaymentService {
      * 決済方法
      */
     paymentMethod: OrderFactory.IPaymentMethod;
-    // pendingTransaction?: IPendingTransaction;
     /**
      * ムビチケリスト
      */

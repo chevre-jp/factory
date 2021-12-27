@@ -43,7 +43,6 @@ export interface IObjectWithoutDetail {
          */
         reservationNumber?: string;
     };
-    // onReservationStatusChanged?: IOnReservationStatusChanged;
 }
 
 /**
@@ -53,13 +52,11 @@ export interface IObject {
     clientUser?: IClientUser;
     transaction?: IReserveTransaction;
     reservations?: IEventReservation[];
-    // onReservationStatusChanged?: IOnReservationStatusChanged;
 }
 
 export interface IPotentialActionsParams {
     cancelReservation?: {
         potentialActions?: {
-            // informReservation?: IInformParams[];
         };
     };
 }

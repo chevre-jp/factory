@@ -29,7 +29,6 @@ export interface IOrderAsFromLocation {
 }
 export type IFromLocationBeforeStart = IOrderAsFromLocation | IPaymentCard | ITokenizedPaymentCard;
 export type IFromLocation = IPaymentCard;
-// export type IToLocation = IPaymentCard | IAnonymousLocation;
 export type IToLocation = IPaymentCard;
 
 export interface IObjectPendingTransaction {

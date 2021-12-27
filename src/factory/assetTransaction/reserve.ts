@@ -186,7 +186,6 @@ export interface IConfirmingReservation {
 export interface IPotentialActionsParams {
     reserve?: {
         potentialActions?: {
-            // informReservation?: IInformParams[];
         };
     };
 }
@@ -222,7 +221,6 @@ export interface IObjectWithoutDetail {
     acceptedOffer?: IAcceptedTicketOfferWithoutDetail[];
     broker?: ReservationFactory.IBroker;
     reservationFor?: { id: string };
-    // onReservationStatusChanged?: IOnReservationStatusChanged;
 }
 
 // IReservationForを最適化
@@ -243,7 +241,6 @@ export interface IObject extends IReservationPackage {
     // clientUser?: IClientUser;
     reservationFor?: IReservationFor;
     subReservation?: ISubReservation[];
-    // onReservationStatusChanged?: IOnReservationStatusChanged;
 }
 
 export interface IPotentialActions {
