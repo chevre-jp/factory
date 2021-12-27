@@ -9,5 +9,3 @@ export enum PlaceType {
     ScreeningRoomSection = 'ScreeningRoomSection',
     Seat = 'Seat'
 }
-
-// export default PlaceType;

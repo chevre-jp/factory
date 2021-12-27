@@ -112,7 +112,6 @@ import * as PropertyValueFactory from './factory/propertyValue';
 import * as QualitativeValueFactory from './factory/qualitativeValue';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
 import * as AccountingReportFactory from './factory/report/accountingReport';
-import * as OrderReportFactory from './factory/report/order';
 import * as ReservationFactory from './factory/reservation';
 import * as EventReservationFactory from './factory/reservation/event';
 import * as ReservationPackageFactory from './factory/reservation/reservationPackage';
@@ -445,8 +444,6 @@ export import quantitativeValue = QuantitativeValueFactory;
 
 export namespace report {
     export import accountingReport = AccountingReportFactory;
-    // tslint:disable-next-line:no-shadowed-variable
-    export import order = OrderReportFactory;
 }
 
 export namespace reservation {

@@ -35,6 +35,14 @@ export interface IPendingTransaction {
     typeOf: AccountFactory.transactionType;
     id: string;
     transactionNumber?: string;
+    object: {
+        fromLocation?: {
+            /**
+             * 口座番号
+             */
+            accountNumber: string;
+        };
+    };
 }
 
 export import ICreditCardSales = GMO.factory.credit.IAlterTranResult;
@@ -71,6 +79,10 @@ export interface IPaymentMethod {
 
 export interface IPaymentService {
     typeOf: PaymentServiceType;
+    /**
+     * 発行決済サービスID
+     */
+    id: string;
     /**
      * 決済方法
      */

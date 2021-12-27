@@ -95,7 +95,6 @@ export type IObjectWithoutDetail<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.Chevre ? IObjectWithoutDetail4chevre :
     any;
 
-// export type IPendingTransaction = ReserveTransactionFactory.ITransaction;
 export interface IPendingTransaction {
     typeOf: AssetTransactionType.Reserve;
     transactionNumber: string;

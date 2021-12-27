@@ -133,7 +133,6 @@ export interface IReturnOrderActionParams {
          * ムビチケ着券取消を実行するかどうか
          */
         refundMovieTicket?: boolean;
-        // returnPointAward?: returnPointAwardActions
         /**
          * Eメール送信アクション
          */

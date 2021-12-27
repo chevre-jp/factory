@@ -1,31 +1,8 @@
 import { IOrganization } from '../organization';
+import { IAvailableChannel } from '../product';
 import { IProject } from '../project';
 import { IServiceType } from '../serviceType';
 import { IThing } from '../thing';
-
-// export interface IServiceOutput {
-//     /**
-//      * 決済方法タイプ
-//      */
-//     typeOf: string;
-// }
-
-/**
- * 外部サービス認証情報
- */
-export interface ICredentials {
-    siteId?: string;
-    sitePass?: string;
-    authorizeServerDomain?: string;
-    clientId?: string;
-    clientSecret?: string;
-}
-
-export interface IAvailableChannel {
-    typeOf: 'ServiceChannel';
-    serviceUrl?: string;
-    credentials?: ICredentials;
-}
 
 export enum PaymentServiceType {
     CreditCard = 'CreditCard',
@@ -70,7 +47,7 @@ export interface IProvider extends IOrganization {
 }
 
 /**
- * ペイメントサービスインターフェース
+ * 決済サービスインターフェース
  * {@link https://schema.org/Service}
  */
 export interface IService extends IThing {
@@ -80,12 +57,13 @@ export interface IService extends IThing {
     availableChannel?: IAvailableChannel;
     productID?: string;
     /**
-     * ペイメントサービス提供者(決済サービスを利用する販売者)
+     * 決済サービス提供者(決済サービスを利用する販売者)
      */
     provider?: IProvider[];
     // serviceOutput?: IServiceOutput;
     /**
      * The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
+     * 決済サービスの場合、serviceType.codeValueが決済方法区分
      */
     serviceType?: IServiceType;
 }

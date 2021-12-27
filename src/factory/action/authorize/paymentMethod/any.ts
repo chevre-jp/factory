@@ -2,7 +2,6 @@ import * as ActionFactory from '../../../action';
 import * as CheckMovieTicketActionFactory from '../../../action/check/paymentMethod/movieTicket';
 import * as MoneyTransferActionFactory from '../../../action/transfer/moneyTransfer';
 import ActionType from '../../../actionType';
-// import * as MoneyTransferTransactionFactory from '../../../assetTransaction/moneyTransfer';
 import * as PayTransactionFactory from '../../../assetTransaction/pay';
 import AssetTransactionType from '../../../assetTransactionType';
 import { IMonetaryAmount } from '../../../monetaryAmount';
@@ -34,8 +33,6 @@ export interface IObjectPendingTransaction {
     id?: string;
     transactionNumber?: string;
 }
-
-// export type IPendingTransaction = MoneyTransferTransactionFactory.ITransaction;
 
 export type IPaymentCard = MoneyTransferActionFactory.IPaymentCard;
 
@@ -102,19 +99,6 @@ export interface IObject {
     paymentMethodId?: string;
     typeOf: ResultType;
 
-    /**
-     * 転送元口座(Account決済)
-     * 出金取引、転送取引の場合指定
-     */
-    // fromAccount?: IFromAccount;
-    /**
-     * 転送先口座(Account決済)
-     * 入金取引、転送取引の場合指定
-     */
-    // toAccount?: IToAccount;
-    /**
-     * 取引説明(Account決済)
-     */
     notes?: string;
     /**
      * 進行中取引(Account決済)
@@ -181,20 +165,11 @@ export interface IResult {
     typeOf: ResultType;
     issuedThrough: {
         typeOf: PaymentServiceType;
+        /**
+         * 発行決済サービスID
+         */
+        id: string;
     };
-
-    /**
-     * 転送元口座(Account決済)
-     */
-    // fromAccount?: IAccount;
-    /**
-     * 転送先口座(Account決済)
-     */
-    // toAccount?: IToAccount;
-    /**
-     * 進行中取引(Account決済)
-     */
-    // pendingTransaction?: IPendingTransaction;
 
     /**
      * 転送元(PaymentCard決済)

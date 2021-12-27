@@ -12,6 +12,10 @@ export type IRecipient = IRefundRecipient;
 
 export interface IObjectWithoutDetail {
     typeOf: PaymentServiceType;
+    /**
+     * 発行決済サービスID
+     */
+    id: string;
     paymentMethod: IPaymentMethod;
     refundFee?: number;
 }
@@ -49,6 +53,10 @@ export type IAnyPaymentMethod = AvailablePaymentMethodType;
  */
 export interface IObject {
     typeOf: PaymentServiceType;
+    /**
+     * 発行決済サービスID
+     */
+    id: string;
     onPaymentStatusChanged?: IOnPaymentStatusChanged;
     paymentMethod: IPaymentMethod;
     refundFee?: number;

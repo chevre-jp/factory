@@ -57,11 +57,34 @@ export interface IPointAward {
         /**
          * カード番号
          */
-        identifier?: string;
+        identifier: string;
+        issuedThrough: {
+            /**
+             * カード発行サービスID
+             */
+            id: string;
+        };
     };
     description?: string;
     recipient?: any;
     purpose?: { identifier?: string };
+}
+
+/**
+ * 外部サービス認証情報
+ */
+export interface ICredentials {
+    siteId?: string;
+    sitePass?: string;
+    authorizeServerDomain?: string;
+    clientId?: string;
+    clientSecret?: string;
+}
+
+export interface IAvailableChannel {
+    typeOf: 'ServiceChannel';
+    serviceUrl?: string;
+    credentials?: ICredentials;
 }
 
 /**
@@ -72,6 +95,7 @@ export interface IProduct extends IThing {
     project: IProject;
     typeOf: ProductType;
     id?: string;
+    availableChannel?: IAvailableChannel;
     /**
      * Indicates an OfferCatalog listing for this Organization, Person, or Service.
      */

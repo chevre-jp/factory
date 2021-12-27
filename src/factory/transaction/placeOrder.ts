@@ -21,9 +21,19 @@ export import ISeller = TransactionFactory.ISeller;
 export type IAgent = TransactionFactory.IAgent;
 
 export interface IPaymentMethodByPaymentUrl {
+    /**
+     * 決済方法区分
+     */
     typeOf: string;
     paymentMethodId: string;
     paymentUrl: string;
+    issuedThrough: {
+        // typeOf: PaymentServiceType;
+        /**
+         * 発行決済サービスID
+         */
+        id: string;
+    };
 }
 
 /**
@@ -122,32 +132,6 @@ export interface IConfirmReservationParams {
      */
     object?: IConfirmReservationObject<WebAPIFactory.Identifier>;
 }
-
-/**
- * メンバーシップ登録パラメータ
- */
-// export interface IRegisterProgramMembershipParams {
-//     object?: {
-//         typeOf: 'ProgramMembership';
-//         membershipFor: {
-//             /**
-//              * プロダクトID
-//              */
-//             id: string;
-//         };
-//     };
-//     potentialActions?: {
-//         /**
-//          * 次回のメンバーシップ注文タスク
-//          */
-//         orderProgramMembership?: {
-//             /**
-//              * メンバーシップ注文後アクション
-//              */
-//             potentialActions?: IPotentialActionsParams;
-//         };
-//     };
-// }
 
 type ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
 

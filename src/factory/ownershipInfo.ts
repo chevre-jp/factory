@@ -1,4 +1,3 @@
-// import * as AccountFactory from './account';
 import { ICustomer } from './order';
 import * as PermitFactory from './permit';
 import * as ProductFactory from './product';
@@ -35,10 +34,7 @@ export interface IReservation {
 
 export type IReservationWithDetail = IReservation & IEventReservation;
 
-export type IPermit = PermitFactory.IPermit & {
-    // accountNumber?: string;
-    // accountType?: string;
-};
+export type IPermit = PermitFactory.IPermit;
 
 /**
  * 所有対象物インターフェース (Product or Service)
