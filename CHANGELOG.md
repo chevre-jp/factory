@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 返金後注文通知を廃止
+
 ### Deprecated
 
 ### Removed
