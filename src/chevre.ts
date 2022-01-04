@@ -142,6 +142,7 @@ import * as ConfirmRefundTaskFactory from './factory/task/confirmRefund';
 import * as ConfirmRegisterServiceTaskFactory from './factory/task/confirmRegisterService';
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
 import * as DeleteMemberTaskFactory from './factory/task/deleteMember';
+import * as DeleteOrderTaskFactory from './factory/task/deleteOrder';
 import * as GivePointAwardTaskFactory from './factory/task/givePointAward';
 import * as ImportEventCapacitiesFromCOATaskFactory from './factory/task/importEventCapacitiesFromCOA';
 import * as ImportEventsFromCOATaskFactory from './factory/task/importEventsFromCOA';
@@ -521,6 +522,7 @@ export namespace task {
         T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.IData :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IData :
+        T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.IData :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IData :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IData :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IData :
@@ -545,6 +547,7 @@ export namespace task {
         T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.IAttributes :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IAttributes :
+        T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.IAttributes :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IAttributes :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IAttributes :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IAttributes :
@@ -569,6 +572,7 @@ export namespace task {
         T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.ITask :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.ITask :
+        T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.ITask :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.ITask :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.ITask :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.ITask :

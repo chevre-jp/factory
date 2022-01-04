@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 注文削除タスクを追加
+
 ### Changed
 
 - 返金後注文通知を廃止
