@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 返金後注文通知を廃止
 - 取引のonOrderStatusChanged属性を廃止
+- 注文ステータス変更後の注文通知アクションを廃止
 
 ### Deprecated
 

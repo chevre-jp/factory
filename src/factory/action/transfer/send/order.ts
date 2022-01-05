@@ -5,7 +5,7 @@ import * as WebAPIFactory from '../../../service/webAPI';
 import { IAttributes as IMoneyTransferActionAttributes } from '../../interact/confirm/moneyTransfer';
 import { IAttributes as IRegisterServiceAttributes } from '../../interact/confirm/registerService';
 import { IAttributes as IConfirmReservationActionAttributes } from '../../interact/confirm/reservation';
-import { IAttributes as IInformActionAttributes } from '../../interact/inform';
+// import { IAttributes as IInformActionAttributes } from '../../interact/inform';
 import * as SendActionFactory from '../send';
 import { IAttributes as ISendEmailMessageActionAttributes } from './message/email';
 
@@ -26,7 +26,7 @@ export interface IPotentialActions {
     /**
      * 注文通知アクション
      */
-    informOrder?: IInformActionAttributes<any, any>[];
+    // informOrder?: IInformActionAttributes<any, any>[];
     /**
      * 通貨転送アクション
      */
