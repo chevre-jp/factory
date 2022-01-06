@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - 注文削除タスクを追加
+- 取引削除タスクを追加
 
 ### Changed
 
