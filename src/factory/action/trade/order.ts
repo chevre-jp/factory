@@ -3,7 +3,6 @@ import ActionType from '../../actionType';
 import * as OrderFactory from '../../order';
 import TransactionType from '../../transactionType';
 import { IAttributes as IPayActionAttributes } from '../interact/confirm/pay';
-// import { IAttributes as IInformActionAttributes } from '../interact/inform';
 import { IAttributes as IGivePointAwardActionAttributes } from '../transfer/give/pointAward';
 import { IAttributes as ISendOrderActionAttributes } from '../transfer/send/order';
 
@@ -21,10 +20,6 @@ export interface IPotentialActions {
      * 現時点で複数口座にポイントを付与することはないが、可能性もこめてリストで持っておく
      */
     givePointAward?: IGivePointAwardActionAttributes[];
-    /**
-     * 注文通知アクション
-     */
-    // informOrder?: IInformActionAttributes<any, any>[];
     /**
      * 決済アクションリスト
      */
