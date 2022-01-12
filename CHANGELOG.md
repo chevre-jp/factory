@@ -8,14 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 注文削除タスクを追加
-- 取引削除タスクを追加
-
 ### Changed
-
-- 返金後注文通知を廃止
-- 取引のonOrderStatusChanged属性を廃止
-- 注文ステータス変更後の注文通知アクションを廃止
 
 ### Deprecated
 
@@ -24,6 +17,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.182.0 - 2022-01-12
+
+### Added
+
+- 注文削除タスクを追加
+- 取引削除タスクを追加
+
+### Changed
+
+- 返金後注文通知を廃止
+- 取引のonOrderStatusChanged属性を廃止
+- 注文ステータス変更後の注文通知アクションを廃止
 
 ## v4.181.0 - 2021-12-27
 
