@@ -8,6 +8,8 @@ enum TaskName {
     AggregateOnProject = 'aggregateOnProject',
     AggregateScreeningEvent = 'aggregateScreeningEvent',
     AggregateUseActionsOnEvent = 'aggregateUseActionsOnEvent',
+    DeleteOrder = 'deleteOrder',
+    DeleteTransaction = 'deleteTransaction',
     ImportEventCapacitiesFromCOA = 'importEventCapacitiesFromCOA',
     ImportEventsFromCOA = 'importEventsFromCOA',
     ImportOffersFromCOA = 'importOffersFromCOA',

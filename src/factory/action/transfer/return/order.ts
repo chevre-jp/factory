@@ -1,6 +1,5 @@
 import * as ActionFactory from '../../../action';
 import * as OrderFactory from '../../../order';
-import { IAttributes as IInformActionAttributes } from '../../interact/inform';
 import { IAttributes as IRefundActionAttributes } from '../../transfer/return/paymentMethod';
 import { IAttributes as ICancelActionAttributes } from '../../transfer/return/reservation';
 import * as ReturnActionFactory from '../return';
@@ -23,10 +22,6 @@ export interface IPotentialActions {
      * 予約取消アクション
      */
     cancelReservation?: ICancelActionAttributes<any, any>[];
-    /**
-     * 注文通知アクション
-     */
-    informOrder?: IInformActionAttributes<any, any>[];
     /**
      * 返金アクション
      */
