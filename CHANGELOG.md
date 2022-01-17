@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 返品ポリシーを拡張
+
 ### Deprecated
 
 ### Removed
