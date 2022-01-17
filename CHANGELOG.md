@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - 返品ポリシーを拡張
+- プロジェクトの返品手数料設定を廃止
+- プロジェクトの顧客ユーザープール設定を廃止
 
 ### Deprecated
 
