@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 承認削除タスクを追加
+
 ### Changed
 
 - 返品ポリシーを拡張
