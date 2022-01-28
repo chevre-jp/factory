@@ -102,7 +102,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
          */
         id: string;
         /**
-         * 劇場コード
+         * 施設コード
          */
         branchCode: string;
         /**

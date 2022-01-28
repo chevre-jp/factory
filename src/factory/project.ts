@@ -30,12 +30,6 @@ export interface IOnReservationUsed {
 
 // tslint:disable-next-line:no-empty-interface
 export interface ICognitoSettings {
-    /**
-     * 顧客ユーザープール
-     */
-    // customerUserPool: {
-    //     id: string;
-    // };
 }
 
 /**
@@ -66,7 +60,6 @@ export interface ISettings {
     cognito?: ICognitoSettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;
     webhook?: IWebhookSettings;
-    // returnFee?: number;
 
     // ↓その他の設定
     sendgridApiKey?: string;

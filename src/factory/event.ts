@@ -82,7 +82,7 @@ export interface IAttributes<T extends EventType> {
      */
     startDate?: Date;
     /**
-     * イベントで上演される作品
+     * イベントで上演されるコンテンツ
      */
     workPerformed?: CreativeWorkFactory.ICreativeWork;
     additionalProperty?: IPropertyValue<string>[];
@@ -174,11 +174,11 @@ export interface ISearchConditions<T extends EventType> {
             };
         };
         /**
-         * 親イベント(劇場の上映イベント)が実施される場所の識別子リスト
+         * 親イベント(施設コンテンツ)が実施される場所の識別子リスト
          */
         locationBranchCodes?: string[];
         /**
-         * イベントで上演される作品識別子リスト
+         * イベントで上演されるコンテンツコードリスト
          */
         workPerformedIdentifiers?: string[];
     };

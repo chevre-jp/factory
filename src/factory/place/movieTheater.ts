@@ -9,7 +9,7 @@ import { UnitCode } from '../unitCode';
 import { IPlace as IScreeningRoom } from './screeningRoom';
 
 /**
- * 劇場に対するオファーインターフェース
+ * 施設に対するオファーインターフェース
  */
 export interface IOffer extends OfferFactory.IOffer {
     /**
@@ -45,7 +45,7 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
     typeOf: PlaceType.MovieTheater;
     id: string;
     /**
-     * スクリーン数
+     * ルーム数
      */
     screenCount: number;
     /**
@@ -83,7 +83,7 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
 }
 
 /**
- * 劇場インターフェース
+ * 施設インターフェース
  */
 export type IPlace = IPlaceWithoutScreeningRoom & {
     /**

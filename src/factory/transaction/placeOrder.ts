@@ -139,14 +139,8 @@ export interface IGivePointAwardParams {
 export interface IPotentialActionsParams {
     order?: {
         potentialActions?: {
-            // tslint:disable-next-line:no-suspicious-comment
-            // TODO ↓不要では？
-            // givePointAward?: IGivePointAwardParams[];
             sendOrder?: {
                 potentialActions?: {
-                    // tslint:disable-next-line:no-suspicious-comment
-                    // TODO ↓不要では？
-                    // confirmReservation?: IConfirmReservationParams[];
                     sendEmailMessage?: ISendEmailMessageParams[];
                 };
             };

@@ -6,7 +6,7 @@ import TaskName from '../taskName';
 export interface IData {
     project: IProject;
     /**
-     * 劇場枝番号
+     * 施設コード
      */
     locationBranchCode: string;
     /**
