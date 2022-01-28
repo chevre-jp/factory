@@ -141,6 +141,7 @@ import * as ConfirmPayTaskFactory from './factory/task/confirmPay';
 import * as ConfirmRefundTaskFactory from './factory/task/confirmRefund';
 import * as ConfirmRegisterServiceTaskFactory from './factory/task/confirmRegisterService';
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
+import * as DeleteAuthorizationTaskFactory from './factory/task/deleteAuthorization';
 import * as DeleteMemberTaskFactory from './factory/task/deleteMember';
 import * as DeleteOrderTaskFactory from './factory/task/deleteOrder';
 import * as DeleteTransactionTaskFactory from './factory/task/deleteTransaction';
@@ -522,6 +523,7 @@ export namespace task {
     export type IData<T extends TaskName | string> =
         T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.IData :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
+        T extends TaskName.DeleteAuthorization ? DeleteAuthorizationTaskFactory.IData :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IData :
         T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.IData :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.IData :
@@ -548,6 +550,7 @@ export namespace task {
     export type IAttributes<T extends TaskName | string> =
         T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.IAttributes :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
+        T extends TaskName.DeleteAuthorization ? DeleteAuthorizationTaskFactory.IAttributes :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IAttributes :
         T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.IAttributes :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.IAttributes :
@@ -574,6 +577,7 @@ export namespace task {
     export type ITask<T extends TaskName | string> =
         T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.ITask :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
+        T extends TaskName.DeleteAuthorization ? DeleteAuthorizationTaskFactory.ITask :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.ITask :
         T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.ITask :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.ITask :

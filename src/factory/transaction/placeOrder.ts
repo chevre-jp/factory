@@ -28,7 +28,6 @@ export interface IPaymentMethodByPaymentUrl {
     paymentMethodId: string;
     paymentUrl: string;
     issuedThrough: {
-        // typeOf: PaymentServiceType;
         /**
          * 発行決済サービスID
          */
@@ -77,10 +76,6 @@ export interface IObject {
      * 承認アクションリスト
      */
     authorizeActions: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
-    /**
-     * 注文ステータス変更時イベント
-     */
-    // onOrderStatusChanged?: IOnOrderStatusChanged;
     potentialActions?: {
         givePointAward?: IGivePointAwardParams[];
     };
@@ -97,10 +92,6 @@ export interface IStartParamsWithoutDetail {
         clientUser?: IClientUser;
         customer?: OrderFactory.ICustomer;
         passport?: TransactionFactory.IPassportBeforeStart;
-        /**
-         * 注文ステータス変更時イベント
-         */
-        // onOrderStatusChanged?: IOnOrderStatusChanged;
         /**
          * 注文名称
          */
@@ -148,10 +139,8 @@ export interface IGivePointAwardParams {
 export interface IPotentialActionsParams {
     order?: {
         potentialActions?: {
-            givePointAward?: IGivePointAwardParams[];
             sendOrder?: {
                 potentialActions?: {
-                    confirmReservation?: IConfirmReservationParams[];
                     sendEmailMessage?: ISendEmailMessageParams[];
                 };
             };

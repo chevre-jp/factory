@@ -235,8 +235,7 @@ export interface ILocation {
      */
     typeOf: PlaceType.ScreeningRoom;
     /**
-     * 場所枝番号
-     * スクリーンコードに相当
+     * ルームコード
      */
     branchCode: string;
     /**

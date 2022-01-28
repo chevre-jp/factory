@@ -1,3 +1,4 @@
+import { IMonetaryAmount } from './monetaryAmount';
 import { IThing } from './thing';
 
 export enum RefundTypeEnumeration {
@@ -7,8 +8,10 @@ export enum RefundTypeEnumeration {
 }
 
 export enum ReturnFeesEnumeration {
+    FreeReturn = 'FreeReturn',
     OriginalShippingFees = 'OriginalShippingFees',
     RestockingFees = 'RestockingFees',
+    ReturnFeesCustomerResponsibility = 'ReturnFeesCustomerResponsibility',
     ReturnShippingFees = 'ReturnShippingFees'
 }
 
@@ -54,6 +57,11 @@ export interface IMerchantReturnPolicy extends IThing {
      * A refundType, from an enumerated list.
      */
     refundType?: RefundTypeEnumeration;
+    /**
+     * Use MonetaryAmount to specify a fixed restocking fee for product returns,
+     * or use Number to specify a percentage of the product price paid by the customer.
+     */
+    restockingFee?: IMonetaryAmount | number;
     /**
      * Indicates (via enumerated options) the return fees policy for a MerchantReturnPolicy
      */
