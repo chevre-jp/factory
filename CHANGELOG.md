@@ -8,14 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 承認削除タスクを追加
-
 ### Changed
-
-- 返品ポリシーを拡張
-- プロジェクトの返品手数料設定を廃止
-- プロジェクトの顧客ユーザープール設定を廃止
-- 注文取引確定パラメータを最適化
 
 ### Deprecated
 
@@ -24,6 +17,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.183.0 - 2022-01-28
+
+### Added
+
+- 承認削除タスクを追加
+
+### Changed
+
+- 返品ポリシーを拡張
+- プロジェクトの返品手数料設定を廃止
+- プロジェクトの顧客ユーザープール設定を廃止
+- 注文取引確定パラメータを最適化
 
 ## v4.182.0 - 2022-01-12
 
