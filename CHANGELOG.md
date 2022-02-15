@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 予約使用アクションにlocationを定義
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.184.0 - 2022-02-16
+
+### Changed
+
+- 予約使用アクションにlocationを定義
 
 ## v4.183.0 - 2022-01-28
 
