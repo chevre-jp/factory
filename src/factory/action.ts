@@ -50,8 +50,9 @@ export interface IAttributes<T extends ActionType, TObject, TResult> {
      */
     error?: any;
     /**
-     * The object that helped the agent perform the action. e.g. John wrote a book with a pen.
+     * The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
      */
+    location?: any;
     instrument?: any;
     /**
      * アクション対象
@@ -100,6 +101,7 @@ export interface IDynamicAttributes {
 
 /**
  * 抽象アクションインターフェース
+ * {@link https://schema.org/Action}
  */
 export type IAction<TAttributes extends IAttributes<ActionType, any, any>> = IExtendId<TAttributes & IDynamicAttributes>;
 
