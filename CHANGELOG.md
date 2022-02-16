@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 返品取引の予約取消アクションパラメータを廃止
+- 返品アクションのobjectにdateReturnedを追加
+
 ### Deprecated
 
 ### Removed
