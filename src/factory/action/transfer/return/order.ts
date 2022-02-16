@@ -13,7 +13,12 @@ export type IRecipient = ActionFactory.IParticipant;
 /**
  * 返却対象は注文
  */
-export type IObject = OrderFactory.ISimpleOrder;
+export type IObject = OrderFactory.ISimpleOrder & {
+    /**
+     * 返品日時
+     */
+    dateReturned: Date;
+};
 
 export type IResult = any;
 

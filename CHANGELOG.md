@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.185.0 - 2022-02-16
+
+### Changed
+
+- 返品取引の予約取消アクションパラメータを廃止
+- 返品アクションのobjectにdateReturnedを追加
+
 ## v4.184.0 - 2022-02-16
 
 ### Changed
