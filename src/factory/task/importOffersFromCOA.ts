@@ -9,7 +9,7 @@ export interface IData {
 }
 
 export interface IAttributes extends TaskFactory.IAttributes {
-    name: TaskName.AggregateScreeningEvent;
+    name: TaskName.ImportOffersFromCOA;
     data: IData;
 }
 
