@@ -13,6 +13,7 @@ import * as PermitFactory from './permit';
 import { IIdentifier as IPersonIdentifier, IPerson, IProfile } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
+import { ProductType } from './product';
 import { IPropertyValue } from './propertyValue';
 import { IProgramMembershipUsedSearchConditions } from './reservation';
 import * as EventReservationFactory from './reservation/event';
@@ -353,20 +354,53 @@ export interface ICustomerSearchConditions {
 }
 
 export interface IPaymentMethodsSearchConditions {
+    /**
+     * 決済アカウントID
+     * ムビチケ購入番号、ペイメントカード番号など
+     */
     accountIds?: string[];
+    /**
+     * 決済方法区分コード
+     */
     typeOfs?: AvailablePaymentMethodType[];
+    /**
+     * 決済方法ID
+     * 決済代行オーダーIDなど
+     */
     paymentMethodIds?: string[];
 }
 
 export interface IAcceptedOffersSearchConditions {
     itemOffered?: {
+        /**
+         * アイテムタイプ
+         * 現状、EventReservation or Permit
+         */
         typeOf?: { $in?: string[] };
+        /**
+         * アイテムコード
+         * メンバーシップコード、ペイメントカード番号など
+         */
         identifier?: { $in?: string[] };
         issuedThrough?: {
+            /**
+             * 発行サービスID
+             */
             id?: { $in?: string[] };
+            /**
+             * 発行サービスタイプ
+             */
+            typeOf?: { $eq?: ProductType };
         };
+        /**
+         * アイテムID
+         * 予約IDなど
+         */
         ids?: string[];
         reservationFor?: IReservationForSearchConditions;
+        /**
+         * 予約番号
+         */
         reservationNumbers?: string[];
         /**
          * 使用メンバーシップ
