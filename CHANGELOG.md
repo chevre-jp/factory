@@ -14,11 +14,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
-- AggregateOnProjectタスクを削除
-
 ### Fixed
 
 ### Security
+
+## v4.187.0 - 2022-03-03
+
+### Removed
+
+- AggregateOnProjectタスクを削除
 
 ## v4.186.0 - 2022-03-01
 
