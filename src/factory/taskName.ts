@@ -5,7 +5,6 @@ enum TaskName {
     Reserve = 'reserve',
     CancelReservation = 'cancelReservation',
     CancelPendingReservation = 'cancelPendingReservation',
-    AggregateOnProject = 'aggregateOnProject',
     AggregateScreeningEvent = 'aggregateScreeningEvent',
     AggregateUseActionsOnEvent = 'aggregateUseActionsOnEvent',
     DeleteAuthorization = 'deleteAuthorization',

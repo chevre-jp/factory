@@ -128,7 +128,6 @@ import { UnitCode } from './factory/unitCode';
 
 import * as TaskFactory from './factory/task';
 import * as AccountMoneyTransferTaskFactory from './factory/task/accountMoneyTransfer';
-import * as AggregateOnProjectTaskFactory from './factory/task/aggregateOnProject';
 import * as AggregateScreeningEventTaskFactory from './factory/task/aggregateScreeningEvent';
 import * as AggregateUseActionsOnEventTaskFactory from './factory/task/aggregateUseActionsOnEvent';
 import * as CancelAccountMoneyTransferTaskFactory from './factory/task/cancelAccountMoneyTransfer';
@@ -605,7 +604,6 @@ export namespace task {
 
     export import IExecutionResult = TaskFactory.IExecutionResult;
 
-    export import aggregateOnProject = AggregateOnProjectTaskFactory;
     export import aggregateScreeningEvent = AggregateScreeningEventTaskFactory;
     export import aggregateUseActionsOnEvent = AggregateUseActionsOnEventTaskFactory;
     export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;
