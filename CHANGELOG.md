@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- IReturnableOrderを確認番号と注文番号の組み合わせに変更
+
 ### Deprecated
 
 ### Removed

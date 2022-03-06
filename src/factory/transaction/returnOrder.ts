@@ -30,7 +30,11 @@ export enum Reason {
 }
 
 export interface IReturnableOrder {
+    confirmationNumber: string;
     orderNumber: string;
+    /**
+     * @deprecated Use confirmationNumber + orderNumber
+     */
     customer?: {
         email?: string;
         telephone?: string;
