@@ -10,7 +10,7 @@ import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
 import { OrganizationType } from './organizationType';
 import * as PermitFactory from './permit';
-import { IIdentifier as IPersonIdentifier, IPerson, IProfile } from './person';
+import { IPerson, IProfile } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
 import { ProductType } from './product';
@@ -320,14 +320,14 @@ export interface ISellerSearchConditions {
 export interface ICustomerSearchConditions {
     typeOf?: PersonType;
     ids?: string[];
-    identifiers?: IPersonIdentifier;
+    identifiers?: IIdentifier;
     identifier?: {
-        $all?: IPersonIdentifier;
-        $in?: IPersonIdentifier;
+        $all?: IIdentifier;
+        $in?: IIdentifier;
     };
     additionalProperty?: {
-        $all?: IPersonIdentifier;
-        $in?: IPersonIdentifier;
+        $all?: IIdentifier;
+        $in?: IIdentifier;
     };
     memberOf?: {
         membershipNumber?: {
@@ -359,6 +359,19 @@ export interface IPaymentMethodsSearchConditions {
      * ムビチケ購入番号、ペイメントカード番号など
      */
     accountIds?: string[];
+    /**
+     * 追加特性
+     */
+    additionalProperty?: {
+        /**
+         * すべてに一致する
+         */
+        $all?: IIdentifier;
+        /**
+         * どれかに一致する
+         */
+        $in?: IIdentifier;
+    };
     /**
      * 決済方法区分コード
      */
