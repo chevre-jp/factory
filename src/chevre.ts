@@ -161,7 +161,6 @@ import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
 import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
 import * as SendOrderTaskFactory from './factory/task/sendOrder';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
-import * as UnRegisterProgramMembershipTaskFactory from './factory/task/unRegisterProgramMembership';
 import * as VoidMoneyTransferTransactionTaskFactory from './factory/task/voidMoneyTransferTransaction';
 import * as VoidPaymentTaskFactory from './factory/task/voidPayment';
 import * as VoidPayTransactionTaskFactory from './factory/task/voidPayTransaction';
@@ -539,7 +538,6 @@ export namespace task {
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IData :
         T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
-        T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IData :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.IData :
         T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.IData :
         T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.IData :
@@ -566,7 +564,6 @@ export namespace task {
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IAttributes :
         T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
-        T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.IAttributes :
         T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.IAttributes :
         T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.IAttributes :
@@ -593,7 +590,6 @@ export namespace task {
         T extends TaskName.SendOrder ? SendOrderTaskFactory.ITask :
         T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
-        T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.ITask :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.ITask :
         T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.ITask :
         T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.ITask :

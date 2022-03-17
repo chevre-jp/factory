@@ -84,10 +84,6 @@ enum TaskName {
      */
     SendOrder = 'sendOrder',
     /**
-     * メンバーシップ登録解除
-     */
-    UnRegisterProgramMembership = 'unRegisterProgramMembership',
-    /**
      * 通貨転送中止
      */
     VoidMoneyTransferTransaction = 'voidMoneyTransferTransaction',
