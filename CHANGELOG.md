@@ -14,11 +14,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
-- メンバーシップ登録解除タスクを削除
-
 ### Fixed
 
 ### Security
+
+## v4.190.0 - 2022-03-17
+
+### Removed
+
+- メンバーシップ登録解除タスクを削除
 
 ## v4.189.0 - 2022-03-15
 
