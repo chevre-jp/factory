@@ -36,15 +36,8 @@ export interface IObjectPendingTransaction {
 
 export type IPaymentCard = MoneyTransferActionFactory.IPaymentCard;
 
-/**
- * 決済トークン
- */
-export type ITokenizedPaymentCard = string;
-
-/**
- * 転送元インターフェース
- */
-export type IFromLocation = IPaymentCard | ITokenizedPaymentCard;
+export import ITokenizedPaymentCard = PayTransactionFactory.ITokenizedPaymentCard;
+export import IFromLocation = PayTransactionFactory.IFromLocation;
 
 /**
  * 転送先インターフェース
@@ -112,7 +105,7 @@ export interface IObject {
     /**
      * 転送先(PaymentCard決済)
      */
-    toLocation?: IToLocation;
+    // toLocation?: IToLocation;
 
     /**
      * 支払い方法(CreditCard決済)
