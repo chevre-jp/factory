@@ -18,6 +18,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.191.0 - 2022-03-23
+
+### Changed
+
+- 通貨転送資産取引のfromLocationをトークンに対応
+- 決済資産取引のペイメントカードをトークンに対応
+- 通貨転送資産取引のfromLocationを注文口座に対応
+
 ## v4.190.0 - 2022-03-17
 
 ### Removed

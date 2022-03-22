@@ -45,6 +45,13 @@ export type IResult = any;
 export type IError = any;
 
 /**
+ * ペイメントカードトークン
+ */
+export type ITokenizedPaymentCard = string;
+export type IFromLocation = ITokenizedPaymentCard;
+// export type IFromLocation = IPaymentCard | ITokenizedPaymentCard;
+
+/**
  * クレジットカード決済承認に必要なクレジットカードインターフェース
  */
 export declare type ICreditCard = IUncheckedCardRaw | IUncheckedCardTokenized | IUnauthorizedCardOfMember;
@@ -88,6 +95,10 @@ export interface IPaymentMethod {
      * 決済方法タイプ
      */
     typeOf: string;
+    /**
+     * 出金元ペイメントカード
+     */
+    fromLocation?: IFromLocation;
     /**
      * ムビチケリスト
      */

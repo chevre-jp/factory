@@ -4,7 +4,6 @@ import ActionType from '../../../actionType';
 import * as MoneyTransferTransactionFactory from '../../../assetTransaction/moneyTransfer';
 import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as OrderFactory from '../../../order';
-import { PermitType } from '../../../permit';
 import { IPropertyValue } from '../../../propertyValue';
 import TransactionType from '../../../transactionType';
 
@@ -50,21 +49,8 @@ export interface IPaymentMethodLocation {
     additionalProperty: IPropertyValue<string>[];
 }
 
-/**
- * ペイメントカードインターフェース
- */
-export interface IPaymentCard {
-    typeOf: PermitType;
-    identifier: string;
-    accessCode?: string;
-    hasNoPermit?: boolean;
-    issuedThrough: {
-        /**
-         * カード発行サービスID
-         */
-        id: string;
-    };
-}
+export import IPaymentCard = MoneyTransferTransactionFactory.IPaymentCard;
+export import IFromLocationBeforeStart = MoneyTransferTransactionFactory.IFromLocationBeforeStart;
 
 /**
  * 転送元あるいは転送先の場所インターフェース
@@ -97,7 +83,7 @@ export interface IAttributes
     /**
      * 転送元
      */
-    fromLocation: ILocation;
+    fromLocation: ILocation | IFromLocationBeforeStart;
     /**
      * 転送先
      */
