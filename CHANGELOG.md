@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.192.0 - 2022-03-24
+
+### Changed
+
+- 通貨転送資産取引のtoLocationを注文口座に対応
+
 ## v4.191.0 - 2022-03-23
 
 ### Changed

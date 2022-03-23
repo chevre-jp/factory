@@ -42,6 +42,7 @@ export interface IOrderAsFromLocation {
     orderNumber: string;
 }
 export type IFromLocationBeforeStart = IOrderAsFromLocation | IPaymentCard | ITokenizedPaymentCard;
+export type IToLocationBeforeStart = IOrderAsFromLocation | IPaymentCard;
 
 /**
  * 取引対象物インターフェース
@@ -80,7 +81,7 @@ export interface IObjectBeforeStart {
     /**
      * 転送先
      */
-    toLocation: IToLocation;
+    toLocation: IToLocation | IToLocationBeforeStart;
     /**
      * 取引説明
      */
