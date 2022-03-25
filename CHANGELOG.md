@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.193.0 - 2022-03-25
+
+### Changed
+
+- 決済承認オブジェクトに決済サービスIDを追加
+
 ## v4.192.0 - 2022-03-24
 
 ### Changed

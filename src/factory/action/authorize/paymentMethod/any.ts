@@ -91,6 +91,12 @@ export interface IObject {
      */
     paymentMethodId?: string;
     typeOf: ResultType;
+    issuedThrough: {
+        /**
+         * 発行決済サービスID
+         */
+        id: string;
+    };
 
     notes?: string;
     /**
