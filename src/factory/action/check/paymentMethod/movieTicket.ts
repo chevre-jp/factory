@@ -1,4 +1,4 @@
-import * as mvtkapi from '@movieticket/reserve-api-nodejs-client';
+import * as surfrock from '@surfrock/sdk';
 
 import * as ActionFactory from '../../../action';
 import { OrganizationType } from '../../../organizationType';
@@ -7,8 +7,8 @@ import * as CheckActionFactory from '../../check';
 import * as PayActionFactory from '../../trade/pay';
 
 export type IAgent = ActionFactory.IParticipant;
-export type IPurchaseNumberAuthIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
-export type IPurchaseNumberAuthResult = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
+export type IPurchaseNumberAuthIn = surfrock.service.auth.factory.IPurchaseNumberAuthIn;
+export type IPurchaseNumberAuthResult = surfrock.service.auth.factory.IPurchaseNumberAuthResult;
 export type IMovieTicketResult = IMovieTicket;
 
 export interface IPaymentService extends PayActionFactory.IPaymentService {
