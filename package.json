@@ -62,7 +62,7 @@
   "dependencies": {
     "@motionpicture/coa-service": "^9.0.0",
     "@motionpicture/gmo-service": "^5.0.0",
-    "@movieticket/reserve-api-nodejs-client": "^1.0.1",
+    "@surfrock/sdk": "1.1.0",
     "@waiter/factory": "2.1.0",
     "aws-sdk": "2.447.0",
     "setprototypeof": "^1.2.0"
