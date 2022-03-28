@@ -64,7 +64,7 @@
     "@motionpicture/gmo-service": "^5.0.0",
     "@surfrock/sdk": "1.1.0",
     "@waiter/factory": "2.1.0",
-    "aws-sdk": "2.447.0",
+    "aws-sdk": "2.814.0",
     "setprototypeof": "^1.2.0"
   },
   "repository": {
