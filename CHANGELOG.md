@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- イベントのオファーインターフェースを厳密に定義
-- 施設コンテンツのオファーインターフェースを厳密に定義
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.195.0 - 2022-04-04
+
+### Changed
+
+- イベントのオファーインターフェースを厳密に定義
+- 施設コンテンツのオファーインターフェースを厳密に定義
 
 ## v4.194.0 - 2022-03-28
 
