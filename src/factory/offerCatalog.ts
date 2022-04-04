@@ -1,5 +1,5 @@
 import IMultilingualString from './multilingualString';
-import OfferType from './offerType';
+import { OfferType } from './offerType';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IServiceType } from './serviceType';
