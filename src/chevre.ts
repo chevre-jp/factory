@@ -80,7 +80,7 @@ import * as MonetaryAmountFactory from './factory/monetaryAmount';
 import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
 import * as OfferCatalogFactory from './factory/offerCatalog';
-import OfferType from './factory/offerType';
+import { OfferType } from './factory/offerType';
 import * as OrderFactory from './factory/order';
 import OrderStatus from './factory/orderStatus';
 import * as OrganizationFactory from './factory/organization';
@@ -448,6 +448,7 @@ export namespace report {
 }
 
 export namespace reservation {
+    export import eventReservation = EventReservationFactory;
     export type IBroker<T extends ReservationType> =
         T extends ReservationType.EventReservation ? ReservationFactory.IBroker :
         ReservationFactory.IBroker;

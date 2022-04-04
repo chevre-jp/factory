@@ -13,11 +13,11 @@ import { IPlace as IScreeningRoom } from './screeningRoom';
  */
 export interface IOffer extends OfferFactory.IOffer {
     /**
-     * 上映イベント開始前の販売猶予期間
+     * イベント開始前の販売猶予期間
      */
     availabilityStartsGraceTime?: IQuantitativeValue<UnitCode.Day>;
     /**
-     * 上映イベント開始後の販売猶予期間
+     * イベント開始後の販売猶予期間
      */
     availabilityEndsGraceTime?: IQuantitativeValue<UnitCode.Sec>;
 }

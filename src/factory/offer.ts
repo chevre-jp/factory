@@ -3,7 +3,7 @@ import { ICategoryCode } from './categoryCode';
 import ItemAvailability from './itemAvailability';
 import { IMonetaryAmount } from './monetaryAmount';
 import * as SeatReservationOfferFactory from './offer/seatReservation';
-import OfferType from './offerType';
+import { OfferType } from './offerType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';

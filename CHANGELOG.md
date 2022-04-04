@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- イベントのオファーインターフェースを厳密に定義
+- 施設コンテンツのオファーインターフェースを厳密に定義
+
 ### Deprecated
 
 ### Removed

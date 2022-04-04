@@ -5,17 +5,25 @@ import * as EventFactory from '../event';
 import EventType from '../eventType';
 import { ILanguage } from '../language';
 import IMultilingualString from '../multilingualString';
-import * as OfferFactory from '../offer';
+// import * as OfferFactory from '../offer';
+import { OfferType } from '../offerType';
 import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
+import PriceCurrency from '../priceCurrency';
 import { IProject } from '../project';
 
 /**
- * 上映イベントシリーズに対するオファーインターフェース
+ * 施設コンテンツに対するオファーインターフェース
  */
-// tslint:disable-next-line:no-empty-interface
-export interface IOffer extends OfferFactory.IOffer {
+export interface IOffer {
+    project: IProject;
+    typeOf: OfferType.Offer;
+    priceCurrency: PriceCurrency.JPY;
+    unacceptedPaymentMethod?: string[];
 }
+// tslint:disable-next-line:no-empty-interface
+// export interface IOffer extends OfferFactory.IOffer {
+// }
 
 export interface IVideoFormat {
     typeOf: string;
@@ -157,7 +165,7 @@ export type IEvent = EventFactory.IEvent<IAttributes>;
 export type ISortOrder = EventFactory.ISortOrder;
 
 /**
- * 上映イベントの検索条件インターフェース
+ * イベントの検索条件インターフェース
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEventSeries> {
     sort?: ISortOrder;

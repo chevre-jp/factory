@@ -2,7 +2,7 @@ import * as COA from '@motionpicture/coa-service';
 
 import IMultilingualString from './multilingualString';
 import * as OfferFactory from './offer';
-import OfferType from './offerType';
+import { OfferType } from './offerType';
 import { IPermit } from './permit';
 import * as SeatFactory from './place/seat';
 import { PlaceType } from './placeType';

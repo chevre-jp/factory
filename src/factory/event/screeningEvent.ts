@@ -5,8 +5,10 @@ import * as ScreeningEventSeriesFactory from '../event/screeningEventSeries';
 import EventType from '../eventType';
 import IMultilingualString from '../multilingualString';
 import * as OfferFactory from '../offer';
-import OfferType from '../offerType';
+import { OfferType } from '../offerType';
+import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
+import PriceCurrency from '../priceCurrency';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
@@ -95,7 +97,7 @@ export interface IServiceOutput {
  * イベントのサービスインターフェース
  */
 export interface IService {
-    typeOf?: string;
+    // typeOf?: string;
     /**
      * サービス区分
      */
@@ -108,10 +110,20 @@ export interface IService {
 
 export type IOfferedThrough = WebAPIFactory.IService<WebAPIFactory.Identifier>;
 
+export interface ISeller {
+    typeOf: OrganizationType;
+    id: string;
+    name?: string | IMultilingualString;
+}
+
 /**
- * 上映イベントに対するオファーインターフェース
+ * イベントに対するオファーインターフェース
  */
-export interface IOffer extends OfferFactory.IOffer {
+// export interface IOffer extends OfferFactory.IOffer {
+export interface IOffer {
+    project: IProject;
+    typeOf: OfferType.Offer;
+    priceCurrency: PriceCurrency.JPY;
     /**
      * 情報提供終了日時
      */
@@ -134,17 +146,19 @@ export interface IOffer extends OfferFactory.IOffer {
      * 販売可能期間through
      */
     validThrough: Date;
+    unacceptedPaymentMethod?: string[];
+    seller: ISeller;
 }
 
 /**
- * 上映イベントに対して有効なチケット価格仕様要素インターフェース
+ * イベントに対して有効なチケット価格仕様要素インターフェース
  */
 export type ITicketPriceComponent = ICategoryCodeChargeSpecification
     | IMovieTicketTypeChargeSpecification
     | IUnitPriceSpecification;
 
 /**
- * 上映イベントに対して有効なチケット価格仕様インターフェース
+ * イベントに対して有効なチケット価格仕様インターフェース
  */
 export type ITicketPriceSpecification = ICompoundPriceSpecification<ITicketPriceComponent>;
 
@@ -255,7 +269,7 @@ export type ISuperEvent = ScreeningEventSeriesFactory.IEvent;
 export type IName = IMultilingualString;
 
 /**
- * 上映イベント属性インターフェース
+ * イベント属性インターフェース
  */
 export interface IAttributes extends EventFactory.IAttributes<EventType.ScreeningEvent> {
     /**
@@ -322,7 +336,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
 }
 
 /**
- * 上映イベントインターフェース
+ * イベントインターフェース
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
 
@@ -351,7 +365,7 @@ export interface IOfferSearchConditions {
 }
 
 /**
- * 上映イベントの検索条件インターフェース
+ * イベントの検索条件インターフェース
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEvent> {
     /**
