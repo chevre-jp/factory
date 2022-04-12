@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 決済資産取引に対する決済サービスID指定を必須化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.196.0 - 2022-04-12
+
+### Changed
+
+- 決済資産取引に対する決済サービスID指定を必須化
 
 ## v4.195.0 - 2022-04-04
 
