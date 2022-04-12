@@ -121,7 +121,7 @@ export interface IObject {
     /**
      * 発行決済サービスID
      */
-    id?: string;
+    id: string;
     paymentMethod?: IPaymentMethod;
     pendingTransaction?: IPendingTransaction;
     entryTranArgs?: IEntryTranArgs;

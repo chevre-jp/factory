@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.196.0 - 2022-04-12
+
+### Changed
+
+- 決済資産取引に対する決済サービスID指定を必須化
+
 ## v4.195.0 - 2022-04-04
 
 ### Changed
