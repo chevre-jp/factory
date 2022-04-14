@@ -13,6 +13,8 @@ import { RateLimitExceededError } from './error/rateLimitExceeded';
 import { ServiceUnavailableError } from './error/serviceUnavailable';
 import { UnauthorizedError } from './error/unauthorized';
 
+// tslint:disable-next-line:no-single-line-block-comment
+/* istanbul ignore next */
 export {
     AlreadyInUseError as AlreadyInUse,
     ArgumentError as Argument,

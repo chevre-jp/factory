@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - tslintの"no-default-export": trueに変更
+- 注文にorderedItemを追加
+- 予約のreservationForからworkPerformedを削除
 
 ### Deprecated
 

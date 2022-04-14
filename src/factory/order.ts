@@ -13,9 +13,9 @@ import * as PermitFactory from './permit';
 import { IPerson, IProfile } from './person';
 import { PersonType } from './personType';
 import { PriceCurrency } from './priceCurrency';
-import { ProductType } from './product';
+import { IProduct, ProductType } from './product';
 import { IPropertyValue } from './propertyValue';
-import { IProgramMembershipUsedSearchConditions } from './reservation';
+import { IProgramMembershipUsedSearchConditions, IReservationFor } from './reservation';
 import * as EventReservationFactory from './reservation/event';
 import { ISeller as ISellerOrganization } from './seller';
 import { PaymentServiceType } from './service/paymentService';
@@ -200,6 +200,15 @@ export interface ISimpleOrder extends IThing {
 }
 
 /**
+ * 注文アイテム
+ * {@link https://schema.org/OrderItem}
+ */
+export interface IOrderedItem {
+    typeOf: 'OrderItem';
+    orderedItem: IProduct | IReservationFor;
+}
+
+/**
  * 注文インターフェース
  * {@link https://schema.org/Order}
  */
@@ -230,6 +239,7 @@ export interface IOrder extends ISimpleOrder {
      * Was the offer accepted as a gift for someone other than the buyer.
      */
     isGift?: boolean;
+    orderedItem?: IOrderedItem[];
     /**
      * OrderStatus	(recommended for confirmation cards/ Search Answers)
      * The current status of the order.
