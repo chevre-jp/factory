@@ -1,4 +1,4 @@
-import IMultilingualString from '../multilingualString';
+import { IMultilingualString } from '../multilingualString';
 import * as OfferFactory from '../offer';
 import { IOrganization } from '../organization';
 import * as PlaceFactory from '../place';

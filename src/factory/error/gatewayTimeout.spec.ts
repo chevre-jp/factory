@@ -3,7 +3,7 @@
  */
 import * as assert from 'assert';
 
-import GatewayTimeoutError from './gatewayTimeout';
+import { GatewayTimeoutError } from './gatewayTimeout';
 
 describe('new GatewayTimeoutError()', () => {
     it('正しくインスタンス化できる', () => {

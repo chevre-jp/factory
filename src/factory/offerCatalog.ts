@@ -1,9 +1,9 @@
-import IMultilingualString from './multilingualString';
+import { IMultilingualString } from './multilingualString';
 import { OfferType } from './offerType';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IServiceType } from './serviceType';
-import SortType from './sortType';
+import { SortType } from './sortType';
 import { IThing } from './thing';
 
 export interface IItemOffered {

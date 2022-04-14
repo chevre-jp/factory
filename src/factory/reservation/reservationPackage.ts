@@ -1,7 +1,7 @@
 import { IPriceSpecification as IGenericPriceSpecification } from '../priceSpecification';
-import PriceSpecificationType from '../priceSpecificationType';
+import { PriceSpecificationType } from '../priceSpecificationType';
 import * as ReservationFactory from '../reservation';
-import ReservationType from '../reservationType';
+import { ReservationType } from '../reservationType';
 
 export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;
 

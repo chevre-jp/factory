@@ -1,11 +1,11 @@
-import ActionType from './actionType';
+import { ActionType } from './actionType';
 import { IMonetaryAmount } from './monetaryAmount';
 import { IOffer } from './offer';
 import { IPermit } from './permit';
 import { IProject } from './project';
 import { IQuantitativeValue } from './quantitativeValue';
 import { IServiceType } from './serviceType';
-import SortType from './sortType';
+import { SortType } from './sortType';
 import { IThing } from './thing';
 
 /**

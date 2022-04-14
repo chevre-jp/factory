@@ -2,14 +2,14 @@ import * as COA from '@motionpicture/coa-service';
 
 import { ICreativeWork as IMovie } from '../creativeWork/movie';
 import * as EventFactory from '../event';
-import EventType from '../eventType';
+import { EventType } from '../eventType';
 import { ILanguage } from '../language';
-import IMultilingualString from '../multilingualString';
+import { IMultilingualString } from '../multilingualString';
 // import * as OfferFactory from '../offer';
 import { OfferType } from '../offerType';
 import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
-import PriceCurrency from '../priceCurrency';
+import { PriceCurrency } from '../priceCurrency';
 import { IProject } from '../project';
 
 /**

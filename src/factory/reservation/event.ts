@@ -5,15 +5,15 @@ import {
     ISuperEvent,
     IWorkPerformed
 } from '../event/screeningEvent';
-import EventStatusType from '../eventStatusType';
-import EventType from '../eventType';
+import { EventStatusType } from '../eventStatusType';
+import { EventType } from '../eventType';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
 import { IProject } from '../project';
 import * as ReservationFactory from '../reservation';
-import ReservationType from '../reservationType';
+import { ReservationType } from '../reservationType';
 
 // IReservationForを最適化
 // export type IReservationFor = IScreeningEvent;

@@ -1,8 +1,7 @@
 /**
  * エラーコード
  */
-
-enum ErrorCode {
+export enum ErrorCode {
     AlreadyInUse = 'AlreadyInUse',
     Argument = 'Argument',
     ArgumentNull = 'ArgumentNull',
@@ -14,5 +13,3 @@ enum ErrorCode {
     ServiceUnavailable = 'ServiceUnavailable',
     Unauthorized = 'Unauthorized'
 }
-
-export default ErrorCode;

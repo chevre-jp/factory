@@ -3,7 +3,7 @@
  */
 import * as assert from 'assert';
 
-import ArgumentError from './argument';
+import { ArgumentError } from './argument';
 
 describe('new ArgumentError()', () => {
     it('正しくインスタンス化できる', () => {

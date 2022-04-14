@@ -1,5 +1,5 @@
-import ItemAvailability from '../itemAvailability';
-import IMultilingualString from '../multilingualString';
+import { ItemAvailability } from '../itemAvailability';
+import { IMultilingualString } from '../multilingualString';
 import * as OfferFactory from '../offer';
 import * as PlaceFactory from '../place';
 import { PlaceType } from '../placeType';

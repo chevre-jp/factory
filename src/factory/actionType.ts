@@ -1,7 +1,7 @@
 /**
  * アクションタイプ
  */
-enum ActionType {
+export enum ActionType {
     AuthorizeAction = 'AuthorizeAction',
     CancelAction = 'CancelAction',
     CheckAction = 'CheckAction',
@@ -23,4 +23,3 @@ enum ActionType {
     UpdateAction = 'UpdateAction',
     UseAction = 'UseAction'
 }
-export default ActionType;

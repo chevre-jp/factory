@@ -3,7 +3,7 @@
  */
 import * as assert from 'assert';
 
-import NotFoundError from './notFound';
+import { NotFoundError } from './notFound';
 
 describe('new NotFoundError()', () => {
     it('正しくインスタンス化できる', () => {

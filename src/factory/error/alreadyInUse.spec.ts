@@ -3,7 +3,7 @@
  */
 import * as assert from 'assert';
 
-import AlreadyInUseError from './alreadyInUse';
+import { AlreadyInUseError } from './alreadyInUse';
 
 describe('new AlreadyInUseError()', () => {
     it('正しくインスタンス化できる', () => {

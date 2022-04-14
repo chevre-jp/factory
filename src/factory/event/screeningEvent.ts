@@ -2,13 +2,13 @@ import * as COA from '@motionpicture/coa-service';
 
 import * as EventFactory from '../event';
 import * as ScreeningEventSeriesFactory from '../event/screeningEventSeries';
-import EventType from '../eventType';
-import IMultilingualString from '../multilingualString';
+import { EventType } from '../eventType';
+import { IMultilingualString } from '../multilingualString';
 import * as OfferFactory from '../offer';
 import { OfferType } from '../offerType';
 import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
-import PriceCurrency from '../priceCurrency';
+import { PriceCurrency } from '../priceCurrency';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
@@ -16,7 +16,7 @@ import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecific
 import { IProject } from '../project';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
-import ReservationType from '../reservationType';
+import { ReservationType } from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
 import { IServiceType } from '../serviceType';
 import { IThing } from '../thing';

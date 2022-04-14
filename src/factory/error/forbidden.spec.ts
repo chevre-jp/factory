@@ -3,7 +3,7 @@
  */
 import * as assert from 'assert';
 
-import ForbiddenError from './forbidden';
+import { ForbiddenError } from './forbidden';
 
 describe('new ForbiddenError()', () => {
     it('正しくインスタンス化できる', () => {

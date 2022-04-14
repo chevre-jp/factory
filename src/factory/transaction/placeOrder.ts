@@ -11,7 +11,7 @@ import * as OrderFactory from '../order';
 import { IInformParams, IProject } from '../project';
 import * as WebAPIFactory from '../service/webAPI';
 import * as TransactionFactory from '../transaction';
-import TransactionType from '../transactionType';
+import { TransactionType } from '../transactionType';
 
 export import ISeller = TransactionFactory.ISeller;
 

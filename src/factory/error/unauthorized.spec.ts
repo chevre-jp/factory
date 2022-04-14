@@ -3,7 +3,7 @@
  */
 import * as assert from 'assert';
 
-import UnauthorizedError from './unauthorized';
+import { UnauthorizedError } from './unauthorized';
 
 describe('new UnauthorizedError()', () => {
     it('正しくインスタンス化できる', () => {

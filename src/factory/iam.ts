@@ -1,6 +1,6 @@
-import CreativeWorkType from './creativeWorkType';
+import { CreativeWorkType } from './creativeWorkType';
 import { OrganizationType } from './organizationType';
-import PersonType from './personType';
+import { PersonType } from './personType';
 
 export enum RoleType {
     OrganizationRole = 'OrganizationRole'

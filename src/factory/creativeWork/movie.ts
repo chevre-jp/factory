@@ -1,7 +1,7 @@
 import * as CreativeWorkFactory from '../creativeWork';
 import * as OfferFactory from '../offer';
 import { IProject } from '../project';
-import SortType from '../sortType';
+import { SortType } from '../sortType';
 
 /**
  * コンテンツに対するオファーインターフェース

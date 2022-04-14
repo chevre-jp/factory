@@ -1,4 +1,4 @@
-import IMultilingualString from '../multilingualString';
+import { IMultilingualString } from '../multilingualString';
 import * as PlaceFactory from '../place';
 import { PlaceType } from '../placeType';
 import { IPlace as IScreeningRoomSection } from './screeningRoomSection';

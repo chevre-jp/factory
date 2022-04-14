@@ -1,12 +1,12 @@
 import * as ActionFactory from '../../../action';
-import ActionType from '../../../actionType';
+import { ActionType } from '../../../actionType';
 import * as RegisterServiceTransactionFactory from '../../../assetTransaction/registerService';
 import { IOffer } from '../../../offer';
 import * as OrderFactory from '../../../order';
-import PriceCurrency from '../../../priceCurrency';
+import { PriceCurrency } from '../../../priceCurrency';
 import { IProduct } from '../../../product';
 import { ISeller } from '../../../seller';
-import TransactionType from '../../../transactionType';
+import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
 export type IAgent = ActionFactory.IParticipant;

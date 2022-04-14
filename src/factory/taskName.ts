@@ -1,7 +1,7 @@
 /**
  * タスク名
  */
-enum TaskName {
+export enum TaskName {
     Reserve = 'reserve',
     CancelReservation = 'cancelReservation',
     CancelPendingReservation = 'cancelPendingReservation',
@@ -109,4 +109,3 @@ enum TaskName {
      */
     AccountMoneyTransfer = 'accountMoneyTransfer'
 }
-export default TaskName;

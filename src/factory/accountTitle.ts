@@ -1,6 +1,6 @@
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
-import SortType from './sortType';
+import { SortType } from './sortType';
 
 export interface IDefinedTerm {
     typeOf: 'DefinedTerm';

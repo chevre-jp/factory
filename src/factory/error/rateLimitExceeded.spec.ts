@@ -3,7 +3,7 @@
  */
 import * as assert from 'assert';
 
-import RateLimitExceededError from './rateLimitExceeded';
+import { RateLimitExceededError } from './rateLimitExceeded';
 
 describe('new RateLimitExceededError()', () => {
     it('正しくインスタンス化できる', () => {

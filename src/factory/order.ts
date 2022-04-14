@@ -1,25 +1,25 @@
 import { IParticipant } from './action';
 import { IPaymentCard } from './action/interact/confirm/moneyTransfer';
-import ActionType from './actionType';
-import AssetTransactionType from './assetTransactionType';
+import { ActionType } from './actionType';
+import { AssetTransactionType } from './assetTransactionType';
 import { ICreativeWork as IWebApplication } from './creativeWork/softwareApplication/webApplication';
 import { ICustomer as ICustomerOrganization } from './customer';
-import EventType from './eventType';
+import { EventType } from './eventType';
 import * as MonetaryAmountFactory from './monetaryAmount';
 import { IOffer } from './offer';
-import OrderStatus from './orderStatus';
+import { OrderStatus } from './orderStatus';
 import { OrganizationType } from './organizationType';
 import * as PermitFactory from './permit';
 import { IPerson, IProfile } from './person';
-import PersonType from './personType';
-import PriceCurrency from './priceCurrency';
+import { PersonType } from './personType';
+import { PriceCurrency } from './priceCurrency';
 import { ProductType } from './product';
 import { IPropertyValue } from './propertyValue';
 import { IProgramMembershipUsedSearchConditions } from './reservation';
 import * as EventReservationFactory from './reservation/event';
 import { ISeller as ISellerOrganization } from './seller';
 import { PaymentServiceType } from './service/paymentService';
-import SortType from './sortType';
+import { SortType } from './sortType';
 import { IThing } from './thing';
 
 export interface IProject {

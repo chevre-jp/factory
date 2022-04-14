@@ -1,5 +1,5 @@
 import * as ActionFactory from '../../action';
-import ActionType from '../../actionType';
+import { ActionType } from '../../actionType';
 import * as OrderFactory from '../../order';
 
 export type IAgent = ActionFactory.IParticipant;

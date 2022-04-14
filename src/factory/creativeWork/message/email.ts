@@ -1,5 +1,5 @@
 import * as CreativeWorkFactory from '../../creativeWork';
-import CreativeWorkType from '../../creativeWorkType';
+import { CreativeWorkType } from '../../creativeWorkType';
 import { IProject } from '../../project';
 import { IThing } from '../../thing';
 

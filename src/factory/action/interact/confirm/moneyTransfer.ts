@@ -1,11 +1,11 @@
 import * as AccountFactory from '../../../account';
 import * as ActionFactory from '../../../action';
-import ActionType from '../../../actionType';
+import { ActionType } from '../../../actionType';
 import * as MoneyTransferTransactionFactory from '../../../assetTransaction/moneyTransfer';
 import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as OrderFactory from '../../../order';
 import { IPropertyValue } from '../../../propertyValue';
-import TransactionType from '../../../transactionType';
+import { TransactionType } from '../../../transactionType';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;

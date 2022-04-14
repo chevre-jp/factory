@@ -1,7 +1,7 @@
 import * as ActionFactory from '../../action';
-import ActionType from '../../actionType';
+import { ActionType } from '../../actionType';
 import * as OrderFactory from '../../order';
-import TransactionType from '../../transactionType';
+import { TransactionType } from '../../transactionType';
 import { IAttributes as IPayActionAttributes } from '../interact/confirm/pay';
 import { IAttributes as IGivePointAwardActionAttributes } from '../transfer/give/pointAward';
 import { IAttributes as ISendOrderActionAttributes } from '../transfer/send/order';

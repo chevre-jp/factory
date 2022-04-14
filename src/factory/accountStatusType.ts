@@ -1,7 +1,7 @@
 /**
  * 口座ステータスタイプ
  */
-enum AccountStatusType {
+export enum AccountStatusType {
     /**
      * 開設済
      */
@@ -11,4 +11,3 @@ enum AccountStatusType {
      */
     Closed = 'Closed'
 }
-export default AccountStatusType;

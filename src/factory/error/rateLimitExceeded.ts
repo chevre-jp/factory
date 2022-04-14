@@ -1,12 +1,12 @@
 // tslint:disable-next-line:no-require-imports
 import setPrototypeOf = require('setprototypeof');
-import ErrorCode from '../errorCode';
+import { ErrorCode } from '../errorCode';
 import { ChevreError } from './chevre';
 
 /**
  * RateLimitExceededError
  */
-export default class RateLimitExceededError extends ChevreError {
+export class RateLimitExceededError extends ChevreError {
     constructor(message?: string) {
         let actualMessage = message;
         if (message === undefined || message.length === 0) {

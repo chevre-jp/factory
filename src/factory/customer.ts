@@ -1,8 +1,8 @@
-import IMultilingualString from './multilingualString';
+import { IMultilingualString } from './multilingualString';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { IProject } from './project';
-import SortType from './sortType';
+import { SortType } from './sortType';
 
 /**
  * 連絡窓口

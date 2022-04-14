@@ -3,7 +3,7 @@
  */
 import * as assert from 'assert';
 
-import ArgumentNullError from './argumentNull';
+import { ArgumentNullError } from './argumentNull';
 
 describe('new ArgumentNullError()', () => {
     it('正しくインスタンス化できる', () => {

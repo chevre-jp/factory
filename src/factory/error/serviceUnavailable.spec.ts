@@ -3,7 +3,7 @@
  */
 import * as assert from 'assert';
 
-import ServiceUnavailableError from './serviceUnavailable';
+import { ServiceUnavailableError } from './serviceUnavailable';
 
 describe('new ServiceUnavailableError()', () => {
     it('正しくインスタンス化できる', () => {

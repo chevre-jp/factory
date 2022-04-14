@@ -2,7 +2,7 @@ import * as GMO from '@motionpicture/gmo-service';
 
 import * as AccountFactory from '../../account';
 import * as ActionFactory from '../../action';
-import ActionType from '../../actionType';
+import { ActionType } from '../../actionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
 import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import { IPropertyValue } from '../../propertyValue';

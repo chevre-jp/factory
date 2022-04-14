@@ -1,4 +1,4 @@
-import IMultilingualString from './multilingualString';
+import { IMultilingualString } from './multilingualString';
 import { IPropertyValue } from './propertyValue';
 
 /**

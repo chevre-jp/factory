@@ -1,8 +1,7 @@
 /**
  * 商品在庫状況
  */
-
-enum ItemAvailability {
+export enum ItemAvailability {
     Discontinued = 'Discontinued',
     InStock = 'InStock',
     InStoreOnly = 'InStoreOnly',
@@ -13,5 +12,3 @@ enum ItemAvailability {
     PreSale = 'PreSale',
     SoldOut = 'SoldOut'
 }
-
-export default ItemAvailability;

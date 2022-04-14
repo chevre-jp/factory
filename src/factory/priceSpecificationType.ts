@@ -1,7 +1,7 @@
 /**
  * 価格仕様タイプ
  */
-enum PriceSpecificationType {
+export enum PriceSpecificationType {
     /**
      * 基本価格仕様
      */
@@ -23,5 +23,3 @@ enum PriceSpecificationType {
      */
     UnitPriceSpecification = 'UnitPriceSpecification'
 }
-
-export default PriceSpecificationType;

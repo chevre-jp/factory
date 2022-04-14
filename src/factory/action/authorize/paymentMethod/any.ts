@@ -1,16 +1,16 @@
 import * as ActionFactory from '../../../action';
 import * as CheckMovieTicketActionFactory from '../../../action/check/paymentMethod/movieTicket';
 import * as MoneyTransferActionFactory from '../../../action/transfer/moneyTransfer';
-import ActionType from '../../../actionType';
+import { ActionType } from '../../../actionType';
 import * as PayTransactionFactory from '../../../assetTransaction/pay';
-import AssetTransactionType from '../../../assetTransactionType';
+import { AssetTransactionType } from '../../../assetTransactionType';
 import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as CreditCardFactory from '../../../paymentMethod/paymentCard/creditCard';
 import * as MovieTicketFactory from '../../../paymentMethod/paymentCard/movieTicket';
-import PaymentStatusType from '../../../paymentStatusType';
+import { PaymentStatusType } from '../../../paymentStatusType';
 import { IPropertyValue } from '../../../propertyValue';
 import { PaymentServiceType } from '../../../service/paymentService';
-import TransactionType from '../../../transactionType';
+import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
 export type IAgent = ActionFactory.IParticipant;

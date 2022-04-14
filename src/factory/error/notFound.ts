@@ -1,12 +1,12 @@
 // tslint:disable-next-line:no-require-imports
 import setPrototypeOf = require('setprototypeof');
-import ErrorCode from '../errorCode';
+import { ErrorCode } from '../errorCode';
 import { ChevreError } from './chevre';
 
 /**
  * NotFoundError
  */
-export default class NotFoundError extends ChevreError {
+export class NotFoundError extends ChevreError {
     public readonly entityName: string;
 
     constructor(entityName: string, message?: string) {

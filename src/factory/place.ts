@@ -1,4 +1,4 @@
-import IMultilingualString from './multilingualString';
+import { IMultilingualString } from './multilingualString';
 import { PlaceType } from './placeType';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';

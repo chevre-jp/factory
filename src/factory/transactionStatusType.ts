@@ -1,12 +1,9 @@
 /**
  * 取引ステータス
  */
-
-enum TransactionStatusType {
+export enum TransactionStatusType {
     InProgress = 'InProgress',
     Canceled = 'Canceled',
     Confirmed = 'Confirmed',
     Expired = 'Expired'
 }
-
-export default TransactionStatusType;

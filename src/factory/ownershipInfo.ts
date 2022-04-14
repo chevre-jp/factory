@@ -3,10 +3,10 @@ import * as PermitFactory from './permit';
 import * as ProductFactory from './product';
 import { IProject } from './project';
 import { IReservation as IEventReservation } from './reservation/event';
-import ReservationType from './reservationType';
+import { ReservationType } from './reservationType';
 import { ISeller } from './seller';
 import * as WebAPIFactory from './service/webAPI';
-import SortType from './sortType';
+import { SortType } from './sortType';
 
 export type IBookingService = WebAPIFactory.IService<WebAPIFactory.Identifier>;
 

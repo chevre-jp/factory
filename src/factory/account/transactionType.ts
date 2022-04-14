@@ -1,7 +1,7 @@
 /**
- * 取引タイプ
+ * 口座取引タイプ
  */
-enum TransactionType {
+export enum AccountTransactionType {
     /**
      * 出金取引
      */
@@ -15,5 +15,3 @@ enum TransactionType {
      */
     Transfer = 'Transfer'
 }
-
-export default TransactionType;

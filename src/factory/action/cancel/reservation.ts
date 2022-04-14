@@ -1,6 +1,6 @@
 import * as ActionFactory from '../../action';
-import ActionType from '../../actionType';
-import AssetTransactionType from '../../assetTransactionType';
+import { ActionType } from '../../actionType';
+import { AssetTransactionType } from '../../assetTransactionType';
 import { IReservation as IEventReservation } from '../../reservation/event';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 

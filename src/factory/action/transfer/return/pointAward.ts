@@ -1,6 +1,5 @@
 import * as ActionFactory from '../../../action';
-import AssetTransactionType from '../../../assetTransactionType';
-// import * as GivePointAwardActionFactory from '../give/pointAward';
+import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
 import * as ReturnActionFactory from '../return';
 

@@ -3,7 +3,7 @@
  */
 import * as assert from 'assert';
 
-import NotImplementedError from './notImplemented';
+import { NotImplementedError } from './notImplemented';
 
 describe('new NotImplementedError()', () => {
     it('正しくインスタンス化できる', () => {

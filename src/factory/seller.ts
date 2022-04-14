@@ -3,7 +3,7 @@ import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
-import SortType from './sortType';
+import { SortType } from './sortType';
 
 /**
  * 利用可能決済インターフェース

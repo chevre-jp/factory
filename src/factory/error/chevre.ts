@@ -1,6 +1,6 @@
 // tslint:disable-next-line:no-require-imports
 import setPrototypeOf = require('setprototypeof');
-import ErrorCode from '../errorCode';
+import { ErrorCode } from '../errorCode';
 
 /**
  * ChevreError

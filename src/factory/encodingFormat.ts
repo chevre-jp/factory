@@ -3,7 +3,6 @@
  * {@link http://www.iana.org/assignments/media-types/media-types.xhtml}
  * {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types}
  */
-
 export enum Application {
     pdf = 'application/pdf',
     json = 'application/json'

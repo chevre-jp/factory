@@ -2,7 +2,7 @@
  * 取引タイプ
  */
 
-enum TransactionType {
+export enum TransactionType {
     /**
      * 通貨転送
      */
@@ -16,5 +16,3 @@ enum TransactionType {
      */
     ReturnOrder = 'ReturnOrder'
 }
-
-export default TransactionType;

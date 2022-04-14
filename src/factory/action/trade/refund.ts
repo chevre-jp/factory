@@ -1,5 +1,5 @@
 import * as ActionFactory from '../../action';
-import ActionType from '../../actionType';
+import { ActionType } from '../../actionType';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 import { IPaymentService as IPaymentServiceOnPay, IPayPurpose } from './pay';
 

@@ -1,6 +1,6 @@
 import * as COA from '@motionpicture/coa-service';
 
-import CreativeWorkType from './creativeWorkType';
+import { CreativeWorkType } from './creativeWorkType';
 import { IPropertyValue } from './propertyValue';
 import { IThing } from './thing';
 
