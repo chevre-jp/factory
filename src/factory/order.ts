@@ -6,19 +6,23 @@ import { ICreativeWork as IWebApplication } from './creativeWork/softwareApplica
 import { ICustomer as ICustomerOrganization } from './customer';
 import { EventType } from './eventType';
 import * as MonetaryAmountFactory from './monetaryAmount';
+import { IMultilingualString } from './multilingualString';
 import { IOffer } from './offer';
 import { OrderStatus } from './orderStatus';
 import { OrganizationType } from './organizationType';
 import * as PermitFactory from './permit';
 import { IPerson, IProfile } from './person';
 import { PersonType } from './personType';
+import { PlaceType } from './placeType';
 import { PriceCurrency } from './priceCurrency';
 import { IProduct, ProductType } from './product';
 import { IPropertyValue } from './propertyValue';
-import { IProgramMembershipUsedSearchConditions, IReservationFor } from './reservation';
+import { IProgramMembershipUsedSearchConditions } from './reservation';
 import * as EventReservationFactory from './reservation/event';
+import { ReservationType } from './reservationType';
 import { ISeller as ISellerOrganization } from './seller';
 import { PaymentServiceType } from './service/paymentService';
+import { IServiceType } from './serviceType';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 
@@ -199,13 +203,36 @@ export interface ISimpleOrder extends IThing {
     orderDate: Date;
 }
 
+export interface IReservationFor4OrderedItem {
+    location?: {
+        branchCode: string;
+        name?: IMultilingualString;
+        project: IProject;
+        typeOf: PlaceType.ScreeningRoom;
+    };
+    project: IProject;
+    typeOf: EventType.ScreeningEvent;
+    id: string;
+    name?: IMultilingualString;
+    startDate?: Date;
+    endDate?: Date;
+}
+export interface IEventServiceAsOrderedItem {
+    project: IProject;
+    typeOf: ProductType.EventService;
+    serviceOutput: {
+        typeOf: ReservationType.EventReservation;
+        reservationFor: IReservationFor4OrderedItem;
+    };
+    serviceType?: IServiceType;
+}
 /**
  * 注文アイテム
  * {@link https://schema.org/OrderItem}
  */
 export interface IOrderedItem {
     typeOf: 'OrderItem';
-    orderedItem: IProduct | IReservationFor;
+    orderedItem: IProduct | IEventServiceAsOrderedItem;
 }
 
 /**
