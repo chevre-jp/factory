@@ -10,7 +10,8 @@ import { IAttributes as ISendEmailMessageActionAttributes } from './message/emai
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
-export type IObject = OrderFactory.IOrder;
+// export type IObject = OrderFactory.IOrder;
+export type IObject = OrderFactory.ISimpleOrder;
 
 /**
  * 注文配送結果としての所有権
