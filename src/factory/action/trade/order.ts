@@ -8,9 +8,6 @@ import { IAttributes as ISendOrderActionAttributes } from '../transfer/send/orde
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
-// export interface IObject extends OrderFactory.IOrder {
-//     acceptedOffers: OrderFactory.IAcceptedOffer<any>[];
-// }
 export type IObject = OrderFactory.ISimpleOrder;
 
 export type IResult = any;

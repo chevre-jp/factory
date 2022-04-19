@@ -221,7 +221,7 @@ export interface IEventServiceAsOrderedItem {
     project: IProject;
     typeOf: ProductType.EventService;
     serviceOutput: {
-        typeOf: ReservationType.EventReservation;
+        typeOf: ReservationType.EventReservation | ReservationType.ReservationPackage;
         reservationFor: IReservationFor4OrderedItem;
     };
     serviceType?: IServiceType;
@@ -244,7 +244,7 @@ export interface IOrder extends ISimpleOrder {
      * Offer
      * The offers included in the order.Also accepts an array of objects.
      */
-    acceptedOffers: IAcceptedOffer<IItemOffered>[];
+    acceptedOffers?: IAcceptedOffer<IItemOffered>[];
     /**
      * An entity that arranges for an exchange between a buyer and a seller.
      * In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.
