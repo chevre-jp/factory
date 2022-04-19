@@ -10,12 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- tslintの"no-default-export": trueに変更
-- 注文にorderedItemを追加
-- 予約のreservationForからworkPerformedを削除
-- 注文アクションのobjectを最適化
-- 注文配送アクションのobjectを最適化
-
 ### Deprecated
 
 ### Removed
@@ -23,6 +17,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.197.0 - 2022-04-20
+
+### Changed
+
+- tslintの"no-default-export": trueに変更
+- 注文にorderedItemを追加
+- 予約のreservationForからworkPerformedを削除
+- 注文アクションのobjectを最適化
+- 注文配送アクションのobjectを最適化
 
 ## v4.196.0 - 2022-04-12
 
