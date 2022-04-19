@@ -1,9 +1,6 @@
 /**
  * 人物タイプ
  */
-
-enum PersonType {
+export enum PersonType {
     Person = 'Person'
 }
-
-export default PersonType;

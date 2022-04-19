@@ -1,12 +1,12 @@
 import * as CreativeWorkFactory from './creativeWork';
-import EventStatusType from './eventStatusType';
-import EventType from './eventType';
-import IMultilingualString from './multilingualString';
+import { EventStatusType } from './eventStatusType';
+import { EventType } from './eventType';
+import { IMultilingualString } from './multilingualString';
 import * as OfferFactory from './offer';
 import * as PlaceFactory from './place';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
-import SortType from './sortType';
+import { SortType } from './sortType';
 
 export interface IHasOfferCatalog {
     typeOf: 'OfferCatalog';

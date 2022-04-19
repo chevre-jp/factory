@@ -1,4 +1,4 @@
-import PersonType from './personType';
+import { PersonType } from './personType';
 import { IProgramMembership } from './programMembership';
 import { IPropertyValue } from './propertyValue';
 import * as ThingFactory from './thing';

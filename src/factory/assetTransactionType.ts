@@ -1,7 +1,7 @@
 /**
- * 取引タイプ
+ * 資産取引タイプ
  */
-enum AssetTransactionType {
+export enum AssetTransactionType {
     /**
      * 通貨転送
      */
@@ -29,5 +29,3 @@ enum AssetTransactionType {
      */
     RegisterService = 'RegisterService'
 }
-
-export default AssetTransactionType;

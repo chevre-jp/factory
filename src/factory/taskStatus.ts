@@ -1,7 +1,7 @@
 /**
  * タスクステータス
  */
-enum TaskStatus {
+export enum TaskStatus {
     /**
      * 準備OK
      */
@@ -19,4 +19,3 @@ enum TaskStatus {
      */
     Aborted = 'Aborted'
 }
-export default TaskStatus;

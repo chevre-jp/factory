@@ -1,25 +1,29 @@
 import { IParticipant } from './action';
 import { IPaymentCard } from './action/interact/confirm/moneyTransfer';
-import ActionType from './actionType';
-import AssetTransactionType from './assetTransactionType';
+import { ActionType } from './actionType';
+import { AssetTransactionType } from './assetTransactionType';
 import { ICreativeWork as IWebApplication } from './creativeWork/softwareApplication/webApplication';
 import { ICustomer as ICustomerOrganization } from './customer';
-import EventType from './eventType';
+import { EventType } from './eventType';
 import * as MonetaryAmountFactory from './monetaryAmount';
+import { IMultilingualString } from './multilingualString';
 import { IOffer } from './offer';
-import OrderStatus from './orderStatus';
+import { OrderStatus } from './orderStatus';
 import { OrganizationType } from './organizationType';
 import * as PermitFactory from './permit';
 import { IPerson, IProfile } from './person';
-import PersonType from './personType';
-import PriceCurrency from './priceCurrency';
-import { ProductType } from './product';
+import { PersonType } from './personType';
+import { PlaceType } from './placeType';
+import { PriceCurrency } from './priceCurrency';
+import { IProduct, ProductType } from './product';
 import { IPropertyValue } from './propertyValue';
 import { IProgramMembershipUsedSearchConditions } from './reservation';
 import * as EventReservationFactory from './reservation/event';
+import { ReservationType } from './reservationType';
 import { ISeller as ISellerOrganization } from './seller';
 import { PaymentServiceType } from './service/paymentService';
-import SortType from './sortType';
+import { IServiceType } from './serviceType';
+import { SortType } from './sortType';
 import { IThing } from './thing';
 
 export interface IProject {
@@ -199,6 +203,38 @@ export interface ISimpleOrder extends IThing {
     orderDate: Date;
 }
 
+export interface IReservationFor4OrderedItem {
+    location?: {
+        branchCode: string;
+        name?: IMultilingualString;
+        project: IProject;
+        typeOf: PlaceType.ScreeningRoom;
+    };
+    project: IProject;
+    typeOf: EventType.ScreeningEvent;
+    id: string;
+    name?: IMultilingualString;
+    startDate?: Date;
+    endDate?: Date;
+}
+export interface IEventServiceAsOrderedItem {
+    project: IProject;
+    typeOf: ProductType.EventService;
+    serviceOutput: {
+        typeOf: ReservationType.EventReservation | ReservationType.ReservationPackage;
+        reservationFor: IReservationFor4OrderedItem;
+    };
+    serviceType?: IServiceType;
+}
+/**
+ * 注文アイテム
+ * {@link https://schema.org/OrderItem}
+ */
+export interface IOrderedItem {
+    typeOf: 'OrderItem';
+    orderedItem: IProduct | IEventServiceAsOrderedItem;
+}
+
 /**
  * 注文インターフェース
  * {@link https://schema.org/Order}
@@ -208,7 +244,7 @@ export interface IOrder extends ISimpleOrder {
      * Offer
      * The offers included in the order.Also accepts an array of objects.
      */
-    acceptedOffers: IAcceptedOffer<IItemOffered>[];
+    acceptedOffers?: IAcceptedOffer<IItemOffered>[];
     /**
      * An entity that arranges for an exchange between a buyer and a seller.
      * In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.
@@ -230,6 +266,7 @@ export interface IOrder extends ISimpleOrder {
      * Was the offer accepted as a gift for someone other than the buyer.
      */
     isGift?: boolean;
+    orderedItem?: IOrderedItem[];
     /**
      * OrderStatus	(recommended for confirmation cards/ Search Answers)
      * The current status of the order.

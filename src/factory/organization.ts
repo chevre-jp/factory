@@ -1,5 +1,5 @@
 import { IMerchantReturnPolicy } from './merchantReturnPolicy';
-import IMultilingualString from './multilingualString';
+import { IMultilingualString } from './multilingualString';
 import { IPlace } from './place';
 import { IPropertyValue } from './propertyValue';
 import { IThing } from './thing';

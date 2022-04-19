@@ -1,5 +1,5 @@
 import * as ActionFactory from '../action';
-import ActionType from '../actionType';
+import { ActionType } from '../actionType';
 
 export type IObject = any;
 export type IResult = any;

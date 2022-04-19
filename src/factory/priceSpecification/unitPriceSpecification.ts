@@ -1,6 +1,6 @@
 import { IAddOn } from '../offer';
 import { IPriceSpecification as BaseSpecification } from '../priceSpecification';
-import PriceSpecificationType from '../priceSpecificationType';
+import { PriceSpecificationType } from '../priceSpecificationType';
 import { IQuantitativeValue } from '../quantitativeValue';
 import { UnitCode } from '../unitCode';
 import { IMovieTicket } from './movieTicketTypeChargeSpecification';

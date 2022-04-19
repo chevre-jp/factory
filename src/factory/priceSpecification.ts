@@ -1,10 +1,10 @@
 import { IAccountTitle } from './accountTitle';
-import IMultilingualString from './multilingualString';
-import PriceCurrency from './priceCurrency';
-import PriceSpecificationType from './priceSpecificationType';
+import { IMultilingualString } from './multilingualString';
+import { PriceCurrency } from './priceCurrency';
+import { PriceSpecificationType } from './priceSpecificationType';
 import { IProject } from './project';
 import { IQuantitativeValue } from './quantitativeValue';
-import SortType from './sortType';
+import { SortType } from './sortType';
 import { UnitCode } from './unitCode';
 
 /**

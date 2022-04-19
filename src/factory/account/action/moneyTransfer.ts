@@ -1,10 +1,10 @@
 import * as ActionFactory from '../../action';
-import ActionStatusType from '../../actionStatusType';
-import ActionType from '../../actionType';
+import { ActionStatusType } from '../../actionStatusType';
+import { ActionType } from '../../actionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
-import SortType from '../../sortType';
+import { SortType } from '../../sortType';
 import { IThing } from '../../thing';
-import TransactionType from '../transactionType';
+import { AccountTransactionType } from '../transactionType';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
@@ -61,7 +61,7 @@ export interface IPurpose {
     /**
      * 取引タイプ
      */
-    typeOf: TransactionType;
+    typeOf: AccountTransactionType;
     /**
      * 取引ID
      */

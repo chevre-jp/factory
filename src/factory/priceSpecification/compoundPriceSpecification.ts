@@ -1,5 +1,5 @@
 import { IPriceSpecification as BaseSpecification, ISearchConditions as IBaseSearchConditions } from '../priceSpecification';
-import PriceSpecificationType from '../priceSpecificationType';
+import { PriceSpecificationType } from '../priceSpecificationType';
 
 /**
  * 複合価格仕様インターフェース

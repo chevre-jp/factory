@@ -1,12 +1,12 @@
 // tslint:disable-next-line:no-require-imports
 import setPrototypeOf = require('setprototypeof');
-import ErrorCode from '../errorCode';
+import { ErrorCode } from '../errorCode';
 import { ChevreError } from './chevre';
 
 /**
  * AlreadyInUseError
  */
-export default class AlreadyInUseError extends ChevreError {
+export class AlreadyInUseError extends ChevreError {
     public readonly entityName: string;
     public readonly fieldNames: string[];
 

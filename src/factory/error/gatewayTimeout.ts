@@ -1,12 +1,12 @@
 // tslint:disable-next-line:no-require-imports
 import setPrototypeOf = require('setprototypeof');
-import ErrorCode from '../errorCode';
+import { ErrorCode } from '../errorCode';
 import { ChevreError } from './chevre';
 
 /**
  * GatewayTimeoutError
  */
-export default class GatewayTimeoutError extends ChevreError {
+export class GatewayTimeoutError extends ChevreError {
     constructor(message?: string) {
         let actualMessage = message;
         if (message === undefined || message.length === 0) {

@@ -1,5 +1,5 @@
 import * as ActionFactory from '../../../action';
-import ActionType from '../../../actionType';
+import { ActionType } from '../../../actionType';
 import * as OrderFactory from '../../../order';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../../transfer/send/message/email';
 

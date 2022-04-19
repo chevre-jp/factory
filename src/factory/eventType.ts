@@ -1,9 +1,7 @@
 /**
  * イベントタイプ
  */
-enum EventType {
+export enum EventType {
     ScreeningEvent = 'ScreeningEvent',
     ScreeningEventSeries = 'ScreeningEventSeries'
 }
-
-export default EventType;

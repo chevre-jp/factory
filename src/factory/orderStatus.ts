@@ -1,7 +1,7 @@
 /**
  * 注文ステータス
  */
-enum OrderStatus {
+export enum OrderStatus {
     OrderCancelled = 'OrderCancelled',
     OrderDelivered = 'OrderDelivered',
     OrderInTransit = 'OrderInTransit',
@@ -11,4 +11,3 @@ enum OrderStatus {
     OrderProcessing = 'OrderProcessing',
     OrderReturned = 'OrderReturned'
 }
-export default OrderStatus;

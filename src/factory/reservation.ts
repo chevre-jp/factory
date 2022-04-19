@@ -1,22 +1,22 @@
 import * as COA from '@motionpicture/coa-service';
 
-import IMultilingualString from './multilingualString';
+import { IMultilingualString } from './multilingualString';
 import * as OfferFactory from './offer';
 import { OfferType } from './offerType';
 import { IPermit } from './permit';
 import * as SeatFactory from './place/seat';
 import { PlaceType } from './placeType';
-import PriceCurrency from './priceCurrency';
+import { PriceCurrency } from './priceCurrency';
 import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
-import PriceSpecificationType from './priceSpecificationType';
+import { PriceSpecificationType } from './priceSpecificationType';
 import { ProductType } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
-import ReservationStatusType from './reservationStatusType';
-import ReservationType from './reservationType';
+import { ReservationStatusType } from './reservationStatusType';
+import { ReservationType } from './reservationType';
 import { IServiceType } from './serviceType';
-import SortType from './sortType';
+import { SortType } from './sortType';
 import { IThing } from './thing';
 
 export type TicketType = 'Ticket';

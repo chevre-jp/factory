@@ -2,7 +2,7 @@ import * as COA from '@motionpicture/coa-service';
 
 import * as ActionFactory from '../../../action';
 import * as ReserveTransactionFactory from '../../../assetTransaction/reserve';
-import AssetTransactionType from '../../../assetTransactionType';
+import { AssetTransactionType } from '../../../assetTransactionType';
 import * as WebAPIFactory from '../../../service/webAPI';
 import * as ConfirmActionFactory from '../confirm';
 

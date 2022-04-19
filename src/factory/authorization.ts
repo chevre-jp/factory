@@ -1,5 +1,5 @@
 import { IProject } from './project';
-import SortType from './sortType';
+import { SortType } from './sortType';
 
 /**
  * 承認インターフェース

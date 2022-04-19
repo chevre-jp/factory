@@ -1,8 +1,8 @@
 import * as AccountFactory from '../../account';
 import * as ActionFactory from '../../action';
-import ActionType from '../../actionType';
+import { ActionType } from '../../actionType';
 import * as MoneyTransferTransactionFactory from '../../assetTransaction/moneyTransfer';
-import AssetTransactionType from '../../assetTransactionType';
+import { AssetTransactionType } from '../../assetTransactionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
 
 /**

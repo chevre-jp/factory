@@ -1,7 +1,7 @@
 /**
  * Enumerated status values for Reservation.
  */
-enum ReservationStatusType {
+export enum ReservationStatusType {
     /**
      * The status for a previously confirmed reservation that is now cancelled.
      */
@@ -19,4 +19,3 @@ enum ReservationStatusType {
      */
     ReservationPending = 'ReservationPending'
 }
-export default ReservationStatusType;

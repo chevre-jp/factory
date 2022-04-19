@@ -1,5 +1,5 @@
 import * as ActionFactory from '../../../action';
-import ActionType from '../../../actionType';
+import { ActionType } from '../../../actionType';
 import * as OrderFactory from '../../../order';
 import * as MovieTicketFactory from '../../../paymentMethod/paymentCard/movieTicket';
 import { IInstrument } from '../../authorize/paymentMethod/any';

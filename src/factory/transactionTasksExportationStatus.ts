@@ -1,8 +1,7 @@
 /**
  * 取引タスクエクスポートステータス
  */
-
-enum TransactionTasksExportationStatus {
+export enum TransactionTasksExportationStatus {
     /**
      * 未エクスポート
      */
@@ -16,5 +15,3 @@ enum TransactionTasksExportationStatus {
      */
     Exported = 'Exported'
 }
-
-export default TransactionTasksExportationStatus;

@@ -1,12 +1,12 @@
 // tslint:disable-next-line:no-require-imports
 import setPrototypeOf = require('setprototypeof');
-import ErrorCode from '../errorCode';
+import { ErrorCode } from '../errorCode';
 import { ChevreError } from './chevre';
 
 /**
  * UnauthorizedError
  */
-export default class UnauthorizedError extends ChevreError {
+export class UnauthorizedError extends ChevreError {
     constructor(message?: string) {
         let actualMessage = message;
         if (message === undefined || message.length === 0) {

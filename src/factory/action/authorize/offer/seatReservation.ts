@@ -1,16 +1,16 @@
 import * as COA from '@motionpicture/coa-service';
 
 import * as ActionFactory from '../../../action';
-import ActionType from '../../../actionType';
+import { ActionType } from '../../../actionType';
 import * as ReserveTransactionFactory from '../../../assetTransaction/reserve';
-import AssetTransactionType from '../../../assetTransactionType';
+import { AssetTransactionType } from '../../../assetTransactionType';
 import * as ScreeningEventFactory from '../../../event/screeningEvent';
 import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as OfferFactory from '../../../offer';
 import * as OrderFactory from '../../../order';
-import PriceCurrency from '../../../priceCurrency';
+import { PriceCurrency } from '../../../priceCurrency';
 import * as WebAPIFactory from '../../../service/webAPI';
-import TransactionType from '../../../transactionType';
+import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
 export type IAgent = ActionFactory.IParticipant;

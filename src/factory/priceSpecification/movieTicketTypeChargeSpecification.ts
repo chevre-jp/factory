@@ -1,5 +1,5 @@
 import { IPriceSpecification as BaseSpecification } from '../priceSpecification';
-import PriceSpecificationType from '../priceSpecificationType';
+import { PriceSpecificationType } from '../priceSpecificationType';
 import { PaymentServiceType } from '../service/paymentService';
 
 export interface IMovieTicket {

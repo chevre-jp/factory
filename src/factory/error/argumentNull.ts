@@ -1,12 +1,12 @@
 // tslint:disable-next-line:no-require-imports
 import setPrototypeOf = require('setprototypeof');
-import ErrorCode from '../errorCode';
+import { ErrorCode } from '../errorCode';
 import { ChevreError } from './chevre';
 
 /**
  * ArgumentNullError
  */
-export default class ArgumentNullError extends ChevreError {
+export class ArgumentNullError extends ChevreError {
     public readonly argumentName: string;
 
     constructor(argumentName: string, message?: string) {

@@ -1,28 +1,28 @@
 /**
  * errors
  */
-import AlreadyInUseError from './error/alreadyInUse';
-import ArgumentError from './error/argument';
-import ArgumentNullError from './error/argumentNull';
-import { ChevreError } from './error/chevre';
-import ForbiddenError from './error/forbidden';
-import GatewayTimeoutError from './error/gatewayTimeout';
-import NotFoundError from './error/notFound';
-import NotImplementedError from './error/notImplemented';
-import RateLimitExceededError from './error/rateLimitExceeded';
-import ServiceUnavailableError from './error/serviceUnavailable';
-import UnauthorizedError from './error/unauthorized';
+import { AlreadyInUseError as AlreadyInUse } from './error/alreadyInUse';
+import { ArgumentError as Argument } from './error/argument';
+import { ArgumentNullError as ArgumentNull } from './error/argumentNull';
+import { ChevreError as Chevre } from './error/chevre';
+import { ForbiddenError as Forbidden } from './error/forbidden';
+import { GatewayTimeoutError as GatewayTimeout } from './error/gatewayTimeout';
+import { NotFoundError as NotFound } from './error/notFound';
+import { NotImplementedError as NotImplemented } from './error/notImplemented';
+import { RateLimitExceededError as RateLimitExceeded } from './error/rateLimitExceeded';
+import { ServiceUnavailableError as ServiceUnavailable } from './error/serviceUnavailable';
+import { UnauthorizedError as Unauthorized } from './error/unauthorized';
 
 export {
-    AlreadyInUseError as AlreadyInUse,
-    ArgumentError as Argument,
-    ArgumentNullError as ArgumentNull,
-    ForbiddenError as Forbidden,
-    GatewayTimeoutError as GatewayTimeout,
-    NotFoundError as NotFound,
-    NotImplementedError as NotImplemented,
-    RateLimitExceededError as RateLimitExceeded,
-    ServiceUnavailableError as ServiceUnavailable,
-    ChevreError as Chevre,
-    UnauthorizedError as Unauthorized
+    AlreadyInUse,
+    Argument,
+    ArgumentNull,
+    Chevre,
+    Forbidden,
+    GatewayTimeout,
+    NotFound,
+    NotImplemented,
+    RateLimitExceeded,
+    ServiceUnavailable,
+    Unauthorized
 };

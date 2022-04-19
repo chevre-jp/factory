@@ -1,6 +1,6 @@
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
-import SortType from './sortType';
+import { SortType } from './sortType';
 
 /**
  * 通知パラメータ

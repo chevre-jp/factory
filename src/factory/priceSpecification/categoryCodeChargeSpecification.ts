@@ -1,6 +1,6 @@
 import { ICategoryCode } from '../categoryCode';
 import { IPriceSpecification as BaseSpecification } from '../priceSpecification';
-import PriceSpecificationType from '../priceSpecificationType';
+import { PriceSpecificationType } from '../priceSpecificationType';
 
 /**
  * カテゴリーコードチャージ仕様インターフェース

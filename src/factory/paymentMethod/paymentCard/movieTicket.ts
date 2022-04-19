@@ -1,4 +1,4 @@
-import EventType from '../../eventType';
+import { EventType } from '../../eventType';
 import { ISeat } from '../../reservation';
 import { IPaymentCard } from '../paymentCard';
 

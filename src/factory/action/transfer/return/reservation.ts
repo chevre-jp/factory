@@ -1,9 +1,9 @@
 import * as COA from '@motionpicture/coa-service';
 
 import * as ActionFactory from '../../../action';
-import ActionType from '../../../actionType';
+import { ActionType } from '../../../actionType';
 import * as CancelReservationAssetTransactionFactory from '../../../assetTransaction/cancelReservation';
-import AssetTransactionType from '../../../assetTransactionType';
+import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
 import { Identifier as WebAPIIdentifier } from '../../../service/webAPI';
 

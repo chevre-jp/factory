@@ -1,19 +1,19 @@
-import ActionType from './actionType';
+import { ActionType } from './actionType';
 import { ICategoryCode } from './categoryCode';
-import ItemAvailability from './itemAvailability';
+import { ItemAvailability } from './itemAvailability';
 import { IMonetaryAmount } from './monetaryAmount';
 import * as SeatReservationOfferFactory from './offer/seatReservation';
 import { OfferType } from './offerType';
-import PriceCurrency from './priceCurrency';
+import { PriceCurrency } from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
-import PriceSpecificationType from './priceSpecificationType';
+import { PriceSpecificationType } from './priceSpecificationType';
 import { ProductType } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
 import * as WebAPIFactory from './service/webAPI';
-import SortType from './sortType';
+import { SortType } from './sortType';
 import { IThing } from './thing';
 import { UnitCode } from './unitCode';
 

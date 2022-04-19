@@ -1,6 +1,6 @@
 import * as ActionFactory from '../../../action';
-import ActionType from '../../../actionType';
-import TransactionType from '../../../transactionType';
+import { ActionType } from '../../../actionType';
+import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
 export type IAgent = ActionFactory.IParticipant;
