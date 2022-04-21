@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 注文タスクを最適化
+- 注文配送タスクを最適化
+
 ### Deprecated
 
 ### Removed
