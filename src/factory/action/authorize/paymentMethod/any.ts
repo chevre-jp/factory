@@ -127,7 +127,24 @@ export interface IObject {
      */
     movieTickets?: IMovieTicket[];
 }
-
+export type IPaymentServiceOutput = IMovieTicket[];
+/**
+ * 決済方法の発行サービス
+ */
+export interface IPaymentMethodIssuedThrough {
+    /**
+     * 決済サービスタイプ
+     */
+    typeOf: PaymentServiceType;
+    /**
+     * サービスID
+     */
+    id: string;
+    /**
+     * 決済サービスによって発行された決済カード
+     */
+    serviceOutput?: IPaymentServiceOutput;
+}
 export interface IResult {
     /**
      * The identifier for the account the payment will be applied to.
@@ -162,13 +179,7 @@ export interface IResult {
      */
     additionalProperty?: IPropertyValue<string>[];
     typeOf: ResultType;
-    issuedThrough: {
-        typeOf: PaymentServiceType;
-        /**
-         * 発行決済サービスID
-         */
-        id: string;
-    };
+    issuedThrough: IPaymentMethodIssuedThrough;
 
     /**
      * 転送元(PaymentCard決済)

@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.199.0 - 2022-04-23
+
+### Changed
+
+- 注文の決済方法に、決済サービスによって発行された決済カード情報を追加
+
 ## v4.198.0 - 2022-04-22
 
 ### Changed

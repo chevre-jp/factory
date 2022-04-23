@@ -1,4 +1,5 @@
 import { IParticipant } from './action';
+import { IPaymentMethodIssuedThrough } from './action/authorize/paymentMethod/any';
 import { IPaymentCard } from './action/interact/confirm/moneyTransfer';
 import { ActionType } from './actionType';
 import { AssetTransactionType } from './assetTransactionType';
@@ -21,7 +22,6 @@ import { IProgramMembershipUsedSearchConditions } from './reservation';
 import * as EventReservationFactory from './reservation/event';
 import { ReservationType } from './reservationType';
 import { ISeller as ISellerOrganization } from './seller';
-import { PaymentServiceType } from './service/paymentService';
 import { IServiceType } from './serviceType';
 import { SortType } from './sortType';
 import { IThing } from './thing';
@@ -65,13 +65,7 @@ export interface IPaymentMethod {
      * 追加特性
      */
     additionalProperty: IPropertyValue<string>[];
-    issuedThrough: {
-        typeOf: PaymentServiceType;
-        /**
-         * 発行決済サービスID
-         */
-        id: string;
-    };
+    issuedThrough: IPaymentMethodIssuedThrough;
 }
 
 /**
