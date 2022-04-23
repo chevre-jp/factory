@@ -2,36 +2,38 @@ import { EventType } from '../../eventType';
 import { ISeat } from '../../reservation';
 import { IPaymentCard } from '../paymentCard';
 
+export interface IReservationFor { typeOf: EventType.ScreeningEvent; id: string; }
+export interface IServiceOutput {
+    /**
+     * 予約対象イベント
+     */
+    reservationFor: IReservationFor;
+    /**
+     * 予約チケット
+     */
+    reservedTicket: { ticketedSeat: ISeat };
+}
 export interface IAttributes extends IPaymentCard {
     /**
-     * 購入管理番号(ムビチケ購入番号)
+     * 購入管理番号
      */
     identifier: string;
     /**
-     * pinコード(ムビチケ暗証番号)
+     * pinコード
      */
-    accessCode: string;
+    accessCode?: string;
     /**
      * 券種区分
      */
     serviceType: string;
     /**
-     * ムビチケ利用対象座席予約
+     * 利用対象予約
      */
-    serviceOutput: {
-        /**
-         * 予約対象イベント
-         */
-        reservationFor: { typeOf: EventType.ScreeningEvent; id: string };
-        /**
-         * 予約チケット
-         */
-        reservedTicket: { ticketedSeat: ISeat };
-    };
+    serviceOutput: IServiceOutput;
 }
 
 /**
- * ムビチケインターフェース
+ * MovieTicket決済カードインターフェース
  */
 export interface IMovieTicket extends IAttributes {
     typeOf: string;

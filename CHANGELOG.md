@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 注文の決済方法に、決済サービスによって発行された決済カード情報を追加
+
 ### Deprecated
 
 ### Removed
