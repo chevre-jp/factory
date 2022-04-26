@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 資産取引オブジェクトにforce属性を追加
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.200.0 - 2022-04-27
+
+### Changed
+
+- 資産取引オブジェクトにforce属性を追加
 
 ## v4.199.0 - 2022-04-23
 
