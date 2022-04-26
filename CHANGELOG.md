@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.200.0 - 2022-04-27
+
+### Changed
+
+- 資産取引オブジェクトにforce属性を追加
+
 ## v4.199.0 - 2022-04-23
 
 ### Changed

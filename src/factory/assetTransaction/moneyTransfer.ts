@@ -65,6 +65,10 @@ export interface IObject {
      */
     description?: string;
     pendingTransaction?: IPendingTransaction;
+    /**
+     * 負の残高でも強制的に出金するかどうか
+     */
+    force?: boolean;
 }
 
 export type IObjectWithoutDetail = IObject;
@@ -87,6 +91,10 @@ export interface IObjectBeforeStart {
      */
     description?: string;
     pendingTransaction?: IPendingTransaction;
+    /**
+     * 負の残高でも強制的に出金するかどうか
+     */
+    force?: boolean;
 }
 
 export interface IStartParamsWithoutDetail
