@@ -2,8 +2,9 @@ import * as AccountFactory from '../../../account';
 import * as ActionFactory from '../../../action';
 import { ActionType } from '../../../actionType';
 import * as MoneyTransferTransactionFactory from '../../../assetTransaction/moneyTransfer';
+import { AssetTransactionType } from '../../../assetTransactionType';
 import { IMonetaryAmount } from '../../../monetaryAmount';
-import * as OrderFactory from '../../../order';
+import { ISimpleOrder } from '../../../order';
 import { IPropertyValue } from '../../../propertyValue';
 import { TransactionType } from '../../../transactionType';
 
@@ -59,22 +60,24 @@ export type ILocation = IAnonymousLocation | IPaymentMethodLocation | IPaymentCa
 
 export interface IObject {
     pendingTransaction: IPendingTransaction;
+    typeOf: AssetTransactionType.MoneyTransfer;
 }
-
-export type IResult = any;
-
-export type IPotentialActions = any;
-
+// tslint:disable-next-line:no-empty-interface
+export interface IPotentialActions {
+}
+// tslint:disable-next-line:no-empty-interface
+export interface IResult {
+}
 export interface ITransactionPurpose {
     typeOf: TransactionType;
     id: string;
 }
 
-export type IPurpose = ITransactionPurpose | OrderFactory.ISimpleOrder;
+export type IPurpose = ITransactionPurpose | ISimpleOrder;
 
-export interface IAttributes
-    extends ActionFactory.IAttributes<ActionType.ConfirmAction, IObject, IResult> {
+export interface IAttributes extends ActionFactory.IAttributes<ActionType.ConfirmAction, IObject, IResult> {
     typeOf: ActionType.ConfirmAction;
+    potentialActions?: IPotentialActions;
     purpose: IPurpose;
     /**
      * 金額

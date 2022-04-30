@@ -103,6 +103,7 @@ export interface IPotentialActions {
 }
 
 export interface IInstrument {
+    typeOf: string;
     seatInfoSyncIn?: any;
 }
 
@@ -114,7 +115,8 @@ export interface IResult {
      * クレジットカード売上結果
      */
     creditCardSales?: ICreditCardSales[];
-    seatInfoSyncIn?: any;
+    // ↓instrumentへ完全移行(2022-05-02~)
+    // seatInfoSyncIn?: any;
     seatInfoSyncResult?: any;
 }
 
