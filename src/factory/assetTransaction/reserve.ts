@@ -141,6 +141,14 @@ export interface IAcceptedTicketOfferWithoutDetail {
     addOn?: IAcceptedAddOn[];
     paymentMethod?: IAcceptedPaymentMethod;
     additionalProperty?: IPropertyValue<string>[];
+    priceSpecification?: {
+        appliesToMovieTicket?: {
+            /**
+             * 適用MovieTicket購入番号
+             */
+            identifier?: string;
+        };
+    };
 }
 
 /**
