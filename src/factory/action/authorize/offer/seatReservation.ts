@@ -111,7 +111,7 @@ export type IObject<T extends WebAPIFactory.Identifier> = {
      * Chevre進行中取引
      */
     pendingTransaction?: IPendingTransaction;
-} & IObjectWithoutDetail<T>;
+} & Omit<IObjectWithoutDetail<T>, 'acceptedOffer'>;
 
 export interface IPurpose {
     typeOf: TransactionType.PlaceOrder;

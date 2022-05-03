@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 予約取引objectに適用MovieTicket購入番号を追加
+
 ### Deprecated
 
 ### Removed
