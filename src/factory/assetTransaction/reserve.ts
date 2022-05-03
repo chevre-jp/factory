@@ -154,13 +154,23 @@ export interface IAcceptedTicketOfferWithoutDetail {
 /**
  * 受け入れられたチケットオファー
  */
-export type IAcceptedTicketOffer = IAcceptedTicketOfferWithoutDetail & ITicketOffer & {
-    itemOffered?: IAcceptedTicketOfferItemOffered;
-};
+export type IAcceptedTicketOffer = Omit<IAcceptedTicketOfferWithoutDetail, 'priceSpecification'>
+    & ITicketOffer
+    & {
+        itemOffered?: IAcceptedTicketOfferItemOffered;
+    };
 
 export interface IAcceptedOffer4object {
     id: string;
     itemOffered: IAcceptedTicketOfferItemOffered4object;
+    priceSpecification?: {
+        appliesToMovieTicket?: {
+            /**
+             * 適用MovieTicket購入番号
+             */
+            identifier?: string;
+        };
+    };
 }
 
 /**
