@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- PayAction.object.serviceOutputを定義
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.204.0 - 2022-05-05
+
+### Changed
+
+- PayAction.object.serviceOutputを定義
 
 ## v4.203.0 - 2022-05-03
 
