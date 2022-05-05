@@ -2,30 +2,37 @@ import * as GMO from '@motionpicture/gmo-service';
 
 import * as AccountFactory from '../../account';
 import * as ActionFactory from '../../action';
+import { IAttributes as IReturnOrderActionAttributes } from '../../action/transfer/return/order';
 import { ActionType } from '../../actionType';
+import { AssetTransactionType } from '../../assetTransactionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
+import { OrderType } from '../../order';
 import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import { IPropertyValue } from '../../propertyValue';
 import { ISeller } from '../../seller';
 import { PaymentServiceType } from '../../service/paymentService';
+import { TransactionType } from '../../transactionType';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ISeller;
 
 export interface IOrderAsPayPurpose {
-    typeOf: string;
+    typeOf: OrderType.Order;
     confirmationNumber?: string;
     orderNumber?: string;
 }
-
-export interface ITransactionAsPayPurpose {
-    typeOf: string;
+export interface IAssetTransactionAsPayPurpose {
+    typeOf: AssetTransactionType.Pay | AssetTransactionType.Refund;
     id?: string;
     transactionNumber?: string;
 }
-
-export type IPayPurpose = IOrderAsPayPurpose | ITransactionAsPayPurpose;
+export interface ITransactionAsPayPurpose {
+    typeOf: TransactionType;
+    id: string;
+}
+export type IReturnActionAsPayPurpose = IReturnOrderActionAttributes;
+export type IPayPurpose = IOrderAsPayPurpose | IAssetTransactionAsPayPurpose | IReturnActionAsPayPurpose | ITransactionAsPayPurpose;
 
 export type IPurpose = IPayPurpose;
 
@@ -76,7 +83,22 @@ export interface IPaymentMethod {
      */
     additionalProperty: IPropertyValue<string>[];
 }
-
+export interface IMovieTicketAsPaymentServiceOutput {
+    /**
+     * 購入管理番号
+     */
+    identifier: string;
+    /**
+     * 利用対象予約
+     */
+    serviceOutput?: {
+        /**
+         * 予約価格
+         */
+        price?: number;
+    };
+}
+export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[];
 export interface IPaymentService {
     typeOf: PaymentServiceType;
     /**
@@ -92,6 +114,10 @@ export interface IPaymentService {
      * ムビチケリスト
      */
     movieTickets?: IMovieTicket[];
+    /**
+     * 決済サービスによって発行された決済カード
+     */
+    serviceOutput?: IPaymentServiceOutput;
 }
 
 export type IObject = IPaymentService[];

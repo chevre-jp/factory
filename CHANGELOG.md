@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.204.0 - 2022-05-05
+
+### Changed
+
+- PayAction.object.serviceOutputを定義
+
 ## v4.203.0 - 2022-05-03
 
 ### Changed
