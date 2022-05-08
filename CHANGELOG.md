@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- Invoiceを再定義
+
 ### Deprecated
 
 ### Removed

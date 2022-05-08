@@ -5,6 +5,7 @@ import * as ActionFactory from '../../action';
 import { IAttributes as IReturnOrderActionAttributes } from '../../action/transfer/return/order';
 import { ActionType } from '../../actionType';
 import { AssetTransactionType } from '../../assetTransactionType';
+import { IPaymentServiceOutput } from '../../invoice';
 import { IMonetaryAmount } from '../../monetaryAmount';
 import { OrderType } from '../../order';
 import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
@@ -83,22 +84,6 @@ export interface IPaymentMethod {
      */
     additionalProperty: IPropertyValue<string>[];
 }
-export interface IMovieTicketAsPaymentServiceOutput {
-    /**
-     * 購入管理番号
-     */
-    identifier: string;
-    /**
-     * 利用対象予約
-     */
-    serviceOutput?: {
-        /**
-         * 予約価格
-         */
-        price?: number;
-    };
-}
-export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[];
 export interface IPaymentService {
     typeOf: PaymentServiceType;
     /**
