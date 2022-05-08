@@ -2,16 +2,40 @@ import { IMonetaryAmount } from './monetaryAmount';
 import * as OrderFactory from './order';
 import { PaymentStatusType } from './paymentStatusType';
 import * as PersonFactory from './person';
-import { PersonType } from './personType';
-import { IProject } from './project';
+// import { PersonType } from './personType';
+// import { IProject } from './project';
 import * as SellerFactory from './seller';
-import { SortType } from './sortType';
+import { PaymentServiceType } from './service/paymentService';
+// import { SortType } from './sortType';
 
 export type IBroker = SellerFactory.ISeller | PersonFactory.IPerson;
 export type IProvider = SellerFactory.ISeller | PersonFactory.IPerson;
-
 export interface IReferenceOrder extends OrderFactory.IOrder {
     acceptedOffers: OrderFactory.IAcceptedOffer<any>[];
+}
+export interface IMovieTicketAsPaymentServiceOutput {
+    /**
+     * 購入管理番号
+     */
+    identifier: string;
+    /**
+     * 利用対象予約
+     */
+    serviceOutput?: {
+        /**
+         * 予約価格
+         */
+        price?: number;
+    };
+}
+export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[];
+/**
+ * 決済方法(サービス)
+ */
+export interface IPaymentMethod {
+    id: string;
+    typeOf: PaymentServiceType;
+    serviceOutput?: IPaymentServiceOutput;
 }
 
 /**
@@ -19,12 +43,12 @@ export interface IReferenceOrder extends OrderFactory.IOrder {
  * {@link https://schema.org/Invoice}
  */
 export interface IInvoice {
-    project: IProject;
+    // project: IProject;
     typeOf: 'Invoice';
     /**
      * The identifier for the account the payment will be applied to.
      */
-    accountId: string;
+    accountId?: string;
     /**
      * The time interval used to compute the invoice.
      */
@@ -58,7 +82,7 @@ export interface IInvoice {
     /**
      * The name of the credit card or other method of payment for the order.
      */
-    paymentMethod: string;
+    paymentMethod: IPaymentMethod;
     /**
      * An identifier for the method of payment used (e.g. the last 4 digits of the credit card).
      */
@@ -66,7 +90,7 @@ export interface IInvoice {
     /**
      * The status of payment; whether the invoice has been paid or not.
      */
-    paymentStatus: PaymentStatusType;
+    paymentStatus?: PaymentStatusType;
     /**
      * The service provider, service operator, or service performer; the goods producer.
      * Another party (a seller) may offer those services or goods on behalf of the provider.
@@ -76,7 +100,7 @@ export interface IInvoice {
     /**
      * The Order(s) related to this Invoice. One or more Orders may be combined into a single Invoice.
      */
-    referencesOrder: IReferenceOrder;
+    referencesOrder?: IReferenceOrder;
     /**
      * The date the invoice is scheduled to be paid.
      */
@@ -90,51 +114,51 @@ export interface IInvoice {
 /**
  * ソート条件インターフェース
  */
-export interface ISortOrder {
-    createdAt?: SortType;
-}
+// export interface ISortOrder {
+//     createdAt?: SortType;
+// }
 
-export interface ICustomerSearchConditions {
-    typeOf?: PersonType;
-    ids?: string[];
-    identifiers?: PersonFactory.IIdentifier;
-    /**
-     * メールアドレス
-     */
-    email?: string;
-    /**
-     * 電話番号
-     */
-    telephone?: string;
-    memberOf?: {
-        /**
-         * 会員番号
-         */
-        membershipNumbers?: string[];
-    };
-}
+// export interface ICustomerSearchConditions {
+//     typeOf?: PersonType;
+//     ids?: string[];
+//     identifiers?: PersonFactory.IIdentifier;
+//     /**
+//      * メールアドレス
+//      */
+//     email?: string;
+//     /**
+//      * 電話番号
+//      */
+//     telephone?: string;
+//     memberOf?: {
+//         /**
+//          * 会員番号
+//          */
+//         membershipNumbers?: string[];
+//     };
+// }
 
-export interface IReferencesOrderSearchConditions {
-    orderNumbers?: string[];
-}
+// export interface IReferencesOrderSearchConditions {
+//     orderNumbers?: string[];
+// }
 
 /**
  * インボイス検索条件インターフェース
  */
-export interface ISearchConditions {
-    limit?: number;
-    page?: number;
-    sort?: ISortOrder;
-    project?: {
-        id?: { $eq?: string };
-    };
-    createdFrom?: Date;
-    createdThrough?: Date;
-    accountIds?: string[];
-    confirmationNumbers?: string[];
-    customer?: ICustomerSearchConditions;
-    paymentMethods?: string[];
-    paymentMethodIds?: string[];
-    paymentStatuses?: PaymentStatusType[];
-    referencesOrder?: IReferencesOrderSearchConditions;
-}
+// export interface ISearchConditions {
+//     limit?: number;
+//     page?: number;
+//     sort?: ISortOrder;
+//     project?: {
+//         id?: { $eq?: string };
+//     };
+//     createdFrom?: Date;
+//     createdThrough?: Date;
+//     accountIds?: string[];
+//     confirmationNumbers?: string[];
+//     customer?: ICustomerSearchConditions;
+//     paymentMethods?: string[];
+//     paymentMethodIds?: string[];
+//     paymentStatuses?: PaymentStatusType[];
+//     referencesOrder?: IReferencesOrderSearchConditions;
+// }
