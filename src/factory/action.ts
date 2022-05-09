@@ -141,6 +141,11 @@ export interface ISearchConditions {
             $eq?: string;
             $in?: string[];
         };
+        object?: {
+            paymentMethodId?: {
+                $eq?: string;
+            };
+        };
         orderNumber?: {
             $in?: string[];
         };

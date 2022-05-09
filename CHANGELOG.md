@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.206.0 - 2022-05-10
+
+### Changed
+
+- アクション検索条件拡張
+- 決済取引確定時のpurpose指定を必須化
+
 ## v4.205.0 - 2022-05-09
 
 ### Changed
