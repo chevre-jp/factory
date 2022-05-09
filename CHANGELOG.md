@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- アクション検索条件拡張
+- 決済取引確定時のpurpose指定を必須化
+
 ### Deprecated
 
 ### Removed
