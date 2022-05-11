@@ -59,7 +59,7 @@ export interface IReservation extends ReservationFactory.IReservation<IPriceSpec
     id: string;
     reservationFor: IReservationFor;
     reservationNumber: string;
-    reservedTicket: ReservationFactory.ITicket<IPriceSpecification>;
+    reservedTicket: ReservationFactory.ITicket;
     subReservation?: ISubReservation[];
     typeOf: ReservationType.EventReservation;
 }
