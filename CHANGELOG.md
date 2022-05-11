@@ -10,10 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 予約検索条件拡張
-- 決済サービスに追加特性を追加
-- 予約を最適化
-
 ### Deprecated
 
 ### Removed
@@ -21,6 +17,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.207.0 - 2022-05-11
+
+### Changed
+
+- 予約検索条件拡張
+- 決済サービスに追加特性を追加
+- 予約を最適化
 
 ## v4.206.0 - 2022-05-10
 
