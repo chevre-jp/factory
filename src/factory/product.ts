@@ -3,6 +3,7 @@ import { IMonetaryAmount } from './monetaryAmount';
 import { IOffer } from './offer';
 import { IPermit } from './permit';
 import { IProject } from './project';
+import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
 import { IServiceType } from './serviceType';
 import { SortType } from './sortType';
@@ -117,6 +118,7 @@ export interface IProduct extends IThing {
      * The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
      */
     serviceType?: IServiceType;
+    additionalProperty?: IPropertyValue<string>[];
 }
 
 export interface ISortOrder {

@@ -1,6 +1,7 @@
 import { IOrganization } from '../organization';
 import { IAvailableChannel } from '../product';
 import { IProject } from '../project';
+import { IPropertyValue } from '../propertyValue';
 import { IServiceType } from '../serviceType';
 import { IThing } from '../thing';
 
@@ -66,4 +67,5 @@ export interface IService extends IThing {
      * 決済サービスの場合、serviceType.codeValueが決済方法区分
      */
     serviceType?: IServiceType;
+    additionalProperty?: IPropertyValue<string>[];
 }

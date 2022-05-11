@@ -8,7 +8,6 @@ import * as SeatFactory from './place/seat';
 import { PlaceType } from './placeType';
 import { PriceCurrency } from './priceCurrency';
 import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
-import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { PriceSpecificationType } from './priceSpecificationType';
 import { ProductType } from './product';
 import { IProject } from './project';
@@ -32,7 +31,7 @@ export interface ITicketType {
     identifier: string;
     name?: string | IMultilingualString;
     priceCurrency: PriceCurrency;
-    priceSpecification?: IUnitPriceSpecification;
+    // priceSpecification?: IUnitPriceSpecification;
     project: IProject;
     typeOf: OfferType;
     validRateLimit?: OfferFactory.IValidRateLimit;
@@ -112,7 +111,8 @@ export type IReservationFor = any;
 /**
  * 予約チケット情報
  */
-export interface ITicket<T extends IPriceSpecification> {
+export interface ITicket {
+    // export interface ITicket<T extends IPriceSpecification> {
     typeOf: TicketType;
     /**
      * The date the ticket was issued.
@@ -129,7 +129,7 @@ export interface ITicket<T extends IPriceSpecification> {
     /**
      * The total price for the reservation or ticket, including applicable taxes, shipping, etc.
      */
-    totalPrice?: T | number;
+    // totalPrice?: T | number;
     /**
      * The currency (in 3-letter ISO 4217 format) of the Reservation's price.
      */
@@ -213,15 +213,15 @@ export interface IReservation<T extends IPriceSpecification> extends IThing {
     /**
      * Web page where reservation can be cancelled.
      */
-    cancelReservationUrl?: string;
+    // cancelReservationUrl?: string;
     /**
      * Webpage where the passenger can check in.
      */
-    checkinUrl?: string;
+    // checkinUrl?: string;
     /**
      * Web page where reservation can be confirmed.
      */
-    confirmReservationUrl?: string;
+    // confirmReservationUrl?: string;
     issuedThrough?: {
         typeOf: ProductType.EventService;
         serviceType?: IServiceType;
@@ -233,7 +233,7 @@ export interface IReservation<T extends IPriceSpecification> extends IThing {
     /**
      * Web page where reservation can be modified.
      */
-    modifyReservationUrl?: string;
+    // modifyReservationUrl?: string;
     /**
      * Number of seats if unreserved seating.
      */
@@ -241,7 +241,8 @@ export interface IReservation<T extends IPriceSpecification> extends IThing {
     /**
      * Total price of the Reservation.
      */
-    price?: T | number;
+    // price?: T | number;
+    price?: T;
     /**
      * The currency (in 3-letter ISO 4217 format) of the Reservation's price.
      */
@@ -265,7 +266,7 @@ export interface IReservation<T extends IPriceSpecification> extends IThing {
     /**
      * A ticket associated with the reservation.
      */
-    reservedTicket?: ITicket<T>;
+    reservedTicket?: ITicket;
     /**
      * The individual reservations included in the package. Typically a repeated property.
      */
@@ -374,6 +375,13 @@ export interface IProgramMembershipUsedSearchConditions {
         };
     };
 }
+export interface IPriceSearchConditions {
+    priceComponent?: {
+        appliesToMovieTicket?: {
+            identifier?: { $eq?: string };
+        };
+    };
+}
 
 /**
  * 検索条件
@@ -446,4 +454,5 @@ export interface ISearchConditions<T extends ReservationType> {
      * 使用メンバーシップ
      */
     programMembershipUsed?: IProgramMembershipUsedSearchConditions;
+    price?: IPriceSearchConditions;
 }

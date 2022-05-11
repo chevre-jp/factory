@@ -490,9 +490,10 @@ export namespace reservation {
         T extends ReservationType.ReservationPackage ? ReservationPackageFactory.ISubReservation :
         any;
 
-    export type ITicket<T extends ReservationType> =
-        T extends ReservationType.EventReservation ? ReservationFactory.ITicket<IPriceSpecification<T>> :
-        ReservationFactory.ITicket<IPriceSpecification<T>>;
+    export import ITicket = ReservationFactory.ITicket;
+    // export type ITicket<T extends ReservationType> =
+    //     T extends ReservationType.EventReservation ? ReservationFactory.ITicket<IPriceSpecification<T>> :
+    //     ReservationFactory.ITicket<IPriceSpecification<T>>;
 
     export type IUnderName<T extends ReservationType> =
         T extends ReservationType.EventReservation ? ReservationFactory.IUnderName :
