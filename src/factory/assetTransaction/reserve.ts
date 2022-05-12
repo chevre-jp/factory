@@ -200,12 +200,12 @@ export interface IConfirmingReservation {
     additionalProperty?: IPropertyValue<string>[];
 }
 
-export interface IPotentialActionsParams {
-    reserve?: {
-        potentialActions?: {
-        };
-    };
-}
+// export interface IPotentialActionsParams {
+//     reserve?: {
+//         potentialActions?: {
+//         };
+//     };
+// }
 
 /**
  * 確定パラメーターインターフェース
@@ -215,14 +215,15 @@ export interface IConfirmParams {
     transactionNumber?: string;
     object?: {
         /**
-         * 最終的な予約の属性を指定できます
+         * 最終的な予約の属性を指定
          */
         reservations: IConfirmingReservation[];
     };
     /**
      * 予約確定後アクション
+     * 廃止(2022-05-13~)
      */
-    potentialActions?: IPotentialActionsParams;
+    // potentialActions?: IPotentialActionsParams;
 }
 
 // tslint:disable-next-line:no-empty-interface
@@ -242,22 +243,23 @@ export interface IObjectWithoutDetail {
 
 // IReservationForを最適化
 export type IReservationFor = IEventReservationReservationFor;
-export interface IEventReservationWithAnyReservationFor extends IEventReservation {
-    reservationFor: any;
-}
-export interface ISubReservation extends IEventReservationWithAnyReservationFor {
-    // 取引のsubReservationからはreservationForを削除する
-    reservationFor: undefined;
-}
+
+// export interface IEventReservationWithAnyReservationFor extends IEventReservation {
+//     reservationFor: any;
+// }
+// export interface ISubReservation extends IEventReservationWithAnyReservationFor {
+//     reservationFor: undefined;
+// }
+// 取引のsubReservationからはreservationForを削除する
+export type IObjectSubReservation = Omit<IEventReservation, 'reservationFor'>;
 
 /**
  * 取引対象物インターフェース
  */
 export interface IObject extends IReservationPackage {
     acceptedOffer?: IAcceptedOffer4object[];
-    // clientUser?: IClientUser;
     reservationFor?: IReservationFor;
-    subReservation?: ISubReservation[];
+    subReservation?: IObjectSubReservation[];
 }
 
 export interface IPotentialActions {

@@ -1,4 +1,4 @@
-import { IOffer } from './offer';
+// import { IOffer } from './offer';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { IProject } from './project';
@@ -9,27 +9,30 @@ import { SortType } from './sortType';
  * 利用可能決済インターフェース
  */
 export interface IPaymentAccepted {
+    /**
+     * 決済方法区分
+     */
     paymentMethodType: string;
 }
 
-export type IMakesOffer = IOffer;
+// export type IMakesOffer = IOffer;
 
 /**
  * サービス提供エリアインターフェース
  */
-export type IAreaServed = any;
+// export type IAreaServed = any;
 
 export interface ISeller extends IOrganization {
     project: IProject;
     /**
      * The geographic area where a service or offered item is provided.
      */
-    areaServed?: IAreaServed[];
+    // areaServed?: IAreaServed[];
     branchCode?: string;
     /**
      * A pointer to products or services offered by the organization or person.
      */
-    makesOffer?: IMakesOffer[];
+    // makesOffer?: IMakesOffer[];
     paymentAccepted?: IPaymentAccepted[];
     typeOf: OrganizationType;
 }

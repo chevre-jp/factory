@@ -18,6 +18,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.208.0 - 2022-05-12
+
+### Changed
+
+- 予約取引を最適化
+- 販売者を最適化
+- 所有権を最適化
+- 予約を最適化
+
 ## v4.207.0 - 2022-05-11
 
 ### Changed
