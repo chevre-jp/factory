@@ -199,8 +199,9 @@ export interface IReservation<T extends IPriceSpecification> extends IThing {
     additionalTicketText?: string;
     /**
      * Who made the reservation.
+     * SupersededBy broker(2022-05-13~)
      */
-    bookingAgent?: any;
+    // bookingAgent?: any;
     /**
      * Date the reservation was made.
      */

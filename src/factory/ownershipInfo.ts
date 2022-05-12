@@ -49,7 +49,8 @@ export type IGoodWithDetail = IReservationWithDetail | IPermit;
 /**
  * 所有者インターフェース
  */
-export type IOwner = ISeller | ICustomer;
+export type IOwner = Omit<ICustomer, 'name'>;
+export type IAcquiredFrom = ISeller;
 
 export type OwnershipInfoType = 'OwnershipInfo';
 
@@ -77,7 +78,7 @@ export interface IOwnershipInfo<T extends IGood | IGoodWithDetail> {
     /**
      * The organization or person from which the product was acquired.
      */
-    acquiredFrom?: IOwner;
+    acquiredFrom?: IAcquiredFrom;
     /**
      * The date and time of obtaining the product.
      */
