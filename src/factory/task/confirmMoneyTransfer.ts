@@ -10,6 +10,6 @@ export interface IAttributes extends TaskFactory.IAttributes {
 }
 
 /**
- * 通貨転送タスクファクトリー
+ * 通貨転送確定タスク
  */
 export type ITask = IExtendId<IAttributes>;

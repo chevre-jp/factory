@@ -9,6 +9,6 @@ export interface IAttributes extends TaskFactory.IAttributes {
     data: IData;
 }
 /**
- * サービス登録タスクインターフェース
+ * サービス登録確定タスク
  */
 export type ITask = IExtendId<IAttributes>;

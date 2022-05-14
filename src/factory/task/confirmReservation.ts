@@ -10,6 +10,6 @@ export interface IAttributes extends TaskFactory.IAttributes {
     data: IData;
 }
 /**
- * 予約確定タスクインターフェース
+ * 予約確定タスク
  */
 export type ITask = IExtendId<IAttributes>;

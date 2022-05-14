@@ -32,6 +32,6 @@ export interface IAttributes extends TaskFactory.IAttributes {
 }
 
 /**
- * 予約取消タスクインターフェース
+ * 予約取消確定タスク
  */
 export type ITask = IExtendId<IAttributes>;
