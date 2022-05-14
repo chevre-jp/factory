@@ -1,6 +1,7 @@
 import * as ActionFactory from '../../../action';
 import { ActionType } from '../../../actionType';
-import { IPaymentMethod, ISimpleOrder } from '../../../order';
+import { AssetTransactionType } from '../../../assetTransactionType';
+import { ISimpleOrder } from '../../../order';
 // import * as MovieTicketFactory from '../../../paymentMethod/paymentCard/movieTicket';
 import { IInstrument } from '../../authorize/paymentMethod/any';
 
@@ -8,21 +9,27 @@ import { IInstrument } from '../../authorize/paymentMethod/any';
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 export type IPurpose = ISimpleOrder;
-export enum ObjectType {
-    PaymentMethod = 'PaymentMethod'
-}
-export interface IPaymentService {
-    typeOf: ObjectType;
+// export enum ObjectType {
+//     PaymentMethod = 'PaymentMethod'
+// }
+export interface IPayAssetTransaction {
+    // chevre移行へ向けて変更(2022-05-16~)
+    // typeOf: ObjectType;
+    typeOf: AssetTransactionType.Pay;
     /**
      * 決済方法
+     * 必要最低限に(2022-05-16~)
      */
-    paymentMethod: IPaymentMethod;
+    paymentMethod: {
+        paymentMethodId: string;
+    };
+    transactionNumber?: string;
     // movieTickets?: IMovieTicket[];
 }
-export type IObject = IPaymentService[];
+export type IObject = IPayAssetTransaction[];
 export type IResult = any;
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.ConfirmAction, IObject, IResult> {
-    instrument?: IInstrument;
+    instrument: IInstrument;
     // potentialActions?: any;
     purpose: IPurpose;
 }
