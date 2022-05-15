@@ -1,13 +1,14 @@
-import * as ActionFactory from '../../../action';
-import { ActionType } from '../../../actionType';
+// import * as ActionFactory from '../../../action';
+// import { ActionType } from '../../../actionType';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
 // import * as MovieTicketFactory from '../../../paymentMethod/paymentCard/movieTicket';
 import { IInstrument } from '../../authorize/paymentMethod/any';
+import * as ConfirmActionFactory from '../confirm';
 
 // export import IMovieTicket = MovieTicketFactory.IMovieTicket;
-export type IAgent = ActionFactory.IParticipant;
-export type IRecipient = ActionFactory.IParticipant;
+// export type IAgent = ActionFactory.IParticipant;
+// export type IRecipient = ActionFactory.IParticipant;
 export type IPurpose = ISimpleOrder;
 // export enum ObjectType {
 //     PaymentMethod = 'PaymentMethod'
@@ -28,7 +29,7 @@ export interface IPayAssetTransaction {
 }
 export type IObject = IPayAssetTransaction[];
 export type IResult = any;
-export interface IAttributes extends ActionFactory.IAttributes<ActionType.ConfirmAction, IObject, IResult> {
+export interface IAttributes extends ConfirmActionFactory.IAttributes<IObject, IResult> {
     instrument: IInstrument;
     // potentialActions?: any;
     purpose: IPurpose;
@@ -36,4 +37,4 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.Confir
 /**
  * 決済確定アクション
  */
-export type IAction = ActionFactory.IAction<IAttributes>;
+export type IAction = ConfirmActionFactory.IAction<IAttributes>;

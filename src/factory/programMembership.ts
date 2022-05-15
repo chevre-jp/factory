@@ -1,23 +1,22 @@
-import { IProduct } from './product';
-import { IProject } from './project';
+// import { IProduct } from './product';
+// import { IProject } from './project';
 import { IThing } from './thing';
 
 export enum ProgramMembershipType {
     ProgramMembership = 'ProgramMembership'
 }
-
 /**
  * Used to describe membership in a loyalty programs
  * (e.g. "StarAliance"), traveler clubs (e.g. "AAA"), purchase clubs ("Safeway Club"), etc.
  * {@link https://schema.org/ProgramMembership}
  */
 export interface IProgramMembership extends IThing {
-    project?: IProject;
-    typeOf: string;
+    // project?: IProject;
+    typeOf: ProgramMembershipType;
     /**
      * The service through with the permit was granted.
      */
-    issuedThrough?: IProduct;
+    // issuedThrough?: IProduct;
     /**
      * A unique identifier for the membership.
      */

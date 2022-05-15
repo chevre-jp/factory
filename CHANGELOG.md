@@ -10,9 +10,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 通貨転送確定アクションを最適化
+
 ### Deprecated
 
 ### Removed
+
+- 登録解除アクションを削除
 
 ### Fixed
 

@@ -28,10 +28,10 @@ import * as ConfirmRegisterServiceActionFactory from './factory/action/interact/
 import * as ConfirmReservationActionFactory from './factory/action/interact/confirm/reservation';
 import * as InformActionFactory from './factory/action/interact/inform';
 import * as RegisterActionFactory from './factory/action/interact/register';
-import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
+// import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
 import * as RegisterServiceActionFactory from './factory/action/interact/register/service';
-import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
-import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
+// import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
+// import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
 import * as ReserveActionFactory from './factory/action/reserve';
 import * as OrderActionFactory from './factory/action/trade/order';
 import * as PayActionFactory from './factory/action/trade/pay';
@@ -256,18 +256,18 @@ export namespace action {
             // tslint:disable-next-line:no-shadowed-variable
             export import IAttributes = RegisterActionFactory.IAttributes;
             // tslint:disable-next-line:no-shadowed-variable
-            export import programMembership = RegisterProgramMembershipActionFactory;
+            // export import programMembership = RegisterProgramMembershipActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
             export import service = RegisterServiceActionFactory;
         }
-        export namespace unRegister {
-            // tslint:disable-next-line:no-shadowed-variable
-            export import IAction = UnRegisterActionFactory.IAction;
-            // tslint:disable-next-line:no-shadowed-variable
-            export import IAttributes = UnRegisterActionFactory.IAttributes;
-            // tslint:disable-next-line:no-shadowed-variable
-            export import programMembership = UnRegisterProgramMembershipActionFactory;
-        }
+        // export namespace unRegister {
+        //     // tslint:disable-next-line:no-shadowed-variable
+        //     export import IAction = UnRegisterActionFactory.IAction;
+        //     // tslint:disable-next-line:no-shadowed-variable
+        //     export import IAttributes = UnRegisterActionFactory.IAttributes;
+        //     // tslint:disable-next-line:no-shadowed-variable
+        //     export import programMembership = UnRegisterProgramMembershipActionFactory;
+        // }
     }
 
     export namespace trade {
