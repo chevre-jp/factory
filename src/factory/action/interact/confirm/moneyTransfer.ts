@@ -1,15 +1,16 @@
 // import * as AccountFactory from '../../../account';
-import * as ActionFactory from '../../../action';
-import { ActionType } from '../../../actionType';
+// import * as ActionFactory from '../../../action';
+// import { ActionType } from '../../../actionType';
 // import * as MoneyTransferTransactionFactory from '../../../assetTransaction/moneyTransfer';
 import { AssetTransactionType } from '../../../assetTransactionType';
 // import { IMonetaryAmount } from '../../../monetaryAmount';
 import { ISimpleOrder } from '../../../order';
 // import { IPropertyValue } from '../../../propertyValue';
 import { TransactionType } from '../../../transactionType';
+import * as ConfirmActionFactory from '../confirm';
 
-export type IAgent = ActionFactory.IParticipant;
-export type IRecipient = ActionFactory.IParticipant;
+// export type IAgent = ActionFactory.IParticipant;
+// export type IRecipient = ActionFactory.IParticipant;
 /**
  * 匿名ロケーションインターフェース
  */
@@ -67,8 +68,7 @@ export interface ITransactionPurpose {
     id: string;
 }
 export type IPurpose = ITransactionPurpose | ISimpleOrder;
-export interface IAttributes extends ActionFactory.IAttributes<ActionType.ConfirmAction, IObject, IResult> {
-    // typeOf: ActionType.ConfirmAction;
+export interface IAttributes extends ConfirmActionFactory.IAttributes<IObject, IResult> {
     purpose: IPurpose;
     /**
      * 金額
@@ -89,4 +89,4 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.Confir
 /**
  * 通貨転送確定アクション
  */
-export type IAction = ActionFactory.IAction<IAttributes>;
+export type IAction = ConfirmActionFactory.IAction<IAttributes>;

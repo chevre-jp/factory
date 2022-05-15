@@ -18,6 +18,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.212.0 - 2022-05-16
+
+### Changed
+
+- 通貨転送確定アクションを最適化
+
+### Removed
+
+- 登録解除アクションを削除
+
 ## v4.211.0 - 2022-05-15
 
 ### Changed

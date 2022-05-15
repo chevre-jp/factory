@@ -1,13 +1,13 @@
 import * as COA from '@motionpicture/coa-service';
 
-import * as ActionFactory from '../../../action';
+// import * as ActionFactory from '../../../action';
 import * as ReserveTransactionFactory from '../../../assetTransaction/reserve';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
 import * as WebAPIFactory from '../../../service/webAPI';
 import * as ConfirmActionFactory from '../confirm';
 
-export type IAgent = ActionFactory.IParticipant;
+// export type IAgent = ActionFactory.IParticipant;
 export type IObject4COA = COA.factory.reserve.IUpdReserveArgs & {
     typeOf: 'COAReserveTransaction';
 };
@@ -22,7 +22,7 @@ export type IPurpose = ISimpleOrder;
 export type IResult = any;
 export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.IService<T>;
 export interface IAttributes<T extends WebAPIFactory.Identifier> extends ConfirmActionFactory.IAttributes<IObject<T>, IResult> {
-    agent: IAgent;
+    // agent: IAgent;
     instrument: IInstrument<T>;
     purpose: IPurpose;
 }
