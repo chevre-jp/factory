@@ -1,27 +1,24 @@
 import * as ActionFactory from '../../../action';
 import { ActionType } from '../../../actionType';
+import * as MoneyTransferTransactionFactory from '../../../assetTransaction/moneyTransfer';
 import { IOffer } from '../../../offer';
 import * as OrderFactory from '../../../order';
 import { PriceCurrency } from '../../../priceCurrency';
 import { ISeller } from '../../../seller';
 import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
-import { IPendingTransaction as ConfirmMoneyTransferPendingTransaction } from '../../interact/confirm/moneyTransfer';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
-
 export type IRequestBody = any;
-export type IResponseBody = ConfirmMoneyTransferPendingTransaction;
+export type IResponseBody = MoneyTransferTransactionFactory.ITransaction;
 export import IPendingTransaction = OrderFactory.IMoneyTransferPendingTransaction;
-
 export interface IResult {
     price: number;
     priceCurrency: PriceCurrency;
     requestBody?: IRequestBody;
     responseBody: IResponseBody;
 }
-
 export import IItemOffered = OrderFactory.IMoneyTransfer;
 export interface IAcceptedOffer extends IOffer {
     itemOffered: IItemOffered;

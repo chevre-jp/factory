@@ -1,7 +1,8 @@
 import { IParticipant } from './action';
 import { IPaymentMethodIssuedThrough } from './action/authorize/paymentMethod/any';
-import { IPaymentCard } from './action/interact/confirm/moneyTransfer';
+// import { IPaymentCard } from './action/interact/confirm/moneyTransfer';
 import { ActionType } from './actionType';
+import { IPaymentCard } from './assetTransaction/moneyTransfer';
 import { AssetTransactionType } from './assetTransactionType';
 import { ICreativeWork as IWebApplication } from './creativeWork/softwareApplication/webApplication';
 import { ICustomer as ICustomerOrganization } from './customer';
@@ -95,6 +96,9 @@ export type IReservation = EventReservationFactory.IReservation;
 export type IPermit = PermitFactory.IPermit;
 export interface IMoneyTransferPendingTransaction {
     typeOf: AssetTransactionType.MoneyTransfer;
+    /**
+     * 資産取引番号
+     */
     transactionNumber: string;
 }
 export interface IMoneyTransfer {
@@ -108,8 +112,11 @@ export interface IMoneyTransfer {
      * 転送先
      */
     toLocation: IPaymentCard;
-    object?: {
-        pendingTransaction?: IMoneyTransferPendingTransaction;
+    object: {
+        /**
+         * 入金処理の資産取引
+         */
+        pendingTransaction: IMoneyTransferPendingTransaction;
     };
     name?: string;
 }

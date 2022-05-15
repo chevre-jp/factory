@@ -8,7 +8,9 @@ import * as WebAPIFactory from '../../../service/webAPI';
 import * as ConfirmActionFactory from '../confirm';
 
 export type IAgent = ActionFactory.IParticipant;
-export type IObject4COA = COA.factory.reserve.IUpdReserveArgs;
+export type IObject4COA = COA.factory.reserve.IUpdReserveArgs & {
+    typeOf: 'COAReserveTransaction';
+};
 export type IObject4Chevre = ReserveTransactionFactory.IConfirmParams & {
     typeOf: AssetTransactionType.Reserve;
 };
@@ -17,21 +19,14 @@ export type IObject<T extends WebAPIFactory.Identifier> =
     IObject4Chevre;
 
 export type IPurpose = ISimpleOrder;
-// tslint:disable-next-line:no-empty-interface
-export interface IResult {
-}
-// tslint:disable-next-line:no-empty-interface
-export interface IPotentialActions {
-}
+export type IResult = any;
 export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.IService<T>;
 export interface IAttributes<T extends WebAPIFactory.Identifier> extends ConfirmActionFactory.IAttributes<IObject<T>, IResult> {
     agent: IAgent;
-    instrument?: IInstrument<T>;
-    potentialActions?: IPotentialActions;
+    instrument: IInstrument<T>;
     purpose: IPurpose;
 }
-
 /**
- * 予約確定アクションインターフェース
+ * 予約確定アクション
  */
 export type IAction<T extends WebAPIFactory.Identifier> = ConfirmActionFactory.IAction<IAttributes<T>>;
