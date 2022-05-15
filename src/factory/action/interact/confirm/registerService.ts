@@ -8,10 +8,8 @@ import * as OrderProgramMembershipFactory from '../../../task/orderProgramMember
 export type IObject = RegisterServiceFactory.IConfirmParams & {
     typeOf: AssetTransactionType.RegisterService;
 };
-// tslint:disable-next-line:no-empty-interface
-export interface IResult {
-}
 export type IPurpose = ISimpleOrder;
+export type IResult = any;
 export interface IPotentialActions {
     orderProgramMembership?: OrderProgramMembershipFactory.IAttributes[];
 }
@@ -19,8 +17,7 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.Confir
     potentialActions?: IPotentialActions;
     purpose: IPurpose;
 }
-
 /**
- * サービス登録確定アクションインターフェース
+ * サービス登録確定アクション
  */
 export type IAction = ActionFactory.IAction<IAttributes>;
