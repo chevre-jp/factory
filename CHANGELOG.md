@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 決済資産取引確定タスクを追加
+
 ### Changed
 
 - 注文の受け入れオファーを最適化
