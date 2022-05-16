@@ -8,12 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 決済資産取引確定タスクを追加
-
 ### Changed
-
-- 注文の受け入れオファーを最適化
-- 注文の受け入れオファーのpriceSpecificationを複合価格仕様として再定義
 
 ### Deprecated
 
@@ -22,6 +17,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.213.0 - 2022-05-17
+
+### Added
+
+- 決済資産取引確定タスクを追加
+
+### Changed
+
+- 注文の受け入れオファーを最適化
+- 注文の受け入れオファーのpriceSpecificationを複合価格仕様として再定義
 
 ## v4.212.0 - 2022-05-16
 
