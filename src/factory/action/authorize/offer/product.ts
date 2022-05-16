@@ -1,7 +1,7 @@
 import * as ActionFactory from '../../../action';
 import { ActionType } from '../../../actionType';
 import * as RegisterServiceTransactionFactory from '../../../assetTransaction/registerService';
-import { IOffer } from '../../../offer';
+import { IOffer, ITicketPriceSpecification } from '../../../offer';
 import * as OrderFactory from '../../../order';
 import { PriceCurrency } from '../../../priceCurrency';
 import { IProduct } from '../../../product';
@@ -13,7 +13,7 @@ export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 export type IService = IProduct;
 export type IAcceptedOfferWithoutDetail = RegisterServiceTransactionFactory.IAcceptedOfferWithoutDetail;
-export interface IAcceptedOffer extends IOffer {
+export interface IAcceptedOffer extends Omit<IOffer, 'addOn' | 'price' | 'availability' | 'availableAtOrFrom'> {
     /**
      * オファー対象アイテム
      */
@@ -22,6 +22,7 @@ export interface IAcceptedOffer extends IOffer {
      * 販売者
      */
     seller: ISeller;
+    priceSpecification?: ITicketPriceSpecification;
 }
 export type IObjectWithoutDetail = IAcceptedOfferWithoutDetail[];
 export type IObject = IAcceptedOffer[];

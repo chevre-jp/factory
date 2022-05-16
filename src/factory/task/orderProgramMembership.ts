@@ -9,7 +9,7 @@ import { TaskName } from '../taskName';
 import { IPotentialActionsParams as IOrderPotentialActionsParams } from '../transaction/placeOrder';
 
 export type IAgent = IParticipant;
-export type IAcceptedOffer = OrderFactory.IAcceptedOffer<IPermit>;
+export type IAcceptedOffer = Omit<OrderFactory.IAcceptedOffer<IPermit>, 'priceSpecification'>;
 export type IPotentialActions = IOrderPotentialActionsParams;
 
 export interface IData {

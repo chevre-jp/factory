@@ -71,7 +71,7 @@ export type IObjectWithoutDetail4chevre = ReserveTransactionFactory.IObjectWitho
 export type IAcceptedOffer4COA
     = ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail & OfferFactory.seatReservation.IOfferWithDetails;
 
-export type IAcceptedOfferWithoutDetail4COA = OfferFactory.seatReservation.IOffer;
+export type IAcceptedOfferWithoutDetail4COA = OfferFactory.seatReservation.ICOAOffer;
 
 export interface IObjectWithoutDetail4COA {
     acceptedOffer: IAcceptedOfferWithoutDetail4COA[];

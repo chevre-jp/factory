@@ -21,7 +21,6 @@ import { IThing } from './thing';
 export type TicketType = 'Ticket';
 
 // 予約の単価オファーを最適化(属性不足が判明すれば適宜拡張する)
-// export type ITicketType = OfferFactory.IUnitPriceOffer;
 export interface ITicketType {
     additionalProperty?: IPropertyValue<string>[];
     category?: OfferFactory.ICategory;
@@ -31,7 +30,6 @@ export interface ITicketType {
     identifier: string;
     name?: string | IMultilingualString;
     priceCurrency: PriceCurrency;
-    // priceSpecification?: IUnitPriceSpecification;
     project: IProject;
     typeOf: OfferType;
     validRateLimit?: OfferFactory.IValidRateLimit;

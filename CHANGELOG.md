@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 注文の受け入れオファーを最適化
+- 注文の受け入れオファーのpriceSpecificationを複合価格仕様として再定義
+
 ### Deprecated
 
 ### Removed

@@ -9,7 +9,7 @@ import { ICustomer as ICustomerOrganization } from './customer';
 import { EventType } from './eventType';
 import * as MonetaryAmountFactory from './monetaryAmount';
 import { IMultilingualString } from './multilingualString';
-import { IOffer } from './offer';
+import { IOffer, ITicketPriceSpecification } from './offer';
 import { OrderStatus } from './orderStatus';
 import { OrganizationType } from './organizationType';
 import * as PermitFactory from './permit';
@@ -125,11 +125,11 @@ export interface IMoneyTransfer {
  * 注文アイテムインターフェース
  */
 export type IItemOffered = IMoneyTransfer | IReservation | IPermit;
-
+export type IOfferOptimized4acceptedOffer = Omit<IOffer, 'addOn' | 'price' | 'availability' | 'availableAtOrFrom'>;
 /**
- * オファーインターフェース
+ * 受け入れオファー
  */
-export interface IAcceptedOffer<T extends IItemOffered> extends IOffer {
+export interface IAcceptedOffer<T extends IItemOffered> extends IOfferOptimized4acceptedOffer {
     /**
      * オファー対象アイテム
      */
@@ -138,6 +138,7 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOffer {
      * 販売者
      */
     seller: ISeller;
+    priceSpecification?: ITicketPriceSpecification;
 }
 
 /**

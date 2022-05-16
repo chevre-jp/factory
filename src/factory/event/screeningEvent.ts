@@ -9,10 +9,6 @@ import { OfferType } from '../offerType';
 import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
 import { PriceCurrency } from '../priceCurrency';
-import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
-import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
-import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
-import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
 import { IProject } from '../project';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
@@ -149,19 +145,8 @@ export interface IOffer {
     unacceptedPaymentMethod?: string[];
     seller: ISeller;
 }
-
-/**
- * イベントに対して有効なチケット価格仕様要素インターフェース
- */
-export type ITicketPriceComponent = ICategoryCodeChargeSpecification
-    | IMovieTicketTypeChargeSpecification
-    | IUnitPriceSpecification;
-
-/**
- * イベントに対して有効なチケット価格仕様インターフェース
- */
-export type ITicketPriceSpecification = ICompoundPriceSpecification<ITicketPriceComponent>;
-
+export import ITicketPriceComponent = OfferFactory.ITicketPriceComponent;
+export import ITicketPriceSpecification = OfferFactory.ITicketPriceSpecification;
 /**
  * チケットオファーインターフェース
  */
