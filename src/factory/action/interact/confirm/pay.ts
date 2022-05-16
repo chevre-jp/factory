@@ -19,12 +19,12 @@ export interface IPayAssetTransaction {
     typeOf: AssetTransactionType.Pay;
     /**
      * 決済方法
-     * 必要最低限に(2022-05-16~)
+     * 廃止(2022-05-17~)
      */
-    paymentMethod: {
-        paymentMethodId: string;
-    };
-    transactionNumber?: string;
+    // paymentMethod: {
+    //     paymentMethodId: string;
+    // };
+    transactionNumber: string;
     // movieTickets?: IMovieTicket[];
 }
 export type IObject = IPayAssetTransaction[];
@@ -35,6 +35,6 @@ export interface IAttributes extends ConfirmActionFactory.IAttributes<IObject, I
     purpose: IPurpose;
 }
 /**
- * 決済確定アクション
+ * 決済取引確定アクション
  */
 export type IAction = ConfirmActionFactory.IAction<IAttributes>;

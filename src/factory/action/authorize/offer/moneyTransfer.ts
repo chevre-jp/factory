@@ -20,7 +20,7 @@ export interface IResult {
     responseBody: IResponseBody;
 }
 export import IItemOffered = OrderFactory.IMoneyTransfer;
-export interface IAcceptedOffer extends IOffer {
+export interface IAcceptedOffer extends Omit<IOffer, 'addOn' | 'availability' | 'availableAtOrFrom'> {
     itemOffered: IItemOffered;
     seller: ISeller;
 }

@@ -6,6 +6,9 @@ import * as SeatReservationOfferFactory from './offer/seatReservation';
 import { OfferType } from './offerType';
 import { PriceCurrency } from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
+import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
+import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpecification/compoundPriceSpecification';
+import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { PriceSpecificationType } from './priceSpecificationType';
 import { ProductType } from './product';
@@ -193,8 +196,6 @@ export interface IOffer extends IThing {
     additionalProperty?: IPropertyValue<string>[];
 }
 
-export type IBaseOffer = IOffer;
-
 /**
  * 単価オファーの提供アイテムインターフェース
  */
@@ -365,16 +366,25 @@ export interface ISearchConditions {
         typeOf?: { $eq?: string };
     };
 }
-
+/**
+ * 承認時に提供される価格仕様要素
+ */
+export type ITicketPriceComponent = ICategoryCodeChargeSpecification
+    | IMovieTicketTypeChargeSpecification
+    | IUnitPriceSpecification;
+/**
+ * 承認時に提供される価格仕様
+ */
+export type ITicketPriceSpecification = ICompoundPriceSpecification<ITicketPriceComponent>;
 export namespace seatReservation {
     export import ICOATicketInfo = SeatReservationOfferFactory.ICOATicketInfo;
     export import ICOATicketInfoWithDetails = SeatReservationOfferFactory.ICOATicketInfoWithDetails;
     // tslint:disable-next-line:no-shadowed-variable
-    export import IOffer = SeatReservationOfferFactory.IOffer;
+    export import ICOAOffer = SeatReservationOfferFactory.IOffer;
     /**
      * 座席予約供給情報(詳細つき)インターフェース
      */
-    export interface IOfferWithDetails extends IBaseOffer {
+    export interface IOfferWithDetails extends Omit<IOffer, 'addOn' | 'availability' | 'availableAtOrFrom'> {
         /**
          * seat section
          */
@@ -387,5 +397,7 @@ export namespace seatReservation {
          * ticket info
          */
         ticketInfo: ICOATicketInfoWithDetails;
+        price: number;
+        priceSpecification?: ITicketPriceSpecification;
     }
 }

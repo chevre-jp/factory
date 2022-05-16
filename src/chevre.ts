@@ -137,6 +137,7 @@ import * as CancelReservationTaskFactory from './factory/task/cancelReservation'
 import * as ConfirmCancelReserveTaskFactory from './factory/task/confirmCancelReserve';
 import * as ConfirmMoneyTransferTaskFactory from './factory/task/confirmMoneyTransfer';
 import * as ConfirmPayTaskFactory from './factory/task/confirmPay';
+import * as ConfirmPayTransactionTaskFactory from './factory/task/confirmPayTransaction';
 import * as ConfirmRefundTaskFactory from './factory/task/confirmRefund';
 import * as ConfirmRegisterServiceTaskFactory from './factory/task/confirmRegisterService';
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
@@ -539,6 +540,7 @@ export namespace task {
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IData :
         T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.IData :
+        T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.IData :
         T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.IData :
@@ -565,6 +567,7 @@ export namespace task {
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IAttributes :
         T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.IAttributes :
+        T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.IAttributes :
         T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.IAttributes :
@@ -591,6 +594,7 @@ export namespace task {
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.ITask :
         T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.ITask :
+        T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.ITask :
         T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.ITask :
