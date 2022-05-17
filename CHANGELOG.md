@@ -18,6 +18,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.214.0 - 2022-05-17
+
+### Changed
+
+- メンバーシップ注文タスクを最適化
+- 通知アクションのagentをプロジェクトに変更
+- Eメール送信アクションのagentをプロジェクトに変更
+
 ## v4.213.0 - 2022-05-17
 
 ### Added

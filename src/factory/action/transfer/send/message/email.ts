@@ -1,8 +1,14 @@
 import * as ActionFactory from '../../../../action';
 import { ICreativeWork as IEmailMessage } from '../../../../creativeWork/message/email';
+import { OrganizationType } from '../../../../organizationType';
 import * as SendActionFactory from '../../send';
 
-export type IAgent = ActionFactory.IParticipant;
+// プロジェクトに変更(2022-05-18~)
+// export type IAgent = ActionFactory.IParticipant;
+export interface IAgent {
+    id: string;
+    typeOf: OrganizationType.Project;
+}
 export type IRecipient = ActionFactory.IParticipant;
 
 /**
