@@ -1,6 +1,6 @@
 import * as ActionFactory from '../../../action';
 import * as OrderFactory from '../../../order';
-import { OrganizationType } from '../../../organizationType';
+// import { OrganizationType } from '../../../organizationType';
 import { IAttributes as IRefundActionAttributes } from '../../transfer/return/paymentMethod';
 import { IAttributes as ICancelActionAttributes } from '../../transfer/return/reservation';
 import * as ReturnActionFactory from '../return';
@@ -8,10 +8,12 @@ import { IAttributes as ISendEmailMessageActionAttributes } from '../send/messag
 import * as ReturnMoneyTransferActionFactory from './moneyTransfer';
 import * as ReturnPointAwardActionFactory from './pointAward';
 
-export interface IAgent {
-    id: string;
-    typeOf: OrganizationType.Project;
-}
+// 注文のreturnerに反映されるので調整
+export type IAgent = ActionFactory.IParticipant;
+// export interface IAgent {
+//     id: string;
+//     typeOf: OrganizationType.Project;
+// }
 export type IRecipient = ActionFactory.IParticipant;
 /**
  * 返却対象は注文
