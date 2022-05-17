@@ -1,9 +1,13 @@
 import * as ActionFactory from '../../../action';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
+import { OrganizationType } from '../../../organizationType';
 import * as ReturnActionFactory from '../return';
 
-export type IAgent = ActionFactory.IParticipant;
+export interface IAgent {
+    id: string;
+    typeOf: OrganizationType.Project;
+}
 export type IRecipient = ActionFactory.IParticipant;
 /**
  * 入金取引識別子で指定する場合のオブジェクト
@@ -26,11 +30,12 @@ export type IResult = any;
 export interface IPotentialActions {
 }
 export interface IAttributes extends ReturnActionFactory.IAttributes<IObject, IResult> {
+    agent: IAgent;
     recipient: IRecipient;
     potentialActions?: IPotentialActions;
     purpose: IPurpose;
 }
 /**
- * ポイントインセンティブ返却アクションインターフェース
+ * ポイント特典返却アクション
  */
 export type IAction = ReturnActionFactory.IAction<IAttributes>;

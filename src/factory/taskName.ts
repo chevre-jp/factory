@@ -60,7 +60,7 @@ export enum TaskName {
      */
     DeleteMember = 'deleteMember',
     /**
-     * ポイントインセンティブ付与
+     * ポイント特典付与
      */
     GivePointAward = 'givePointAward',
     /**
@@ -80,7 +80,7 @@ export enum TaskName {
      */
     ReturnMoneyTransfer = 'returnMoneyTransfer',
     /**
-     * ポイントインセンティブ返却
+     * ポイント特典返却
      */
     ReturnPointAward = 'returnPointAward',
     /**

@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- ポイント特典付与アクションのagentをプロジェクトに変更
+- 返却アクションのagentをプロジェクトに変更
+
 ### Deprecated
 
 ### Removed
