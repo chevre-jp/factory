@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - メンバーシップ注文タスクを最適化
+- 通知アクションのagentをプロジェクトに変更
+- Eメール送信アクションのagentをプロジェクトに変更
 
 ### Deprecated
 
