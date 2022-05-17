@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 返金資産取引のagentを再定義
+- 転送資産取引のagentを再定
+- 返品アクションのagentを拡張
+
 ### Deprecated
 
 ### Removed
