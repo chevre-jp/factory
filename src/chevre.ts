@@ -201,6 +201,11 @@ export namespace action {
     export import IAdditionalProperty = ActionFactory.IAdditionalProperty;
     export import IAttributes = ActionFactory.IAttributes;
     export import IDynamicAttributes = ActionFactory.IDynamicAttributes;
+    export import IParticipantAsWebApplication = ActionFactory.IParticipantAsWebApplication;
+    export import IParticipantAsPerson = ActionFactory.IParticipantAsPerson;
+    export import IParticipantAsSeller = ActionFactory.IParticipantAsSeller;
+    export import IParticipantAsProject = ActionFactory.IParticipantAsProject;
+    export import IParticipantAsCustomer = ActionFactory.IParticipantAsCustomer;
     export import IParticipant = ActionFactory.IParticipant;
     export import IPurpose = ActionFactory.IPurpose;
     export import ISortOrder = ActionFactory.ISortOrder;

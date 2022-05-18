@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- アクションのIParticipantを最適化
+- 承認アクションのIParticipantを最適化
+
 ### Deprecated
 
 ### Removed
