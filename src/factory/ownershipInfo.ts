@@ -1,17 +1,19 @@
-import { ICustomer } from './order';
+import { CreativeWorkType } from './creativeWorkType';
+import { OrganizationType } from './organizationType';
 import * as PermitFactory from './permit';
+import { IMemberOf } from './person';
+import { PersonType } from './personType';
 import * as ProductFactory from './product';
 import { IProject } from './project';
+import { IPropertyValue } from './propertyValue';
 import { IReservation as IEventReservation } from './reservation/event';
 import { ReservationType } from './reservationType';
-import { ISeller } from './seller';
 import * as WebAPIFactory from './service/webAPI';
 import { SortType } from './sortType';
 
 export type IBookingService = WebAPIFactory.IService<WebAPIFactory.Identifier>;
-
 /**
- * 予約インターフェース
+ * 予約
  */
 export interface IReservation {
     typeOf: ReservationType.EventReservation;
@@ -31,31 +33,50 @@ export interface IReservation {
      */
     bookingService?: IBookingService;
 }
-
 export type IReservationWithDetail = IReservation & IEventReservation;
-
 export type IPermit = PermitFactory.IPermit;
-
 /**
- * 所有対象物インターフェース (Product or Service)
+ * 所有対象物 (Product or Service)
  */
 export type IGood = IReservation | IPermit;
-
 /**
- * 所有対象物インターフェース(対象物詳細有)
+ * 所有対象物(対象物詳細有)
  */
 export type IGoodWithDetail = IReservationWithDetail | IPermit;
-
 /**
- * 所有者インターフェース
+ * 所有者
  */
-export type IOwner = Omit<ICustomer, 'name'>;
-export type IAcquiredFrom = ISeller;
-
+export interface IOwnerAsOrganization {
+    // 個人情報排除するように
+    typeOf: OrganizationType.Organization;
+    id: string;
+    project: { id: string; typeOf: OrganizationType.Project };
+    identifier?: IPropertyValue<string>[];
+}
+export interface IOwnerAsPerson {
+    // 個人情報排除するように
+    typeOf: PersonType;
+    id: string;
+    identifier?: IPropertyValue<string>[];
+    memberOf?: IMemberOf;
+}
+export interface IOwnerAsWebApplication {
+    // 個人情報排除するように
+    typeOf: CreativeWorkType.WebApplication;
+    id: string;
+    identifier?: IPropertyValue<string>[];
+}
+// export type IOwner = Omit<ICustomer, 'name'>;
+export type IOwner = IOwnerAsOrganization | IOwnerAsPerson | IOwnerAsWebApplication;
+export interface IAcquiredFrom {
+    project: { id: string; typeOf: OrganizationType.Project };
+    id: string;
+    typeOf: OrganizationType.Corporation;
+    name: string;
+}
 export type OwnershipInfoType = 'OwnershipInfo';
-
 /**
- * 所有権インターフェース
+ * 所有権
  */
 export interface IOwnershipInfo<T extends IGood | IGoodWithDetail> {
     project: IProject;
@@ -92,9 +113,8 @@ export interface IOwnershipInfo<T extends IGood | IGoodWithDetail> {
      */
     typeOfGood: T;
 }
-
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     /**
@@ -102,9 +122,8 @@ export interface ISortOrder {
      */
     ownedFrom?: SortType;
 }
-
 /**
- * 所有対象物検索条件インターフェース
+ * 所有対象物検索条件
  */
 export interface ITypeOfGoodSearchConditions {
     typeOf?: string | {
@@ -129,7 +148,7 @@ export interface ITypeOfGoodSearchConditions {
 }
 
 /**
- * 所有権検索条件インターフェース
+ * 所有権検索条件
  */
 export interface ISearchConditions {
     limit?: number;

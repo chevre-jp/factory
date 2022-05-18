@@ -13,8 +13,6 @@ import * as WebAPIFactory from '../service/webAPI';
 import * as TransactionFactory from '../transaction';
 import { TransactionType } from '../transactionType';
 
-export import ISeller = TransactionFactory.ISeller;
-
 /**
  * 取引人インターフェース
  */
@@ -99,6 +97,9 @@ export interface IStartParamsWithoutDetail {
     };
 }
 
+export interface ISeller extends TransactionFactory.ISeller {
+    id: string;
+}
 /**
  * 取引開始パラメーターインターフェース
  */

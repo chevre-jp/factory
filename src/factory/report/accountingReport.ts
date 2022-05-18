@@ -2,8 +2,10 @@ import { IAction as IPayAction } from '../action/trade/pay';
 import { IAction as IRefundAction } from '../action/trade/refund';
 import { IOrder } from '../order';
 
-export type IAction = IPayAction | IRefundAction;
-
+export type IExpludedActionAttributes = 'additionalProperty' | 'agent' | 'description' | 'error' | 'identifier' | 'instrument' | 'potentialActions' | 'recipient' | 'result';
+export type IOptimizedPayAction = Omit<IPayAction, IExpludedActionAttributes>;
+export type IOptimizedRefundAction = Omit<IRefundAction, IExpludedActionAttributes>;
+export type IAction = IOptimizedPayAction | IOptimizedRefundAction;
 /**
  * 経理レポートインターフェース
  */
@@ -13,7 +15,6 @@ export interface IReport {
         mainEntity: IOrder;
     };
 }
-
 /**
  * 経理レポート検索条件
  */

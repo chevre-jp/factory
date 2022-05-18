@@ -22,7 +22,6 @@ import { IPropertyValue } from './propertyValue';
 import { IProgramMembershipUsedSearchConditions } from './reservation';
 import * as EventReservationFactory from './reservation/event';
 import { ReservationType } from './reservationType';
-import { ISeller as ISellerOrganization } from './seller';
 import { IServiceType } from './serviceType';
 import { SortType } from './sortType';
 import { IThing } from './thing';
@@ -137,15 +136,27 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOfferOptimized4
     /**
      * 販売者
      */
-    seller: ISeller;
+    seller: {
+        project: { id: string; typeOf: OrganizationType.Project };
+        // id: string;
+        typeOf: OrganizationType.Corporation;
+        // name: string;
+        name?: string | IMultilingualString;
+    };
     priceSpecification?: ITicketPriceSpecification;
 }
 
 /**
  * 販売者
  */
-export type ISeller = ISellerOrganization;
-
+export interface ISeller {
+    project: { id: string; typeOf: OrganizationType.Project };
+    id: string;
+    typeOf: OrganizationType.Corporation;
+    name?: string | IMultilingualString;
+    // name: string;
+    url?: string;
+}
 /**
  * ウェブアプリケーションとしてのカスタマー
  */

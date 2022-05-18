@@ -7,8 +7,8 @@ import * as ThingFactory from './thing';
  * 追加属性インターフェース
  */
 export type IAdditionalProperty = IPropertyValue<string>[];
-
 export import IIdentifier = ThingFactory.IIdentifier;
+export type IMemberOf = IProgramMembership;
 
 /**
  * プロフィールインターフェース
@@ -57,6 +57,6 @@ export type IPerson = IProfile & {
     /**
      * An Organization (or ProgramMembership) to which this Person or Organization belongs.
      */
-    memberOf?: IProgramMembership;
+    memberOf?: IMemberOf;
     typeOf: PersonType;
 };
