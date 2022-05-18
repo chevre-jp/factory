@@ -8,6 +8,7 @@ import { AssetTransactionType } from '../../assetTransactionType';
 import { IPaymentServiceOutput } from '../../invoice';
 import { IMonetaryAmount } from '../../monetaryAmount';
 import { OrderType } from '../../order';
+import { OrganizationType } from '../../organizationType';
 import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import { IPropertyValue } from '../../propertyValue';
 import { ISeller } from '../../seller';
@@ -15,9 +16,12 @@ import { PaymentServiceType } from '../../service/paymentService';
 import { TransactionType } from '../../transactionType';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 
-export type IAgent = ActionFactory.IParticipant;
-export type IRecipient = ISeller;
-
+// export type IAgent = ActionFactory.IParticipant;
+export interface IAgent {
+    id: string;
+    typeOf: OrganizationType.Project;
+}
+export type IRecipient = Omit<ISeller, 'branchCode' | 'paymentAccepted'>;
 export interface IOrderAsPayPurpose {
     typeOf: OrderType.Order;
     confirmationNumber?: string;
@@ -34,11 +38,8 @@ export interface ITransactionAsPayPurpose {
 }
 export type IReturnActionAsPayPurpose = IReturnOrderActionAttributes;
 export type IPayPurpose = IOrderAsPayPurpose | IAssetTransactionAsPayPurpose | IReturnActionAsPayPurpose | ITransactionAsPayPurpose;
-
 export type IPurpose = IPayPurpose;
-
 export type AvailablePaymentMethodType = string;
-
 export interface IPendingTransaction {
     typeOf: AccountFactory.transactionType;
     id: string;
@@ -52,9 +53,7 @@ export interface IPendingTransaction {
         };
     };
 }
-
 export import ICreditCardSales = GMO.factory.credit.IAlterTranResult;
-
 /**
  * 決済方法インターフェース
  */
@@ -104,20 +103,15 @@ export interface IPaymentService {
      */
     serviceOutput?: IPaymentServiceOutput;
 }
-
 export type IObject = IPaymentService[];
-
 export type IInformPayment = IInformActionAttributes<any, any>;
-
 export interface IPotentialActions {
     informPayment?: IInformPayment[];
 }
-
 export interface IInstrument {
     typeOf: string;
     seatInfoSyncIn?: any;
 }
-
 /**
  * 決済結果
  */
@@ -130,15 +124,14 @@ export interface IResult {
     // seatInfoSyncIn?: any;
     seatInfoSyncResult?: any;
 }
-
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.PayAction, IObject, IResult> {
+    agent: IAgent;
     instrument?: IInstrument;
     potentialActions?: IPotentialActions;
     purpose: IPurpose;
-    recipient?: IRecipient;
+    recipient: IRecipient;
 }
-
 /**
- * 決済アクションインターフェース
+ * 決済アクション
  */
 export type IAction = ActionFactory.IAction<IAttributes>;
