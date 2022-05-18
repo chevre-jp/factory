@@ -10,6 +10,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 経理レポートに保管するアクションを再定義
+- 販売者のtypeOfを固定化
+- 注文の販売者を最適化
+- 所有権のownedByを最適化
+- 所有権のacquiredFromを最適化
+- アクションのIParticipantを顧客にも拡張
+
 ### Deprecated
 
 ### Removed

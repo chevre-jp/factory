@@ -34,7 +34,7 @@ export interface ISeller extends IOrganization {
      */
     // makesOffer?: IMakesOffer[];
     paymentAccepted?: IPaymentAccepted[];
-    typeOf: OrganizationType;
+    typeOf: OrganizationType.Corporation;
 }
 
 /**
