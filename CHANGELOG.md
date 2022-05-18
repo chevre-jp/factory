@@ -18,6 +18,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.217.0 - 2022-05-18
+
+### Changed
+
+- 決済アクションのagentをプロジェクトに変更
+- 返金アクションのagentを再定義
+- 決済アクションのrecipientを必須化
+
 ## v4.216.0 - 2022-05-18
 
 ### Changed

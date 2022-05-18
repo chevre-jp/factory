@@ -1,8 +1,11 @@
 import * as GMO from '@motionpicture/gmo-service';
 
+import { IParticipant } from '../action';
 import {
-    IAgent as IPayAgent, IAttributes as IPayActionAttributes,
-    IOrderAsPayPurpose, IPayPurpose, IPendingTransaction, IRecipient as IPayRecipient
+    IAttributes as IPayActionAttributes,
+    IOrderAsPayPurpose, IPayPurpose,
+    IPendingTransaction,
+    IRecipient as IPayRecipient
 } from '../action/trade/pay';
 import * as TransactionFactory from '../assetTransaction';
 import { AssetTransactionType } from '../assetTransactionType';
@@ -14,17 +17,20 @@ import { IOnPaymentStatusChanged } from '../project';
 import { IPropertyValue } from '../propertyValue';
 import { PaymentServiceType } from '../service/paymentService';
 
-export type IAgent = IPayAgent;
+// export type IAgent = IPayAgent;
+export type IAgent = IParticipant;
 
 export type IRecipient = IPayRecipient;
 
 export type IObjectWithoutDetail = IObject;
 
 export type IStartParamsWithoutDetail = TransactionFactory.IStartParams<AssetTransactionType.Pay, IAgent, IRecipient, IObject> & {
+    recipient: IRecipient;
     purpose?: IPayPurpose;
 };
 
 export interface IStartParams extends TransactionFactory.IStartParams<AssetTransactionType.Pay, IAgent, IRecipient, IObject> {
+    recipient: IRecipient;
 }
 
 export interface IPotentialActionsParams {
