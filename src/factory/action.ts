@@ -10,27 +10,31 @@ import { IPropertyValue } from './propertyValue';
 import { ISeller } from './seller';
 import { SortType } from './sortType';
 
-export type ICustomerParticipant = ICustomer & {
+export type IParticipantAsWebApplication = Omit<IWebApplication, 'additionalProperty'>;
+export type IParticipantAsPerson = Omit<IPerson, 'email' | 'telephone' | 'givenName' | 'familyName' | 'additionalProperty'>;
+export type IParticipantAsSeller = Omit<ISeller, 'branchCode' | 'paymentAccepted' | 'project' | 'additionalProperty'>;
+export type IParticipantAsProject = Omit<IProject, 'settings' | 'subscription' | 'alternateName' | 'description' | 'additionalProperty'>;
+export type IParticipantAsCustomer = Omit<ICustomer, 'name' | 'branchCode' | 'contactPoint' | 'project' | 'additionalProperty'> & {
     name?: string | IMultilingualString;
 };
 /**
- * アクションへの関係者インターフェース
- * 継承先にて、インターフェースが強化される可能性あり
+ * アクションへの関係者
  */
-export type IParticipant = IWebApplication | IPerson | ISeller | IProject | ICustomerParticipant;
-
+export type IParticipant = IParticipantAsWebApplication
+    | IParticipantAsPerson
+    | IParticipantAsSeller
+    | IParticipantAsProject
+    | IParticipantAsCustomer;
 /**
- * アクション目的インターフェース
+ * アクション目的
  */
 export interface IPurpose {
     typeOf: string;
 }
-
 /**
- * 追加属性インターフェース
+ * 追加属性
  */
 export type IAdditionalProperty = IPropertyValue<string>[];
-
 /**
  * アクション属性
  */
@@ -84,9 +88,8 @@ export interface IAttributes<T extends ActionType, TObject, TResult> {
      */
     typeOf: T;
 }
-
 /**
- * アクション動的属性インターフェース
+ * アクション動的属性
  * リポジトリに保管時にセット、あるいは変更される
  */
 export interface IDynamicAttributes {
@@ -103,22 +106,19 @@ export interface IDynamicAttributes {
      */
     endDate?: Date;
 }
-
 /**
- * 抽象アクションインターフェース
+ * 抽象アクション
  * {@link https://schema.org/Action}
  */
 export type IAction<TAttributes extends IAttributes<ActionType, any, any>> = IExtendId<TAttributes & IDynamicAttributes>;
-
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     startDate?: SortType;
 }
-
 /**
- * 検索条件インターフェース
+ * 検索条件
  */
 export interface ISearchConditions {
     limit?: number;

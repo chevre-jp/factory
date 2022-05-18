@@ -14,7 +14,7 @@ import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
 export type IAgent = ActionFactory.IParticipant;
-export type IRecipient = ActionFactory.IParticipant;
+export type IRecipient = ActionFactory.IParticipantAsSeller;
 
 export enum ResultType {
     Payment = 'Payment'

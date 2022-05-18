@@ -13,7 +13,7 @@ import * as WebAPIFactory from '../../../service/webAPI';
 import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
-export type IAgent = ActionFactory.IParticipant;
+export type IAgent = ActionFactory.IParticipantAsSeller;
 export type IRecipient = ActionFactory.IParticipant;
 
 export enum ObjectType {
