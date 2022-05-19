@@ -17,8 +17,11 @@ export type IAgent = IWebApplicationAgent | PersonFactory.IPerson;
 
 /**
  * 販売者インターフェース
+ * 最適化(2022-05-20~)
  */
-export type ISeller = SellerFactory.ISeller;
+export type ISeller = Omit<SellerFactory.ISeller,
+    'branchCode' | 'paymentAccepted' | 'additionalProperty'
+    | 'hasMerchantReturnPolicy' | 'email' | 'telephone' | 'location' | 'url' | 'project'>;
 
 /**
  * Eメール送信パラメータ
