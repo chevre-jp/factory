@@ -10,6 +10,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 注文の販売者を最適化
+- 取引の販売者を最適化
+- 注文アイテムとしての予約を最適化
+- 注文アイテムとしてのPermitを最適化
+
 ### Deprecated
 
 ### Removed

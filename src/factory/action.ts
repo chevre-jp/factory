@@ -12,7 +12,7 @@ import { SortType } from './sortType';
 
 export type IParticipantAsWebApplication = Omit<IWebApplication, 'additionalProperty'>;
 export type IParticipantAsPerson = Omit<IPerson, 'email' | 'telephone' | 'givenName' | 'familyName' | 'additionalProperty'>;
-export type IParticipantAsSeller = Omit<ISeller, 'branchCode' | 'paymentAccepted' | 'project' | 'additionalProperty'>;
+export type IParticipantAsSeller = Omit<ISeller, 'branchCode' | 'paymentAccepted' | 'project' | 'additionalProperty' | 'hasMerchantReturnPolicy' | 'email' | 'telephone' | 'location'>;
 export type IParticipantAsProject = Omit<IProject, 'settings' | 'subscription' | 'alternateName' | 'description' | 'additionalProperty'>;
 export type IParticipantAsCustomer = Omit<ICustomer, 'name' | 'branchCode' | 'contactPoint' | 'project' | 'additionalProperty'> & {
     name?: string | IMultilingualString;

@@ -30,15 +30,11 @@ export interface IProject {
     typeOf: OrganizationType.Project;
     id: string;
 }
-
 export enum OrderType {
     Order = 'Order'
 }
-
-export type AvailablePaymentMethodType = string;
-
 /**
- * 決済方法インターフェース
+ * 決済方法
  */
 export interface IPaymentMethod {
     /**
@@ -46,9 +42,9 @@ export interface IPaymentMethod {
      */
     accountId?: string;
     /**
-     * 決済方法タイプ
+     * 決済方法区分コード
      */
-    typeOf: AvailablePaymentMethodType;
+    typeOf: string;
     /**
      * 決済方法名称
      */
@@ -67,9 +63,8 @@ export interface IPaymentMethod {
     additionalProperty: IPropertyValue<string>[];
     issuedThrough: IPaymentMethodIssuedThrough;
 }
-
 /**
- * 割引インターフェース
+ * ディスカウント
  */
 export interface IDiscount {
     /**
@@ -90,9 +85,11 @@ export interface IDiscount {
      */
     discountCurrency: string;
 }
-
-export type IReservation = EventReservationFactory.IReservation;
-export type IPermit = PermitFactory.IPermit;
+export type IReservation = Omit<EventReservationFactory.IReservation,
+    'attended' | 'broker' | 'checkedIn' | 'modifiedTime' | 'previousReservationStatus'
+    | 'price' | 'priceCurrency' | 'reservationStatus' | 'subReservation' | 'underName'>;
+export type IPermit = Omit<PermitFactory.IPermit,
+    'accessCode' | 'additionalProperty' | 'depositAmount' | 'paymentAmount' | 'paymentAccount' | 'issuedBy'>;
 export interface IMoneyTransferPendingTransaction {
     typeOf: AssetTransactionType.MoneyTransfer;
     /**
@@ -119,9 +116,8 @@ export interface IMoneyTransfer {
     };
     name?: string;
 }
-
 /**
- * 注文アイテムインターフェース
+ * 注文アイテム
  */
 export type IItemOffered = IMoneyTransfer | IReservation | IPermit;
 export type IOfferOptimized4acceptedOffer = Omit<IOffer, 'addOn' | 'price' | 'availability' | 'availableAtOrFrom'>;
@@ -145,7 +141,6 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOfferOptimized4
     };
     priceSpecification?: ITicketPriceSpecification;
 }
-
 /**
  * 販売者
  */
@@ -153,9 +148,10 @@ export interface ISeller {
     project: { id: string; typeOf: OrganizationType.Project };
     id: string;
     typeOf: OrganizationType.Corporation;
-    name?: string | IMultilingualString;
-    // name: string;
-    url?: string;
+    // ↓最適化(2022-05-20~)
+    name: string;
+    // name?: string | IMultilingualString;
+    // url?: string;
 }
 /**
  * ウェブアプリケーションとしてのカスタマー
@@ -165,21 +161,16 @@ export type IWebApplicationCustomer = IWebApplication & IProfile;
  * 顧客組織としてのカスタマー
  */
 export type IOrganizationCustomer = ICustomerOrganization & IProfile;
-
 /**
  * カスタマー
  */
 export type ICustomer = IPerson | IWebApplicationCustomer | IOrganizationCustomer;
-
 export type IBroker = IPerson;
-
 /**
  * 返品者
  */
 export type IReturner = IParticipant;
-
 export type IIdentifier = IPropertyValue<string>[];
-
 export interface ISimpleOrder extends IThing {
     project: IProject;
     /**
@@ -215,7 +206,6 @@ export interface ISimpleOrder extends IThing {
      */
     orderDate: Date;
 }
-
 export interface IReservationFor4OrderedItem {
     location?: {
         branchCode: string;
@@ -247,9 +237,8 @@ export interface IOrderedItem {
     typeOf: 'OrderItem';
     orderedItem: IProduct | IEventServiceAsOrderedItem;
 }
-
 /**
- * 注文インターフェース
+ * 注文
  * {@link https://schema.org/Order}
  */
 export interface IOrder extends ISimpleOrder {
@@ -299,16 +288,14 @@ export interface IOrder extends ISimpleOrder {
      */
     url?: string;
 }
-
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     orderDate?: SortType;
 }
-
 /**
- * 予約対象検索条件インターフェース
+ * 予約対象検索条件
  */
 export interface IReservationForSearchConditions {
     typeOfs?: EventType[];
@@ -358,7 +345,6 @@ export interface IReservationForSearchConditions {
         };
     };
 }
-
 export interface ISellerSearchConditions {
     typeOf?: string;
     /**
@@ -366,7 +352,6 @@ export interface ISellerSearchConditions {
      */
     ids?: string[];
 }
-
 export interface ICustomerSearchConditions {
     typeOf?: PersonType;
     ids?: string[];
@@ -402,7 +387,6 @@ export interface ICustomerSearchConditions {
         $regex?: string;
     };
 }
-
 export interface IPaymentMethodsSearchConditions {
     /**
      * 決済アカウントID
@@ -425,14 +409,13 @@ export interface IPaymentMethodsSearchConditions {
     /**
      * 決済方法区分コード
      */
-    typeOfs?: AvailablePaymentMethodType[];
+    typeOfs?: string[];
     /**
      * 決済方法ID
      * 決済代行オーダーIDなど
      */
     paymentMethodIds?: string[];
 }
-
 export interface IAcceptedOffersSearchConditions {
     itemOffered?: {
         /**
@@ -471,9 +454,8 @@ export interface IAcceptedOffersSearchConditions {
         programMembershipUsed?: IProgramMembershipUsedSearchConditions;
     };
 }
-
 /**
- * 注文検索条件インターフェース
+ * 注文検索条件
  */
 export interface ISearchConditions {
     limit?: number;
