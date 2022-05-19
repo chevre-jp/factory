@@ -11,17 +11,15 @@ import { OrderType } from '../../order';
 import { OrganizationType } from '../../organizationType';
 import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import { IPropertyValue } from '../../propertyValue';
-import { ISeller } from '../../seller';
 import { PaymentServiceType } from '../../service/paymentService';
 import { TransactionType } from '../../transactionType';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 
-// export type IAgent = ActionFactory.IParticipant;
 export interface IAgent {
     id: string;
     typeOf: OrganizationType.Project;
 }
-export type IRecipient = Omit<ISeller, 'branchCode' | 'paymentAccepted'>;
+export import IRecipient = ActionFactory.IParticipantAsSeller;
 export interface IOrderAsPayPurpose {
     typeOf: OrderType.Order;
     confirmationNumber?: string;
