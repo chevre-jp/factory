@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 決済アクションのrecipientを最適化
-- 返金アクションのagentを最適化
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.220.0 - 2022-05-19
+
+### Changed
+
+- 決済アクションのrecipientを最適化
+- 返金アクションのagentを最適化
 
 ## v4.219.0 - 2022-05-19
 
