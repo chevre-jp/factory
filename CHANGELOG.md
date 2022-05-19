@@ -10,11 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 注文の販売者を最適化
-- 取引の販売者を最適化
-- 注文アイテムとしての予約を最適化
-- 注文アイテムとしてのPermitを最適化
-
 ### Deprecated
 
 ### Removed
@@ -22,6 +17,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.221.0 - 2022-05-20
+
+### Changed
+
+- 注文の販売者を最適化
+- 取引の販売者を最適化
+- 注文アイテムとしての予約を最適化
+- 注文アイテムとしてのPermitを最適化
 
 ## v4.220.0 - 2022-05-19
 
