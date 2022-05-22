@@ -1,12 +1,12 @@
-// import * as ActionFactory from '../../../action';
-// import { ActionType } from '../../../actionType';
 import * as RegisterServiceFactory from '../../../assetTransaction/registerService';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
 import * as OrderProgramMembershipFactory from '../../../task/orderProgramMembership';
 import * as ConfirmActionFactory from '../confirm';
 
-export type IObject = RegisterServiceFactory.IConfirmParams & {
+export type IObject = Omit<RegisterServiceFactory.IConfirmParams, 'id'> & {
+    // 取引番号は必須
+    transactionNumber: string;
     typeOf: AssetTransactionType.RegisterService;
 };
 export type IPurpose = ISimpleOrder;

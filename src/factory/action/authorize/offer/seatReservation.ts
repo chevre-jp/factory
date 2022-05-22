@@ -133,7 +133,7 @@ export interface IAttributes<T extends WebAPIFactory.Identifier>
     recipient: IRecipient;
     object: IObject<T>;
     purpose: IPurpose;
-    instrument?: IInstrument<T>;
+    instrument: IInstrument<T>;
 }
 
 export type IAction<T extends WebAPIFactory.Identifier> = ActionFactory.IAction<IAttributes<T>>;

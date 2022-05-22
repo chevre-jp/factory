@@ -20,17 +20,15 @@ export type IStartParamsWithoutDetail =
     TransactionFactory.IStartParams<AssetTransactionType.Reserve, IAgent, undefined, IObjectWithoutDetail>;
 
 /**
- * 取引開始パラメーターインターフェース
+ * 取引開始パラメーター
  */
 export type IStartParams = TransactionFactory.IStartParams<AssetTransactionType.Reserve, IAgent, undefined, IObject>;
-
 export interface IAgent {
     typeOf: string;
     id?: string;
     name: string;
     url?: string;
 }
-
 export interface IAcceptedProgramMembershipUsedAsObject {
     accessCode?: string;
     /**
@@ -52,9 +50,7 @@ export type ITokenizedAcceptedProgramMembershipUsed = string;
  * 適用メンバーシップ
  */
 export type IAcceptedProgramMembershipUsed = IAcceptedProgramMembershipUsedAsObject | ITokenizedAcceptedProgramMembershipUsed;
-
 export type IAcceptedSubReservation = ISubReservation4eventReservation;
-
 export interface IAcceptedPointAward {
     typeOf: ActionType.MoneyTransfer;
     recipient?: any;
@@ -74,9 +70,8 @@ export interface IAcceptedPointAward {
         };
     };
 }
-
 /**
- * 受け入れられたオファーのアイテムインターフェース
+ * 受け入れられたオファーのアイテム
  */
 export interface IAcceptedTicketOfferItemOffered {
     pointAward?: IAcceptedPointAward;
@@ -105,23 +100,19 @@ export interface IAcceptedTicketOfferItemOffered {
         subReservation?: IAcceptedSubReservation[];
     };
 }
-
 export interface IAcceptedTicketOfferItemOffered4object {
     pointAward?: IPointAward;
     serviceOutput: {
         id: string;
     };
 }
-
 export interface IAcceptedAddOn {
     /**
      * アドオンID
      */
     id?: string;
 }
-
 export type IAcceptedPaymentMethod = IMovieTicket;
-
 /**
  * 受け入れられたチケットオファー(詳細なし)
  */
@@ -150,7 +141,6 @@ export interface IAcceptedTicketOfferWithoutDetail {
         };
     };
 }
-
 /**
  * 受け入れられたチケットオファー
  */
@@ -159,7 +149,6 @@ export type IAcceptedTicketOffer = Omit<IAcceptedTicketOfferWithoutDetail, 'pric
     & {
         itemOffered?: IAcceptedTicketOfferItemOffered;
     };
-
 export interface IAcceptedOffer4object {
     id: string;
     itemOffered: IAcceptedTicketOfferItemOffered4object;
@@ -172,9 +161,8 @@ export interface IAcceptedOffer4object {
         };
     };
 }
-
 /**
- * 確定時予約インターフェース
+ * 確定時予約
  * 指定することで、予約属性を確定時に上書きすることができる
  */
 export interface IConfirmingReservation {
@@ -182,7 +170,7 @@ export interface IConfirmingReservation {
     /**
      * Any additional text to appear on a ticket, such as additional privileges or identifiers.
      */
-    additionalTicketText?: string;
+    // additionalTicketText?: string;
     reservedTicket?: {
         /**
          * チケット発行者
@@ -193,22 +181,20 @@ export interface IConfirmingReservation {
          * such as "barcode128:AB34" (ISO-15417 barcodes), "qrCode:AB34" (QR codes),
          * "aztecCode:AB34" (Aztec codes), "barcodeEAN:1234" (EAN codes) and "barcodeUPCA:1234" (UPCA codes).
          */
-        ticketToken?: string;
-        underName?: ReservationFactory.IUnderName;
+        // ticketToken?: string;
+        // underName?: ReservationFactory.IUnderName;
     };
     underName?: ReservationFactory.IUnderName;
-    additionalProperty?: IPropertyValue<string>[];
+    // additionalProperty?: IPropertyValue<string>[];
 }
-
-// export interface IPotentialActionsParams {
-//     reserve?: {
-//         potentialActions?: {
-//         };
-//     };
-// }
-
+export interface IPotentialActionsParams {
+    reserve?: {
+        // purposeの指定があれば、注文情報を予約へ自動連携
+        purpose?: ReserveActionFactory.IOrderAsReservePurpose;
+    };
+}
 /**
- * 確定パラメーターインターフェース
+ * 確定パラメータ
  */
 export interface IConfirmParams {
     id?: string;
@@ -219,31 +205,22 @@ export interface IConfirmParams {
          */
         reservations: IConfirmingReservation[];
     };
-    /**
-     * 予約確定後アクション
-     * 廃止(2022-05-13~)
-     */
-    // potentialActions?: IPotentialActionsParams;
+    potentialActions?: IPotentialActionsParams;
 }
-
 // tslint:disable-next-line:no-empty-interface
 export interface IResult {
 }
-
 /**
- * エラーインターフェース
+ * エラー
  */
 export type IError = any;
-
 export interface IObjectWithoutDetail {
     acceptedOffer?: IAcceptedTicketOfferWithoutDetail[];
     broker?: ReservationFactory.IBroker;
     reservationFor?: { id: string };
 }
-
 // IReservationForを最適化
 export type IReservationFor = IEventReservationReservationFor;
-
 // export interface IEventReservationWithAnyReservationFor extends IEventReservation {
 //     reservationFor: any;
 // }
@@ -252,28 +229,23 @@ export type IReservationFor = IEventReservationReservationFor;
 // }
 // 取引のsubReservationからはreservationForを削除する
 export type IObjectSubReservation = Omit<IEventReservation, 'reservationFor'>;
-
 /**
- * 取引対象物インターフェース
+ * 取引対象物
  */
 export interface IObject extends IReservationPackage {
     acceptedOffer?: IAcceptedOffer4object[];
     reservationFor?: IReservationFor;
     subReservation?: IObjectSubReservation[];
 }
-
 export interface IPotentialActions {
     reserve: ReserveActionFactory.IAttributes[];
 }
-
 export interface IAttributes extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
 }
-
 /**
- * 予約取引インターフェース
+ * 予約取引
  */
 export type ITransaction = IExtendId<IAttributes>;
-
 export interface IObjectSearchConditions {
     reservationNumber?: {
         $eq?: string;
@@ -292,7 +264,6 @@ export interface IObjectSearchConditions {
         };
     };
 }
-
 export interface ISearchConditions extends TransactionFactory.ISearchConditions<AssetTransactionType.Reserve> {
     object?: IObjectSearchConditions;
 }

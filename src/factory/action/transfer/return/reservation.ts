@@ -2,7 +2,6 @@ import * as COA from '@motionpicture/coa-service';
 
 import * as ActionFactory from '../../../action';
 import { ActionType } from '../../../actionType';
-import * as CancelReservationAssetTransactionFactory from '../../../assetTransaction/cancelReservation';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
 import { OrganizationType } from '../../../organizationType';
@@ -12,21 +11,21 @@ export interface IAgent {
     id: string;
     typeOf: OrganizationType.Project;
 }
-export type IObject4COA = COA.factory.reserve.IStateReserveArgs;
+export type IObject4COA = COA.factory.reserve.IStateReserveArgs & {
+    typeOf: 'COAReserveTransaction';
+};
 export interface IObject4Chevre {
     typeOf: AssetTransactionType.Reserve;
-    id?: string;
-    transactionNumber?: string;
+    // id?: string;
+    transactionNumber: string;
 }
 export type IObject<T extends WebAPIIdentifier> =
     T extends WebAPIIdentifier.COA ? IObject4COA :
     IObject4Chevre;
 export type IPurpose = ISimpleOrder;
 export type IResult = any;
-export type IPotentialActions = CancelReservationAssetTransactionFactory.IPotentialActionsParams;
 export interface IAttributes<TObject, TResult> extends ActionFactory.IAttributes<ActionType.ReturnAction, TObject, TResult> {
     agent: IAgent;
-    potentialActions?: IPotentialActions;
     purpose?: IPurpose;
 }
 /**

@@ -1,49 +1,47 @@
 import * as ActionFactory from '../action';
 import { ActionType } from '../actionType';
 import { AssetTransactionType } from '../assetTransactionType';
+import { OrderType } from '../order';
 import { IReservation as IEventReservation } from '../reservation/event';
 import { IAttributes as IInformActionAttributes } from './interact/inform';
 import { IAttributes as IMoneyTransferActionAttributes } from './transfer/moneyTransfer';
 
 /**
- * 予約対象インターフェース
+ * 予約対象
  */
 export type IObject = IEventReservation;
-
 /**
- * 予約結果インターフェース
+ * 予約結果
  */
 export type IResult = any;
-
-/**
- * 予約目的インターフェース
- */
-export interface IPurpose {
+export interface IOrderAsReservePurpose {
+    typeOf: OrderType.Order;
+    confirmationNumber?: string;
+    orderNumber?: string;
+}
+export interface IAssetTransactionAsReservePurpose {
     /**
      * 取引タイプ
      */
-    typeOf: AssetTransactionType;
+    typeOf: AssetTransactionType.Reserve;
     /**
      * 取引ID
      */
     id: string;
 }
-
+export type IPurpose = IOrderAsReservePurpose | IAssetTransactionAsReservePurpose;
 export type IInformReservation = IInformActionAttributes<IObject, any>;
-
 export interface IPotentialActions {
     moneyTransfer?: IMoneyTransferActionAttributes[];
 }
-
 /**
- * アクション属性インターフェース
+ * アクション属性
  */
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.ReserveAction, IObject, IResult> {
     potentialActions?: IPotentialActions;
     purpose: IPurpose;
 }
-
 /**
- * 予約アクションインターフェース
+ * 予約アクション
  */
 export type IAction = ActionFactory.IAction<IAttributes>;
