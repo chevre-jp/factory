@@ -230,7 +230,7 @@ export interface IAttributes extends AuthorizeActionFactory.IAttributes<IObject,
     typeOf: ActionType.AuthorizeAction;
     object: IObject;
     agent: IAgent;
-    instrument?: IInstrument;
+    instrument: IInstrument;
     recipient: IRecipient;
     purpose: IPurpose;
 }

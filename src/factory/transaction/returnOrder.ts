@@ -68,7 +68,7 @@ export interface IStartParams extends TransactionFactory.IStartParams<Transactio
 export type IInformOrderParams = IInformParams;
 
 export import ICancelReservationObject = ReturnReservationActionFactory.IObject;
-export import ICancelReservationPotentialActions = ReturnReservationActionFactory.IPotentialActions;
+// export import ICancelReservationPotentialActions = ReturnReservationActionFactory.IPotentialActions;
 
 type ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
 

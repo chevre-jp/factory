@@ -8,28 +8,23 @@ import { IReservation as IEventReservation } from '../reservation/event';
 
 export type IStartParamsWithoutDetail =
     TransactionFactory.IStartParams<AssetTransactionType.CancelReservation, IAgent, undefined, IObjectWithoutDetail>;
-
 /**
- * 取引開始パラメーターインターフェース
+ * 取引開始パラメーター
  */
 export type IStartParams = TransactionFactory.IStartParams<AssetTransactionType.CancelReservation, IAgent, undefined, IObject>;
-
 export interface IAgent {
     typeOf: string;
     id?: string;
     name: string;
     url?: string;
 }
-
 // tslint:disable-next-line:no-empty-interface
 export interface IResult {
 }
-
 /**
- * エラーインターフェース
+ * エラー
  */
 export type IError = any;
-
 export interface IObjectWithoutDetail {
     clientUser?: IClientUser;
     reservation?: {
@@ -43,46 +38,40 @@ export interface IObjectWithoutDetail {
         reservationNumber?: string;
     };
 }
-
 /**
- * 取引対象物インターフェース
+ * 取引対象物
  */
 export interface IObject {
     clientUser?: IClientUser;
     transaction?: IReserveTransaction;
     reservations?: IEventReservation[];
 }
-
-export interface IPotentialActionsParams {
-    cancelReservation?: {
-        potentialActions?: {
-        };
-    };
-}
-
+// export interface IPotentialActionsParams {
+//     cancelReservation?: {
+//         potentialActions?: {
+//         };
+//     };
+// }
 /**
- * 取引確定パラメーターインターフェース
+ * 取引確定パラメータ
  */
 export interface IConfirmParams {
     id: string;
     /**
      * 取引確定後アクション
+     * 不要なので廃止(2022-05-23~)
      */
-    potentialActions?: IPotentialActionsParams;
+    // potentialActions?: IPotentialActionsParams;
 }
-
 export interface IPotentialActions {
     cancelReservation: ICancelReservationActionAttributes[];
 }
-
 export type ITransaction = IExtendId<IAttributes>;
-
 /**
- * 取引属性インターフェース
+ * 取引属性
  */
 export interface IAttributes
     extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
 }
-
 export interface ISearchConditions extends TransactionFactory.ISearchConditions<AssetTransactionType.CancelReservation> {
 }

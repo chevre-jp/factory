@@ -11,7 +11,9 @@ import * as ConfirmActionFactory from '../confirm';
 export type IObject4COA = COA.factory.reserve.IUpdReserveArgs & {
     typeOf: 'COAReserveTransaction';
 };
-export type IObject4Chevre = ReserveTransactionFactory.IConfirmParams & {
+export type IObject4Chevre = Omit<ReserveTransactionFactory.IConfirmParams, 'id'> & {
+    // 取引番号は必須
+    transactionNumber: string;
     typeOf: AssetTransactionType.Reserve;
 };
 export type IObject<T extends WebAPIFactory.Identifier> =
