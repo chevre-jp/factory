@@ -8,13 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 予約資産取引確定タスクを追加
-
 ### Changed
-
-- 予約取引確定パラメータを最適化
-- 予約取消確定タスクを最適化
-- サービス登録確定アクションを最適化
 
 ### Deprecated
 
@@ -23,6 +17,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.222.0 - 2022-05-23
+
+### Added
+
+- 予約資産取引確定タスクを追加
+
+### Changed
+
+- 予約取引確定パラメータを最適化
+- 予約取消確定タスクを最適化
+- サービス登録確定アクションを最適化
 
 ## v4.221.0 - 2022-05-20
 
