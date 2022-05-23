@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- COA予約にtotalPrice属性を追加
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.223.0 - 2022-05-24
+
+### Changed
+
+- COA予約にtotalPrice属性を追加
 
 ## v4.222.0 - 2022-05-23
 
