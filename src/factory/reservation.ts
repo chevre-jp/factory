@@ -34,11 +34,8 @@ export interface ITicketType {
     typeOf: OfferType;
     validRateLimit?: OfferFactory.IValidRateLimit;
 }
-
 export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;
-
 export type ISeatingType = SeatFactory.ISeatingType;
-
 /**
  * under name interface
  */
@@ -58,7 +55,6 @@ export interface IUnderName {
     telephone?: string;
     url?: string;
 }
-
 /**
  * seat interface
  */
@@ -81,7 +77,6 @@ export interface ISeat {
      */
     seatSection: string;
 }
-
 /**
  * COA券種情報
  */
@@ -103,14 +98,11 @@ export type ICOATicketInfoWithDetails = COA.factory.reserve.IUpdReserveTicket & 
      */
     usePoint: number;
 };
-
 export type IReservationFor = any;
-
 /**
  * 予約チケット情報
  */
 export interface ITicket {
-    // export interface ITicket<T extends IPriceSpecification> {
     typeOf: TicketType;
     /**
      * The date the ticket was issued.
@@ -167,14 +159,12 @@ export interface ITicket {
      * COA券種情報
      */
     coaTicketInfo?: ICOATicketInfoWithDetails;
+    coaReserveAmount?: number;
 }
-
 export type IBroker = IUnderName;
-
 export type IProgramMembershipUsed = IPermit;
-
 /**
- * 予約インターフェース
+ * 予約
  * Describes a reservation for travel, dining or an event. Some reservations require tickets.
  * Note: This type is for information about actual reservations,
  * e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
@@ -289,9 +279,8 @@ export interface IReservation<T extends IPriceSpecification> extends IThing {
      */
     // addOn?: IOffer[];
 }
-
 /**
- * チケットホルダー検索条件インターフェース
+ * チケットホルダー検索条件
  */
 export interface IUnderNameSearchConditions {
     id?: string;
@@ -320,11 +309,9 @@ export interface IUnderNameSearchConditions {
     };
     identifiers?: IPropertyValue<string>[];
 }
-
 export type IBrokerSearchConditions = IUnderNameSearchConditions;
-
 /**
- * 予約チケット検索条件インターフェース
+ * 予約チケット検索条件
  */
 export interface IReservedTicketSearchConditions {
     /**
@@ -349,7 +336,6 @@ export interface IReservedTicketSearchConditions {
         };
     };
 }
-
 export interface IStringSearchConditions {
     $eq?: string;
     $ne?: string;
@@ -358,14 +344,12 @@ export interface IStringSearchConditions {
     $options?: string;
     $regex?: string;
 }
-
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     modifiedTime?: SortType;
 }
-
 export interface IProgramMembershipUsedSearchConditions {
     identifier?: { $eq?: string };
     issuedThrough?: {
@@ -381,7 +365,6 @@ export interface IPriceSearchConditions {
         };
     };
 }
-
 /**
  * 検索条件
  */

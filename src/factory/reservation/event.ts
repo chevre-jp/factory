@@ -25,7 +25,7 @@ export interface IReservationFor {
     identifier?: string;
     /**
      * その他COA情報
-     * @deprecated 基本的にCinemaSunshineの互換性維持目的であり、そのうち廃止予定
+     * 基本的にsskts対応
      */
     coaInfo?: ICOAInfo;
     location: IEventLocation;
@@ -38,22 +38,18 @@ export interface IReservationFor {
     // workPerformed?: IWorkPerformed;
     doorTime?: Date;
 }
-
 export type IPriceComponentSpecification = ICategoryCodeChargeSpecification
     | IMovieTicketTypeChargeSpecification
     | IUnitPriceSpecification;
-
 export type IPriceSpecification = ICompoundPriceSpecification<IPriceComponentSpecification>;
-
 export interface ISubReservation {
     reservedTicket: {
         typeOf: ReservationFactory.TicketType;
         ticketedSeat: ReservationFactory.ISeat;
     };
 }
-
 /**
- * イベント予約インターフェース
+ * イベント予約
  */
 export interface IReservation extends ReservationFactory.IReservation<IPriceSpecification> {
     id: string;
@@ -63,7 +59,6 @@ export interface IReservation extends ReservationFactory.IReservation<IPriceSpec
     subReservation?: ISubReservation[];
     typeOf: ReservationType.EventReservation;
 }
-
 export interface IReservationForSearchConditions {
     typeOf?: EventType;
     id?: string;
@@ -89,7 +84,6 @@ export interface IReservationForSearchConditions {
     endFrom?: Date;
     endThrough?: Date;
 }
-
 /**
  * 検索条件
  */
