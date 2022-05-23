@@ -19,7 +19,7 @@ import { IThing } from '../thing';
 import { UnitCode } from '../unitCode';
 
 /**
- * 予約集計インターフェース
+ * 予約集計
  */
 export interface IAggregateReservation {
     typeOf: 'AggregateReservation';
@@ -29,9 +29,8 @@ export interface IAggregateReservation {
     reservationCount?: number;
     useActionCount?: number;
 }
-
 /**
- * 予約集計つきオファーインターフェース
+ * 予約集計つきオファー
  */
 export interface IOfferWithAggregateReservation extends IThing {
     typeOf: OfferType.Offer;
@@ -42,16 +41,14 @@ export interface IOfferWithAggregateReservation extends IThing {
     maximumAttendeeCapacity?: number;
     remainingAttendeeCapacity?: number;
 }
-
 /**
- * オファー集計インターフェース
+ * オファー集計
  */
 export interface IAggregateOffer {
     typeOf: OfferType.AggregateOffer;
     offerCount?: number;
     offers?: IOfferWithAggregateReservation[];
 }
-
 export interface IPlaceWithAggregateOffer {
     typeOf: PlaceType;
     identifier?: string;
@@ -66,7 +63,6 @@ export interface IPlaceWithAggregateOffer {
         }[];
     };
 }
-
 /**
  * 入場ゲート集計
  */
@@ -74,7 +70,6 @@ export interface IAggregateEntranceGate {
     typeOf: PlaceType.AggregatePlace;
     places: IPlaceWithAggregateOffer[];
 }
-
 export interface IServiceOutput {
     typeOf: ReservationType.EventReservation;
     reservedTicket?: {
@@ -88,9 +83,8 @@ export interface IServiceOutput {
         };
     };
 }
-
 /**
- * イベントのサービスインターフェース
+ * イベントのサービス
  */
 export interface IService {
     // typeOf?: string;
@@ -103,19 +97,15 @@ export interface IService {
      */
     serviceOutput?: IServiceOutput;
 }
-
 export type IOfferedThrough = WebAPIFactory.IService<WebAPIFactory.Identifier>;
-
 export interface ISeller {
     typeOf: OrganizationType;
     id: string;
     name?: string | IMultilingualString;
 }
-
 /**
- * イベントに対するオファーインターフェース
+ * イベントに対するオファー
  */
-// export interface IOffer extends OfferFactory.IOffer {
 export interface IOffer {
     project: IProject;
     typeOf: OfferType.Offer;
@@ -148,14 +138,13 @@ export interface IOffer {
 export import ITicketPriceComponent = OfferFactory.ITicketPriceComponent;
 export import ITicketPriceSpecification = OfferFactory.ITicketPriceSpecification;
 /**
- * チケットオファーインターフェース
+ * チケットオファー
  */
 export interface ITicketOffer extends OfferFactory.IOffer {
     identifier: string;
     priceSpecification: ITicketPriceSpecification;
     itemOffered?: OfferFactory.IItemOffered;
 }
-
 export interface ICOAInfo {
     theaterCode: string;
     dateJouei: string;
@@ -203,9 +192,8 @@ export interface ICOAInfo {
      */
     flgEarlyBooking: string;
 }
-
 /**
- * COA券種情報インターフェース
+ * COA券種情報
  */
 export type ICOAOffer = COA.factory.reserve.IUpdReserveTicket & {
     /**
@@ -225,7 +213,6 @@ export type ICOAOffer = COA.factory.reserve.IUpdReserveTicket & {
      */
     usePoint: number;
 };
-
 export type IWorkPerformed = ScreeningEventSeriesFactory.IWorkPerformed;
 export interface ILocation {
     project: IProject;
@@ -252,9 +239,8 @@ export interface ILocation {
 }
 export type ISuperEvent = ScreeningEventSeriesFactory.IEvent;
 export type IName = IMultilingualString;
-
 /**
- * イベント属性インターフェース
+ * イベント属性
  */
 export interface IAttributes extends EventFactory.IAttributes<EventType.ScreeningEvent> {
     /**
@@ -315,21 +301,18 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     aggregateOffer?: IAggregateOffer;
     /**
      * その他COA情報
-     * @deprecated 基本的にCinemaSunshineの互換性維持目的であり、そのうち廃止予定
+     * 基本的にsskts対応
      */
     coaInfo?: ICOAInfo;
 }
-
 /**
- * イベントインターフェース
+ * イベント
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
-
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export type ISortOrder = EventFactory.ISortOrder;
-
 export interface IOfferSearchConditions {
     availableFrom?: Date;
     availableThrough?: Date;
@@ -348,9 +331,8 @@ export interface IOfferSearchConditions {
         };
     };
 }
-
 /**
- * イベントの検索条件インターフェース
+ * イベント検索条件
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEvent> {
     /**
