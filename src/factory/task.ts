@@ -5,20 +5,17 @@ import { TaskName } from './taskName';
 import { TaskStatus } from './taskStatus';
 
 export type IData = any;
-
 /**
- * タスク実行結果インターフェース
+ * タスク実行結果
  */
 export interface IExecutionResult {
     executedAt: Date;
     error: any;
 }
-
 /**
- * タスクインターフェース
+ * タスク
  */
 export type ITask = IExtendId<IAttributes>;
-
 export interface IAttributes {
     project: IProject;
     /**
@@ -55,16 +52,23 @@ export interface IAttributes {
      */
     data: IData;
 }
-
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     runsAt?: SortType;
 }
-
+export interface IDataSearchConditions {
+    object?: {
+        transactionNumber?: { $eq?: string };
+    };
+    purpose?: {
+        id?: { $eq?: string };
+        orderNumber?: { $eq?: string };
+    };
+}
 /**
- * タスク検索条件インターフェース
+ * タスク検索条件
  */
 export interface ISearchConditions<T extends TaskName | string> {
     limit?: number;
@@ -79,4 +83,5 @@ export interface ISearchConditions<T extends TaskName | string> {
     runsThrough?: Date;
     lastTriedFrom?: Date;
     lastTriedThrough?: Date;
+    data?: IDataSearchConditions;
 }
