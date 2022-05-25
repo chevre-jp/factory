@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- update @motionpicture/coa-service
+- 取引agentを最適化
+
 ### Deprecated
 
 ### Removed

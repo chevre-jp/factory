@@ -14,10 +14,10 @@ import * as TransactionFactory from '../transaction';
 import { TransactionType } from '../transactionType';
 
 /**
- * 取引人インターフェース
+ * 取引人
  */
 export type IAgent = TransactionFactory.IAgent;
-
+export type ICustomer = OrderFactory.ICustomer;
 export interface IPaymentMethodByPaymentUrl {
     /**
      * 決済方法区分
@@ -32,19 +32,17 @@ export interface IPaymentMethodByPaymentUrl {
         id: string;
     };
 }
-
 /**
- * 注文特典口座インターフェース
+ * 注文特典口座
  */
 export interface IAwardAccount {
     typeOf: AccountType.Account;
     accountNumber: string;
 }
-
 export interface IObject {
     clientUser?: IClientUser;
     broker?: OrderFactory.IBroker;
-    customer?: OrderFactory.ICustomer;
+    customer?: ICustomer;
     identifier?: OrderFactory.IIdentifier;
     /**
      * 確認番号
@@ -78,7 +76,6 @@ export interface IObject {
         givePointAward?: IGivePointAwardParams[];
     };
 }
-
 export interface IStartParamsWithoutDetail {
     project: IProject;
     expires: Date;
@@ -88,7 +85,7 @@ export interface IStartParamsWithoutDetail {
     };
     object: {
         clientUser?: IClientUser;
-        customer?: OrderFactory.ICustomer;
+        customer?: ICustomer;
         passport?: TransactionFactory.IPassportBeforeStart;
         /**
          * 注文名称
@@ -96,12 +93,11 @@ export interface IStartParamsWithoutDetail {
         name?: string;
     };
 }
-
 export interface ISeller extends TransactionFactory.ISeller {
     id: string;
 }
 /**
- * 取引開始パラメーターインターフェース
+ * 取引開始パラメーター
  */
 export interface IStartParams extends TransactionFactory.IStartParams<TransactionType.PlaceOrder, IAgent, undefined, IObject> {
     /**
@@ -109,12 +105,10 @@ export interface IStartParams extends TransactionFactory.IStartParams<Transactio
      */
     seller: ISeller;
 }
-
 /**
  * 注文通知パラメータ
  */
 export type IInformOrderParams = IInformParams;
-
 /**
  * 予約確定パラメータ
  */
@@ -124,16 +118,13 @@ export interface IConfirmReservationParams {
      */
     object?: IConfirmReservationObject<WebAPIFactory.Identifier>;
 }
-
 type ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
-
 /**
  * インセンティブ付与パラメータ
  */
 export interface IGivePointAwardParams {
     object?: IGivePointAwardObject;
 }
-
 /**
  * 取引確定後アクションパラメータ
  */
@@ -148,7 +139,6 @@ export interface IPotentialActionsParams {
         };
     };
 }
-
 /**
  * 取引結果の注文パラメータ
  */
@@ -162,14 +152,12 @@ export interface IResultOrderParams {
      */
     url?: string;
 }
-
 /**
  * 取引結果パラメータ
  */
 export interface IResultParams {
     order?: IResultOrderParams;
 }
-
 /**
  * 取引確定パラメータ
  */
@@ -188,37 +176,28 @@ export interface IConfirmParams {
      */
     result?: IResultParams;
 }
-
 /**
- * 取引結果インターフェース
+ * 取引結果
  */
 export interface IResult {
     /**
-     * 注文データ
+     * 注文
      */
     order: OrderFactory.IOrder;
 }
-
 /**
- * エラーインターフェース
+ * エラー
  */
 export type IError = any;
-
 export interface IPotentialActions {
     order: IOrderActionAttributes;
 }
-
-/**
- * 注文取引インターフェース
- */
-export type ITransaction = IExtendId<IAttributes>;
-
-/**
- * 注文取引インターフェース
- */
 export interface IAttributes extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
 }
-
+/**
+ * 注文取引
+ */
+export type ITransaction = IExtendId<IAttributes>;
 export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.PlaceOrder> {
     seller?: {
         ids?: string[];

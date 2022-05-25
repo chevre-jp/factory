@@ -12,17 +12,20 @@ import { TransactionStatusType } from './transactionStatusType';
 import { TransactionTasksExportationStatus } from './transactionTasksExportationStatus';
 import { TransactionType } from './transactionType';
 
-export type IWebApplicationAgent = IWebApplication & PersonFactory.IProfile;
-export type IAgent = IWebApplicationAgent | PersonFactory.IPerson;
-
+// export type IAgentProfile = PersonFactory.IProfile;
+export type IOmittedProfileAttributes = 'email' | 'telephone' | 'familyName' | 'givenName' | 'age' | 'address' | 'gender' | 'additionalProperty' | 'url';
+export type IAgentProfile = Omit<PersonFactory.IProfile, IOmittedProfileAttributes>;
+export type IWebApplicationAgent = IWebApplication & IAgentProfile;
+export type IPersonAgent = PersonFactory.IPerson;
+// 最適化(2022-05-26~)
+export type IAgent = Omit<IWebApplicationAgent | PersonFactory.IPerson, IOmittedProfileAttributes>;
 /**
- * 販売者インターフェース
+ * 販売者
  * 最適化(2022-05-20~)
  */
 export type ISeller = Omit<SellerFactory.ISeller,
     'branchCode' | 'paymentAccepted' | 'additionalProperty'
     | 'hasMerchantReturnPolicy' | 'email' | 'telephone' | 'location' | 'url' | 'project'>;
-
 /**
  * Eメール送信パラメータ
  */
@@ -35,7 +38,6 @@ export interface ISendEmailMessageParams {
      */
     object?: EmailFactory.ICustomization;
 }
-
 export interface IPassportBeforeStart {
     /**
      * WAITER許可証発行者
@@ -50,9 +52,8 @@ export interface IPassportBeforeStart {
      */
     secret: string;
 }
-
 /**
- * 取引開始パラメーターインターフェース
+ * 取引開始パラメータ
  */
 export interface IStartParams<T extends TransactionType, TAgent, TRecipient, TObject> {
     project: IProject;
@@ -77,13 +78,6 @@ export interface IStartParams<T extends TransactionType, TAgent, TRecipient, TOb
      */
     expires: Date;
 }
-
-export type ITransaction<TStartParams, TResult, TError, TPotentialActions> =
-    IExtendId<IAttributes<TStartParams, TResult, TError, TPotentialActions>>;
-
-/**
- * 取引インターフェース
- */
 export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TStartParams & {
     /**
      * 取引状態
@@ -122,14 +116,14 @@ export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TSta
      */
     potentialActions?: TPotentialActions;
 };
-
+export type ITransaction<TStartParams, TResult, TError, TPotentialActions> =
+    IExtendId<IAttributes<TStartParams, TResult, TError, TPotentialActions>>;
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     startDate?: SortType;
 }
-
 export interface ISearchConditions<T extends TransactionType> {
     limit?: number;
     page?: number;

@@ -60,7 +60,7 @@
     "typescript": "^4.3.2"
   },
   "dependencies": {
-    "@motionpicture/coa-service": "^9.0.0",
+    "@motionpicture/coa-service": "9.2.0",
     "@motionpicture/gmo-service": "^5.0.0",
     "@surfrock/sdk": "1.1.0",
     "@waiter/factory": "2.1.0",
