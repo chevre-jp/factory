@@ -1,9 +1,12 @@
 import * as COA from '@motionpicture/coa-service';
 
+import { CreativeWorkType } from './creativeWorkType';
 import { IMultilingualString } from './multilingualString';
 import * as OfferFactory from './offer';
 import { OfferType } from './offerType';
+import { OrganizationType } from './organizationType';
 import { IPermit } from './permit';
+import { PersonType } from './personType';
 import * as SeatFactory from './place/seat';
 import { PlaceType } from './placeType';
 import { PriceCurrency } from './priceCurrency';
@@ -36,11 +39,16 @@ export interface ITicketType {
 }
 export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;
 export type ISeatingType = SeatFactory.ISeatingType;
+export type IUnderNameType = CreativeWorkType.WebApplication
+    | PersonType.Person
+    | OrganizationType.Organization
+    | OrganizationType.Corporation
+    | OrganizationType.Project;
 /**
  * under name interface
  */
 export interface IUnderName {
-    typeOf: string;
+    typeOf: IUnderNameType;
     name: string;
     additionalName?: string;
     address?: string;
