@@ -1,6 +1,6 @@
 {
   "name": "@chevre/factory",
-  "version": "4.224.0",
+  "version": "4.225.0",
   "description": "Chevre Factory Library for Javascript",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -60,7 +60,7 @@
     "typescript": "^4.3.2"
   },
   "dependencies": {
-    "@motionpicture/coa-service": "^9.0.0",
+    "@motionpicture/coa-service": "9.2.0",
     "@motionpicture/gmo-service": "^5.0.0",
     "@surfrock/sdk": "1.1.0",
     "@waiter/factory": "2.1.0",

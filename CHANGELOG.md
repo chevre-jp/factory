@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.225.0 - 2022-05-25
+
+### Changed
+
+- update @motionpicture/coa-service
+- 取引agentを最適化
+
 ## v4.224.0 - 2022-05-25
 
 ### Changed
