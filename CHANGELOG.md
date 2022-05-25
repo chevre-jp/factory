@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- アクションのIParticipantを最適化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.226.0 - 2022-05-26
+
+### Changed
+
+- アクションのIParticipantを最適化
 
 ## v4.225.0 - 2022-05-25
 
