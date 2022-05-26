@@ -8,11 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- サービス登録資産取引確定タスクを追加
-
 ### Changed
-
-- 資産取引agentを販売者あるいは管理者として最適化
 
 ### Deprecated
 
@@ -21,6 +17,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.228.0 - 2022-05-27
+
+### Added
+
+- サービス登録資産取引確定タスクを追加
+
+### Changed
+
+- 資産取引agentを販売者あるいは管理者として最適化
 
 ## v4.227.0 - 2022-05-26
 
