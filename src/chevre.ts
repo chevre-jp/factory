@@ -9,7 +9,6 @@ export import cognito = cognito;
 export import waiter = waiter;
 
 import * as AccountFactory from './factory/account';
-import { AccountStatusType } from './factory/accountStatusType';
 
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
@@ -194,7 +193,6 @@ import * as errors from './factory/errors';
 export import errors = errors;
 export import errorCode = ErrorCode;
 export import account = AccountFactory;
-export import accountStatusType = AccountStatusType;
 export import actionStatusType = ActionStatusType;
 export import actionType = ActionType;
 export namespace action {

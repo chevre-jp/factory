@@ -1,5 +1,4 @@
 import { AccountTransactionType } from './account/transactionType';
-import { AccountStatusType } from './accountStatusType';
 import { AccountType } from './accountType';
 import { IProject } from './project';
 import { SortType } from './sortType';
@@ -10,11 +9,22 @@ import * as TransactionFactory from './account/transaction';
 import * as DepositTransactionFactory from './account/transaction/deposit';
 import * as TransferTransactionFactory from './account/transaction/transfer';
 import * as WithdrawTransactionFactory from './account/transaction/withdraw';
-
+/**
+ * 口座ステータスタイプ
+ */
+export enum AccountStatusType {
+    /**
+     * 開設済
+     */
+    Opened = 'Opened',
+    /**
+     * 解約済
+     */
+    Closed = 'Closed'
+}
 export namespace action {
     export import moneyTransfer = MoneyTransferActionFactory;
 }
-
 export namespace transaction {
     export type IStartParams<T extends AccountTransactionType> =
         T extends AccountTransactionType.Deposit ? DepositTransactionFactory.IStartParams :
@@ -45,11 +55,9 @@ export namespace transaction {
     export import deposit = DepositTransactionFactory;
     export import transfer = TransferTransactionFactory;
 }
-
 export import transactionType = AccountTransactionType;
-
 /**
- * 進行中取引インターフェース
+ * 進行中取引
  */
 export interface IPendingTransaction {
     typeOf: AccountTransactionType;
@@ -62,9 +70,8 @@ export interface IPendingTransaction {
      */
     amount: number;
 }
-
 /**
- * 口座インターフェース
+ * 口座
  */
 export interface IAccount {
     project: IProject;
@@ -109,9 +116,8 @@ export interface IAccount {
      */
     status?: AccountStatusType;
 }
-
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     /**
@@ -119,16 +125,14 @@ export interface ISortOrder {
      */
     openDate?: SortType;
 }
-
 export interface IProjectSearchConditions {
     id?: {
         $eq?: string;
         $ne?: string;
     };
 }
-
 /**
- * 口座検索条件インターフェース
+ * 口座検索条件
  */
 export interface ISearchConditions {
     limit?: number;
