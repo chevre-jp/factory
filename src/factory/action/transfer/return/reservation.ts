@@ -26,7 +26,7 @@ export type IPurpose = ISimpleOrder;
 export type IResult = any;
 export interface IAttributes<TObject, TResult> extends ActionFactory.IAttributes<ActionType.ReturnAction, TObject, TResult> {
     agent: IAgent;
-    purpose?: IPurpose;
+    purpose: IPurpose;
 }
 /**
  * 予約返却アクション
