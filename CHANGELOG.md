@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.227.0 - 2022-05-26
+
+### Changed
+
+- 資産取引agentを販売者あるいは管理者として最適化
+
 ## v4.226.0 - 2022-05-26
 
 ### Changed

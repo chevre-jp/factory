@@ -11,8 +11,8 @@ import { IMonetaryAmount } from '../monetaryAmount';
 import { OrderType } from '../order';
 import { PermitType } from '../permit';
 
-export type IAgent = IMoneyTransferAgent;
-export type IRecipient = IMoneyTransferRecipient;
+export type IAgent = IMoneyTransferAgent & { name: string };
+export type IRecipient = IMoneyTransferRecipient & { name: string };
 export type IFromLocation = ILocation;
 export type IToLocation = ILocation;
 /**
