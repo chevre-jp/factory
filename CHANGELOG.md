@@ -18,6 +18,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.226.0 - 2022-05-26
+
+### Changed
+
+- アクションのIParticipantを最適化
+- サービス登録アクションのagentをプロジェクトに固定
+- 予約アクションのagentをプロジェクトに固定
+- 予約取消アクションのagentをプロジェクトに固定
+
 ## v4.225.0 - 2022-05-25
 
 ### Changed

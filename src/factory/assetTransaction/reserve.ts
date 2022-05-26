@@ -24,7 +24,7 @@ export type IStartParamsWithoutDetail =
  */
 export type IStartParams = TransactionFactory.IStartParams<AssetTransactionType.Reserve, IAgent, undefined, IObject>;
 export interface IAgent {
-    typeOf: string;
+    typeOf: ReservationFactory.IUnderNameType;
     id?: string;
     name: string;
     url?: string;

@@ -11,34 +11,28 @@ export interface IInformParams {
      */
     recipient?: {
         id?: string;
-        typeOf?: any;
         name?: string;
         url?: string;
     };
 }
-
 export interface IOnPaymentStatusChanged {
     informPayment?: IInformParams[];
 }
-
 /**
- * 予約使用時イベントインターフェース
+ * 予約使用時イベント
  */
 export interface IOnReservationUsed {
     informAction?: IInformParams[];
 }
-
 // tslint:disable-next-line:no-empty-interface
 export interface ICognitoSettings {
 }
-
 /**
- * 注文ステータス変更時イベントインターフェース
+ * 注文ステータス変更時イベント
  */
 export interface IOnOrderStatusChanged {
     informOrder?: IInformParams[];
 }
-
 /**
  * ウェブフック設定
  */
@@ -49,9 +43,8 @@ export interface IWebhookSettings {
      */
     timeout?: number;
 }
-
 /**
- * プロジェクト設定インターフェース
+ * プロジェクト設定
  */
 export interface ISettings {
     importEventsInWeeks?: number;
@@ -67,9 +60,8 @@ export interface ISettings {
     useMyCreditCards?: boolean;
     useUsernameAsGMOMemberId?: boolean;
 }
-
 /**
- * プロジェクトインターフェース
+ * プロジェクト
  */
 export interface IProject extends IOrganization {
     typeOf: OrganizationType.Project;
@@ -82,16 +74,14 @@ export interface IProject extends IOrganization {
         identifier?: string;
     };
 }
-
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     _id?: SortType;
 }
-
 /**
- * プロジェクト検索条件インターフェース
+ * プロジェクト検索条件
  */
 export interface ISearchConditions {
     limit?: number;

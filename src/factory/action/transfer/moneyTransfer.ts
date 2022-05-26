@@ -6,7 +6,7 @@ import { AssetTransactionType } from '../../assetTransactionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
 
 /**
- * 進行中取引インターフェース
+ * 進行中取引
  */
 export interface IPendingTransaction {
     typeOf: AccountFactory.transactionType;
@@ -14,25 +14,20 @@ export interface IPendingTransaction {
     identifier?: string;
     transactionNumber?: string;
 }
-
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
-
 /**
- * 匿名ロケーションインターフェース
+ * 匿名ロケーション
  */
 export import IAnonymousLocation = AccountFactory.action.moneyTransfer.IAnonymousLocation;
-
 /**
- * ペイメントカードインターフェース
+ * ペイメントカード
  */
 export import IPaymentCard = MoneyTransferTransactionFactory.IPaymentCard;
-
 /**
  * 転送元あるいは転送先の場所インターフェース
  */
 export type ILocation = IAnonymousLocation | IPaymentCard;
-
 export interface IObject {
     typeOf: AccountFactory.transactionType;
     transactionNumber?: string;
@@ -41,21 +36,18 @@ export interface IObject {
      */
     pendingTransaction?: IPendingTransaction;
 }
-
 export type IResult = any;
-
 export type IPotentialActions = any;
-
 export interface ITransactionPurpose {
     typeOf: AssetTransactionType;
     id: string;
     identifier?: string;
 }
-
 export type IPurpose = ITransactionPurpose;
-
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.MoneyTransfer, IObject, IResult> {
     typeOf: ActionType.MoneyTransfer;
+    agent: IAgent;
+    recipient: IRecipient;
     purpose: IPurpose;
     /**
      * 金額
@@ -70,5 +62,4 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.MoneyT
      */
     toLocation: ILocation;
 }
-
 export type IAction = ActionFactory.IAction<IAttributes>;

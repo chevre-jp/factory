@@ -11,7 +11,7 @@ export import IIdentifier = ThingFactory.IIdentifier;
 export type IMemberOf = IProgramMembership;
 
 /**
- * プロフィールインターフェース
+ * プロフィール
  */
 export interface IProfile extends ThingFactory.IThing {
     /**
@@ -40,16 +40,13 @@ export interface IProfile extends ThingFactory.IThing {
      * Gender of the person.
      */
     gender?: string;
+    name?: string;
     /**
      * The telephone number.
      */
     telephone?: string;
 }
-
-/**
- * 人物インターフェース
- */
-export type IPerson = IProfile & {
+export interface IPersonAttributes {
     /**
      * Person ID (Amazon Cognito User Identifier)
      */
@@ -59,4 +56,8 @@ export type IPerson = IProfile & {
      */
     memberOf?: IMemberOf;
     typeOf: PersonType;
-};
+}
+/**
+ * 人物
+ */
+export type IPerson = IProfile & IPersonAttributes;
