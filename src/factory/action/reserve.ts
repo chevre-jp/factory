@@ -6,6 +6,7 @@ import { IReservation as IEventReservation } from '../reservation/event';
 import { IAttributes as IInformActionAttributes } from './interact/inform';
 import { IAttributes as IMoneyTransferActionAttributes } from './transfer/moneyTransfer';
 
+export type IAgent = ActionFactory.IParticipantAsProject;
 /**
  * 予約対象
  */
@@ -38,6 +39,7 @@ export interface IPotentialActions {
  * アクション属性
  */
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.ReserveAction, IObject, IResult> {
+    agent: IAgent;
     potentialActions?: IPotentialActions;
     purpose: IPurpose;
 }
