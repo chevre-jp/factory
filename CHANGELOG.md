@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - アクションのIParticipantを最適化
+- サービス登録アクションのagentをプロジェクトに固定
+- 予約アクションのagentをプロジェクトに固定
+- 予約取消アクションのagentをプロジェクトに固定
 
 ### Deprecated
 
