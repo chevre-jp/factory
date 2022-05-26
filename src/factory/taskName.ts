@@ -56,6 +56,10 @@ export enum TaskName {
      */
     ConfirmPayTransaction = 'confirmPayTransaction',
     /**
+     * サービス登録資産取引確定
+     */
+    ConfirmRegisterServiceTransaction = 'confirmRegisterServiceTransaction',
+    /**
      * 予約資産取引確定
      */
     ConfirmReserveTransaction = 'confirmReserveTransaction',

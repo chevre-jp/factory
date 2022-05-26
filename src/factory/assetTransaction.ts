@@ -32,11 +32,14 @@ export interface IAgentAsPerson {
     name: string;
     identifier?: IIdentifier;
 }
+/**
+ * 資産取引主体は販売者or管理者
+ */
 export type IAgent = IAgentAsSeller | IAgentAsPerson;
 /**
- * 取引開始パラメーターインターフェース
+ * 資産取引開始パラメータ
  */
-export interface IStartParams<T extends AssetTransactionType, TAgent, TRecipient, TObject> {
+export interface IStartParams<T extends AssetTransactionType, TAgent extends IAgent, TRecipient, TObject> {
     project: IProject;
     /**
      * 取引タイプ
@@ -67,15 +70,8 @@ export interface IStartParams<T extends AssetTransactionType, TAgent, TRecipient
      */
     expires: Date;
 }
-
 /**
- * 取引インターフェース
- */
-export type ITransaction<TStartParams, TResult, TError, TPotentialActions> =
-    IExtendId<IAttributes<TStartParams, TResult, TError, TPotentialActions>>;
-
-/**
- * 取引属性インターフェース
+ * 資産取引属性
  */
 export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TStartParams & {
     purpose?: any;
@@ -113,7 +109,12 @@ export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TSta
     potentialActions?: TPotentialActions;
 };
 /**
- * ソート条件インターフェース
+ * 資産取引
+ */
+export type ITransaction<TStartParams, TResult, TError, TPotentialActions> =
+    IExtendId<IAttributes<TStartParams, TResult, TError, TPotentialActions>>;
+/**
+ * ソート条件
  */
 export interface ISortOrder {
     startDate?: SortType;
