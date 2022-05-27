@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- サービス登録資産取引確定タスクを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.229.0 - 2022-05-27
+
+### Added
+
+- サービス登録資産取引確定タスクを追加
 
 ## v4.228.0 - 2022-05-27
 
