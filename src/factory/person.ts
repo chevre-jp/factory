@@ -4,20 +4,15 @@ import { IPropertyValue } from './propertyValue';
 import * as ThingFactory from './thing';
 
 /**
- * 追加属性インターフェース
+ * 追加特性
  */
 export type IAdditionalProperty = IPropertyValue<string>[];
 export import IIdentifier = ThingFactory.IIdentifier;
 export type IMemberOf = IProgramMembership;
-
 /**
  * プロフィール
  */
 export interface IProfile extends ThingFactory.IThing {
-    /**
-     * 追加属性
-     * プロジェクト固有の属性等
-     */
     additionalProperty?: IAdditionalProperty;
     /**
      * Physical address of the item.
@@ -48,9 +43,10 @@ export interface IProfile extends ThingFactory.IThing {
 }
 export interface IPersonAttributes {
     /**
-     * Person ID (Amazon Cognito User Identifier)
+     * Person ID(User sub)
      */
     id: string;
+    identifier?: IIdentifier;
     /**
      * An Organization (or ProgramMembership) to which this Person or Organization belongs.
      */

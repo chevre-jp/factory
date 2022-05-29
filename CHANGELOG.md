@@ -18,6 +18,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.231.0 - 2022-05-30
+
+### Changed
+
+- 転送取引のIRecipientを最適化
+- 取引のIAgentを最適化
+
+### Removed
+
+- OrganizationType.MovieTheaterを廃止
+
 ## v4.230.0 - 2022-05-29
 
 ### Changed

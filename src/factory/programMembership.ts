@@ -1,5 +1,3 @@
-// import { IProduct } from './product';
-// import { IProject } from './project';
 import { IThing } from './thing';
 
 export enum ProgramMembershipType {
@@ -11,12 +9,7 @@ export enum ProgramMembershipType {
  * {@link https://schema.org/ProgramMembership}
  */
 export interface IProgramMembership extends IThing {
-    // project?: IProject;
     typeOf: ProgramMembershipType;
-    /**
-     * The service through with the permit was granted.
-     */
-    // issuedThrough?: IProduct;
     /**
      * A unique identifier for the membership.
      */
