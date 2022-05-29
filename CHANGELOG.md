@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 取引のISellerを最適化
+- アクションのIParticipantの名称をStringに統一
+
 ### Deprecated
 
 ### Removed

@@ -7,13 +7,9 @@ import * as TransactionFactory from '../transaction';
 import { TransactionType } from '../transactionType';
 
 export type IAgent = TransactionFactory.IAgent;
-
 export import ISeller = TransactionFactory.ISeller;
-
 export type IResult = any;
-
 export type IError = any;
-
 /**
  * 返品理由
  */
@@ -27,17 +23,15 @@ export enum Reason {
      */
     Seller = 'Seller'
 }
-
 /**
- * 返品可能な注文インターフェース
+ * 返品可能な注文
  */
 export interface IReturnableOrder {
     confirmationNumber: string;
     orderNumber: string;
 }
-
 /**
- * 注文返品開始パラメータインターフェース
+ * 注文返品開始パラメータ
  */
 export interface IStartParamsWithoutDetail {
     project: IProject;
@@ -51,9 +45,8 @@ export interface IStartParamsWithoutDetail {
         id: string;
     };
 }
-
 /**
- * 取引開始パラメーターインターフェース
+ * 取引開始パラメータ
  */
 export interface IStartParams extends TransactionFactory.IStartParams<TransactionType.ReturnOrder, IAgent, undefined, IObject> {
     /**
@@ -61,17 +54,13 @@ export interface IStartParams extends TransactionFactory.IStartParams<Transactio
      */
     seller: ISeller;
 }
-
 /**
  * 注文通知パラメータ
  */
 export type IInformOrderParams = IInformParams;
-
 export import ICancelReservationObject = ReturnReservationActionFactory.IObject;
 // export import ICancelReservationPotentialActions = ReturnReservationActionFactory.IPotentialActions;
-
 type ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
-
 /**
  * クレジットカード返金パラメータ
  */
@@ -93,7 +82,6 @@ export interface IRefundCreditCardParams {
         sendEmailMessage?: ISendEmailMessageParams;
     };
 }
-
 export interface IReturnOrderActionParams {
     object?: {
         /**
@@ -119,14 +107,12 @@ export interface IReturnOrderActionParams {
         sendEmailMessage?: ISendEmailMessageParams[];
     };
 }
-
 export interface IPotentialActionsParams {
     /**
      * 注文返品アクション
      */
     returnOrder?: IReturnOrderActionParams | IReturnOrderActionParams[];
 }
-
 export interface IConfirmParams {
     /**
      * 取引ID
@@ -138,31 +124,26 @@ export interface IConfirmParams {
      */
     potentialActions?: IPotentialActionsParams;
 }
-
 /**
- * 取引対象物インターフェース
+ * 取引対象物
  */
 export interface IObject {
     order: IReturnableOrder[];
     reason: Reason;
     returnPolicy: IMerchantReturnPolicy;
 }
-
 export interface IPotentialActions {
     /**
      * 注文返品アクション属性
      */
     returnOrder: IReturnOrderActionAttributes[];
 }
-
-export type ITransaction = IExtendId<IAttributes>;
-
-/**
- * 返品取引インターフェース
- */
 export interface IAttributes extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
 }
-
+/**
+ * 返品取引
+ */
+export type ITransaction = IExtendId<IAttributes>;
 export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.ReturnOrder> {
     object?: {
         order?: {
