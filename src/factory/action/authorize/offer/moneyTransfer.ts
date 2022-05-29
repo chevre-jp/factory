@@ -4,7 +4,6 @@ import * as MoneyTransferTransactionFactory from '../../../assetTransaction/mone
 import { IOffer } from '../../../offer';
 import * as OrderFactory from '../../../order';
 import { PriceCurrency } from '../../../priceCurrency';
-import { ISeller } from '../../../seller';
 import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
@@ -22,7 +21,8 @@ export interface IResult {
 export import IItemOffered = OrderFactory.IMoneyTransfer;
 export interface IAcceptedOffer extends Omit<IOffer, 'addOn' | 'availability' | 'availableAtOrFrom'> {
     itemOffered: IItemOffered;
-    seller: ISeller;
+    // seller: ISeller;
+    seller: ActionFactory.IParticipantAsSeller;
 }
 export type IObject = IAcceptedOffer;
 

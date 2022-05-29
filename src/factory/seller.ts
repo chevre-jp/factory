@@ -1,4 +1,4 @@
-// import { IOffer } from './offer';
+import { IMultilingualString } from './multilingualString';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { IProject } from './project';
@@ -29,6 +29,7 @@ export interface ISeller extends IOrganization {
      */
     // areaServed?: IAreaServed[];
     branchCode?: string;
+    name: IMultilingualString;
     /**
      * A pointer to products or services offered by the organization or person.
      */
