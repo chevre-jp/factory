@@ -1,14 +1,16 @@
 import * as CreativeWorkFactory from '../../creativeWork';
 import { CreativeWorkType } from '../../creativeWorkType';
+import { IIdentifier } from '../../thing';
 
-// export interface IAttributes {
-//     typeOf: CreativeWorkType.WebApplication;
-//     id: string;
-// }
+export interface IWebApplicationAttributes {
+    typeOf: CreativeWorkType.WebApplication;
+    /**
+     * アプリケーションクライアントID
+     */
+    id: string;
+    identifier?: IIdentifier;
+}
 /**
  * ウェブアプリケーション
  */
-export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
-    typeOf: CreativeWorkType.WebApplication;
-    id: string;
-}
+export type ICreativeWork = CreativeWorkFactory.ICreativeWork & IWebApplicationAttributes;

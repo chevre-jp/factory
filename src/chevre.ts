@@ -713,7 +713,8 @@ export namespace assetTransaction {
     export import reserve = ReserveAssetTransactionFactory;
 }
 export namespace transaction {
-    export import IAgentProfile = TransactionFactory.IAgentProfile;
+    export import IAgentAsPerson = TransactionFactory.IAgentAsPerson;
+    export import IAgentAsWebApplication = TransactionFactory.IAgentAsWebApplication;
     export import IAgent = TransactionFactory.IAgent;
     export import IPassportBeforeStart = TransactionFactory.IPassportBeforeStart;
     export import ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
