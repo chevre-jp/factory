@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 転送取引のIRecipientを最適化
+
 ### Deprecated
 
 ### Removed
