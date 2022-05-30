@@ -20,30 +20,6 @@ import { PaymentServiceType } from '../service/paymentService';
 export import IAgent = AssetTransactionFactory.IAgent;
 // export type IAgent = IParticipant;
 export type IRecipient = IPayRecipient;
-export type IObjectWithoutDetail = IObject;
-export type IStartParamsWithoutDetail = AssetTransactionFactory.IStartParams<AssetTransactionType.Pay, IAgent, IRecipient, IObject> & {
-    recipient: IRecipient;
-    purpose?: IPayPurpose;
-};
-export interface IStartParams extends AssetTransactionFactory.IStartParams<AssetTransactionType.Pay, IAgent, IRecipient, IObject> {
-    recipient: IRecipient;
-}
-export interface IPotentialActionsParams {
-    pay: {
-        purpose: IOrderAsPayPurpose;
-    };
-}
-/**
- * 確定パラメータ
- */
-export interface IConfirmParams {
-    id?: string;
-    transactionNumber?: string;
-    endDate?: Date;
-    potentialActions: IPotentialActionsParams;
-}
-export type IResult = any;
-export type IError = any;
 /**
  * ペイメントカードトークン
  */
@@ -113,6 +89,10 @@ export interface IPaymentMethod {
  * 取引対象物
  */
 export interface IObject {
+    // object: Invoice化に向けて追加(2022-05-31~)
+    accountId: string;
+    // object: Invoice化に向けて追加(2022-05-31~)
+    paymentMethodId: string;
     typeOf: PaymentServiceType;
     /**
      * 発行決済サービスID
@@ -127,14 +107,44 @@ export interface IObject {
     payAction?: any;
     onPaymentStatusChanged?: IOnPaymentStatusChanged;
 }
+export type IObjectWithoutDetail = Omit<IObject, 'accountId' | 'paymentMethodId'>;
+export type IStartParamsWithoutDetail =
+    AssetTransactionFactory.IStartParams<AssetTransactionType.Pay, IAgent, IRecipient, IObjectWithoutDetail> & {
+        recipient: IRecipient;
+        purpose?: IPayPurpose;
+    };
+export interface IStartParams extends AssetTransactionFactory.IStartParams<AssetTransactionType.Pay, IAgent, IRecipient, IObject> {
+    recipient: IRecipient;
+}
 export interface IPotentialActions {
     /**
      * 決済アクション
      */
     pay: IPayActionAttributes[];
 }
+export interface IPotentialActionsParams {
+    pay: {
+        purpose: IOrderAsPayPurpose;
+    };
+}
+/**
+ * 確定パラメータ
+ */
+export interface IConfirmParams {
+    id?: string;
+    transactionNumber?: string;
+    endDate?: Date;
+    potentialActions: IPotentialActionsParams;
+}
+export type IResult = any;
+export type IError = any;
 export interface IAttributes extends AssetTransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
 }
 export type ITransaction = IExtendId<IAttributes>;
 export interface ISearchConditions extends AssetTransactionFactory.ISearchConditions<AssetTransactionType.Pay> {
+    object?: {
+        accountId?: {
+            $eq?: string;
+        };
+    };
 }

@@ -11,15 +11,25 @@ import { PaymentServiceType } from '../service/paymentService';
 export import IAgent = AssetTransactionFactory.IAgent;
 // export type IAgent = ISeller;
 export type IRecipient = IRefundRecipient;
-export interface IObjectWithoutDetail {
+export type IAnyPaymentMethod = AvailablePaymentMethodType;
+/**
+ * 取引対象物
+ */
+export interface IObject {
+    // object: Invoice化に向けて追加(2022-05-31~)
+    accountId: string;
+    // object: Invoice化に向けて追加(2022-05-31~)
+    paymentMethodId: string;
     typeOf: PaymentServiceType;
     /**
      * 発行決済サービスID
      */
     id: string;
+    onPaymentStatusChanged?: IOnPaymentStatusChanged;
     paymentMethod: IPaymentMethod;
     refundFee?: number;
 }
+export type IObjectWithoutDetail = Omit<IObject, 'accountId' | 'paymentMethodId' | 'onPaymentStatusChanged'>;
 export type IStartParamsWithoutDetail =
     AssetTransactionFactory.IStartParams<AssetTransactionType.Refund, IAgent, IRecipient, IObjectWithoutDetail>;
 export interface IStartParams extends AssetTransactionFactory.IStartParams<AssetTransactionType.Refund, IAgent, IRecipient, IObject> {
@@ -40,20 +50,6 @@ export interface IConfirmParams {
 }
 export type IResult = any;
 export type IError = any;
-export type IAnyPaymentMethod = AvailablePaymentMethodType;
-/**
- * 取引対象物
- */
-export interface IObject {
-    typeOf: PaymentServiceType;
-    /**
-     * 発行決済サービスID
-     */
-    id: string;
-    onPaymentStatusChanged?: IOnPaymentStatusChanged;
-    paymentMethod: IPaymentMethod;
-    refundFee?: number;
-}
 export interface IPotentialActions {
     /**
      * 返金アクション
@@ -67,4 +63,9 @@ export type ITransaction = IExtendId<IAttributes>;
 export interface IAttributes extends AssetTransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
 }
 export interface ISearchConditions extends AssetTransactionFactory.ISearchConditions<AssetTransactionType.Refund> {
+    object?: {
+        accountId?: {
+            $eq?: string;
+        };
+    };
 }
