@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 決済資産取引検索条件にaccountIdを追加
+- 返金資産取引検索条件にaccountIdを追加
+
 ### Deprecated
 
 ### Removed
