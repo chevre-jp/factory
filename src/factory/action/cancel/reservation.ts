@@ -2,7 +2,7 @@ import * as ActionFactory from '../../action';
 import { ActionType } from '../../actionType';
 import { AssetTransactionType } from '../../assetTransactionType';
 import { IReservation as IEventReservation } from '../../reservation/event';
-import { IAttributes as IInformActionAttributes } from '../interact/inform';
+// import { IAttributes as IInformActionAttributes } from '../interact/inform';
 
 export type IAgent = ActionFactory.IParticipantAsProject;
 /**
@@ -26,7 +26,7 @@ export interface IPurpose {
      */
     id: string;
 }
-export type IInformReservation = IInformActionAttributes<IObject, any>;
+// export type IInformReservation = IInformActionAttributes<IObject, any>;
 // tslint:disable-next-line:no-empty-interface
 export interface IPotentialActions {
 }

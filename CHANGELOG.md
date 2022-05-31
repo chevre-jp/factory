@@ -8,11 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 予約資産取引返却タスクを追加
+
 ### Changed
+
+- 返却アクションを最適化
+- Eメール送信アクションのIPurposeを定義
+- CheckアクションのIAgentを最適化
+- 予約使用アクションを最適化
 
 ### Deprecated
 
 ### Removed
+
+- 印刷アクションを削除
 
 ### Fixed
 

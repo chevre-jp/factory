@@ -6,7 +6,7 @@ import { TaskName } from '../taskName';
 
 export type IData = IReturnActionAttributes<WebAPIFactory.Identifier>;
 export interface IAttributes extends TaskFactory.IAttributes {
-    name: TaskName.ConfirmCancelReserve;
+    name: TaskName.ReturnReserveTransaction;
     data: IData;
 }
 /**

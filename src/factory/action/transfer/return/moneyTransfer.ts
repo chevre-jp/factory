@@ -1,13 +1,9 @@
 import * as ActionFactory from '../../../action';
-import { OrganizationType } from '../../../organizationType';
 import * as MoneyTransferActionFactory from '../moneyTransfer';
 import * as ReturnActionFactory from '../return';
 
-export interface IAgent {
-    id: string;
-    typeOf: OrganizationType.Project;
-}
-export type IRecipient = ActionFactory.IParticipant;
+export type IAgent = ActionFactory.IParticipantAsProject;
+export type IRecipient = ActionFactory.IParticipantAsSeller;
 /**
  * 返却対象は入金アクション
  */

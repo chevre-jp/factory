@@ -1,13 +1,9 @@
 import * as ActionFactory from '../../../action';
-import { ActionType } from '../../../actionType';
 import * as OrderFactory from '../../../order';
-import { OrganizationType } from '../../../organizationType';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../../transfer/send/message/email';
+import * as ReturnActionFactory from '../return';
 
-export interface IAgent {
-    id: string;
-    typeOf: OrganizationType.Project;
-}
+export type IAgent = ActionFactory.IParticipantAsProject;
 export type IRecipient = ActionFactory.IParticipant;
 export type IObject = OrderFactory.IPaymentMethod;
 export type IResult = any;
@@ -18,7 +14,7 @@ export interface IPotentialActions {
     sendEmailMessage?: ISendEmailMessageActionAttributes[];
 }
 export type IPurpose = OrderFactory.ISimpleOrder;
-export interface IAttributes extends ActionFactory.IAttributes<ActionType.ReturnAction, IObject, IResult> {
+export interface IAttributes extends ReturnActionFactory.IAttributes<IObject, IResult> {
     agent: IAgent;
     recipient: IRecipient;
     purpose: IPurpose;
@@ -27,4 +23,4 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.Return
 /**
  * 決済返却アクション
  */
-export type IAction = ActionFactory.IAction<IAttributes>;
+export type IAction = ReturnActionFactory.IAction<IAttributes>;
