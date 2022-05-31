@@ -237,7 +237,7 @@ export interface ILocation {
      */
     maximumAttendeeCapacity?: number;
 }
-export type ISuperEvent = ScreeningEventSeriesFactory.IEvent;
+export type ISuperEvent = Omit<ScreeningEventSeriesFactory.IEvent, 'eventStatus' | 'offers'>;
 export type IName = IMultilingualString;
 /**
  * イベント属性

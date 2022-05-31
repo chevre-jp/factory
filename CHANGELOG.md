@@ -18,6 +18,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.234.0 - 2022-05-31
+
+### Changed
+
+- 決済アクションのIAgentを最適化
+- 返金アクションのIAgentを最適化
+- 通貨転送アクションのIAgentを最適化
+- 予約のISuperEventを最適化
+- 施設コンテンツを最適化
+
 ## v4.233.0 - 2022-05-30
 
 ### Changed

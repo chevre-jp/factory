@@ -14,7 +14,10 @@ import { IProject } from '../project';
 import * as ReservationFactory from '../reservation';
 import { ReservationType } from '../reservationType';
 
-// IReservationForを最適化
+// 最適化(2022-05-31~)
+export type IOptimizedSuperEvent = Omit<ISuperEvent,
+    'subtitleLanguage' | 'dubLanguage' | 'organizer' | 'offers'
+    | 'endDate' | 'startDate' | 'doorDate' | 'eventStatus'>;
 export interface IReservationFor {
     endDate: Date;
     eventStatus: EventStatusType;
@@ -32,7 +35,7 @@ export interface IReservationFor {
     name: IEventName;
     project: IProject;
     startDate: Date;
-    superEvent: ISuperEvent;
+    superEvent: IOptimizedSuperEvent;
     typeOf: EventType.ScreeningEvent;
     // ↓廃止(2022-04-18~)
     // workPerformed?: IWorkPerformed;
