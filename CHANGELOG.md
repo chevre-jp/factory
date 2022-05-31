@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 決済アクションのIAgentを最適化
+- 返金アクションのIAgentを最適化
+- 通貨転送アクションのIAgentを最適化
+- 予約のISuperEventを最適化
+- 施設コンテンツを最適化
+
 ### Deprecated
 
 ### Removed

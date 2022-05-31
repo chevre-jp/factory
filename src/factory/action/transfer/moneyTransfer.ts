@@ -14,7 +14,9 @@ export interface IPendingTransaction {
     identifier?: string;
     transactionNumber?: string;
 }
-export type IAgent = ActionFactory.IParticipant;
+export type IAgent = ActionFactory.IParticipantAsProject
+    | ActionFactory.IParticipantAsPerson
+    | ActionFactory.IParticipantAsSeller;
 export type IRecipient = ActionFactory.IParticipant;
 /**
  * 匿名ロケーション

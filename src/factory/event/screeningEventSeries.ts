@@ -5,7 +5,6 @@ import * as EventFactory from '../event';
 import { EventType } from '../eventType';
 import { ILanguage } from '../language';
 import { IMultilingualString } from '../multilingualString';
-// import * as OfferFactory from '../offer';
 import { OfferType } from '../offerType';
 import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
@@ -13,7 +12,7 @@ import { PriceCurrency } from '../priceCurrency';
 import { IProject } from '../project';
 
 /**
- * 施設コンテンツに対するオファーインターフェース
+ * 施設コンテンツに対するオファー
  */
 export interface IOffer {
     project: IProject;
@@ -21,21 +20,16 @@ export interface IOffer {
     priceCurrency: PriceCurrency.JPY;
     unacceptedPaymentMethod?: string[];
 }
-// tslint:disable-next-line:no-empty-interface
-// export interface IOffer extends OfferFactory.IOffer {
-// }
-
 export interface IVideoFormat {
     typeOf: string;
     name: string;
 }
-
 export interface ISoundFormat {
     typeOf: string;
     name: string;
 }
 /**
- * コンテンツインターフェース
+ * コンテンツ
  */
 export type IWorkPerformed = IMovie;
 export interface IOrganizer {
@@ -43,7 +37,6 @@ export interface IOrganizer {
     identifier: string;
     name: IMultilingualString;
 }
-
 export interface ICOAInfo {
     titleBranchNum: string;
     /**
@@ -74,8 +67,7 @@ export interface ICOAInfo {
      */
     dateMvtkBegin: string;
 }
-
-export interface IAttributes extends EventFactory.IAttributes<EventType.ScreeningEventSeries> {
+export interface IEventSeriesAttributes extends EventFactory.IAttributes<EventType.ScreeningEventSeries> {
     /**
      * 字幕利用可能言語
      */
@@ -101,9 +93,6 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      */
     location: {
         project: IProject;
-        /**
-         * スキーマタイプ
-         */
         typeOf: PlaceType.MovieTheater;
         /**
          * 場所ID
@@ -154,18 +143,17 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      */
     coaInfo?: ICOAInfo;
 }
+export type IAttributes = Omit<IEventSeriesAttributes, 'hasOfferCatalog' | 'maximumAttendeeCapacity' | 'remainingAttendeeCapacity'>;
 /**
- * 施設コンテンツインターフェース
+ * 施設コンテンツ
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
-
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export type ISortOrder = EventFactory.ISortOrder;
-
 /**
- * イベントの検索条件インターフェース
+ * 検索条件
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEventSeries> {
     sort?: ISortOrder;

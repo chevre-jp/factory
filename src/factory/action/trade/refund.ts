@@ -3,9 +3,7 @@ import { ActionType } from '../../actionType';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 import { IPaymentService as IPaymentServiceOnPay, IPayPurpose } from './pay';
 
-// tslint:disable-next-line:no-suspicious-comment
-// TODO IAgentAsSellerに限定する
-export type IAgent = ActionFactory.IParticipant;
+export type IAgent = ActionFactory.IParticipantAsSeller | ActionFactory.IParticipantAsPerson;
 export type IRecipient = ActionFactory.IParticipant;
 export type IPaymentService = IPaymentServiceOnPay & {
     refundFee?: number;
