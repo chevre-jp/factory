@@ -1,20 +1,16 @@
 import * as ActionFactory from '../../../action';
 import * as OrderFactory from '../../../order';
-// import { OrganizationType } from '../../../organizationType';
+import * as WebAPIFactory from '../../../service/webAPI';
 import { IAttributes as IRefundActionAttributes } from '../../transfer/return/paymentMethod';
-import { IAttributes as ICancelActionAttributes } from '../../transfer/return/reservation';
+import { IAttributes as IReturnReserveTransactionActionAttributes } from '../../transfer/return/reserveTransaction';
 import * as ReturnActionFactory from '../return';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../send/message/email';
 import * as ReturnMoneyTransferActionFactory from './moneyTransfer';
 import * as ReturnPointAwardActionFactory from './pointAward';
 
 // 注文のreturnerに反映されるので調整
-export type IAgent = ActionFactory.IParticipant;
-// export interface IAgent {
-//     id: string;
-//     typeOf: OrganizationType.Project;
-// }
-export type IRecipient = ActionFactory.IParticipant;
+export type IAgent = ActionFactory.IParticipantAsPerson | ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsProject;
+export type IRecipient = ActionFactory.IParticipantAsSeller;
 /**
  * 返却対象は注文
  */
@@ -27,9 +23,9 @@ export type IObject = OrderFactory.ISimpleOrder & {
 export type IResult = any;
 export interface IPotentialActions {
     /**
-     * 予約取消アクション
+     * 予約取引返却アクション
      */
-    cancelReservation?: ICancelActionAttributes<any, any>[];
+    cancelReservation?: IReturnReserveTransactionActionAttributes<WebAPIFactory.Identifier>[];
     /**
      * 返金アクション
      */

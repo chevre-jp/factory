@@ -1,14 +1,10 @@
 import * as ActionFactory from '../../../action';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
-import { OrganizationType } from '../../../organizationType';
 import * as ReturnActionFactory from '../return';
 
-export interface IAgent {
-    id: string;
-    typeOf: OrganizationType.Project;
-}
-export type IRecipient = ActionFactory.IParticipant;
+export type IAgent = ActionFactory.IParticipantAsProject;
+export type IRecipient = ActionFactory.IParticipantAsSeller;
 /**
  * 入金取引識別子で指定する場合のオブジェクト
  */

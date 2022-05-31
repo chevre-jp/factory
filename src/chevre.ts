@@ -27,10 +27,7 @@ import * as ConfirmRegisterServiceActionFactory from './factory/action/interact/
 import * as ConfirmReservationActionFactory from './factory/action/interact/confirm/reservation';
 import * as InformActionFactory from './factory/action/interact/inform';
 import * as RegisterActionFactory from './factory/action/interact/register';
-// import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
 import * as RegisterServiceActionFactory from './factory/action/interact/register/service';
-// import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
-// import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
 import * as ReserveActionFactory from './factory/action/reserve';
 import * as OrderActionFactory from './factory/action/trade/order';
 import * as PayActionFactory from './factory/action/trade/pay';
@@ -38,13 +35,13 @@ import * as RefundActionFactory from './factory/action/trade/refund';
 import * as GiveActionFactory from './factory/action/transfer/give';
 import * as GivePointAwardActionFactory from './factory/action/transfer/give/pointAward';
 import * as MoneyTransferActionFactory from './factory/action/transfer/moneyTransfer';
-import * as PrintActionFactory from './factory/action/transfer/print';
-import * as PrintTicketActionFactory from './factory/action/transfer/print/ticket';
+// import * as PrintActionFactory from './factory/action/transfer/print';
+// import * as PrintTicketActionFactory from './factory/action/transfer/print/ticket';
 import * as ReturnMoneyTransferActionFactory from './factory/action/transfer/return/moneyTransfer';
 import * as ReturnOrderActionFactory from './factory/action/transfer/return/order';
 import * as ReturnPaymentMethodActionFactory from './factory/action/transfer/return/paymentMethod';
 import * as ReturnPointAwardActionFactory from './factory/action/transfer/return/pointAward';
-import * as ReturnReservationActionFactory from './factory/action/transfer/return/reservation';
+import * as ReturnReserveTransactionActionFactory from './factory/action/transfer/return/reserveTransaction';
 import * as SendEmailMessageActionFactory from './factory/action/transfer/send/message/email';
 import * as SendOrderActionFactory from './factory/action/transfer/send/order';
 import * as DeleteActionFactory from './factory/action/update/delete';
@@ -160,6 +157,7 @@ import * as ReserveTaskFactory from './factory/task/reserve';
 import * as ReturnMoneyTransferTaskFactory from './factory/task/returnMoneyTransfer';
 import * as ReturnOrderTaskFactory from './factory/task/returnOrder';
 import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
+import * as ReturnReserveTransactionTaskFactory from './factory/task/returnReserveTransaction';
 import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
 import * as SendOrderTaskFactory from './factory/task/sendOrder';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
@@ -294,14 +292,14 @@ export namespace action {
             export import pointAward = GivePointAwardActionFactory;
         }
 
-        export namespace print {
-            // tslint:disable-next-line:no-shadowed-variable
-            export import IAction = PrintActionFactory.IAction;
-            // tslint:disable-next-line:no-shadowed-variable
-            export import IAttributes = PrintActionFactory.IAttributes;
-            export import IRecipient = PrintActionFactory.IRecipient;
-            export import ticket = PrintTicketActionFactory;
-        }
+        // export namespace print {
+        //     // tslint:disable-next-line:no-shadowed-variable
+        //     export import IAction = PrintActionFactory.IAction;
+        //     // tslint:disable-next-line:no-shadowed-variable
+        //     export import IAttributes = PrintActionFactory.IAttributes;
+        //     export import IRecipient = PrintActionFactory.IRecipient;
+        //     export import ticket = PrintTicketActionFactory;
+        // }
 
         /**
          * 返却アクション
@@ -315,8 +313,7 @@ export namespace action {
             // tslint:disable-next-line:no-shadowed-variable
             export import paymentMethod = ReturnPaymentMethodActionFactory;
             export import pointAward = ReturnPointAwardActionFactory;
-            // tslint:disable-next-line:no-shadowed-variable
-            export import reservation = ReturnReservationActionFactory;
+            export import reserveTransaction = ReturnReserveTransactionActionFactory;
         }
 
         export namespace send {
@@ -544,6 +541,7 @@ export namespace task {
         T extends TaskName.ReturnMoneyTransfer ? ReturnMoneyTransferTaskFactory.IData :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IData :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IData :
+        T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.IData :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IData :
         T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.IData :
@@ -573,6 +571,7 @@ export namespace task {
         T extends TaskName.ReturnMoneyTransfer ? ReturnMoneyTransferTaskFactory.IAttributes :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IAttributes :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IAttributes :
+        T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.IAttributes :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IAttributes :
         T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.IAttributes :
@@ -602,6 +601,7 @@ export namespace task {
         T extends TaskName.ReturnMoneyTransfer ? ReturnMoneyTransferTaskFactory.ITask :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.ITask :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.ITask :
+        T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.ITask :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.ITask :
         T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.ITask :

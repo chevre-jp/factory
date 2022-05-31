@@ -8,15 +8,13 @@ import { IAttributes as IConfirmReservationActionAttributes } from '../../intera
 import * as SendActionFactory from '../send';
 import { IAttributes as ISendEmailMessageActionAttributes } from './message/email';
 
-export type IAgent = ActionFactory.IParticipant;
+export type IAgent = ActionFactory.IParticipantAsPerson | ActionFactory.IParticipantAsProject | ActionFactory.IParticipantAsWebApplication;
 export type IRecipient = ActionFactory.IParticipant;
 export type IObject = OrderFactory.ISimpleOrder;
-
 /**
  * 注文配送結果としての所有権
  */
 export type IResult = OwnershipInfoFactory.IOwnershipInfo<OwnershipInfoFactory.IGood>[];
-
 export interface IPotentialActions {
     /**
      * 予約確定アクション
@@ -35,14 +33,12 @@ export interface IPotentialActions {
      */
     sendEmailMessage?: ISendEmailMessageActionAttributes[];
 }
-
 export interface IAttributes extends SendActionFactory.IAttributes<IObject, IResult> {
     agent: IAgent;
     recipient: IRecipient;
     potentialActions?: IPotentialActions;
 }
-
 /**
- * 注文配送アクションインターフェース
+ * 注文配送アクション
  */
 export type IAction = SendActionFactory.IAction<IAttributes>;

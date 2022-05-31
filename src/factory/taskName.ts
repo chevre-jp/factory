@@ -92,6 +92,10 @@ export enum TaskName {
      */
     ReturnPointAward = 'returnPointAward',
     /**
+     * 予約資産取引返却
+     */
+    ReturnReserveTransaction = 'returnReserveTransaction',
+    /**
      * 注文配送
      */
     SendOrder = 'sendOrder',
