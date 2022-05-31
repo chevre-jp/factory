@@ -7,8 +7,10 @@ import { PriceCurrency } from '../../../priceCurrency';
 import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
-export type IAgent = ActionFactory.IParticipant;
-export type IRecipient = ActionFactory.IParticipant;
+// 最適化(2022-06-01~)
+export type IAgent = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson | ActionFactory.IParticipantAsSeller;
+// 最適化(2022-06-01~)
+export type IRecipient = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
 export type IRequestBody = any;
 export type IResponseBody = MoneyTransferTransactionFactory.ITransaction;
 export import IPendingTransaction = OrderFactory.IMoneyTransferPendingTransaction;
