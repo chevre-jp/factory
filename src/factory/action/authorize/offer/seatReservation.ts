@@ -14,7 +14,8 @@ import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
 export type IAgent = ActionFactory.IParticipantAsSeller;
-export type IRecipient = ActionFactory.IParticipant;
+// 最適化(2022-06-01~)
+export type IRecipient = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
 
 export enum ObjectType {
     SeatReservation = 'SeatReservation'
@@ -124,7 +125,7 @@ export interface IPurpose {
 export type IError = any;
 
 /**
- * 座席予約承認アクションインターフェース
+ * 座席予約承認アクション
  */
 export interface IAttributes<T extends WebAPIFactory.Identifier>
     extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult<T>> {

@@ -13,7 +13,8 @@ import { PaymentServiceType } from '../../../service/paymentService';
 import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
-export type IAgent = ActionFactory.IParticipant;
+// 最適化(2022-06-01~)
+export type IAgent = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
 export type IRecipient = ActionFactory.IParticipantAsSeller;
 
 export enum ResultType {
@@ -26,7 +27,7 @@ export enum ResultType {
 export type IAnyPaymentMethod = string;
 
 /**
- * 進行中取引インターフェース
+ * 進行中取引
  */
 export interface IObjectPendingTransaction {
     typeOf: AssetTransactionType.MoneyTransfer;
@@ -40,7 +41,7 @@ export import ITokenizedPaymentCard = PayTransactionFactory.ITokenizedPaymentCar
 export import IFromLocation = PayTransactionFactory.IFromLocation;
 
 /**
- * 転送先インターフェース
+ * 転送先
  */
 export type IToLocation = IPaymentCard;
 
@@ -51,14 +52,14 @@ export import IUncheckedCardRaw = CreditCardFactory.IUncheckedCardRaw;
 export import IUncheckedCardTokenized = CreditCardFactory.IUncheckedCardTokenized;
 
 /**
- * クレジットカード決済承認アクションに必要なクレジットカード情報インターフェース
+ * クレジットカード決済承認アクションに必要なクレジットカード情報
  */
 export type ICreditCard = IUncheckedCardRaw | IUncheckedCardTokenized | IUnauthorizedCardOfMember;
 
 export import IMovieTicket = MovieTicketFactory.IMovieTicket;
 
 /**
- * 承認対象インターフェース
+ * 承認対象
  */
 export interface IObject {
     /**
@@ -211,9 +212,8 @@ export interface IPurpose {
 }
 
 export enum ServiceIdentifier {
-    Chevre = 'Chevre',
-    GMO = 'GMO',
-    MovieTicket = 'MovieTicket'
+    // 現時点で決済取引はChevreのみ対応
+    Chevre = 'Chevre'
 }
 
 export interface IService {
@@ -224,7 +224,7 @@ export interface IService {
 export type IInstrument = IService;
 
 /**
- * 決済承認アクション属性インターフェース
+ * 決済承認アクション属性
  */
 export interface IAttributes extends AuthorizeActionFactory.IAttributes<IObject, IResult> {
     typeOf: ActionType.AuthorizeAction;
@@ -236,6 +236,6 @@ export interface IAttributes extends AuthorizeActionFactory.IAttributes<IObject,
 }
 
 /**
- * 決済承認アクションインターフェース
+ * 決済承認アクション
  */
 export type IAction = ActionFactory.IAction<IAttributes>;

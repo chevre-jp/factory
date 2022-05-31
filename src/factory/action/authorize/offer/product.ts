@@ -11,7 +11,8 @@ import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
 export type IAgent = ActionFactory.IParticipantAsSeller;
-export type IRecipient = ActionFactory.IParticipant;
+// 最適化(2022-06-01~)
+export type IRecipient = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
 export type IService = IProduct;
 export type IAcceptedOfferWithoutDetail = RegisterServiceTransactionFactory.IAcceptedOfferWithoutDetail;
 export interface IAcceptedOffer extends Omit<IOffer, 'addOn' | 'price' | 'availability' | 'availableAtOrFrom'> {
