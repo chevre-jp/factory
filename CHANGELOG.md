@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 承認アクションのIAgentを最適化
-- 承認アクションのIRecipientを最適化
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.235.0 - 2022-05-31
+
+### Changed
+
+- 承認アクションのIAgentを最適化
+- 承認アクションのIRecipientを最適化
 
 ## v4.234.0 - 2022-05-31
 
