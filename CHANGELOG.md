@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.236.0 - 2022-06-01
+
+### Added
+
 - 予約資産取引返却タスクを追加
 
 ### Changed
@@ -17,15 +31,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - CheckアクションのIAgentを最適化
 - 予約使用アクションを最適化
 
-### Deprecated
-
 ### Removed
 
 - 印刷アクションを削除
-
-### Fixed
-
-### Security
 
 ## v4.235.0 - 2022-05-31
 
