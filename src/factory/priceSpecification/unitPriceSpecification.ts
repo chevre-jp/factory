@@ -3,10 +3,17 @@ import { IPriceSpecification as BaseSpecification } from '../priceSpecification'
 import { PriceSpecificationType } from '../priceSpecificationType';
 import { IQuantitativeValue } from '../quantitativeValue';
 import { UnitCode } from '../unitCode';
-import { IMovieTicket } from './movieTicketTypeChargeSpecification';
+import { IAppliesToMovieTicket as IMovieTicket } from './movieTicketTypeChargeSpecification';
 
+// 明確に定義(2022-06-02~)
+export type IAppliesToMovieTicket = Omit<IMovieTicket, 'accessCode'> & {
+    /**
+     * 単価オファー設定としては存在しないが、予約あるいは注文の価格仕様としては必須
+     */
+    identifier?: string;
+};
 /**
- * 単価仕様インターフェース
+ * 単価仕様
  */
 export type IPriceSpecification = BaseSpecification<PriceSpecificationType.UnitPriceSpecification> & {
     price: number;
@@ -15,9 +22,9 @@ export type IPriceSpecification = BaseSpecification<PriceSpecificationType.UnitP
      */
     referenceQuantity: IQuantitativeValue<UnitCode>;
     /**
-     * 適用ムビチケ
+     * 適用MovieTicket
      */
-    appliesToMovieTicket?: IMovieTicket;
+    appliesToMovieTicket?: IAppliesToMovieTicket;
     /**
      * 適用アドオン
      * アドオンを指定された場合に適用される

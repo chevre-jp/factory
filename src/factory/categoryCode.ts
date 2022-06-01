@@ -48,7 +48,6 @@ export enum CategorySetIdentifier {
      */
     VideoFormatType = 'VideoFormatType'
 }
-
 /**
  * {@link https://schema.org/CategoryCodeSet}
  */
@@ -56,7 +55,6 @@ export interface ICategoryCodeSet extends IThing {
     typeOf: 'CategoryCodeSet';
     identifier: CategorySetIdentifier;
 }
-
 /**
  * {@link https://schema.org/CategoryCode}
  */
@@ -69,14 +67,13 @@ export interface ICategoryCode extends IThing {
     additionalProperty?: IPropertyValue<string>[];
     paymentMethod?: {
         /**
-         * 決済カード区分の場合、対応決済方法
+         * 決済カード区分の場合、対応決済方法区分
          */
         typeOf?: string;
     };
 }
-
 /**
- * 検索条件インターフェース
+ * 検索条件
  */
 export interface ISearchConditions {
     limit?: number;
@@ -97,7 +94,7 @@ export interface ISearchConditions {
     };
     paymentMethod?: {
         /**
-         * 決済カード区分の場合、対応決済方法
+         * 決済カード区分の場合、対応決済方法区分
          */
         typeOf?: {
             $eq?: string;

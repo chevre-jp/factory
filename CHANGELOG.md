@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 単価仕様の適用MovieTicketを明確に定義
+- 決済カード加算料金の適用MovieTicketを明確に定義
+
 ### Deprecated
 
 ### Removed
