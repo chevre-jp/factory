@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.237.0 - 2022-06-01
+
+### Changed
+
+- 単価仕様の適用MovieTicketを明確に定義
+- 決済カード加算料金の適用MovieTicketを明確に定義
+
 ## v4.236.0 - 2022-06-01
 
 ### Added

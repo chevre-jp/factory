@@ -3,7 +3,7 @@ import { IPriceSpecification as BaseSpecification } from '../priceSpecification'
 import { PriceSpecificationType } from '../priceSpecificationType';
 
 /**
- * カテゴリーコードチャージ仕様インターフェース
+ * 区分加算料金
  */
 export type IPriceSpecification = BaseSpecification<PriceSpecificationType.CategoryCodeChargeSpecification> & {
     price: number;

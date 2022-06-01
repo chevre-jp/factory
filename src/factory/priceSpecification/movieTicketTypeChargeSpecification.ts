@@ -2,30 +2,29 @@ import { IPriceSpecification as BaseSpecification } from '../priceSpecification'
 import { PriceSpecificationType } from '../priceSpecificationType';
 import { PaymentServiceType } from '../service/paymentService';
 
-export interface IMovieTicket {
+export interface IAppliesToMovieTicket {
     typeOf: PaymentServiceType.MovieTicket;
     /**
-     * 購入管理番号(ムビチケ購入番号)
+     * 購入管理番号
      */
     identifier?: string;
     /**
-     * pinコード(ムビチケ暗証番号)
+     * pinコード
      */
-    accessCode?: string;
+    // accessCode?: string;
     /**
      * 決済カード区分
      */
-    serviceType?: string;
-    serviceOutput?: {
+    serviceType: string;
+    serviceOutput: {
         /**
-         * 決済方法タイプ
+         * 決済方法区分
          */
-        typeOf?: string;
+        typeOf: string;
     };
 }
-
 /**
- * ムビチケ券種区分チャージ仕様インターフェース
+ * 決済カード加算料金
  */
 export type IPriceSpecification = BaseSpecification<PriceSpecificationType.MovieTicketTypeChargeSpecification> & {
     price: number;
@@ -34,7 +33,7 @@ export type IPriceSpecification = BaseSpecification<PriceSpecificationType.Movie
      */
     appliesToVideoFormat: string;
     /**
-     * 適用ムビチケ
+     * 適用MovieTicket
      */
-    appliesToMovieTicket?: IMovieTicket;
+    appliesToMovieTicket: IAppliesToMovieTicket;
 };
