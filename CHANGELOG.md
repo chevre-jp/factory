@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.238.0 - 2022-06-02
+
+### Changed
+
+- イベントオファー承認アクションのobject.eventを最適化
+
 ## v4.237.0 - 2022-06-01
 
 ### Changed

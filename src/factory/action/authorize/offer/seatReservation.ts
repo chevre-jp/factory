@@ -101,12 +101,21 @@ export interface IPendingTransaction {
     transactionNumber: string;
 }
 
+// 最適化(2022-06-03~)
+export type IEvent = Omit<ScreeningEventFactory.IEvent,
+    'offers' | 'aggregateEntranceGate' | 'aggregateReservation' | 'aggregateOffer' | 'workPerformed'>
+    & {
+        offers: {
+            // イベント提供サービスを識別できるようにするために追加(2022-06-03~)
+            offeredThrough: ScreeningEventFactory.IOfferedThrough;
+        };
+    };
 /**
  * 承認アクション対象
  */
 export type IObject<T extends WebAPIFactory.Identifier> = {
     typeOf: ObjectType;
-    event?: ScreeningEventFactory.IEvent;
+    event?: IEvent;
     acceptedOffer: IAcceptedOffer<T>[];
     /**
      * Chevre進行中取引
