@@ -101,14 +101,16 @@ export interface IPendingTransaction {
     transactionNumber: string;
 }
 
-// tslint:disable-next-line:no-suspicious-comment
-// TODO 最適化(2022-06-07~)
+// 最適化(2022-06-07~)
 export type IEvent = Omit<ScreeningEventFactory.IEvent,
-    'offers' | 'aggregateEntranceGate' | 'aggregateReservation' | 'aggregateOffer' | 'workPerformed'
+    'offers' | 'project' | 'additionalProperty'
+    | 'aggregateEntranceGate' | 'aggregateReservation' | 'aggregateOffer' | 'workPerformed'
     | 'checkInCount' | 'attendeeCount'
-// | 'eventStatus' | 'hasOfferCatalog' | 'maximumAttendeeCapacity' | 'remainingAttendeeCapacity'
-// | 'coaInfo' | 'location' | 'name' | 'doorTime' | 'endDate' | 'startDate'
-// | 'additionalProperty'
+    | 'eventStatus' | 'hasOfferCatalog' | 'maximumAttendeeCapacity' | 'remainingAttendeeCapacity'
+    | 'alternateName' | 'alternativeHeadline' | 'description' | 'duration' | 'headline' | 'name'
+    | 'location' | 'doorTime' | 'endDate' | 'startDate'
+    | 'coaInfo'
+
 >
     & {
         offers: {
