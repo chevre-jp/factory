@@ -12,6 +12,7 @@ import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../p
 import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
 import { IProject } from '../project';
 import * as ReservationFactory from '../reservation';
+import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
 
 // 最適化(2022-05-31~)
@@ -58,6 +59,7 @@ export interface IReservation extends ReservationFactory.IReservation<IPriceSpec
     id: string;
     reservationFor: IReservationFor;
     reservationNumber: string;
+    reservationStatus: ReservationStatusType;
     reservedTicket: ReservationFactory.ITicket;
     subReservation?: ISubReservation[];
     typeOf: ReservationType.EventReservation;
