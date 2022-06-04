@@ -169,7 +169,17 @@ export interface ITicket {
     coaTicketInfo?: ICOATicketInfoWithDetails;
     coaReserveAmount?: number;
 }
-export type IBroker = IUnderName;
+// 最適化(2022-06-06~)
+export interface IBroker {
+    // 2022-06-03時点で可能性があるのはPersonのみ
+    typeOf: PersonType.Person;
+    // familyName?: string;
+    // givenName?: string;
+    id: string;
+    identifier?: IPropertyValue<string>[];
+    name?: string;
+}
+// export type IBroker = IUnderName;
 export type IProgramMembershipUsed = IPermit;
 /**
  * 予約

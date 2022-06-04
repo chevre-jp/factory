@@ -18,6 +18,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.239.0 - 2022-06-05
+
+### Changed
+
+- 予約取消アクションのIObjectを最適化
+- イベントオファー承認アクションを最適化
+- イベントオファー承認アクションのobject.eventを最適化
+- 予約のIBrokerを最適化
+- 取引のIProjectを最適化
+
 ## v4.238.0 - 2022-06-02
 
 ### Changed

@@ -101,9 +101,17 @@ export interface IPendingTransaction {
     transactionNumber: string;
 }
 
-// 最適化(2022-06-03~)
+// 最適化(2022-06-07~)
 export type IEvent = Omit<ScreeningEventFactory.IEvent,
-    'offers' | 'aggregateEntranceGate' | 'aggregateReservation' | 'aggregateOffer' | 'workPerformed'>
+    'offers' | 'project' | 'additionalProperty'
+    | 'aggregateEntranceGate' | 'aggregateReservation' | 'aggregateOffer' | 'workPerformed'
+    | 'checkInCount' | 'attendeeCount'
+    | 'eventStatus' | 'hasOfferCatalog' | 'maximumAttendeeCapacity' | 'remainingAttendeeCapacity'
+    | 'alternateName' | 'alternativeHeadline' | 'description' | 'duration' | 'headline' | 'name'
+    | 'location' | 'doorTime' | 'endDate' | 'startDate'
+    | 'coaInfo'
+
+>
     & {
         offers: {
             // イベント提供サービスを識別できるようにするために追加(2022-06-03~)
@@ -121,7 +129,7 @@ export type IObject<T extends WebAPIFactory.Identifier> = {
      * Chevre進行中取引
      */
     pendingTransaction?: IPendingTransaction;
-} & Omit<IObjectWithoutDetail<T>, 'acceptedOffer'>;
+} & Omit<IObjectWithoutDetail<T>, 'acceptedOffer' | 'reservationFor'>;
 
 export interface IPurpose {
     typeOf: TransactionType.PlaceOrder;

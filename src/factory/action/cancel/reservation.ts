@@ -3,7 +3,6 @@ import { ActionType } from '../../actionType';
 import { AssetTransactionType } from '../../assetTransactionType';
 import { EventType } from '../../eventType';
 import { ProductType } from '../../product';
-import { IReservation as IEventReservation } from '../../reservation/event';
 import { ReservationStatusType } from '../../reservationStatusType';
 import { ReservationType } from '../../reservationType';
 
@@ -11,14 +10,14 @@ export type IAgent = ActionFactory.IParticipantAsProject;
 /**
  * 予約取消対象
  */
-export type IObject = IEventReservation;
-// tslint:disable-next-line:no-suspicious-comment
-// TODO 最適化(2022-06-04~)
+// 最適化(2022-06-06~)
+// export type IObject = IEventReservation;
+export type IObject = IObject4future;
 export interface IObject4future {
     typeOf: ReservationType.EventReservation;
     id: string;
-    issuedThrough: {
-        typeOf: ProductType.EventService;
+    issuedThrough?: {
+        typeOf?: ProductType.EventService;
     };
     reservationFor: {
         typeOf: EventType.ScreeningEvent;
