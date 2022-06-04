@@ -170,6 +170,7 @@ import * as VoidReserveTransactionTaskFactory from './factory/task/voidReserveTr
 import { TaskName } from './factory/taskName';
 import { TaskStatus } from './factory/taskStatus';
 
+import * as AssetTransactionFactory from './factory/assetTransaction';
 import * as CancelReservationAssetTransactionFactory from './factory/assetTransaction/cancelReservation';
 import * as MoneyTransferAssetTransactionFactory from './factory/assetTransaction/moneyTransfer';
 import * as PayAssetTransactionFactory from './factory/assetTransaction/pay';
@@ -656,6 +657,7 @@ export import taskStatus = TaskStatus;
 export import thing = ThingFactory;
 
 export namespace assetTransaction {
+    export type IProject = AssetTransactionFactory.IProject;
     export type IStartParams<T extends AssetTransactionType> =
         T extends AssetTransactionType.CancelReservation ? CancelReservationAssetTransactionFactory.IStartParams :
         T extends AssetTransactionType.MoneyTransfer ? MoneyTransferAssetTransactionFactory.IStartParams :

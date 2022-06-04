@@ -7,7 +7,6 @@ import { IMultilingualString } from './multilingualString';
 import { OrganizationType } from './organizationType';
 import { IIdentifier, IPersonAttributes } from './person';
 import { PersonType } from './personType';
-import { IProject } from './project';
 import { SortType } from './sortType';
 import { TransactionStatusType } from './transactionStatusType';
 import { TransactionTasksExportationStatus } from './transactionTasksExportationStatus';
@@ -58,6 +57,10 @@ export interface IPassportBeforeStart {
      * WAITER許可証トークンシークレット
      */
     secret: string;
+}
+export interface IProject {
+    id: string;
+    typeOf: OrganizationType.Project;
 }
 /**
  * 取引開始パラメータ

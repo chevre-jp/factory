@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - イベントオファー承認アクションを最適化
 - イベントオファー承認アクションのobject.eventを最適化
 - 予約のIBrokerを最適化
+- 取引のIProjectを最適化
 
 ### Deprecated
 
