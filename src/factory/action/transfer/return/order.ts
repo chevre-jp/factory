@@ -23,6 +23,10 @@ export type IObject = OrderFactory.ISimpleOrder & {
 export type IResult = any;
 export interface IPotentialActions {
     /**
+     * 設定追加(2022-06-08~)
+     */
+    useConfirmRefund: boolean;
+    /**
      * 予約取引返却アクション
      */
     cancelReservation?: IReturnReserveTransactionActionAttributes<WebAPIFactory.Identifier>[];

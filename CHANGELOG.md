@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 返品取引確定時のrefundMovieTicketパラメータを廃止
+- 返品アクションのIPotentialActionsにuseConfirmRefundを追加
+
 ### Deprecated
 
 ### Removed

@@ -16,6 +16,7 @@ export enum ActionType {
     PrintAction = 'PrintAction',
     RefundAction = 'RefundAction',
     RegisterAction = 'RegisterAction',
+    ReplaceAction = 'ReplaceAction',
     ReserveAction = 'ReserveAction',
     ReturnAction = 'ReturnAction',
     SendAction = 'SendAction',
