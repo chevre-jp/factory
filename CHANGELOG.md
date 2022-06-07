@@ -8,12 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 決済資産取引返却タスクを追加
-
 ### Changed
-
-- 返金取引検索条件拡張
-- 返金取引確定時の返金purpose指定を最適化
 
 ### Deprecated
 
@@ -22,6 +17,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.242.0 - 2022-06-08
+
+### Added
+
+- 決済資産取引返却タスクを追加
+
+### Changed
+
+- 返金取引検索条件拡張
+- 返金取引確定時の返金purpose指定を最適化
 
 ## v4.241.0 - 2022-06-07
 
