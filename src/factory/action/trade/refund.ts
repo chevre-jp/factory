@@ -18,9 +18,7 @@ export type IInformPayment = IInformActionAttributes<any, any>;
 export interface IPotentialActions {
     informPayment?: IInformPayment[];
 }
-
 export type IPurpose = IPayPurpose;
-
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.RefundAction, IObject, IResult> {
     agent: IAgent;
     recipient?: IRecipient;
