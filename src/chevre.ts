@@ -156,6 +156,7 @@ import * as RegisterServiceTaskFactory from './factory/task/registerService';
 import * as ReserveTaskFactory from './factory/task/reserve';
 import * as ReturnMoneyTransferTaskFactory from './factory/task/returnMoneyTransfer';
 import * as ReturnOrderTaskFactory from './factory/task/returnOrder';
+import * as ReturnPayTransactionTaskFactory from './factory/task/returnPayTransaction';
 import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
 import * as ReturnReserveTransactionTaskFactory from './factory/task/returnReserveTransaction';
 import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
@@ -541,6 +542,7 @@ export namespace task {
         T extends TaskName.ConfirmRegisterServiceTransaction ? ConfirmRegisterServiceTransactionTaskFactory.IData :
         T extends TaskName.ReturnMoneyTransfer ? ReturnMoneyTransferTaskFactory.IData :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IData :
+        T extends TaskName.ReturnPayTransaction ? ReturnPayTransactionTaskFactory.IData :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IData :
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.IData :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
@@ -571,6 +573,7 @@ export namespace task {
         T extends TaskName.ConfirmRegisterServiceTransaction ? ConfirmRegisterServiceTransactionTaskFactory.IAttributes :
         T extends TaskName.ReturnMoneyTransfer ? ReturnMoneyTransferTaskFactory.IAttributes :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IAttributes :
+        T extends TaskName.ReturnPayTransaction ? ReturnPayTransactionTaskFactory.IAttributes :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IAttributes :
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.IAttributes :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
@@ -601,6 +604,7 @@ export namespace task {
         T extends TaskName.ConfirmRegisterServiceTransaction ? ConfirmRegisterServiceTransactionTaskFactory.ITask :
         T extends TaskName.ReturnMoneyTransfer ? ReturnMoneyTransferTaskFactory.ITask :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.ITask :
+        T extends TaskName.ReturnPayTransaction ? ReturnPayTransactionTaskFactory.ITask :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.ITask :
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.ITask :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :

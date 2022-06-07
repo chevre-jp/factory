@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 決済資産取引返却タスクを追加
+
 ### Changed
 
 ### Deprecated
