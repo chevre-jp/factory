@@ -33,8 +33,11 @@ export interface IAttributes extends IPaymentCard {
 }
 
 /**
- * MovieTicket決済カードインターフェース
+ * MovieTicket決済カード
  */
 export interface IMovieTicket extends IAttributes {
+    /**
+     * 決済方法区分コード
+     */
     typeOf: string;
 }

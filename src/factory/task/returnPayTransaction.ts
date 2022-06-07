@@ -5,7 +5,7 @@ import { TaskName } from '../taskName';
 
 export type IData = IReturnActionAttributes;
 export interface IAttributes extends TaskFactory.IAttributes {
-    name: TaskName.ConfirmRefund;
+    name: TaskName.ReturnPayTransaction;
     data: IData;
 }
 /**

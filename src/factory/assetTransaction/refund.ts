@@ -1,4 +1,4 @@
-import { AvailablePaymentMethodType, IPaymentMethod, IPayPurpose } from '../action/trade/pay';
+import { AvailablePaymentMethodType, IPaymentMethod, IReturnActionAsPayPurpose } from '../action/trade/pay';
 import { IAttributes as IRefundActionAttributes, IRecipient as IRefundRecipient } from '../action/trade/refund';
 import * as AssetTransactionFactory from '../assetTransaction';
 import { AssetTransactionType } from '../assetTransactionType';
@@ -34,13 +34,16 @@ export type IStartParamsWithoutDetail =
     AssetTransactionFactory.IStartParams<AssetTransactionType.Refund, IAgent, IRecipient, IObjectWithoutDetail>;
 export interface IStartParams extends AssetTransactionFactory.IStartParams<AssetTransactionType.Refund, IAgent, IRecipient, IObject> {
 }
+export type IRefundPurpose = IReturnActionAsPayPurpose;
 export interface IPotentialActionsParams {
     refund?: {
-        purpose?: IPayPurpose;
+        // IReturnActionAsPayPurposeに限定(2022-06-08~)
+        // purpose?: IPayPurpose;
+        purpose?: IRefundPurpose;
     };
 }
 /**
- * 確定パラメーター
+ * 確定パラメータ
  */
 export interface IConfirmParams {
     id?: string;
@@ -65,6 +68,10 @@ export interface IAttributes extends AssetTransactionFactory.IAttributes<IStartP
 export interface ISearchConditions extends AssetTransactionFactory.ISearchConditions<AssetTransactionType.Refund> {
     object?: {
         accountId?: {
+            $eq?: string;
+        };
+        // 追加(2022-06-09~)
+        paymentMethodId?: {
             $eq?: string;
         };
     };
