@@ -9,6 +9,6 @@ export interface IAttributes extends TaskFactory.IAttributes {
     data: IData;
 }
 /**
- * 返金確定タスク
+ * 決済資産取引返却タスク
  */
 export type ITask = IExtendId<IAttributes>;

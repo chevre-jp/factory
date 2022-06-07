@@ -88,6 +88,10 @@ export enum TaskName {
      */
     ReturnMoneyTransfer = 'returnMoneyTransfer',
     /**
+     * 決済資産取引返却
+     */
+    ReturnPayTransaction = 'returnPayTransaction',
+    /**
      * ポイント特典返却
      */
     ReturnPointAward = 'returnPointAward',
