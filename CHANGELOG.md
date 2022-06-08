@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.243.0 - 2022-06-08
+
+### Changed
+
+- 取引削除タスクをReturnOrderとMoneyTransferに拡張
+
 ## v4.242.0 - 2022-06-08
 
 ### Added
