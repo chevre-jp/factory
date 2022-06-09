@@ -55,7 +55,7 @@ export interface IStartParams<T extends AssetTransactionType, TAgent extends IAg
     /**
      * 取引番号
      */
-    transactionNumber?: string;
+    transactionNumber: string;
     /**
      * 取引主体
      */

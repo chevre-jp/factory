@@ -8,7 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 資産取引削除タスクを追加
+
 ### Changed
+
+- 資産取引の取引番号を必須化
 
 ### Deprecated
 

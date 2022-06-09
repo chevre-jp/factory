@@ -7,6 +7,7 @@ export enum TaskName {
     CancelPendingReservation = 'cancelPendingReservation',
     AggregateScreeningEvent = 'aggregateScreeningEvent',
     AggregateUseActionsOnEvent = 'aggregateUseActionsOnEvent',
+    DeleteAssetTransaction = 'deleteAssetTransaction',
     DeleteAuthorization = 'deleteAuthorization',
     DeleteOrder = 'deleteOrder',
     DeleteTransaction = 'deleteTransaction',

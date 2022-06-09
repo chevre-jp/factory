@@ -139,6 +139,7 @@ import * as ConfirmRegisterServiceTaskFactory from './factory/task/confirmRegist
 import * as ConfirmRegisterServiceTransactionTaskFactory from './factory/task/confirmRegisterServiceTransaction';
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
 import * as ConfirmReserveTransactionTaskFactory from './factory/task/confirmReserveTransaction';
+import * as DeleteAssetTransactionTaskFactory from './factory/task/deleteAssetTransaction';
 import * as DeleteAuthorizationTaskFactory from './factory/task/deleteAuthorization';
 import * as DeleteMemberTaskFactory from './factory/task/deleteMember';
 import * as DeleteOrderTaskFactory from './factory/task/deleteOrder';
@@ -529,6 +530,7 @@ export namespace task {
         T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.IData :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.IData :
+        T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.IData :
         T extends TaskName.DeleteAuthorization ? DeleteAuthorizationTaskFactory.IData :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IData :
         T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.IData :
@@ -560,6 +562,7 @@ export namespace task {
         T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.IAttributes :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.IAttributes :
+        T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.IAttributes :
         T extends TaskName.DeleteAuthorization ? DeleteAuthorizationTaskFactory.IAttributes :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IAttributes :
         T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.IAttributes :
@@ -591,6 +594,7 @@ export namespace task {
         T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.ITask :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.ITask :
+        T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.ITask :
         T extends TaskName.DeleteAuthorization ? DeleteAuthorizationTaskFactory.ITask :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.ITask :
         T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.ITask :
@@ -628,6 +632,7 @@ export namespace task {
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
     export import confirmCancelReserve = ConfirmCancelReserveTaskFactory;
+    export import deleteAssetTransaction = DeleteAssetTransactionTaskFactory;
     export import importEventCapacitiesFromCOA = ImportEventCapacitiesFromCOATaskFactory;
     export import importEventsFromCOA = ImportEventsFromCOATaskFactory;
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
