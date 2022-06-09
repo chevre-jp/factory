@@ -8,11 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 資産取引削除タスクを追加
-
 ### Changed
-
-- 資産取引の取引番号を必須化
 
 ### Deprecated
 
@@ -21,6 +17,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.244.0 - 2022-06-09
+
+### Added
+
+- 資産取引削除タスクを追加
+
+### Changed
+
+- 資産取引の取引番号を必須化
 
 ## v4.243.0 - 2022-06-08
 
