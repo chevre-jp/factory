@@ -49,7 +49,12 @@ export interface ISearchConditions {
     page?: number;
     sort?: any;
     id?: { $eq?: string };
-    project?: { id?: { $eq?: string } };
+    project?: {
+        id?: {
+            $eq?: string;
+            $regex?: string;
+        };
+    };
     member?: {
         hasRole?: {
             roleName?: { $eq?: string };

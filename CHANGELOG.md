@@ -14,6 +14,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- ConfirmPayタスクを廃止
+- ConfirmRefundタスクを廃止
+
 ### Fixed
 
 ### Security

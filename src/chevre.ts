@@ -132,9 +132,7 @@ import * as CancelPendingReservationTaskFactory from './factory/task/cancelPendi
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
 import * as ConfirmCancelReserveTaskFactory from './factory/task/confirmCancelReserve';
 import * as ConfirmMoneyTransferTaskFactory from './factory/task/confirmMoneyTransfer';
-import * as ConfirmPayTaskFactory from './factory/task/confirmPay';
 import * as ConfirmPayTransactionTaskFactory from './factory/task/confirmPayTransaction';
-import * as ConfirmRefundTaskFactory from './factory/task/confirmRefund';
 import * as ConfirmRegisterServiceTaskFactory from './factory/task/confirmRegisterService';
 import * as ConfirmRegisterServiceTransactionTaskFactory from './factory/task/confirmRegisterServiceTransaction';
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
@@ -539,7 +537,6 @@ export namespace task {
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IData :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IData :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IData :
-        T extends TaskName.ConfirmRefund ? ConfirmRefundTaskFactory.IData :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.IData :
         T extends TaskName.ConfirmRegisterServiceTransaction ? ConfirmRegisterServiceTransactionTaskFactory.IData :
         T extends TaskName.ReturnMoneyTransfer ? ReturnMoneyTransferTaskFactory.IData :
@@ -549,7 +546,6 @@ export namespace task {
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.IData :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IData :
-        T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.IData :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.IData :
@@ -571,7 +567,6 @@ export namespace task {
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IAttributes :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
-        T extends TaskName.ConfirmRefund ? ConfirmRefundTaskFactory.IAttributes :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.IAttributes :
         T extends TaskName.ConfirmRegisterServiceTransaction ? ConfirmRegisterServiceTransactionTaskFactory.IAttributes :
         T extends TaskName.ReturnMoneyTransfer ? ReturnMoneyTransferTaskFactory.IAttributes :
@@ -581,7 +576,6 @@ export namespace task {
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.IAttributes :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IAttributes :
-        T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.IAttributes :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.IAttributes :
@@ -603,7 +597,6 @@ export namespace task {
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.ITask :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.ITask :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.ITask :
-        T extends TaskName.ConfirmRefund ? ConfirmRefundTaskFactory.ITask :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.ITask :
         T extends TaskName.ConfirmRegisterServiceTransaction ? ConfirmRegisterServiceTransactionTaskFactory.ITask :
         T extends TaskName.ReturnMoneyTransfer ? ReturnMoneyTransferTaskFactory.ITask :
@@ -613,7 +606,6 @@ export namespace task {
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.ITask :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.ITask :
-        T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.ITask :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.ITask :
