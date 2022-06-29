@@ -130,12 +130,10 @@ import * as CancelAccountMoneyTransferTaskFactory from './factory/task/cancelAcc
 import * as CancelMoneyTransferTaskFactory from './factory/task/cancelMoneyTransfer';
 import * as CancelPendingReservationTaskFactory from './factory/task/cancelPendingReservation';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
-import * as ConfirmCancelReserveTaskFactory from './factory/task/confirmCancelReserve';
 import * as ConfirmMoneyTransferTaskFactory from './factory/task/confirmMoneyTransfer';
 import * as ConfirmPayTransactionTaskFactory from './factory/task/confirmPayTransaction';
 import * as ConfirmRegisterServiceTaskFactory from './factory/task/confirmRegisterService';
 import * as ConfirmRegisterServiceTransactionTaskFactory from './factory/task/confirmRegisterServiceTransaction';
-import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
 import * as ConfirmReserveTransactionTaskFactory from './factory/task/confirmReserveTransaction';
 import * as DeleteAssetTransactionTaskFactory from './factory/task/deleteAssetTransaction';
 import * as DeleteAuthorizationTaskFactory from './factory/task/deleteAuthorization';
@@ -525,8 +523,6 @@ export namespace task {
     // export import ITask = TaskFactory.ITask;
 
     export type IData<T extends TaskName | string> =
-        T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.IData :
-        T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.IData :
         T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.IData :
         T extends TaskName.DeleteAuthorization ? DeleteAuthorizationTaskFactory.IData :
@@ -555,8 +551,6 @@ export namespace task {
         TaskFactory.IData;
 
     export type IAttributes<T extends TaskName | string> =
-        T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.IAttributes :
-        T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.IAttributes :
         T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.IAttributes :
         T extends TaskName.DeleteAuthorization ? DeleteAuthorizationTaskFactory.IAttributes :
@@ -585,8 +579,6 @@ export namespace task {
         TaskFactory.IAttributes;
 
     export type ITask<T extends TaskName | string> =
-        T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.ITask :
-        T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.ITask :
         T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.ITask :
         T extends TaskName.DeleteAuthorization ? DeleteAuthorizationTaskFactory.ITask :
@@ -623,7 +615,6 @@ export namespace task {
     export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
-    export import confirmCancelReserve = ConfirmCancelReserveTaskFactory;
     export import deleteAssetTransaction = DeleteAssetTransactionTaskFactory;
     export import importEventCapacitiesFromCOA = ImportEventCapacitiesFromCOATaskFactory;
     export import importEventsFromCOA = ImportEventsFromCOATaskFactory;

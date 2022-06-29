@@ -29,14 +29,6 @@ export enum TaskName {
     TriggerWebhook = 'triggerWebhook',
     VoidPayment = 'voidPayment',
     /**
-     * 予約取消
-     */
-    ConfirmCancelReserve = 'confirmCancelReserve',
-    /**
-     * 予約確定
-     */
-    ConfirmReservation = 'confirmReservation',
-    /**
      * 通貨転送
      */
     ConfirmMoneyTransfer = 'confirmMoneyTransfer',

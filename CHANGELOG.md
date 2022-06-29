@@ -16,6 +16,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- ConfirmReservationタスクを廃止
+- ConfirmCancelReserveタスクを廃止
+
 ### Fixed
 
 ### Security
