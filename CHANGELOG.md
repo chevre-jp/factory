@@ -18,6 +18,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.246.0 - 2022-06-30
+
+### Changed
+
+- トークン検証アクションを拡張
+
+### Removed
+
+- ConfirmReservationタスクを廃止
+- ConfirmCancelReserveタスクを廃止
+
 ## v4.245.0 - 2022-06-26
 
 ### Removed
