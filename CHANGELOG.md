@@ -10,18 +10,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- トークン検証アクションを拡張
-
 ### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.246.0 - 2022-06-30
+
+### Changed
+
+- トークン検証アクションを拡張
 
 ### Removed
 
 - ConfirmReservationタスクを廃止
 - ConfirmCancelReserveタスクを廃止
-
-### Fixed
-
-### Security
 
 ## v4.245.0 - 2022-06-26
 
