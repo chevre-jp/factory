@@ -268,6 +268,10 @@ export interface IOrder extends ISimpleOrder {
      * Was the offer accepted as a gift for someone other than the buyer.
      */
     isGift?: boolean;
+    /**
+     * 注文名称
+     */
+    name?: string;
     orderedItem?: IOrderedItem[];
     /**
      * OrderStatus	(recommended for confirmation cards/ Search Answers)
@@ -466,6 +470,16 @@ export interface ISearchConditions {
     };
     broker?: {
         id?: { $eq?: string };
+    };
+    name?: {
+        /**
+         * 名称完全一致
+         */
+        $eq?: string;
+        /**
+         * 名称部分一致
+         */
+        $regex?: string;
     };
     /**
      * 販売者条件
