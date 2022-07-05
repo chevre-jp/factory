@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 注文に名称を定義
-- 注文検索条件拡張
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.247.0 - 2022-07-06
+
+### Changed
+
+- 注文に名称を定義
+- 注文検索条件拡張
 
 ## v4.246.0 - 2022-06-30
 
