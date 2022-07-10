@@ -24,7 +24,9 @@ export type IPriceSpecification = BaseSpecification<PriceSpecificationType.UnitP
     /**
      * 適用MovieTicket
      */
-    appliesToMovieTicket?: IAppliesToMovieTicket;
+    // appliesToMovieTicket?: IAppliesToMovieTicket;
+    // 複数決済カード対応(2022-07-11~)
+    appliesToMovieTicket?: IAppliesToMovieTicket | IAppliesToMovieTicket[];
     /**
      * 適用アドオン
      * アドオンを指定された場合に適用される

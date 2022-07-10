@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.248.0 - 2022-07-10
+
+### Changed
+
+- 決済カード加算料金を最適化
+- 単価仕様の適用決済カードを複数に対応
+
 ## v4.247.0 - 2022-07-06
 
 ### Changed
