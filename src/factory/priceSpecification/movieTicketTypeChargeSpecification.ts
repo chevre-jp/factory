@@ -2,16 +2,16 @@ import { IPriceSpecification as BaseSpecification } from '../priceSpecification'
 import { PriceSpecificationType } from '../priceSpecificationType';
 import { PaymentServiceType } from '../service/paymentService';
 
+/**
+ * 適用決済カード
+ * どの決済方法区分のどの決済カード区分に対して適用されるか
+ */
 export interface IAppliesToMovieTicket {
     typeOf: PaymentServiceType.MovieTicket;
     /**
      * 購入管理番号
      */
-    identifier?: string;
-    /**
-     * pinコード
-     */
-    // accessCode?: string;
+    // identifier?: string;
     /**
      * 決済カード区分
      */
@@ -33,7 +33,7 @@ export type IPriceSpecification = BaseSpecification<PriceSpecificationType.Movie
      */
     appliesToVideoFormat: string;
     /**
-     * 適用MovieTicket
+     * 適用決済カード
      */
     appliesToMovieTicket: IAppliesToMovieTicket;
 };

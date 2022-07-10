@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 決済カード加算料金を最適化
+- 単価仕様の適用決済カードを複数に対応
+
 ### Deprecated
 
 ### Removed

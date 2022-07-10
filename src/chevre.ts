@@ -429,6 +429,8 @@ export namespace priceSpecification {
         PriceSpecificationFactory.IPriceSpecification<PriceSpecificationType>;
     export type ISearchConditions<T extends PriceSpecificationType> =
         PriceSpecificationFactory.ISearchConditions<T>;
+
+    export import unitPrice = UnitPriceSpecificationFactory;
 }
 export namespace compoundPriceSpecification {
     export type IPriceSpecification<T extends PriceSpecificationType> =
