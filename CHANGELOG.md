@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 資産取引検索条件拡張
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.249.0 - 2022-07-16
+
+### Changed
+
+- 資産取引検索条件拡張
 
 ## v4.248.0 - 2022-07-10
 
