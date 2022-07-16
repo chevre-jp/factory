@@ -101,5 +101,17 @@ export interface IAttributes extends AssetTransactionFactory.IAttributes<IStartP
  */
 export type ITransaction = IExtendId<IAttributes>;
 export interface ISearchConditions extends AssetTransactionFactory.ISearchConditions<AssetTransactionType.RegisterService> {
-    object?: any;
+    object?: {
+        itemOffered?: {
+            serviceOutput?: {
+                /**
+                 * 発行許可証識別子
+                 */
+                identifier?: {
+                    $eq?: string;
+                    $in?: string[];
+                };
+            };
+        };
+    };
 }
