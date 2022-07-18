@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.250.0 - 2022-07-19
+
+### Changed
+
+- サービス登録確定アクションのオブジェクトを拡張
+
 ## v4.249.0 - 2022-07-16
 
 ### Changed
