@@ -5,9 +5,10 @@ import * as OrderProgramMembershipFactory from '../../../task/orderProgramMember
 import * as ConfirmActionFactory from '../confirm';
 
 export type IObject = Omit<RegisterServiceFactory.IConfirmParams, 'id'> & {
-    // 取引番号は必須
-    transactionNumber: string;
+    transactionNumber?: string;
     typeOf: AssetTransactionType.RegisterService;
+    // permit.identifierでも確定可能にする(2022-07-19~)
+    object?: { itemOffered?: { serviceOutput?: { identifier?: string } } };
 };
 export type IPurpose = ISimpleOrder;
 export type IResult = any;

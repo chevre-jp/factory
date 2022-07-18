@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- サービス登録確定アクションのオブジェクトを拡張
+
 ### Deprecated
 
 ### Removed
