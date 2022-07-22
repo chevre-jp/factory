@@ -30,8 +30,9 @@ export interface ISoundFormat {
 }
 /**
  * コンテンツ
+ * contentRatingはCOAのみ存在
  */
-export type IWorkPerformed = IMovie;
+export type IWorkPerformed = Pick<IMovie, 'project' | 'typeOf' | 'id' | 'identifier' | 'name' | 'duration' | 'contentRating'>;
 export interface IOrganizer {
     typeOf: OrganizationType;
     identifier: string;

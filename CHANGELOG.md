@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.251.0 - 2022-07-22
+
+### Changed
+
+- 施設コンテンツのIWorkPerformedを最適化
+
 ## v4.250.0 - 2022-07-19
 
 ### Changed
