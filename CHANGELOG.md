@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 施設コンテンツのIWorkPerformedを最適化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.251.0 - 2022-07-22
+
+### Changed
+
+- 施設コンテンツのIWorkPerformedを最適化
 
 ## v4.250.0 - 2022-07-19
 
