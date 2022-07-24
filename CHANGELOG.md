@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 所有権の所有者をArray対応
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.252.0 - 2022-07-24
+
+### Changed
+
+- 所有権の所有者をArray対応
 
 ## v4.251.0 - 2022-07-22
 
