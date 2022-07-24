@@ -66,7 +66,6 @@ export interface IOwnerAsWebApplication {
     id: string;
     identifier?: IPropertyValue<string>[];
 }
-// export type IOwner = Omit<ICustomer, 'name'>;
 export type IOwner = IOwnerAsOrganization | IOwnerAsPerson | IOwnerAsWebApplication;
 export interface IAcquiredFrom {
     project: { id: string; typeOf: OrganizationType.Project };
@@ -94,8 +93,9 @@ export interface IOwnershipInfo<T extends IGood | IGoodWithDetail> {
     identifier?: any;
     /**
      * owned by whom
+     * Array対応(2022-07-25~)
      */
-    ownedBy: IOwner;
+    ownedBy: IOwner | IOwner[];
     /**
      * The organization or person from which the product was acquired.
      */
