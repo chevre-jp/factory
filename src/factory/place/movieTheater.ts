@@ -109,6 +109,7 @@ export interface ISearchConditions {
     };
     id?: {
         $eq?: string;
+        $in?: string[];
     };
     branchCode?: {
         $eq?: string;
