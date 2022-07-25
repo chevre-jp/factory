@@ -1,7 +1,7 @@
 import { CreativeWorkType } from './creativeWorkType';
 import { OrganizationType } from './organizationType';
 import * as PermitFactory from './permit';
-import { IMemberOf } from './person';
+// import { IMemberOf } from './person';
 import { PersonType } from './personType';
 import * as ProductFactory from './product';
 import { IProject } from './project';
@@ -50,7 +50,8 @@ export interface IOwnerAsOrganization {
     // 個人情報排除するように
     typeOf: OrganizationType.Organization;
     id: string;
-    project: { id: string; typeOf: OrganizationType.Project };
+    // 不要なので廃止(2022-07-26~)
+    // project: { id: string; typeOf: OrganizationType.Project };
     identifier?: IPropertyValue<string>[];
 }
 export interface IOwnerAsPerson {
@@ -58,7 +59,8 @@ export interface IOwnerAsPerson {
     typeOf: PersonType;
     id: string;
     identifier?: IPropertyValue<string>[];
-    memberOf?: IMemberOf;
+    // 不要なので廃止(2022-07-26~)
+    // memberOf?: IMemberOf;
 }
 export interface IOwnerAsWebApplication {
     // 個人情報排除するように
