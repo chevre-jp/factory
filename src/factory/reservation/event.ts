@@ -2,10 +2,12 @@ import {
     ICOAInfo,
     ILocation as IEventLocation,
     IName as IEventName,
-    ISuperEvent
+    ISuperEvent,
+    IWorkPerformed
 } from '../event/screeningEvent';
 import { EventStatusType } from '../eventStatusType';
 import { EventType } from '../eventType';
+import { IMultilingualString } from '../multilingualString';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
@@ -16,9 +18,24 @@ import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
 
 // 最適化(2022-05-31~)
-export type IOptimizedSuperEvent = Omit<ISuperEvent,
-    'subtitleLanguage' | 'dubLanguage' | 'organizer' | 'offers'
-    | 'endDate' | 'startDate' | 'doorDate' | 'eventStatus'>;
+// Pickで表現(2022-07-28~)
+// export type IOptimizedSuperEvent = Omit<ISuperEvent,
+//     'subtitleLanguage' | 'dubLanguage' | 'organizer' | 'offers'
+//     | 'endDate' | 'startDate' | 'doorDate' | 'eventStatus'>;
+export type IOptimizedWorkPerformed = Omit<IWorkPerformed, 'name'> & {
+    // ↓コンテンツ名称がstring型だった時期の予約に関して互換性を維持するため(2022-07-28~)
+    name?: string | IMultilingualString;
+};
+export type IOptimizedSuperEvent = Pick<ISuperEvent,
+    'additionalProperty' | 'id' | 'kanaName' | 'location'
+    | 'name' | 'project' | 'soundFormat' | 'typeOf'
+    | 'videoFormat' | 'description' | 'headline'
+    // ↓COAのみ
+    | 'identifier' | 'alternativeHeadline' | 'duration' | 'coaInfo'
+// | 'workPerformed'
+> & {
+    workPerformed: IOptimizedWorkPerformed;
+};
 export interface IReservationFor {
     endDate: Date;
     eventStatus: EventStatusType;

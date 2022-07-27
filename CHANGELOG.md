@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- コンテンツ名称を多言語型に統一(予約のコンテンツ名称に関しては互換性維持対応)
+
 ### Deprecated
 
 ### Removed
