@@ -1,4 +1,5 @@
 import * as CreativeWorkFactory from '../creativeWork';
+import { IMultilingualString } from '../multilingualString';
 import * as OfferFactory from '../offer';
 import { IProject } from '../project';
 import { SortType } from '../sortType';
@@ -29,6 +30,8 @@ export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
      * The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format.
      */
     duration?: string;
+    // 多言語型に統一(2022-07-28~)
+    name?: IMultilingualString;
     /**
      * 販売情報
      */
