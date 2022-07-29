@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 予約取引開始時の複数適用決済カード指定に対応
+
 ### Deprecated
 
 ### Removed

@@ -114,6 +114,32 @@ export interface IAcceptedAddOn {
     id?: string;
 }
 export type IAcceptedPaymentMethod = IMovieTicket;
+export interface ISingleAcceptedAppliesToMovieTicket {
+    /**
+     * 適用決済カード識別子
+     */
+    identifier?: string;
+}
+/**
+ * 複数承認適用決済カード
+ * 複数指定の場合、カード識別子と決済方法区分の組み合わせで指定します
+ */
+export type IMultipleAcceptedAppliesToMovieTicket = {
+    /**
+     * 適用決済カード識別子
+     */
+    identifier?: string;
+    serviceOutput?: {
+        /**
+         * 決済方法区分
+         */
+        typeOf?: string;
+    };
+}[];
+/**
+ * 承認適用決済カード
+ */
+export type IAcceptedAppliesToMovieTicket = ISingleAcceptedAppliesToMovieTicket | IMultipleAcceptedAppliesToMovieTicket;
 /**
  * 受け入れられたチケットオファー(詳細なし)
  */
@@ -134,12 +160,7 @@ export interface IAcceptedTicketOfferWithoutDetail {
     paymentMethod?: IAcceptedPaymentMethod;
     additionalProperty?: IPropertyValue<string>[];
     priceSpecification?: {
-        appliesToMovieTicket?: {
-            /**
-             * 適用MovieTicket購入番号
-             */
-            identifier?: string;
-        };
+        appliesToMovieTicket?: IAcceptedAppliesToMovieTicket;
     };
 }
 /**
@@ -154,12 +175,7 @@ export interface IAcceptedOffer4object {
     id: string;
     itemOffered: IAcceptedTicketOfferItemOffered4object;
     priceSpecification?: {
-        appliesToMovieTicket?: {
-            /**
-             * 適用MovieTicket購入番号
-             */
-            identifier?: string;
-        };
+        appliesToMovieTicket?: IAcceptedAppliesToMovieTicket;
     };
 }
 /**
