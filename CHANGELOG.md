@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- イベントオファー承認アクションのobject.acceptedOfferを最適化
+
 ### Deprecated
 
 ### Removed

@@ -63,7 +63,32 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
     acceptedOffers?: IResultAcceptedOffer[];
 }
 
-export type IAcceptedOffer4chevre = ReserveTransactionFactory.IAcceptedTicketOffer;
+export type IAcceptedOfferPriceSpecification =
+    ScreeningEventFactory.ITicketPriceSpecification
+    & {
+        /**
+         * 複合価格仕様に、指定された適用決済カード情報を付加できるように
+         */
+        appliesToMovieTicket?: ReserveTransactionFactory.IAcceptedAppliesToMovieTicket;
+    };
+/**
+ * 受け入れられたチケットオファー
+ */
+export type IAcceptedOffer4chevre =
+    // Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty' | 'paymentMethod'>
+    // itemOffered ?: IAcceptedTicketOfferItemOffered;
+    Pick<
+        ScreeningEventFactory.ITicketOffer,
+        // 最適化(2022-08-02~)
+        'id' | 'identifier' | 'typeOf' | 'priceCurrency' | 'itemOffered' | 'addOn' | 'additionalProperty'
+    >
+    & Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty' | 'paymentMethod'>
+    & {
+        itemOffered?: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
+        priceSpecification: IAcceptedOfferPriceSpecification;
+        movieTicketIdentifire?: string;
+    };
+// export type IAcceptedOffer4chevre = ReserveTransactionFactory.IAcceptedTicketOffer;
 
 export type IAcceptedOfferWithoutDetail4chevre = ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail;
 
