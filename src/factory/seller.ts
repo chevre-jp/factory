@@ -1,9 +1,18 @@
+import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import { IMultilingualString } from './multilingualString';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { SortType } from './sortType';
+
+// strict definition(2022-08-04~)
+export type ISellerMerchantReturnPolicy = Pick<
+    IMerchantReturnPolicy,
+    'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'returnFees'
+>;
+
+export type IHasMerchantReturnPolicy = ISellerMerchantReturnPolicy[];
 
 /**
  * 利用可能決済インターフェース
@@ -15,20 +24,21 @@ export interface IPaymentAccepted {
     paymentMethodType: string;
 }
 
-// export type IMakesOffer = IOffer;
-
-/**
- * サービス提供エリアインターフェース
- */
-// export type IAreaServed = any;
-
-export interface ISeller extends IOrganization {
+// IOrganizationからPick(2022-08-04~)
+export interface ISeller extends Pick<
+    IOrganization,
+    'typeOf' | 'id' | 'location' | 'telephone' | 'additionalProperty' | 'name' | 'url'
+> {
     project: IProject;
     /**
      * The geographic area where a service or offered item is provided.
      */
     // areaServed?: IAreaServed[];
-    branchCode?: string;
+    branchCode: string;
+    /**
+     * Indicates a MerchantReturnPolicy that may be applicable.
+     */
+    hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
     name: IMultilingualString;
     /**
      * A pointer to products or services offered by the organization or person.
