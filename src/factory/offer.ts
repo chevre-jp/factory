@@ -1,7 +1,9 @@
 import { ActionType } from './actionType';
 import { ICategoryCode } from './categoryCode';
 import { ItemAvailability } from './itemAvailability';
+import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import { IMonetaryAmount } from './monetaryAmount';
+import { IMultilingualString } from './multilingualString';
 import * as SeatReservationOfferFactory from './offer/seatReservation';
 import { OfferType } from './offerType';
 import { PriceCurrency } from './priceCurrency';
@@ -24,7 +26,7 @@ import { UnitCode } from './unitCode';
  * オファーカテゴリーインターフェース
  */
 export interface ICategory {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     id?: string;
     codeValue?: string;
     name?: any;
@@ -73,6 +75,32 @@ export interface IValidRateLimit {
     unitInSeconds: number;
 }
 
+export type IOfferMerchantReturnPolicy = Pick<
+    IMerchantReturnPolicy,
+    'typeOf' | 'customerRemorseReturnFees' | 'customerRemorseReturnFeesMovieTicket'
+> & {
+    project: Pick<IProject, 'id' | 'typeOf'>;
+    additionalProperty?: IPropertyValue<string>[];
+    id?: string;
+    identifier: string;
+    name?: IMultilingualString;
+};
+export type IHasMerchantReturnPolicy = IOfferMerchantReturnPolicy[];
+export interface IOfferMerchantReturnPolicySearchConditions {
+    limit?: number;
+    page?: number;
+    sort?: any;
+    project?: { id?: { $eq?: string } };
+    id?: {
+        $eq?: string;
+        $in?: string[];
+    };
+    identifier?: {
+        $eq?: string;
+        $in?: string[];
+    };
+}
+
 /**
  * offer interface
  * An offer to transfer some rights to an item or to provide a service
@@ -81,7 +109,7 @@ export interface IValidRateLimit {
  * {@link https://schema.org/Offer}
  */
 export interface IOffer extends IThing {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType;
     id?: string;
     /**
@@ -147,6 +175,7 @@ export interface IOffer extends IThing {
      * オファーが有効となる地域
      */
     eligibleRegion?: any;
+    hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
     /**
      * The item being offered.
      */
@@ -200,7 +229,6 @@ export interface IOffer extends IThing {
  * 単価オファーの提供アイテムインターフェース
  */
 export interface IItemOffered {
-    // project: IProject;
     typeOf: ProductType;
     serviceOutput?: {
         /**
