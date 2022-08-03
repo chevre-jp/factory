@@ -8,11 +8,20 @@ export enum RefundTypeEnumeration {
 }
 
 export enum ReturnFeesEnumeration {
+    /**
+     * Specifies that product returns are free of charge for the customer.
+     */
     FreeReturn = 'FreeReturn',
-    OriginalShippingFees = 'OriginalShippingFees',
+    // OriginalShippingFees = 'OriginalShippingFees',
+    /**
+     * Specifies that the customer must pay a restocking fee when returning a product
+     */
     RestockingFees = 'RestockingFees',
-    ReturnFeesCustomerResponsibility = 'ReturnFeesCustomerResponsibility',
-    ReturnShippingFees = 'ReturnShippingFees'
+    /**
+     * Specifies that product returns must be paid for, and are the responsibility of, the customer.
+     */
+    ReturnFeesCustomerResponsibility = 'ReturnFeesCustomerResponsibility'
+    // ReturnShippingFees = 'ReturnShippingFees'
 }
 
 /**

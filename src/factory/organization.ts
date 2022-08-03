@@ -1,10 +1,7 @@
-import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import { IMultilingualString } from './multilingualString';
 import { IPlace } from './place';
 import { IPropertyValue } from './propertyValue';
 import { IThing } from './thing';
-
-export type IHasMerchantReturnPolicy = IMerchantReturnPolicy[];
 
 export type ILocation = IPlace;
 
@@ -17,10 +14,6 @@ export interface IOrganization extends IThing {
     typeOf: string;
     id?: string;
     email?: string;
-    /**
-     * Indicates a MerchantReturnPolicy that may be applicable.
-     */
-    hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
     legalName?: IMultilingualString;
     location?: ILocation;
     logo?: string;

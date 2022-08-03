@@ -15,6 +15,7 @@ export type IAgent = ActionFactory.IParticipantAsSeller;
 export type IRecipient = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
 export type IService = IProduct;
 export type IAcceptedOfferWithoutDetail = RegisterServiceTransactionFactory.IAcceptedOfferWithoutDetail;
+export type ISellerMakesOffer = Pick<ISeller, 'project' | 'id' | 'name' | 'typeOf'>;
 export interface IAcceptedOffer extends Omit<IOffer, 'addOn' | 'price' | 'availability' | 'availableAtOrFrom'> {
     /**
      * オファー対象アイテム
@@ -23,7 +24,7 @@ export interface IAcceptedOffer extends Omit<IOffer, 'addOn' | 'price' | 'availa
     /**
      * 販売者
      */
-    seller: ISeller;
+    seller: ISellerMakesOffer;
     priceSpecification?: ITicketPriceSpecification;
 }
 export type IObjectWithoutDetail = IAcceptedOfferWithoutDetail[];
