@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- ISellerを最適化
-- 販売者のIMerchantReturnPolicyのstrict definition
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.258.0 - 2022-08-03
+
+### Changed
+
+- ISellerを最適化
+- 販売者のIMerchantReturnPolicyのstrict definition
 
 ## v4.257.0 - 2022-08-02
 
