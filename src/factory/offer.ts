@@ -1,10 +1,7 @@
 import { ActionType } from './actionType';
 import { ICategoryCode } from './categoryCode';
 import { ItemAvailability } from './itemAvailability';
-import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import { IMonetaryAmount } from './monetaryAmount';
-import { IMultilingualString } from './multilingualString';
-import * as SeatReservationOfferFactory from './offer/seatReservation';
 import { OfferType } from './offerType';
 import { PriceCurrency } from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
@@ -21,6 +18,13 @@ import * as WebAPIFactory from './service/webAPI';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 import { UnitCode } from './unitCode';
+
+import {
+    IOfferMerchantReturnPolicy,
+    IOfferMerchantReturnPolicySearchConditions,
+    IOfferMerchantReturnPolicySortOrder
+} from './offer/merchantReturnPolicy';
+import * as SeatReservationOfferFactory from './offer/seatReservation';
 
 /**
  * オファーカテゴリーインターフェース
@@ -75,31 +79,12 @@ export interface IValidRateLimit {
     unitInSeconds: number;
 }
 
-export type IOfferMerchantReturnPolicy = Pick<
-    IMerchantReturnPolicy,
-    'typeOf' | 'customerRemorseReturnFees' | 'customerRemorseReturnFeesMovieTicket'
-> & {
-    project: Pick<IProject, 'id' | 'typeOf'>;
-    additionalProperty?: IPropertyValue<string>[];
-    id?: string;
-    identifier: string;
-    name?: IMultilingualString;
-};
 export type IHasMerchantReturnPolicy = Pick<IOfferMerchantReturnPolicy, 'typeOf' | 'id' | 'identifier' | 'name'>[];
-export interface IOfferMerchantReturnPolicySearchConditions {
-    limit?: number;
-    page?: number;
-    sort?: any;
-    project?: { id?: { $eq?: string } };
-    id?: {
-        $eq?: string;
-        $in?: string[];
-    };
-    identifier?: {
-        $eq?: string;
-        $in?: string[];
-    };
-}
+export {
+    IOfferMerchantReturnPolicy,
+    IOfferMerchantReturnPolicySearchConditions,
+    IOfferMerchantReturnPolicySortOrder
+};
 
 /**
  * offer interface
