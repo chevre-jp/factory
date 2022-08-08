@@ -85,7 +85,7 @@ export type IOfferMerchantReturnPolicy = Pick<
     identifier: string;
     name?: IMultilingualString;
 };
-export type IHasMerchantReturnPolicy = IOfferMerchantReturnPolicy[];
+export type IHasMerchantReturnPolicy = Pick<IOfferMerchantReturnPolicy, 'typeOf' | 'id' | 'identifier' | 'name'>[];
 export interface IOfferMerchantReturnPolicySearchConditions {
     limit?: number;
     page?: number;
@@ -371,6 +371,9 @@ export interface ISearchConditions {
         codeValue?: {
             $eq?: string;
         };
+    };
+    hasMerchantReturnPolicy?: {
+        id?: { $eq?: string };
     };
     id?: {
         $eq?: string;
