@@ -79,7 +79,10 @@ export interface IValidRateLimit {
     unitInSeconds: number;
 }
 
-export type IHasMerchantReturnPolicy = Pick<IOfferMerchantReturnPolicy, 'typeOf' | 'id' | 'identifier' | 'name'>[];
+export type IHasMerchantReturnPolicy = (Pick<IOfferMerchantReturnPolicy, 'typeOf' | 'id' | 'identifier' | 'name'> & {
+    id: string;
+    identifier: string;
+})[];
 export {
     IOfferMerchantReturnPolicy,
     IOfferMerchantReturnPolicySearchConditions,

@@ -7,11 +7,7 @@ import { IPropertyValue } from './propertyValue';
 import { SortType } from './sortType';
 
 // strict definition(2022-08-04~)
-export type ISellerMerchantReturnPolicy = Pick<
-    IMerchantReturnPolicy,
-    'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'returnFees'
->;
-
+export type ISellerMerchantReturnPolicy = Pick<IMerchantReturnPolicy, 'typeOf' | 'merchantReturnDays' | 'restockingFee'>;
 export type IHasMerchantReturnPolicy = ISellerMerchantReturnPolicy[];
 
 /**
