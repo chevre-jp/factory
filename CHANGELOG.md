@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - オファー検索条件拡張
 - 販売者の返品ポリシーを最適化
 - 返品取引の返品ポリシーを最適化
+- 返品アクションのpotentialActionsを最適化
 
 ### Deprecated
 
