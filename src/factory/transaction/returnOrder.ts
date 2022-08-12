@@ -120,11 +120,25 @@ export interface IConfirmParams {
      */
     potentialActions?: IPotentialActionsParams;
 }
+export interface IReturnFeesMovieTicket {
+    /**
+     * 決済カードコード
+     */
+    identifier: string;
+    /**
+     * 着券取消実行有無
+     */
+    returnFees: ReturnFeesEnumeration.FreeReturn | ReturnFeesEnumeration.ReturnFeesCustomerResponsibility;
+}
 /**
  * 取引に適用される返品ポリシー
  */
 export type IReturnPolicy = Pick<IMerchantReturnPolicy, 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'returnFees'> & {
     returnFees: ReturnFeesEnumeration;
+    /**
+     * 決済カードコードごとの着券取消実行有無
+     */
+    returnFeesMovieTicket?: IReturnFeesMovieTicket[];
 };
 /**
  * 取引対象物
