@@ -6,7 +6,10 @@ import { IPlace as IScreeningRoomSection } from './screeningRoomSection';
 /**
  * ルームインターフェース
  */
-export interface IPlace extends PlaceFactory.IPlace {
+export interface IPlace extends Pick<
+    PlaceFactory.IPlace,
+    'project' | 'typeOf' | 'branchCode' | 'name' | 'address' | 'containedInPlace' | 'containsPlace' | 'additionalProperty' | 'openSeatingAllowed' | 'maximumAttendeeCapacity'
+> {
     typeOf: PlaceType.ScreeningRoom;
     /**
      * セクションリスト

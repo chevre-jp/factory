@@ -1,17 +1,16 @@
 import { IMultilingualString } from '../multilingualString';
 import * as OfferFactory from '../offer';
-import { IOrganization } from '../organization';
 import * as PlaceFactory from '../place';
 import { PlaceType } from '../placeType';
 import { IQuantitativeValue } from '../quantitativeValue';
-// import SortType from '../sortType';
+import { ISeller } from '../seller';
 import { UnitCode } from '../unitCode';
 import { IPlace as IScreeningRoom } from './screeningRoom';
 
 /**
  * 施設に対するオファーインターフェース
  */
-export interface IOffer extends OfferFactory.IOffer {
+export interface IOffer extends Pick<OfferFactory.IOffer, 'priceCurrency' | 'project' | 'typeOf' | 'eligibleQuantity'> {
     /**
      * イベント開始前の販売猶予期間
      */
@@ -21,22 +20,35 @@ export interface IOffer extends OfferFactory.IOffer {
      */
     availabilityEndsGraceTime?: IQuantitativeValue<UnitCode.Sec>;
 }
-
 export type POSType = 'POS';
-
 /**
  * POSインターフェース
  * 管理者が識別しやすいようPOSの属性を指定します
  */
 export interface IPOS {
     typeOf: POSType;
+    /**
+     * コード
+     */
     id: string;
+    /**
+     * 名称
+     */
     name: string;
 }
-
-export type IEntranceGate = PlaceFactory.IPlace;
-
-export type IParentOrganization = IOrganization;
+/**
+ * 入場ゲート
+ */
+export type IEntranceGate = Pick<PlaceFactory.IPlace, 'typeOf' | 'identifier' | 'name'> & {
+    typeOf: PlaceType.Place;
+    identifier: string;
+};
+/**
+ * 親組織
+ */
+export type IParentOrganization = Pick<ISeller, 'typeOf' | 'id'> & {
+    id: string;
+};
 
 /**
  * place interface without screening room
@@ -47,9 +59,9 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
     /**
      * ルーム数
      */
-    screenCount: number;
+    screenCount?: number;
     /**
-     * 枝番号
+     * 施設コード
      */
     branchCode: string;
     /**
