@@ -99,9 +99,9 @@ export type IEvent<T extends IAttributes<EventType>> = T & {
  * ソート条件インターフェース
  */
 export interface ISortOrder {
-    name?: string;
-    doorTime?: SortType;
-    endDate?: SortType;
+    // name?: string;
+    // doorTime?: SortType;
+    // endDate?: SortType;
     startDate?: SortType;
 }
 

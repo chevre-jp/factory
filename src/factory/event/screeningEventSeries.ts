@@ -32,9 +32,12 @@ export interface ISoundFormat {
  * コンテンツ
  * contentRatingはCOAのみ存在
  */
-export type IWorkPerformed = Pick<IMovie, 'project' | 'typeOf' | 'id' | 'identifier' | 'name' | 'duration' | 'contentRating'>;
+export type IWorkPerformed = Pick<
+    IMovie,
+    'project' | 'typeOf' | 'id' | 'identifier' | 'name' | 'duration' | 'contentRating'
+>;
 export interface IOrganizer {
-    typeOf: OrganizationType;
+    typeOf: OrganizationType.Corporation;
     identifier: string;
     name: IMultilingualString;
 }
@@ -68,7 +71,33 @@ export interface ICOAInfo {
      */
     dateMvtkBegin: string;
 }
-export interface IEventSeriesAttributes extends EventFactory.IAttributes<EventType.ScreeningEventSeries> {
+export interface ILocation {
+    project: IProject;
+    typeOf: PlaceType.MovieTheater;
+    /**
+     * 施設ID
+     */
+    id: string;
+    /**
+     * コード
+     */
+    branchCode: string;
+    /**
+     * 名称
+     */
+    name?: IMultilingualString;
+    /**
+     * カナ名称
+     */
+    kanaName?: string;
+    // alternateName?: IMultilingualString;
+    // description?: IMultilingualString;
+    // address?: IMultilingualString;
+}
+export interface IAttributes extends Omit<
+    EventFactory.IAttributes<EventType.ScreeningEventSeries>,
+    'alternateName' | 'doorTime' | 'hasOfferCatalog' | 'maximumAttendeeCapacity' | 'remainingAttendeeCapacity'
+> {
     /**
      * 字幕利用可能言語
      */
@@ -90,47 +119,25 @@ export interface IEventSeriesAttributes extends EventFactory.IAttributes<EventTy
      */
     workPerformed: IWorkPerformed;
     /**
-     * 上映場所
+     * 施設
      */
-    location: {
-        project: IProject;
-        typeOf: PlaceType.MovieTheater;
-        /**
-         * 場所ID
-         */
-        id: string;
-        /**
-         * 施設コード
-         */
-        branchCode: string;
-        /**
-         * 場所名称
-         */
-        name?: IMultilingualString;
-        /**
-         * 場所名称(カナ)
-         */
-        kanaName?: string;
-        alternateName?: IMultilingualString;
-        description?: IMultilingualString;
-        address?: IMultilingualString;
-    };
+    location: ILocation;
     organizer?: IOrganizer;
     /**
-     * 名称（カナ）
+     * カナ名称
      */
     kanaName: string;
     /**
-     * イベント名称
+     * 名称
      */
     name: IMultilingualString;
     /**
-     * 公演終了予定日
+     * 終了日時
      * ISO 8601 date format
      */
     endDate?: Date;
     /**
-     * 公演開始予定日
+     * 開始日時
      * ISO 8601 date format
      */
     startDate?: Date;
@@ -144,7 +151,6 @@ export interface IEventSeriesAttributes extends EventFactory.IAttributes<EventTy
      */
     coaInfo?: ICOAInfo;
 }
-export type IAttributes = Omit<IEventSeriesAttributes, 'hasOfferCatalog' | 'maximumAttendeeCapacity' | 'remainingAttendeeCapacity'>;
 /**
  * 施設コンテンツ
  */
@@ -172,7 +178,7 @@ export interface ISearchConditions extends EventFactory.ISearchConditions<EventT
     };
     workPerformed?: {
         /**
-         * イベントで上演されるコンテンツコードリスト
+         * コンテンツコード
          */
         identifiers?: string[];
     };

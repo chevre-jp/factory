@@ -77,7 +77,7 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
      */
     name: IMultilingualString;
     /**
-     * 名称(カナ)
+     * カナ名称
      */
     kanaName: string;
     /**

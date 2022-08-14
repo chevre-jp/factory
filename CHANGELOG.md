@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 返品取引の返品ポリシーを最適化
 - 返品アクションのpotentialActionsを最適化
 - 施設インターフェースを最適化
+- 施設コンテンツを最適化
 
 ### Deprecated
 
