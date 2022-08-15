@@ -25,8 +25,8 @@ export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.ISer
 
 export type IRequestBody<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? COA.factory.reserve.IUpdTmpReserveSeatArgs :
-    // T extends WebAPIIdentifier.Chevre ? chevre.transaction.reserve.ITransaction :
-    any;
+    T extends WebAPIFactory.Identifier.Chevre ? ReserveTransactionFactory.IStartParamsWithoutDetail :
+    never;
 export type IResponseBody<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? COA.factory.reserve.IUpdTmpReserveSeatResult :
     T extends WebAPIFactory.Identifier.Chevre ? ReserveTransactionFactory.ITransaction :
@@ -55,7 +55,7 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
     /**
      * 外部サービスへのリクエスト
      */
-    requestBody?: IRequestBody<T>;
+    requestBody: IRequestBody<T>;
     /**
      * 外部サービスからのレスポンス
      */
@@ -109,17 +109,17 @@ export interface IObjectWithoutDetail4COA {
 export type IAcceptedOffer<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? IAcceptedOffer4COA :
     T extends WebAPIFactory.Identifier.Chevre ? IAcceptedOffer4chevre :
-    any;
+    never;
 
 export type IAcceptedOfferWithoutDetail<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? IAcceptedOfferWithoutDetail4COA :
     T extends WebAPIFactory.Identifier.Chevre ? IAcceptedOfferWithoutDetail4chevre :
-    any;
+    never;
 
 export type IObjectWithoutDetail<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? IObjectWithoutDetail4COA :
     T extends WebAPIFactory.Identifier.Chevre ? IObjectWithoutDetail4chevre :
-    any;
+    never;
 
 export interface IPendingTransaction {
     typeOf: AssetTransactionType.Reserve;

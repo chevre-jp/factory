@@ -5,7 +5,8 @@ import * as UseActionFactory from '../use';
 
 export type IAgent = IParticipantAsPerson | IParticipantAsWebApplication;
 export type IObject = IReservation[];
-export type IResult = any;
+// tslint:disable-next-line:no-empty-interface
+export interface IResult { }
 export interface ILocation {
     typeOf: PlaceType.Place;
     /**

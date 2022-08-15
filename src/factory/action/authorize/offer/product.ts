@@ -34,8 +34,8 @@ export interface IResult {
     price: number;
     priceCurrency: PriceCurrency;
     acceptedOffers: IResultAcceptedOffer;
-    requestBody?: any;
-    responseBody: any;
+    requestBody: RegisterServiceTransactionFactory.IStartParamsWithoutDetail;
+    responseBody: RegisterServiceTransactionFactory.ITransaction;
 }
 export interface IPurpose {
     typeOf: TransactionType.PlaceOrder;

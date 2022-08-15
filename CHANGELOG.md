@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 返品アクションのpotentialActionsを最適化
 - 施設インターフェースを最適化
 - 施設コンテンツを最適化
+- any属性を定義
 
 ### Deprecated
 

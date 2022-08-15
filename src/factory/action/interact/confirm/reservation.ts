@@ -1,13 +1,11 @@
 import * as COA from '@motionpicture/coa-service';
 
-// import * as ActionFactory from '../../../action';
 import * as ReserveTransactionFactory from '../../../assetTransaction/reserve';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
 import * as WebAPIFactory from '../../../service/webAPI';
 import * as ConfirmActionFactory from '../confirm';
 
-// export type IAgent = ActionFactory.IParticipant;
 export type IObject4COA = COA.factory.reserve.IUpdReserveArgs & {
     // 取引番号は必須
     transactionNumber: string;

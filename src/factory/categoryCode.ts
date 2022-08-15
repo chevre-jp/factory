@@ -1,5 +1,6 @@
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
+import { SortType } from './sortType';
 import { IThing } from './thing';
 
 export enum CategorySetIdentifier {
@@ -78,7 +79,9 @@ export interface ICategoryCode extends IThing {
 export interface ISearchConditions {
     limit?: number;
     page?: number;
-    sort?: any;
+    sort?: {
+        codeValue?: SortType;
+    };
     project?: { id?: { $eq?: string } };
     id?: { $eq?: string };
     name?: { $regex?: string };

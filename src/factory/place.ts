@@ -17,7 +17,7 @@ export interface IPlace extends IThing {
     containsPlace?: IPlace[];
     maximumAttendeeCapacity?: number;
     name?: IMultilingualString;
-    openingHoursSpecification?: any;
+    // openingHoursSpecification?: any;
     openSeatingAllowed?: boolean;
     smokingAllowed?: boolean;
     telephone?: string;

@@ -98,7 +98,7 @@ export interface IPaymentService {
     serviceOutput?: IPaymentServiceOutput;
 }
 export type IObject = IPaymentService[];
-export type IInformPayment = IInformActionAttributes<any, any>;
+export type IInformPayment = IInformActionAttributes<{}, undefined>;
 export interface IPotentialActions {
     informPayment?: IInformPayment[];
 }

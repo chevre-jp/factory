@@ -4,6 +4,7 @@ import * as PlaceFactory from '../place';
 import { PlaceType } from '../placeType';
 import { IQuantitativeValue } from '../quantitativeValue';
 import { ISeller } from '../seller';
+import { SortType } from '../sortType';
 import { UnitCode } from '../unitCode';
 import { IPlace as IScreeningRoom } from './screeningRoom';
 
@@ -107,8 +108,9 @@ export type IPlace = IPlaceWithoutScreeningRoom & {
 /**
  * ソート条件インターフェース
  */
-export type ISortOrder = any;
-
+export interface ISortOrder {
+    branchCode?: SortType;
+}
 export interface ISearchConditions {
     limit?: number;
     page?: number;

@@ -77,7 +77,15 @@ export interface ISearchConditions<T extends PriceSpecificationType> {
     ids?: string[];
     typeOf?: T;
     appliesToCategoryCode?: {
-        $elemMatch?: any;
+        $elemMatch?: {
+            codeValue?: {
+                $eq?: string;
+                $in?: string[];
+            };
+            'inCodeSet.identifier'?: {
+                $eq?: string;
+            };
+        };
         codeValue?: {
             $eq?: string;
             $in?: string[];

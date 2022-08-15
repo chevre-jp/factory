@@ -92,7 +92,7 @@ export interface IOwnershipInfo<T extends IGood | IGoodWithDetail> {
     /**
      * 識別子
      */
-    identifier?: any;
+    identifier?: string;
     /**
      * owned by whom
      * Array対応(2022-07-25~)

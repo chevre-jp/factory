@@ -36,7 +36,7 @@ export interface IPermit extends IThing {
     /**
      * The target audience for this permit.
      */
-    permitAudience?: any;
+    // permitAudience?: any;
     /**
      * The duration of validity of a permit or similar thing.
      */
@@ -48,7 +48,7 @@ export interface IPermit extends IThing {
     /**
      * The geographic area where a permit or similar thing is valid.
      */
-    validIn?: any;
+    // validIn?: any;
     /**
      * The date when the item is no longer valid.
      */

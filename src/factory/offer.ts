@@ -33,7 +33,6 @@ export interface ICategory {
     project: Pick<IProject, 'id' | 'typeOf'>;
     id?: string;
     codeValue?: string;
-    name?: any;
 }
 
 /**
@@ -88,7 +87,9 @@ export {
     IOfferMerchantReturnPolicySearchConditions,
     IOfferMerchantReturnPolicySortOrder
 };
-
+export interface IAvailableAtOrFrom {
+    id: string;
+}
 /**
  * offer interface
  * An offer to transfer some rights to an item or to provide a service
@@ -125,7 +126,7 @@ export interface IOffer extends IThing {
     /**
      * The place(s) from which the offer can be obtained (e.g. store locations).
      */
-    availableAtOrFrom?: any;
+    availableAtOrFrom?: IAvailableAtOrFrom[];
     /**
      * A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
      */
@@ -168,7 +169,7 @@ export interface IOffer extends IThing {
      * The item being offered.
      */
     itemOffered?: any;
-    offeredBy?: any;
+    // offeredBy?: any;
     /**
      * オファー供給サービス
      */

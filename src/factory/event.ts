@@ -23,7 +23,7 @@ export interface IAttributes<T extends EventType> {
     /**
      * イベント識別子
      */
-    identifier?: any;
+    identifier?: string;
     /**
      * イベント名称
      */

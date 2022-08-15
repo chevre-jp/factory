@@ -2,16 +2,13 @@ import { IMonetaryAmount } from './monetaryAmount';
 import * as OrderFactory from './order';
 import { PaymentStatusType } from './paymentStatusType';
 import * as PersonFactory from './person';
-// import { PersonType } from './personType';
-// import { IProject } from './project';
 import * as SellerFactory from './seller';
 import { PaymentServiceType } from './service/paymentService';
-// import { SortType } from './sortType';
 
 export type IBroker = SellerFactory.ISeller | PersonFactory.IPerson;
 export type IProvider = SellerFactory.ISeller | PersonFactory.IPerson;
 export interface IReferenceOrder extends OrderFactory.IOrder {
-    acceptedOffers: OrderFactory.IAcceptedOffer<any>[];
+    acceptedOffers: OrderFactory.IAcceptedOffer<OrderFactory.IItemOffered>[];
 }
 export interface IMovieTicketAsPaymentServiceOutput {
     /**
