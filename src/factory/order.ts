@@ -19,7 +19,7 @@ import { PlaceType } from './placeType';
 import { PriceCurrency } from './priceCurrency';
 import { IProduct, ProductType } from './product';
 import { IPropertyValue } from './propertyValue';
-import { IProgramMembershipUsedSearchConditions } from './reservation';
+import { IProgramMembershipUsedSearchConditions, ITicket, ITicketType } from './reservation';
 import * as EventReservationFactory from './reservation/event';
 import { ReservationType } from './reservationType';
 import { IServiceType } from './serviceType';
@@ -85,9 +85,55 @@ export interface IDiscount {
      */
     discountCurrency: string;
 }
-export type IReservation = Omit<EventReservationFactory.IReservation,
-    'attended' | 'broker' | 'checkedIn' | 'modifiedTime' | 'previousReservationStatus'
-    | 'price' | 'priceCurrency' | 'reservationStatus' | 'subReservation' | 'underName'>;
+export type IWorkPerformed = Pick<
+    EventReservationFactory.IOptimizedWorkPerformed,
+    'project' | 'typeOf' | 'id' | 'identifier' | 'name' | 'duration'
+>;
+export type ISuperEvent = Omit<EventReservationFactory.IOptimizedSuperEvent, 'workPerformed'> & {
+    workPerformed: IWorkPerformed;
+};
+export type IReservationFor = Omit<EventReservationFactory.IReservationFor, 'superEvent'> & {
+    superEvent: ISuperEvent;
+};
+export type IReservedTicketType = Pick<
+    ITicketType,
+    'additionalProperty' |
+    'description' |
+    'id' |
+    'identifier' |
+    'name' |
+    'priceCurrency' |
+    'project' |
+    'typeOf'
+>;
+export type IReservedTicket = Pick<
+    ITicket,
+    'typeOf' | 'ticketedSeat' |
+    // 以下COAのみ
+    'dateIssued' |
+    'ticketNumber' |
+    'ticketToken' |
+    'coaTicketInfo' |
+    'coaReserveAmount'
+> & {
+    ticketType: ITicketType;
+};
+// Pickで定義(2022-08-18~)
+export type IReservation = Pick<
+    EventReservationFactory.IReservation,
+    'additionalProperty' |
+    'additionalTicketText' |
+    'bookingTime' |
+    'id' |
+    'issuedThrough' |
+    'programMembershipUsed' |
+    'project' |
+    'reservationNumber' |
+    'typeOf'
+> & {
+    reservationFor: IReservationFor;
+    reservedTicket: IReservedTicket;
+};
 export type IPermit = Omit<PermitFactory.IPermit,
     'accessCode' | 'additionalProperty' | 'depositAmount' | 'paymentAmount' | 'paymentAccount' | 'issuedBy'>;
 export interface IMoneyTransferPendingTransaction {
@@ -120,7 +166,18 @@ export interface IMoneyTransfer {
  * 注文アイテム
  */
 export type IItemOffered = IMoneyTransfer | IReservation | IPermit;
-export type IOfferOptimized4acceptedOffer = Omit<IOffer, 'addOn' | 'price' | 'availability' | 'availableAtOrFrom'>;
+// Pickで定義(2022-08-18~)
+// export type IOfferOptimized4acceptedOfferOld = Omit<IOffer, 'addOn' | 'price' | 'availability' | 'availableAtOrFrom'>;
+export type IOfferOptimized4acceptedOffer = Pick<
+    IOffer,
+    'project' |
+    'typeOf' |
+    'id' |
+    'itemOffered' |
+    'offeredThrough' |
+    'priceCurrency' |
+    'priceSpecification'
+>;
 /**
  * 受け入れオファー
  */
@@ -134,9 +191,7 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOfferOptimized4
      */
     seller: {
         project: { id: string; typeOf: OrganizationType.Project };
-        // id: string;
         typeOf: OrganizationType.Corporation;
-        // name: string;
         name?: string | IMultilingualString;
     };
     priceSpecification?: ITicketPriceSpecification;
@@ -148,10 +203,7 @@ export interface ISeller {
     project: { id: string; typeOf: OrganizationType.Project };
     id: string;
     typeOf: OrganizationType.Corporation;
-    // ↓最適化(2022-05-20~)
     name: string;
-    // name?: string | IMultilingualString;
-    // url?: string;
 }
 /**
  * ウェブアプリケーションとしてのカスタマー

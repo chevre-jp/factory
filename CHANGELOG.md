@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 施設インターフェースを最適化
 - 施設コンテンツを最適化
 - any属性を定義
+- 注文のIReservationを最適化
 
 ### Deprecated
 

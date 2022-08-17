@@ -74,6 +74,7 @@ export interface ISubReservation {
  */
 export interface IReservation extends ReservationFactory.IReservation<IPriceSpecification> {
     id: string;
+    issuedThrough: ReservationFactory.IIssuedThrough;
     reservationFor: IReservationFor;
     reservationNumber: string;
     reservationStatus: ReservationStatusType;

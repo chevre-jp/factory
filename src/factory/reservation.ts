@@ -181,6 +181,10 @@ export interface IBroker {
 }
 // export type IBroker = IUnderName;
 export type IProgramMembershipUsed = IPermit;
+export interface IIssuedThrough {
+    typeOf: ProductType.EventService;
+    serviceType?: IServiceType;
+}
 /**
  * 予約
  * Describes a reservation for travel, dining or an event. Some reservations require tickets.
@@ -229,10 +233,7 @@ export interface IReservation<T extends IPriceSpecification> extends IThing {
      * Web page where reservation can be confirmed.
      */
     // confirmReservationUrl?: string;
-    issuedThrough?: {
-        typeOf: ProductType.EventService;
-        serviceType?: IServiceType;
-    };
+    issuedThrough?: IIssuedThrough;
     /**
      * Time the reservation was last modified.
      */
