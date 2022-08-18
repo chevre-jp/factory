@@ -12,7 +12,7 @@ export type IRecipient = ActionFactory.IParticipant;
 /**
  * 口座以外の匿名場所インターフェース
  */
-export interface IAnonymousLocation extends IThing {
+export interface IAnonymousLocation extends Pick<IThing, 'identifier' | 'name'> {
     /**
      * ロケーションタイプ
      */

@@ -14,7 +14,7 @@ export type IIssuedThrough = Pick<IProduct, 'id' | 'project' | 'serviceType' | '
  * A permit issued by an organization, e.g. a parking pass.
  * {@link https://schema.org/Permit}
  */
-export interface IPermit extends IThing {
+export interface IPermit extends Pick<IThing, 'name'> {
     project: IProject;
     typeOf: PermitType;
     identifier?: string;

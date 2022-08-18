@@ -1,4 +1,0 @@
-/**
- * サービスファクトリー
- */
-export * from './product';

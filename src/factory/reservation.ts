@@ -12,12 +12,11 @@ import { PlaceType } from './placeType';
 import { PriceCurrency } from './priceCurrency';
 import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
 import { PriceSpecificationType } from './priceSpecificationType';
-import { ProductType } from './product';
+import { IServiceType, ProductType } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { ReservationStatusType } from './reservationStatusType';
 import { ReservationType } from './reservationType';
-import { IServiceType } from './serviceType';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 
@@ -193,7 +192,7 @@ export interface IIssuedThrough {
  * For offers of tickets, restaurant reservations, flights, or rental cars, use Offer.
  * {@link https://schema.org/Reservation}
  */
-export interface IReservation<T extends IPriceSpecification> extends IThing {
+export interface IReservation<T extends IPriceSpecification> extends Pick<IThing, 'identifier' | 'name'> {
     project: IProject;
     /**
      * type of object

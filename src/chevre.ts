@@ -35,8 +35,6 @@ import * as RefundActionFactory from './factory/action/trade/refund';
 import * as GiveActionFactory from './factory/action/transfer/give';
 import * as GivePointAwardActionFactory from './factory/action/transfer/give/pointAward';
 import * as MoneyTransferActionFactory from './factory/action/transfer/moneyTransfer';
-// import * as PrintActionFactory from './factory/action/transfer/print';
-// import * as PrintTicketActionFactory from './factory/action/transfer/print/ticket';
 import * as ReturnMoneyTransferActionFactory from './factory/action/transfer/return/moneyTransfer';
 import * as ReturnOrderActionFactory from './factory/action/transfer/return/order';
 import * as ReturnPaymentMethodActionFactory from './factory/action/transfer/return/paymentMethod';
@@ -114,10 +112,9 @@ import * as ReservationPackageFactory from './factory/reservation/reservationPac
 import { ReservationStatusType } from './factory/reservationStatusType';
 import { ReservationType } from './factory/reservationType';
 import * as SellerFactory from './factory/seller';
-import * as ServiceFactory from './factory/service';
 import * as PaymentServiceFactory from './factory/service/paymentService';
 import * as WebAPIServiceFactory from './factory/service/webAPI';
-import * as ServiceTypeFactory from './factory/serviceType';
+// import * as ServiceTypeFactory from './factory/serviceType';
 import { SortType } from './factory/sortType';
 import * as ThingFactory from './factory/thing';
 import { UnitCode } from './factory/unitCode';
@@ -636,15 +633,11 @@ export namespace task {
 }
 
 export namespace service {
-    export import IHasOfferCatalog = ServiceFactory.IHasOfferCatalog;
-    export import IPointAward = ServiceFactory.IPointAward;
-    export import IService = ServiceFactory.IProduct;
-    export import IServiceOutput = ServiceFactory.IServiceOutput;
     export import paymentService = PaymentServiceFactory;
     export import webAPI = WebAPIServiceFactory;
 }
 
-export import serviceType = ServiceTypeFactory;
+// export import serviceType = ServiceTypeFactory;
 export import sortType = SortType;
 export import taskName = TaskName;
 export import taskStatus = TaskStatus;

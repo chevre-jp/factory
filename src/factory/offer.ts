@@ -40,7 +40,7 @@ export interface ICategory {
  */
 export type IAddOn = IOffer;
 
-export type IEligibleCategoryCode = ICategoryCode;
+export type IEligibleCategoryCode = Pick<ICategoryCode, 'project' | 'typeOf' | 'id' | 'codeValue' | 'inCodeSet'>;
 export type IEligibleMonetaryAmount = IMonetaryAmount;
 
 /**
@@ -62,7 +62,7 @@ export interface IEligibleSubReservation {
 /**
  * 販売者インターフェース
  */
-export interface ISeller extends IThing {
+export interface ISeller {
     typeOf?: string;
     id?: string;
 }
@@ -97,7 +97,7 @@ export interface IAvailableAtOrFrom {
  * to stream a TV show over the internet, to repair a motorcycle, or to loan a book.
  * {@link https://schema.org/Offer}
  */
-export interface IOffer extends IThing {
+export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternateName' | 'color' | 'identifier'> {
     project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType;
     id?: string;
@@ -163,7 +163,7 @@ export interface IOffer extends IThing {
     /**
      * オファーが有効となる地域
      */
-    eligibleRegion?: any;
+    // eligibleRegion?: any;
     hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
     /**
      * The item being offered.
@@ -258,7 +258,10 @@ export interface IItemOffered {
 /**
  * 単価オファーインターフェース
  */
-export interface IUnitPriceOffer extends IOffer {
+export interface IUnitPriceOffer extends Omit<IOffer, 'seller'> {
+    /**
+     * コード
+     */
     identifier: string;
     /**
      * 単価仕様

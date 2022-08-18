@@ -127,22 +127,17 @@ export interface IPendingTransaction {
 }
 
 // 最適化(2022-06-07~)
-export type IEvent = Omit<ScreeningEventFactory.IEvent,
-    'offers' | 'project' | 'additionalProperty'
-    | 'aggregateEntranceGate' | 'aggregateReservation' | 'aggregateOffer' | 'workPerformed'
-    | 'checkInCount' | 'attendeeCount'
-    | 'eventStatus' | 'hasOfferCatalog' | 'maximumAttendeeCapacity' | 'remainingAttendeeCapacity'
-    | 'alternateName' | 'alternativeHeadline' | 'description' | 'duration' | 'headline' | 'name'
-    | 'location' | 'doorTime' | 'endDate' | 'startDate'
-    | 'coaInfo'
-
->
-    & {
-        offers: {
-            // イベント提供サービスを識別できるようにするために追加(2022-06-03~)
-            offeredThrough: ScreeningEventFactory.IOfferedThrough;
-        };
+// Pickで定義(2022-08-19~)
+export type IEvent = Pick<
+    ScreeningEventFactory.IEvent,
+    'id' | 'typeOf'
+// | 'superEvent'
+> & {
+    offers: {
+        // イベント提供サービスを識別できるようにするために追加(2022-06-03~)
+        offeredThrough: ScreeningEventFactory.IOfferedThrough;
     };
+};
 /**
  * 承認アクション対象
  */
@@ -165,10 +160,6 @@ export interface IPurpose {
  * authorize action error interface
  */
 export type IError = any;
-
-/**
- * 座席予約承認アクション
- */
 export interface IAttributes<T extends WebAPIFactory.Identifier>
     extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult<T>> {
     typeOf: ActionType.AuthorizeAction;
@@ -178,5 +169,7 @@ export interface IAttributes<T extends WebAPIFactory.Identifier>
     purpose: IPurpose;
     instrument: IInstrument<T>;
 }
-
+/**
+ * イベントオファー承認アクション
+ */
 export type IAction<T extends WebAPIFactory.Identifier> = ActionFactory.IAction<IAttributes<T>>;

@@ -4,7 +4,7 @@ import { IThing } from './thing';
  * 金額インターフェース
  * {@link https://schema.org/MonetaryAmount}
  */
-export interface IMonetaryAmount extends IThing {
+export interface IMonetaryAmount extends Pick<IThing, 'name'> {
     typeOf: 'MonetaryAmount';
     /**
      * The currency in which the monetary amount is expressed.

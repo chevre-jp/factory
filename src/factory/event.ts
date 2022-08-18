@@ -15,7 +15,7 @@ export interface IHasOfferCatalog {
 }
 
 export interface IAttributes<T extends EventType> {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * イベントタイプ
      */
@@ -89,19 +89,16 @@ export interface IAttributes<T extends EventType> {
 }
 
 /**
- * イベントインターフェース
+ * イベント
  */
 export type IEvent<T extends IAttributes<EventType>> = T & {
     id: string;
 };
 
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
-    // name?: string;
-    // doorTime?: SortType;
-    // endDate?: SortType;
     startDate?: SortType;
 }
 

@@ -24,6 +24,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文のorderedItemとしてのプロダクトを最適化
 - 所有権のIPermitを最適化
 - プロダクトを最適化
+- イベントオファー承認アクションを最適化
+- サービスファクトリーをプロダクトファクトリーに統合
+- プロダクトのIServiceTypeを最適化
+- IThing継承について最適化
 
 ### Deprecated
 

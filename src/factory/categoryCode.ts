@@ -1,3 +1,4 @@
+import { IMultilingualString } from './multilingualString';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { SortType } from './sortType';
@@ -52,20 +53,21 @@ export enum CategorySetIdentifier {
 /**
  * {@link https://schema.org/CategoryCodeSet}
  */
-export interface ICategoryCodeSet extends IThing {
+export interface ICategoryCodeSet {
     typeOf: 'CategoryCodeSet';
     identifier: CategorySetIdentifier;
 }
 /**
  * {@link https://schema.org/CategoryCode}
  */
-export interface ICategoryCode extends IThing {
-    project: IProject;
+export interface ICategoryCode extends Pick<IThing, 'color' | 'image' | 'name'> {
+    additionalProperty?: IPropertyValue<string>[];
+    project: Pick<IProject, 'id' | 'typeOf'>;
     id?: string;
     typeOf: 'CategoryCode';
     codeValue: string;
     inCodeSet: ICategoryCodeSet;
-    additionalProperty?: IPropertyValue<string>[];
+    name: IMultilingualString;
     paymentMethod?: {
         /**
          * 決済カード区分の場合、対応決済方法区分

@@ -1,11 +1,14 @@
 import { IMultilingualString } from './multilingualString';
 import { OfferType } from './offerType';
+import { IServiceType as IProductServiceType } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
-import { IServiceType } from './serviceType';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 
+export type IServiceType = IProductServiceType & {
+    id?: string;
+};
 export interface IItemOffered {
     typeOf: string;
     serviceType?: IServiceType;
@@ -17,10 +20,10 @@ export interface IItemListElement {
 }
 
 /**
- * オファーカタログインターフェース
+ * オファーカタログ
  */
-export interface IOfferCatalog extends IThing {
-    project: IProject;
+export interface IOfferCatalog extends Pick<IThing, 'name' | 'description' | 'alternateName'> {
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: 'OfferCatalog';
     id?: string;
     identifier: string;
@@ -31,14 +34,14 @@ export interface IOfferCatalog extends IThing {
 }
 
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     identifier?: SortType;
 }
 
 /**
- * オファーカタログ検索条件インターフェース
+ * オファーカタログ検索条件
  */
 export interface ISearchConditions {
     limit?: number;

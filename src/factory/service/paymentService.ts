@@ -1,8 +1,7 @@
 import { IOrganization } from '../organization';
-import { IAvailableChannel } from '../product';
+import { IAvailableChannel, IServiceType } from '../product';
 import { IProject } from '../project';
 import { IPropertyValue } from '../propertyValue';
-import { IServiceType } from '../serviceType';
 import { IThing } from '../thing';
 
 export enum PaymentServiceType {
@@ -40,7 +39,7 @@ export interface IProviderCredentials {
     stCd?: string;
 }
 
-export interface IProvider extends IOrganization {
+export interface IProvider extends Pick<IOrganization, 'id' | 'name' | 'typeOf'> {
     /**
      * 販売者の決済サービス利用時資格情報
      */

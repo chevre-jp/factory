@@ -9,12 +9,12 @@ import { OfferType } from '../offerType';
 import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
 import { PriceCurrency } from '../priceCurrency';
+import { IServiceType as IProductServiceType } from '../product';
 import { IProject } from '../project';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
 import { ReservationType } from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
-import { IServiceType } from '../serviceType';
 import { IThing } from '../thing';
 import { UnitCode } from '../unitCode';
 
@@ -32,7 +32,7 @@ export interface IAggregateReservation {
 /**
  * 予約集計つきオファー
  */
-export interface IOfferWithAggregateReservation extends IThing {
+export interface IOfferWithAggregateReservation extends Pick<IThing, 'name'> {
     typeOf: OfferType.Offer;
     id?: string;
     identifier?: string;
@@ -83,11 +83,13 @@ export interface IServiceOutput {
         };
     };
 }
+export type IServiceType = IProductServiceType & {
+    id?: string;
+};
 /**
  * イベントのサービス
  */
 export interface IService {
-    // typeOf?: string;
     /**
      * サービス区分
      */

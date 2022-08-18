@@ -10,7 +10,7 @@ export enum StringValue {
  * A point value or interval for product characteristics and other purposes.
  * {@link https://schema.org/QuantitativeValue}
  */
-export interface IQuantitativeValue<T extends UnitCode> extends IThing {
+export interface IQuantitativeValue<T extends UnitCode> extends Pick<IThing, 'name'> {
     /**
      * The upper value of some characteristic or property.
      */

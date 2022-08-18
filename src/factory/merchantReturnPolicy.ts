@@ -47,7 +47,7 @@ export enum MerchantReturnEnumeration {
     MerchantReturnUnspecified = 'MerchantReturnUnspecified'
 }
 
-export interface IMerchantReturnPolicy extends IThing {
+export interface IMerchantReturnPolicy extends Pick<IThing, 'name'> {
     typeOf: 'MerchantReturnPolicy';
     /**
      * The type of return fees if the product is returned due to customer remorse.

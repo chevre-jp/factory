@@ -7,7 +7,7 @@ import { IThing } from './thing';
 /**
  * 場所インターフェース
  */
-export interface IPlace extends IThing {
+export interface IPlace extends Pick<IThing, 'identifier' | 'name'> {
     project: IProject;
     typeOf: PlaceType;
     id?: string;

@@ -17,12 +17,11 @@ import { IPerson, IProfile } from './person';
 import { PersonType } from './personType';
 import { PlaceType } from './placeType';
 import { PriceCurrency } from './priceCurrency';
-import { IProduct, ProductType } from './product';
+import { IProduct, IServiceType, ProductType } from './product';
 import { IPropertyValue } from './propertyValue';
 import { IProgramMembershipUsedSearchConditions, ITicket, ITicketType } from './reservation';
 import * as EventReservationFactory from './reservation/event';
 import { ReservationType } from './reservationType';
-import { IServiceType } from './serviceType';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 
@@ -228,7 +227,7 @@ export type IBroker = IPerson;
  */
 export type IReturner = IParticipant;
 export type IIdentifier = IPropertyValue<string>[];
-export interface ISimpleOrder extends IThing {
+export interface ISimpleOrder extends Pick<IThing, 'name'> {
     project: IProject;
     /**
      * object type

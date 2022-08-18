@@ -16,7 +16,7 @@ export enum AboutIdentifier {
     OnEventStatusChanged = 'OnEventStatusChanged'
 }
 
-export interface IAbout extends IThing {
+export interface IAbout extends Pick<IThing, 'name'> {
     typeOf: 'Thing';
     identifier: AboutIdentifier;
     name: string;

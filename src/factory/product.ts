@@ -1,11 +1,12 @@
 import { ActionType } from './actionType';
+import { ICategoryCode } from './categoryCode';
 import { IMonetaryAmount } from './monetaryAmount';
 import { IOffer } from './offer';
 import { IPermit } from './permit';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
-import { IServiceType } from './serviceType';
+// import { IServiceType } from './serviceType';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 
@@ -86,7 +87,7 @@ export interface IAvailableChannel {
     serviceUrl?: string;
     credentials?: ICredentials;
 }
-
+export type IServiceType = Pick<ICategoryCode, 'codeValue' | 'inCodeSet' | 'project' | 'typeOf'>;
 /**
  * プロダクトインターフェース
  * {@link https://schema.org/Product}
