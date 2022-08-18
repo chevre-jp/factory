@@ -9,7 +9,7 @@ import { IThing } from './thing';
 export enum PermitType {
     Permit = 'Permit'
 }
-
+export type IIssuedThrough = Pick<IProduct, 'id' | 'project' | 'serviceType' | 'typeOf'>;
 /**
  * A permit issued by an organization, e.g. a parking pass.
  * {@link https://schema.org/Permit}
@@ -32,7 +32,7 @@ export interface IPermit extends IThing {
     /**
      * The service through with the permit was granted.
      */
-    issuedThrough?: IProduct;
+    issuedThrough?: IIssuedThrough;
     /**
      * The target audience for this permit.
      */

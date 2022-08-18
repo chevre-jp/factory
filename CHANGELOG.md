@@ -20,6 +20,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 施設コンテンツを最適化
 - any属性を定義
 - 注文のIReservationを最適化
+- 注文のIPermitを最適化
+- 注文のorderedItemとしてのプロダクトを最適化
+- 所有権のIPermitを最適化
+- プロダクトを最適化
 
 ### Deprecated
 

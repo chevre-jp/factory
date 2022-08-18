@@ -1,7 +1,6 @@
 import { CreativeWorkType } from './creativeWorkType';
 import { OrganizationType } from './organizationType';
 import * as PermitFactory from './permit';
-// import { IMemberOf } from './person';
 import { PersonType } from './personType';
 import * as ProductFactory from './product';
 import { IProject } from './project';
@@ -34,7 +33,10 @@ export interface IReservation {
     bookingService?: IBookingService;
 }
 export type IReservationWithDetail = IReservation & IEventReservation;
-export type IPermit = PermitFactory.IPermit;
+export type IPermit = Pick<
+    PermitFactory.IPermit,
+    'identifier' | 'issuedThrough' | 'name' | 'project' | 'typeOf' | 'validFor'
+>;
 /**
  * 所有対象物 (Product or Service)
  */
@@ -42,7 +44,7 @@ export type IGood = IReservation | IPermit;
 /**
  * 所有対象物(対象物詳細有)
  */
-export type IGoodWithDetail = IReservationWithDetail | IPermit;
+export type IGoodWithDetail = IReservationWithDetail | PermitFactory.IPermit;
 /**
  * 所有者
  */
@@ -80,7 +82,7 @@ export type OwnershipInfoType = 'OwnershipInfo';
  * 所有権
  */
 export interface IOwnershipInfo<T extends IGood | IGoodWithDetail> {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * object type
      */

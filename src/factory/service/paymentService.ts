@@ -51,12 +51,12 @@ export interface IProvider extends IOrganization {
  * 決済サービスインターフェース
  * {@link https://schema.org/Service}
  */
-export interface IService extends IThing {
-    project: IProject;
+export interface IService extends Pick<IThing, 'name' | 'description'> {
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: PaymentServiceType;
     id?: string;
     availableChannel?: IAvailableChannel;
-    productID?: string;
+    productID: string;
     /**
      * 決済サービス提供者(決済サービスを利用する販売者)
      */

@@ -134,8 +134,13 @@ export type IReservation = Pick<
     reservationFor: IReservationFor;
     reservedTicket: IReservedTicket;
 };
-export type IPermit = Omit<PermitFactory.IPermit,
-    'accessCode' | 'additionalProperty' | 'depositAmount' | 'paymentAmount' | 'paymentAccount' | 'issuedBy'>;
+// Pickで定義(2022-08-19~)
+// export type IPermit = Omit<PermitFactory.IPermit,
+//     'accessCode' | 'additionalProperty' | 'depositAmount' | 'paymentAmount' | 'paymentAccount' | 'issuedBy'>;
+export type IPermit = Pick<
+    PermitFactory.IPermit,
+    'amount' | 'identifier' | 'issuedThrough' | 'name' | 'project' | 'typeOf' | 'validFor'
+>;
 export interface IMoneyTransferPendingTransaction {
     typeOf: AssetTransactionType.MoneyTransfer;
     /**
@@ -281,13 +286,17 @@ export interface IEventServiceAsOrderedItem {
     };
     serviceType?: IServiceType;
 }
+export type IProductAsOrderedItem = Pick<
+    IProduct,
+    'id' | 'serviceType' | 'typeOf'
+>;
 /**
  * 注文アイテム
  * {@link https://schema.org/OrderItem}
  */
 export interface IOrderedItem {
     typeOf: 'OrderItem';
-    orderedItem: IProduct | IEventServiceAsOrderedItem;
+    orderedItem: IProductAsOrderedItem | IEventServiceAsOrderedItem;
 }
 /**
  * 注文
