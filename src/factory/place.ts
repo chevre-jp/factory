@@ -8,7 +8,7 @@ import { IThing } from './thing';
  * 場所インターフェース
  */
 export interface IPlace extends Pick<IThing, 'identifier' | 'name'> {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: PlaceType;
     id?: string;
     address?: IMultilingualString;

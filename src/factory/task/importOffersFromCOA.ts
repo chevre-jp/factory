@@ -4,7 +4,7 @@ import * as TaskFactory from '../task';
 import { TaskName } from '../taskName';
 
 export interface IData {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     theaterCode: string;
 }
 

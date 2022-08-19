@@ -25,7 +25,7 @@ export interface ISeller extends Pick<
     IOrganization,
     'typeOf' | 'id' | 'location' | 'telephone' | 'additionalProperty' | 'name' | 'url'
 > {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * The geographic area where a service or offered item is provided.
      */

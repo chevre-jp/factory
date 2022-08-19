@@ -14,7 +14,7 @@ export interface IDefinedTerm {
  * {@link https://pending.schema.org/CategoryCode}
  */
 export interface IAccountTitle {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: 'AccountTitle';
     /**
      * A short textual code that uniquely identifies the value.

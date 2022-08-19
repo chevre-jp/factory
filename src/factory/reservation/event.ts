@@ -51,7 +51,7 @@ export interface IReservationFor {
     coaInfo?: ICOAInfo;
     location: IEventLocation;
     name: IEventName;
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     startDate: Date;
     superEvent: IOptimizedSuperEvent;
     typeOf: EventType.ScreeningEvent;

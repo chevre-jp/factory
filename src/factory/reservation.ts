@@ -32,7 +32,7 @@ export interface ITicketType {
     identifier: string;
     name?: string | IMultilingualString;
     priceCurrency: PriceCurrency;
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType;
     validRateLimit?: OfferFactory.IValidRateLimit;
 }
@@ -193,7 +193,7 @@ export interface IIssuedThrough {
  * {@link https://schema.org/Reservation}
  */
 export interface IReservation<T extends IPriceSpecification> extends Pick<IThing, 'identifier' | 'name'> {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * type of object
      */

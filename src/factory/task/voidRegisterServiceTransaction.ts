@@ -10,7 +10,7 @@ export interface IData {
      * 承認アクションID指定であれば、指定アクションのみ中止
      */
     id?: string;
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     purpose: IPurpose;
 }
 

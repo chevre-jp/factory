@@ -1,6 +1,6 @@
 import { IOrganization } from '../organization';
-import { IAvailableChannel, IServiceType } from '../product';
-import { IProject } from '../project';
+import { IAvailableChannel as IProductAvailableChannel, IServiceType } from '../product';
+import { IOnPaymentStatusChanged, IProject } from '../project';
 import { IPropertyValue } from '../propertyValue';
 import { IThing } from '../thing';
 
@@ -45,7 +45,9 @@ export interface IProvider extends Pick<IOrganization, 'id' | 'name' | 'typeOf'>
      */
     credentials?: IProviderCredentials;
 }
-
+export type IAvailableChannel = IProductAvailableChannel & {
+    onPaymentStatusChanged?: IOnPaymentStatusChanged;
+};
 /**
  * 決済サービスインターフェース
  * {@link https://schema.org/Service}

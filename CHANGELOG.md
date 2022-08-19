@@ -28,6 +28,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - サービスファクトリーをプロダクトファクトリーに統合
 - プロダクトのIServiceTypeを最適化
 - IThing継承について最適化
+- 決済サービスのavailableChannelにonPaymentStatusChangedを定義
+- イベントのoffersにIOffer4COAを定義
 
 ### Deprecated
 

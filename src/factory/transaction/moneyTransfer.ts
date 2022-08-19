@@ -38,7 +38,7 @@ export interface IObjectPendingTransaction {
 }
 
 export interface IStartParamsWithoutDetail {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * 取引期限
      */

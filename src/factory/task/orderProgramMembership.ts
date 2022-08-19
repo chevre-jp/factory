@@ -43,7 +43,7 @@ export interface IData {
      * 注文取引確定後アクション
      */
     potentialActions?: IPotentialActions;
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: ActionType.OrderAction;
 }
 export interface IAttributes extends TaskFactory.IAttributes {

@@ -15,7 +15,7 @@ export type IIssuedThrough = Pick<IProduct, 'id' | 'project' | 'serviceType' | '
  * {@link https://schema.org/Permit}
  */
 export interface IPermit extends Pick<IThing, 'name'> {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: PermitType;
     identifier?: string;
     accessCode?: string;

@@ -15,7 +15,7 @@ import { IProject } from '../project';
  * 施設コンテンツに対するオファー
  */
 export interface IOffer {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType.Offer;
     priceCurrency: PriceCurrency.JPY;
     unacceptedPaymentMethod?: string[];
@@ -72,7 +72,7 @@ export interface ICOAInfo {
     dateMvtkBegin: string;
 }
 export interface ILocation {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: PlaceType.MovieTheater;
     /**
      * 施設ID

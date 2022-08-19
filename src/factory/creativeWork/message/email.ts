@@ -23,7 +23,7 @@ export interface IAbout extends Pick<IThing, 'name'> {
 }
 
 export interface IAttributes {
-    project?: IProject;
+    project?: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: CreativeWorkType.EmailMessage;
     sender: IParticipant;
     toRecipient: IParticipant;
