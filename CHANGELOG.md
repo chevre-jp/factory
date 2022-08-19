@@ -30,6 +30,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - IThing継承について最適化
 - 決済サービスのavailableChannelにonPaymentStatusChangedを定義
 - イベントのoffersにIOffer4COAを定義
+- 経理レポートのIActionを最適化
 
 ### Deprecated
 
