@@ -11,7 +11,10 @@ export type IObject4COA = COA.factory.reserve.IUpdReserveArgs & {
     transactionNumber: string;
     typeOf: 'COAReserveTransaction';
 };
-export type IObject4Chevre = Omit<ReserveTransactionFactory.IConfirmParams, 'id'> & {
+export type IObject4Chevre = Pick<
+    ReserveTransactionFactory.IConfirmParams,
+    'transactionNumber' | 'object' | 'potentialActions'
+> & {
     // 取引番号は必須
     transactionNumber: string;
     typeOf: AssetTransactionType.Reserve;

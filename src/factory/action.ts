@@ -14,7 +14,7 @@ export interface IParticipantAsWebApplication {
     name?: string;
     url?: string;
 }
-export type IParticipantAsPerson = Omit<IPersonAttributes, 'identifier' | 'memberOf'> & {
+export type IParticipantAsPerson = Pick<IPersonAttributes, 'id' | 'typeOf'> & {
     name?: string;
     url?: string;
 };
@@ -30,10 +30,6 @@ export interface IParticipantAsProject {
     name?: string;
     url?: string;
 }
-// 最適化(2022-05-30~)
-// export type IParticipantAsCustomer = Omit<ICustomer, 'name' | 'branchCode' | 'contactPoint' | 'project' | 'additionalProperty'> & {
-//     name?: string;
-// };
 export interface IParticipantAsCustomer {
     typeOf: OrganizationType.Organization;
     id: string;

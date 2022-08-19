@@ -17,7 +17,14 @@ export type IRecipient = ActionFactory.IParticipantAsWebApplication | ActionFact
 export type IItemOffered = Pick<IProduct, 'project' | 'typeOf' | 'id' | 'name' | 'serviceOutput' | 'pointAward'>;
 export type IAcceptedOfferWithoutDetail = RegisterServiceTransactionFactory.IAcceptedOfferWithoutDetail;
 export type ISellerMakesOffer = Pick<ISeller, 'project' | 'id' | 'name' | 'typeOf'>;
-export interface IAcceptedOffer extends Omit<IOffer, 'addOn' | 'price' | 'availability' | 'availableAtOrFrom'> {
+export interface IAcceptedOffer extends Pick<
+    IOffer,
+    'project' | 'typeOf' | 'id' | 'identifier' | 'itemOffered' | 'name' | 'priceCurrency' | 'priceSpecification' | 'seller'
+> {
+    /**
+     * オファーコード
+     */
+    identifier?: string;
     /**
      * オファー対象アイテム
      */
