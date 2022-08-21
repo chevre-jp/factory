@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.259.0 - 2022-08-22
+
+### Added
+
 - オファーにhasMerchantReturnPolicyを追加
 
 ### Changed
@@ -31,14 +45,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済サービスのavailableChannelにonPaymentStatusChangedを定義
 - イベントのoffersにIOffer4COAを定義
 - 経理レポートのIActionを最適化
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v4.258.0 - 2022-08-03
 
