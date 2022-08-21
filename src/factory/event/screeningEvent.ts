@@ -240,7 +240,7 @@ export interface ILocation {
      */
     maximumAttendeeCapacity?: number;
 }
-export type ISuperEvent = Omit<ScreeningEventSeriesFactory.IEvent, 'eventStatus' | 'offers'>;
+export type ISuperEvent = Omit<ScreeningEventSeriesFactory.IEvent, 'eventStatus' | 'offers' | 'organizer'>;
 export type IName = IMultilingualString;
 /**
  * イベント属性

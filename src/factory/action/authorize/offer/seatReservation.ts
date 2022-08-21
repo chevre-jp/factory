@@ -75,8 +75,6 @@ export type IAcceptedOfferPriceSpecification =
  * 受け入れられたチケットオファー
  */
 export type IAcceptedOffer4chevre =
-    // Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty' | 'paymentMethod'>
-    // itemOffered ?: IAcceptedTicketOfferItemOffered;
     Pick<
         ScreeningEventFactory.ITicketOffer,
         // 最適化(2022-08-02~)
@@ -88,17 +86,34 @@ export type IAcceptedOffer4chevre =
         priceSpecification: IAcceptedOfferPriceSpecification;
         movieTicketIdentifire?: string;
     };
-// export type IAcceptedOffer4chevre = ReserveTransactionFactory.IAcceptedTicketOffer;
-
 export type IAcceptedOfferWithoutDetail4chevre = ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail;
-
 export type IObjectWithoutDetail4chevre = ReserveTransactionFactory.IObjectWithoutDetail;
 
-export type IAcceptedOffer4COA
-    = ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail & OfferFactory.seatReservation.IOfferWithDetails;
-
+/**
+ * COAイベント受入オファー
+ */
+export type IAcceptedOffer4COA =
+    Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail,
+        'id' | 'itemOffered' | 'additionalProperty'
+    > & Pick<
+        OfferFactory.IOffer,
+        'typeOf' | 'id' | 'identifier' | 'name'
+        | 'priceCurrency' | 'seller' | 'additionalProperty'
+        | 'eligibleMonetaryAmount'
+    > & {
+        itemOffered: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
+        // itemOfferedに完全置き換え(2022-08-22~)
+        // seatSection: string;
+        // itemOfferedに完全置き換え(2022-08-22~)
+        // seatNumber: string;
+        ticketInfo: OfferFactory.seatReservation.ICOATicketInfoWithDetails;
+        /**
+         * COAイベントでは、priceSpecificationで価格を表現しきれないので、numberとしてのpriceが必要
+         */
+        price: number;
+        priceSpecification?: OfferFactory.ITicketPriceSpecification;
+    };
 export type IAcceptedOfferWithoutDetail4COA = OfferFactory.seatReservation.ICOAOffer;
-
 export interface IObjectWithoutDetail4COA {
     acceptedOffer: IAcceptedOfferWithoutDetail4COA[];
     event: {

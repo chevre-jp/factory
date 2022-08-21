@@ -404,23 +404,4 @@ export namespace seatReservation {
     export import ICOATicketInfoWithDetails = SeatReservationOfferFactory.ICOATicketInfoWithDetails;
     // tslint:disable-next-line:no-shadowed-variable
     export import ICOAOffer = SeatReservationOfferFactory.IOffer;
-    /**
-     * 座席予約供給情報(詳細つき)インターフェース
-     */
-    export interface IOfferWithDetails extends Omit<IOffer, 'addOn' | 'availability' | 'availableAtOrFrom'> {
-        /**
-         * seat section
-         */
-        seatSection: string;
-        /**
-         * seat number
-         */
-        seatNumber: string;
-        /**
-         * ticket info
-         */
-        ticketInfo: ICOATicketInfoWithDetails;
-        price: number;
-        priceSpecification?: ITicketPriceSpecification;
-    }
 }

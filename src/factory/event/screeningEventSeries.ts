@@ -90,13 +90,12 @@ export interface ILocation {
      * カナ名称
      */
     kanaName?: string;
-    // alternateName?: IMultilingualString;
-    // description?: IMultilingualString;
-    // address?: IMultilingualString;
 }
-export interface IAttributes extends Omit<
+export interface IAttributes extends Pick<
     EventFactory.IAttributes<EventType.ScreeningEventSeries>,
-    'alternateName' | 'doorTime' | 'hasOfferCatalog' | 'maximumAttendeeCapacity' | 'remainingAttendeeCapacity'
+    'project' | 'typeOf' | 'identifier' | 'name' | 'alternativeHeadline' | 'description'
+    | 'duration' | 'endDate' | 'eventStatus' | 'headline' | 'location' | 'offers' | 'startDate'
+    | 'workPerformed' | 'additionalProperty'
 > {
     /**
      * 字幕利用可能言語

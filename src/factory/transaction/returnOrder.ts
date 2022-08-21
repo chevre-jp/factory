@@ -33,7 +33,7 @@ export interface IReturnableOrder {
  * 注文返品開始パラメータ
  */
 export interface IStartParamsWithoutDetail {
-    project: Omit<IProject, 'settings' | 'name' | 'subscription'>;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     expires: Date;
     agent: IAgent;
     object: {
