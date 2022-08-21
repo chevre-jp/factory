@@ -13,7 +13,7 @@ export type IObject = IPaymentService[];
 
 export type IResult = any;
 
-export type IInformPayment = IInformActionAttributes<any, any>;
+export type IInformPayment = IInformActionAttributes<{}, undefined>;
 
 export interface IPotentialActions {
     informPayment?: IInformPayment[];

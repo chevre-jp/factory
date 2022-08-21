@@ -18,7 +18,7 @@ export interface IContactPoint {
  * 顧客
  */
 export interface ICustomer extends IOrganization {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * 顧客コード
      */

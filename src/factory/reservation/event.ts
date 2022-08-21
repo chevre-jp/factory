@@ -51,7 +51,7 @@ export interface IReservationFor {
     coaInfo?: ICOAInfo;
     location: IEventLocation;
     name: IEventName;
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     startDate: Date;
     superEvent: IOptimizedSuperEvent;
     typeOf: EventType.ScreeningEvent;
@@ -74,6 +74,7 @@ export interface ISubReservation {
  */
 export interface IReservation extends ReservationFactory.IReservation<IPriceSpecification> {
     id: string;
+    issuedThrough: ReservationFactory.IIssuedThrough;
     reservationFor: IReservationFor;
     reservationNumber: string;
     reservationStatus: ReservationStatusType;

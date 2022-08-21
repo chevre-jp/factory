@@ -12,12 +12,11 @@ import { PlaceType } from './placeType';
 import { PriceCurrency } from './priceCurrency';
 import { IPriceSpecification as IGenericPriceSpecification } from './priceSpecification';
 import { PriceSpecificationType } from './priceSpecificationType';
-import { ProductType } from './product';
+import { IServiceType, ProductType } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { ReservationStatusType } from './reservationStatusType';
 import { ReservationType } from './reservationType';
-import { IServiceType } from './serviceType';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 
@@ -33,7 +32,7 @@ export interface ITicketType {
     identifier: string;
     name?: string | IMultilingualString;
     priceCurrency: PriceCurrency;
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType;
     validRateLimit?: OfferFactory.IValidRateLimit;
 }
@@ -181,6 +180,10 @@ export interface IBroker {
 }
 // export type IBroker = IUnderName;
 export type IProgramMembershipUsed = IPermit;
+export interface IIssuedThrough {
+    typeOf: ProductType.EventService;
+    serviceType?: IServiceType;
+}
 /**
  * 予約
  * Describes a reservation for travel, dining or an event. Some reservations require tickets.
@@ -189,8 +192,8 @@ export type IProgramMembershipUsed = IPermit;
  * For offers of tickets, restaurant reservations, flights, or rental cars, use Offer.
  * {@link https://schema.org/Reservation}
  */
-export interface IReservation<T extends IPriceSpecification> extends IThing {
-    project: IProject;
+export interface IReservation<T extends IPriceSpecification> extends Pick<IThing, 'identifier' | 'name'> {
+    project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * type of object
      */
@@ -229,10 +232,7 @@ export interface IReservation<T extends IPriceSpecification> extends IThing {
      * Web page where reservation can be confirmed.
      */
     // confirmReservationUrl?: string;
-    issuedThrough?: {
-        typeOf: ProductType.EventService;
-        serviceType?: IServiceType;
-    };
+    issuedThrough?: IIssuedThrough;
     /**
      * Time the reservation was last modified.
      */

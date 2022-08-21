@@ -13,14 +13,22 @@ import * as AuthorizeActionFactory from '../../authorize';
 export type IAgent = ActionFactory.IParticipantAsSeller;
 // 最適化(2022-06-01~)
 export type IRecipient = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
-export type IService = IProduct;
+// IItemOfferedを最適化(2022-08-19~)
+export type IItemOffered = Pick<IProduct, 'project' | 'typeOf' | 'id' | 'name' | 'serviceOutput' | 'pointAward'>;
 export type IAcceptedOfferWithoutDetail = RegisterServiceTransactionFactory.IAcceptedOfferWithoutDetail;
 export type ISellerMakesOffer = Pick<ISeller, 'project' | 'id' | 'name' | 'typeOf'>;
-export interface IAcceptedOffer extends Omit<IOffer, 'addOn' | 'price' | 'availability' | 'availableAtOrFrom'> {
+export interface IAcceptedOffer extends Pick<
+    IOffer,
+    'project' | 'typeOf' | 'id' | 'identifier' | 'itemOffered' | 'name' | 'priceCurrency' | 'priceSpecification' | 'seller'
+> {
+    /**
+     * オファーコード
+     */
+    identifier?: string;
     /**
      * オファー対象アイテム
      */
-    itemOffered: IService;
+    itemOffered: IItemOffered;
     /**
      * 販売者
      */
@@ -34,8 +42,8 @@ export interface IResult {
     price: number;
     priceCurrency: PriceCurrency;
     acceptedOffers: IResultAcceptedOffer;
-    requestBody?: any;
-    responseBody: any;
+    requestBody: RegisterServiceTransactionFactory.IStartParamsWithoutDetail;
+    responseBody: RegisterServiceTransactionFactory.ITransaction;
 }
 export interface IPurpose {
     typeOf: TransactionType.PlaceOrder;

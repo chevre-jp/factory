@@ -24,7 +24,7 @@ export interface IDistributor {
  * {@link https://schema.org/Movie}
  */
 export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     identifier: string;
     /**
      * The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format.

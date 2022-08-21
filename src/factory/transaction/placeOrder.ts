@@ -77,7 +77,7 @@ export interface IObject {
     };
 }
 export interface IStartParamsWithoutDetail {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     expires: Date;
     agent: IAgent;
     seller: {

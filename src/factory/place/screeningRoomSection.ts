@@ -5,7 +5,10 @@ import { IPlace as ISeat, IPlaceWithOffer as ISeatWithOffer } from './seat';
 /**
  * セクションインターフェース
  */
-export interface IPlace extends PlaceFactory.IPlace {
+export interface IPlace extends Pick<
+    PlaceFactory.IPlace,
+    'project' | 'typeOf' | 'branchCode' | 'name' | 'containedInPlace' | 'containsPlace' | 'additionalProperty'
+> {
     typeOf: PlaceType.ScreeningRoomSection;
     /**
      * 座席リスト

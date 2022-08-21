@@ -9,10 +9,6 @@ import { PaymentServiceType } from '../service/paymentService';
 export interface IAppliesToMovieTicket {
     typeOf: PaymentServiceType.MovieTicket;
     /**
-     * 購入管理番号
-     */
-    // identifier?: string;
-    /**
      * 決済カード区分
      */
     serviceType: string;

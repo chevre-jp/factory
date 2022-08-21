@@ -1,8 +1,8 @@
 import * as ActionFactory from '../../../action';
 import * as OrderFactory from '../../../order';
-import * as WebAPIFactory from '../../../service/webAPI';
-import { IAttributes as IRefundActionAttributes } from '../../transfer/return/paymentMethod';
-import { IAttributes as IReturnReserveTransactionActionAttributes } from '../../transfer/return/reserveTransaction';
+// import * as WebAPIFactory from '../../../service/webAPI';
+import { IAttributes as IReturnPaymentMethodActionAttributes } from '../../transfer/return/paymentMethod';
+// import { IAttributes as IReturnReserveTransactionActionAttributes } from '../../transfer/return/reserveTransaction';
 import * as ReturnActionFactory from '../return';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../send/message/email';
 import * as ReturnMoneyTransferActionFactory from './moneyTransfer';
@@ -24,16 +24,25 @@ export type IResult = any;
 export interface IPotentialActions {
     /**
      * 設定追加(2022-06-08~)
+     * 廃止(2022-08-10~)
      */
-    useConfirmRefund: boolean;
+    // useConfirmRefund: boolean;
     /**
      * 予約取引返却アクション
+     * 廃止(2022-08-10~)
      */
-    cancelReservation?: IReturnReserveTransactionActionAttributes<WebAPIFactory.Identifier>[];
+    // cancelReservation?: IReturnReserveTransactionActionAttributes<WebAPIFactory.Identifier>[];
     /**
      * 返金アクション
+     * 廃止(2022-08-10~)
+     * @deprecated Use returnPaymentMethod
      */
-    refund: IRefundActionAttributes[];
+    refund: IReturnPaymentMethodActionAttributes[];
+    /**
+     * 決済返却アクション
+     * refundから移行(2022-08-10~)
+     */
+    returnPaymentMethod: IReturnPaymentMethodActionAttributes[];
     /**
      * 入金返却アクション
      */

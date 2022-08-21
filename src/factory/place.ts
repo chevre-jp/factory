@@ -7,8 +7,8 @@ import { IThing } from './thing';
 /**
  * 場所インターフェース
  */
-export interface IPlace extends IThing {
-    project: IProject;
+export interface IPlace extends Pick<IThing, 'identifier' | 'name'> {
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: PlaceType;
     id?: string;
     address?: IMultilingualString;
@@ -16,7 +16,8 @@ export interface IPlace extends IThing {
     containedInPlace?: IPlace;
     containsPlace?: IPlace[];
     maximumAttendeeCapacity?: number;
-    openingHoursSpecification?: any;
+    name?: IMultilingualString;
+    // openingHoursSpecification?: any;
     openSeatingAllowed?: boolean;
     smokingAllowed?: boolean;
     telephone?: string;

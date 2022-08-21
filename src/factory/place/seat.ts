@@ -32,7 +32,10 @@ export type ISeatingType = string | string[];
 /**
  * 座席インターフェース
  */
-export interface IPlace extends PlaceFactory.IPlace {
+export interface IPlace extends Pick<
+    PlaceFactory.IPlace,
+    'project' | 'typeOf' | 'branchCode' | 'containedInPlace' | 'additionalProperty' | 'name'
+> {
     typeOf: PlaceType.Seat;
     /**
      * 枝番号

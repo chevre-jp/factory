@@ -18,6 +18,34 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.259.0 - 2022-08-22
+
+### Added
+
+- オファーにhasMerchantReturnPolicyを追加
+
+### Changed
+
+- オファー検索条件拡張
+- 販売者の返品ポリシーを最適化
+- 返品取引の返品ポリシーを最適化
+- 返品アクションのpotentialActionsを最適化
+- 施設インターフェースを最適化
+- 施設コンテンツを最適化
+- any属性を定義
+- 注文のIReservationを最適化
+- 注文のIPermitを最適化
+- 注文のorderedItemとしてのプロダクトを最適化
+- 所有権のIPermitを最適化
+- プロダクトを最適化
+- イベントオファー承認アクションを最適化
+- サービスファクトリーをプロダクトファクトリーに統合
+- プロダクトのIServiceTypeを最適化
+- IThing継承について最適化
+- 決済サービスのavailableChannelにonPaymentStatusChangedを定義
+- イベントのoffersにIOffer4COAを定義
+- 経理レポートのIActionを最適化
+
 ## v4.258.0 - 2022-08-03
 
 ### Changed

@@ -14,7 +14,7 @@ export type IContentRating = COA.factory.master.IKubunNameResult | string;
  * 作品インターフェース
  * {@link https://schema.org/CreativeWork}
  */
-export interface ICreativeWork extends IThing {
+export interface ICreativeWork extends Pick<IThing, 'name' | 'identifier'> {
     typeOf: CreativeWorkType;
     id?: string;
     alternativeHeadline?: string;

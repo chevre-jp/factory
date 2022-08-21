@@ -9,12 +9,12 @@ import { OfferType } from '../offerType';
 import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
 import { PriceCurrency } from '../priceCurrency';
+import { IServiceType as IProductServiceType } from '../product';
 import { IProject } from '../project';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
 import { ReservationType } from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
-import { IServiceType } from '../serviceType';
 import { IThing } from '../thing';
 import { UnitCode } from '../unitCode';
 
@@ -32,7 +32,7 @@ export interface IAggregateReservation {
 /**
  * 予約集計つきオファー
  */
-export interface IOfferWithAggregateReservation extends IThing {
+export interface IOfferWithAggregateReservation extends Pick<IThing, 'name'> {
     typeOf: OfferType.Offer;
     id?: string;
     identifier?: string;
@@ -83,11 +83,13 @@ export interface IServiceOutput {
         };
     };
 }
+export type IServiceType = IProductServiceType & {
+    id?: string;
+};
 /**
  * イベントのサービス
  */
 export interface IService {
-    // typeOf?: string;
     /**
      * サービス区分
      */
@@ -107,7 +109,7 @@ export interface ISeller {
  * イベントに対するオファー
  */
 export interface IOffer {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType.Offer;
     priceCurrency: PriceCurrency.JPY;
     /**
@@ -135,6 +137,7 @@ export interface IOffer {
     unacceptedPaymentMethod?: string[];
     seller: ISeller;
 }
+export type IOffer4COA = Pick<IOffer, 'project' | 'typeOf' | 'offeredThrough' | 'priceCurrency'>;
 export import ITicketPriceComponent = OfferFactory.ITicketPriceComponent;
 export import ITicketPriceSpecification = OfferFactory.ITicketPriceSpecification;
 /**
@@ -215,7 +218,7 @@ export type ICOAOffer = COA.factory.reserve.IUpdReserveTicket & {
 };
 export type IWorkPerformed = ScreeningEventSeriesFactory.IWorkPerformed;
 export interface ILocation {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * 場所タイプ
      */
@@ -237,7 +240,7 @@ export interface ILocation {
      */
     maximumAttendeeCapacity?: number;
 }
-export type ISuperEvent = Omit<ScreeningEventSeriesFactory.IEvent, 'eventStatus' | 'offers'>;
+export type ISuperEvent = Omit<ScreeningEventSeriesFactory.IEvent, 'eventStatus' | 'offers' | 'organizer'>;
 export type IName = IMultilingualString;
 /**
  * イベント属性
@@ -278,7 +281,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
     /**
      * 販売情報
      */
-    offers?: IOffer;
+    offers?: IOffer | IOffer4COA;
     /**
      * 発券数
      */

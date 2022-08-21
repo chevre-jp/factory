@@ -2,7 +2,6 @@ import { ActionType } from './actionType';
 import { ICategoryCode } from './categoryCode';
 import { ItemAvailability } from './itemAvailability';
 import { IMonetaryAmount } from './monetaryAmount';
-import * as SeatReservationOfferFactory from './offer/seatReservation';
 import { OfferType } from './offerType';
 import { PriceCurrency } from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
@@ -20,14 +19,20 @@ import { SortType } from './sortType';
 import { IThing } from './thing';
 import { UnitCode } from './unitCode';
 
+import {
+    IOfferMerchantReturnPolicy,
+    IOfferMerchantReturnPolicySearchConditions,
+    IOfferMerchantReturnPolicySortOrder
+} from './offer/merchantReturnPolicy';
+import * as SeatReservationOfferFactory from './offer/seatReservation';
+
 /**
  * オファーカテゴリーインターフェース
  */
 export interface ICategory {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     id?: string;
     codeValue?: string;
-    name?: any;
 }
 
 /**
@@ -35,7 +40,7 @@ export interface ICategory {
  */
 export type IAddOn = IOffer;
 
-export type IEligibleCategoryCode = ICategoryCode;
+export type IEligibleCategoryCode = Pick<ICategoryCode, 'project' | 'typeOf' | 'id' | 'codeValue' | 'inCodeSet'>;
 export type IEligibleMonetaryAmount = IMonetaryAmount;
 
 /**
@@ -57,7 +62,7 @@ export interface IEligibleSubReservation {
 /**
  * 販売者インターフェース
  */
-export interface ISeller extends IThing {
+export interface ISeller {
     typeOf?: string;
     id?: string;
 }
@@ -73,6 +78,18 @@ export interface IValidRateLimit {
     unitInSeconds: number;
 }
 
+export type IHasMerchantReturnPolicy = (Pick<IOfferMerchantReturnPolicy, 'typeOf' | 'id' | 'identifier' | 'name'> & {
+    id: string;
+    identifier: string;
+})[];
+export {
+    IOfferMerchantReturnPolicy,
+    IOfferMerchantReturnPolicySearchConditions,
+    IOfferMerchantReturnPolicySortOrder
+};
+export interface IAvailableAtOrFrom {
+    id: string;
+}
 /**
  * offer interface
  * An offer to transfer some rights to an item or to provide a service
@@ -80,8 +97,8 @@ export interface IValidRateLimit {
  * to stream a TV show over the internet, to repair a motorcycle, or to loan a book.
  * {@link https://schema.org/Offer}
  */
-export interface IOffer extends IThing {
-    project: IProject;
+export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternateName' | 'color' | 'identifier'> {
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType;
     id?: string;
     /**
@@ -109,7 +126,7 @@ export interface IOffer extends IThing {
     /**
      * The place(s) from which the offer can be obtained (e.g. store locations).
      */
-    availableAtOrFrom?: any;
+    availableAtOrFrom?: IAvailableAtOrFrom[];
     /**
      * A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
      */
@@ -146,12 +163,13 @@ export interface IOffer extends IThing {
     /**
      * オファーが有効となる地域
      */
-    eligibleRegion?: any;
+    // eligibleRegion?: any;
+    hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
     /**
      * The item being offered.
      */
     itemOffered?: any;
-    offeredBy?: any;
+    // offeredBy?: any;
     /**
      * オファー供給サービス
      */
@@ -200,7 +218,6 @@ export interface IOffer extends IThing {
  * 単価オファーの提供アイテムインターフェース
  */
 export interface IItemOffered {
-    // project: IProject;
     typeOf: ProductType;
     serviceOutput?: {
         /**
@@ -241,7 +258,10 @@ export interface IItemOffered {
 /**
  * 単価オファーインターフェース
  */
-export interface IUnitPriceOffer extends IOffer {
+export interface IUnitPriceOffer extends Omit<IOffer, 'seller'> {
+    /**
+     * コード
+     */
     identifier: string;
     /**
      * 単価仕様
@@ -344,6 +364,9 @@ export interface ISearchConditions {
             $eq?: string;
         };
     };
+    hasMerchantReturnPolicy?: {
+        id?: { $eq?: string };
+    };
     id?: {
         $eq?: string;
         $in?: string[];
@@ -381,23 +404,4 @@ export namespace seatReservation {
     export import ICOATicketInfoWithDetails = SeatReservationOfferFactory.ICOATicketInfoWithDetails;
     // tslint:disable-next-line:no-shadowed-variable
     export import ICOAOffer = SeatReservationOfferFactory.IOffer;
-    /**
-     * 座席予約供給情報(詳細つき)インターフェース
-     */
-    export interface IOfferWithDetails extends Omit<IOffer, 'addOn' | 'availability' | 'availableAtOrFrom'> {
-        /**
-         * seat section
-         */
-        seatSection: string;
-        /**
-         * seat number
-         */
-        seatNumber: string;
-        /**
-         * ticket info
-         */
-        ticketInfo: ICOATicketInfoWithDetails;
-        price: number;
-        priceSpecification?: ITicketPriceSpecification;
-    }
 }

@@ -4,7 +4,7 @@ import { ISimpleOrder } from '../../../order';
 import * as OrderProgramMembershipFactory from '../../../task/orderProgramMembership';
 import * as ConfirmActionFactory from '../confirm';
 
-export type IObject = Omit<RegisterServiceFactory.IConfirmParams, 'id'> & {
+export type IObject = Pick<RegisterServiceFactory.IConfirmParams, 'transactionNumber' | 'endDate'> & {
     transactionNumber?: string;
     typeOf: AssetTransactionType.RegisterService;
     // permit.identifierでも確定可能にする(2022-07-19~)

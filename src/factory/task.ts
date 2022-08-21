@@ -17,7 +17,7 @@ export interface IExecutionResult {
  */
 export type ITask = IExtendId<IAttributes>;
 export interface IAttributes {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * タスク名
      */

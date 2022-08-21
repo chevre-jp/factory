@@ -16,14 +16,14 @@ export enum AboutIdentifier {
     OnEventStatusChanged = 'OnEventStatusChanged'
 }
 
-export interface IAbout extends IThing {
+export interface IAbout extends Pick<IThing, 'name'> {
     typeOf: 'Thing';
     identifier: AboutIdentifier;
     name: string;
 }
 
 export interface IAttributes {
-    project?: IProject;
+    project?: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: CreativeWorkType.EmailMessage;
     sender: IParticipant;
     toRecipient: IParticipant;

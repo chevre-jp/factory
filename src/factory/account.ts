@@ -74,7 +74,7 @@ export interface IPendingTransaction {
  * 口座
  */
 export interface IAccount {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * 口座種別
      */

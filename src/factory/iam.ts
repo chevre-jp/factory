@@ -1,6 +1,7 @@
 import { CreativeWorkType } from './creativeWorkType';
 import { OrganizationType } from './organizationType';
 import { PersonType } from './personType';
+import { SortType } from './sortType';
 
 export enum RoleType {
     OrganizationRole = 'OrganizationRole'
@@ -18,7 +19,9 @@ export interface IRole {
 export interface IRoleSearchConditions {
     limit?: number;
     page?: number;
-    sort?: any;
+    sort?: {
+        roleName?: SortType;
+    };
     roleName?: {
         $eq?: string;
         $in?: string[];
@@ -47,7 +50,9 @@ export interface IMember {
 export interface ISearchConditions {
     limit?: number;
     page?: number;
-    sort?: any;
+    sort?: {
+        'member.id'?: SortType;
+    };
     id?: { $eq?: string };
     project?: {
         id?: {

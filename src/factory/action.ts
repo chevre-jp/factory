@@ -14,7 +14,7 @@ export interface IParticipantAsWebApplication {
     name?: string;
     url?: string;
 }
-export type IParticipantAsPerson = Omit<IPersonAttributes, 'identifier' | 'memberOf'> & {
+export type IParticipantAsPerson = Pick<IPersonAttributes, 'id' | 'typeOf'> & {
     name?: string;
     url?: string;
 };
@@ -30,10 +30,6 @@ export interface IParticipantAsProject {
     name?: string;
     url?: string;
 }
-// 最適化(2022-05-30~)
-// export type IParticipantAsCustomer = Omit<ICustomer, 'name' | 'branchCode' | 'contactPoint' | 'project' | 'additionalProperty'> & {
-//     name?: string;
-// };
 export interface IParticipantAsCustomer {
     typeOf: OrganizationType.Organization;
     id: string;
@@ -63,7 +59,7 @@ export type IAdditionalProperty = IPropertyValue<string>[];
  */
 export interface IAttributes<T extends ActionType, TObject, TResult> {
     identifier?: string;
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * A property-value pair representing an additional characteristics of the entitity,
      * e.g. a product feature or another characteristic for which there is no matching property in schema.org.

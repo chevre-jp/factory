@@ -10,7 +10,7 @@ export type IParentOrganization = IOrganization;
 /**
  * 組織インターフェース
  */
-export interface IOrganization extends IThing {
+export interface IOrganization extends Pick<IThing, 'name' | 'url'> {
     typeOf: string;
     id?: string;
     email?: string;

@@ -33,14 +33,6 @@ export enum TaskName {
      */
     ConfirmMoneyTransfer = 'confirmMoneyTransfer',
     /**
-     * 決済
-     */
-    // ConfirmPay = 'confirmPay',
-    /**
-     * 返金
-     */
-    // ConfirmRefund = 'confirmRefund',
-    /**
      * サービス登録
      */
     ConfirmRegisterService = 'confirmRegisterService',

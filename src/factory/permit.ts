@@ -9,13 +9,13 @@ import { IThing } from './thing';
 export enum PermitType {
     Permit = 'Permit'
 }
-
+export type IIssuedThrough = Pick<IProduct, 'id' | 'project' | 'serviceType' | 'typeOf'>;
 /**
  * A permit issued by an organization, e.g. a parking pass.
  * {@link https://schema.org/Permit}
  */
-export interface IPermit extends IThing {
-    project: IProject;
+export interface IPermit extends Pick<IThing, 'name'> {
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: PermitType;
     identifier?: string;
     accessCode?: string;
@@ -32,11 +32,11 @@ export interface IPermit extends IThing {
     /**
      * The service through with the permit was granted.
      */
-    issuedThrough?: IProduct;
+    issuedThrough?: IIssuedThrough;
     /**
      * The target audience for this permit.
      */
-    permitAudience?: any;
+    // permitAudience?: any;
     /**
      * The duration of validity of a permit or similar thing.
      */
@@ -48,7 +48,7 @@ export interface IPermit extends IThing {
     /**
      * The geographic area where a permit or similar thing is valid.
      */
-    validIn?: any;
+    // validIn?: any;
     /**
      * The date when the item is no longer valid.
      */

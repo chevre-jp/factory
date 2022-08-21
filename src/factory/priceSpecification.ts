@@ -30,7 +30,7 @@ export interface IAccounting {
  * 価格仕様インターフェース
  */
 export interface IPriceSpecification<T extends PriceSpecificationType> {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     id?: string;
     typeOf: T;
     name?: string | IMultilingualString;
@@ -77,7 +77,15 @@ export interface ISearchConditions<T extends PriceSpecificationType> {
     ids?: string[];
     typeOf?: T;
     appliesToCategoryCode?: {
-        $elemMatch?: any;
+        $elemMatch?: {
+            codeValue?: {
+                $eq?: string;
+                $in?: string[];
+            };
+            'inCodeSet.identifier'?: {
+                $eq?: string;
+            };
+        };
         codeValue?: {
             $eq?: string;
             $in?: string[];

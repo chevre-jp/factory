@@ -1,8 +1,7 @@
 import { IOrganization } from '../organization';
-import { IAvailableChannel } from '../product';
-import { IProject } from '../project';
+import { IAvailableChannel as IProductAvailableChannel, IServiceType } from '../product';
+import { IOnPaymentStatusChanged, IProject } from '../project';
 import { IPropertyValue } from '../propertyValue';
-import { IServiceType } from '../serviceType';
 import { IThing } from '../thing';
 
 export enum PaymentServiceType {
@@ -40,23 +39,25 @@ export interface IProviderCredentials {
     stCd?: string;
 }
 
-export interface IProvider extends IOrganization {
+export interface IProvider extends Pick<IOrganization, 'id' | 'name' | 'typeOf'> {
     /**
      * 販売者の決済サービス利用時資格情報
      */
     credentials?: IProviderCredentials;
 }
-
+export type IAvailableChannel = IProductAvailableChannel & {
+    onPaymentStatusChanged?: IOnPaymentStatusChanged;
+};
 /**
  * 決済サービスインターフェース
  * {@link https://schema.org/Service}
  */
-export interface IService extends IThing {
-    project: IProject;
+export interface IService extends Pick<IThing, 'name' | 'description'> {
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: PaymentServiceType;
     id?: string;
     availableChannel?: IAvailableChannel;
-    productID?: string;
+    productID: string;
     /**
      * 決済サービス提供者(決済サービスを利用する販売者)
      */

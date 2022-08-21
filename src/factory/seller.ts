@@ -7,11 +7,7 @@ import { IPropertyValue } from './propertyValue';
 import { SortType } from './sortType';
 
 // strict definition(2022-08-04~)
-export type ISellerMerchantReturnPolicy = Pick<
-    IMerchantReturnPolicy,
-    'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'returnFees'
->;
-
+export type ISellerMerchantReturnPolicy = Pick<IMerchantReturnPolicy, 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'url'>;
 export type IHasMerchantReturnPolicy = ISellerMerchantReturnPolicy[];
 
 /**
@@ -29,7 +25,7 @@ export interface ISeller extends Pick<
     IOrganization,
     'typeOf' | 'id' | 'location' | 'telephone' | 'additionalProperty' | 'name' | 'url'
 > {
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * The geographic area where a service or offered item is provided.
      */
@@ -61,7 +57,7 @@ export interface ISortOrder {
 export interface ISearchConditions {
     limit?: number;
     page?: number;
-    sort?: any;
+    sort?: ISortOrder;
     project?: {
         id?: { $eq?: string };
     };

@@ -11,7 +11,6 @@ import { TaskName } from '../taskName';
 import { IPotentialActionsParams as IOrderPotentialActionsParams } from '../transaction/placeOrder';
 
 // 最適化(2022-05-18~)
-// export type IAgent = IParticipant;
 export interface IAgent {
     typeOf: PersonType.Person;
     id: string;
@@ -20,7 +19,6 @@ export interface IAgent {
     identifier: IIdentifier;
 }
 // 最適化(2022-05-18~)
-// export type IAcceptedOffer = Omit<OrderFactory.IAcceptedOffer<IPermit>, 'priceSpecification'>;
 export interface IAcceptedOffer {
     seller: { id: string };
     typeOf: OfferType;
@@ -43,7 +41,7 @@ export interface IData {
      * 注文取引確定後アクション
      */
     potentialActions?: IPotentialActions;
-    project: IProject;
+    project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: ActionType.OrderAction;
 }
 export interface IAttributes extends TaskFactory.IAttributes {

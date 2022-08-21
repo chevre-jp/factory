@@ -107,7 +107,7 @@ export interface IObject {
     payAction?: any;
     onPaymentStatusChanged?: IOnPaymentStatusChanged;
 }
-export type IObjectWithoutDetail = Omit<IObject, 'accountId' | 'paymentMethodId'>;
+export type IObjectWithoutDetail = Pick<IObject, 'typeOf' | 'id' | 'paymentMethod'>;
 export type IStartParamsWithoutDetail =
     AssetTransactionFactory.IStartParams<AssetTransactionType.Pay, IAgent, IRecipient, IObjectWithoutDetail> & {
         recipient: IRecipient;

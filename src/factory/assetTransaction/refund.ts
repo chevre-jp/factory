@@ -29,7 +29,7 @@ export interface IObject {
     paymentMethod: IPaymentMethod;
     refundFee?: number;
 }
-export type IObjectWithoutDetail = Omit<IObject, 'accountId' | 'paymentMethodId' | 'onPaymentStatusChanged'>;
+export type IObjectWithoutDetail = Pick<IObject, 'typeOf' | 'id' | 'paymentMethod' | 'refundFee'>;
 export type IStartParamsWithoutDetail =
     AssetTransactionFactory.IStartParams<AssetTransactionType.Refund, IAgent, IRecipient, IObjectWithoutDetail>;
 export interface IStartParams extends AssetTransactionFactory.IStartParams<AssetTransactionType.Refund, IAgent, IRecipient, IObject> {
