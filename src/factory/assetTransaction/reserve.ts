@@ -159,11 +159,6 @@ export interface IAcceptedTicketOfferWithoutDetail {
 /**
  * 受け入れられたチケットオファー
  */
-// export type IAcceptedTicketOffer = Omit<IAcceptedTicketOfferWithoutDetail, 'priceSpecification'>
-//     & ITicketOffer
-//     & {
-//         itemOffered?: IAcceptedTicketOfferItemOffered;
-//     };
 export interface IAcceptedOffer4object {
     id: string;
     itemOffered: IAcceptedTicketOfferItemOffered4object;

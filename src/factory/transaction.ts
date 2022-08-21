@@ -21,9 +21,6 @@ export interface IAgentAsPerson extends IPersonAttributes {
 // 最適化(2022-05-30~)
 export type IAgent = IAgentAsWebApplication | IAgentAsPerson;
 // 最適化(2022-05-30~)
-// export type ISeller = Omit<SellerFactory.ISeller,
-//     'branchCode' | 'paymentAccepted' | 'additionalProperty'
-//     | 'hasMerchantReturnPolicy' | 'email' | 'telephone' | 'location' | 'url' | 'project'>;
 /**
  * 販売者
  */
