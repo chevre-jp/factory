@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 決済アクションのIPotentialActionsにadd2reportを追加
-- 返金アクションのIPotentialActionsにadd2reportを追加
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.260.0 - 2022-08-24
+
+### Changed
+
+- 決済アクションのIPotentialActionsにadd2reportを追加
+- 返金アクションのIPotentialActionsにadd2reportを追加
 
 ## v4.259.0 - 2022-08-22
 
