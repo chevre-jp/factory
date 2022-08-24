@@ -16,6 +16,7 @@ export type IResult = any;
 export type IInformPayment = IInformActionAttributes<{}, undefined>;
 
 export interface IPotentialActions {
+    add2report: boolean;
     informPayment?: IInformPayment[];
 }
 export type IPurpose = IPayPurpose;

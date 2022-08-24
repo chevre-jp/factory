@@ -100,6 +100,7 @@ export interface IPaymentService {
 export type IObject = IPaymentService[];
 export type IInformPayment = IInformActionAttributes<{}, undefined>;
 export interface IPotentialActions {
+    add2report: boolean;
     informPayment?: IInformPayment[];
 }
 export interface IInstrument {
