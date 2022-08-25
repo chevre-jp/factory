@@ -14,6 +14,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- 互換性維持対応としてのchevreエクスポートを廃止
+- 注文返品アクションのIPotentialActionsからrefundを削除
+- PrintActionタイプを廃止
+
 ### Fixed
 
 ### Security
