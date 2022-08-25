@@ -13,7 +13,7 @@ export enum ActionType {
     MoneyTransfer = 'MoneyTransfer',
     OrderAction = 'OrderAction',
     PayAction = 'PayAction',
-    PrintAction = 'PrintAction',
+    // PrintAction = 'PrintAction',
     RefundAction = 'RefundAction',
     RegisterAction = 'RegisterAction',
     ReplaceAction = 'ReplaceAction',
