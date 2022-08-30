@@ -324,6 +324,7 @@ export interface IOfferSearchConditions {
     validFrom?: Date;
     validThrough?: Date;
     itemOffered?: {
+        id?: { $in?: string[] };
         serviceType?: {
             ids?: string[];
         };
