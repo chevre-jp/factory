@@ -87,11 +87,13 @@ export type IServiceType = IProductServiceType & {
     id?: string;
 };
 /**
- * イベントのサービス
+ * 興行
  */
-export interface IService {
+export interface IItemOffered {
+    // 興行IDを追加(2022-08-31~)
+    id?: string;
     /**
-     * サービス区分
+     * 興行区分
      */
     serviceType?: IServiceType;
     /**
@@ -121,7 +123,7 @@ export interface IOffer {
      */
     availabilityStarts: Date;
     eligibleQuantity: IQuantitativeValue<UnitCode.C62>;
-    itemOffered: IService;
+    itemOffered: IItemOffered;
     /**
      * オファー供給サービス
      */
