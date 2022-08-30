@@ -1,6 +1,6 @@
 import { IMultilingualString } from './multilingualString';
 import { OfferType } from './offerType';
-import { IServiceType as IProductServiceType } from './product';
+import { IServiceType as IProductServiceType, ProductType } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { SortType } from './sortType';
@@ -10,7 +10,7 @@ export type IServiceType = IProductServiceType & {
     id?: string;
 };
 export interface IItemOffered {
-    typeOf: string;
+    typeOf: ProductType;
     serviceType?: IServiceType;
 }
 

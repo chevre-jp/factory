@@ -34,7 +34,7 @@ export enum ProductType {
 
 export interface IHasOfferCatalog {
     typeOf: 'OfferCatalog';
-    id?: string;
+    id: string;
 }
 export type IServiceOutput = IPermit & {
     membershipPointsEarned?: IQuantitativeValue<any>;

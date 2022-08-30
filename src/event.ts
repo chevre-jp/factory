@@ -10,7 +10,7 @@ import { SortType } from './sortType';
 
 export interface IHasOfferCatalog {
     typeOf: 'OfferCatalog';
-    id?: string;
+    id: string;
     identifier?: string;
 }
 
