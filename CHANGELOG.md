@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- イベントのIItemOfferedに興行IDを追加
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.262.0 - 2022-08-30
+
+### Changed
+
+- イベントのIItemOfferedに興行IDを追加
 
 ## v4.261.0 - 2022-08-26
 
