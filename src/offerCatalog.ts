@@ -11,14 +11,16 @@ export type IServiceType = IProductServiceType & {
 };
 export interface IItemOffered {
     typeOf: ProductType;
-    serviceType?: IServiceType;
+    /**
+     * 興行区分
+     * 廃止して興行プロダクトへ移行(2022-09-02~)
+     */
+    // serviceType?: IServiceType;
 }
-
 export interface IItemListElement {
     typeOf: OfferType;
     id: string;
 }
-
 /**
  * オファーカタログ
  */
@@ -32,14 +34,12 @@ export interface IOfferCatalog extends Pick<IThing, 'name' | 'description' | 'al
     itemOffered: IItemOffered;
     additionalProperty?: IPropertyValue<string>[];
 }
-
 /**
  * ソート条件
  */
 export interface ISortOrder {
     identifier?: SortType;
 }
-
 /**
  * オファーカタログ検索条件
  */
