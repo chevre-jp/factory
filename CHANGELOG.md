@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- イベント検索条件に興行IDを追加
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.263.0 - 2022-09-02
+
+### Changed
+
+- イベント検索条件に興行IDを追加
+- カタログの興行区分を廃止
 
 ## v4.262.0 - 2022-08-30
 
