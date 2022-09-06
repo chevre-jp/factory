@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- イベントのhasOfferCatalogを廃止
-- イベントに興行名称を追加
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.264.0 - 2022-09-06
+
+### Changed
+
+- イベントのhasOfferCatalogを廃止
+- イベントに興行名称を追加
 
 ## v4.263.0 - 2022-09-02
 
