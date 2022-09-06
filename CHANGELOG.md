@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.265.0 - 2022-09-06
+
+### Changed
+
+- 予約のissuedThroughに興行IDを追加
+
 ## v4.264.0 - 2022-09-06
 
 ### Changed
