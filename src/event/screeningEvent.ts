@@ -93,6 +93,10 @@ export interface IItemOffered {
     // 興行IDを追加(2022-08-31~)
     id?: string;
     /**
+     * 興行名称
+     */
+    name?: { ja?: string };
+    /**
      * 興行区分
      */
     serviceType?: IServiceType;

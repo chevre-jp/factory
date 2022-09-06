@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.264.0 - 2022-09-06
+
+### Changed
+
+- イベントのhasOfferCatalogを廃止
+- イベントに興行名称を追加
+
 ## v4.263.0 - 2022-09-02
 
 ### Changed
