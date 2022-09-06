@@ -69,12 +69,14 @@ export interface ISubReservation {
         ticketedSeat: ReservationFactory.ISeat;
     };
 }
+export import IServiceTypeOfIssuedThrough = ReservationFactory.IServiceTypeOfIssuedThrough;
+export import IIssuedThrough = ReservationFactory.IIssuedThrough;
 /**
  * イベント予約
  */
 export interface IReservation extends ReservationFactory.IReservation<IPriceSpecification> {
     id: string;
-    issuedThrough: ReservationFactory.IIssuedThrough;
+    issuedThrough: IIssuedThrough;
     reservationFor: IReservationFor;
     reservationNumber: string;
     reservationStatus: ReservationStatusType;

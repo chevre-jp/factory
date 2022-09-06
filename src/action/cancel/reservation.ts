@@ -10,10 +10,7 @@ export type IAgent = ActionFactory.IParticipantAsProject;
 /**
  * 予約取消対象
  */
-// 最適化(2022-06-06~)
-// export type IObject = IEventReservation;
-export type IObject = IObject4future;
-export interface IObject4future {
+export interface IObject {
     typeOf: ReservationType.EventReservation;
     id: string;
     issuedThrough?: {

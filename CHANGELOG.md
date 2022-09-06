@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 予約のissuedThroughに興行IDを追加
+
 ### Deprecated
 
 ### Removed
