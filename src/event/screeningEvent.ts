@@ -107,7 +107,7 @@ export interface IItemOffered {
 }
 export type IOfferedThrough = WebAPIFactory.IService<WebAPIFactory.Identifier>;
 export interface ISeller {
-    typeOf: OrganizationType;
+    typeOf: OrganizationType.Corporation;
     id: string;
     name?: string | IMultilingualString;
 }
