@@ -14,7 +14,7 @@ export interface IPaymentService extends PayActionFactory.IPaymentService {
     /**
      * 販売者
      */
-    seller: { typeOf: OrganizationType; id: string };
+    seller: { typeOf: OrganizationType.Corporation; id: string };
 }
 export type IObject = IPaymentService[];
 export interface IResult {

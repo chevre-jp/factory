@@ -3,12 +3,13 @@ import { ICategoryCode } from './categoryCode';
 import { ItemAvailability } from './itemAvailability';
 import { IMonetaryAmount } from './monetaryAmount';
 import { OfferType } from './offerType';
+import { OrganizationType } from './organizationType';
 import { PriceCurrency } from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
-import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
+import { IAppliesToMovieTicket, IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { PriceSpecificationType } from './priceSpecificationType';
 import { ProductType } from './product';
 import { IProject } from './project';
@@ -27,7 +28,7 @@ import {
 import * as SeatReservationOfferFactory from './offer/seatReservation';
 
 /**
- * オファーカテゴリーインターフェース
+ * オファーカテゴリー
  */
 export interface ICategory {
     project: Pick<IProject, 'id' | 'typeOf'>;
@@ -36,7 +37,7 @@ export interface ICategory {
 }
 
 /**
- * アドオンインターフェース
+ * アドオン
  */
 export type IAddOn = IOffer;
 
@@ -44,7 +45,7 @@ export type IEligibleCategoryCode = Pick<ICategoryCode, 'project' | 'typeOf' | '
 export type IEligibleMonetaryAmount = IMonetaryAmount;
 
 /**
- * 適用サブ予約条件インターフェース
+ * 適用サブ予約条件
  */
 export interface IEligibleSubReservation {
     /**
@@ -60,17 +61,17 @@ export interface IEligibleSubReservation {
 }
 
 /**
- * 販売者インターフェース
+ * 販売者
  */
 export interface ISeller {
-    typeOf?: string;
+    typeOf?: OrganizationType.Corporation;
     id?: string;
 }
 
 export type IOfferedThrough = WebAPIFactory.IService<WebAPIFactory.Identifier>;
 
 /**
- * レート制限インターフェース
+ * レート制限
  * どのスコープで何秒に1席までか
  */
 export interface IValidRateLimit {
@@ -215,7 +216,7 @@ export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternate
 }
 
 /**
- * 単価オファーの提供アイテムインターフェース
+ * 単価オファーの提供アイテム
  */
 export interface IItemOffered {
     typeOf: ProductType;
@@ -254,9 +255,15 @@ export interface IItemOffered {
         typeOf: ActionType.MoneyTransfer;
     };
 }
-
 /**
- * 単価オファーインターフェース
+ * 単価オファーの価格仕様
+ */
+export type IUnitPriceOfferPriceSpecification = Omit<IUnitPriceSpecification, 'appliesToMovieTicket'> & {
+    // Arrayに限定(2022-09-09~)
+    appliesToMovieTicket?: IAppliesToMovieTicket[];
+};
+/**
+ * 単価オファー
  */
 export interface IUnitPriceOffer extends Omit<IOffer, 'seller'> {
     /**
@@ -266,19 +273,19 @@ export interface IUnitPriceOffer extends Omit<IOffer, 'seller'> {
     /**
      * 単価仕様
      */
-    priceSpecification?: IUnitPriceSpecification;
+    priceSpecification?: IUnitPriceOfferPriceSpecification;
     itemOffered?: IItemOffered;
 }
 
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     'priceSpecification.price'?: SortType;
 }
 
 /**
- * 価格仕様検索条件インターフェース
+ * 価格仕様検索条件
  */
 export interface IPriceSpecificationSearchConditions {
     appliesToMovieTicket?: {
@@ -319,7 +326,7 @@ export interface IPriceSpecificationSearchConditions {
 }
 
 /**
- * 検索条件インターフェース
+ * 検索条件
  */
 export interface ISearchConditions {
     limit?: number;

@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.266.0 - 2022-09-08
+
+### Changed
+
+- 単価オファーの適用決済カードがArrayでないケースを廃止
+
 ## v4.265.0 - 2022-09-06
 
 ### Changed
