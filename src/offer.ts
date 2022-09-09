@@ -401,7 +401,8 @@ export interface ISearchConditions {
  */
 export type ITicketPriceComponent = ICategoryCodeChargeSpecification
     | IMovieTicketTypeChargeSpecification
-    | IUnitPriceSpecification;
+    | IUnitPriceOfferPriceSpecification;
+// | IUnitPriceSpecification;
 /**
  * 承認時に提供される価格仕様
  */
