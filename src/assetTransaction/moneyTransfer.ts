@@ -89,7 +89,10 @@ export interface IObjectBeforeStart {
      * 取引説明
      */
     description?: string;
-    pendingTransaction?: IPendingTransaction;
+    /**
+     * 口座取引タイプの確認ために指定
+     */
+    pendingTransaction: Pick<IPendingTransaction, 'typeOf'>;
     /**
      * 負の残高でも強制的に出金するかどうか
      */
