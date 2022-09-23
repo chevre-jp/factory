@@ -1,3 +1,4 @@
+import { AccountType } from '../../accountType';
 import * as ActionFactory from '../../action';
 import { ActionStatusType } from '../../actionStatusType';
 import { ActionType } from '../../actionType';
@@ -10,7 +11,7 @@ export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
 /**
- * 口座以外の匿名場所インターフェース
+ * 口座以外の匿名ロケーション
  */
 export interface IAnonymousLocation extends Pick<IThing, 'identifier' | 'name'> {
     /**
@@ -22,12 +23,11 @@ export interface IAnonymousLocation extends Pick<IThing, 'identifier' | 'name'> 
      */
     id?: string;
 }
-
 /**
- * 口座インターフェース
+ * 口座
  */
 export interface IAccount {
-    typeOf: string;
+    typeOf: AccountType.Account;
     /**
      * 通貨
      */
@@ -41,9 +41,8 @@ export interface IAccount {
      */
     name?: string;
 }
-
 /**
- * 転送元あるいは転送先の場所インターフェース
+ * 転送元あるいは転送先の場所
  */
 export type ILocation = IAnonymousLocation | IAccount;
 
@@ -54,7 +53,7 @@ export type IResult = any;
 export type IPotentialActions = any;
 
 /**
- * アクションの目的インターフェース
+ * アクションの目的
  * ここでは、取引が目的となる
  */
 export interface IPurpose {
@@ -75,7 +74,7 @@ export interface IPurpose {
      */
     identifier?: string;
 }
-
+export type IAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.MoneyTransfer, IObject, IResult> {
     typeOf: ActionType.MoneyTransfer;
     /**
@@ -85,7 +84,7 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.MoneyT
     /**
      * 金額
      */
-    amount: IMonetaryAmount;
+    amount: IAmount;
     /**
      * 転送元
      */
@@ -99,7 +98,7 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.MoneyT
 export type IAction = ActionFactory.IAction<IAttributes>;
 
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     /**
@@ -116,7 +115,7 @@ export interface IProjectSearchConditions {
 }
 
 /**
- * 検索条件インターフェース
+ * 検索条件
  */
 export interface ISearchConditions {
     limit?: number;

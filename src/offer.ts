@@ -4,6 +4,7 @@ import { ItemAvailability } from './itemAvailability';
 import { IMonetaryAmount } from './monetaryAmount';
 import { OfferType } from './offerType';
 import { OrganizationType } from './organizationType';
+import { IAmount as IPermitAmount, IDepositAmount, IPaymentAmount } from './permit';
 import { PriceCurrency } from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
@@ -11,7 +12,7 @@ import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpeci
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
 import { IAppliesToMovieTicket, IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { PriceSpecificationType } from './priceSpecificationType';
-import { ProductType } from './product';
+import { IPointAwardAmount, ProductType } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
@@ -42,7 +43,7 @@ export interface ICategory {
 export type IAddOn = IOffer;
 
 export type IEligibleCategoryCode = Pick<ICategoryCode, 'project' | 'typeOf' | 'id' | 'codeValue' | 'inCodeSet'>;
-export type IEligibleMonetaryAmount = IMonetaryAmount;
+export type IEligibleMonetaryAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
 
 /**
  * 適用サブ予約条件
@@ -214,7 +215,6 @@ export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternate
      */
     additionalProperty?: IPropertyValue<string>[];
 }
-
 /**
  * 単価オファーの提供アイテム
  */
@@ -230,15 +230,15 @@ export interface IItemOffered {
         /**
          * ペイメントカード初期金額
          */
-        amount?: IMonetaryAmount;
+        amount?: IPermitAmount;
         /**
          * ペイメントカード入金設定
          */
-        depositAmount?: IMonetaryAmount;
+        depositAmount?: IDepositAmount;
         /**
          * ペイメントカード決済設定
          */
-        paymentAmount?: IMonetaryAmount;
+        paymentAmount?: IPaymentAmount;
     };
     /**
      * 特典
@@ -247,7 +247,7 @@ export interface IItemOffered {
         /**
          * 付与金額
          */
-        amount?: IMonetaryAmount;
+        amount?: IPointAwardAmount;
         /**
          * 特典説明
          */

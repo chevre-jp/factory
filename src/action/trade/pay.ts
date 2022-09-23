@@ -5,8 +5,7 @@ import * as ActionFactory from '../../action';
 import { IAttributes as IReturnOrderActionAttributes } from '../../action/transfer/return/order';
 import { ActionType } from '../../actionType';
 import { AssetTransactionType } from '../../assetTransactionType';
-import { IPaymentServiceOutput } from '../../invoice';
-import { IMonetaryAmount } from '../../monetaryAmount';
+import { IPaymentServiceOutput, ITotalPaymentDue } from '../../invoice';
 import { OrderType } from '../../order';
 import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import { IPropertyValue } from '../../propertyValue';
@@ -71,7 +70,7 @@ export interface IPaymentMethod {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: IMonetaryAmount;
+    totalPaymentDue?: ITotalPaymentDue;
     /**
      * 追加特性
      */
@@ -130,3 +129,4 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.PayAct
  * 決済アクション
  */
 export type IAction = ActionFactory.IAction<IAttributes>;
+export { ITotalPaymentDue };

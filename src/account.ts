@@ -26,31 +26,25 @@ export namespace action {
     export import moneyTransfer = MoneyTransferActionFactory;
 }
 export namespace transaction {
+    export import IAgent = TransactionFactory.IAgent;
+    export import IRecipient = TransactionFactory.IRecipient;
+    export import IPotentialActions = TransactionFactory.IPotentialActions;
+    export import IResult = TransactionFactory.IResult;
     export type IStartParams<T extends AccountTransactionType> =
         T extends AccountTransactionType.Deposit ? DepositTransactionFactory.IStartParams :
         T extends AccountTransactionType.Withdraw ? WithdrawTransactionFactory.IStartParams :
         T extends AccountTransactionType.Transfer ? TransferTransactionFactory.IStartParams :
-        TransactionFactory.IStartParams<AccountTransactionType, any, any, any>;
+        never;
     export type IAttributes<T> =
         T extends AccountTransactionType.Deposit ? DepositTransactionFactory.IAttributes :
         T extends AccountTransactionType.Withdraw ? WithdrawTransactionFactory.IAttributes :
         T extends AccountTransactionType.Transfer ? TransferTransactionFactory.IAttributes :
-        TransactionFactory.IAttributes<any, any, any, any>;
+        never;
     export type ITransaction<T> =
         T extends AccountTransactionType.Deposit ? DepositTransactionFactory.ITransaction :
         T extends AccountTransactionType.Withdraw ? WithdrawTransactionFactory.ITransaction :
         T extends AccountTransactionType.Transfer ? TransferTransactionFactory.ITransaction :
-        TransactionFactory.ITransaction<any, any, any, any>;
-    export type IResult<T> =
-        T extends AccountTransactionType.Deposit ? DepositTransactionFactory.IResult :
-        T extends AccountTransactionType.Withdraw ? WithdrawTransactionFactory.IResult :
-        T extends AccountTransactionType.Transfer ? TransferTransactionFactory.IResult :
-        any;
-    export type IPotentialActions<T> =
-        T extends AccountTransactionType.Deposit ? DepositTransactionFactory.IPotentialActions :
-        T extends AccountTransactionType.Withdraw ? WithdrawTransactionFactory.IPotentialActions :
-        T extends AccountTransactionType.Transfer ? TransferTransactionFactory.IPotentialActions :
-        any;
+        never;
     export import withdraw = WithdrawTransactionFactory;
     export import deposit = DepositTransactionFactory;
     export import transfer = TransferTransactionFactory;
@@ -90,15 +84,15 @@ export interface IAccount {
     /**
      * 口座名義
      */
-    name?: string;
+    name: string;
     /**
      * 残高
      */
-    balance?: number;
+    balance: number;
     /**
      * 利用可能残高
      */
-    availableBalance?: number;
+    availableBalance: number;
     /**
      * 進行中取引リスト
      */
@@ -106,7 +100,7 @@ export interface IAccount {
     /**
      * 口座開設日時
      */
-    openDate?: Date;
+    openDate: Date;
     /**
      * 口座閉鎖日時
      */
@@ -114,7 +108,7 @@ export interface IAccount {
     /**
      * 口座ステータス
      */
-    status?: AccountStatusType;
+    status: AccountStatusType;
 }
 /**
  * ソート条件

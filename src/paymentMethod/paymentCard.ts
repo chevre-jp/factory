@@ -1,6 +1,7 @@
 import { IMonetaryAmount } from '../monetaryAmount';
 import { IPaymentMethod } from '../paymentMethod';
 
+export type IAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'validThrough'>;
 /**
  * payment card interface
  */
@@ -13,7 +14,7 @@ export interface IPaymentCard extends IPaymentMethod {
     /**
      * The amount of money.
      */
-    amount?: IMonetaryAmount;
+    amount?: IAmount;
     serviceOutput?: any;
     serviceType?: any;
 }

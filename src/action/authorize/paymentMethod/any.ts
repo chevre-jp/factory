@@ -1,15 +1,15 @@
 import * as ActionFactory from '../../../action';
 import * as CheckMovieTicketActionFactory from '../../../action/check/paymentMethod/movieTicket';
+import { ITotalPaymentDue } from '../../../action/trade/pay';
 import * as MoneyTransferActionFactory from '../../../action/transfer/moneyTransfer';
 import { ActionType } from '../../../actionType';
 import * as PayTransactionFactory from '../../../assetTransaction/pay';
 import { AssetTransactionType } from '../../../assetTransactionType';
-import { IMonetaryAmount } from '../../../monetaryAmount';
+import { IPaymentMethodIssuedThrough } from '../../../order';
 import * as CreditCardFactory from '../../../paymentMethod/paymentCard/creditCard';
 import * as MovieTicketFactory from '../../../paymentMethod/paymentCard/movieTicket';
 import { PaymentStatusType } from '../../../paymentStatusType';
 import { IPropertyValue } from '../../../propertyValue';
-import { PaymentServiceType } from '../../../service/paymentService';
 import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
@@ -129,23 +129,6 @@ export interface IObject {
     movieTickets?: IMovieTicket[];
 }
 export type IPaymentServiceOutput = IMovieTicket[];
-/**
- * 決済方法の発行サービス
- */
-export interface IPaymentMethodIssuedThrough {
-    /**
-     * 決済サービスタイプ
-     */
-    typeOf: PaymentServiceType;
-    /**
-     * サービスID
-     */
-    id: string;
-    /**
-     * 決済サービスによって発行された決済カード
-     */
-    serviceOutput?: IPaymentServiceOutput;
-}
 export interface IResult {
     /**
      * The identifier for the account the payment will be applied to.
@@ -174,7 +157,7 @@ export interface IResult {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: IMonetaryAmount;
+    totalPaymentDue?: ITotalPaymentDue;
     /**
      * 追加特性
      */
@@ -239,3 +222,7 @@ export interface IAttributes extends AuthorizeActionFactory.IAttributes<IObject,
  * 決済承認アクション
  */
 export type IAction = ActionFactory.IAction<IAttributes>;
+
+export {
+    ITotalPaymentDue
+};

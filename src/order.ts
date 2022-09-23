@@ -1,13 +1,14 @@
 import { IParticipant } from './action';
-import { IPaymentMethodIssuedThrough } from './action/authorize/paymentMethod/any';
-// import { IPaymentCard } from './action/interact/confirm/moneyTransfer';
+import { IPaymentService, ITotalPaymentDue } from './action/trade/pay';
+import {
+    IAmount as IMoneyTransferAmount,
+    IPaymentCard as IPaymentCardAsMoneyTransferToLocation
+} from './action/transfer/moneyTransfer';
 import { ActionType } from './actionType';
-import { IPaymentCard } from './assetTransaction/moneyTransfer';
 import { AssetTransactionType } from './assetTransactionType';
 import { ICreativeWork as IWebApplication } from './creativeWork/softwareApplication/webApplication';
 import { ICustomer as ICustomerOrganization } from './customer';
 import { EventType } from './eventType';
-import * as MonetaryAmountFactory from './monetaryAmount';
 import { IMultilingualString } from './multilingualString';
 import { IOffer, ITicketPriceSpecification } from './offer';
 import { OrderStatus } from './orderStatus';
@@ -32,6 +33,21 @@ export interface IProject {
 export enum OrderType {
     Order = 'Order'
 }
+export type IPaymentMethodIssuedThrough = Pick<IPaymentService, 'typeOf' | 'id' | 'serviceOutput'>;
+// {
+//     /**
+//      * 決済サービスタイプ
+//      */
+//     typeOf: PaymentServiceType;
+//     /**
+//      * サービスID
+//      */
+//     id: string;
+//     /**
+//      * 決済サービスによって発行された決済カード
+//      */
+//     serviceOutput ?: IPaymentServiceOutput;
+// }
 /**
  * 決済方法
  */
@@ -55,7 +71,7 @@ export interface IPaymentMethod {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: MonetaryAmountFactory.IMonetaryAmount;
+    totalPaymentDue?: ITotalPaymentDue;
     /**
      * 追加特性
      */
@@ -147,17 +163,18 @@ export interface IMoneyTransferPendingTransaction {
      */
     transactionNumber: string;
 }
+export type IMoneyTransferToLocation = Pick<IPaymentCardAsMoneyTransferToLocation, 'typeOf' | 'identifier' | 'issuedThrough'>;
 export interface IMoneyTransfer {
     typeOf: ActionType.MoneyTransfer;
     /**
      * 金額
      */
-    amount: MonetaryAmountFactory.IMonetaryAmount;
+    amount: IMoneyTransferAmount;
     description?: string;
     /**
      * 転送先
      */
-    toLocation: IPaymentCard;
+    toLocation: IMoneyTransferToLocation;
     object: {
         /**
          * 入金処理の資産取引

@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 口座取引の取引番号指定を必須化
+- IMonetaryAmount型の属性について最適化
+
 ### Deprecated
 
 ### Removed

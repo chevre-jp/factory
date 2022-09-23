@@ -14,10 +14,27 @@ export interface IProject {
     id: string;
     typeOf: OrganizationType.Project;
 }
+export interface IObjectWithoutDetail {
+    // clientUser?: IClientUser;
+    amount: {
+        value: number;
+    };
+    description?: string;
+}
+export interface IObject {
+    // clientUser?: IClientUser;
+    /**
+     * 金額
+     */
+    amount: {
+        value: number;
+    };
+    description?: string;
+}
 /**
  * 口座取引開始パラメータ
  */
-export interface IStartParams<T extends AccountTransactionType, TAgent extends IAgent, TRecipient extends IRecipient, TObject> {
+export interface IStartParams<T extends AccountTransactionType, TObject extends IObject> {
     project: IProject;
     /**
      * 取引タイプ
@@ -31,16 +48,17 @@ export interface IStartParams<T extends AccountTransactionType, TAgent extends I
     /**
      * 取引番号
      * サービス使用側が指定するグローバルユニークな番号
+     * 必須化(2022-09-26~)
      */
-    transactionNumber?: string;
+    transactionNumber: string;
     /**
      * 取引主体
      */
-    agent: TAgent;
+    agent: IAgent;
     /**
      * 取引物受取者
      */
-    recipient: TRecipient;
+    recipient: IRecipient;
     /**
      * 取引対象
      */
@@ -50,16 +68,20 @@ export interface IStartParams<T extends AccountTransactionType, TAgent extends I
      */
     expires: Date;
 }
+export interface IPotentialActions {
+    moneyTransfer: MoneyTransferActionFactory.IAttributes;
+}
 /**
- * 口座取引
+ * エラー
  */
-export type ITransaction<TStartParams, TResult, TError, TPotentialActions> =
-    IExtendId<IAttributes<TStartParams, TResult, TError, TPotentialActions>>;
-
+export type IError = any;
+// tslint:disable-next-line:no-empty-interface
+export interface IResult {
+}
 /**
  * 口座取引属性
  */
-export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TStartParams & {
+export type IAttributes<TStartParams> = TStartParams & {
     /**
      * 取引状態
      */
@@ -67,15 +89,15 @@ export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TSta
     /**
      * 取引結果
      */
-    result?: TResult;
+    result?: IResult;
     /**
      * 取引エラー
      */
-    error?: TError;
+    error?: IError;
     /**
      * 取引開始日時
      */
-    startDate?: Date;
+    startDate: Date;
     /**
      * 取引終了日時
      */
@@ -91,5 +113,9 @@ export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TSta
     /**
      * 事後に発生するアクション
      */
-    potentialActions?: TPotentialActions;
+    potentialActions?: IPotentialActions;
 };
+/**
+ * 口座取引
+ */
+export type ITransaction<TStartParams> = IExtendId<IAttributes<TStartParams>>;
