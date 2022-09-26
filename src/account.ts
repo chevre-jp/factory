@@ -30,6 +30,11 @@ export namespace transaction {
     export import IRecipient = TransactionFactory.IRecipient;
     export import IPotentialActions = TransactionFactory.IPotentialActions;
     export import IResult = TransactionFactory.IResult;
+    export type IStartParamsWithoutDetail<T extends AccountTransactionType> =
+        T extends AccountTransactionType.Deposit ? DepositTransactionFactory.IStartParamsWithoutDetail :
+        T extends AccountTransactionType.Withdraw ? WithdrawTransactionFactory.IStartParamsWithoutDetail :
+        T extends AccountTransactionType.Transfer ? TransferTransactionFactory.IStartParamsWithoutDetail :
+        never;
     export type IStartParams<T extends AccountTransactionType> =
         T extends AccountTransactionType.Deposit ? DepositTransactionFactory.IStartParams :
         T extends AccountTransactionType.Withdraw ? WithdrawTransactionFactory.IStartParams :
