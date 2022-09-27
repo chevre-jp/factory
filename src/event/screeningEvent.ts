@@ -318,6 +318,11 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
  * イベント
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
+export type ICreateParams = Pick<IAttributes, 'project' | 'typeOf' | 'doorTime' | 'startDate' | 'endDate' | 'name' | 'eventStatus' | 'additionalProperty'> & {
+    location: Pick<ILocation, 'branchCode' | 'maximumAttendeeCapacity'>;
+    superEvent: Pick<ISuperEvent, 'id'>;
+    offers: Pick<IOffer, 'availabilityEnds' | 'availabilityStarts' | 'eligibleQuantity' | 'itemOffered' | 'validFrom' | 'validThrough' | 'unacceptedPaymentMethod' | 'seller'>;
+};
 /**
  * ソート条件
  */

@@ -135,7 +135,10 @@ export interface ISearchConditions {
             $eq?: string;
         };
     };
-    id?: { $eq?: string };
+    id?: {
+        $eq?: string;
+        $in?: string[];
+    };
     name?: {
         $regex?: string;
     };

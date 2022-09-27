@@ -154,6 +154,7 @@ export interface IAttributes extends Pick<
  * 施設コンテンツ
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
+export type ICreateParams = IAttributes;
 /**
  * ソート条件
  */
