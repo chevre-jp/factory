@@ -111,6 +111,7 @@ export interface ISeller {
     id: string;
     name?: string | IMultilingualString;
 }
+export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue' | 'typeOf' | 'unitCode' | 'value'>;
 /**
  * イベントに対するオファー
  */
@@ -126,7 +127,7 @@ export interface IOffer {
      * 情報提供開始日時
      */
     availabilityStarts: Date;
-    eligibleQuantity: IQuantitativeValue<UnitCode.C62>;
+    eligibleQuantity: IEligibleQuantity;
     itemOffered: IItemOffered;
     /**
      * オファー供給サービス
@@ -319,9 +320,31 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
 export type ICreateParams = Pick<IAttributes, 'project' | 'typeOf' | 'doorTime' | 'startDate' | 'endDate' | 'name' | 'eventStatus' | 'additionalProperty'> & {
+    /**
+     * ルームコードとキャパシティを指定
+     */
     location: Pick<ILocation, 'branchCode' | 'maximumAttendeeCapacity'>;
+    /**
+     * 施設コンテンツIDを指定
+     */
     superEvent: Pick<ISuperEvent, 'id'>;
-    offers: Pick<IOffer, 'availabilityEnds' | 'availabilityStarts' | 'eligibleQuantity' | 'itemOffered' | 'validFrom' | 'validThrough' | 'unacceptedPaymentMethod' | 'seller'>;
+    offers: Pick<
+        IOffer,
+        'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough' | 'unacceptedPaymentMethod'
+    > & {
+        /**
+         * 最大予約数を指定
+         */
+        eligibleQuantity: Pick<IEligibleQuantity, 'maxValue'>;
+        /**
+         * 興行IDと座席有無を指定
+         */
+        itemOffered: Pick<IItemOffered, 'id' | 'serviceOutput'>;
+        /**
+         * 販売者IDを指定
+         */
+        seller: Pick<ISeller, 'id'>;
+    };
 };
 /**
  * ソート条件
