@@ -379,8 +379,32 @@ export interface IOfferSearchConditions {
  * イベント検索条件
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEvent> {
+    location?: {
+        /**
+         * ルームコード
+         */
+        branchCode?: {
+            $eq?: string;
+        };
+    };
     /**
      * 販売情報
      */
     offers?: IOfferSearchConditions;
+    superEvent?: {
+        ids?: string[];
+        location?: {
+            id?: {
+                $eq?: string;
+            };
+        };
+        /**
+         * 施設コンテンツの施設コードリスト
+         */
+        locationBranchCodes?: string[];
+        /**
+         * 施設コンテンツのコンテンツコードリスト
+         */
+        workPerformedIdentifiers?: string[];
+    };
 }

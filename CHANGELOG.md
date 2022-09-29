@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - プロダクト検索条件拡張
 - イベント作成パラメータ最適化
 - 施設コンテンツ作成パラメータ最適化
+- 施設コンテンツ検索条件拡張
 
 ### Deprecated
 

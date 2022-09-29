@@ -172,6 +172,19 @@ export type ISortOrder = EventFactory.ISortOrder;
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEventSeries> {
     sort?: ISortOrder;
+    location?: {
+        branchCode?: {
+            $eq?: string;
+        };
+        /**
+         * 施設コードリスト
+         */
+        branchCodes?: string[];
+        /**
+         * 施設ID
+         */
+        id?: { $eq?: string };
+    };
     videoFormat?: {
         typeOf?: {
             $eq?: string;
