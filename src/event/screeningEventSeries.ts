@@ -154,7 +154,15 @@ export interface IAttributes extends Pick<
  * 施設コンテンツ
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
-export type ICreateParams = IAttributes;
+// 最適化(2022-10-01~)
+export type ICreateParams = Omit<
+    IAttributes,
+    'location' | 'workPerformed' | 'coaInfo' | 'organizer' | 'duration' | 'videoFormat' | 'alternativeHeadline'
+> & {
+    location: { id: string };
+    workPerformed: { identifier: string };
+    videoFormat: IVideoFormat[];
+};
 /**
  * ソート条件
  */

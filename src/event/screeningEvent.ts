@@ -319,32 +319,38 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
  * イベント
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
-export type ICreateParams = Pick<IAttributes, 'project' | 'typeOf' | 'doorTime' | 'startDate' | 'endDate' | 'name' | 'eventStatus' | 'additionalProperty'> & {
+export type ILocation4create = Pick<ILocation, 'branchCode' | 'maximumAttendeeCapacity'>;
+export type ISuperEvent4create = Pick<ISuperEvent, 'id'>;
+export type IOffers4create = Pick<
+    IOffer,
+    'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough' | 'unacceptedPaymentMethod'
+> & {
+    /**
+     * 最大予約数を指定
+     */
+    eligibleQuantity: Pick<IEligibleQuantity, 'maxValue'>;
+    /**
+     * 興行IDと座席有無を指定
+     */
+    itemOffered: Pick<IItemOffered, 'id' | 'serviceOutput'>;
+    /**
+     * 販売者IDを指定
+     */
+    seller: Pick<ISeller, 'id'>;
+};
+export type ICreateParams = Pick<
+    IAttributes,
+    'project' | 'typeOf' | 'doorTime' | 'startDate' | 'endDate' | 'eventStatus' | 'additionalProperty'
+> & {
     /**
      * ルームコードとキャパシティを指定
      */
-    location: Pick<ILocation, 'branchCode' | 'maximumAttendeeCapacity'>;
+    location: ILocation4create;
     /**
      * 施設コンテンツIDを指定
      */
-    superEvent: Pick<ISuperEvent, 'id'>;
-    offers: Pick<
-        IOffer,
-        'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough' | 'unacceptedPaymentMethod'
-    > & {
-        /**
-         * 最大予約数を指定
-         */
-        eligibleQuantity: Pick<IEligibleQuantity, 'maxValue'>;
-        /**
-         * 興行IDと座席有無を指定
-         */
-        itemOffered: Pick<IItemOffered, 'id' | 'serviceOutput'>;
-        /**
-         * 販売者IDを指定
-         */
-        seller: Pick<ISeller, 'id'>;
-    };
+    superEvent: ISuperEvent4create;
+    offers: IOffers4create;
 };
 /**
  * ソート条件
