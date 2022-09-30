@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - イベント作成パラメータ最適化
 - 施設コンテンツ作成パラメータ最適化
 - 施設コンテンツ検索条件拡張
+- IPaymentCardを最適化
 
 ### Deprecated
 

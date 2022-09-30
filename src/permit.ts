@@ -20,6 +20,7 @@ export type IIssuedBy = Pick<IOrganization, 'typeOf' | 'id' | 'name'>;
  * {@link https://schema.org/Permit}
  */
 export interface IPermit extends Pick<IThing, 'name'> {
+    name?: string;
     project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: PermitType;
     identifier?: string;
