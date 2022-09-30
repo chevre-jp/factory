@@ -18,6 +18,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.268.0 - 2022-09-30
+
+### Changed
+
+- 口座取引の取引番号指定を必須化
+- IMonetaryAmount型の属性について最適化
+- 口座取引インターフェースを最適化
+- プロダクト検索条件拡張
+- イベント作成パラメータ最適化
+- 施設コンテンツ作成パラメータ最適化
+- 施設コンテンツ検索条件拡張
+- IPaymentCardを最適化
+
 ## v4.267.0 - 2022-09-09
 
 ### Changed

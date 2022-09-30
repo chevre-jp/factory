@@ -111,6 +111,7 @@ export interface ISeller {
     id: string;
     name?: string | IMultilingualString;
 }
+export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue' | 'typeOf' | 'unitCode' | 'value'>;
 /**
  * イベントに対するオファー
  */
@@ -126,7 +127,7 @@ export interface IOffer {
      * 情報提供開始日時
      */
     availabilityStarts: Date;
-    eligibleQuantity: IQuantitativeValue<UnitCode.C62>;
+    eligibleQuantity: IEligibleQuantity;
     itemOffered: IItemOffered;
     /**
      * オファー供給サービス
@@ -318,6 +319,39 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
  * イベント
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
+export type ILocation4create = Pick<ILocation, 'branchCode' | 'maximumAttendeeCapacity'>;
+export type ISuperEvent4create = Pick<ISuperEvent, 'id'>;
+export type IOffers4create = Pick<
+    IOffer,
+    'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough' | 'unacceptedPaymentMethod'
+> & {
+    /**
+     * 最大予約数を指定
+     */
+    eligibleQuantity: Pick<IEligibleQuantity, 'maxValue'>;
+    /**
+     * 興行IDと座席有無を指定
+     */
+    itemOffered: Pick<IItemOffered, 'id' | 'serviceOutput'>;
+    /**
+     * 販売者IDを指定
+     */
+    seller: Pick<ISeller, 'id'>;
+};
+export type ICreateParams = Pick<
+    IAttributes,
+    'project' | 'typeOf' | 'doorTime' | 'startDate' | 'endDate' | 'eventStatus' | 'additionalProperty'
+> & {
+    /**
+     * ルームコードとキャパシティを指定
+     */
+    location: ILocation4create;
+    /**
+     * 施設コンテンツIDを指定
+     */
+    superEvent: ISuperEvent4create;
+    offers: IOffers4create;
+};
 /**
  * ソート条件
  */
@@ -345,8 +379,32 @@ export interface IOfferSearchConditions {
  * イベント検索条件
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEvent> {
+    location?: {
+        /**
+         * ルームコード
+         */
+        branchCode?: {
+            $eq?: string;
+        };
+    };
     /**
      * 販売情報
      */
     offers?: IOfferSearchConditions;
+    superEvent?: {
+        ids?: string[];
+        location?: {
+            id?: {
+                $eq?: string;
+            };
+        };
+        /**
+         * 施設コンテンツの施設コードリスト
+         */
+        locationBranchCodes?: string[];
+        /**
+         * 施設コンテンツのコンテンツコードリスト
+         */
+        workPerformedIdentifiers?: string[];
+    };
 }

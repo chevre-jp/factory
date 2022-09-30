@@ -40,13 +40,13 @@ export type IServiceOutput = IPermit & {
     membershipPointsEarned?: IQuantitativeValue<any>;
     automaticRenewal?: boolean;
 };
-
+export type IPointAwardAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
 /**
  * ポイント特典インターフェース
  */
 export interface IPointAward {
     typeOf: ActionType.MoneyTransfer;
-    amount?: IMonetaryAmount;
+    amount?: IPointAwardAmount;
     /**
      * 特典付与先
      */
@@ -135,7 +135,10 @@ export interface ISearchConditions {
             $eq?: string;
         };
     };
-    id?: { $eq?: string };
+    id?: {
+        $eq?: string;
+        $in?: string[];
+    };
     name?: {
         $regex?: string;
     };

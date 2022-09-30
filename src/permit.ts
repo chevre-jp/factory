@@ -10,25 +10,31 @@ export enum PermitType {
     Permit = 'Permit'
 }
 export type IIssuedThrough = Pick<IProduct, 'id' | 'project' | 'serviceType' | 'typeOf'>;
+export type IPaymentAccount = Pick<IAccount, 'project' | 'typeOf' | 'accountNumber' | 'accountType'>;
+export type IAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
+export type IDepositAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'maxValue' | 'minValue'>;
+export type IPaymentAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'maxValue' | 'minValue'>;
+export type IIssuedBy = Pick<IOrganization, 'typeOf' | 'id' | 'name'>;
 /**
  * A permit issued by an organization, e.g. a parking pass.
  * {@link https://schema.org/Permit}
  */
 export interface IPermit extends Pick<IThing, 'name'> {
+    name?: string;
     project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: PermitType;
     identifier?: string;
     accessCode?: string;
     additionalProperty?: IPropertyValue<string>[];
-    amount?: IMonetaryAmount;
-    depositAmount?: IMonetaryAmount;
-    paymentAmount?: IMonetaryAmount;
-    paymentAccount?: IAccount;
+    amount?: IAmount;
+    depositAmount?: IDepositAmount;
+    paymentAmount?: IPaymentAmount;
+    paymentAccount?: IPaymentAccount;
     dateIssued?: Date;
     /**
      * The organization issuing the ticket or permit.
      */
-    issuedBy?: IOrganization;
+    issuedBy?: IIssuedBy;
     /**
      * The service through with the permit was granted.
      */

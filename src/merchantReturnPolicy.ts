@@ -46,7 +46,7 @@ export enum MerchantReturnEnumeration {
      */
     MerchantReturnUnspecified = 'MerchantReturnUnspecified'
 }
-
+export type IRestockingFee = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
 export interface IMerchantReturnPolicy extends Pick<IThing, 'name' | 'url'> {
     typeOf: 'MerchantReturnPolicy';
     /**
@@ -78,7 +78,7 @@ export interface IMerchantReturnPolicy extends Pick<IThing, 'name' | 'url'> {
      * Use MonetaryAmount to specify a fixed restocking fee for product returns,
      * or use Number to specify a percentage of the product price paid by the customer.
      */
-    restockingFee?: IMonetaryAmount | number;
+    restockingFee?: IRestockingFee | number;
     /**
      * Indicates (via enumerated options) the return fees policy for a MerchantReturnPolicy
      */

@@ -12,7 +12,8 @@ export interface IPendingTransaction {
     typeOf: AccountFactory.transactionType;
     id: string;
     identifier?: string;
-    transactionNumber?: string;
+    // 必須化(2022-09-26~)
+    transactionNumber: string;
 }
 export type IAgent = ActionFactory.IParticipantAsProject
     | ActionFactory.IParticipantAsPerson
@@ -46,6 +47,7 @@ export interface ITransactionPurpose {
     identifier?: string;
 }
 export type IPurpose = ITransactionPurpose;
+export type IAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.MoneyTransfer, IObject, IResult> {
     typeOf: ActionType.MoneyTransfer;
     agent: IAgent;
@@ -54,7 +56,7 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.MoneyT
     /**
      * 金額
      */
-    amount: IMonetaryAmount;
+    amount: IAmount;
     /**
      * 転送元
      */

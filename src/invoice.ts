@@ -34,7 +34,7 @@ export interface IPaymentMethod {
     typeOf: PaymentServiceType;
     serviceOutput?: IPaymentServiceOutput;
 }
-
+export type ITotalPaymentDue = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
 /**
  * インボイスインターフェース
  * {@link https://schema.org/Invoice}
@@ -105,7 +105,7 @@ export interface IInvoice {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: IMonetaryAmount;
+    totalPaymentDue?: ITotalPaymentDue;
 }
 
 /**

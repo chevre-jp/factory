@@ -1,11 +1,11 @@
 import * as COA from '@motionpicture/coa-service';
 
 import * as ActionFactory from '../../../action';
+import { ITotalPaymentDue } from '../../../action/trade/pay';
 import { ActionType } from '../../../actionType';
 import * as ReserveTransactionFactory from '../../../assetTransaction/reserve';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import * as ScreeningEventFactory from '../../../event/screeningEvent';
-import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as OfferFactory from '../../../offer';
 import * as OrderFactory from '../../../order';
 import { PriceCurrency } from '../../../priceCurrency';
@@ -47,7 +47,7 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
      * オファーに対して必要な金額
      * currencyを口座タイプとして扱う
      */
-    amount: IMonetaryAmount[];
+    amount: ITotalPaymentDue[];
     /**
      * 外部リクエストエンドポイント
      */

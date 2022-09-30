@@ -60,7 +60,6 @@ import * as WebApplicationFactory from './creativeWork/softwareApplication/webAp
 import { CreativeWorkType } from './creativeWorkType';
 import * as CustomerFactory from './customer';
 import * as EncodingFormat from './encodingFormat';
-import * as EventFactory from './event';
 import * as ScreeningEventFactory from './event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './event/screeningEventSeries';
 import { EventStatusType } from './eventStatusType';
@@ -341,15 +340,19 @@ export namespace event {
     export type ISearchConditions<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.ISearchConditions :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ISearchConditions :
-        EventFactory.ISearchConditions<T>;
+        never;
     export type IAttributes<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.IAttributes :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.IAttributes :
-        EventFactory.IAttributes<T>;
+        never;
     export type IEvent<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.IEvent :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.IEvent :
-        EventFactory.IEvent<EventFactory.IAttributes<T>>;
+        never;
+    export type ICreateParams<T extends EventType> =
+        T extends EventType.ScreeningEvent ? ScreeningEventFactory.ICreateParams :
+        T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ICreateParams :
+        never;
     export import screeningEvent = ScreeningEventFactory;
     export import screeningEventSeries = ScreeningEventSeriesFactory;
 }

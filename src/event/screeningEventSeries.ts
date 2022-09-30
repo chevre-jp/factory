@@ -154,6 +154,15 @@ export interface IAttributes extends Pick<
  * 施設コンテンツ
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
+// 最適化(2022-10-01~)
+export type ICreateParams = Omit<
+    IAttributes,
+    'location' | 'workPerformed' | 'coaInfo' | 'organizer' | 'duration' | 'videoFormat' | 'alternativeHeadline'
+> & {
+    location: { id: string };
+    workPerformed: { identifier: string };
+    videoFormat: IVideoFormat[];
+};
 /**
  * ソート条件
  */
@@ -163,6 +172,19 @@ export type ISortOrder = EventFactory.ISortOrder;
  */
 export interface ISearchConditions extends EventFactory.ISearchConditions<EventType.ScreeningEventSeries> {
     sort?: ISortOrder;
+    location?: {
+        branchCode?: {
+            $eq?: string;
+        };
+        /**
+         * 施設コードリスト
+         */
+        branchCodes?: string[];
+        /**
+         * 施設ID
+         */
+        id?: { $eq?: string };
+    };
     videoFormat?: {
         typeOf?: {
             $eq?: string;
