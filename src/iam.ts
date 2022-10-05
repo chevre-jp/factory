@@ -8,11 +8,10 @@ export enum RoleType {
 }
 export interface IRole {
     typeOf: RoleType;
-    permissions?: string[];
+    permissions: string[];
     roleName: string;
     memberOf: { typeOf: OrganizationType.Project; id: string };
 }
-
 /**
  * IAMロール検索条件
  */
@@ -32,16 +31,18 @@ export interface IRoleSearchConditions {
 }
 
 export type IMemberType = PersonType | CreativeWorkType.WebApplication;
+export type IMemberHasRole = Pick<IRole, 'typeOf' | 'memberOf' | 'roleName'>[];
+export interface IMemberOfRole {
+    typeOf: IMemberType;
+    id: string;
+    name?: string;
+    username?: string;
+    hasRole: IMemberHasRole;
+}
 export interface IMember {
     typeOf: RoleType;
     project: { typeOf: OrganizationType.Project; id: string };
-    member: {
-        typeOf: IMemberType;
-        id: string;
-        name?: string;
-        username?: string;
-        hasRole: IRole[];
-    };
+    member: IMemberOfRole;
 }
 
 /**
