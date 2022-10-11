@@ -3,7 +3,7 @@ import { PlaceType } from '../placeType';
 import { IPlace as ISeat, IPlaceWithOffer as ISeatWithOffer } from './seat';
 
 /**
- * セクションインターフェース
+ * セクション
  */
 export interface IPlace extends Pick<
     PlaceFactory.IPlace,
@@ -45,5 +45,8 @@ export interface ISearchConditions {
     };
     name?: {
         $regex?: string;
+    };
+    $projection?: {
+        seatCount?: 1;
     };
 }

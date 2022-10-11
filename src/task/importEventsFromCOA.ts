@@ -17,14 +17,20 @@ export interface IData {
      * 仕入れ期間through
      */
     importThrough: Date;
+    /**
+     * 施設を保管するかどうか
+     */
+    saveMovieTheater: boolean;
+    /**
+     * 施設コンテンツを保管するかどうか
+     */
+    saveScreeningEventSeries: boolean;
 }
-
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.ImportEventsFromCOA;
     data: IData;
 }
-
 /**
- * イベントインポートタスクインターフェース
+ * イベントインポートタスク
  */
 export type ITask = IExtendId<IAttributes>;
