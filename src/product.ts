@@ -1,7 +1,7 @@
 import { ActionType } from './actionType';
 import { ICategoryCode } from './categoryCode';
 import { IMonetaryAmount } from './monetaryAmount';
-import { IOffer } from './offer';
+import { IOffer as IBaseOffer } from './offer';
 import { IPermit } from './permit';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
@@ -15,7 +15,7 @@ import { IThing } from './thing';
  */
 export enum ProductType {
     /**
-     * イベントサービス
+     * 興行
      */
     EventService = 'EventService',
     /**
@@ -36,8 +36,9 @@ export interface IHasOfferCatalog {
     typeOf: 'OfferCatalog';
     id: string;
 }
-export type IServiceOutput = IPermit & {
-    membershipPointsEarned?: IQuantitativeValue<any>;
+export type IMembershipPointsEarned = Pick<IQuantitativeValue<string>, 'name' | 'typeOf' | 'unitText' | 'value'>;
+export type IServiceOutput = Pick<IPermit, 'typeOf' | 'amount'> & {
+    membershipPointsEarned?: IMembershipPointsEarned;
     automaticRenewal?: boolean;
 };
 export type IPointAwardAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
@@ -88,6 +89,12 @@ export interface IAvailableChannel {
     credentials?: ICredentials;
 }
 export type IServiceType = Pick<ICategoryCode, 'codeValue' | 'inCodeSet' | 'project' | 'typeOf'>;
+export type IOffer = Pick<
+    IBaseOffer,
+    'project' | 'typeOf' | 'priceCurrency' | 'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough'
+> & {
+    seller?: { id?: string };
+};
 /**
  * プロダクトインターフェース
  * {@link https://schema.org/Product}

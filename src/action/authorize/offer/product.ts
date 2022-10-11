@@ -4,8 +4,9 @@ import * as RegisterServiceTransactionFactory from '../../../assetTransaction/re
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { IOffer, ITicketPriceSpecification } from '../../../offer';
 import * as OrderFactory from '../../../order';
+import { IPermit } from '../../../permit';
 import { PriceCurrency } from '../../../priceCurrency';
-import { IProduct } from '../../../product';
+import { IProduct, IServiceOutput as IProductServiceOutput } from '../../../product';
 import { ISeller } from '../../../seller';
 import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
@@ -14,7 +15,9 @@ export type IAgent = ActionFactory.IParticipantAsSeller;
 // 最適化(2022-06-01~)
 export type IRecipient = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
 // IItemOfferedを最適化(2022-08-19~)
-export type IItemOffered = Pick<IProduct, 'project' | 'typeOf' | 'id' | 'name' | 'serviceOutput' | 'pointAward'>;
+export type IItemOffered = Pick<IProduct, 'project' | 'typeOf' | 'id' | 'name' | 'pointAward'> & {
+    serviceOutput: IProductServiceOutput & IPermit;
+};
 export type IAcceptedOfferWithoutDetail = RegisterServiceTransactionFactory.IAcceptedOfferWithoutDetail;
 export type ISellerMakesOffer = Pick<ISeller, 'project' | 'id' | 'name' | 'typeOf'>;
 export interface IAcceptedOffer extends Pick<
