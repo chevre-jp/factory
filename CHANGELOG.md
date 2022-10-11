@@ -10,12 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- IAMメンバー最適化
-- セクション検索条件拡張
-- COAイベントインポートタスクを拡張
-- プロダクトのserviceOutputを最適化
-- プロダクトのoffersを最適化
-
 ### Deprecated
 
 ### Removed
@@ -23,6 +17,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.269.0 - 2022-10-11
+
+### Changed
+
+- IAMメンバー最適化
+- セクション検索条件拡張
+- COAイベントインポートタスクを拡張
+- プロダクトのserviceOutputを最適化
+- プロダクトのoffersを最適化
 
 ## v4.268.0 - 2022-09-30
 
