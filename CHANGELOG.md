@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 販売者にmakesOfferを追加
+
 ### Changed
 
 ### Deprecated

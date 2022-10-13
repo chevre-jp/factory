@@ -1,5 +1,6 @@
 import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import { IMultilingualString } from './multilingualString';
+import { IOffer } from './offer';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { IProject } from './project';
@@ -9,9 +10,8 @@ import { SortType } from './sortType';
 // strict definition(2022-08-04~)
 export type ISellerMerchantReturnPolicy = Pick<IMerchantReturnPolicy, 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'url'>;
 export type IHasMerchantReturnPolicy = ISellerMerchantReturnPolicy[];
-
 /**
- * 利用可能決済インターフェース
+ * 利用可能決済
  */
 export interface IPaymentAccepted {
     /**
@@ -19,8 +19,10 @@ export interface IPaymentAccepted {
      */
     paymentMethodType: string;
 }
-
-// IOrganizationからPick(2022-08-04~)
+export type IMakesOffer = Pick<
+    IOffer,
+    'typeOf' | 'availableAtOrFrom'
+>;
 export interface ISeller extends Pick<
     IOrganization,
     'typeOf' | 'id' | 'location' | 'telephone' | 'additionalProperty' | 'name' | 'url'
@@ -39,20 +41,18 @@ export interface ISeller extends Pick<
     /**
      * A pointer to products or services offered by the organization or person.
      */
-    // makesOffer?: IMakesOffer[];
+    makesOffer?: IMakesOffer[];
     paymentAccepted?: IPaymentAccepted[];
     typeOf: OrganizationType.Corporation;
 }
-
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     branchCode?: SortType;
 }
-
 /**
- * 販売者検索条件インターフェース
+ * 販売者検索条件
  */
 export interface ISearchConditions {
     limit?: number;
