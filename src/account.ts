@@ -30,6 +30,8 @@ export namespace transaction {
     export import IRecipient = TransactionFactory.IRecipient;
     export import IPotentialActions = TransactionFactory.IPotentialActions;
     export import IResult = TransactionFactory.IResult;
+    // tslint:disable-next-line:no-shadowed-variable
+    export type ISearchConditions = TransactionFactory.ISearchConditions;
     export type IStartParamsWithoutDetail<T extends AccountTransactionType> =
         T extends AccountTransactionType.Deposit ? DepositTransactionFactory.IStartParamsWithoutDetail :
         T extends AccountTransactionType.Withdraw ? WithdrawTransactionFactory.IStartParamsWithoutDetail :
