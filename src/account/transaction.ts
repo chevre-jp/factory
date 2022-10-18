@@ -140,5 +140,11 @@ export interface ISearchConditions {
     object?: {
         fromLocation?: { accountNumber?: { $eq?: string } };
         toLocation?: { accountNumber?: { $eq?: string } };
+        location?: {
+            /**
+             * 口座番号
+             */
+            accountNumber?: { $eq?: string };
+        };
     };
 }
