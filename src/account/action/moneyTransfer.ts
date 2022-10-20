@@ -9,7 +9,6 @@ import { AccountTransactionType } from '../transactionType';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
-
 /**
  * 口座以外の匿名ロケーション
  */
@@ -42,16 +41,12 @@ export interface IAccount {
     name?: string;
 }
 /**
- * 転送元あるいは転送先の場所
+ * 転送元あるいは転送先
  */
 export type ILocation = IAnonymousLocation | IAccount;
-
 export type IObject = any;
-
 export type IResult = any;
-
 export type IPotentialActions = any;
-
 /**
  * アクションの目的
  * ここでは、取引が目的となる
@@ -68,7 +63,7 @@ export interface IPurpose {
     /**
      * 取引番号
      */
-    transactionNumber?: string;
+    transactionNumber: string;
     /**
      * 取引識別子
      */
@@ -94,26 +89,22 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.MoneyT
      */
     toLocation: ILocation;
 }
-
 export type IAction = ActionFactory.IAction<IAttributes>;
-
 /**
  * ソート条件
  */
 export interface ISortOrder {
     /**
-     * アクション開始日時順
+     * 開始日時
      */
     startDate?: SortType;
 }
-
 export interface IProjectSearchConditions {
     id?: {
         $eq?: string;
         $ne?: string;
     };
 }
-
 /**
  * 検索条件
  */
@@ -121,11 +112,8 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
-    /**
-     * 口座番号
-     * @deprecated Use location.accountNumber
-     */
-    accountNumber?: string;
+    // 廃止(2022-10-22~)
+    // accountNumber?: string;
     actionStatus?: {
         $in?: ActionStatusType[];
     };

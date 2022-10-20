@@ -90,6 +90,9 @@ export {
     IOfferMerchantReturnPolicySortOrder
 };
 export interface IAvailableAtOrFrom {
+    /**
+     * アプリケーションID
+     */
     id: string;
 }
 /**
