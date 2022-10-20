@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 販売者にmakesOfferを追加
 - 口座取引検索条件を追加
+- 口座転送アクションを最適化
 
 ### Changed
 

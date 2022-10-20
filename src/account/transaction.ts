@@ -120,7 +120,6 @@ export type IAttributes<TStartParams> = TStartParams & {
  * 口座取引
  */
 export type ITransaction<TStartParams> = IExtendId<IAttributes<TStartParams>>;
-
 export interface ISortOrder {
     startDate?: SortType;
 }
@@ -130,7 +129,7 @@ export interface ISearchConditions {
     sort?: ISortOrder;
     project?: { id?: { $eq?: string } };
     typeOf?: { $eq?: AccountTransactionType };
-    status?: { $in: TransactionStatusType[] };
+    status?: { $in?: TransactionStatusType[] };
     startDate?: {
         $gte?: Date;
         $lte?: Date;
