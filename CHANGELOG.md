@@ -8,10 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 販売者にmakesOfferを追加
-- 口座取引検索条件を追加
-- 口座転送アクションを最適化
-
 ### Changed
 
 ### Deprecated
@@ -21,6 +17,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.270.0 - 2022-10-20
+
+### Added
+
+- 販売者にmakesOfferを追加
+- 口座取引検索条件を追加
+
+### Changed
+
+- 口座転送アクションを最適化
 
 ## v4.269.0 - 2022-10-11
 
