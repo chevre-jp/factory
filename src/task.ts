@@ -51,6 +51,10 @@ export interface IAttributes {
      * TaskNameによってインターフェースが決定する
      */
     data: IData;
+    /**
+     * 中止日時
+     */
+    dateAborted?: Date;
 }
 /**
  * ソート条件
@@ -84,4 +88,8 @@ export interface ISearchConditions<T extends TaskName | string> {
     lastTriedFrom?: Date;
     lastTriedThrough?: Date;
     data?: IDataSearchConditions;
+    dateAborted?: {
+        $gte?: Date;
+        $lte?: Date;
+    };
 }

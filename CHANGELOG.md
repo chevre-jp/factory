@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.271.0 - 2022-10-22
+
+### Added
+
+- タスクにdateAbortedを追加
+
 ## v4.270.0 - 2022-10-20
 
 ### Added
