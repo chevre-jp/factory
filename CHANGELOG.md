@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- タスクにdateAbortedを追加
+
 ### Changed
 
 ### Deprecated
