@@ -3,6 +3,9 @@ import * as OrderFactory from './order';
 import { PaymentStatusType } from './paymentStatusType';
 import * as PersonFactory from './person';
 import { IAccounting } from './priceSpecification';
+import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
+import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
+import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IPriceSpecification } from './reservation/event';
 import * as SellerFactory from './seller';
 import { PaymentServiceType } from './service/paymentService';
@@ -13,8 +16,14 @@ export interface IReferenceOrder extends OrderFactory.IOrder {
     acceptedOffers: OrderFactory.IAcceptedOffer<OrderFactory.IItemOffered>[];
 }
 export type IReservationPriceAccounting = Pick<IAccounting, 'accountsReceivable'>;
-export type IReservationPriceSpecification = Pick<IPriceSpecification, 'price' | 'typeOf'> & {
-    accounting: IReservationPriceAccounting;
+export type IPriceComponentSpecification =
+    Pick<ICategoryCodeChargeSpecification, 'typeOf' | 'price'>
+    | Pick<IMovieTicketTypeChargeSpecification, 'typeOf' | 'price'>
+    | Pick<IUnitPriceSpecification, 'typeOf' | 'price' | 'referenceQuantity' | 'appliesToAddOn'> & {
+        accounting?: IReservationPriceAccounting;
+    };
+export type IReservationPriceSpecification = Pick<IPriceSpecification, 'typeOf'> & {
+    priceComponent: IPriceComponentSpecification[];
 };
 export interface IReservation {
     /**
@@ -22,7 +31,7 @@ export interface IReservation {
      */
     price?: number;
     // priceだけでは不足の可能性があるので拡張(2022-10-29~)
-    priceSpecification: IReservationPriceSpecification;
+    priceSpecification?: IReservationPriceSpecification;
 }
 export interface IMovieTicketAsPaymentServiceOutput {
     /**

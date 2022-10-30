@@ -15,6 +15,7 @@ export type IAppliesToMovieTicket = Pick<
      */
     identifier?: string;
 };
+export type IReferenceQuantity = Pick<IQuantitativeValue<UnitCode>, 'typeOf' | 'value' | 'unitCode'>;
 /**
  * 単価仕様
  */
@@ -23,7 +24,7 @@ export type IPriceSpecification = BaseSpecification<PriceSpecificationType.UnitP
     /**
      * 基準数量
      */
-    referenceQuantity: IQuantitativeValue<UnitCode>;
+    referenceQuantity: IReferenceQuantity;
     /**
      * 適用MovieTicket
      */
