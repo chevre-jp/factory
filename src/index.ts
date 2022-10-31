@@ -116,6 +116,7 @@ import * as WebAPIServiceFactory from './service/webAPI';
 import { SortType } from './sortType';
 import * as ThingFactory from './thing';
 import { UnitCode } from './unitCode';
+import * as UnitPriceOfferFactory from './unitPriceOffer';
 
 import * as TaskFactory from './task';
 import * as AccountMoneyTransferTaskFactory from './task/accountMoneyTransfer';
@@ -721,3 +722,4 @@ export import transactionStatusType = TransactionStatusType;
 export import transactionTasksExportationStatus = TransactionTasksExportationStatus;
 export import assetTransactionType = AssetTransactionType;
 export import unitCode = UnitCode;
+export import unitPriceOffer = UnitPriceOfferFactory;

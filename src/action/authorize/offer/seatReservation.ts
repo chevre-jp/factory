@@ -11,7 +11,10 @@ import * as OrderFactory from '../../../order';
 import { PriceCurrency } from '../../../priceCurrency';
 import * as WebAPIFactory from '../../../service/webAPI';
 import { TransactionType } from '../../../transactionType';
+import { ITicketPriceSpecification } from '../../../unitPriceOffer';
 import * as AuthorizeActionFactory from '../../authorize';
+
+import * as COAReservationOfferFactory from './seatReservation/coa';
 
 export type IAgent = ActionFactory.IParticipantAsSeller;
 // 最適化(2022-06-01~)
@@ -89,8 +92,10 @@ export type IAcceptedOffer4chevre =
 export type IAcceptedOfferWithoutDetail4chevre = ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail;
 export type IObjectWithoutDetail4chevre = ReserveTransactionFactory.IObjectWithoutDetail;
 
+export import ICOATicketInfo = COAReservationOfferFactory.ICOATicketInfo;
+export import ICOATicketInfoWithDetails = COAReservationOfferFactory.ICOATicketInfoWithDetails;
 /**
- * COAイベント受入オファー
+ * 受入COA興行オファー
  */
 export type IAcceptedOffer4COA =
     Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail,
@@ -106,14 +111,14 @@ export type IAcceptedOffer4COA =
         // seatSection: string;
         // itemOfferedに完全置き換え(2022-08-22~)
         // seatNumber: string;
-        ticketInfo: OfferFactory.seatReservation.ICOATicketInfoWithDetails;
+        ticketInfo: ICOATicketInfoWithDetails;
         /**
          * COAイベントでは、priceSpecificationで価格を表現しきれないので、numberとしてのpriceが必要
          */
         price: number;
-        priceSpecification?: OfferFactory.ITicketPriceSpecification;
+        priceSpecification?: ITicketPriceSpecification;
     };
-export type IAcceptedOfferWithoutDetail4COA = OfferFactory.seatReservation.ICOAOffer;
+export type IAcceptedOfferWithoutDetail4COA = COAReservationOfferFactory.IOffer;
 export interface IObjectWithoutDetail4COA {
     acceptedOffer: IAcceptedOfferWithoutDetail4COA[];
     event: {

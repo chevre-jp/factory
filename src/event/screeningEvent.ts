@@ -17,6 +17,7 @@ import { ReservationType } from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
 import { IThing } from '../thing';
 import { UnitCode } from '../unitCode';
+import * as UnitPriceOfferFactory from '../unitPriceOffer';
 
 /**
  * 予約集計
@@ -145,15 +146,15 @@ export interface IOffer {
     seller: ISeller;
 }
 export type IOffer4COA = Pick<IOffer, 'project' | 'typeOf' | 'offeredThrough' | 'priceCurrency'>;
-export import ITicketPriceComponent = OfferFactory.ITicketPriceComponent;
-export import ITicketPriceSpecification = OfferFactory.ITicketPriceSpecification;
+export import ITicketPriceComponent = UnitPriceOfferFactory.ITicketPriceComponent;
+export import ITicketPriceSpecification = UnitPriceOfferFactory.ITicketPriceSpecification;
 /**
  * チケットオファー
  */
 export interface ITicketOffer extends OfferFactory.IOffer {
     identifier: string;
     priceSpecification: ITicketPriceSpecification;
-    itemOffered?: OfferFactory.IItemOffered;
+    itemOffered?: UnitPriceOfferFactory.IItemOffered;
 }
 export interface ICOAInfo {
     theaterCode: string;

@@ -10,7 +10,7 @@ import { ICreativeWork as IWebApplication } from './creativeWork/softwareApplica
 import { ICustomer as ICustomerOrganization } from './customer';
 import { EventType } from './eventType';
 import { IMultilingualString } from './multilingualString';
-import { IOffer, ITicketPriceSpecification } from './offer';
+import { IOffer } from './offer';
 import { OrderStatus } from './orderStatus';
 import { OrganizationType } from './organizationType';
 import * as PermitFactory from './permit';
@@ -25,6 +25,7 @@ import * as EventReservationFactory from './reservation/event';
 import { ReservationType } from './reservationType';
 import { SortType } from './sortType';
 import { IThing } from './thing';
+import { ITicketPriceSpecification } from './unitPriceOffer';
 
 export interface IProject {
     typeOf: OrganizationType.Project;
