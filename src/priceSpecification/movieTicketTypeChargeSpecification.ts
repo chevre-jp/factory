@@ -22,7 +22,12 @@ export interface IAppliesToMovieTicket {
 /**
  * 決済カード加算料金
  */
-export type IPriceSpecification = BaseSpecification<PriceSpecificationType.MovieTicketTypeChargeSpecification> & {
+export interface IPriceSpecification extends Pick<
+    BaseSpecification<PriceSpecificationType.MovieTicketTypeChargeSpecification>,
+    'project' | 'id' | 'typeOf' | 'name' | 'description'
+    | 'price' | 'priceCurrency'
+    | 'valueAddedTaxIncluded' | 'accounting'
+> {
     price: number;
     /**
      * 適用上映方式
@@ -32,4 +37,4 @@ export type IPriceSpecification = BaseSpecification<PriceSpecificationType.Movie
      * 適用決済カード
      */
     appliesToMovieTicket: IAppliesToMovieTicket;
-};
+}

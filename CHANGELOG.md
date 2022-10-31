@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - プロジェクトのonPaymentStatusChanged設定を廃止
 - Invoiceの対象予約インターフェースを拡張
+- 価格仕様を最適化
 
 ### Deprecated
 

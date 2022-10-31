@@ -12,7 +12,7 @@ import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpeci
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
 import { IAppliesToMovieTicket, IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { PriceSpecificationType } from './priceSpecificationType';
-import { IPointAwardAmount, ProductType } from './product';
+import { IPointAwardAmount, IProduct, ProductType } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
@@ -36,11 +36,6 @@ export interface ICategory {
     id?: string;
     codeValue?: string;
 }
-
-/**
- * アドオン
- */
-export type IAddOn = IOffer;
 
 export type IEligibleCategoryCode = Pick<ICategoryCode, 'project' | 'typeOf' | 'id' | 'codeValue' | 'inCodeSet'>;
 export type IEligibleMonetaryAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
@@ -95,6 +90,26 @@ export interface IAvailableAtOrFrom {
      */
     id: string;
 }
+
+/**
+ * アドオン
+ */
+export interface IAddOn {
+    /**
+     * コード
+     */
+    identifier?: string;
+    project: Pick<IProject, 'id' | 'typeOf'>;
+    typeOf: OfferType.Offer;
+    id?: string;
+    availableAtOrFrom?: IAvailableAtOrFrom[];
+    itemOffered?: any;
+    priceCurrency: PriceCurrency;
+    priceSpecification?: IPriceSpecification<PriceSpecificationType>;
+    validFrom?: Date;
+    validThrough?: Date;
+}
+
 /**
  * offer interface
  * An offer to transfer some rights to an item or to provide a service
@@ -218,6 +233,7 @@ export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternate
      */
     additionalProperty?: IPropertyValue<string>[];
 }
+
 /**
  * 単価オファーの提供アイテム
  */
@@ -265,6 +281,11 @@ export type IUnitPriceOfferPriceSpecification = Omit<IUnitPriceSpecification, 'a
     // Arrayに限定(2022-09-09~)
     appliesToMovieTicket?: IAppliesToMovieTicket[];
 };
+export interface IAddOnItemOffered extends Pick<IProduct, 'typeOf' | 'id' | 'name'> {
+}
+export interface IAddOn4unitPriceOffer extends Pick<IAddOn, 'project' | 'typeOf' | 'priceCurrency'> {
+    itemOffered: IAddOnItemOffered;
+}
 /**
  * 単価オファー
  */
@@ -278,6 +299,8 @@ export interface IUnitPriceOffer extends Omit<IOffer, 'seller'> {
      */
     priceSpecification?: IUnitPriceOfferPriceSpecification;
     itemOffered?: IItemOffered;
+    addOn?: IAddOn4unitPriceOffer[];
+    typeOf: OfferType.Offer;
 }
 
 /**

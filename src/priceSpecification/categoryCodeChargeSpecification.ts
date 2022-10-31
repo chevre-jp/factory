@@ -6,11 +6,16 @@ export type IAppliesToCategoryCode = Pick<ICategoryCode, 'project' | 'typeOf' | 
 /**
  * 区分加算料金
  */
-export type IPriceSpecification = BaseSpecification<PriceSpecificationType.CategoryCodeChargeSpecification> & {
+export interface IPriceSpecification extends Pick<
+    BaseSpecification<PriceSpecificationType.CategoryCodeChargeSpecification>,
+    'project' | 'id' | 'typeOf' | 'name' | 'description'
+    | 'price' | 'priceCurrency'
+    | 'valueAddedTaxIncluded' | 'accounting'
+> {
     price: number;
     /**
      * 適用カテゴリーコード
      * AND適用条件
      */
     appliesToCategoryCode: IAppliesToCategoryCode[];
-};
+}
