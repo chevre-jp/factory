@@ -48,7 +48,8 @@ export interface IWebhookSettings {
  */
 export interface ISettings {
     importEventsInWeeks?: number;
-    onPaymentStatusChanged?: IOnPaymentStatusChanged;
+    // 廃止(2022-10-29~)
+    // onPaymentStatusChanged?: IOnPaymentStatusChanged;
     onReservationUsed?: IOnReservationUsed;
     cognito?: ICognitoSettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;

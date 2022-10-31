@@ -2,6 +2,11 @@ import { IMonetaryAmount } from './monetaryAmount';
 import * as OrderFactory from './order';
 import { PaymentStatusType } from './paymentStatusType';
 import * as PersonFactory from './person';
+import { IAccounting } from './priceSpecification';
+import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
+import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
+import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
+import { IPriceSpecification } from './reservation/event';
 import * as SellerFactory from './seller';
 import { PaymentServiceType } from './service/paymentService';
 
@@ -9,6 +14,24 @@ export type IBroker = SellerFactory.ISeller | PersonFactory.IPerson;
 export type IProvider = SellerFactory.ISeller | PersonFactory.IPerson;
 export interface IReferenceOrder extends OrderFactory.IOrder {
     acceptedOffers: OrderFactory.IAcceptedOffer<OrderFactory.IItemOffered>[];
+}
+export type IReservationPriceAccounting = Pick<IAccounting, 'accountsReceivable'>;
+export type IPriceComponentSpecification =
+    Pick<ICategoryCodeChargeSpecification, 'typeOf' | 'price'>
+    | Pick<IMovieTicketTypeChargeSpecification, 'typeOf' | 'price'>
+    | Pick<IUnitPriceSpecification, 'typeOf' | 'price' | 'referenceQuantity' | 'appliesToAddOn'> & {
+        accounting?: IReservationPriceAccounting;
+    };
+export type IReservationPriceSpecification = Pick<IPriceSpecification, 'typeOf'> & {
+    priceComponent: IPriceComponentSpecification[];
+};
+export interface IReservation {
+    /**
+     * 予約価格
+     */
+    price?: number;
+    // priceだけでは不足の可能性があるので拡張(2022-10-29~)
+    priceSpecification?: IReservationPriceSpecification;
 }
 export interface IMovieTicketAsPaymentServiceOutput {
     /**
@@ -18,12 +41,7 @@ export interface IMovieTicketAsPaymentServiceOutput {
     /**
      * 利用対象予約
      */
-    serviceOutput?: {
-        /**
-         * 予約価格
-         */
-        price?: number;
-    };
+    serviceOutput?: IReservation;
 }
 export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[];
 /**
@@ -40,7 +58,6 @@ export type ITotalPaymentDue = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'va
  * {@link https://schema.org/Invoice}
  */
 export interface IInvoice {
-    // project: IProject;
     typeOf: 'Invoice';
     /**
      * The identifier for the account the payment will be applied to.
@@ -107,55 +124,3 @@ export interface IInvoice {
      */
     totalPaymentDue?: ITotalPaymentDue;
 }
-
-/**
- * ソート条件インターフェース
- */
-// export interface ISortOrder {
-//     createdAt?: SortType;
-// }
-
-// export interface ICustomerSearchConditions {
-//     typeOf?: PersonType;
-//     ids?: string[];
-//     identifiers?: PersonFactory.IIdentifier;
-//     /**
-//      * メールアドレス
-//      */
-//     email?: string;
-//     /**
-//      * 電話番号
-//      */
-//     telephone?: string;
-//     memberOf?: {
-//         /**
-//          * 会員番号
-//          */
-//         membershipNumbers?: string[];
-//     };
-// }
-
-// export interface IReferencesOrderSearchConditions {
-//     orderNumbers?: string[];
-// }
-
-/**
- * インボイス検索条件インターフェース
- */
-// export interface ISearchConditions {
-//     limit?: number;
-//     page?: number;
-//     sort?: ISortOrder;
-//     project?: {
-//         id?: { $eq?: string };
-//     };
-//     createdFrom?: Date;
-//     createdThrough?: Date;
-//     accountIds?: string[];
-//     confirmationNumbers?: string[];
-//     customer?: ICustomerSearchConditions;
-//     paymentMethods?: string[];
-//     paymentMethodIds?: string[];
-//     paymentStatuses?: PaymentStatusType[];
-//     referencesOrder?: IReferencesOrderSearchConditions;
-// }

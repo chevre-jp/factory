@@ -1,6 +1,7 @@
-import { IAddOn } from '../offer';
+import { OfferType } from '../offerType';
 import { IPriceSpecification as BaseSpecification } from '../priceSpecification';
 import { PriceSpecificationType } from '../priceSpecificationType';
+import { IProduct } from '../product';
 import { IQuantitativeValue } from '../quantitativeValue';
 import { UnitCode } from '../unitCode';
 import { IAppliesToMovieTicket as IMovieTicketTypeChargeSpecAppliesToMovieTicket } from './movieTicketTypeChargeSpecification';
@@ -15,15 +16,29 @@ export type IAppliesToMovieTicket = Pick<
      */
     identifier?: string;
 };
+export type IReferenceQuantity = Pick<IQuantitativeValue<UnitCode>, 'typeOf' | 'value' | 'unitCode'>;
+export type IAppliesToAddOnItemOffered = Pick<IProduct, 'id' | 'name' | 'productID' | 'project' | 'typeOf'>;
+export interface IAppliesToAddOn {
+    typeOf: OfferType.Offer;
+    // project
+    id?: string;
+    identifier?: string;
+    itemOffered: IAppliesToAddOnItemOffered;
+}
 /**
  * 単価仕様
  */
-export type IPriceSpecification = BaseSpecification<PriceSpecificationType.UnitPriceSpecification> & {
+export interface IPriceSpecification extends Pick<
+    BaseSpecification<PriceSpecificationType.UnitPriceSpecification>,
+    'project' | 'id' | 'typeOf' | 'name' | 'description'
+    | 'eligibleQuantity' | 'eligibleTransactionVolume' | 'price' | 'priceCurrency'
+    | 'validFrom' | 'validThrough' | 'valueAddedTaxIncluded' | 'accounting'
+> {
     price: number;
     /**
      * 基準数量
      */
-    referenceQuantity: IQuantitativeValue<UnitCode>;
+    referenceQuantity: IReferenceQuantity;
     /**
      * 適用MovieTicket
      */
@@ -33,5 +48,5 @@ export type IPriceSpecification = BaseSpecification<PriceSpecificationType.UnitP
      * 適用アドオン
      * アドオンを指定された場合に適用される
      */
-    appliesToAddOn?: IAddOn[];
-};
+    appliesToAddOn?: IAppliesToAddOn[];
+}

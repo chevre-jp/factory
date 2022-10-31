@@ -18,6 +18,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.272.0 - 2022-10-31
+
+### Changed
+
+- プロジェクトのonPaymentStatusChanged設定を廃止
+- Invoiceの対象予約インターフェースを拡張
+- 価格仕様を最適化
+- IUnitPriceOfferをIOfferから分離
+
 ## v4.271.0 - 2022-10-22
 
 ### Added

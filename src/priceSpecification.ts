@@ -18,8 +18,9 @@ export interface IAccounting {
     operatingRevenue?: IAccountTitle;
     /**
      * 営業外収益
+     * 廃止(2022-10-31~)
      */
-    nonOperatingRevenue?: IAccountTitle;
+    // nonOperatingRevenue?: IAccountTitle;
     /**
      * 売上金額
      */
