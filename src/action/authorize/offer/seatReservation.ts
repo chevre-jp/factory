@@ -87,7 +87,8 @@ export type IAcceptedOffer4chevre =
     & {
         itemOffered?: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
         priceSpecification: IAcceptedOfferPriceSpecification;
-        movieTicketIdentifire?: string;
+        // 不要なので廃止(2022-11-02~)
+        // movieTicketIdentifire?: string;
     };
 export type IAcceptedOfferWithoutDetail4chevre = ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail;
 export type IObjectWithoutDetail4chevre = ReserveTransactionFactory.IObjectWithoutDetail;
