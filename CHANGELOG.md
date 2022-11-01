@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 興行オファー承認アクションを最適化
-- 複合価格仕様を最適化
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.273.0 - 2022-11-01
+
+### Changed
+
+- 興行オファー承認アクションを最適化
+- 複合価格仕様を最適化
 
 ## v4.272.0 - 2022-10-31
 
