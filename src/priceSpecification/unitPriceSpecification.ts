@@ -17,7 +17,7 @@ export type IAppliesToMovieTicket = Pick<
     identifier?: string;
 };
 export type IReferenceQuantity = Pick<IQuantitativeValue<UnitCode>, 'typeOf' | 'value' | 'unitCode'>;
-export type IAppliesToAddOnItemOffered = Pick<IProduct, 'id' | 'name' | 'productID' | 'project' | 'typeOf'>;
+export type IAppliesToAddOnItemOffered = Pick<IProduct, 'id' | 'name' | 'productID' | 'typeOf'>;
 export interface IAppliesToAddOn {
     typeOf: OfferType.Offer;
     // project
