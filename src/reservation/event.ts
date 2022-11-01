@@ -62,7 +62,7 @@ export interface IReservationFor {
 export type IPriceComponentSpecification = ICategoryCodeChargeSpecification
     | IMovieTicketTypeChargeSpecification
     | IUnitPriceSpecification;
-export type IPriceSpecification = ICompoundPriceSpecification<IPriceComponentSpecification>;
+export type IPriceSpecification = Omit<ICompoundPriceSpecification<IPriceComponentSpecification>, 'project'>;
 export interface ISubReservation {
     reservedTicket: {
         typeOf: ReservationFactory.TicketType;

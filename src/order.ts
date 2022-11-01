@@ -189,7 +189,6 @@ export interface IMoneyTransfer {
  */
 export type IItemOffered = IMoneyTransfer | IReservation | IPermit;
 // Pickで定義(2022-08-18~)
-// export type IOfferOptimized4acceptedOfferOld = Omit<IOffer, 'addOn' | 'price' | 'availability' | 'availableAtOrFrom'>;
 export type IOfferOptimized4acceptedOffer = Pick<
     IOffer,
     'project' |
@@ -197,8 +196,8 @@ export type IOfferOptimized4acceptedOffer = Pick<
     'id' |
     'itemOffered' |
     'offeredThrough' |
-    'priceCurrency' |
-    'priceSpecification'
+    'priceCurrency'
+// 'priceSpecification'
 >;
 /**
  * 受け入れオファー

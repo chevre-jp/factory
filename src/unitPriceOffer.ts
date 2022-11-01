@@ -214,11 +214,13 @@ export interface ISearchConditions {
 /**
  * 承認時に提供される価格仕様要素
  */
-export type ITicketPriceComponent = ICategoryCodeChargeSpecification
+// TODO 不要な属性をOmit(2022-11-02~)
+export type ITicketPriceComponent =
+    ICategoryCodeChargeSpecification
     | IMovieTicketTypeChargeSpecification
     | IUnitPriceOfferPriceSpecification;
-// | IUnitPriceSpecification;
 /**
  * 承認時に提供される価格仕様
  */
-export type ITicketPriceSpecification = ICompoundPriceSpecification<ITicketPriceComponent>;
+// TODO 不要な属性をOmit(2022-11-02~)
+export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicketPriceComponent>, 'project'>;

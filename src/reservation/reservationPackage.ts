@@ -3,7 +3,7 @@ import { PriceSpecificationType } from '../priceSpecificationType';
 import * as ReservationFactory from '../reservation';
 import { ReservationType } from '../reservationType';
 
-export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;
+export type IPriceSpecification = Omit<IGenericPriceSpecification<PriceSpecificationType>, 'project'>;
 
 export type ISubReservation = ReservationFactory.IReservation<IPriceSpecification>;
 

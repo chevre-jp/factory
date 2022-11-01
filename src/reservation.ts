@@ -196,7 +196,7 @@ export interface IIssuedThrough {
  * For offers of tickets, restaurant reservations, flights, or rental cars, use Offer.
  * {@link https://schema.org/Reservation}
  */
-export interface IReservation<T extends IPriceSpecification> extends Pick<IThing, 'identifier' | 'name'> {
+export interface IReservation<T extends Omit<IPriceSpecification, 'project'>> extends Pick<IThing, 'identifier' | 'name'> {
     project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * type of object
