@@ -214,7 +214,7 @@ export interface ISearchConditions {
 /**
  * 承認時に提供される価格仕様要素
  */
-// TODO 不要な属性をOmit(2022-11-02~)
+// 不要な属性をOmit(2022-11-02~)
 export type ITicketPriceComponent =
     ICategoryCodeChargeSpecification
     | IMovieTicketTypeChargeSpecification
@@ -222,5 +222,5 @@ export type ITicketPriceComponent =
 /**
  * 承認時に提供される価格仕様
  */
-// TODO 不要な属性をOmit(2022-11-02~)
+// 不要な属性をOmit(2022-11-02~)
 export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicketPriceComponent>, 'project'>;
