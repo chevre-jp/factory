@@ -23,7 +23,7 @@ export type IAcceptedOfferWithoutDetail = RegisterServiceTransactionFactory.IAcc
 export type ISellerMakesOffer = Pick<ISeller, 'project' | 'id' | 'name' | 'typeOf'>;
 export interface IAcceptedOffer extends Pick<
     IOffer,
-    'project' | 'typeOf' | 'id' | 'identifier' | 'itemOffered' | 'name' | 'priceCurrency' | 'priceSpecification' | 'seller'
+    'project' | 'typeOf' | 'id' | 'identifier' | 'itemOffered' | 'name' | 'priceCurrency' | 'seller'
 > {
     /**
      * オファーコード

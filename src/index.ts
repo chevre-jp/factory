@@ -416,8 +416,8 @@ export namespace priceSpecification {
 export namespace compoundPriceSpecification {
     export type IPriceSpecification<T extends PriceSpecificationType> =
         CompoundPriceSpecificationFactory.IPriceSpecification<priceSpecification.IPriceSpecification<T>>;
-    export type ISearchConditions<T extends PriceSpecificationType> =
-        CompoundPriceSpecificationFactory.ISearchConditions<T>;
+    // export type ISearchConditions<T extends PriceSpecificationType> =
+    //     CompoundPriceSpecificationFactory.ISearchConditions<T>;
 }
 export import priceSpecificationType = PriceSpecificationType;
 export import programMembership = ProgramMembershipFactory;

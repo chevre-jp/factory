@@ -19,7 +19,7 @@ export type IPriceSpecification = ICompoundPriceSpecification<IPriceComponent>;
 /**
  * 座席オファーインターフェース
  */
-export interface IOffer extends OfferFactory.IOffer {
+export interface IOffer extends Omit<OfferFactory.IOffer, 'priceSpecification'> {
     availability: ItemAvailability;
     priceSpecification?: IPriceSpecification;
 }

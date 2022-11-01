@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - 興行オファー承認アクションを最適化
+- 複合価格仕様を最適化
 
 ### Deprecated
 

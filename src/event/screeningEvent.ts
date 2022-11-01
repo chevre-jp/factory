@@ -151,7 +151,7 @@ export import ITicketPriceSpecification = UnitPriceOfferFactory.ITicketPriceSpec
 /**
  * チケットオファー
  */
-export interface ITicketOffer extends OfferFactory.IOffer {
+export interface ITicketOffer extends Omit<OfferFactory.IOffer, 'priceSpecification'> {
     identifier: string;
     priceSpecification: ITicketPriceSpecification;
     itemOffered?: UnitPriceOfferFactory.IItemOffered;
