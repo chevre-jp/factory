@@ -30,9 +30,9 @@ export interface IAppliesToAddOn {
  */
 export interface IPriceSpecification extends Pick<
     BaseSpecification<PriceSpecificationType.UnitPriceSpecification>,
-    'project' | 'id' | 'typeOf' | 'name' | 'description'
-    | 'eligibleQuantity' | 'eligibleTransactionVolume' | 'price' | 'priceCurrency'
-    | 'validFrom' | 'validThrough' | 'valueAddedTaxIncluded' | 'accounting'
+    'project' | 'id' | 'typeOf' | 'name' | 'price' | 'priceCurrency'
+    | 'valueAddedTaxIncluded' | 'accounting'
+    | 'eligibleQuantity' | 'eligibleTransactionVolume'
 > {
     price: number;
     /**

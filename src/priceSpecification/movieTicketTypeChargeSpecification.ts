@@ -24,8 +24,7 @@ export interface IAppliesToMovieTicket {
  */
 export interface IPriceSpecification extends Pick<
     BaseSpecification<PriceSpecificationType.MovieTicketTypeChargeSpecification>,
-    'project' | 'id' | 'typeOf' | 'name' | 'description'
-    | 'price' | 'priceCurrency'
+    'project' | 'id' | 'typeOf' | 'name' | 'price' | 'priceCurrency'
     | 'valueAddedTaxIncluded' | 'accounting'
 > {
     price: number;

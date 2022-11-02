@@ -8,7 +8,7 @@ import { SortType } from './sortType';
 import { UnitCode } from './unitCode';
 
 /**
- * 勘定インターフェース
+ * 勘定
  */
 export interface IAccounting {
     typeOf: 'Accounting';
@@ -28,18 +28,21 @@ export interface IAccounting {
 }
 
 /**
- * 価格仕様インターフェース
+ * 価格仕様
  */
 export interface IPriceSpecification<T extends PriceSpecificationType> {
     project: Pick<IProject, 'id' | 'typeOf'>;
     id?: string;
     typeOf: T;
     name?: string | IMultilingualString;
+    // 不要なので廃止(2022-11-04~)
     description?: string | IMultilingualString;
     eligibleQuantity?: IQuantitativeValue<UnitCode>;
     eligibleTransactionVolume?: IPriceSpecification<PriceSpecificationType>;
-    maxPrice?: number;
-    minPrice?: number;
+    // 不要なので廃止(2022-11-04~)
+    // maxPrice?: number;
+    // 不要なので廃止(2022-11-04~)
+    // minPrice?: number;
     /**
      * 発生金額
      */
@@ -48,8 +51,10 @@ export interface IPriceSpecification<T extends PriceSpecificationType> {
      * 通貨
      */
     priceCurrency: PriceCurrency;
-    validFrom?: Date;
-    validThrough?: Date;
+    // 不要なので廃止(2022-11-04~)
+    // validFrom?: Date;
+    // 不要なので廃止(2022-11-04~)
+    // validThrough?: Date;
     valueAddedTaxIncluded: boolean;
     /**
      * 勘定内容
@@ -58,14 +63,14 @@ export interface IPriceSpecification<T extends PriceSpecificationType> {
 }
 
 /**
- * ソート条件インターフェース
+ * 価格仕様ソート条件
  */
 export interface ISortOrder {
     price?: SortType;
 }
 
 /**
- * 検索条件インターフェース
+ * 価格仕様検索条件
  */
 export interface ISearchConditions<T extends PriceSpecificationType> {
     limit?: number;
