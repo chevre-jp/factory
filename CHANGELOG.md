@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 複合価格仕様を最適化
+- 価格仕様を最適化
 - Invoiceの対象予約インターフェースを拡張
 
 ### Deprecated

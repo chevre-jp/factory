@@ -26,7 +26,8 @@ export interface IAccounting {
      */
     accountsReceivable?: number;
 }
-
+export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode>, 'maxValue' | 'minValue' | 'typeOf' | 'unitCode'>;
+export type IEligibleTransactionVolume = Pick<IPriceSpecification<PriceSpecificationType>, 'typeOf' | 'price' | 'priceCurrency' | 'valueAddedTaxIncluded'>;
 /**
  * 価格仕様
  */
@@ -37,8 +38,8 @@ export interface IPriceSpecification<T extends PriceSpecificationType> {
     name?: string | IMultilingualString;
     // 不要なので廃止(2022-11-04~)
     // description?: string | IMultilingualString;
-    eligibleQuantity?: IQuantitativeValue<UnitCode>;
-    eligibleTransactionVolume?: IPriceSpecification<PriceSpecificationType>;
+    eligibleQuantity?: IEligibleQuantity;
+    eligibleTransactionVolume?: IEligibleTransactionVolume;
     // 不要なので廃止(2022-11-04~)
     // maxPrice?: number;
     // 不要なので廃止(2022-11-04~)
