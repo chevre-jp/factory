@@ -2,6 +2,7 @@ import * as ActionFactory from '../../../action';
 import { ActionType } from '../../../actionType';
 import * as RegisterServiceTransactionFactory from '../../../assetTransaction/registerService';
 import { AssetTransactionType } from '../../../assetTransactionType';
+import { ITicketPriceSpecification } from '../../../event/screeningEvent';
 import { IOffer } from '../../../offer';
 import * as OrderFactory from '../../../order';
 import { IPermit } from '../../../permit';
@@ -9,7 +10,6 @@ import { PriceCurrency } from '../../../priceCurrency';
 import { IProduct, IServiceOutput as IProductServiceOutput } from '../../../product';
 import { ISeller } from '../../../seller';
 import { TransactionType } from '../../../transactionType';
-import { ITicketPriceSpecification } from '../../../unitPriceOffer';
 import * as AuthorizeActionFactory from '../../authorize';
 
 export type IAgent = ActionFactory.IParticipantAsSeller;

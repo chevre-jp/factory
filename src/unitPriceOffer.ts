@@ -211,14 +211,21 @@ export interface ISearchConditions {
     };
 }
 
+export type ICategoryChargePriceComponent = Omit<ICategoryCodeChargeSpecification, 'project'>;
+export type IMovieTicketTypeChargePriceComponent = Omit<IMovieTicketTypeChargeSpecification, 'project'>;
+export type IUnitPriceComponent = Pick<
+    IUnitPriceOfferPriceSpecification,
+    'accounting' | 'appliesToMovieTicket' | 'appliesToAddOn' | 'name' | 'price' | 'priceCurrency'
+    | 'referenceQuantity' | 'typeOf' | 'valueAddedTaxIncluded'
+>;
 /**
  * 承認時に提供される価格仕様要素
  */
-// 不要な属性をOmit(2022-11-02~)
+// 不要な属性をOmit(2022-11-03~)
 export type ITicketPriceComponent =
-    ICategoryCodeChargeSpecification
-    | IMovieTicketTypeChargeSpecification
-    | IUnitPriceOfferPriceSpecification;
+    ICategoryChargePriceComponent
+    | IMovieTicketTypeChargePriceComponent
+    | IUnitPriceComponent;
 /**
  * 承認時に提供される価格仕様
  */

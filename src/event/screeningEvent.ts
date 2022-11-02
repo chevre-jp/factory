@@ -9,6 +9,10 @@ import { OfferType } from '../offerType';
 import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
 import { PriceCurrency } from '../priceCurrency';
+import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
+import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
+import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
+import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
 import { IServiceType as IProductServiceType } from '../product';
 import { IProject } from '../project';
 import { IQuantitativeValue } from '../quantitativeValue';
@@ -146,10 +150,17 @@ export interface IOffer {
     seller: ISeller;
 }
 export type IOffer4COA = Pick<IOffer, 'project' | 'typeOf' | 'offeredThrough' | 'priceCurrency'>;
-export import ITicketPriceComponent = UnitPriceOfferFactory.ITicketPriceComponent;
-export import ITicketPriceSpecification = UnitPriceOfferFactory.ITicketPriceSpecification;
+export type ITicketUnitPriceComponent = Omit<IUnitPriceSpecification, 'project'>;
+export type ITicketPriceComponent =
+    Omit<ICategoryCodeChargeSpecification, 'project'>
+    | Omit<IMovieTicketTypeChargeSpecification, 'project'>
+    | ITicketUnitPriceComponent;
 /**
- * チケットオファー
+ * 興行オファーの価格仕様
+ */
+export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicketPriceComponent>, 'project'>;
+/**
+ * 興行オファー
  */
 export interface ITicketOffer extends Omit<OfferFactory.IOffer, 'priceSpecification'> {
     identifier: string;
