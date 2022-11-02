@@ -60,7 +60,7 @@ export interface IItemOffered {
 /**
  * 単価オファーの価格仕様
  */
-export type IUnitPriceOfferPriceSpecification = Omit<IUnitPriceSpecification, 'appliesToMovieTicket'> & {
+export type IUnitPriceOfferPriceSpecification = Omit<IUnitPriceSpecification, 'appliesToMovieTicket' | 'project'> & {
     // Arrayに限定(2022-09-09~)
     appliesToMovieTicket?: IAppliesToMovieTicket[];
 };

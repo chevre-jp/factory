@@ -31,12 +31,12 @@ export interface IAccounting {
  * 価格仕様
  */
 export interface IPriceSpecification<T extends PriceSpecificationType> {
-    project: Pick<IProject, 'id' | 'typeOf'>;
+    project?: Pick<IProject, 'id' | 'typeOf'>;
     id?: string;
     typeOf: T;
     name?: string | IMultilingualString;
     // 不要なので廃止(2022-11-04~)
-    description?: string | IMultilingualString;
+    // description?: string | IMultilingualString;
     eligibleQuantity?: IQuantitativeValue<UnitCode>;
     eligibleTransactionVolume?: IPriceSpecification<PriceSpecificationType>;
     // 不要なので廃止(2022-11-04~)
