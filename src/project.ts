@@ -60,6 +60,10 @@ export interface ISettings {
     transactionWebhookUrls?: string[];
     useMyCreditCards?: boolean;
     useUsernameAsGMOMemberId?: boolean;
+    /**
+     * プロダクトとしての興行管理を利用するかどうか
+     */
+    useEventServiceAsProduct?: boolean;
 }
 /**
  * プロジェクト
