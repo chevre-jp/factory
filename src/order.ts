@@ -18,6 +18,9 @@ import { IPerson, IProfile } from './person';
 import { PersonType } from './personType';
 import { PlaceType } from './placeType';
 import { PriceCurrency } from './priceCurrency';
+import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
+import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpecification/compoundPriceSpecification';
+import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
 import { IProduct, ProductType } from './product';
 import { IPropertyValue } from './propertyValue';
 import { IProgramMembershipUsedSearchConditions, ITicket, ITicketType } from './reservation';
@@ -25,7 +28,7 @@ import * as EventReservationFactory from './reservation/event';
 import { ReservationType } from './reservationType';
 import { SortType } from './sortType';
 import { IThing } from './thing';
-import { ITicketPriceSpecification } from './unitPriceOffer';
+import { IUnitPriceOfferPriceSpecification } from './unitPriceOffer';
 
 export interface IProject {
     typeOf: OrganizationType.Project;
@@ -35,20 +38,6 @@ export enum OrderType {
     Order = 'Order'
 }
 export type IPaymentMethodIssuedThrough = Pick<IPaymentService, 'typeOf' | 'id' | 'serviceOutput'>;
-// {
-//     /**
-//      * 決済サービスタイプ
-//      */
-//     typeOf: PaymentServiceType;
-//     /**
-//      * サービスID
-//      */
-//     id: string;
-//     /**
-//      * 決済サービスによって発行された決済カード
-//      */
-//     serviceOutput ?: IPaymentServiceOutput;
-// }
 /**
  * 決済方法
  */
@@ -150,9 +139,6 @@ export type IReservation = Pick<
     reservationFor: IReservationFor;
     reservedTicket: IReservedTicket;
 };
-// Pickで定義(2022-08-19~)
-// export type IPermit = Omit<PermitFactory.IPermit,
-//     'accessCode' | 'additionalProperty' | 'depositAmount' | 'paymentAmount' | 'paymentAccount' | 'issuedBy'>;
 export type IPermit = Pick<
     PermitFactory.IPermit,
     'amount' | 'identifier' | 'issuedThrough' | 'name' | 'project' | 'typeOf' | 'validFor'
@@ -191,7 +177,7 @@ export type IItemOffered = IMoneyTransfer | IReservation | IPermit;
 // Pickで定義(2022-08-18~)
 export type IOfferOptimized4acceptedOffer = Pick<
     IOffer,
-    'project' |
+    // 'project' |
     'typeOf' |
     'id' |
     'itemOffered' |
@@ -199,6 +185,26 @@ export type IOfferOptimized4acceptedOffer = Pick<
     'priceCurrency'
 // 'priceSpecification'
 >;
+export type ICategoryChargePriceComponent = Omit<ICategoryCodeChargeSpecification, 'project'>;
+export type IMovieTicketTypeChargePriceComponent = Omit<IMovieTicketTypeChargeSpecification, 'project'>;
+export type IUnitPriceComponent = Pick<
+    IUnitPriceOfferPriceSpecification,
+    'accounting' | 'appliesToMovieTicket' | 'appliesToAddOn' | 'name' | 'price' | 'priceCurrency'
+    | 'referenceQuantity' | 'typeOf' | 'valueAddedTaxIncluded'
+>;
+/**
+ * 承認時に提供される価格仕様要素
+ */
+// 不要な属性をOmit(2022-11-03~)
+export type ITicketPriceComponent =
+    ICategoryChargePriceComponent
+    | IMovieTicketTypeChargePriceComponent
+    | IUnitPriceComponent;
+/**
+ * 承認時に提供される価格仕様
+ */
+// 不要な属性をOmit(2022-11-02~)
+export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicketPriceComponent>, 'project'>;
 /**
  * 受け入れオファー
  */
@@ -211,7 +217,7 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOfferOptimized4
      * 販売者
      */
     seller: {
-        project: { id: string; typeOf: OrganizationType.Project };
+        // project: { id: string; typeOf: OrganizationType.Project };
         typeOf: OrganizationType.Corporation;
         name?: string | IMultilingualString;
     };

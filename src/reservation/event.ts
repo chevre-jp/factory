@@ -8,11 +8,11 @@ import {
 import { EventStatusType } from '../eventStatusType';
 import { EventType } from '../eventType';
 import { IMultilingualString } from '../multilingualString';
+import { ITicketPriceComponent, ITicketPriceSpecification } from '../order';
 import { IProject } from '../project';
 import * as ReservationFactory from '../reservation';
 import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
-import { ITicketPriceComponent, ITicketPriceSpecification } from '../unitPriceOffer';
 
 export type IOptimizedWorkPerformed = Omit<IWorkPerformed, 'name'> & {
     // ↓コンテンツ名称がstring型だった時期の予約に関して互換性を維持するため(2022-07-28~)

@@ -11,7 +11,6 @@ import * as OrderFactory from '../../../order';
 import { PriceCurrency } from '../../../priceCurrency';
 import * as WebAPIFactory from '../../../service/webAPI';
 import { TransactionType } from '../../../transactionType';
-import { ITicketPriceSpecification } from '../../../unitPriceOffer';
 import * as AuthorizeActionFactory from '../../authorize';
 
 import * as COAReservationOfferFactory from './seatReservation/coa';
@@ -117,7 +116,7 @@ export type IAcceptedOffer4COA =
          * COAイベントでは、priceSpecificationで価格を表現しきれないので、numberとしてのpriceが必要
          */
         price: number;
-        priceSpecification?: ITicketPriceSpecification;
+        priceSpecification?: OrderFactory.ITicketPriceSpecification;
     };
 export type IAcceptedOfferWithoutDetail4COA = COAReservationOfferFactory.IOffer;
 export interface IObjectWithoutDetail4COA {

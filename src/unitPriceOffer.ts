@@ -2,9 +2,6 @@ import { ActionType } from './actionType';
 import { IAddOn, IOffer } from './offer';
 import { OfferType } from './offerType';
 import { IAmount as IPermitAmount, IDepositAmount, IPaymentAmount } from './permit';
-import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
-import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpecification/compoundPriceSpecification';
-import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
 import { IAppliesToMovieTicket, IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IPointAwardAmount, IProduct, ProductType } from './product';
 import { SortType } from './sortType';
@@ -210,24 +207,3 @@ export interface ISearchConditions {
         typeOf?: { $eq?: string };
     };
 }
-
-export type ICategoryChargePriceComponent = Omit<ICategoryCodeChargeSpecification, 'project'>;
-export type IMovieTicketTypeChargePriceComponent = Omit<IMovieTicketTypeChargeSpecification, 'project'>;
-export type IUnitPriceComponent = Pick<
-    IUnitPriceOfferPriceSpecification,
-    'accounting' | 'appliesToMovieTicket' | 'appliesToAddOn' | 'name' | 'price' | 'priceCurrency'
-    | 'referenceQuantity' | 'typeOf' | 'valueAddedTaxIncluded'
->;
-/**
- * 承認時に提供される価格仕様要素
- */
-// 不要な属性をOmit(2022-11-03~)
-export type ITicketPriceComponent =
-    ICategoryChargePriceComponent
-    | IMovieTicketTypeChargePriceComponent
-    | IUnitPriceComponent;
-/**
- * 承認時に提供される価格仕様
- */
-// 不要な属性をOmit(2022-11-02~)
-export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicketPriceComponent>, 'project'>;
