@@ -8,20 +8,12 @@ import {
 import { EventStatusType } from '../eventStatusType';
 import { EventType } from '../eventType';
 import { IMultilingualString } from '../multilingualString';
-import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
-import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
-import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
-import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
+import { ITicketPriceComponent, ITicketPriceSpecification } from '../order';
 import { IProject } from '../project';
 import * as ReservationFactory from '../reservation';
 import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
 
-// 最適化(2022-05-31~)
-// Pickで表現(2022-07-28~)
-// export type IOptimizedSuperEvent = Omit<ISuperEvent,
-//     'subtitleLanguage' | 'dubLanguage' | 'organizer' | 'offers'
-//     | 'endDate' | 'startDate' | 'doorDate' | 'eventStatus'>;
 export type IOptimizedWorkPerformed = Omit<IWorkPerformed, 'name'> & {
     // ↓コンテンツ名称がstring型だった時期の予約に関して互換性を維持するため(2022-07-28~)
     name?: string | IMultilingualString;
@@ -32,7 +24,6 @@ export type IOptimizedSuperEvent = Pick<ISuperEvent,
     | 'videoFormat' | 'description' | 'headline'
     // ↓COAのみ
     | 'identifier' | 'alternativeHeadline' | 'duration' | 'coaInfo'
-// | 'workPerformed'
 > & {
     workPerformed: IOptimizedWorkPerformed;
 };
@@ -59,10 +50,8 @@ export interface IReservationFor {
     // workPerformed?: IWorkPerformed;
     doorTime?: Date;
 }
-export type IPriceComponentSpecification = ICategoryCodeChargeSpecification
-    | IMovieTicketTypeChargeSpecification
-    | IUnitPriceSpecification;
-export type IPriceSpecification = Omit<ICompoundPriceSpecification<IPriceComponentSpecification>, 'project'>;
+export type IPriceComponentSpecification = ITicketPriceComponent;
+export type IPriceSpecification = ITicketPriceSpecification;
 export interface ISubReservation {
     reservedTicket: {
         typeOf: ReservationFactory.TicketType;

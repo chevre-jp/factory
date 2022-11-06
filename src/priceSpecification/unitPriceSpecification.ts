@@ -16,8 +16,8 @@ export type IAppliesToMovieTicket = Pick<
      */
     identifier?: string;
 };
-export type IReferenceQuantity = Pick<IQuantitativeValue<UnitCode>, 'typeOf' | 'value' | 'unitCode'>;
-export type IAppliesToAddOnItemOffered = Pick<IProduct, 'id' | 'name' | 'productID' | 'project' | 'typeOf'>;
+export type IReferenceQuantity = Pick<IQuantitativeValue<UnitCode>, 'typeOf' | 'value' | 'unitCode' | 'minValue'>;
+export type IAppliesToAddOnItemOffered = Pick<IProduct, 'id' | 'name' | 'productID' | 'typeOf'>;
 export interface IAppliesToAddOn {
     typeOf: OfferType.Offer;
     // project
@@ -30,9 +30,9 @@ export interface IAppliesToAddOn {
  */
 export interface IPriceSpecification extends Pick<
     BaseSpecification<PriceSpecificationType.UnitPriceSpecification>,
-    'project' | 'id' | 'typeOf' | 'name' | 'description'
-    | 'eligibleQuantity' | 'eligibleTransactionVolume' | 'price' | 'priceCurrency'
-    | 'validFrom' | 'validThrough' | 'valueAddedTaxIncluded' | 'accounting'
+    'project' | 'id' | 'typeOf' | 'name' | 'price' | 'priceCurrency'
+    | 'valueAddedTaxIncluded' | 'accounting'
+    | 'eligibleQuantity' | 'eligibleTransactionVolume'
 > {
     price: number;
     /**

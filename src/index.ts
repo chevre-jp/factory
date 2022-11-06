@@ -402,6 +402,8 @@ export namespace place {
 export import placeType = PlaceType;
 export namespace priceSpecification {
     export import IAccounting = PriceSpecificationFactory.IAccounting;
+    export import IEligibleQuantity = PriceSpecificationFactory.IEligibleQuantity;
+    export import IEligibleTransactionVolume = PriceSpecificationFactory.IEligibleTransactionVolume;
     export type IPriceSpecification<T extends PriceSpecificationType> =
         T extends PriceSpecificationType.CategoryCodeChargeSpecification ? CategoryCodeChargeSpecificationFactory.IPriceSpecification :
         T extends PriceSpecificationType.MovieTicketTypeChargeSpecification ?

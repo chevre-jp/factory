@@ -9,9 +9,9 @@ import * as ScreeningEventFactory from '../../../event/screeningEvent';
 import * as OfferFactory from '../../../offer';
 import * as OrderFactory from '../../../order';
 import { PriceCurrency } from '../../../priceCurrency';
+import { ITicketOffer, ITicketPriceSpecification } from '../../../product';
 import * as WebAPIFactory from '../../../service/webAPI';
 import { TransactionType } from '../../../transactionType';
-import { ITicketPriceSpecification } from '../../../unitPriceOffer';
 import * as AuthorizeActionFactory from '../../authorize';
 
 import * as COAReservationOfferFactory from './seatReservation/coa';
@@ -67,7 +67,7 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
 }
 
 export type IAcceptedOfferPriceSpecification =
-    ScreeningEventFactory.ITicketPriceSpecification
+    ITicketPriceSpecification
     & {
         /**
          * 複合価格仕様に、指定された適用決済カード情報を付加できるように
@@ -79,7 +79,7 @@ export type IAcceptedOfferPriceSpecification =
  */
 export type IAcceptedOffer4chevre =
     Pick<
-        ScreeningEventFactory.ITicketOffer,
+        ITicketOffer,
         // 最適化(2022-08-02~)
         'id' | 'identifier' | 'typeOf' | 'priceCurrency' | 'itemOffered' | 'addOn' | 'additionalProperty'
     >
@@ -117,7 +117,7 @@ export type IAcceptedOffer4COA =
          * COAイベントでは、priceSpecificationで価格を表現しきれないので、numberとしてのpriceが必要
          */
         price: number;
-        priceSpecification?: ITicketPriceSpecification;
+        priceSpecification?: OrderFactory.ITicketPriceSpecification;
     };
 export type IAcceptedOfferWithoutDetail4COA = COAReservationOfferFactory.IOffer;
 export interface IObjectWithoutDetail4COA {

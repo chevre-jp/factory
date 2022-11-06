@@ -3,12 +3,16 @@ import { ICategoryCode } from './categoryCode';
 import { IMonetaryAmount } from './monetaryAmount';
 import { IOffer as IBaseOffer } from './offer';
 import { IPermit } from './permit';
+import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
+import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpecification/compoundPriceSpecification';
+import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
+import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
-// import { IServiceType } from './serviceType';
 import { SortType } from './sortType';
 import { IThing } from './thing';
+import * as UnitPriceOfferFactory from './unitPriceOffer';
 
 /**
  * プロダクトタイプ
@@ -43,7 +47,7 @@ export type IServiceOutput = Pick<IPermit, 'typeOf' | 'amount'> & {
 };
 export type IPointAwardAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
 /**
- * ポイント特典インターフェース
+ * ポイント特典
  */
 export interface IPointAward {
     typeOf: ActionType.MoneyTransfer;
@@ -96,7 +100,7 @@ export type IOffer = Pick<
     seller?: { id?: string };
 };
 /**
- * プロダクトインターフェース
+ * プロダクト
  * {@link https://schema.org/Product}
  */
 export interface IProduct extends Pick<IThing, 'name' | 'description'> {
@@ -216,4 +220,21 @@ export interface IServiceOutputSearchConditions {
         typeOf?: { $eq?: ProductType };
     };
     typeOf?: { $eq?: string };
+}
+
+export type ICategoryCodeChargePriceComponent = Omit<ICategoryCodeChargeSpecification, 'project'>;
+export type IMovieTicketTypeChargePriceComponent = Omit<IMovieTicketTypeChargeSpecification, 'project'>;
+export type ITicketUnitPriceComponent = Omit<IUnitPriceSpecification, 'project'>;
+export type ITicketPriceComponent = ICategoryCodeChargePriceComponent | IMovieTicketTypeChargePriceComponent | ITicketUnitPriceComponent;
+/**
+ * プロダクトオファーの価格仕様
+ */
+export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicketPriceComponent>, 'project'>;
+/**
+ * プロダクトオファー
+ */
+export interface ITicketOffer extends Omit<IBaseOffer, 'priceSpecification' | 'project'> {
+    identifier: string;
+    priceSpecification: ITicketPriceSpecification;
+    itemOffered?: UnitPriceOfferFactory.IItemOffered;
 }

@@ -2,9 +2,6 @@ import { ActionType } from './actionType';
 import { IAddOn, IOffer } from './offer';
 import { OfferType } from './offerType';
 import { IAmount as IPermitAmount, IDepositAmount, IPaymentAmount } from './permit';
-import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
-import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpecification/compoundPriceSpecification';
-import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
 import { IAppliesToMovieTicket, IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IPointAwardAmount, IProduct, ProductType } from './product';
 import { SortType } from './sortType';
@@ -60,13 +57,13 @@ export interface IItemOffered {
 /**
  * 単価オファーの価格仕様
  */
-export type IUnitPriceOfferPriceSpecification = Omit<IUnitPriceSpecification, 'appliesToMovieTicket'> & {
+export type IUnitPriceOfferPriceSpecification = Omit<IUnitPriceSpecification, 'appliesToMovieTicket' | 'project'> & {
     // Arrayに限定(2022-09-09~)
     appliesToMovieTicket?: IAppliesToMovieTicket[];
 };
 export interface IAddOnItemOffered extends Pick<IProduct, 'typeOf' | 'id' | 'name'> {
 }
-export interface IAddOn4unitPriceOffer extends Pick<IAddOn, 'project' | 'typeOf' | 'priceCurrency'> {
+export interface IAddOn4unitPriceOffer extends Pick<IAddOn, 'typeOf' | 'priceCurrency'> {
     itemOffered: IAddOnItemOffered;
 }
 /**
@@ -210,17 +207,3 @@ export interface ISearchConditions {
         typeOf?: { $eq?: string };
     };
 }
-
-/**
- * 承認時に提供される価格仕様要素
- */
-// 不要な属性をOmit(2022-11-02~)
-export type ITicketPriceComponent =
-    ICategoryCodeChargeSpecification
-    | IMovieTicketTypeChargeSpecification
-    | IUnitPriceOfferPriceSpecification;
-/**
- * 承認時に提供される価格仕様
- */
-// 不要な属性をOmit(2022-11-02~)
-export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicketPriceComponent>, 'project'>;

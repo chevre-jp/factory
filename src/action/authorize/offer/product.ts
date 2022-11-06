@@ -6,10 +6,9 @@ import { IOffer } from '../../../offer';
 import * as OrderFactory from '../../../order';
 import { IPermit } from '../../../permit';
 import { PriceCurrency } from '../../../priceCurrency';
-import { IProduct, IServiceOutput as IProductServiceOutput } from '../../../product';
+import { IProduct, IServiceOutput as IProductServiceOutput, ITicketPriceSpecification } from '../../../product';
 import { ISeller } from '../../../seller';
 import { TransactionType } from '../../../transactionType';
-import { ITicketPriceSpecification } from '../../../unitPriceOffer';
 import * as AuthorizeActionFactory from '../../authorize';
 
 export type IAgent = ActionFactory.IParticipantAsSeller;

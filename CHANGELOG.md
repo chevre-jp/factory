@@ -18,6 +18,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.274.0 - 2022-11-06
+
+### Changed
+
+- 価格仕様を最適化
+- Invoiceの対象予約インターフェースを拡張
+- ITicketOfferをプロダクトに再定義
+
 ## v4.273.1 - 2022-11-01
 
 ### Changed

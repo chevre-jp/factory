@@ -8,8 +8,7 @@ export type IAppliesToCategoryCode = Pick<ICategoryCode, 'project' | 'typeOf' | 
  */
 export interface IPriceSpecification extends Pick<
     BaseSpecification<PriceSpecificationType.CategoryCodeChargeSpecification>,
-    'project' | 'id' | 'typeOf' | 'name' | 'description'
-    | 'price' | 'priceCurrency'
+    'project' | 'id' | 'typeOf' | 'name' | 'price' | 'priceCurrency'
     | 'valueAddedTaxIncluded' | 'accounting'
 > {
     price: number;
