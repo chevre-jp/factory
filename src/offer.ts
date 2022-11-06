@@ -68,7 +68,7 @@ export interface IAddOn {
      * コード
      */
     identifier?: string;
-    project: Pick<IProject, 'id' | 'typeOf'>;
+    // project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType.Offer;
     id?: string;
     availableAtOrFrom?: IAvailableAtOrFrom[];

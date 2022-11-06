@@ -63,7 +63,7 @@ export type IUnitPriceOfferPriceSpecification = Omit<IUnitPriceSpecification, 'a
 };
 export interface IAddOnItemOffered extends Pick<IProduct, 'typeOf' | 'id' | 'name'> {
 }
-export interface IAddOn4unitPriceOffer extends Pick<IAddOn, 'project' | 'typeOf' | 'priceCurrency'> {
+export interface IAddOn4unitPriceOffer extends Pick<IAddOn, 'typeOf' | 'priceCurrency'> {
     itemOffered: IAddOnItemOffered;
 }
 /**

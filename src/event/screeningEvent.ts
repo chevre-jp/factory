@@ -9,10 +9,6 @@ import { OfferType } from '../offerType';
 import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
 import { PriceCurrency } from '../priceCurrency';
-import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../priceSpecification/categoryCodeChargeSpecification';
-import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
-import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from '../priceSpecification/movieTicketTypeChargeSpecification';
-import { IPriceSpecification as IUnitPriceSpecification } from '../priceSpecification/unitPriceSpecification';
 import { IServiceType as IProductServiceType } from '../product';
 import { IProject } from '../project';
 import { IQuantitativeValue } from '../quantitativeValue';
@@ -21,7 +17,6 @@ import { ReservationType } from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
 import { IThing } from '../thing';
 import { UnitCode } from '../unitCode';
-import * as UnitPriceOfferFactory from '../unitPriceOffer';
 
 /**
  * 予約集計
@@ -150,23 +145,6 @@ export interface IOffer {
     seller: ISeller;
 }
 export type IOffer4COA = Pick<IOffer, 'project' | 'typeOf' | 'offeredThrough' | 'priceCurrency'>;
-export type ITicketUnitPriceComponent = Omit<IUnitPriceSpecification, 'project'>;
-export type ITicketPriceComponent =
-    Omit<ICategoryCodeChargeSpecification, 'project'>
-    | Omit<IMovieTicketTypeChargeSpecification, 'project'>
-    | ITicketUnitPriceComponent;
-/**
- * 興行オファーの価格仕様
- */
-export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicketPriceComponent>, 'project'>;
-/**
- * 興行オファー
- */
-export interface ITicketOffer extends Omit<OfferFactory.IOffer, 'priceSpecification'> {
-    identifier: string;
-    priceSpecification: ITicketPriceSpecification;
-    itemOffered?: UnitPriceOfferFactory.IItemOffered;
-}
 export interface ICOAInfo {
     theaterCode: string;
     dateJouei: string;
