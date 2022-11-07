@@ -156,6 +156,7 @@ export interface ISearchConditions {
     productID?: {
         $eq?: string;
         $in?: string[];
+        $regex?: string;
     };
     typeOf?: {
         $eq?: string;
