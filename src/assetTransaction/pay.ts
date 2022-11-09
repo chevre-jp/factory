@@ -2,6 +2,7 @@ import * as GMO from '@motionpicture/gmo-service';
 
 import {
     IAttributes as IPayActionAttributes,
+    ILocation,
     IOrderAsPayPurpose, IPayPurpose,
     IPendingTransaction,
     IRecipient as IPayRecipient,
@@ -110,10 +111,14 @@ export interface IObject {
 export type IObjectWithoutDetail = Pick<IObject, 'typeOf' | 'id' | 'paymentMethod'>;
 export type IStartParamsWithoutDetail =
     AssetTransactionFactory.IStartParams<AssetTransactionType.Pay, IAgent, IRecipient, IObjectWithoutDetail> & {
+        // add location(2022-11-11~)
+        location?: ILocation;
         recipient: IRecipient;
         purpose?: IPayPurpose;
     };
 export interface IStartParams extends AssetTransactionFactory.IStartParams<AssetTransactionType.Pay, IAgent, IRecipient, IObject> {
+    // add location(2022-11-11~)
+    location?: ILocation;
     recipient: IRecipient;
 }
 export interface IPotentialActions {

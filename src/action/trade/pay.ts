@@ -5,6 +5,7 @@ import * as ActionFactory from '../../action';
 import { IAttributes as IReturnOrderActionAttributes } from '../../action/transfer/return/order';
 import { ActionType } from '../../actionType';
 import { AssetTransactionType } from '../../assetTransactionType';
+import { CreativeWorkType } from '../../creativeWorkType';
 import { IPaymentServiceOutput, ITotalPaymentDue } from '../../invoice';
 import { OrderType } from '../../order';
 import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
@@ -13,7 +14,7 @@ import { PaymentServiceType } from '../../service/paymentService';
 import { TransactionType } from '../../transactionType';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 
-export type IAgent = ActionFactory.IParticipantAsProject;
+export import IAgent = ActionFactory.IParticipantAsProject;
 export import IRecipient = ActionFactory.IParticipantAsSeller;
 export interface IOrderAsPayPurpose {
     typeOf: OrderType.Order;
@@ -118,12 +119,24 @@ export interface IResult {
     // seatInfoSyncIn?: any;
     seatInfoSyncResult?: any;
 }
-export interface IAttributes extends ActionFactory.IAttributes<ActionType.PayAction, IObject, IResult> {
+export interface ILocation {
+    typeOf: CreativeWorkType.WebApplication;
+    /**
+     * アプリケーションID
+     */
+    id: string;
+}
+export interface IAttributes extends Omit<
+    ActionFactory.IAttributes<ActionType.PayAction, IObject, IResult>,
+    'description' | 'identifier' | 'location'
+> {
     agent: IAgent;
     instrument?: IInstrument;
     potentialActions?: IPotentialActions;
     purpose: IPurpose;
     recipient: IRecipient;
+    // add location(2022-11-11~)
+    location?: ILocation;
 }
 /**
  * 決済アクション
