@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 販売者のmakesOfferに適用取引期間を追加
 - PayActionを最適化
 - PayActionにlocationを追加
+- ISimpleOrderからprojectを削除 
 
 ### Deprecated
 
