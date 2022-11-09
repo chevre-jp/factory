@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 販売者のmakesOfferに適用取引期間を追加
+
 ### Deprecated
 
 ### Removed
