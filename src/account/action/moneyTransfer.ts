@@ -71,6 +71,7 @@ export interface IPurpose {
 }
 export type IAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.MoneyTransfer, IObject, IResult> {
+    identifier?: string;
     typeOf: ActionType.MoneyTransfer;
     /**
      * どんな取引によって発生した転送アクションか

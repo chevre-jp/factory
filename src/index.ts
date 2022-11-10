@@ -191,7 +191,7 @@ export import actionStatusType = ActionStatusType;
 export import actionType = ActionType;
 export namespace action {
     export import IAction = ActionFactory.IAction;
-    export import IAdditionalProperty = ActionFactory.IAdditionalProperty;
+    // export import IAdditionalProperty = ActionFactory.IAdditionalProperty;
     export import IAttributes = ActionFactory.IAttributes;
     export import IDynamicAttributes = ActionFactory.IDynamicAttributes;
     export import IParticipantAsWebApplication = ActionFactory.IParticipantAsWebApplication;
