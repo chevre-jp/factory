@@ -235,21 +235,23 @@ export interface ISeller {
 /**
  * ウェブアプリケーションとしてのカスタマー
  */
-export type IWebApplicationCustomer = IWebApplication & IProfile;
+export type IWebApplicationCustomer = Pick<IWebApplication, 'id' | 'typeOf'> & IProfile;
 /**
  * 顧客組織としてのカスタマー
  */
-export type IOrganizationCustomer = ICustomerOrganization & IProfile;
+export type IOrganizationCustomer = Pick<ICustomerOrganization, 'id' | 'typeOf' | 'project'> & IProfile;
+export type IPersonCustomer = Pick<IPerson, 'id' | 'typeOf' | 'memberOf'> & IProfile;
 /**
  * カスタマー
  */
-export type ICustomer = IPerson | IWebApplicationCustomer | IOrganizationCustomer;
+export type ICustomer = IPersonCustomer | IWebApplicationCustomer | IOrganizationCustomer;
 export type IBroker = IPerson;
 /**
  * 返品者
  */
 export type IReturner = IParticipant;
 export type IIdentifier = IPropertyValue<string>[];
+export type ISimpleCustomer = Pick<ICustomer, 'id' | 'typeOf' | 'name'>;
 export interface ISimpleOrder extends Pick<IThing, 'name'> {
     /**
      * object type
@@ -262,7 +264,7 @@ export interface ISimpleOrder extends Pick<IThing, 'name'> {
     /**
      * Party placing the order.
      */
-    customer: ICustomer;
+    customer: ISimpleCustomer;
     /**
      * A number that confirms the given order or payment has been received.
      */
@@ -335,6 +337,7 @@ export interface IOrder extends ISimpleOrder {
      * In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.
      */
     broker?: IBroker;
+    customer: ICustomer;
     /**
      * Date order was returned.
      */
