@@ -5,7 +5,9 @@ import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
+import { IQuantitativeValue } from './quantitativeValue';
 import { SortType } from './sortType';
+import { UnitCode } from './unitCode';
 
 // strict definition(2022-08-04~)
 export type ISellerMerchantReturnPolicy = Pick<IMerchantReturnPolicy, 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'url'>;
@@ -19,10 +21,17 @@ export interface IPaymentAccepted {
      */
     paymentMethodType: string;
 }
+export type IEligibleTransactionDuration = Pick<IQuantitativeValue<UnitCode.Sec>, 'maxValue' | 'typeOf' | 'unitCode'>;
 export type IMakesOffer = Pick<
     IOffer,
     'typeOf' | 'availableAtOrFrom'
->;
+> & {
+    /**
+     * 適用取引期間
+     */
+    eligibleTransactionDuration?: IEligibleTransactionDuration;
+
+};
 export interface ISeller extends Pick<
     IOrganization,
     'typeOf' | 'id' | 'location' | 'telephone' | 'additionalProperty' | 'name' | 'url'

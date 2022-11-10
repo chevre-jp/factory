@@ -251,7 +251,6 @@ export type IBroker = IPerson;
 export type IReturner = IParticipant;
 export type IIdentifier = IPropertyValue<string>[];
 export interface ISimpleOrder extends Pick<IThing, 'name'> {
-    project: IProject;
     /**
      * object type
      */
@@ -325,6 +324,7 @@ export interface IOrderedItem {
  * {@link https://schema.org/Order}
  */
 export interface IOrder extends ISimpleOrder {
+    project: IProject;
     /**
      * Offer
      * The offers included in the order.Also accepts an array of objects.

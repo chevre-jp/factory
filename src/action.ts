@@ -5,37 +5,30 @@ import { CreativeWorkType } from './creativeWorkType';
 import { OrganizationType } from './organizationType';
 import { IPersonAttributes } from './person';
 import { IProject } from './project';
-import { IPropertyValue } from './propertyValue';
+// import { IPropertyValue } from './propertyValue';
 import { SortType } from './sortType';
 
-export interface IParticipantAsWebApplication {
+export interface IParticipantOptionalAttributes {
+    name?: string;
+    url?: string;
+}
+export type IParticipantAsWebApplication = IParticipantOptionalAttributes & {
     typeOf: CreativeWorkType.WebApplication;
     id: string;
-    name?: string;
-    url?: string;
-}
-export type IParticipantAsPerson = Pick<IPersonAttributes, 'id' | 'typeOf'> & {
-    name?: string;
-    url?: string;
 };
-export interface IParticipantAsSeller {
+export type IParticipantAsPerson = IParticipantOptionalAttributes & Pick<IPersonAttributes, 'id' | 'typeOf'>;
+export type IParticipantAsSeller = IParticipantOptionalAttributes & {
     typeOf: OrganizationType.Corporation;
     id: string;
-    name?: string;
-    url?: string;
-}
-export interface IParticipantAsProject {
+};
+export type IParticipantAsProject = IParticipantOptionalAttributes & {
     typeOf: OrganizationType.Project;
     id: string;
-    name?: string;
-    url?: string;
-}
-export interface IParticipantAsCustomer {
+};
+export type IParticipantAsCustomer = IParticipantOptionalAttributes & {
     typeOf: OrganizationType.Organization;
     id: string;
-    name?: string;
-    url?: string;
-}
+};
 /**
  * アクションへの関係者
  */
@@ -53,54 +46,26 @@ export interface IPurpose {
 /**
  * 追加属性
  */
-export type IAdditionalProperty = IPropertyValue<string>[];
+// export type IAdditionalProperty = IPropertyValue<string>[];
 /**
  * アクション属性
  */
 export interface IAttributes<T extends ActionType, TObject, TResult> {
-    identifier?: string;
     project: Pick<IProject, 'id' | 'typeOf'>;
-    /**
-     * A property-value pair representing an additional characteristics of the entitity,
-     * e.g. a product feature or another characteristic for which there is no matching property in schema.org.
-     */
-    additionalProperty?: IAdditionalProperty;
-    /**
-     * アクション主体者
-     */
+    // 不要なので廃止(2022-11-12~)
+    // additionalProperty?: IAdditionalProperty;
     agent: IParticipant;
-    /**
-     * アクション説明
-     */
     description?: string;
-    /**
-     * アクション失敗時のエラー結果
-     */
     error?: any;
     /**
      * The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
      */
     location?: any;
     instrument?: any;
-    /**
-     * アクション対象
-     */
     object: TObject;
-    /**
-     * 事後に発生するアクション
-     */
     potentialActions?: any;
-    /**
-     * 目的
-     */
     purpose?: IPurpose;
-    /**
-     * アクション受取者
-     */
     recipient?: IParticipant;
-    /**
-     * アクション結果
-     */
     result?: TResult;
     /**
      * アクションタイプ
@@ -112,21 +77,12 @@ export interface IAttributes<T extends ActionType, TObject, TResult> {
  * リポジトリに保管時にセット、あるいは変更される
  */
 export interface IDynamicAttributes {
-    /**
-     * アクション状態
-     */
     actionStatus: ActionStatusType;
-    /**
-     * 開始日時
-     */
     startDate: Date;
-    /**
-     * 終了日時
-     */
     endDate?: Date;
 }
 /**
- * 抽象アクション
+ * アクション
  * {@link https://schema.org/Action}
  */
 export type IAction<TAttributes extends IAttributes<ActionType, any, any>> = IExtendId<TAttributes & IDynamicAttributes>;
@@ -158,6 +114,7 @@ export interface ISearchConditions {
         };
     };
     location?: {
+        id?: { $eq?: string };
         identifier?: { $eq?: string };
     };
     object?: {
