@@ -12,10 +12,12 @@ import { TransactionStatusType } from './transactionStatusType';
 import { TransactionTasksExportationStatus } from './transactionTasksExportationStatus';
 import { TransactionType } from './transactionType';
 
-export interface IAgentAsWebApplication extends IWebApplicationAttributes {
+// 最適化(2022-11-15~)
+export interface IAgentAsWebApplication extends Pick<IWebApplicationAttributes, 'id' | 'identifier' | 'typeOf'> {
     name?: string;
 }
-export interface IAgentAsPerson extends IPersonAttributes {
+// 最適化(2022-11-15~)
+export interface IAgentAsPerson extends Pick<IPersonAttributes, 'id' | 'identifier' | 'memberOf' | 'typeOf'> {
     name?: string;
 }
 // 最適化(2022-05-30~)

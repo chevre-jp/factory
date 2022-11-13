@@ -1,4 +1,4 @@
-import { IParticipant } from './action';
+import { IParticipantAsPerson, IParticipantAsProject, IParticipantAsWebApplication } from './action';
 import { IPaymentService, ITotalPaymentDue } from './action/trade/pay';
 import {
     IAmount as IMoneyTransferAmount,
@@ -227,7 +227,8 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOfferOptimized4
  * 販売者
  */
 export interface ISeller {
-    project: { id: string; typeOf: OrganizationType.Project };
+    // 最適化(2022-11-15~)
+    // project: { id: string; typeOf: OrganizationType.Project };
     id: string;
     typeOf: OrganizationType.Corporation;
     name: string;
@@ -239,17 +240,20 @@ export type IWebApplicationCustomer = Pick<IWebApplication, 'id' | 'typeOf'> & I
 /**
  * 顧客組織としてのカスタマー
  */
-export type IOrganizationCustomer = Pick<ICustomerOrganization, 'id' | 'typeOf' | 'project'> & IProfile;
+export type IOrganizationCustomer = Pick<ICustomerOrganization, 'id' | 'typeOf'> & IProfile;
 export type IPersonCustomer = Pick<IPerson, 'id' | 'typeOf' | 'memberOf'> & IProfile;
 /**
  * カスタマー
  */
 export type ICustomer = IPersonCustomer | IWebApplicationCustomer | IOrganizationCustomer;
-export type IBroker = IPerson;
+// 最適化(2022-11-15~)
+export type IBroker = Pick<IPerson, 'id' | 'identifier' | 'typeOf'>;
 /**
  * 返品者
  */
-export type IReturner = IParticipant;
+export type IParticipantAsReturner = IParticipantAsPerson | IParticipantAsProject | IParticipantAsWebApplication;
+// 最適化(2022-11-15~)
+export type IReturner = Pick<IParticipantAsReturner, 'id' | 'typeOf'>;
 export type IIdentifier = IPropertyValue<string>[];
 export type ISimpleCustomer = Pick<ICustomer, 'id' | 'typeOf' | 'name'>;
 export interface ISimpleOrder extends Pick<IThing, 'name'> {

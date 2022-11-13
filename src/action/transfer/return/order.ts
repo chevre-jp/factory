@@ -1,15 +1,12 @@
 import * as ActionFactory from '../../../action';
 import * as OrderFactory from '../../../order';
-// import * as WebAPIFactory from '../../../service/webAPI';
 import { IAttributes as IReturnPaymentMethodActionAttributes } from '../../transfer/return/paymentMethod';
-// import { IAttributes as IReturnReserveTransactionActionAttributes } from '../../transfer/return/reserveTransaction';
 import * as ReturnActionFactory from '../return';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../send/message/email';
 import * as ReturnMoneyTransferActionFactory from './moneyTransfer';
 import * as ReturnPointAwardActionFactory from './pointAward';
 
-// 注文のreturnerに反映されるので調整
-export type IAgent = ActionFactory.IParticipantAsPerson | ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsProject;
+export type IAgent = OrderFactory.IParticipantAsReturner;
 export type IRecipient = ActionFactory.IParticipantAsSeller;
 /**
  * 返却対象は注文

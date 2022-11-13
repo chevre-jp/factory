@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - ISimpleOrderを最適化
 - 座席のIPlaceWithOfferを最適化
+- 注文のISeller,IOrganizationCustomer,IReturner,IBrokerを最適化
+- 所有権のIAcquiredFromを最適化
+- 取引のIAgentを最適化
 
 ### Deprecated
 
