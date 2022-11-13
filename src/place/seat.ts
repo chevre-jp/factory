@@ -7,30 +7,32 @@ import { IPriceSpecification as ICategoryCodeChargeSpecification } from '../pric
 import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpecification/compoundPriceSpecification';
 
 /**
- * 座席に対する価格構成要素インターフェース
+ * 座席に対する価格構成要素
  */
 export type IPriceComponent = ICategoryCodeChargeSpecification;
 
 /**
  * 座席に対する価格仕様
+ * 最適化(2022-11-15~)
  */
-export type IPriceSpecification = ICompoundPriceSpecification<IPriceComponent>;
+export type IPriceSpecification = Pick<ICompoundPriceSpecification<IPriceComponent>, 'typeOf' | 'priceComponent'>;
 
 /**
- * 座席オファーインターフェース
+ * 座席オファー
+ * 最適化(2022-11-15~)
  */
-export interface IOffer extends Omit<OfferFactory.IOffer, 'priceSpecification'> {
+export interface IOffer extends Pick<OfferFactory.IOffer, 'typeOf'> {
     availability: ItemAvailability;
     priceSpecification?: IPriceSpecification;
 }
 
 /**
- * 座席タイプインターフェース
+ * 座席タイプ
  */
 export type ISeatingType = string | string[];
 
 /**
- * 座席インターフェース
+ * 座席
  */
 export interface IPlace extends Pick<
     PlaceFactory.IPlace,

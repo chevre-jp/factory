@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - ISimpleOrderを最適化
+- 座席のIPlaceWithOfferを最適化
 
 ### Deprecated
 
