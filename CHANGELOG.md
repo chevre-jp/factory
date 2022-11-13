@@ -10,12 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- ISimpleOrderを最適化
-- 座席のIPlaceWithOfferを最適化
-- 注文のISeller,IOrganizationCustomer,IReturner,IBrokerを最適化
-- 所有権のIAcquiredFromを最適化
-- 取引のIAgentを最適化
-
 ### Deprecated
 
 ### Removed
@@ -23,6 +17,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.277.0 - 2022-11-14
+
+### Changed
+
+- ISimpleOrderを最適化
+- 座席のIPlaceWithOfferを最適化
+- 注文のISeller,IOrganizationCustomer,IReturner,IBrokerを最適化
+- 所有権のIAcquiredFromを最適化
+- 取引のIAgentを最適化
 
 ## v4.276.0 - 2022-11-10
 
