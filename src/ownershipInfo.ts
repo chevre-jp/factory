@@ -72,7 +72,8 @@ export interface IOwnerAsWebApplication {
 }
 export type IOwner = IOwnerAsOrganization | IOwnerAsPerson | IOwnerAsWebApplication;
 export interface IAcquiredFrom {
-    project: { id: string; typeOf: OrganizationType.Project };
+    // 最適化(2022-11-15~)
+    // project: { id: string; typeOf: OrganizationType.Project };
     id: string;
     typeOf: OrganizationType.Corporation;
     name: string;
