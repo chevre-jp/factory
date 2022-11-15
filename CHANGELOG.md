@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- event.offersにseller.makesOfferを追加
+
 ### Changed
 
 - confirmationNumberをISimpleOrderからIOrderへ移行

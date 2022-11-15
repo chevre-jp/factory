@@ -106,10 +106,21 @@ export interface IItemOffered {
     serviceOutput?: IServiceOutput;
 }
 export type IOfferedThrough = WebAPIFactory.IService<WebAPIFactory.Identifier>;
+export interface ISellerMakesOffer extends Pick<
+    OfferFactory.IOffer,
+    'typeOf' | 'availableAtOrFrom' | 'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough'
+> {
+    availabilityEnds: Date;
+    availabilityStarts: Date;
+    validFrom: Date;
+    validThrough: Date;
+}
 export interface ISeller {
     typeOf: OrganizationType.Corporation;
     id: string;
     name?: string | IMultilingualString;
+    // アプリケーション対応(2022-11-18~)
+    makesOffer: ISellerMakesOffer[];
 }
 export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue' | 'typeOf' | 'unitCode' | 'value'>;
 /**
@@ -311,6 +322,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
 export type IEvent = EventFactory.IEvent<IAttributes>;
 export type ILocation4create = Pick<ILocation, 'branchCode' | 'maximumAttendeeCapacity'>;
 export type ISuperEvent4create = Pick<ISuperEvent, 'id'>;
+export type ISeller4create = Pick<ISeller, 'id' | 'makesOffer'>;
 export type IOffers4create = Pick<
     IOffer,
     'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough' | 'unacceptedPaymentMethod'
@@ -324,9 +336,9 @@ export type IOffers4create = Pick<
      */
     itemOffered: Pick<IItemOffered, 'id' | 'serviceOutput'>;
     /**
-     * 販売者IDを指定
+     * 販売者IDとアプリケーション設定
      */
-    seller: Pick<ISeller, 'id'>;
+    seller: ISeller4create;
 };
 export type ICreateParams = Pick<
     IAttributes,
