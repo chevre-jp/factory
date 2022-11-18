@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - confirmationNumberをISimpleOrderからIOrderへ移行
+- イベント検索条件拡張(offers.seller.makesOffer)
 
 ### Deprecated
 

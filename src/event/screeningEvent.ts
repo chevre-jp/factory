@@ -376,6 +376,31 @@ export interface IOfferSearchConditions {
             };
         };
     };
+    seller?: {
+        makesOffer?: {
+            $elemMatch?: {
+                availabilityEnds?: {
+                    $gte?: Date;
+                    $lte?: Date;
+                };
+                availabilityStarts?: {
+                    $gte?: Date;
+                    $lte?: Date;
+                };
+                validFrom?: {
+                    $gte?: Date;
+                    $lte?: Date;
+                };
+                validThrough?: {
+                    $gte?: Date;
+                    $lte?: Date;
+                };
+                'availableAtOrFrom.id'?: {
+                    $eq?: string;
+                };
+            };
+        };
+    };
 }
 /**
  * イベント検索条件
