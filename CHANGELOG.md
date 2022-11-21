@@ -20,6 +20,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- InvoiceのIReservationの旧価格(price)を廃止
+
 ### Fixed
 
 ### Security

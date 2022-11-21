@@ -30,8 +30,9 @@ export type IReservationPriceSpecification = Pick<IPriceSpecification, 'typeOf'>
 export interface IReservation {
     /**
      * 予約価格
+     * priceSpecificationへ完全移行(2022-11-23~)
      */
-    price?: number;
+    // price?: number;
     // priceだけでは不足の可能性があるので拡張(2022-10-29~)
     priceSpecification?: IReservationPriceSpecification;
 }
