@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - event.offersにseller.makesOfferを追加
+- 施設のオファーにPOS興行初期設定を追加
 
 ### Changed
 

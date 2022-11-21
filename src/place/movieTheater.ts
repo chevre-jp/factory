@@ -9,21 +9,29 @@ import { UnitCode } from '../unitCode';
 import { IPlace as IScreeningRoom } from './screeningRoom';
 
 /**
- * 施設に対するオファーインターフェース
+ * 施設に対するオファー
  */
 export interface IOffer extends Pick<OfferFactory.IOffer, 'priceCurrency' | 'project' | 'typeOf' | 'eligibleQuantity'> {
     /**
      * イベント開始前の販売猶予期間
      */
-    availabilityStartsGraceTime?: IQuantitativeValue<UnitCode.Day>;
+    availabilityStartsGraceTime?: Pick<IQuantitativeValue<UnitCode.Day>, 'typeOf' | 'value' | 'unitCode'>;
     /**
      * イベント開始後の販売猶予期間
      */
-    availabilityEndsGraceTime?: IQuantitativeValue<UnitCode.Sec>;
+    availabilityEndsGraceTime?: Pick<IQuantitativeValue<UnitCode.Sec>, 'typeOf' | 'value' | 'unitCode'>;
+    /**
+     * イベント開始前の販売猶予期間(POS)
+     */
+    availabilityStartsGraceTimeOnPOS: Pick<IQuantitativeValue<UnitCode.Day>, 'typeOf' | 'value' | 'unitCode'>;
+    /**
+     * イベント開始後の販売猶予期間(POS)
+     */
+    availabilityEndsGraceTimeOnPOS: Pick<IQuantitativeValue<UnitCode.Sec>, 'typeOf' | 'value' | 'unitCode'>;
 }
 export type POSType = 'POS';
 /**
- * POSインターフェース
+ * POS
  * 管理者が識別しやすいようPOSの属性を指定します
  */
 export interface IPOS {
