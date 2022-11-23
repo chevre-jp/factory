@@ -77,6 +77,7 @@ export interface IProject extends IOrganization {
     settings?: ISettings;
     subscription?: {
         identifier?: string;
+        useEventServiceAsProduct?: boolean;
     };
 }
 /**
