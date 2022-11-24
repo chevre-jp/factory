@@ -18,6 +18,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.278.0 - 2022-11-24
+
+### Added
+
+- event.offersにseller.makesOfferを追加
+- 施設のオファーにPOS興行初期設定を追加
+
+### Changed
+
+- confirmationNumberをISimpleOrderからIOrderへ移行
+- イベント検索条件拡張(offers.seller.makesOffer)
+
+### Removed
+
+- InvoiceのIReservationの旧価格(price)を廃止
+
 ## v4.277.0 - 2022-11-14
 
 ### Changed

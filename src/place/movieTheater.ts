@@ -8,22 +8,38 @@ import { SortType } from '../sortType';
 import { UnitCode } from '../unitCode';
 import { IPlace as IScreeningRoom } from './screeningRoom';
 
+export interface IAvailabilityStartsGraceTime extends Pick<IQuantitativeValue<UnitCode.Day>, 'typeOf' | 'value' | 'unitCode'> {
+    unitCode: UnitCode.Day;
+    value: number;
+}
+export interface IAvailabilityEndsGraceTime extends Pick<IQuantitativeValue<UnitCode.Sec>, 'typeOf' | 'value' | 'unitCode'> {
+    unitCode: UnitCode.Sec;
+    value: number;
+}
 /**
- * 施設に対するオファーインターフェース
+ * 施設に対するオファー
  */
 export interface IOffer extends Pick<OfferFactory.IOffer, 'priceCurrency' | 'project' | 'typeOf' | 'eligibleQuantity'> {
     /**
      * イベント開始前の販売猶予期間
      */
-    availabilityStartsGraceTime?: IQuantitativeValue<UnitCode.Day>;
+    availabilityStartsGraceTime: IAvailabilityStartsGraceTime;
     /**
      * イベント開始後の販売猶予期間
      */
-    availabilityEndsGraceTime?: IQuantitativeValue<UnitCode.Sec>;
+    availabilityEndsGraceTime: IAvailabilityEndsGraceTime;
+    /**
+     * イベント開始前の販売猶予期間(POS)
+     */
+    availabilityStartsGraceTimeOnPOS: IAvailabilityStartsGraceTime;
+    /**
+     * イベント開始後の販売猶予期間(POS)
+     */
+    availabilityEndsGraceTimeOnPOS: IAvailabilityEndsGraceTime;
 }
 export type POSType = 'POS';
 /**
- * POSインターフェース
+ * POS
  * 管理者が識別しやすいようPOSの属性を指定します
  */
 export interface IPOS {
@@ -96,7 +112,7 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
 }
 
 /**
- * 施設インターフェース
+ * 施設
  */
 export type IPlace = IPlaceWithoutScreeningRoom & {
     /**
@@ -106,7 +122,7 @@ export type IPlace = IPlaceWithoutScreeningRoom & {
 };
 
 /**
- * ソート条件インターフェース
+ * 施設ソート条件
  */
 export interface ISortOrder {
     branchCode?: SortType;

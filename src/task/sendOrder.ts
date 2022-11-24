@@ -4,9 +4,12 @@ import { IProject } from '../project';
 import * as TaskFactory from '../task';
 import { TaskName } from '../taskName';
 
+export type IObject = SendOrderActionFactory.IObject & {
+    confirmationNumber: string;
+};
 export interface IData {
     project: Pick<IProject, 'id' | 'typeOf'>;
-    object: SendOrderActionFactory.IObject;
+    object: IObject;
     potentialActions?: SendOrderActionFactory.IPotentialActions;
 }
 export interface IAttributes extends TaskFactory.IAttributes {
@@ -14,6 +17,6 @@ export interface IAttributes extends TaskFactory.IAttributes {
     data: IData;
 }
 /**
- * 注文配送タスクインターフェース
+ * 注文配送タスク
  */
 export type ITask = IExtendId<IAttributes>;

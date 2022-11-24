@@ -269,10 +269,8 @@ export interface ISimpleOrder extends Pick<IThing, 'name'> {
      * Party placing the order.
      */
     customer: ISimpleCustomer;
-    /**
-     * A number that confirms the given order or payment has been received.
-     */
-    confirmationNumber: string;
+    // IOrderへ移行(2022-11-17~)
+    // confirmationNumber?: string;
     /**
      * The merchant- specific identifier for the transaction.
      */
@@ -341,6 +339,10 @@ export interface IOrder extends ISimpleOrder {
      * In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.
      */
     broker?: IBroker;
+    /**
+     * A number that confirms the given order or payment has been received.
+     */
+    confirmationNumber: string;
     customer: ICustomer;
     /**
      * Date order was returned.
