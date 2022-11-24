@@ -359,9 +359,21 @@ export type ICreateParams = Pick<
  */
 export type ISortOrder = EventFactory.ISortOrder;
 export interface IOfferSearchConditions {
+    /**
+     * apiリクエストクライアントがseller.makesOffer.$elemMatchに含まれるものを検索
+     */
     availableFrom?: Date;
+    /**
+     * apiリクエストクライアントがseller.makesOffer.$elemMatchに含まれるものを検索
+     */
     availableThrough?: Date;
+    /**
+     * apiリクエストクライアントがseller.makesOffer.$elemMatchに含まれるものを検索
+     */
     validFrom?: Date;
+    /**
+     * apiリクエストクライアントがseller.makesOffer.$elemMatchに含まれるものを検索
+     */
     validThrough?: Date;
     itemOffered?: {
         id?: { $in?: string[] };

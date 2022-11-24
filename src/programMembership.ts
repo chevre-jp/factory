@@ -14,13 +14,4 @@ export interface IProgramMembership extends Pick<IThing, 'name'> {
      * A unique identifier for the membership.
      */
     membershipNumber?: string;
-    /**
-     * The number of membership points earned by the member.
-     * If necessary, the unitText can be used to express the units the points are issued in. (e.g. stars, miles, etc.)
-     */
-    // membershipPointsEarned?: IQuantitativeValue<any>;
-    /**
-     * The program providing the membership.
-     */
-    // programName?: string;
 }
