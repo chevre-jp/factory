@@ -78,7 +78,9 @@ export interface IObject {
 }
 export interface IStartParamsWithoutDetail {
     project: Pick<IProject, 'id' | 'typeOf'>;
-    expires: Date;
+    // expiresInSeconds指定に変更(2022-11-29~)
+    // expires: Date;
+    expiresInSeconds?: number;
     agent: IAgent;
     seller: {
         id: string;
@@ -97,11 +99,12 @@ export type ISeller = TransactionFactory.ISeller;
 /**
  * 取引開始パラメーター
  */
-export interface IStartParams extends TransactionFactory.IStartParams<TransactionType.PlaceOrder, IAgent, undefined, IObject> {
+export interface IStartParams extends Omit<TransactionFactory.IStartParams<TransactionType.PlaceOrder, IAgent, undefined, IObject>, 'expires'> {
     /**
      * 販売者
      */
     seller: ISeller;
+    expiresInSeconds: number;
 }
 /**
  * 注文通知パラメータ
@@ -190,7 +193,8 @@ export type IError = any;
 export interface IPotentialActions {
     order: IOrderActionAttributes;
 }
-export interface IAttributes extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
+export interface IAttributes extends
+    TransactionFactory.IAttributes<Omit<IStartParams, 'expiresInSeconds'>, IResult, IError, IPotentialActions> {
 }
 /**
  * 注文取引

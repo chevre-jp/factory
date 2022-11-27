@@ -48,8 +48,6 @@ export interface IWebhookSettings {
  */
 export interface ISettings {
     importEventsInWeeks?: number;
-    // 廃止(2022-10-29~)
-    // onPaymentStatusChanged?: IOnPaymentStatusChanged;
     onReservationUsed?: IOnReservationUsed;
     cognito?: ICognitoSettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;
@@ -60,10 +58,7 @@ export interface ISettings {
     transactionWebhookUrls?: string[];
     useMyCreditCards?: boolean;
     useUsernameAsGMOMemberId?: boolean;
-    /**
-     * プロダクトとしての興行管理を利用するかどうか
-     */
-    useEventServiceAsProduct?: boolean;
+    // useEventServiceAsProduct?: boolean;
 }
 /**
  * プロジェクト
@@ -77,6 +72,9 @@ export interface IProject extends IOrganization {
     settings?: ISettings;
     subscription?: {
         identifier?: string;
+        /**
+         * プロダクトとしての興行管理を利用するかどうか
+         */
         useEventServiceAsProduct?: boolean;
     };
 }
