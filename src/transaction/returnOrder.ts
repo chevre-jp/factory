@@ -34,7 +34,9 @@ export interface IReturnableOrder {
  */
 export interface IStartParamsWithoutDetail {
     project: Pick<IProject, 'id' | 'typeOf'>;
-    expires: Date;
+    // expiresInSeconds指定に変更(2022-11-30~)
+    // expires: Date;
+    expiresInSeconds?: number;
     agent: IAgent;
     object: {
         order: IReturnableOrder | IReturnableOrder[];
@@ -47,11 +49,12 @@ export interface IStartParamsWithoutDetail {
 /**
  * 取引開始パラメータ
  */
-export interface IStartParams extends TransactionFactory.IStartParams<TransactionType.ReturnOrder, IAgent, undefined, IObject> {
+export interface IStartParams extends Omit<TransactionFactory.IStartParams<TransactionType.ReturnOrder, IAgent, undefined, IObject>, 'expires'> {
     /**
      * 販売者
      */
     seller: ISeller;
+    expiresInSeconds: number;
 }
 type ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
 /**
@@ -154,7 +157,8 @@ export interface IPotentialActions {
      */
     returnOrder: IReturnOrderActionAttributes[];
 }
-export interface IAttributes extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
+export interface IAttributes extends
+    TransactionFactory.IAttributes<Omit<IStartParams, 'expiresInSeconds'>, IResult, IError, IPotentialActions> {
 }
 /**
  * 返品取引
