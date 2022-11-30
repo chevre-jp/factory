@@ -8,12 +8,6 @@ import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { SortType } from './sortType';
 
-// export interface IHasOfferCatalog {
-//     typeOf: 'OfferCatalog';
-//     id: string;
-//     identifier?: string;
-// }
-
 export interface IAttributes<T extends EventType> {
     project: Pick<IProject, 'id' | 'typeOf'>;
     /**
@@ -155,6 +149,16 @@ export interface ISearchConditions<T extends EventType> {
     hasOfferCatalog?: {
         id?: {
             $eq?: string;
+        };
+    };
+    additionalProperty?: {
+        $elemMatch?: {
+            name?: {
+                /**
+                 * 一致する名称の追加特性がひとつでも存在する
+                 */
+                $eq?: string;
+            };
         };
     };
 }

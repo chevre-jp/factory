@@ -50,6 +50,7 @@ import { ActionType } from './actionType';
 
 import * as AccountTitleFactory from './accountTitle';
 import { AccountType } from './accountType';
+import * as AdditionalPropertyFactory from './additionalProperty';
 import * as AuthorizationFactory from './authorization';
 import * as CategoryCodeFactory from './categoryCode';
 import * as ClientUserFactory from './clientUser';
@@ -322,6 +323,7 @@ export namespace action {
 
 export import accountTitle = AccountTitleFactory;
 export import accountType = AccountType;
+export import additionalProperty = AdditionalPropertyFactory;
 export import authorization = AuthorizationFactory;
 export import categoryCode = CategoryCodeFactory;
 export import clientUser = ClientUserFactory;
