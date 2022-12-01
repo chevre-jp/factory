@@ -78,4 +78,14 @@ export interface ISearchConditions {
     datePublishedFrom?: Date;
     datePublishedThrough?: Date;
     offers?: IOfferSearchConditions;
+    additionalProperty?: {
+        $elemMatch?: {
+            name?: {
+                /**
+                 * 一致する名称の追加特性がひとつでも存在する
+                 */
+                $eq?: string;
+            };
+        };
+    };
 }

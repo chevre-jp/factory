@@ -15,6 +15,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文取引開始パラメータにexpiresInSecondsを追加
 - 返品取引開始パラメータにexpiresInSecondsを追加
 - イベント検索条件拡張
+- 施設検索条件拡張
+- コンテンツ検索条件拡張
 
 ### Deprecated
 
