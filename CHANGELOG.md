@@ -17,6 +17,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - イベント検索条件拡張
 - 施設検索条件拡張
 - コンテンツ検索条件拡張
+- オファー検索条件拡張
+- 区分検索条件拡張
 
 ### Deprecated
 
