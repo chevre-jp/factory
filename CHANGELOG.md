@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - コンテンツ検索条件拡張
 - オファー検索条件拡張
 - 区分検索条件拡張
+- カタログ検索条件拡張
 
 ### Deprecated
 
