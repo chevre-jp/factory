@@ -49,4 +49,14 @@ export interface ISearchConditions {
     $projection?: {
         seatCount?: 1;
     };
+    additionalProperty?: {
+        $elemMatch?: {
+            name?: {
+                /**
+                 * 一致する名称の追加特性がひとつでも存在する
+                 */
+                $eq?: string;
+            };
+        };
+    };
 }

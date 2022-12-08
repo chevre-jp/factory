@@ -1,9 +1,7 @@
 import { AccountType } from '../../accountType';
 import * as ActionFactory from '../../action';
-import { ActionStatusType } from '../../actionStatusType';
 import { ActionType } from '../../actionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
-import { SortType } from '../../sortType';
 import { IThing } from '../../thing';
 import { AccountTransactionType } from '../transactionType';
 
@@ -91,70 +89,3 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.MoneyT
     toLocation: ILocation;
 }
 export type IAction = ActionFactory.IAction<IAttributes>;
-/**
- * ソート条件
- */
-export interface ISortOrder {
-    /**
-     * 開始日時
-     */
-    startDate?: SortType;
-}
-export interface IProjectSearchConditions {
-    id?: {
-        $eq?: string;
-        $ne?: string;
-    };
-}
-/**
- * 検索条件
- */
-export interface ISearchConditions {
-    limit?: number;
-    page?: number;
-    sort?: ISortOrder;
-    // 廃止(2022-10-22~)
-    // accountNumber?: string;
-    actionStatus?: {
-        $in?: ActionStatusType[];
-    };
-    amount?: {
-        /**
-         * 通貨
-         */
-        currency?: { $eq?: string };
-    };
-    location?: {
-        /**
-         * 口座番号
-         */
-        accountNumber?: { $eq?: string };
-        /**
-         * 口座種別
-         */
-        typeOf?: { $eq?: string };
-    };
-    project?: IProjectSearchConditions;
-    purpose?: {
-        /**
-         * 取引タイプ
-         */
-        typeOf?: { $eq?: string };
-        /**
-         * 取引ID
-         */
-        id?: { $eq?: string };
-        /**
-         * 取引番号
-         */
-        transactionNumber?: { $eq?: string };
-        /**
-         * 取引識別子
-         */
-        identifier?: { $eq?: string };
-    };
-    startDate?: {
-        $gte?: Date;
-        $lte?: Date;
-    };
-}

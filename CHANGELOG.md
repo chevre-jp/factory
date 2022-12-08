@@ -8,11 +8,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 追加特性インターフェースを追加
+
 ### Changed
+
+- 注文取引開始パラメータにexpiresInSecondsを追加
+- 返品取引開始パラメータにexpiresInSecondsを追加
+- イベント検索条件拡張
+- 施設検索条件拡張
+- コンテンツ検索条件拡張
+- オファー検索条件拡張
+- 区分検索条件拡張
+- カタログ検索条件拡張
 
 ### Deprecated
 
 ### Removed
+
+- 口座アクション検索条件を廃止
 
 ### Fixed
 
