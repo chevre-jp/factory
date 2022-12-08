@@ -25,6 +25,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- 口座アクション検索条件を廃止
+
 ### Fixed
 
 ### Security
