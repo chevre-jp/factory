@@ -325,7 +325,9 @@ export type ISuperEvent4create = Pick<ISuperEvent, 'id'>;
 export type ISeller4create = Pick<ISeller, 'id' | 'makesOffer'>;
 export type IOffers4create = Pick<
     IOffer,
-    'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough' | 'unacceptedPaymentMethod'
+    // 廃止(2022-12-12~)
+    // 'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough' |
+    'unacceptedPaymentMethod'
 > & {
     /**
      * 最大予約数を指定

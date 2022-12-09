@@ -8,6 +8,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+- イベント作成パラメータ最適化
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.279.0 - 2022-12-08
+
+### Added
+
 - 追加特性インターフェースを追加
 
 ### Changed
@@ -21,15 +37,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 区分検索条件拡張
 - カタログ検索条件拡張
 
-### Deprecated
-
 ### Removed
 
 - 口座アクション検索条件を廃止
-
-### Fixed
-
-### Security
 
 ## v4.278.0 - 2022-11-24
 
