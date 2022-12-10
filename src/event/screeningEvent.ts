@@ -322,7 +322,12 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
 export type IEvent = EventFactory.IEvent<IAttributes>;
 export type ILocation4create = Pick<ILocation, 'branchCode' | 'maximumAttendeeCapacity'>;
 export type ISuperEvent4create = Pick<ISuperEvent, 'id'>;
-export type ISeller4create = Pick<ISeller, 'id' | 'makesOffer'>;
+export type ISeller4create = Pick<
+    ISeller,
+    // 廃止(2022-12-12~)
+    // 'id' |
+    'makesOffer'
+>;
 export type IOffers4create = Pick<
     IOffer,
     // 廃止(2022-12-12~)
@@ -342,6 +347,23 @@ export type IOffers4create = Pick<
      */
     seller: ISeller4create;
 };
+export type IOffers4update = Pick<
+    IOffer,
+    'unacceptedPaymentMethod'
+> & {
+    /**
+     * 最大予約数を指定
+     */
+    eligibleQuantity: Pick<IEligibleQuantity, 'maxValue'>;
+    /**
+     * 興行IDを指定
+     */
+    itemOffered: Pick<IItemOffered, 'id'>;
+    /**
+     * 販売者IDとアプリケーション設定
+     */
+    seller: ISeller4create;
+};
 export type ICreateParams = Pick<
     IAttributes,
     'project' | 'typeOf' | 'doorTime' | 'startDate' | 'endDate' | 'eventStatus' | 'additionalProperty'
@@ -355,6 +377,23 @@ export type ICreateParams = Pick<
      */
     superEvent: ISuperEvent4create;
     offers: IOffers4create;
+};
+/**
+ * イベント更新パラメータ
+ */
+export type IUpdateParams = Pick<
+    IAttributes,
+    'project' | 'typeOf' | 'doorTime' | 'startDate' | 'endDate' | 'eventStatus' | 'additionalProperty'
+> & {
+    /**
+     * キャパシティを指定
+     */
+    location: Pick<ILocation4create, 'maximumAttendeeCapacity'>;
+    /**
+     * 施設コンテンツIDを指定
+     */
+    // superEvent: ISuperEvent4create;
+    offers: IOffers4update;
 };
 /**
  * ソート条件

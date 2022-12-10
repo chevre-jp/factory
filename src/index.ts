@@ -356,6 +356,10 @@ export namespace event {
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.ICreateParams :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ICreateParams :
         never;
+    export type IUpdateParams<T extends EventType> =
+        T extends EventType.ScreeningEvent ? ScreeningEventFactory.IUpdateParams :
+        T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ICreateParams :
+        never;
     export import screeningEvent = ScreeningEventFactory;
     export import screeningEventSeries = ScreeningEventSeriesFactory;
 }

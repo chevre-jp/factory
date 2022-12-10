@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- イベント更新パラメータを追加
+
 ### Changed
 
 - イベント作成パラメータ最適化
