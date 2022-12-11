@@ -347,23 +347,23 @@ export type IOffers4create = Pick<
      */
     seller: ISeller4create;
 };
-export type IOffers4update = Pick<
-    IOffer,
-    'unacceptedPaymentMethod'
-> & {
-    /**
-     * 最大予約数を指定
-     */
-    eligibleQuantity: Pick<IEligibleQuantity, 'maxValue'>;
-    /**
-     * 興行IDを指定
-     */
-    itemOffered: Pick<IItemOffered, 'id'>;
-    /**
-     * 販売者IDとアプリケーション設定
-     */
-    seller: ISeller4create;
-};
+// export type IOffers4update = Pick<
+//     IOffer,
+//     'unacceptedPaymentMethod'
+// > & {
+//     /**
+//      * 最大予約数を指定
+//      */
+//     eligibleQuantity: Pick<IEligibleQuantity, 'maxValue'>;
+//     /**
+//      * 興行IDを指定
+//      */
+//     itemOffered: Pick<IItemOffered, 'id'>;
+//     /**
+//      * 販売者IDとアプリケーション設定
+//      */
+//     seller: ISeller4create;
+// };
 export type ICreateParams = Pick<
     IAttributes,
     'project' | 'typeOf' | 'doorTime' | 'startDate' | 'endDate' | 'eventStatus' | 'additionalProperty'
@@ -381,20 +381,21 @@ export type ICreateParams = Pick<
 /**
  * イベント更新パラメータ
  */
-export type IUpdateParams = Pick<
-    IAttributes,
-    'project' | 'typeOf' | 'doorTime' | 'startDate' | 'endDate' | 'eventStatus' | 'additionalProperty'
-> & {
-    /**
-     * キャパシティを指定
-     */
-    location: Pick<ILocation4create, 'maximumAttendeeCapacity'>;
-    /**
-     * 施設コンテンツIDを指定
-     */
-    // superEvent: ISuperEvent4create;
-    offers: IOffers4update;
-};
+export type IUpdateParams = ICreateParams;
+// export type IUpdateParams = Pick<
+//     IAttributes,
+//     'project' | 'typeOf' | 'doorTime' | 'startDate' | 'endDate' | 'eventStatus' | 'additionalProperty'
+// > & {
+//     /**
+//      * キャパシティを指定
+//      */
+//     location: Pick<ILocation4create, 'maximumAttendeeCapacity'>;
+//     /**
+//      * 施設コンテンツIDを指定
+//      */
+//     // superEvent: ISuperEvent4create;
+//     offers: IOffers4update;
+// };
 /**
  * ソート条件
  */
