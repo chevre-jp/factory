@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - イベント作成パラメータ最適化
+- 追加特性のカテゴリーセットにスケジュールを追加
 
 ### Deprecated
 
