@@ -13,7 +13,8 @@ export type IObject4COA = COA.factory.reserve.IUpdReserveArgs & {
 };
 export type IObject4Chevre = Pick<
     ReserveTransactionFactory.IConfirmParams,
-    'transactionNumber' | 'object' | 'potentialActions'
+    // 'transactionNumber' | 'object' | 'potentialActions'
+    'transactionNumber' | 'potentialActions'
 > & {
     // 取引番号は必須
     transactionNumber: string;

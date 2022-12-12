@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - イベント作成パラメータ最適化
 - 追加特性のカテゴリーセットにスケジュールを追加
+- 予約取引確定パラメータからobject(予約属性明示指定)を廃止
 
 ### Deprecated
 

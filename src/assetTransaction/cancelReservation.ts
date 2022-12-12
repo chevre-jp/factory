@@ -8,12 +8,6 @@ import { IReservation as IEventReservation } from '../reservation/event';
 
 // 最適化(2022-05-27~)
 export import IAgent = AssetTransactionFactory.IAgent;
-// export interface IAgent {
-//     typeOf: string;
-//     id?: string;
-//     name: string;
-//     url?: string;
-// }
 export type IStartParamsWithoutDetail =
     AssetTransactionFactory.IStartParams<AssetTransactionType.CancelReservation, IAgent, undefined, IObjectWithoutDetail>;
 /**
@@ -48,22 +42,11 @@ export interface IObject {
     transaction?: IReserveTransaction;
     reservations?: IEventReservation[];
 }
-// export interface IPotentialActionsParams {
-//     cancelReservation?: {
-//         potentialActions?: {
-//         };
-//     };
-// }
 /**
  * 取引確定パラメータ
  */
 export interface IConfirmParams {
     id: string;
-    /**
-     * 取引確定後アクション
-     * 不要なので廃止(2022-05-23~)
-     */
-    // potentialActions?: IPotentialActionsParams;
 }
 export interface IPotentialActions {
     cancelReservation: ICancelReservationActionAttributes[];
