@@ -31,9 +31,11 @@ export interface ITicketType {
     id?: string;
     identifier: string;
     name?: string | IMultilingualString;
-    priceCurrency: PriceCurrency;
-    project: Pick<IProject, 'id' | 'typeOf'>;
-    typeOf: OfferType;
+    // 不要なので廃止(2022-12-17~)
+    // priceCurrency: PriceCurrency;
+    // 不要なので廃止(2022-12-17~)
+    // project: Pick<IProject, 'id' | 'typeOf'>;
+    typeOf: OfferType.Offer;
     validRateLimit?: OfferFactory.IValidRateLimit;
 }
 export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;

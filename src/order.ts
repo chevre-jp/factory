@@ -100,17 +100,17 @@ export type ISuperEvent = Omit<EventReservationFactory.IOptimizedSuperEvent, 'wo
 export type IReservationFor = Omit<EventReservationFactory.IReservationFor, 'superEvent'> & {
     superEvent: ISuperEvent;
 };
-export type IReservedTicketType = Pick<
-    ITicketType,
-    'additionalProperty' |
-    'description' |
-    'id' |
-    'identifier' |
-    'name' |
-    'priceCurrency' |
-    'project' |
-    'typeOf'
->;
+// export type IReservedTicketType = Pick<
+//     ITicketType,
+//     'additionalProperty' |
+//     'description' |
+//     'id' |
+//     'identifier' |
+//     'name' |
+//     'priceCurrency' |
+//     'project' |
+//     'typeOf'
+// >;
 export type IReservedTicket = Pick<
     ITicket,
     'typeOf' | 'ticketedSeat' |

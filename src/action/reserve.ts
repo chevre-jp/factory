@@ -3,7 +3,6 @@ import { ActionType } from '../actionType';
 import { AssetTransactionType } from '../assetTransactionType';
 import { OrderType } from '../order';
 import { IReservation as IEventReservation } from '../reservation/event';
-import { IAttributes as IInformActionAttributes } from './interact/inform';
 import { IAttributes as IMoneyTransferActionAttributes } from './transfer/moneyTransfer';
 
 export type IAgent = ActionFactory.IParticipantAsProject;
@@ -31,7 +30,6 @@ export interface IAssetTransactionAsReservePurpose {
     id: string;
 }
 export type IPurpose = IOrderAsReservePurpose | IAssetTransactionAsReservePurpose;
-export type IInformReservation = IInformActionAttributes<IObject, any>;
 export interface IPotentialActions {
     moneyTransfer?: IMoneyTransferActionAttributes[];
 }
