@@ -10,7 +10,7 @@ import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
 import { PriceCurrency } from '../priceCurrency';
 import { IServiceType as IProductServiceType } from '../product';
-import { IProject } from '../project';
+// import { IProject } from '../project';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
 import { ReservationType } from '../reservationType';
@@ -127,7 +127,8 @@ export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue
  * イベントに対するオファー
  */
 export interface IOffer {
-    project: Pick<IProject, 'id' | 'typeOf'>;
+    // 不要なので廃止(2022-12-19~)
+    // project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType.Offer;
     priceCurrency: PriceCurrency.JPY;
     /**
@@ -155,7 +156,12 @@ export interface IOffer {
     unacceptedPaymentMethod?: string[];
     seller: ISeller;
 }
-export type IOffer4COA = Pick<IOffer, 'project' | 'typeOf' | 'offeredThrough' | 'priceCurrency'>;
+export type IOffer4COA = Pick<
+    IOffer,
+    // 不要なので廃止(2022-12-19~)
+    // 'project' |
+    'typeOf' | 'offeredThrough' | 'priceCurrency'
+>;
 export interface ICOAInfo {
     theaterCode: string;
     dateJouei: string;
@@ -226,7 +232,8 @@ export type ICOAOffer = COA.factory.reserve.IUpdReserveTicket & {
 };
 export type IWorkPerformed = ScreeningEventSeriesFactory.IWorkPerformed;
 export interface ILocation {
-    project: Pick<IProject, 'id' | 'typeOf'>;
+    // 不要なので廃止(2022-12-19~)
+    // project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * 場所タイプ
      */

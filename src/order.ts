@@ -92,7 +92,9 @@ export interface IDiscount {
 }
 export type IWorkPerformed = Pick<
     EventReservationFactory.IOptimizedWorkPerformed,
-    'project' | 'typeOf' | 'id' | 'identifier' | 'name' | 'duration'
+    // 不要なので廃止(2022-12-19~)
+    // 'project' |
+    'typeOf' | 'id' | 'identifier' | 'name' | 'duration'
 >;
 export type ISuperEvent = Omit<EventReservationFactory.IOptimizedSuperEvent, 'workPerformed'> & {
     workPerformed: IWorkPerformed;
@@ -100,17 +102,6 @@ export type ISuperEvent = Omit<EventReservationFactory.IOptimizedSuperEvent, 'wo
 export type IReservationFor = Omit<EventReservationFactory.IReservationFor, 'superEvent'> & {
     superEvent: ISuperEvent;
 };
-// export type IReservedTicketType = Pick<
-//     ITicketType,
-//     'additionalProperty' |
-//     'description' |
-//     'id' |
-//     'identifier' |
-//     'name' |
-//     'priceCurrency' |
-//     'project' |
-//     'typeOf'
-// >;
 export type IReservedTicket = Pick<
     ITicket,
     'typeOf' | 'ticketedSeat' |
@@ -177,13 +168,11 @@ export type IItemOffered = IMoneyTransfer | IReservation | IPermit;
 // Pickで定義(2022-08-18~)
 export type IOfferOptimized4acceptedOffer = Pick<
     IOffer,
-    // 'project' |
     'typeOf' |
     'id' |
     'itemOffered' |
     'offeredThrough' |
     'priceCurrency'
-// 'priceSpecification'
 >;
 export type ICategoryChargePriceComponent = Omit<ICategoryCodeChargeSpecification, 'project'>;
 export type IMovieTicketTypeChargePriceComponent = Omit<IMovieTicketTypeChargeSpecification, 'project'>;
@@ -217,7 +206,6 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOfferOptimized4
      * 販売者
      */
     seller: {
-        // project: { id: string; typeOf: OrganizationType.Project };
         typeOf: OrganizationType.Corporation;
         name?: string | IMultilingualString;
     };
@@ -228,7 +216,6 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOfferOptimized4
  */
 export interface ISeller {
     // 最適化(2022-11-15~)
-    // project: { id: string; typeOf: OrganizationType.Project };
     id: string;
     typeOf: OrganizationType.Corporation;
     name: string;
@@ -292,10 +279,12 @@ export interface IReservationFor4OrderedItem {
     location?: {
         branchCode: string;
         name?: IMultilingualString;
-        project: IProject;
+        // 不要なので廃止(2022-12-19~)
+        // project: IProject;
         typeOf: PlaceType.ScreeningRoom;
     };
-    project: IProject;
+    // 不要なので廃止(2022-12-19~)
+    // project: IProject;
     typeOf: EventType.ScreeningEvent;
     id: string;
     name?: IMultilingualString;
@@ -303,7 +292,8 @@ export interface IReservationFor4OrderedItem {
     endDate?: Date;
 }
 export interface IEventServiceAsOrderedItem {
-    project: IProject;
+    // 不要なので廃止(2022-12-19~)
+    // project: IProject;
     typeOf: ProductType.EventService;
     serviceOutput: {
         typeOf: ReservationType.EventReservation | ReservationType.ReservationPackage;
