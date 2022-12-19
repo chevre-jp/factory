@@ -489,6 +489,10 @@ export namespace reservation {
         T extends ReservationType.EventReservation ? ReservationFactory.IUnderName :
         ReservationFactory.IUnderName;
 
+    export type ITicketIssuedBy<T extends ReservationType> =
+        T extends ReservationType.EventReservation ? ReservationFactory.ITicketIssuedBy :
+        ReservationFactory.ITicketIssuedBy;
+
     export type TicketType<T extends ReservationType> =
         T extends ReservationType.EventReservation ? ReservationFactory.TicketType :
         ReservationFactory.TicketType;

@@ -5,7 +5,6 @@ import {
     ISuperEvent,
     IWorkPerformed
 } from '../event/screeningEvent';
-import { EventStatusType } from '../eventStatusType';
 import { EventType } from '../eventType';
 import { IMultilingualString } from '../multilingualString';
 import { ITicketPriceComponent, ITicketPriceSpecification } from '../order';
@@ -36,7 +35,8 @@ export type IOptimizedSuperEvent = Pick<ISuperEvent,
 };
 export interface IReservationFor {
     endDate: Date;
-    eventStatus: EventStatusType;
+    // 不要なので廃止(2022-12-19~)
+    // eventStatus: EventStatusType;
     id: string;
     /**
      * COA予約でのみ使用されている
