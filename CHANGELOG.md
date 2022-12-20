@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 興行オファー承認アクションのresultを最適化
 - 施設コンテンツ、スケジュール、予約のproject属性を最適化
 - 予約のunderName,issuedByを最適化
+- 予約アクションオブジェクトをReservationPackageに拡張
 
 ### Deprecated
 
