@@ -15,7 +15,7 @@ export interface IReservationPackageAsObject {
     reservationFor: IReservationFor;
     reservationNumber: string;
     reservationStatus: ReservationStatusType;
-    subReservation: ISubReservation[];
+    subReservation?: ISubReservation[];
     underName?: IUnderName;
     typeOf: ReservationType.ReservationPackage;
 }

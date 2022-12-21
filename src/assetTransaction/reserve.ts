@@ -8,7 +8,6 @@ import { IPointAward } from '../product';
 import { IPropertyValue } from '../propertyValue';
 import * as ReservationFactory from '../reservation';
 import {
-    IReservation as IEventReservation,
     IReservationFor as IEventReservationReservationFor,
     ISubReservation as ISubReservation4eventReservation
 } from '../reservation/event';
@@ -216,7 +215,7 @@ export interface IObjectWithoutDetail {
 // IReservationForを最適化
 export type IReservationFor = IEventReservationReservationFor;
 // 取引のsubReservationからはreservationForを削除する
-export type IObjectSubReservation = Omit<IEventReservation, 'reservationFor'>;
+export type IObjectSubReservation = ReserveActionFactory.ISubReservation;
 /**
  * 取引対象物
  */
