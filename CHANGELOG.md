@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 予約のunderName,issuedByを最適化
 - 予約アクションオブジェクトをReservationPackageに拡張
 - 予約取消アクションオブジェクトをReservationPackageに拡張
+- イベント編集パラメータにPOS以外のアプリケーションの共通販売設定を追加
 
 ### Deprecated
 

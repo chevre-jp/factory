@@ -331,14 +331,15 @@ export type ILocation4create = Pick<ILocation, 'branchCode' | 'maximumAttendeeCa
 export type ISuperEvent4create = Pick<ISuperEvent, 'id'>;
 export type ISeller4create = Pick<
     ISeller,
-    // 廃止(2022-12-12~)
-    // 'id' |
     'makesOffer'
->;
+> & {
+    /**
+     * POS以外のアプリケーションの共通設定
+     */
+    makesOfferDefault?: ISellerMakesOffer;
+};
 export type IOffers4create = Pick<
     IOffer,
-    // 廃止(2022-12-12~)
-    // 'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough' |
     'unacceptedPaymentMethod'
 > & {
     /**

@@ -27,7 +27,8 @@ export interface IObjectWithoutDetail {
         /**
          * 予約IDをキーに取消
          */
-        id?: string | string[];
+        // id?: string | string[];
+        id?: string;
         /**
          * 予約番号をキーに取消
          */
