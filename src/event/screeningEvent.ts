@@ -336,7 +336,7 @@ export type ISeller4create = Pick<
     /**
      * POS以外のアプリケーションの共通設定
      */
-    makesOfferDefault?: ISellerMakesOffer;
+    makesOfferDefault?: Pick<ISellerMakesOffer, 'typeOf' | 'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough'>;
 };
 export type IOffers4create = Pick<
     IOffer,
