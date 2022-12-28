@@ -28,12 +28,14 @@ export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.ISer
 
 export type IRequestBody<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? COA.factory.reserve.IUpdTmpReserveSeatArgs :
-    T extends WebAPIFactory.Identifier.Chevre ? ReserveTransactionFactory.IStartParamsWithoutDetail :
+    // T extends WebAPIFactory.Identifier.Chevre ? ReserveTransactionFactory.IStartParamsWithoutDetail :
+    T extends WebAPIFactory.Identifier.Chevre ? {} :
     never;
 export type IResponseBody<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? COA.factory.reserve.IUpdTmpReserveSeatResult :
-    T extends WebAPIFactory.Identifier.Chevre ? ReserveTransactionFactory.ITransaction :
-    ReserveTransactionFactory.ITransaction;
+    // T extends WebAPIFactory.Identifier.Chevre ? ReserveTransactionFactory.ITransaction :
+    T extends WebAPIFactory.Identifier.Chevre ? {} :
+    never;
 
 export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IReservation>;
 
@@ -57,10 +59,12 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
     requestEndpoint?: string;
     /**
      * 外部サービスへのリクエスト
+     * COAの場合存在する
      */
     requestBody: IRequestBody<T>;
     /**
      * 外部サービスからのレスポンス
+     * COAの場合存在する
      */
     responseBody: IResponseBody<T>;
     acceptedOffers?: IResultAcceptedOffer[];

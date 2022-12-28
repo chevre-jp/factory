@@ -31,9 +31,11 @@ export interface ITicketType {
     id?: string;
     identifier: string;
     name?: string | IMultilingualString;
-    priceCurrency: PriceCurrency;
-    project: Pick<IProject, 'id' | 'typeOf'>;
-    typeOf: OfferType;
+    // 不要なので廃止(2022-12-17~)
+    // priceCurrency: PriceCurrency;
+    // 不要なので廃止(2022-12-17~)
+    // project: Pick<IProject, 'id' | 'typeOf'>;
+    typeOf: OfferType.Offer;
     validRateLimit?: OfferFactory.IValidRateLimit;
 }
 export type IPriceSpecification = IGenericPriceSpecification<PriceSpecificationType>;
@@ -109,6 +111,10 @@ export type IReservationFor = any;
 /**
  * 予約チケット情報
  */
+export interface ITicketIssuedBy {
+    typeOf: IUnderNameType;
+    name: string;
+}
 export interface ITicket {
     typeOf: TicketType;
     /**
@@ -122,7 +128,7 @@ export interface ITicket {
     /**
      * The organization issuing the ticket or permit.
      */
-    issuedBy?: IUnderName;
+    issuedBy?: ITicketIssuedBy;
     /**
      * The total price for the reservation or ticket, including applicable taxes, shipping, etc.
      */
@@ -130,7 +136,7 @@ export interface ITicket {
     /**
      * The currency (in 3-letter ISO 4217 format) of the Reservation's price.
      */
-    priceCurrency?: PriceCurrency;
+    // priceCurrency?: PriceCurrency;
     /**
      * The seat associated with the ticket.
      * 座席指定でない場合、この値は存在しない
@@ -139,7 +145,7 @@ export interface ITicket {
     /**
      * Where the ticket can be downloaded.
      */
-    ticketDownloadUrl?: string;
+    // ticketDownloadUrl?: string;
     /**
      * The number or id of the ticket.
      */
@@ -147,7 +153,7 @@ export interface ITicket {
     /**
      * Where the ticket can be printed.
      */
-    ticketPrintUrl?: string;
+    // ticketPrintUrl?: string;
     /**
      * If the barcode image is hosted on your site, the value of the field is URL of the image, or a barcode or QR URI,
      * such as "barcode128:AB34" (ISO-15417 barcodes), "qrCode:AB34" (QR codes),
@@ -156,8 +162,9 @@ export interface ITicket {
     ticketToken?: string;
     /**
      * The person or organization the reservation is for.
+     * ルートのunderNameに統合(2022-12-19~)
      */
-    underName?: IUnderName;
+    // underName?: IUnderName;
     /**
      * 券種
      */

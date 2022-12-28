@@ -34,7 +34,9 @@ export interface ISoundFormat {
  */
 export type IWorkPerformed = Pick<
     IMovie,
-    'project' | 'typeOf' | 'id' | 'identifier' | 'name' | 'duration' | 'contentRating'
+    // 不要なので廃止(2022-12-19~)
+    // 'project' |
+    'typeOf' | 'id' | 'identifier' | 'name' | 'duration' | 'contentRating'
 >;
 export interface IOrganizer {
     typeOf: OrganizationType.Corporation;
@@ -72,7 +74,8 @@ export interface ICOAInfo {
     dateMvtkBegin: string;
 }
 export interface ILocation {
-    project: Pick<IProject, 'id' | 'typeOf'>;
+    // 不要なので廃止(2022-12-19~)
+    // project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: PlaceType.MovieTheater;
     /**
      * 施設ID

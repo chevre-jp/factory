@@ -8,7 +8,6 @@ import { IPointAward } from '../product';
 import { IPropertyValue } from '../propertyValue';
 import * as ReservationFactory from '../reservation';
 import {
-    IReservation as IEventReservation,
     IReservationFor as IEventReservationReservationFor,
     ISubReservation as ISubReservation4eventReservation
 } from '../reservation/event';
@@ -170,16 +169,16 @@ export interface IAcceptedOffer4object {
  * 確定時予約
  * 指定することで、予約属性を確定時に上書きすることができる
  */
-export interface IConfirmingReservation {
-    id: string;
-    reservedTicket?: {
-        /**
-         * チケット発行者
-         */
-        issuedBy?: ReservationFactory.IUnderName;
-    };
-    underName?: ReservationFactory.IUnderName;
-}
+// export interface IConfirmingReservation {
+//     id: string;
+//     reservedTicket?: {
+//         /**
+//          * チケット発行者
+//          */
+//         issuedBy?: ReservationFactory.IUnderName;
+//     };
+//     underName?: ReservationFactory.IUnderName;
+// }
 export interface IPotentialActionsParams {
     reserve?: {
         // purposeの指定があれば、注文情報を予約へ自動連携
@@ -192,12 +191,13 @@ export interface IPotentialActionsParams {
 export interface IConfirmParams {
     id?: string;
     transactionNumber?: string;
-    object?: {
-        /**
-         * 最終的な予約の属性を指定
-         */
-        reservations: IConfirmingReservation[];
-    };
+    // 不要なので廃止(2022-12-14~)
+    // object?: {
+    //     /**
+    //      * 最終的な予約の属性を指定
+    //      */
+    //     reservations: IConfirmingReservation[];
+    // };
     potentialActions?: IPotentialActionsParams;
 }
 // tslint:disable-next-line:no-empty-interface
@@ -215,7 +215,7 @@ export interface IObjectWithoutDetail {
 // IReservationForを最適化
 export type IReservationFor = IEventReservationReservationFor;
 // 取引のsubReservationからはreservationForを削除する
-export type IObjectSubReservation = Omit<IEventReservation, 'reservationFor'>;
+export type IObjectSubReservation = ReserveActionFactory.ISubReservation;
 /**
  * 取引対象物
  */

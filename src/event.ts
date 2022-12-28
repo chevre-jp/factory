@@ -8,6 +8,7 @@ import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { SortType } from './sortType';
 
+export type IOffer = Omit<OfferFactory.IOffer, 'project'>;
 export interface IAttributes<T extends EventType> {
     project: Pick<IProject, 'id' | 'typeOf'>;
     /**
@@ -54,7 +55,7 @@ export interface IAttributes<T extends EventType> {
     /**
      * イベントが実行される場所
      */
-    location?: PlaceFactory.IPlace;
+    location?: Omit<PlaceFactory.IPlace, 'project'>;
     /**
      * 最大収容人数
      */
@@ -63,7 +64,7 @@ export interface IAttributes<T extends EventType> {
      * An offer to provide this item—for example, an offer to sell a product,
      * rent the DVD of a movie, perform a service, or give away tickets to an event.
      */
-    offers?: OfferFactory.IOffer | OfferFactory.IOffer[];
+    offers?: IOffer | IOffer[];
     /**
      * 残り収容人数
      */

@@ -8,6 +8,39 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.280.0 - 2022-12-28
+
+### Added
+
+- イベント更新パラメータを追加
+
+### Changed
+
+- イベント作成パラメータ最適化
+- 追加特性のカテゴリーセットにスケジュールを追加
+- 予約取引確定パラメータからobject(予約属性明示指定)を廃止
+- 興行オファー承認アクションのresultを最適化
+- 施設コンテンツ、スケジュール、予約のproject属性を最適化
+- 予約のunderName,issuedByを最適化
+- 予約アクションオブジェクトをReservationPackageに拡張
+- 予約取消アクションオブジェクトをReservationPackageに拡張
+- イベント編集パラメータにPOS以外のアプリケーションの共通販売設定を追加
+- 予約取消取引オブジェクトを最適化
+
+## v4.279.0 - 2022-12-08
+
+### Added
+
 - 追加特性インターフェースを追加
 
 ### Changed
@@ -21,15 +54,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 区分検索条件拡張
 - カタログ検索条件拡張
 
-### Deprecated
-
 ### Removed
 
 - 口座アクション検索条件を廃止
-
-### Fixed
-
-### Security
 
 ## v4.278.0 - 2022-11-24
 

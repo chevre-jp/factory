@@ -356,6 +356,10 @@ export namespace event {
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.ICreateParams :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ICreateParams :
         never;
+    export type IUpdateParams<T extends EventType> =
+        T extends EventType.ScreeningEvent ? ScreeningEventFactory.IUpdateParams :
+        T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ICreateParams :
+        never;
     export import screeningEvent = ScreeningEventFactory;
     export import screeningEventSeries = ScreeningEventSeriesFactory;
 }
@@ -484,6 +488,10 @@ export namespace reservation {
     export type IUnderName<T extends ReservationType> =
         T extends ReservationType.EventReservation ? ReservationFactory.IUnderName :
         ReservationFactory.IUnderName;
+
+    export type ITicketIssuedBy<T extends ReservationType> =
+        T extends ReservationType.EventReservation ? ReservationFactory.ITicketIssuedBy :
+        ReservationFactory.ITicketIssuedBy;
 
     export type TicketType<T extends ReservationType> =
         T extends ReservationType.EventReservation ? ReservationFactory.TicketType :

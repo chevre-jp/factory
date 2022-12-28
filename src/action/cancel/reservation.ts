@@ -7,11 +7,24 @@ import { ReservationStatusType } from '../../reservationStatusType';
 import { ReservationType } from '../../reservationType';
 
 export type IAgent = ActionFactory.IParticipantAsProject;
+// ReservationPackageに拡張(2022-12-22~)
+export interface IReservationPackageAsObject {
+    reservationFor: {
+        typeOf: EventType.ScreeningEvent;
+        id: string;
+    };
+    reservationNumber: string;
+    /**
+     * previousReservationStatusを変更時に指定するために必要
+     */
+    reservationStatus: ReservationStatusType;
+    // subReservation?: ISubReservation[];
+    typeOf: ReservationType.ReservationPackage;
+}
 /**
  * 予約取消対象
  */
-export interface IObject {
-    typeOf: ReservationType.EventReservation;
+export interface IEventReservationAsObject {
     id: string;
     issuedThrough?: {
         typeOf?: ProductType.EventService;
@@ -25,7 +38,9 @@ export interface IObject {
      * previousReservationStatusを変更時に指定するために必要
      */
     reservationStatus: ReservationStatusType;
+    typeOf: ReservationType.EventReservation;
 }
+export type IObject = IEventReservationAsObject | IReservationPackageAsObject;
 /**
  * 予約取消結果
  */

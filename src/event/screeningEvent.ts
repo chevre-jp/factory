@@ -10,7 +10,7 @@ import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
 import { PriceCurrency } from '../priceCurrency';
 import { IServiceType as IProductServiceType } from '../product';
-import { IProject } from '../project';
+// import { IProject } from '../project';
 import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
 import { ReservationType } from '../reservationType';
@@ -127,7 +127,8 @@ export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue
  * イベントに対するオファー
  */
 export interface IOffer {
-    project: Pick<IProject, 'id' | 'typeOf'>;
+    // 不要なので廃止(2022-12-19~)
+    // project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType.Offer;
     priceCurrency: PriceCurrency.JPY;
     /**
@@ -155,7 +156,12 @@ export interface IOffer {
     unacceptedPaymentMethod?: string[];
     seller: ISeller;
 }
-export type IOffer4COA = Pick<IOffer, 'project' | 'typeOf' | 'offeredThrough' | 'priceCurrency'>;
+export type IOffer4COA = Pick<
+    IOffer,
+    // 不要なので廃止(2022-12-19~)
+    // 'project' |
+    'typeOf' | 'offeredThrough' | 'priceCurrency'
+>;
 export interface ICOAInfo {
     theaterCode: string;
     dateJouei: string;
@@ -226,7 +232,8 @@ export type ICOAOffer = COA.factory.reserve.IUpdReserveTicket & {
 };
 export type IWorkPerformed = ScreeningEventSeriesFactory.IWorkPerformed;
 export interface ILocation {
-    project: Pick<IProject, 'id' | 'typeOf'>;
+    // 不要なので廃止(2022-12-19~)
+    // project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * 場所タイプ
      */
@@ -322,10 +329,18 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
 export type IEvent = EventFactory.IEvent<IAttributes>;
 export type ILocation4create = Pick<ILocation, 'branchCode' | 'maximumAttendeeCapacity'>;
 export type ISuperEvent4create = Pick<ISuperEvent, 'id'>;
-export type ISeller4create = Pick<ISeller, 'id' | 'makesOffer'>;
+export type ISeller4create = Pick<
+    ISeller,
+    'makesOffer'
+> & {
+    /**
+     * POS以外のアプリケーションの共通設定
+     */
+    makesOfferDefault?: Pick<ISellerMakesOffer, 'typeOf' | 'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough'>;
+};
 export type IOffers4create = Pick<
     IOffer,
-    'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough' | 'unacceptedPaymentMethod'
+    'unacceptedPaymentMethod'
 > & {
     /**
      * 最大予約数を指定
@@ -340,6 +355,23 @@ export type IOffers4create = Pick<
      */
     seller: ISeller4create;
 };
+// export type IOffers4update = Pick<
+//     IOffer,
+//     'unacceptedPaymentMethod'
+// > & {
+//     /**
+//      * 最大予約数を指定
+//      */
+//     eligibleQuantity: Pick<IEligibleQuantity, 'maxValue'>;
+//     /**
+//      * 興行IDを指定
+//      */
+//     itemOffered: Pick<IItemOffered, 'id'>;
+//     /**
+//      * 販売者IDとアプリケーション設定
+//      */
+//     seller: ISeller4create;
+// };
 export type ICreateParams = Pick<
     IAttributes,
     'project' | 'typeOf' | 'doorTime' | 'startDate' | 'endDate' | 'eventStatus' | 'additionalProperty'
@@ -354,6 +386,24 @@ export type ICreateParams = Pick<
     superEvent: ISuperEvent4create;
     offers: IOffers4create;
 };
+/**
+ * イベント更新パラメータ
+ */
+export type IUpdateParams = ICreateParams;
+// export type IUpdateParams = Pick<
+//     IAttributes,
+//     'project' | 'typeOf' | 'doorTime' | 'startDate' | 'endDate' | 'eventStatus' | 'additionalProperty'
+// > & {
+//     /**
+//      * キャパシティを指定
+//      */
+//     location: Pick<ILocation4create, 'maximumAttendeeCapacity'>;
+//     /**
+//      * 施設コンテンツIDを指定
+//      */
+//     // superEvent: ISuperEvent4create;
+//     offers: IOffers4update;
+// };
 /**
  * ソート条件
  */

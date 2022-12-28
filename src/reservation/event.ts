@@ -5,22 +5,28 @@ import {
     ISuperEvent,
     IWorkPerformed
 } from '../event/screeningEvent';
-import { EventStatusType } from '../eventStatusType';
 import { EventType } from '../eventType';
 import { IMultilingualString } from '../multilingualString';
 import { ITicketPriceComponent, ITicketPriceSpecification } from '../order';
-import { IProject } from '../project';
+// import { IProject } from '../project';
 import * as ReservationFactory from '../reservation';
 import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
 
-export type IOptimizedWorkPerformed = Omit<IWorkPerformed, 'name'> & {
+export type IOptimizedWorkPerformed = Omit<
+    IWorkPerformed,
+    // 不要なので廃止(2022-12-19~)
+    'project' |
+    'name'
+> & {
     // ↓コンテンツ名称がstring型だった時期の予約に関して互換性を維持するため(2022-07-28~)
     name?: string | IMultilingualString;
 };
 export type IOptimizedSuperEvent = Pick<ISuperEvent,
+    // 不要なので廃止(2022-12-19~)
+    // 'project' |
     'additionalProperty' | 'id' | 'kanaName' | 'location'
-    | 'name' | 'project' | 'soundFormat' | 'typeOf'
+    | 'name' | 'soundFormat' | 'typeOf'
     | 'videoFormat' | 'description' | 'headline'
     // ↓COAのみ
     | 'identifier' | 'alternativeHeadline' | 'duration' | 'coaInfo'
@@ -29,7 +35,8 @@ export type IOptimizedSuperEvent = Pick<ISuperEvent,
 };
 export interface IReservationFor {
     endDate: Date;
-    eventStatus: EventStatusType;
+    // 不要なので廃止(2022-12-19~)
+    // eventStatus: EventStatusType;
     id: string;
     /**
      * COA予約でのみ使用されている
@@ -42,7 +49,8 @@ export interface IReservationFor {
     coaInfo?: ICOAInfo;
     location: IEventLocation;
     name: IEventName;
-    project: Pick<IProject, 'id' | 'typeOf'>;
+    // 不要なので廃止(2022-12-19~)
+    // project: Pick<IProject, 'id' | 'typeOf'>;
     startDate: Date;
     superEvent: IOptimizedSuperEvent;
     typeOf: EventType.ScreeningEvent;

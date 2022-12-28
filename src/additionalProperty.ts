@@ -4,7 +4,7 @@ import { IProject } from './project';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 
-export type CategorySetIdentifier = EventType.ScreeningEventSeries;
+export type CategorySetIdentifier = EventType.ScreeningEvent | EventType.ScreeningEventSeries;
 /**
  * {@link https://schema.org/CategoryCodeSet}
  */
