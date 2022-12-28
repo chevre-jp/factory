@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.280.0 - 2022-12-28
+
+### Added
+
 - イベント更新パラメータを追加
 
 ### Changed
@@ -22,14 +36,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 予約取消アクションオブジェクトをReservationPackageに拡張
 - イベント編集パラメータにPOS以外のアプリケーションの共通販売設定を追加
 - 予約取消取引オブジェクトを最適化
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v4.279.0 - 2022-12-08
 
