@@ -116,6 +116,9 @@ import * as PaymentServiceFactory from './service/paymentService';
 import * as WebAPIServiceFactory from './service/webAPI';
 import { SortType } from './sortType';
 import * as ThingFactory from './thing';
+import * as BusTripFactory from './trip/busTrip';
+import * as BusTripSeriesFactory from './trip/busTripSeries';
+import { TripType } from './tripType';
 import { UnitCode } from './unitCode';
 import * as UnitPriceOfferFactory from './unitPriceOffer';
 
@@ -629,6 +632,20 @@ export import sortType = SortType;
 export import taskName = TaskName;
 export import taskStatus = TaskStatus;
 export import thing = ThingFactory;
+
+export namespace trip {
+    export type ISearchConditions<T extends TripType> =
+        T extends TripType.BusTrip ? BusTripFactory.ISearchConditions :
+        T extends TripType.BusTripSeries ? BusTripSeriesFactory.ISearchConditions :
+        never;
+    export type ITrip<T extends TripType> =
+        T extends TripType.BusTrip ? BusTripFactory.ITrip :
+        T extends TripType.BusTripSeries ? BusTripSeriesFactory.ITrip :
+        never;
+    export import busTrip = BusTripFactory;
+    export import busTripSeries = BusTripSeriesFactory;
+}
+export import tripType = TripType;
 
 export namespace assetTransaction {
     export type IProject = AssetTransactionFactory.IProject;
