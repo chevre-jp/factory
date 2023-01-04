@@ -190,7 +190,7 @@ export type IProgramMembershipUsed = IPermit;
 // 最適化(2022-09-08~)
 export type IServiceTypeOfIssuedThrough = Pick<IServiceType, 'codeValue' | 'inCodeSet' | 'typeOf'>;
 export interface IIssuedThrough {
-    typeOf: ProductType.EventService;
+    typeOf: ProductType.Transportation | ProductType.EventService;
     serviceType?: IServiceTypeOfIssuedThrough;
     // 興行IDを追加(2022-09-08~)
     id?: string;

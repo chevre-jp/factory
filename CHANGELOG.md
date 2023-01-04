@@ -9,8 +9,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - トリップインターフェースを追加
+- 汎用イベントを追加(Transportationに対応)
+- BusReservationインターフェースを追加
 
 ### Changed
+
+- 予約取引をBusReservationに拡張
 
 ### Deprecated
 

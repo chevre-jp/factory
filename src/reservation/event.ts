@@ -8,7 +8,7 @@ import {
 import { EventType } from '../eventType';
 import { IMultilingualString } from '../multilingualString';
 import { ITicketPriceComponent, ITicketPriceSpecification } from '../order';
-// import { IProject } from '../project';
+import { ProductType } from '../product';
 import * as ReservationFactory from '../reservation';
 import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
@@ -67,7 +67,12 @@ export interface ISubReservation {
     };
 }
 export import IServiceTypeOfIssuedThrough = ReservationFactory.IServiceTypeOfIssuedThrough;
-export import IIssuedThrough = ReservationFactory.IIssuedThrough;
+export interface IIssuedThrough {
+    typeOf: ProductType.EventService;
+    serviceType?: IServiceTypeOfIssuedThrough;
+    // 興行IDを追加(2022-09-08~)
+    id?: string;
+}
 /**
  * イベント予約
  */

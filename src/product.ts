@@ -35,7 +35,7 @@ export enum ProductType {
      */
     Product = 'Product',
     /**
-     * 旅客
+     * 旅客サービス
      */
     Transportation = 'Transportation'
 }

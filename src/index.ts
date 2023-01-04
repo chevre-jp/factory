@@ -61,6 +61,7 @@ import * as WebApplicationFactory from './creativeWork/softwareApplication/webAp
 import { CreativeWorkType } from './creativeWorkType';
 import * as CustomerFactory from './customer';
 import * as EncodingFormat from './encodingFormat';
+import * as AnyEventFactory from './event/anyEvent';
 import * as ScreeningEventFactory from './event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './event/screeningEventSeries';
 import { EventStatusType } from './eventStatusType';
@@ -107,6 +108,7 @@ import * as QualitativeValueFactory from './qualitativeValue';
 import * as QuantitativeValueFactory from './quantitativeValue';
 import * as AccountingReportFactory from './report/accountingReport';
 import * as ReservationFactory from './reservation';
+import * as BusReservationFactory from './reservation/busReservation';
 import * as EventReservationFactory from './reservation/event';
 import * as ReservationPackageFactory from './reservation/reservationPackage';
 import { ReservationStatusType } from './reservationStatusType';
@@ -346,23 +348,30 @@ export namespace event {
     export type ISearchConditions<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.ISearchConditions :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ISearchConditions :
+        T extends EventType.Event ? AnyEventFactory.ISearchConditions :
         never;
     export type IAttributes<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.IAttributes :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.IAttributes :
+        T extends EventType.Event ? AnyEventFactory.IAttributes :
         never;
     export type IEvent<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.IEvent :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.IEvent :
+        T extends EventType.Event ? AnyEventFactory.IEvent :
         never;
     export type ICreateParams<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.ICreateParams :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ICreateParams :
+        T extends EventType.Event ? AnyEventFactory.ICreateParams :
         never;
     export type IUpdateParams<T extends EventType> =
         T extends EventType.ScreeningEvent ? ScreeningEventFactory.IUpdateParams :
         T extends EventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ICreateParams :
+        T extends EventType.Event ? AnyEventFactory.IUpdateParams :
         never;
+    // tslint:disable-next-line:no-shadowed-variable
+    export import event = AnyEventFactory;
     export import screeningEvent = ScreeningEventFactory;
     export import screeningEventSeries = ScreeningEventSeriesFactory;
 }
@@ -444,44 +453,54 @@ export namespace report {
 }
 
 export namespace reservation {
+    export import busReservation = BusReservationFactory;
     export import eventReservation = EventReservationFactory;
     export type IBroker<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? ReservationFactory.IBroker :
         T extends ReservationType.EventReservation ? ReservationFactory.IBroker :
         ReservationFactory.IBroker;
 
     export type IPriceSpecification<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? BusReservationFactory.IPriceSpecification :
         T extends ReservationType.EventReservation ? EventReservationFactory.IPriceSpecification :
         T extends ReservationType.ReservationPackage ? ReservationPackageFactory.IPriceSpecification :
         ReservationFactory.IPriceSpecification;
 
     export type IProgramMembershipUsed<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? ReservationFactory.IProgramMembershipUsed :
         T extends ReservationType.EventReservation ? ReservationFactory.IProgramMembershipUsed :
         ReservationFactory.IProgramMembershipUsed;
 
     export type IReservationFor<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? BusReservationFactory.IReservationFor :
         T extends ReservationType.EventReservation ? EventReservationFactory.IReservationFor :
         T extends ReservationType.ReservationPackage ? ReservationFactory.IReservationFor :
         ReservationFactory.IReservationFor;
 
     export type IReservation<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? BusReservationFactory.IReservation :
         T extends ReservationType.EventReservation ? EventReservationFactory.IReservation :
         T extends ReservationType.ReservationPackage ? ReservationPackageFactory.IReservation :
         ReservationFactory.IReservation<ReservationFactory.IPriceSpecification>;
 
     export type ISearchConditions<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? BusReservationFactory.ISearchConditions :
         T extends ReservationType.EventReservation ? EventReservationFactory.ISearchConditions :
         T extends ReservationType.ReservationPackage ? ReservationPackageFactory.ISearchConditions :
         ReservationPackageFactory.ISearchConditions;
 
     export type ISortOrder<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? ReservationFactory.ISortOrder :
         T extends ReservationType.EventReservation ? ReservationFactory.ISortOrder :
         ReservationFactory.ISortOrder;
 
     export type ISeat<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? ReservationFactory.ISeat :
         T extends ReservationType.EventReservation ? ReservationFactory.ISeat :
         ReservationFactory.ISeat;
 
     export type ISubReservation<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? BusReservationFactory.ISubReservation :
         T extends ReservationType.EventReservation ? EventReservationFactory.ISubReservation :
         T extends ReservationType.ReservationPackage ? ReservationPackageFactory.ISubReservation :
         any;
@@ -489,18 +508,22 @@ export namespace reservation {
     export import ITicket = ReservationFactory.ITicket;
 
     export type IUnderName<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? ReservationFactory.IUnderName :
         T extends ReservationType.EventReservation ? ReservationFactory.IUnderName :
         ReservationFactory.IUnderName;
 
     export type ITicketIssuedBy<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? ReservationFactory.ITicketIssuedBy :
         T extends ReservationType.EventReservation ? ReservationFactory.ITicketIssuedBy :
         ReservationFactory.ITicketIssuedBy;
 
     export type TicketType<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? ReservationFactory.TicketType :
         T extends ReservationType.EventReservation ? ReservationFactory.TicketType :
         ReservationFactory.TicketType;
 
     export type ITicketType<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? ReservationFactory.ITicketType :
         T extends ReservationType.EventReservation ? ReservationFactory.ITicketType :
         ReservationFactory.ITicketType;
 }

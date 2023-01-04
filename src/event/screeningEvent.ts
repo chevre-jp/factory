@@ -3,73 +3,21 @@ import * as COA from '@motionpicture/coa-service';
 import * as EventFactory from '../event';
 import * as ScreeningEventSeriesFactory from '../event/screeningEventSeries';
 import { EventType } from '../eventType';
-import { IMultilingualString } from '../multilingualString';
-import * as OfferFactory from '../offer';
 import { OfferType } from '../offerType';
-import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
 import { PriceCurrency } from '../priceCurrency';
-import { IServiceType as IProductServiceType } from '../product';
+import { IServiceType as IProductServiceType, ProductType } from '../product';
 // import { IProject } from '../project';
-import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
 import { ReservationType } from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
-import { IThing } from '../thing';
-import { UnitCode } from '../unitCode';
+import * as AnyEventFactory from './anyEvent';
 
-/**
- * 予約集計
- */
-export interface IAggregateReservation {
-    typeOf: 'AggregateReservation';
-    aggregateDate: Date;
-    checkInCount?: number;
-    attendeeCount?: number;
-    reservationCount?: number;
-    useActionCount?: number;
-}
-/**
- * 予約集計つきオファー
- */
-export interface IOfferWithAggregateReservation extends Pick<IThing, 'name'> {
-    typeOf: OfferType.Offer;
-    id?: string;
-    identifier?: string;
-    aggregateReservation?: IAggregateReservation;
-    category?: OfferFactory.ICategory;
-    maximumAttendeeCapacity?: number;
-    remainingAttendeeCapacity?: number;
-}
-/**
- * オファー集計
- */
-export interface IAggregateOffer {
-    typeOf: OfferType.AggregateOffer;
-    offerCount?: number;
-    offers?: IOfferWithAggregateReservation[];
-}
-export interface IPlaceWithAggregateOffer {
-    typeOf: PlaceType;
-    identifier?: string;
-    aggregateOffer?: {
-        typeOf: OfferType.AggregateOffer;
-        offers?: {
-            typeOf: OfferType.Offer;
-            id?: string;
-            identifier?: string;
-            category?: OfferFactory.ICategory;
-            aggregateReservation?: IAggregateReservation;
-        }[];
-    };
-}
-/**
- * 入場ゲート集計
- */
-export interface IAggregateEntranceGate {
-    typeOf: PlaceType.AggregatePlace;
-    places: IPlaceWithAggregateOffer[];
-}
+export import IAggregateReservation = AnyEventFactory.IAggregateReservation;
+export import IOfferWithAggregateReservation = AnyEventFactory.IOfferWithAggregateReservation;
+export import IAggregateOffer = AnyEventFactory.IAggregateOffer;
+export import IPlaceWithAggregateOffer = AnyEventFactory.IPlaceWithAggregateOffer;
+export import IAggregateEntranceGate = AnyEventFactory.IAggregateEntranceGate;
 export interface IServiceOutput {
     typeOf: ReservationType.EventReservation;
     reservedTicket?: {
@@ -104,25 +52,12 @@ export interface IItemOffered {
      * サービスアウトプット
      */
     serviceOutput?: IServiceOutput;
+    typeOf: ProductType.EventService;
 }
 export type IOfferedThrough = WebAPIFactory.IService<WebAPIFactory.Identifier>;
-export interface ISellerMakesOffer extends Pick<
-    OfferFactory.IOffer,
-    'typeOf' | 'availableAtOrFrom' | 'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough'
-> {
-    availabilityEnds: Date;
-    availabilityStarts: Date;
-    validFrom: Date;
-    validThrough: Date;
-}
-export interface ISeller {
-    typeOf: OrganizationType.Corporation;
-    id: string;
-    name?: string | IMultilingualString;
-    // アプリケーション対応(2022-11-18~)
-    makesOffer: ISellerMakesOffer[];
-}
-export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue' | 'typeOf' | 'unitCode' | 'value'>;
+export import ISellerMakesOffer = AnyEventFactory.ISellerMakesOffer;
+export import ISeller = AnyEventFactory.ISeller;
+export import IEligibleQuantity = AnyEventFactory.IEligibleQuantity;
 /**
  * イベントに対するオファー
  */
@@ -231,63 +166,17 @@ export type ICOAOffer = COA.factory.reserve.IUpdReserveTicket & {
     usePoint: number;
 };
 export type IWorkPerformed = ScreeningEventSeriesFactory.IWorkPerformed;
-export interface ILocation {
-    // 不要なので廃止(2022-12-19~)
-    // project: Pick<IProject, 'id' | 'typeOf'>;
-    /**
-     * 場所タイプ
-     */
-    typeOf: PlaceType.ScreeningRoom;
-    /**
-     * ルームコード
-     */
-    branchCode: string;
-    /**
-     * 場所名称
-     */
-    name?: IMultilingualString;
-    alternateName?: IMultilingualString;
-    description?: IMultilingualString;
-    address?: IMultilingualString;
-    /**
-     * イベント固有のキャパシティ
-     * 施設のキャパシティに依存しない場合に使用
-     */
-    maximumAttendeeCapacity?: number;
-}
+export import ILocation = AnyEventFactory.ILocation;
 export type ISuperEvent = Omit<ScreeningEventSeriesFactory.IEvent, 'eventStatus' | 'offers' | 'organizer'>;
-export type IName = IMultilingualString;
+export import IName = AnyEventFactory.IName;
 /**
  * イベント属性
  */
-export interface IAttributes extends EventFactory.IAttributes<EventType.ScreeningEvent> {
+export interface IAttributes extends Omit<AnyEventFactory.IAttributes, 'offers' | 'typeOf'> {
     /**
      * コンテンツ
      */
     workPerformed?: IWorkPerformed;
-    /**
-     * 上映場所
-     */
-    location: ILocation;
-    /**
-     * イベント名称
-     */
-    name: IName;
-    /**
-     * 開場日時
-     * ISO 8601 date format
-     */
-    doorTime?: Date;
-    /**
-     * 終了日時(
-     * ISO 8601 date format
-     */
-    endDate: Date;
-    /**
-     * 開始日時
-     * ISO 8601 date format
-     */
-    startDate: Date;
     /**
      * 親イベント
      * 施設コンテンツに相当
@@ -298,46 +187,19 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Screenin
      */
     offers?: IOffer | IOffer4COA;
     /**
-     * 発券数
-     */
-    checkInCount?: Number;
-    /**
-     * 参加数
-     */
-    attendeeCount?: Number;
-    /**
-     * 入場ゲート集計
-     */
-    aggregateEntranceGate?: IAggregateEntranceGate;
-    /**
-     * 予約集計
-     */
-    aggregateReservation?: IAggregateReservation;
-    /**
-     * オファー集計
-     */
-    aggregateOffer?: IAggregateOffer;
-    /**
      * その他COA情報
      * 基本的にsskts対応
      */
     coaInfo?: ICOAInfo;
+    typeOf: EventType.ScreeningEvent;
 }
 /**
  * イベント
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
-export type ILocation4create = Pick<ILocation, 'branchCode' | 'maximumAttendeeCapacity'>;
+export import ILocation4create = AnyEventFactory.ILocation4create;
+export import ISeller4create = AnyEventFactory.ISeller4create;
 export type ISuperEvent4create = Pick<ISuperEvent, 'id'>;
-export type ISeller4create = Pick<
-    ISeller,
-    'makesOffer'
-> & {
-    /**
-     * POS以外のアプリケーションの共通設定
-     */
-    makesOfferDefault?: Pick<ISellerMakesOffer, 'typeOf' | 'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough'>;
-};
 export type IOffers4create = Pick<
     IOffer,
     'unacceptedPaymentMethod'

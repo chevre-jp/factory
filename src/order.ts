@@ -24,6 +24,7 @@ import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './pr
 import { IProduct, ProductType } from './product';
 import { IPropertyValue } from './propertyValue';
 import { IProgramMembershipUsedSearchConditions, ITicket, ITicketType } from './reservation';
+import * as BusReservationFactory from './reservation/busReservation';
 import * as EventReservationFactory from './reservation/event';
 import { ReservationType } from './reservationType';
 import { SortType } from './sortType';
@@ -99,7 +100,8 @@ export type IWorkPerformed = Pick<
 export type ISuperEvent = Omit<EventReservationFactory.IOptimizedSuperEvent, 'workPerformed'> & {
     workPerformed: IWorkPerformed;
 };
-export type IReservationFor = Omit<EventReservationFactory.IReservationFor, 'superEvent'> & {
+export type ITripAsReservationFor = BusReservationFactory.IReservationFor;
+export type IEventAsReservationFor = Omit<EventReservationFactory.IReservationFor, 'superEvent'> & {
     superEvent: ISuperEvent;
 };
 export type IReservedTicket = Pick<
@@ -114,8 +116,22 @@ export type IReservedTicket = Pick<
 > & {
     ticketType: ITicketType;
 };
-// Pickで定義(2022-08-18~)
-export type IReservation = Pick<
+export type IBusReservation = Pick<
+    BusReservationFactory.IReservation,
+    'additionalProperty' |
+    'additionalTicketText' |
+    'bookingTime' |
+    'id' |
+    'issuedThrough' |
+    'programMembershipUsed' |
+    'project' |
+    'reservationNumber' |
+    'typeOf'
+> & {
+    reservationFor: ITripAsReservationFor;
+    reservedTicket: IReservedTicket;
+};
+export type IEventReservation = Pick<
     EventReservationFactory.IReservation,
     'additionalProperty' |
     'additionalTicketText' |
@@ -127,9 +143,10 @@ export type IReservation = Pick<
     'reservationNumber' |
     'typeOf'
 > & {
-    reservationFor: IReservationFor;
+    reservationFor: IEventAsReservationFor;
     reservedTicket: IReservedTicket;
 };
+export type IReservation = IBusReservation | IEventReservation;
 export type IPermit = Pick<
     PermitFactory.IPermit,
     'amount' | 'identifier' | 'issuedThrough' | 'name' | 'project' | 'typeOf' | 'validFor'
