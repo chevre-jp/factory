@@ -7,6 +7,8 @@ import { OfferType } from './offerType';
 import { OrganizationType } from './organizationType';
 import { IPermit } from './permit';
 import { PersonType } from './personType';
+import * as MovieTheaterFactory from './place/movieTheater';
+import * as ScreeningRoomFactory from './place/screeningRoom';
 import * as SeatFactory from './place/seat';
 import { PlaceType } from './placeType';
 import { PriceCurrency } from './priceCurrency';
@@ -189,11 +191,23 @@ export interface IBroker {
 export type IProgramMembershipUsed = IPermit;
 // 最適化(2022-09-08~)
 export type IServiceTypeOfIssuedThrough = Pick<IServiceType, 'codeValue' | 'inCodeSet' | 'typeOf'>;
+export type IServiceLocationContainedInPlace = Pick<MovieTheaterFactory.IPlaceWithoutScreeningRoom, 'typeOf' | 'id' | 'branchCode'> & {
+    name?: IMultilingualString;
+};
+export type IServiceLocation = Pick<ScreeningRoomFactory.IPlace, 'typeOf' | 'branchCode'> & {
+    containedInPlace: IServiceLocationContainedInPlace;
+    name?: IMultilingualString;
+};
+export interface IServiceChannel {
+    typeOf: 'ServiceChannel';
+    serviceLocation: IServiceLocation;
+}
 export interface IIssuedThrough {
     typeOf: ProductType.Transportation | ProductType.EventService;
     serviceType?: IServiceTypeOfIssuedThrough;
-    // 興行IDを追加(2022-09-08~)
-    id?: string;
+    id: string;
+    // serviceLocationを追加(2023-01-06~)
+    availableChannel: IServiceChannel;
 }
 /**
  * 予約

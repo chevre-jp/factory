@@ -15,11 +15,10 @@ export interface ISubReservation {
     };
 }
 export import IServiceTypeOfIssuedThrough = ReservationFactory.IServiceTypeOfIssuedThrough;
-export interface IIssuedThrough {
+export interface IIssuedThrough extends ReservationFactory.IIssuedThrough {
     typeOf: ProductType.Transportation;
     serviceType?: IServiceTypeOfIssuedThrough;
-    // 興行IDを追加(2022-09-08~)
-    id?: string;
+    id: string;
 }
 /**
  * イベント予約

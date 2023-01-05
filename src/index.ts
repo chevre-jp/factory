@@ -455,6 +455,7 @@ export namespace report {
 export namespace reservation {
     export import busReservation = BusReservationFactory;
     export import eventReservation = EventReservationFactory;
+
     export type IBroker<T extends ReservationType> =
         T extends ReservationType.BusReservation ? ReservationFactory.IBroker :
         T extends ReservationType.EventReservation ? ReservationFactory.IBroker :
@@ -526,6 +527,11 @@ export namespace reservation {
         T extends ReservationType.BusReservation ? ReservationFactory.ITicketType :
         T extends ReservationType.EventReservation ? ReservationFactory.ITicketType :
         ReservationFactory.ITicketType;
+
+    export import IServiceTypeOfIssuedThrough = ReservationFactory.IServiceTypeOfIssuedThrough;
+    export import IServiceLocationContainedInPlace = ReservationFactory.IServiceLocationContainedInPlace;
+    export import IServiceLocation = ReservationFactory.IServiceLocation;
+    export import IServiceChannel = ReservationFactory.IServiceChannel;
 }
 
 export import reservationStatusType = ReservationStatusType;

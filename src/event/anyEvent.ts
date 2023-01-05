@@ -93,7 +93,7 @@ export type IServiceType = IProductServiceType & {
  * 旅客サービス
  */
 export interface IItemOffered {
-    id?: string;
+    id: string;
     /**
      * プロダクト名称
      */
@@ -107,6 +107,8 @@ export interface IItemOffered {
      */
     serviceOutput?: IServiceOutput;
     typeOf: ProductType.Transportation;
+    // serviceLocationを追加(2023-01-06~)
+    availableChannel: ReservationFactory.IServiceChannel;
 }
 export type IOfferedThrough = WebAPIFactory.IService<WebAPIFactory.Identifier.Chevre>;
 export interface ISellerMakesOffer extends Pick<
@@ -243,6 +245,22 @@ export type ISeller4create = Pick<
      */
     makesOfferDefault?: Pick<ISellerMakesOffer, 'typeOf' | 'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough'>;
 };
+export type IItemOffered4create = Pick<IItemOffered, 'id' | 'serviceOutput'> & {
+    availableChannel: {
+        serviceLocation: {
+            /**
+             * ルームコード
+             */
+            branchCode: string;
+            containedInPlace: {
+                /**
+                 * 施設ID
+                 */
+                id: string;
+            };
+        };
+    };
+};
 export type IOffers4create = Pick<
     IOffer,
     'unacceptedPaymentMethod'
@@ -254,7 +272,7 @@ export type IOffers4create = Pick<
     /**
      * 興行IDと座席有無を指定
      */
-    itemOffered: Pick<IItemOffered, 'id' | 'serviceOutput'>;
+    itemOffered: IItemOffered4create;
     /**
      * 販売者IDとアプリケーション設定
      */

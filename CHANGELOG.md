@@ -15,6 +15,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - 予約取引をBusReservationに拡張
+- イベントにserviceLocationを追加
+- 予約にserviceLocationを追加
 
 ### Deprecated
 

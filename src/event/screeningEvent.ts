@@ -38,14 +38,13 @@ export type IServiceType = IProductServiceType & {
  * 興行
  */
 export interface IItemOffered {
-    // 興行IDを追加(2022-08-31~)
-    id?: string;
+    id: string;
     /**
-     * 興行名称
+     * プロダクト名称
      */
     name?: { ja?: string };
     /**
-     * 興行区分
+     * サービス区分
      */
     serviceType?: IServiceType;
     /**
@@ -53,6 +52,8 @@ export interface IItemOffered {
      */
     serviceOutput?: IServiceOutput;
     typeOf: ProductType.EventService;
+    // serviceLocationを追加(2023-01-06~)
+    availableChannel: ReservationFactory.IServiceChannel;
 }
 export type IOfferedThrough = WebAPIFactory.IService<WebAPIFactory.Identifier>;
 export import ISellerMakesOffer = AnyEventFactory.ISellerMakesOffer;
