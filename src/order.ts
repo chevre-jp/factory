@@ -292,16 +292,12 @@ export interface ISimpleOrder extends Pick<IThing, 'name'> {
      */
     orderDate: Date;
 }
-export interface IReservationFor4OrderedItem {
+export interface IReservationFor4EventServiceOrderedItem {
     location?: {
         branchCode: string;
         name?: IMultilingualString;
-        // 不要なので廃止(2022-12-19~)
-        // project: IProject;
         typeOf: PlaceType.ScreeningRoom;
     };
-    // 不要なので廃止(2022-12-19~)
-    // project: IProject;
     typeOf: EventType.ScreeningEvent;
     id: string;
     name?: IMultilingualString;
@@ -309,12 +305,19 @@ export interface IReservationFor4OrderedItem {
     endDate?: Date;
 }
 export interface IEventServiceAsOrderedItem {
-    // 不要なので廃止(2022-12-19~)
-    // project: IProject;
     typeOf: ProductType.EventService;
     serviceOutput: {
         typeOf: ReservationType.EventReservation | ReservationType.ReservationPackage;
-        reservationFor: IReservationFor4OrderedItem;
+        reservationFor: IReservationFor4EventServiceOrderedItem;
+    };
+    serviceType?: EventReservationFactory.IServiceTypeOfIssuedThrough;
+}
+export type IReservationFor4TransportationOrderedItem = Pick<ITripAsReservationFor, 'typeOf' | 'id' | 'arrivalTime' | 'departureTime'>;
+export interface ITransportationAsOrderedItem {
+    typeOf: ProductType.Transportation;
+    serviceOutput: {
+        typeOf: ReservationType.ReservationPackage;
+        reservationFor: IReservationFor4TransportationOrderedItem;
     };
     serviceType?: EventReservationFactory.IServiceTypeOfIssuedThrough;
 }
@@ -328,7 +331,7 @@ export type IProductAsOrderedItem = Pick<
  */
 export interface IOrderedItem {
     typeOf: 'OrderItem';
-    orderedItem: IProductAsOrderedItem | IEventServiceAsOrderedItem;
+    orderedItem: IProductAsOrderedItem | IEventServiceAsOrderedItem | ITransportationAsOrderedItem;
 }
 /**
  * 注文

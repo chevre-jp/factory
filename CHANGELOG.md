@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 予約取引をBusReservationに拡張
 - イベントにserviceLocationを追加
 - 予約にserviceLocationを追加
+- 注文をBusReservationに対応
 
 ### Deprecated
 
