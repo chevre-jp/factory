@@ -88,6 +88,7 @@ import { PaymentStatusType } from './paymentStatusType';
 import * as PermitFactory from './permit';
 import * as PersonFactory from './person';
 import { PersonType } from './personType';
+import * as BusStopFactory from './place/busStop';
 import * as MovieTheaterPlaceFactory from './place/movieTheater';
 import * as ScreeningRoomPlaceFactory from './place/screeningRoom';
 import * as ScreeningRoomSectionPlaceFactory from './place/screeningRoomSection';
@@ -412,6 +413,7 @@ export import personType = PersonType;
 
 export import priceCurrency = PriceCurrency;
 export namespace place {
+    export import busStop = BusStopFactory;
     export import movieTheater = MovieTheaterPlaceFactory;
     export import screeningRoom = ScreeningRoomPlaceFactory;
     export import screeningRoomSection = ScreeningRoomSectionPlaceFactory;

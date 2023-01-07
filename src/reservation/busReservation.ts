@@ -4,6 +4,7 @@ import * as ReservationFactory from '../reservation';
 import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
 import { ITrip as IBusTrip } from '../trip/busTrip';
+import { TripType } from '../tripType';
 
 export type IReservationFor = Pick<IBusTrip, 'arrivalBusStop' | 'arrivalTime' | 'busName' | 'busNumber' | 'departureBusStop' | 'departureTime' | 'id' | 'identifier' | 'name' | 'typeOf'>;
 export type IPriceComponentSpecification = ITicketPriceComponent;
@@ -33,6 +34,13 @@ export interface IReservation extends ReservationFactory.IReservation<IPriceSpec
     subReservation?: ISubReservation[];
     typeOf: ReservationType.BusReservation;
 }
+export interface IReservationForSearchConditions {
+    typeOf?: { $eq?: TripType };
+    id?: {
+        $eq?: string;
+        $in?: string[];
+    };
+}
 /**
  * 検索条件
  */
@@ -40,5 +48,5 @@ export interface ISearchConditions extends ReservationFactory.ISearchConditions<
     /**
      * 予約対象
      */
-    // reservationFor?: IReservationForSearchConditions;
+    reservationFor?: IReservationForSearchConditions;
 }

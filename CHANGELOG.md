@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - トリップインターフェースを追加
 - 汎用イベントを追加(Transportationに対応)
 - BusReservationインターフェースを追加
+- BusStopインターフェースを追加
 
 ### Changed
 

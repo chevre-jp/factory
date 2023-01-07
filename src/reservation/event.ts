@@ -87,7 +87,9 @@ export interface IReservation extends ReservationFactory.IReservation<IPriceSpec
 }
 export interface IReservationForSearchConditions {
     typeOf?: EventType;
-    id?: string;
+    id?: string | {
+        $eq?: string;
+    };
     ids?: string[];
     location?: {
         ids?: string[];
