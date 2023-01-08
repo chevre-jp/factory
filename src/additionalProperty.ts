@@ -1,10 +1,13 @@
 import { EventType } from './eventType';
 import { IMultilingualString } from './multilingualString';
 import { IProject } from './project';
+import { PropertyValueType } from './propertyValue';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 
-export type CategorySetIdentifier = EventType.ScreeningEvent | EventType.ScreeningEventSeries;
+export type CategorySetIdentifier = EventType.ScreeningEvent
+    | EventType.ScreeningEventSeries
+    | PropertyValueType.LocationFeatureSpecification;
 /**
  * {@link https://schema.org/CategoryCodeSet}
  */

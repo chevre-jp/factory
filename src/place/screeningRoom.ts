@@ -8,7 +8,7 @@ import { IPlace as IScreeningRoomSection } from './screeningRoomSection';
  */
 export interface IPlace extends Pick<
     PlaceFactory.IPlace,
-    'project' | 'typeOf' | 'branchCode' | 'name' | 'address' | 'containedInPlace' | 'containsPlace' | 'additionalProperty' | 'openSeatingAllowed' | 'maximumAttendeeCapacity'
+    'project' | 'typeOf' | 'amenityFeature' | 'branchCode' | 'name' | 'address' | 'containedInPlace' | 'containsPlace' | 'additionalProperty' | 'openSeatingAllowed' | 'maximumAttendeeCapacity'
 > {
     typeOf: PlaceType.ScreeningRoom;
     /**

@@ -1,3 +1,6 @@
+export enum PropertyValueType {
+    LocationFeatureSpecification = 'LocationFeatureSpecification'
+}
 /**
  * 属性値インターフェース
  */

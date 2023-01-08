@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - イベントにserviceLocationを追加
 - 予約にserviceLocationを追加
 - 注文をBusReservationに対応
+- 施設にamenityFeatureを追加
 
 ### Deprecated
 

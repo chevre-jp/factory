@@ -319,6 +319,24 @@ export interface IOfferSearchConditions {
             ids?: string[];
         };
         serviceOutput?: {
+            reservationFor?: {
+                arrivalBusStop?: {
+                    /**
+                     * ターミナルコード
+                     */
+                    branchCode?: { $eq?: string };
+                };
+                departureBusStop?: {
+                    /**
+                     * ターミナルコード
+                     */
+                    branchCode?: { $eq?: string };
+                };
+                /**
+                 * トリップコード
+                 */
+                identifier?: { $eq?: string };
+            };
             reservedTicket?: {
                 ticketedSeat?: {
                     typeOfs?: string[];

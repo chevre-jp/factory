@@ -105,6 +105,7 @@ import * as ProductFactory from './product';
 import * as ProgramMembershipFactory from './programMembership';
 import * as project from './project';
 import * as PropertyValueFactory from './propertyValue';
+import * as LocationFeatureSpecificationFactory from './propertyValue/locationFeatureSpecification';
 import * as QualitativeValueFactory from './qualitativeValue';
 import * as QuantitativeValueFactory from './quantitativeValue';
 import * as AccountingReportFactory from './report/accountingReport';
@@ -437,14 +438,16 @@ export namespace priceSpecification {
 export namespace compoundPriceSpecification {
     export type IPriceSpecification<T extends PriceSpecificationType> =
         CompoundPriceSpecificationFactory.IPriceSpecification<priceSpecification.IPriceSpecification<T>>;
-    // export type ISearchConditions<T extends PriceSpecificationType> =
-    //     CompoundPriceSpecificationFactory.ISearchConditions<T>;
 }
 export import priceSpecificationType = PriceSpecificationType;
 export import programMembership = ProgramMembershipFactory;
 export import product = ProductFactory;
 export import project = project;
-export import propertyValue = PropertyValueFactory;
+export namespace propertyValue {
+    export import PropertyValueType = PropertyValueFactory.PropertyValueType;
+    export import IPropertyValue = PropertyValueFactory.IPropertyValue;
+    export import locationFeatureSpecification = LocationFeatureSpecificationFactory;
+}
 
 export import qualitativeValue = QualitativeValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
