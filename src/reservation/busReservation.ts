@@ -3,7 +3,7 @@ import { ProductType } from '../product';
 import * as ReservationFactory from '../reservation';
 import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
-import { ITrip as IBusTrip } from '../trip/busTrip';
+import { ITripWithDetails as IBusTrip } from '../trip/busTrip';
 import { TripType } from '../tripType';
 
 export type IReservationFor = Pick<IBusTrip, 'arrivalBusStop' | 'arrivalTime' | 'busName' | 'busNumber' | 'departureBusStop' | 'departureTime' | 'id' | 'identifier' | 'name' | 'typeOf'>;

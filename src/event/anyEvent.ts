@@ -12,7 +12,7 @@ import * as ReservationFactory from '../reservation';
 import { ReservationType } from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
 import { IThing } from '../thing';
-import { ITrip as IBusTrip } from '../trip/busTrip';
+import { ITripWithDetails as IBusTrip } from '../trip/busTrip';
 import { UnitCode } from '../unitCode';
 
 /**
