@@ -122,8 +122,11 @@ export interface ISellerMakesOffer extends Pick<
 }
 export interface ISeller {
     typeOf: OrganizationType.Corporation;
+    /**
+     * 販売者ID
+     */
     id: string;
-    name?: string | IMultilingualString;
+    name?: IMultilingualString;
     // アプリケーション対応(2022-11-18~)
     makesOffer: ISellerMakesOffer[];
 }
