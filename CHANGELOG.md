@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 施設にamenityFeatureを追加
 - 施設のparentOrganizationを必須化
 - イベントのoffersを必須化
+- 決済サービスの外部決済URL設定を拡張
 
 ### Deprecated
 
