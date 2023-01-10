@@ -18,6 +18,26 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.281.0 - 2023-01-11
+
+### Added
+
+- トリップインターフェースを追加
+- 汎用イベントを追加(Transportationに対応)
+- BusReservationインターフェースを追加
+- BusStopインターフェースを追加
+
+### Changed
+
+- 予約取引をBusReservationに拡張
+- イベントにserviceLocationを追加
+- 予約にserviceLocationを追加
+- 注文をBusReservationに対応
+- 施設にamenityFeatureを追加
+- 施設のparentOrganizationを必須化
+- イベントのoffersを必須化
+- 決済サービスの外部決済URL設定を拡張
+
 ## v4.280.0 - 2022-12-28
 
 ### Added

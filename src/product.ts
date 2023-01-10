@@ -33,7 +33,11 @@ export enum ProductType {
     /**
      * アドオン
      */
-    Product = 'Product'
+    Product = 'Product',
+    /**
+     * 旅客サービス
+     */
+    Transportation = 'Transportation'
 }
 
 export interface IHasOfferCatalog {

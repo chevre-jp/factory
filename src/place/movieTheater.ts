@@ -108,7 +108,7 @@ export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
     /**
      * The larger organization that this organization is a subOrganization of, if any.
      */
-    parentOrganization?: IParentOrganization;
+    parentOrganization: IParentOrganization;
 }
 
 /**

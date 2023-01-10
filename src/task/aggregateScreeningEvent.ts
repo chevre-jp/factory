@@ -4,7 +4,7 @@ import * as TaskFactory from '../task';
 import { TaskName } from '../taskName';
 
 export interface IData {
-    typeOf: EventType.ScreeningEvent;
+    typeOf: EventType.Event | EventType.ScreeningEvent;
     id: string;
 }
 export interface IAttributes extends TaskFactory.IAttributes {

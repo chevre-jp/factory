@@ -3,13 +3,15 @@ import { ActionType } from '../actionType';
 import { AssetTransactionType } from '../assetTransactionType';
 import { OrderType } from '../order';
 import { IUnderName } from '../reservation';
-import { IReservation as IEventReservation, IReservationFor } from '../reservation/event';
+import { IReservation as IBusReservation, IReservationFor as IBusReservationFor } from '../reservation/busReservation';
+import { IReservation as IEventReservation, IReservationFor as IEventReservationFor } from '../reservation/event';
 import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
 import { IAttributes as IMoneyTransferActionAttributes } from './transfer/moneyTransfer';
 
 export type IAgent = ActionFactory.IParticipantAsProject;
-export type ISubReservation = Omit<IEventReservation, 'reservationFor'>;
+export type ISubReservation = Omit<IBusReservation, 'reservationFor'> | Omit<IEventReservation, 'reservationFor'>;
+export type IReservationFor = IBusReservationFor | IEventReservationFor;
 // ReservationPackageに拡張(2022-12-22~)
 export interface IReservationPackageAsObject {
     reservationFor: IReservationFor;
@@ -19,7 +21,7 @@ export interface IReservationPackageAsObject {
     underName?: IUnderName;
     typeOf: ReservationType.ReservationPackage;
 }
-export type IObject = IEventReservation | IReservationPackageAsObject;
+export type IObject = IBusReservation | IEventReservation | IReservationPackageAsObject;
 export interface IResult {
     confirmedReservationId?: string;
 }

@@ -17,7 +17,7 @@ export interface IOrganization extends Pick<IThing, 'name' | 'url'> {
     legalName?: IMultilingualString;
     location?: ILocation;
     logo?: string;
-    parentOrganization?: IParentOrganization;
+    // parentOrganization?: IParentOrganization;
     telephone?: string;
     /**
      * A property-value pair representing an additional characteristics of the entitity,

@@ -7,6 +7,7 @@ import { IMovieTicket } from '../paymentMethod/paymentCard/movieTicket';
 import { IPointAward } from '../product';
 import { IPropertyValue } from '../propertyValue';
 import * as ReservationFactory from '../reservation';
+import { IReservationFor as IBusReservationReservationFor } from '../reservation/busReservation';
 import {
     IReservationFor as IEventReservationReservationFor,
     ISubReservation as ISubReservation4eventReservation
@@ -63,35 +64,61 @@ export interface IAcceptedPointAward {
         };
     };
 }
+export interface IBusReservatonAsItemOfferedServiceOutput {
+    typeOf: ReservationType.BusReservation;
+    /**
+     * 追加特性
+     */
+    additionalProperty?: IPropertyValue<string>[];
+    /**
+     * 予約追加テキスト
+     */
+    additionalTicketText?: string;
+    // 適用メンバーシップ
+    programMembershipUsed?: IAcceptedProgramMembershipUsed;
+    reservedTicket?: {
+        issuedBy?: ReservationFactory.IUnderName;
+        typeOf: ReservationFactory.TicketType;
+        /**
+         * 予約座席指定
+         * 指定席イベントの場合、座席を指定
+         * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
+         */
+        ticketedSeat?: ReservationFactory.ISeat;
+    };
+    subReservation?: IAcceptedSubReservation[];
+}
+export interface IEventReservatonAsItemOfferedServiceOutput {
+    typeOf: ReservationType.EventReservation;
+    /**
+     * 追加特性
+     */
+    additionalProperty?: IPropertyValue<string>[];
+    /**
+     * 予約追加テキスト
+     */
+    additionalTicketText?: string;
+    // 適用メンバーシップ
+    programMembershipUsed?: IAcceptedProgramMembershipUsed;
+    reservedTicket?: {
+        issuedBy?: ReservationFactory.IUnderName;
+        typeOf: ReservationFactory.TicketType;
+        /**
+         * 予約座席指定
+         * 指定席イベントの場合、座席を指定
+         * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
+         */
+        ticketedSeat?: ReservationFactory.ISeat;
+    };
+    subReservation?: IAcceptedSubReservation[];
+}
+export type IItemOfferedServiceOutput = IBusReservatonAsItemOfferedServiceOutput | IEventReservatonAsItemOfferedServiceOutput;
 /**
  * 受け入れられたオファーのアイテム
  */
 export interface IAcceptedTicketOfferItemOffered {
     pointAward?: IAcceptedPointAward;
-    serviceOutput?: {
-        typeOf: ReservationType.EventReservation;
-        /**
-         * 追加特性
-         */
-        additionalProperty?: IPropertyValue<string>[];
-        /**
-         * 予約追加テキスト
-         */
-        additionalTicketText?: string;
-        // 適用メンバーシップ
-        programMembershipUsed?: IAcceptedProgramMembershipUsed;
-        reservedTicket?: {
-            issuedBy?: ReservationFactory.IUnderName;
-            typeOf: ReservationFactory.TicketType;
-            /**
-             * 予約座席指定
-             * 指定席イベントの場合、座席を指定
-             * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
-             */
-            ticketedSeat?: ReservationFactory.ISeat;
-        };
-        subReservation?: IAcceptedSubReservation[];
-    };
+    serviceOutput?: IItemOfferedServiceOutput;
 }
 export interface IAcceptedTicketOfferItemOffered4object {
     pointAward?: IPointAward;
@@ -213,7 +240,7 @@ export interface IObjectWithoutDetail {
     reservationFor?: { id: string };
 }
 // IReservationForを最適化
-export type IReservationFor = IEventReservationReservationFor;
+export type IReservationFor = IBusReservationReservationFor | IEventReservationReservationFor;
 // 取引のsubReservationからはreservationForを削除する
 export type IObjectSubReservation = ReserveActionFactory.ISubReservation;
 /**

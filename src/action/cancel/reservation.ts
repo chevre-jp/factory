@@ -5,12 +5,13 @@ import { EventType } from '../../eventType';
 import { ProductType } from '../../product';
 import { ReservationStatusType } from '../../reservationStatusType';
 import { ReservationType } from '../../reservationType';
+import { TripType } from '../../tripType';
 
 export type IAgent = ActionFactory.IParticipantAsProject;
 // ReservationPackageに拡張(2022-12-22~)
 export interface IReservationPackageAsObject {
     reservationFor: {
-        typeOf: EventType.ScreeningEvent;
+        typeOf: EventType.ScreeningEvent | TripType.BusTrip;
         id: string;
     };
     reservationNumber: string;
@@ -20,6 +21,22 @@ export interface IReservationPackageAsObject {
     reservationStatus: ReservationStatusType;
     // subReservation?: ISubReservation[];
     typeOf: ReservationType.ReservationPackage;
+}
+export interface IBusReservationAsObject {
+    id: string;
+    issuedThrough?: {
+        typeOf?: ProductType.Transportation;
+    };
+    reservationFor: {
+        typeOf: TripType.BusTrip;
+        id: string;
+    };
+    reservationNumber: string;
+    /**
+     * previousReservationStatusを変更時に指定するために必要
+     */
+    reservationStatus: ReservationStatusType;
+    typeOf: ReservationType.BusReservation;
 }
 /**
  * 予約取消対象
@@ -40,7 +57,7 @@ export interface IEventReservationAsObject {
     reservationStatus: ReservationStatusType;
     typeOf: ReservationType.EventReservation;
 }
-export type IObject = IEventReservationAsObject | IReservationPackageAsObject;
+export type IObject = IBusReservationAsObject | IEventReservationAsObject | IReservationPackageAsObject;
 /**
  * 予約取消結果
  */

@@ -5,16 +5,32 @@ import { PersonType } from './personType';
 import * as ProductFactory from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
+import { IReservation as IBusReservation } from './reservation/busReservation';
 import { IReservation as IEventReservation } from './reservation/event';
 import { ReservationType } from './reservationType';
 import * as WebAPIFactory from './service/webAPI';
 import { SortType } from './sortType';
 
 export type IBookingService = WebAPIFactory.IService<WebAPIFactory.Identifier>;
-/**
- * 予約
- */
-export interface IReservation {
+export interface IBusReservationAsGood {
+    typeOf: ReservationType.BusReservation;
+    /**
+     * 予約ID
+     */
+    id?: string;
+    issuedThrough?: {
+        typeOf: ProductFactory.ProductType.Transportation;
+    };
+    /**
+     * 予約番号
+     */
+    reservationNumber?: string;
+    /**
+     * ブッキングサービス(API)
+     */
+    bookingService?: IBookingService;
+}
+export interface IEventReservationAsGood {
     typeOf: ReservationType.EventReservation;
     /**
      * 予約ID
@@ -32,7 +48,12 @@ export interface IReservation {
      */
     bookingService?: IBookingService;
 }
-export type IReservationWithDetail = IReservation & IEventReservation;
+/**
+ * 予約
+ */
+export type IReservation = IBusReservationAsGood | IEventReservationAsGood;
+export type IReservationWithDetail =
+    (IEventReservationAsGood & IEventReservation) | (IBusReservationAsGood & IBusReservation);
 export type IPermit = Pick<
     PermitFactory.IPermit,
     'identifier' | 'issuedThrough' | 'name' | 'project' | 'typeOf' | 'validFor'

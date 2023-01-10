@@ -10,7 +10,15 @@ export enum PaymentServiceType {
     MovieTicket = 'MovieTicket',
     PaymentCard = 'PaymentCard'
 }
-
+export interface IPaymentUrlSettings {
+    /**
+     * 外部決済URL有効時間(秒)
+     * 外部決済URL発行が必要な場合のみ
+     */
+    expiresInSeconds: number;
+    useCallback?: boolean;
+    useWebhook?: boolean;
+}
 export interface IProviderCredentials {
     /**
      * GMOショップID
@@ -24,11 +32,7 @@ export interface IProviderCredentials {
      * トークン認証コード
      */
     tokenizationCode?: string;
-    /**
-     * 外部決済URL有効時間(秒)
-     * 外部決済URL発行が必要な場合のみ
-     */
-    paymentUrlExpiresInSeconds?: number;
+    paymentUrl?: IPaymentUrlSettings;
     /**
      * ムビチケ興行会社コード
      */

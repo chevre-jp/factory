@@ -24,6 +24,7 @@ import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './pr
 import { IProduct, ProductType } from './product';
 import { IPropertyValue } from './propertyValue';
 import { IProgramMembershipUsedSearchConditions, ITicket, ITicketType } from './reservation';
+import * as BusReservationFactory from './reservation/busReservation';
 import * as EventReservationFactory from './reservation/event';
 import { ReservationType } from './reservationType';
 import { SortType } from './sortType';
@@ -99,7 +100,8 @@ export type IWorkPerformed = Pick<
 export type ISuperEvent = Omit<EventReservationFactory.IOptimizedSuperEvent, 'workPerformed'> & {
     workPerformed: IWorkPerformed;
 };
-export type IReservationFor = Omit<EventReservationFactory.IReservationFor, 'superEvent'> & {
+export type ITripAsReservationFor = BusReservationFactory.IReservationFor;
+export type IEventAsReservationFor = Omit<EventReservationFactory.IReservationFor, 'superEvent'> & {
     superEvent: ISuperEvent;
 };
 export type IReservedTicket = Pick<
@@ -114,8 +116,22 @@ export type IReservedTicket = Pick<
 > & {
     ticketType: ITicketType;
 };
-// Pickで定義(2022-08-18~)
-export type IReservation = Pick<
+export type IBusReservation = Pick<
+    BusReservationFactory.IReservation,
+    'additionalProperty' |
+    'additionalTicketText' |
+    'bookingTime' |
+    'id' |
+    'issuedThrough' |
+    'programMembershipUsed' |
+    'project' |
+    'reservationNumber' |
+    'typeOf'
+> & {
+    reservationFor: ITripAsReservationFor;
+    reservedTicket: IReservedTicket;
+};
+export type IEventReservation = Pick<
     EventReservationFactory.IReservation,
     'additionalProperty' |
     'additionalTicketText' |
@@ -127,9 +143,10 @@ export type IReservation = Pick<
     'reservationNumber' |
     'typeOf'
 > & {
-    reservationFor: IReservationFor;
+    reservationFor: IEventAsReservationFor;
     reservedTicket: IReservedTicket;
 };
+export type IReservation = IBusReservation | IEventReservation;
 export type IPermit = Pick<
     PermitFactory.IPermit,
     'amount' | 'identifier' | 'issuedThrough' | 'name' | 'project' | 'typeOf' | 'validFor'
@@ -275,16 +292,12 @@ export interface ISimpleOrder extends Pick<IThing, 'name'> {
      */
     orderDate: Date;
 }
-export interface IReservationFor4OrderedItem {
+export interface IReservationFor4EventServiceOrderedItem {
     location?: {
         branchCode: string;
         name?: IMultilingualString;
-        // 不要なので廃止(2022-12-19~)
-        // project: IProject;
         typeOf: PlaceType.ScreeningRoom;
     };
-    // 不要なので廃止(2022-12-19~)
-    // project: IProject;
     typeOf: EventType.ScreeningEvent;
     id: string;
     name?: IMultilingualString;
@@ -292,12 +305,19 @@ export interface IReservationFor4OrderedItem {
     endDate?: Date;
 }
 export interface IEventServiceAsOrderedItem {
-    // 不要なので廃止(2022-12-19~)
-    // project: IProject;
     typeOf: ProductType.EventService;
     serviceOutput: {
         typeOf: ReservationType.EventReservation | ReservationType.ReservationPackage;
-        reservationFor: IReservationFor4OrderedItem;
+        reservationFor: IReservationFor4EventServiceOrderedItem;
+    };
+    serviceType?: EventReservationFactory.IServiceTypeOfIssuedThrough;
+}
+export type IReservationFor4TransportationOrderedItem = Pick<ITripAsReservationFor, 'typeOf' | 'id' | 'arrivalTime' | 'departureTime'>;
+export interface ITransportationAsOrderedItem {
+    typeOf: ProductType.Transportation;
+    serviceOutput: {
+        typeOf: ReservationType.ReservationPackage;
+        reservationFor: IReservationFor4TransportationOrderedItem;
     };
     serviceType?: EventReservationFactory.IServiceTypeOfIssuedThrough;
 }
@@ -311,7 +331,7 @@ export type IProductAsOrderedItem = Pick<
  */
 export interface IOrderedItem {
     typeOf: 'OrderItem';
-    orderedItem: IProductAsOrderedItem | IEventServiceAsOrderedItem;
+    orderedItem: IProductAsOrderedItem | IEventServiceAsOrderedItem | ITransportationAsOrderedItem;
 }
 /**
  * 注文

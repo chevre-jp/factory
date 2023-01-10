@@ -8,7 +8,7 @@ import {
 import { EventType } from '../eventType';
 import { IMultilingualString } from '../multilingualString';
 import { ITicketPriceComponent, ITicketPriceSpecification } from '../order';
-// import { IProject } from '../project';
+import { ProductType } from '../product';
 import * as ReservationFactory from '../reservation';
 import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
@@ -67,7 +67,11 @@ export interface ISubReservation {
     };
 }
 export import IServiceTypeOfIssuedThrough = ReservationFactory.IServiceTypeOfIssuedThrough;
-export import IIssuedThrough = ReservationFactory.IIssuedThrough;
+export interface IIssuedThrough extends ReservationFactory.IIssuedThrough {
+    typeOf: ProductType.EventService;
+    serviceType?: IServiceTypeOfIssuedThrough;
+    id: string;
+}
 /**
  * イベント予約
  */
@@ -83,7 +87,9 @@ export interface IReservation extends ReservationFactory.IReservation<IPriceSpec
 }
 export interface IReservationForSearchConditions {
     typeOf?: EventType;
-    id?: string;
+    id?: string | {
+        $eq?: string;
+    };
     ids?: string[];
     location?: {
         ids?: string[];
