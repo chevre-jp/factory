@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.281.0 - 2023-01-11
+
+### Added
+
 - トリップインターフェースを追加
 - 汎用イベントを追加(Transportationに対応)
 - BusReservationインターフェースを追加
@@ -23,14 +37,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 施設のparentOrganizationを必須化
 - イベントのoffersを必須化
 - 決済サービスの外部決済URL設定を拡張
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v4.280.0 - 2022-12-28
 
