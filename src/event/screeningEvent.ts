@@ -63,16 +63,16 @@ export import IEligibleQuantity = AnyEventFactory.IEligibleQuantity;
  * イベントに対するオファー
  */
 export interface IOffer {
-    // 不要なので廃止(2022-12-19~)
-    // project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType.Offer;
     priceCurrency: PriceCurrency.JPY;
     /**
-     * 情報提供終了日時
+     * 情報提供終了日時(オンライン取引アプリケーションの設定)
+     * @deprecated Use seller.makesOffer
      */
     availabilityEnds: Date;
     /**
-     * 情報提供開始日時
+     * 情報提供開始日時(オンライン取引アプリケーションの設定)
+     * @deprecated Use seller.makesOffer
      */
     availabilityStarts: Date;
     eligibleQuantity: IEligibleQuantity;
@@ -82,11 +82,13 @@ export interface IOffer {
      */
     offeredThrough?: IOfferedThrough;
     /**
-     * 販売可能期間from
+     * 販売可能期間from(オンライン取引アプリケーションの設定)
+     * @deprecated Use seller.makesOffer
      */
     validFrom: Date;
     /**
-     * 販売可能期間through
+     * 販売可能期間through(オンライン取引アプリケーションの設定)
+     * @deprecated Use seller.makesOffer
      */
     validThrough: Date;
     unacceptedPaymentMethod?: string[];
@@ -94,8 +96,6 @@ export interface IOffer {
 }
 export type IOffer4COA = Pick<
     IOffer,
-    // 不要なので廃止(2022-12-19~)
-    // 'project' |
     'typeOf' | 'offeredThrough' | 'priceCurrency'
 >;
 export interface ICOAInfo {
@@ -186,7 +186,7 @@ export interface IAttributes extends Omit<AnyEventFactory.IAttributes, 'offers' 
     /**
      * 販売情報
      */
-    offers?: IOffer | IOffer4COA;
+    offers: IOffer | IOffer4COA;
     /**
      * その他COA情報
      * 基本的にsskts対応

@@ -105,7 +105,7 @@ export interface IItemOffered {
     /**
      * サービスアウトプット
      */
-    serviceOutput?: IServiceOutput;
+    serviceOutput: IServiceOutput;
     typeOf: ProductType.Transportation;
     // serviceLocationを追加(2023-01-06~)
     availableChannel: ReservationFactory.IServiceChannel;
@@ -136,10 +136,12 @@ export interface IOffer {
     priceCurrency: PriceCurrency.JPY;
     /**
      * 情報提供終了日時(オンライン取引アプリケーションの設定)
+     * @deprecated Use seller.makesOffer
      */
     availabilityEnds: Date;
     /**
      * 情報提供開始日時(オンライン取引アプリケーションの設定)
+     * @deprecated Use seller.makesOffer
      */
     availabilityStarts: Date;
     eligibleQuantity: IEligibleQuantity;
@@ -150,10 +152,12 @@ export interface IOffer {
     offeredThrough?: IOfferedThrough;
     /**
      * 販売可能期間from(オンライン取引アプリケーションの設定)
+     * @deprecated Use seller.makesOffer
      */
     validFrom: Date;
     /**
      * 販売可能期間through(オンライン取引アプリケーションの設定)
+     * @deprecated Use seller.makesOffer
      */
     validThrough: Date;
     unacceptedPaymentMethod?: string[];
@@ -209,7 +213,7 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Event> {
     /**
      * 販売情報
      */
-    offers?: IOffer;
+    offers: IOffer;
     /**
      * 発券数
      */
@@ -245,21 +249,27 @@ export type ISeller4create = Pick<
      */
     makesOfferDefault?: Pick<ISellerMakesOffer, 'typeOf' | 'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough'>;
 };
-export type IItemOffered4create = Pick<IItemOffered, 'id' | 'serviceOutput'> & {
-    availableChannel: {
-        serviceLocation: {
+export interface IAvailableChannel4create {
+    serviceLocation: {
+        /**
+         * ルームコード
+         */
+        branchCode: string;
+        containedInPlace: {
             /**
-             * ルームコード
+             * 施設ID
              */
-            branchCode: string;
-            containedInPlace: {
-                /**
-                 * 施設ID
-                 */
-                id: string;
-            };
+            id: string;
         };
     };
+}
+export type IReservationFor4create = Pick<IReservationFor, 'identifier'>;
+export type IServiceOutput4create = Pick<IServiceOutput, 'reservedTicket' | 'typeOf'> & {
+    reservationFor: IReservationFor4create;
+};
+export type IItemOffered4create = Pick<IItemOffered, 'id'> & {
+    availableChannel: IAvailableChannel4create;
+    serviceOutput: IServiceOutput4create;
 };
 export type IOffers4create = Pick<
     IOffer,
