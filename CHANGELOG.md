@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.282.0 - 2023-01-18
+
+### Changed
+
+- 決済中止タスクを最適化
+- 予約アクションを最適化
+
 ## v4.281.0 - 2023-01-11
 
 ### Added

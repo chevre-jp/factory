@@ -17,11 +17,14 @@ export interface IReservationPackageAsObject {
     reservationFor: IReservationFor;
     reservationNumber: string;
     reservationStatus: ReservationStatusType;
-    subReservation?: ISubReservation[];
+    // 不要なので廃止(2023-01-19~)
+    // subReservation?: ISubReservation[];
     underName?: IUnderName;
     typeOf: ReservationType.ReservationPackage;
 }
-export type IObject = IBusReservation | IEventReservation | IReservationPackageAsObject;
+// IReservationPackageAsObject以外を廃止(2023-01-19~)
+// export type IObject = IBusReservation | IEventReservation | IReservationPackageAsObject;
+export type IObject = IReservationPackageAsObject;
 export interface IResult {
     confirmedReservationId?: string;
 }
@@ -40,7 +43,8 @@ export interface IAssetTransactionAsReservePurpose {
      */
     id: string;
 }
-export type IPurpose = IOrderAsReservePurpose | IAssetTransactionAsReservePurpose;
+// export type IPurpose = IOrderAsReservePurpose | IAssetTransactionAsReservePurpose;
+export type IPurpose = IAssetTransactionAsReservePurpose;
 export interface IPotentialActions {
     moneyTransfer?: IMoneyTransferActionAttributes[];
 }
