@@ -43,7 +43,8 @@ export interface IAssetTransactionAsReservePurpose {
      */
     id: string;
 }
-export type IPurpose = IOrderAsReservePurpose | IAssetTransactionAsReservePurpose;
+// export type IPurpose = IOrderAsReservePurpose | IAssetTransactionAsReservePurpose;
+export type IPurpose = IAssetTransactionAsReservePurpose;
 export interface IPotentialActions {
     moneyTransfer?: IMoneyTransferActionAttributes[];
 }
