@@ -74,14 +74,17 @@ export interface IDataSearchConditions {
 /**
  * タスク検索条件
  */
-export interface ISearchConditions<T extends TaskName | string> {
+export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
     project?: {
         id?: { $eq?: string };
     };
-    name?: T;
+    name?: string | {
+        $in?: string[];
+        $nin?: string[];
+    };
     statuses?: TaskStatus[];
     runsFrom?: Date;
     runsThrough?: Date;
