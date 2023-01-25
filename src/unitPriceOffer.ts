@@ -66,6 +66,9 @@ export interface IAddOnItemOffered extends Pick<IProduct, 'typeOf' | 'id' | 'nam
 export interface IAddOn4unitPriceOffer extends Pick<IAddOn, 'typeOf' | 'priceCurrency'> {
     itemOffered: IAddOnItemOffered;
 }
+export interface ISettings {
+    ignoreCategoryCodeChargeSpec?: boolean;
+}
 /**
  * 単価オファー
  */
@@ -89,6 +92,8 @@ export interface IUnitPriceOffer extends Pick<
     addOn?: IAddOn4unitPriceOffer[];
     typeOf: OfferType.Offer;
     hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
+    // settings追加(2023-01-26~)
+    settings?: ISettings;
 }
 /**
  * ソート条件
