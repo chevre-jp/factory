@@ -12,9 +12,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 予約使用アクション最適化
+
 ### Deprecated
 
 ### Removed
+
+- プロジェクトのonReservationUsed設定を廃止
 
 ### Fixed
 
