@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - 予約使用アクション最適化
+- 承認オブジェクトとしての注文を最適化
 
 ### Deprecated
 
