@@ -5,7 +5,6 @@ import { SortType } from './sortType';
 
 // strict definetion(2023-01-31~)
 export type IOrderAsObject = Pick<IOrder, 'orderNumber' | 'typeOf'>;
-// TODO 
 export type IOwnershipInfoAsObject = Pick<IOwnershipInfo<IGood>, 'id' | 'identifier' | 'typeOf' | 'typeOfGood'>;
 export type IObject = IOrderAsObject | IOwnershipInfo<IGood>;
 
