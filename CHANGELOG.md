@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 予約使用アクション最適化
 - 承認オブジェクトとしての注文を最適化
 - 承認オブジェクトとしての所有権を最適化
+- Permit所有権のtypeOfGoodを最適化
 
 ### Deprecated
 

@@ -1,12 +1,18 @@
 import { IOrder } from './order';
-import { IGood, IOwnershipInfo } from './ownershipInfo';
+import { IOwnershipInfo, IPermitAsGood, IPermitIssuedThrough, IReservation } from './ownershipInfo';
 import { IProject } from './project';
 import { SortType } from './sortType';
 
 // strict definetion(2023-01-31~)
 export type IOrderAsObject = Pick<IOrder, 'orderNumber' | 'typeOf'>;
-export type IOwnershipInfoAsObject = Pick<IOwnershipInfo<IGood>, 'id' | 'identifier' | 'typeOf' | 'typeOfGood'>;
-export type IObject = IOrderAsObject | IOwnershipInfo<IGood>;
+export type IPermitIssuedThroughOfObjectTypeOfGood = Pick<IPermitIssuedThrough, 'id' | 'typeOf'>;
+export type IPermitAsObjectTypeOfGood = Pick<IPermitAsGood, 'identifier' | 'typeOf'> & {
+    issuedThrough?: IPermitIssuedThroughOfObjectTypeOfGood;
+};
+export type IPermitOwnershipInfoAsObject = Pick<IOwnershipInfo<IPermitAsObjectTypeOfGood>, 'id' | 'identifier' | 'typeOf' | 'typeOfGood'>;
+export type IReservationOwnershipInfoAsObject = Pick<IOwnershipInfo<IReservation>, 'id' | 'identifier' | 'typeOf' | 'typeOfGood'>;
+export type IOwnershipInfoAsObject = IPermitOwnershipInfoAsObject | IReservationOwnershipInfoAsObject;
+export type IObject = IOrderAsObject | IOwnershipInfoAsObject;
 
 /**
  * 承認
