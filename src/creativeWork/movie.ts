@@ -73,6 +73,7 @@ export interface ISearchConditions {
     };
     identifier?: string | {
         $eq?: string;
+        $in?: string[];
     };
     name?: string;
     datePublishedFrom?: Date;
