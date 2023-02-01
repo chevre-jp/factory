@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.284.0 - 2023-02-01
+
+### Added
+
 - 単価オファーにsettingsを追加
 
 ### Changed
@@ -17,15 +31,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 承認オブジェクトとしての所有権を最適化
 - Permit所有権のtypeOfGoodを最適化
 
-### Deprecated
-
 ### Removed
 
 - プロジェクトのonReservationUsed設定を廃止
-
-### Fixed
-
-### Security
 
 ## v4.283.0 - 2023-01-18
 
