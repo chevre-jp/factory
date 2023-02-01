@@ -54,14 +54,19 @@ export interface IEventReservationAsGood {
 export type IReservation = IBusReservationAsGood | IEventReservationAsGood;
 export type IReservationWithDetail =
     (IEventReservationAsGood & IEventReservation) | (IBusReservationAsGood & IBusReservation);
-export type IPermit = Pick<
+export type IPermitIssuedThrough = Pick<PermitFactory.IIssuedThrough, 'id' | 'typeOf' | 'serviceType'>;
+export type IPermitAsGood = Pick<
     PermitFactory.IPermit,
-    'identifier' | 'issuedThrough' | 'name' | 'project' | 'typeOf' | 'validFor'
->;
+    'identifier' | 'typeOf' | 'name' | 'validFor'
+// | 'issuedThrough'
+// | 'project' // 不要なので廃止(2023-02-01~)
+> & {
+    issuedThrough?: IPermitIssuedThrough;
+};
 /**
  * 所有対象物 (Product or Service)
  */
-export type IGood = IReservation | IPermit;
+export type IGood = IReservation | IPermitAsGood;
 /**
  * 所有対象物(対象物詳細有)
  */
