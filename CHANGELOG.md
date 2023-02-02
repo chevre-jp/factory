@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 注文アクション最適化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.286.0 - 2023-02-03
+
+### Changed
+
+- 注文アクション最適化
 
 ## v4.285.0 - 2023-02-02
 
