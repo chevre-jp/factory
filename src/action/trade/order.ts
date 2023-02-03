@@ -2,7 +2,6 @@ import * as ActionFactory from '../../action';
 import { ActionType } from '../../actionType';
 import * as OrderFactory from '../../order';
 import { TransactionType } from '../../transactionType';
-import { IAttributes as IPayActionAttributes } from '../interact/confirm/pay';
 import { IAttributes as IGivePointAwardActionAttributes } from '../transfer/give/pointAward';
 import { IAttributes as ISendOrderActionAttributes } from '../transfer/send/order';
 
@@ -20,8 +19,9 @@ export interface IPotentialActions {
     givePointAward?: IGivePointAwardActionAttributes[];
     /**
      * 決済アクションリスト
+     * 廃止(2023-02-03~)
      */
-    pay?: IPayActionAttributes[];
+    // pay?: IPayActionAttributes[];
     /**
      * 注文配送アクション
      */
@@ -29,7 +29,7 @@ export interface IPotentialActions {
 }
 
 export interface IPurpose {
-    typeOf: TransactionType;
+    typeOf: TransactionType.PlaceOrder;
     id: string;
 }
 
@@ -39,6 +39,6 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.OrderA
 }
 
 /**
- * 注文アクションインターフェース
+ * 注文アクション
  */
 export type IAction = ActionFactory.IAction<IAttributes>;
