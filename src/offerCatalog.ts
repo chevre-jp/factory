@@ -1,24 +1,16 @@
 import { IMultilingualString } from './multilingualString';
 import { OfferType } from './offerType';
-import { IServiceType as IProductServiceType, ProductType } from './product';
+import { ProductType } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 
-export type IServiceType = IProductServiceType & {
-    id?: string;
-};
 export interface IItemOffered {
     typeOf: ProductType;
-    /**
-     * 興行区分
-     * 廃止して興行プロダクトへ移行(2022-09-02~)
-     */
-    // serviceType?: IServiceType;
 }
 export interface IItemListElement {
-    typeOf: OfferType;
+    typeOf: OfferType.Offer;
     id: string;
 }
 /**
