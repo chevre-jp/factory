@@ -50,15 +50,20 @@ export interface ISearchConditions {
     project?: {
         id?: { $eq?: string };
     };
-    id?: string | {
+    id?: {
         $in?: string[];
+        $regex?: string;
     };
-    identifier?: string | {
+    identifier?: {
         $eq?: string;
+        $regex?: string;
     };
     name?: string;
     itemListElement?: {
-        id?: { $in?: string[] };
+        id?: {
+            $in?: string[];
+            $nin?: string[];
+        };
     };
     itemOffered?: {
         typeOf?: { $eq?: string };
