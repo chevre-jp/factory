@@ -53,6 +53,10 @@ export interface ISearchConditions {
     name?: string;
     itemListElement?: {
         id?: {
+            /**
+             * 以下条件を全て満たす
+             */
+            $all?: string[];
             $in?: string[];
             $nin?: string[];
         };
