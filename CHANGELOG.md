@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- MovieTicket決済カードインターフェースにcategory.codeValueを追加
+
 ### Changed
 
 - オファーカタログ検索条件拡張

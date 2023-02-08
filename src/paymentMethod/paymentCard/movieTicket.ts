@@ -40,4 +40,11 @@ export interface IMovieTicket extends IAttributes {
      * 決済方法区分コード
      */
     typeOf: string;
+    category: {
+        /**
+         * 前売券（カード）の種類
+         * 全国券,劇場券など
+         */
+        codeValue: string; // 追加(2023-02-08~)
+    };
 }

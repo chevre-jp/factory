@@ -11,6 +11,7 @@ export type IAppliesToMovieTicket = Pick<
     IMovieTicketTypeChargeSpecAppliesToMovieTicket,
     'typeOf' | 'serviceType' | 'serviceOutput'
 > & {
+    category?: { codeValue?: string }; // 追加(2023-02-08~)
     /**
      * 単価オファー設定としては存在しないが、予約あるいは注文の価格仕様としては必須
      */
