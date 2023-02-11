@@ -8,12 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- MovieTicket決済カードインターフェースにcategory.codeValueを追加
-
 ### Changed
-
-- オファーカタログ検索条件拡張
-- 追加特性のCategoryCodeSetを拡張
 
 ### Deprecated
 
@@ -22,6 +17,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.288.0 - 2023-02-11
+
+### Added
+
+- MovieTicket決済カードインターフェースにcategory.codeValueを追加
+
+### Changed
+
+- オファーカタログ検索条件拡張
+- 追加特性のCategoryCodeSetを拡張
 
 ## v4.287.0 - 2023-02-04
 
