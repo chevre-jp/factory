@@ -87,7 +87,9 @@ export type IAcceptedOffer4chevre =
         // 最適化(2022-08-02~)
         'id' | 'identifier' | 'typeOf' | 'priceCurrency' | 'itemOffered' | 'addOn' | 'additionalProperty'
     >
-    & Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty' | 'paymentMethod'>
+    // & Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty' | 'paymentMethod'>
+    // paymentMethodは不要なので廃止(2023-02-08~)
+    & Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty'>
     & {
         itemOffered?: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
         priceSpecification: IAcceptedOfferPriceSpecification;
