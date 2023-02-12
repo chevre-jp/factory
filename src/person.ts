@@ -12,7 +12,7 @@ export type IMemberOf = IProgramMembership;
 /**
  * プロフィール
  */
-export interface IProfile extends ThingFactory.IThing {
+export interface IProfile extends Pick<ThingFactory.IThing, 'image' | 'url'> {
     additionalProperty?: IAdditionalProperty;
     /**
      * Physical address of the item.
@@ -35,6 +35,7 @@ export interface IProfile extends ThingFactory.IThing {
      * Gender of the person.
      */
     gender?: string;
+    identifier?: IIdentifier;
     name?: string;
     /**
      * The telephone number.

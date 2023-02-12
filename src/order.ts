@@ -338,6 +338,7 @@ export interface IOrderedItem {
  * {@link https://schema.org/Order}
  */
 export interface IOrder extends ISimpleOrder {
+    id?: string; // 追加(2023-02-13~)
     project: IProject;
     /**
      * Offer
