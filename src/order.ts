@@ -345,6 +345,7 @@ export interface IOrder extends ISimpleOrder {
      * The offers included in the order.Also accepts an array of objects.
      */
     acceptedOffers?: IAcceptedOffer<IItemOffered>[];
+    additionalProperty?: IPropertyValue<string>[]; // 追加(2023-02-13~)
     /**
      * An entity that arranges for an exchange between a buyer and a seller.
      * In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.
@@ -570,6 +571,19 @@ export interface ISearchConditions {
     sort?: ISortOrder;
     project?: {
         id?: { $eq?: string };
+    };
+    additionalProperty?: {
+        $all?: IPropertyValue<string>[];
+        $in?: IPropertyValue<string>[];
+        $nin?: IPropertyValue<string>[];
+        $elemMatch?: {
+            name?: {
+                /**
+                 * 一致する名称の追加特性がひとつでも存在する
+                 */
+                $eq?: string;
+            };
+        };
     };
     broker?: {
         id?: { $eq?: string };

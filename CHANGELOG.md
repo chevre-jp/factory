@@ -9,10 +9,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - 注文にIDを追加
+- 注文に追加特性を追加
 - IAMメンバーにmember.imageを追加
 - Commentを追加
 
 ### Changed
+
+- 追加特性のCategoryCodeSetを拡張
+- 注文検索条件拡張
 
 ### Deprecated
 
