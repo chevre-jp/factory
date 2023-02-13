@@ -55,6 +55,7 @@ import * as AuthorizationFactory from './authorization';
 import * as CategoryCodeFactory from './categoryCode';
 import * as ClientUserFactory from './clientUser';
 import * as CreativeWorkFactory from './creativeWork';
+import * as CommentFactory from './creativeWork/comment';
 import * as EmailMessageFactory from './creativeWork/message/email';
 import * as MovieCreativeWorkFactory from './creativeWork/movie';
 import * as WebApplicationFactory from './creativeWork/softwareApplication/webApplication';
@@ -335,6 +336,7 @@ export import categoryCode = CategoryCodeFactory;
 export import clientUser = ClientUserFactory;
 export namespace creativeWork {
     export import ICreativeWork = CreativeWorkFactory.ICreativeWork;
+    export import comment = CommentFactory;
     export namespace message {
         export import email = EmailMessageFactory;
     }

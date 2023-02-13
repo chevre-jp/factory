@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 注文にIDを追加
 - IAMメンバーにmember.imageを追加
+- Commentを追加
 
 ### Changed
 
