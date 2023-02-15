@@ -22,7 +22,7 @@ export interface IObject extends TransactionFactory.IObject {
     /**
      * 出金元
      */
-    fromLocation: IAccount;
+    fromLocation: Pick<IAccount, 'accountNumber' | 'name' | 'typeOf'>;
 }
 // export import IPotentialActions = TransactionFactory.IPotentialActions;
 /**

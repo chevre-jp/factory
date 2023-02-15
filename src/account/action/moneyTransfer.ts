@@ -23,8 +23,9 @@ export interface IAccount {
     typeOf: AccountType.Account;
     /**
      * 通貨
+     * 不要なので廃止(2023-02-16~)
      */
-    accountType: string;
+    // accountType: string;
     /**
      * 口座番号
      */
@@ -60,7 +61,9 @@ export interface IPurpose {
      */
     // identifier?: string;
 }
-export type IAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
+// 最適化(2023-02-16~)
+// export type IAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
+export type IAmount = Pick<IMonetaryAmount, 'typeOf' | 'value'>;
 export interface IAttributes extends Pick<
     ActionFactory.IAttributes<ActionType.MoneyTransfer, never, never>,
     'project' | 'description'

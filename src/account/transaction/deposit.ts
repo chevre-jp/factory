@@ -18,7 +18,7 @@ export interface IObject extends TransactionFactory.IObject {
     /**
      * 入金先
      */
-    toLocation: IAccount;
+    toLocation: Pick<IAccount, 'accountNumber' | 'name' | 'typeOf'>;
 }
 /**
  * 入金取引属性

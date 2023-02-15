@@ -23,6 +23,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- 口座からstatusを廃止
+- 口座転送アクションからaccountTypeを廃止
+- PermitからpaymentAccount.accountTypeを廃止
+
 ### Fixed
 
 ### Security

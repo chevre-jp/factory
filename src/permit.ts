@@ -10,7 +10,9 @@ export enum PermitType {
     Permit = 'Permit'
 }
 export type IIssuedThrough = Pick<IProduct, 'id' | 'project' | 'serviceType' | 'typeOf'>;
-export type IPaymentAccount = Pick<IAccount, 'project' | 'typeOf' | 'accountNumber' | 'accountType'>;
+// accountTypeは不要なので廃止(2023-02-16~)
+// export type IPaymentAccount = Pick<IAccount, 'project' | 'typeOf' | 'accountNumber' | 'accountType'>;
+export type IPaymentAccount = Pick<IAccount, 'project' | 'typeOf' | 'accountNumber'>;
 export type IAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
 export type IDepositAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'maxValue' | 'minValue'>;
 export type IPaymentAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'maxValue' | 'minValue'>;
