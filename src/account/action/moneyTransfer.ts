@@ -86,3 +86,7 @@ export interface IAttributes extends Pick<
      */
     toLocation: ILocation;
 }
+export type IAction = ActionFactory.IAction<Omit<IAttributes, 'agent' | 'recipient'> & {
+    agent: ActionFactory.IParticipant;
+    object: never;
+}>;
