@@ -22,7 +22,12 @@ export type IRecipient = ActionFactory.IParticipant;
 /**
  * 匿名ロケーション
  */
-export import IAnonymousLocation = AccountFactory.action.moneyTransfer.IAnonymousLocation;
+export interface IAnonymousLocation {
+    id?: string;
+    identifier?: string;
+    name?: string;
+    typeOf: string;
+}
 /**
  * ペイメントカード
  */

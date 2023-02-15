@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 追加特性のCategoryCodeSetを拡張
 - 注文検索条件拡張
+- 口座IF最適化
 
 ### Deprecated
 
