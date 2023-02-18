@@ -176,8 +176,9 @@ export import IName = AnyEventFactory.IName;
 export interface IAttributes extends Omit<AnyEventFactory.IAttributes, 'offers' | 'typeOf'> {
     /**
      * コンテンツ
+     * 廃止(superEvent.workPerformedへ完全移行)(2023-02-20~)
      */
-    workPerformed?: IWorkPerformed;
+    // workPerformed?: IWorkPerformed;
     /**
      * 親イベント
      * 施設コンテンツに相当
