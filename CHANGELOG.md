@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文検索条件拡張
 - 口座IF最適化
 - イベントのworkPerformedを廃止
+- 通貨転送取引のobject.pendingTransactionを最適化
 
 ### Deprecated
 

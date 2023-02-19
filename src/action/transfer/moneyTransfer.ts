@@ -10,7 +10,8 @@ import { IMonetaryAmount } from '../../monetaryAmount';
  */
 export interface IPendingTransaction {
     typeOf: AccountFactory.transactionType;
-    id: string;
+    // idは不要なので廃止(2023-02-20~)
+    // id: string;
     identifier?: string;
     // 必須化(2022-09-26~)
     transactionNumber: string;

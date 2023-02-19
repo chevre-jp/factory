@@ -65,7 +65,7 @@ export interface IObject {
      * 取引説明
      */
     description?: string;
-    pendingTransaction?: IPendingTransaction;
+    pendingTransaction: IPendingTransaction;
     /**
      * 負の残高でも強制的に出金するかどうか
      */
