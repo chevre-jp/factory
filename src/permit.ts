@@ -4,24 +4,24 @@ import { IOrganization } from './organization';
 import { IProduct } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
-import { IThing } from './thing';
 
 export enum PermitType {
     Permit = 'Permit'
 }
-export type IIssuedThrough = Pick<IProduct, 'id' | 'project' | 'serviceType' | 'typeOf'>;
+export type IIssuedThrough = Pick<IProduct, 'id' | 'serviceType' | 'typeOf'>;
 // accountTypeは不要なので廃止(2023-02-16~)
 // export type IPaymentAccount = Pick<IAccount, 'project' | 'typeOf' | 'accountNumber' | 'accountType'>;
-export type IPaymentAccount = Pick<IAccount, 'project' | 'typeOf' | 'accountNumber'>;
+export type IPaymentAccount = Pick<IAccount, 'accountNumber' | 'typeOf'>;
+export type IPaymentAccountWithDetail = Pick<IAccount, 'accountNumber' | 'availableBalance' | 'balance' | 'typeOf'>;
 export type IAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
-export type IDepositAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'maxValue' | 'minValue'>;
-export type IPaymentAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'maxValue' | 'minValue'>;
+export type IDepositAmount = Pick<IMonetaryAmount, 'typeOf' | 'maxValue' | 'minValue'>;
+export type IPaymentAmount = Pick<IMonetaryAmount, 'typeOf' | 'maxValue' | 'minValue'>;
 export type IIssuedBy = Pick<IOrganization, 'typeOf' | 'id' | 'name'>;
 /**
  * A permit issued by an organization, e.g. a parking pass.
  * {@link https://schema.org/Permit}
  */
-export interface IPermit extends Pick<IThing, 'name'> {
+export interface IPermit {
     name?: string;
     project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: PermitType;
