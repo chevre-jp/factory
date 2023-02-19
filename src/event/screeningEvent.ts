@@ -172,11 +172,11 @@ export type ISuperEvent = Omit<ScreeningEventSeriesFactory.IEvent, 'eventStatus'
 export import IName = AnyEventFactory.IName;
 /**
  * イベント属性
+ * workPerformed->superEvent.workPerformed完全移行(2023-02-20~)
  */
-export interface IAttributes extends Omit<AnyEventFactory.IAttributes, 'offers' | 'typeOf'> {
+export interface IAttributes extends Omit<AnyEventFactory.IAttributes, 'offers' | 'typeOf' | 'workPerformed'> {
     /**
      * コンテンツ
-     * 廃止(superEvent.workPerformedへ完全移行)(2023-02-20~)
      */
     // workPerformed?: IWorkPerformed;
     /**
