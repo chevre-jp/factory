@@ -110,6 +110,10 @@ export interface IPriceSpecificationSearchConditions {
          * 適用決済カード区分
          */
         serviceType?: {
+            /**
+             * 適用決済カード区分が存在するかどうか
+             */
+            $exists?: boolean;
             $eq?: string;
         };
         serviceOutput?: {
