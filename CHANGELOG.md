@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 通貨転送取引のobject.pendingTransactionを最適化
 - IPermitを最適化
 - 単価オファー検索条件拡張
+- 決済取引のobjectを最適化
 
 ### Deprecated
 
