@@ -226,4 +226,8 @@ export interface ISearchConditions {
             };
         };
     };
+    /**
+     * 有効期間設定がない、あるいは、有効期間内
+     */
+    onlyValid?: boolean;
 }
