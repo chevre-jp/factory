@@ -78,7 +78,7 @@ export interface IAddOn {
     validFrom?: Date;
     validThrough?: Date;
 }
-
+export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue' | 'typeOf' | 'unitCode' | 'value'>;
 /**
  * offer interface
  * An offer to transfer some rights to an item or to provide a service
@@ -147,7 +147,7 @@ export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternate
     /**
      * オファーの有効となる数
      */
-    eligibleQuantity?: IQuantitativeValue<UnitCode>;
+    eligibleQuantity?: IEligibleQuantity;
     /**
      * The item being offered.
      */

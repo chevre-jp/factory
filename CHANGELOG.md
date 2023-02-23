@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - IPermitを最適化
 - 単価オファー検索条件拡張
 - 決済取引のobjectを最適化
+- プロダクトオファーを厳密に定義
 
 ### Deprecated
 

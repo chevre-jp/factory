@@ -12,6 +12,7 @@ import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
 import { SortType } from './sortType';
 import { IThing } from './thing';
+import { UnitCode } from './unitCode';
 import * as UnitPriceOfferFactory from './unitPriceOffer';
 
 /**
@@ -231,14 +232,30 @@ export type ICategoryCodeChargePriceComponent = Omit<ICategoryCodeChargeSpecific
 export type IMovieTicketTypeChargePriceComponent = Omit<IMovieTicketTypeChargeSpecification, 'project'>;
 export type ITicketUnitPriceComponent = Omit<IUnitPriceSpecification, 'project'>;
 export type ITicketPriceComponent = ICategoryCodeChargePriceComponent | IMovieTicketTypeChargePriceComponent | ITicketUnitPriceComponent;
+export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue' | 'typeOf' | 'unitCode' | 'value'>;
 /**
  * プロダクトオファーの価格仕様
  */
 export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicketPriceComponent>, 'project'>;
 /**
  * プロダクトオファー
+ * strict definition(2023-02-24~)
  */
-export interface ITicketOffer extends Omit<IBaseOffer, 'priceSpecification' | 'project'> {
+// export interface ITicketOffer extends Omit<IBaseOffer, 'priceSpecification' | 'project'> {
+export interface ITicketOffer extends Pick<
+    IBaseOffer,
+    'name' | 'description' | 'alternateName' | 'color' | 'typeOf' | 'id' |
+    'addOn' | 'availability' |
+    'availableAtOrFrom' |
+    'category' |
+    'eligibleMembershipType' | 'eligibleSeatingType' | 'eligibleMonetaryAmount' | 'eligibleSubReservation' |
+    'eligibleQuantity' |
+    'offeredThrough' |
+    'priceCurrency' |
+    'validFrom' | 'validThrough' |
+    'validRateLimit' |
+    'additionalProperty'
+> {
     identifier: string;
     priceSpecification: ITicketPriceSpecification;
     itemOffered?: UnitPriceOfferFactory.IItemOffered;
