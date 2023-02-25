@@ -19,11 +19,11 @@ export interface IObject extends TransactionFactory.IObject {
     /**
      * 転送元
      */
-    fromLocation: IAccount;
+    fromLocation: Pick<IAccount, 'accountNumber' | 'name' | 'typeOf'>;
     /**
      * 転送先
      */
-    toLocation: IAccount;
+    toLocation: Pick<IAccount, 'accountNumber' | 'name' | 'typeOf'>;
 }
 /**
  * 転送取引

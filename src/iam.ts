@@ -35,6 +35,7 @@ export type IMemberHasRole = Pick<IRole, 'typeOf' | 'memberOf' | 'roleName'>[];
 export interface IMemberOfRole {
     typeOf: IMemberType;
     id: string;
+    image?: string;
     name?: string;
     username?: string;
     hasRole: IMemberHasRole;

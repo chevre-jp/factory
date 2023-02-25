@@ -1,6 +1,7 @@
 import * as GMO from '@motionpicture/gmo-service';
 
 import {
+    IAction as IPayAction,
     IAttributes as IPayActionAttributes,
     ILocation,
     IOrderAsPayPurpose, IPayPurpose,
@@ -19,14 +20,12 @@ import { PaymentServiceType } from '../service/paymentService';
 
 // 最適化(2022-05-27~)
 export import IAgent = AssetTransactionFactory.IAgent;
-// export type IAgent = IParticipant;
 export type IRecipient = IPayRecipient;
 /**
  * ペイメントカードトークン
  */
 export type ITokenizedPaymentCard = string;
 export type IFromLocation = ITokenizedPaymentCard;
-// export type IFromLocation = IPaymentCard | ITokenizedPaymentCard;
 /**
  * クレジットカード決済承認に必要なクレジットカードインターフェース
  */
@@ -99,13 +98,13 @@ export interface IObject {
      * 発行決済サービスID
      */
     id: string;
-    paymentMethod?: IPaymentMethod;
+    paymentMethod: IPaymentMethod;
     pendingTransaction?: IPendingTransaction;
     entryTranArgs?: IEntryTranArgs;
     entryTranResult?: IEntryTranResult;
     execTranArgs?: IExecTranArgs;
     execTranResult?: IExecTranResult;
-    payAction?: any;
+    payAction?: IPayAction;
     onPaymentStatusChanged?: IOnPaymentStatusChanged;
 }
 export type IObjectWithoutDetail = Pick<IObject, 'typeOf' | 'id' | 'paymentMethod'>;

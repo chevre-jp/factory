@@ -78,6 +78,7 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    id?: { $eq?: string };
     project?: {
         id?: { $eq?: string };
     };

@@ -18,6 +18,35 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.289.0 - 2023-02-25
+
+### Added
+
+- 注文にIDを追加
+- 注文に追加特性を追加
+- IAMメンバーにmember.imageを追加
+- Commentを追加
+
+### Changed
+
+- 追加特性のCategoryCodeSetを拡張
+- 注文検索条件拡張
+- 口座IF最適化
+- イベントのworkPerformedを廃止
+- 通貨転送取引のobject.pendingTransactionを最適化
+- IPermitを最適化
+- 単価オファー検索条件拡張
+- 決済取引のobjectを最適化
+- プロダクトオファーを厳密に定義
+- 単価オファーIF最適化
+- タスク検索条件拡張
+
+### Removed
+
+- 口座からstatusを廃止
+- 口座転送アクションからaccountTypeを廃止
+- PermitからpaymentAccount.accountTypeを廃止
+
 ## v4.288.0 - 2023-02-11
 
 ### Added

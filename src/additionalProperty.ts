@@ -1,6 +1,7 @@
 import { EventType } from './eventType';
 import { IMultilingualString } from './multilingualString';
 import { OfferType } from './offerType';
+import { OrderType } from './order';
 import { IProject } from './project';
 import { PropertyValueType } from './propertyValue';
 import { SortType } from './sortType';
@@ -10,7 +11,8 @@ export type CategorySetIdentifier = EventType.ScreeningEvent
     | EventType.ScreeningEventSeries
     | PropertyValueType.LocationFeatureSpecification
     | 'OfferCatalog'
-    | OfferType.Offer;
+    | OfferType.Offer
+    | OrderType.Order;
 /**
  * {@link https://schema.org/CategoryCodeSet}
  */

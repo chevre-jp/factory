@@ -12,16 +12,16 @@ import * as WithdrawTransactionFactory from './account/transaction/withdraw';
 /**
  * 口座ステータスタイプ
  */
-export enum AccountStatusType {
-    /**
-     * 開設済
-     */
-    Opened = 'Opened',
-    /**
-     * 解約済
-     */
-    Closed = 'Closed'
-}
+// export enum AccountStatusType {
+//     /**
+//      * 開設済
+//      */
+//     Opened = 'Opened',
+//     /**
+//      * 解約済
+//      */
+//     Closed = 'Closed'
+// }
 export namespace action {
     export import moneyTransfer = MoneyTransferActionFactory;
 }
@@ -29,7 +29,7 @@ export namespace transaction {
     export import IAgent = TransactionFactory.IAgent;
     export import IRecipient = TransactionFactory.IRecipient;
     export import IPotentialActions = TransactionFactory.IPotentialActions;
-    export import IResult = TransactionFactory.IResult;
+    // export import IResult = TransactionFactory.IResult;
     // tslint:disable-next-line:no-shadowed-variable
     export type ISearchConditions = TransactionFactory.ISearchConditions;
     export type IStartParamsWithoutDetail<T extends AccountTransactionType> =
@@ -115,7 +115,7 @@ export interface IAccount {
     /**
      * 口座ステータス
      */
-    status: AccountStatusType;
+    // status: AccountStatusType;
 }
 /**
  * ソート条件
@@ -154,7 +154,7 @@ export interface ISearchConditions {
         $lte?: Date;
     };
     project?: IProjectSearchConditions;
-    statuses?: AccountStatusType[];
+    // statuses?: AccountStatusType[];
     typeOf?: {
         $eq?: string;
         $in?: string[];

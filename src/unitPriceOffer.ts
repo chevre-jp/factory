@@ -110,6 +110,10 @@ export interface IPriceSpecificationSearchConditions {
          * 適用決済カード区分
          */
         serviceType?: {
+            /**
+             * 適用決済カード区分が存在するかどうか
+             */
+            $exists?: boolean;
             $eq?: string;
         };
         serviceOutput?: {
@@ -118,6 +122,7 @@ export interface IPriceSpecificationSearchConditions {
              */
             typeOf?: {
                 $eq?: string;
+                $nin?: string[];
             };
         };
     };
@@ -221,4 +226,8 @@ export interface ISearchConditions {
             };
         };
     };
+    /**
+     * 有効期間設定がない、あるいは、有効期間内
+     */
+    onlyValid?: boolean;
 }

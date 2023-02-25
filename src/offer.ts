@@ -17,11 +17,14 @@ import { UnitCode } from './unitCode';
  * オファーカテゴリー
  */
 export interface ICategory {
-    project: Pick<IProject, 'id' | 'typeOf'>;
+    // 廃止(2023-02-24~)
+    // project: Pick<IProject, 'id' | 'typeOf'>;
     id?: string;
     codeValue?: string;
 }
-export type IEligibleCategoryCode = Pick<ICategoryCode, 'project' | 'typeOf' | 'id' | 'codeValue' | 'inCodeSet'>;
+// 最適化(2023-02-24~)
+// export type IEligibleCategoryCode = Pick<ICategoryCode, 'project' | 'typeOf' | 'id' | 'codeValue' | 'inCodeSet'>;
+export type IEligibleCategoryCode = Pick<ICategoryCode, 'typeOf' | 'id' | 'codeValue' | 'inCodeSet'>;
 export type IEligibleMonetaryAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
 /**
  * 適用サブ予約条件
@@ -68,7 +71,6 @@ export interface IAddOn {
      * コード
      */
     identifier?: string;
-    // project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType.Offer;
     id?: string;
     availableAtOrFrom?: IAvailableAtOrFrom[];
@@ -78,7 +80,7 @@ export interface IAddOn {
     validFrom?: Date;
     validThrough?: Date;
 }
-
+export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue' | 'typeOf' | 'unitCode' | 'value'>;
 /**
  * offer interface
  * An offer to transfer some rights to an item or to provide a service
@@ -147,7 +149,7 @@ export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternate
     /**
      * オファーの有効となる数
      */
-    eligibleQuantity?: IQuantitativeValue<UnitCode>;
+    eligibleQuantity?: IEligibleQuantity;
     /**
      * The item being offered.
      */

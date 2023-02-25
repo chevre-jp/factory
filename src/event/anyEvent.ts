@@ -7,13 +7,11 @@ import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
 import { PriceCurrency } from '../priceCurrency';
 import { IServiceType as IProductServiceType, ProductType } from '../product';
-import { IQuantitativeValue } from '../quantitativeValue';
 import * as ReservationFactory from '../reservation';
 import { ReservationType } from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
 import { IThing } from '../thing';
 import { ITripWithDetails as IBusTrip } from '../trip/busTrip';
-import { UnitCode } from '../unitCode';
 
 /**
  * 予約集計
@@ -130,7 +128,8 @@ export interface ISeller {
     // アプリケーション対応(2022-11-18~)
     makesOffer: ISellerMakesOffer[];
 }
-export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue' | 'typeOf' | 'unitCode' | 'value'>;
+// export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue' | 'typeOf' | 'unitCode' | 'value'>;
+export import IEligibleQuantity = OfferFactory.IEligibleQuantity;
 /**
  * イベントに対するオファー
  */

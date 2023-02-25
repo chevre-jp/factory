@@ -10,7 +10,8 @@ import { IMonetaryAmount } from '../../monetaryAmount';
  */
 export interface IPendingTransaction {
     typeOf: AccountFactory.transactionType;
-    id: string;
+    // idは不要なので廃止(2023-02-20~)
+    // id: string;
     identifier?: string;
     // 必須化(2022-09-26~)
     transactionNumber: string;
@@ -22,7 +23,12 @@ export type IRecipient = ActionFactory.IParticipant;
 /**
  * 匿名ロケーション
  */
-export import IAnonymousLocation = AccountFactory.action.moneyTransfer.IAnonymousLocation;
+export interface IAnonymousLocation {
+    id?: string;
+    identifier?: string;
+    name?: string;
+    typeOf: string;
+}
 /**
  * ペイメントカード
  */
