@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.289.0 - 2023-02-25
+
+### Added
+
 - 注文にIDを追加
 - 注文に追加特性を追加
 - IAMメンバーにmember.imageを追加
@@ -27,17 +41,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 単価オファーIF最適化
 - タスク検索条件拡張
 
-### Deprecated
-
 ### Removed
 
 - 口座からstatusを廃止
 - 口座転送アクションからaccountTypeを廃止
 - PermitからpaymentAccount.accountTypeを廃止
-
-### Fixed
-
-### Security
 
 ## v4.288.0 - 2023-02-11
 
