@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済取引のobjectを最適化
 - プロダクトオファーを厳密に定義
 - 単価オファーIF最適化
+- タスク検索条件拡張
 
 ### Deprecated
 
