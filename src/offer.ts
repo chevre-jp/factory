@@ -1,6 +1,7 @@
 import { ICategoryCode } from './categoryCode';
 import { ItemAvailability } from './itemAvailability';
 import { IMonetaryAmount } from './monetaryAmount';
+import { IMultilingualString } from './multilingualString';
 import { OfferType } from './offerType';
 import { OrganizationType } from './organizationType';
 import { PriceCurrency } from './priceCurrency';
@@ -83,6 +84,7 @@ export interface IAddOn {
     validThrough?: Date;
 }
 export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue' | 'typeOf' | 'unitCode' | 'value'>;
+export type IName = IMultilingualString;
 /**
  * offer interface
  * An offer to transfer some rights to an item or to provide a service
@@ -156,6 +158,7 @@ export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternate
      * The item being offered.
      */
     itemOffered?: any;
+    name?: IName;
     /**
      * オファー供給サービス
      */

@@ -1,7 +1,8 @@
 import { ActionType } from './actionType';
 import { ICategoryCode } from './categoryCode';
 import { IMonetaryAmount } from './monetaryAmount';
-import { IAddOn as IBaseAddOn, IOffer as IBaseOffer } from './offer';
+import { IAddOn as IBaseAddOn, IName as IOfferName, IOffer as IBaseOffer } from './offer';
+import { OfferType } from './offerType';
 import { IPermit } from './permit';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpecification/compoundPriceSpecification';
@@ -262,7 +263,9 @@ export interface ITicketOffer extends Pick<
 > {
     addOn?: ITicketAddOn[];
     identifier: string;
+    name: IOfferName;
     priceSpecification: ITicketPriceSpecification;
     itemOffered?: UnitPriceOfferFactory.IItemOffered;
     sortIndex?: number;
+    typeOf: OfferType.Offer;
 }

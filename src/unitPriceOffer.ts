@@ -1,5 +1,6 @@
 import { ActionType } from './actionType';
-import { IAddOn, IOffer } from './offer';
+import { ItemAvailability } from './itemAvailability';
+import { IAddOn, IName, IOffer } from './offer';
 import { OfferType } from './offerType';
 import { IAmount as IPermitAmount, IDepositAmount, IPaymentAmount } from './permit';
 import { IAppliesToMovieTicket, IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
@@ -61,8 +62,7 @@ export type IUnitPriceOfferPriceSpecification = Omit<IUnitPriceSpecification, 'a
     // Arrayに限定(2022-09-09~)
     appliesToMovieTicket?: IAppliesToMovieTicket[];
 };
-export interface IAddOnItemOffered extends Pick<IProduct, 'typeOf' | 'id' | 'name'> {
-}
+export type IAddOnItemOffered = Pick<IProduct, 'typeOf' | 'id' | 'name'>;
 export interface IAddOn4unitPriceOffer extends Pick<IAddOn, 'typeOf' | 'priceCurrency'> {
     itemOffered: IAddOnItemOffered;
 }
@@ -80,10 +80,12 @@ export interface IUnitPriceOffer extends Pick<
     | 'eligibleSeatingType' | 'eligibleMembershipType' | 'eligibleMonetaryAmount' | 'eligibleSubReservation'
     | 'validFrom' | 'validThrough' | 'validRateLimit'
 > {
+    availability: ItemAvailability;
     /**
      * コード
      */
     identifier: string;
+    name: IName;
     /**
      * 単価仕様
      */
