@@ -75,7 +75,7 @@ export interface ISettings {
 export interface IUnitPriceOffer extends Pick<
     IOffer,
     'project' | 'typeOf' | 'priceCurrency' | 'id' | 'identifier' | 'name' | 'description'
-    | 'alternateName' | 'availability' | 'availableAtOrFrom' | 'itemOffered' | 'priceSpecification' | 'addOn'
+    | 'alternateName' | 'availability' | 'availableAtOrFrom' | 'itemOffered' | 'priceSpecification'
     | 'additionalProperty' | 'color' | 'category'
     | 'eligibleSeatingType' | 'eligibleMembershipType' | 'eligibleMonetaryAmount' | 'eligibleSubReservation'
     | 'validFrom' | 'validThrough' | 'validRateLimit'
@@ -87,7 +87,7 @@ export interface IUnitPriceOffer extends Pick<
     /**
      * 単価仕様
      */
-    priceSpecification?: IUnitPriceOfferPriceSpecification;
+    priceSpecification: IUnitPriceOfferPriceSpecification;
     itemOffered?: IItemOffered;
     addOn?: IAddOn4unitPriceOffer[];
     typeOf: OfferType.Offer;

@@ -6,6 +6,7 @@ import { OrganizationType } from './organizationType';
 import { PriceCurrency } from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import { PriceSpecificationType } from './priceSpecificationType';
+import { IProduct } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
@@ -63,6 +64,7 @@ export interface IAvailableAtOrFrom {
      */
     id: string;
 }
+export type IItemOffered4addOn = Pick<IProduct, 'description' | 'id' | 'name' | 'productID' | 'typeOf'>;
 /**
  * アドオン
  */
@@ -70,11 +72,11 @@ export interface IAddOn {
     /**
      * コード
      */
-    identifier?: string;
+    identifier: string;
     typeOf: OfferType.Offer;
-    id?: string;
-    availableAtOrFrom?: IAvailableAtOrFrom[];
-    itemOffered?: any;
+    id: string;
+    // availableAtOrFrom?: IAvailableAtOrFrom[];
+    itemOffered: IItemOffered4addOn;
     priceCurrency: PriceCurrency;
     priceSpecification?: IPriceSpecification<PriceSpecificationType>;
     validFrom?: Date;
@@ -95,7 +97,7 @@ export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternate
     /**
      * The payment method(s) accepted by seller for this offer.
      */
-    acceptedPaymentMethod?: string[];
+    // acceptedPaymentMethod?: string[];
     /**
      * An additional offer that can only be obtained in combination with the first base offer
      * (e.g. supplements and extensions that are available for a surcharge).
@@ -104,7 +106,7 @@ export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternate
     /**
      * The availability of this item—for example In stock, Out of stock, Pre-order, etc.
      */
-    availability?: ItemAvailability | number;
+    availability?: ItemAvailability;
     /**
      * The end of the availability of the product or service included in the offer.
      */
