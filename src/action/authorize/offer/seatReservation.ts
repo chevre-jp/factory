@@ -78,6 +78,7 @@ export type IAcceptedOfferPriceSpecification =
          */
         appliesToMovieTicket?: ReserveTransactionFactory.IAcceptedAppliesToMovieTicket;
     };
+export type IAcceptedAddOn = Pick<OfferFactory.IAddOn, 'typeOf' | 'id' | 'priceCurrency'>;
 /**
  * 受け入れられたチケットオファー
  */
@@ -85,12 +86,13 @@ export type IAcceptedOffer4chevre =
     Pick<
         ITicketOffer,
         // 最適化(2022-08-02~)
-        'id' | 'identifier' | 'typeOf' | 'priceCurrency' | 'itemOffered' | 'addOn' | 'additionalProperty'
+        'id' | 'identifier' | 'typeOf' | 'priceCurrency' | 'itemOffered' | 'additionalProperty'
     >
     // & Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty' | 'paymentMethod'>
     // paymentMethodは不要なので廃止(2023-02-08~)
     & Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty'>
     & {
+        addOn?: IAcceptedAddOn[];
         itemOffered?: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
         priceSpecification: IAcceptedOfferPriceSpecification;
         // 不要なので廃止(2022-11-02~)

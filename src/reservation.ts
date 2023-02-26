@@ -316,11 +316,6 @@ export interface IReservation<T extends Omit<IPriceSpecification, 'project'>> ex
      */
     attended?: boolean;
     additionalProperty?: IPropertyValue<string>[];
-    /**
-     * An additional offer that can only be obtained in combination with the first base offer
-     * (e.g. supplements and extensions that are available for a surcharge).
-     */
-    // addOn?: IOffer[];
 }
 /**
  * チケットホルダー検索条件

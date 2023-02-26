@@ -1,7 +1,7 @@
 import { ActionType } from './actionType';
 import { ICategoryCode } from './categoryCode';
 import { IMonetaryAmount } from './monetaryAmount';
-import { IOffer as IBaseOffer } from './offer';
+import { IAddOn as IBaseAddOn, IOffer as IBaseOffer } from './offer';
 import { IPermit } from './permit';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpecification/compoundPriceSpecification';
@@ -237,6 +237,10 @@ export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue
  * プロダクトオファーの価格仕様
  */
 export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicketPriceComponent>, 'project'>;
+export type ITicketAddOn =
+    Pick<IBaseAddOn, 'id' | 'identifier' | 'itemOffered' | 'priceCurrency' | 'typeOf' | 'validFrom' | 'validThrough'> & {
+        priceSpecification: ITicketUnitPriceComponent;
+    };
 /**
  * プロダクトオファー
  * strict definition(2023-02-24~)
@@ -256,6 +260,7 @@ export interface ITicketOffer extends Pick<
     'validRateLimit' |
     'additionalProperty'
 > {
+    addOn?: ITicketAddOn[];
     identifier: string;
     priceSpecification: ITicketPriceSpecification;
     itemOffered?: UnitPriceOfferFactory.IItemOffered;
