@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- オファーIFを最適化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.290.0 - 2023-02-26
+
+### Changed
+
+- オファーIFを最適化
 
 ## v4.289.0 - 2023-02-25
 
