@@ -105,10 +105,12 @@ export interface ISearchConditions<T extends PriceSpecificationType> {
 
         };
     };
+    price?: { $eq?: number };
     validFrom?: Date;
     validThrough?: Date;
     appliesToVideoFormats?: string[];
     appliesToMovieTicket?: {
         serviceTypes?: string[];
+        serviceOutput?: { typeOf?: { $eq?: string } };
     };
 }
