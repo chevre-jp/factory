@@ -140,7 +140,6 @@ import * as ConfirmRegisterServiceTaskFactory from './task/confirmRegisterServic
 import * as ConfirmRegisterServiceTransactionTaskFactory from './task/confirmRegisterServiceTransaction';
 import * as ConfirmReserveTransactionTaskFactory from './task/confirmReserveTransaction';
 import * as DeleteAssetTransactionTaskFactory from './task/deleteAssetTransaction';
-import * as DeleteAuthorizationTaskFactory from './task/deleteAuthorization';
 import * as DeleteMemberTaskFactory from './task/deleteMember';
 import * as DeleteOrderTaskFactory from './task/deleteOrder';
 import * as DeleteTransactionTaskFactory from './task/deleteTransaction';
@@ -550,7 +549,6 @@ export namespace task {
     export type IData<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.IData :
         T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.IData :
-        T extends TaskName.DeleteAuthorization ? DeleteAuthorizationTaskFactory.IData :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IData :
         T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.IData :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.IData :
@@ -578,7 +576,6 @@ export namespace task {
     export type IAttributes<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.IAttributes :
         T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.IAttributes :
-        T extends TaskName.DeleteAuthorization ? DeleteAuthorizationTaskFactory.IAttributes :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IAttributes :
         T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.IAttributes :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.IAttributes :
@@ -606,7 +603,6 @@ export namespace task {
     export type ITask<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.ITask :
         T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.ITask :
-        T extends TaskName.DeleteAuthorization ? DeleteAuthorizationTaskFactory.ITask :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.ITask :
         T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.ITask :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.ITask :

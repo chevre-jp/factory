@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.292.0 - 2023-02-28
+
+### Removed
+
+- 承認削除タスクを廃止
+
 ## v4.291.0 - 2023-02-27
 
 ### Changed

@@ -8,7 +8,6 @@ export enum TaskName {
     AggregateScreeningEvent = 'aggregateScreeningEvent',
     AggregateUseActionsOnEvent = 'aggregateUseActionsOnEvent',
     DeleteAssetTransaction = 'deleteAssetTransaction',
-    DeleteAuthorization = 'deleteAuthorization',
     DeleteOrder = 'deleteOrder',
     DeleteTransaction = 'deleteTransaction',
     ImportEventCapacitiesFromCOA = 'importEventCapacitiesFromCOA',
