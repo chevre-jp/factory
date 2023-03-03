@@ -242,6 +242,10 @@ export type ITicketAddOn =
     Pick<IBaseAddOn, 'id' | 'identifier' | 'itemOffered' | 'priceCurrency' | 'typeOf' | 'validFrom' | 'validThrough'> & {
         priceSpecification: ITicketUnitPriceComponent;
     };
+export type IAddOnItemOffered = Pick<IProduct, 'typeOf' | 'id' | 'name'>;
+export type IMinimizedTicketAddOn = Pick<IBaseAddOn, 'typeOf' | 'priceCurrency'> & {
+    itemOffered: IAddOnItemOffered;
+};
 /**
  * プロダクトオファー
  * strict definition(2023-02-24~)
@@ -250,7 +254,8 @@ export type ITicketAddOn =
 export interface ITicketOffer extends Pick<
     IBaseOffer,
     'name' | 'description' | 'alternateName' | 'color' | 'typeOf' | 'id' |
-    'addOn' | 'availability' |
+    // 'addOn' |
+    'availability' |
     'availableAtOrFrom' |
     'category' |
     'eligibleMembershipType' | 'eligibleSeatingType' | 'eligibleMonetaryAmount' | 'eligibleSubReservation' |
@@ -261,7 +266,7 @@ export interface ITicketOffer extends Pick<
     'validRateLimit' |
     'additionalProperty'
 > {
-    addOn?: ITicketAddOn[];
+    addOn?: ITicketAddOn[] | IMinimizedTicketAddOn[];
     identifier: string;
     name: IOfferName;
     priceSpecification: ITicketPriceSpecification;
