@@ -8,7 +8,7 @@ import { AssetTransactionType } from '../../assetTransactionType';
 import { CreativeWorkType } from '../../creativeWorkType';
 import { IPaymentServiceOutput, ITotalPaymentDue } from '../../invoice';
 import { OrderType } from '../../order';
-import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
+import { IMovieTicket as IMovieTicketPaymentCard } from '../../paymentMethod/paymentCard/movieTicket';
 import { IPropertyValue } from '../../propertyValue';
 import { PaymentServiceType } from '../../service/paymentService';
 import { TransactionType } from '../../transactionType';
@@ -77,6 +77,7 @@ export interface IPaymentMethod {
      */
     additionalProperty: IPropertyValue<string>[];
 }
+export type IMovieTicket = Omit<IMovieTicketPaymentCard, 'project'>;
 export interface IPaymentService {
     typeOf: PaymentServiceType;
     /**
