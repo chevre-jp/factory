@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.294.0 - 2023-03-04
+
+### Changed
+
+- 決済承認アクションを最適化
+- 決済アクションのIMovieTicketを最適化
+
 ## v4.293.0 - 2023-03-03
 
 ### Changed
