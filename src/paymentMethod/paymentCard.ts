@@ -1,7 +1,8 @@
 import { IMonetaryAmount } from '../monetaryAmount';
 import { IPaymentMethod } from '../paymentMethod';
 
-export type IAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'validThrough' | 'value'>;
+// export type IAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'validThrough' | 'value'>;
+export type IAmount = Pick<IMonetaryAmount, 'typeOf' | 'validThrough'>;
 /**
  * payment card interface
  */

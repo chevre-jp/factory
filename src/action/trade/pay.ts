@@ -77,7 +77,7 @@ export interface IPaymentMethod {
      */
     additionalProperty: IPropertyValue<string>[];
 }
-export type IMovieTicket = Omit<IMovieTicketPaymentCard, 'project'>;
+export type IMovieTicket = Pick<IMovieTicketPaymentCard, 'accessCode' | 'category' | 'identifier' | 'serviceOutput' | 'serviceType' | 'typeOf'>;
 export interface IPaymentService {
     typeOf: PaymentServiceType;
     /**

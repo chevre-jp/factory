@@ -1,13 +1,11 @@
 import * as ActionFactory from '../../../action';
 import * as CheckMovieTicketActionFactory from '../../../action/check/paymentMethod/movieTicket';
-import { ITotalPaymentDue } from '../../../action/trade/pay';
-import * as MoneyTransferActionFactory from '../../../action/transfer/moneyTransfer';
+import { IMovieTicket, ITotalPaymentDue } from '../../../action/trade/pay';
 import { ActionType } from '../../../actionType';
 import * as PayTransactionFactory from '../../../assetTransaction/pay';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { IPaymentMethodIssuedThrough } from '../../../order';
 import * as CreditCardFactory from '../../../paymentMethod/paymentCard/creditCard';
-import * as MovieTicketFactory from '../../../paymentMethod/paymentCard/movieTicket';
 import { PaymentStatusType } from '../../../paymentStatusType';
 import { IPropertyValue } from '../../../propertyValue';
 import { TransactionType } from '../../../transactionType';
@@ -35,15 +33,8 @@ export interface IObjectPendingTransaction {
     transactionNumber?: string;
 }
 
-export type IPaymentCard = MoneyTransferActionFactory.IPaymentCard;
-
 export import ITokenizedPaymentCard = PayTransactionFactory.ITokenizedPaymentCard;
 export import IFromLocation = PayTransactionFactory.IFromLocation;
-
-/**
- * 転送先
- */
-export type IToLocation = IPaymentCard;
 
 export import IPurchaseNumberAuthResult = CheckMovieTicketActionFactory.IPurchaseNumberAuthResult;
 
@@ -55,8 +46,6 @@ export import IUncheckedCardTokenized = CreditCardFactory.IUncheckedCardTokenize
  * クレジットカード決済承認アクションに必要なクレジットカード情報
  */
 export type ICreditCard = IUncheckedCardRaw | IUncheckedCardTokenized | IUnauthorizedCardOfMember;
-
-export import IMovieTicket = MovieTicketFactory.IMovieTicket;
 
 /**
  * 承認対象
@@ -99,9 +88,8 @@ export interface IObject {
         id: string;
     };
 
-    notes?: string;
     /**
-     * 進行中取引(Account決済)
+     * 進行中取引(ペイメントカード決済)
      */
     pendingTransaction?: IObjectPendingTransaction;
 
@@ -109,10 +97,6 @@ export interface IObject {
      * 転送元(PaymentCard決済)
      */
     fromLocation?: IFromLocation;
-    /**
-     * 転送先(PaymentCard決済)
-     */
-    // toLocation?: IToLocation;
 
     /**
      * 支払い方法(CreditCard決済)
@@ -128,7 +112,6 @@ export interface IObject {
      */
     movieTickets?: IMovieTicket[];
 }
-export type IPaymentServiceOutput = IMovieTicket[];
 export interface IResult {
     /**
      * The identifier for the account the payment will be applied to.
@@ -164,29 +147,6 @@ export interface IResult {
     additionalProperty?: IPropertyValue<string>[];
     typeOf: ResultType;
     issuedThrough: IPaymentMethodIssuedThrough;
-
-    /**
-     * 転送元(PaymentCard決済)
-     */
-    fromLocation?: IFromLocation;
-    /**
-     * 転送先(PaymentCard決済)
-     */
-    toLocation?: IToLocation;
-
-    /**
-     * CreditCard決済の場合
-     */
-    entryTranArgs?: PayTransactionFactory.IEntryTranArgs;
-    /**
-     * CreditCard決済の場合
-     */
-    execTranResult?: PayTransactionFactory.IExecTranResult;
-
-    /**
-     * 承認時のムビチケ認証レスポンス(MovieTicket決済)
-     */
-    purchaseNumberAuthResult?: IPurchaseNumberAuthResult;
 }
 
 export interface IPurpose {
