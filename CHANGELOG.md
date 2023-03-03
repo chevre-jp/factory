@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- プロダクトオファーのアドオンIFを最適化
-- MovieTicket認証アクションを最適化
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.293.0 - 2023-03-03
+
+### Changed
+
+- プロダクトオファーのアドオンIFを最適化
+- MovieTicket認証アクションを最適化
 
 ## v4.292.0 - 2023-02-28
 
