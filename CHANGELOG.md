@@ -10,10 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- プロダクトIFを最適化
-- ポイント特典IFを最適化(MoneyTransferアクションに定義)
-- 口座取引IFを最適化
-
 ### Deprecated
 
 ### Removed
@@ -21,6 +17,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.295.0 - 2023-03-06
+
+### Changed
+
+- プロダクトIFを最適化
+- ポイント特典IFを最適化(MoneyTransferアクションに定義)
+- 口座取引IFを最適化
 
 ## v4.294.0 - 2023-03-04
 
