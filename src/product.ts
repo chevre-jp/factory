@@ -1,6 +1,5 @@
-import { ActionType } from './actionType';
 import { ICategoryCode } from './categoryCode';
-import { IMonetaryAmount } from './monetaryAmount';
+import { IMultilingualString } from './multilingualString';
 import { IAddOn as IBaseAddOn, IName as IOfferName, IOffer as IBaseOffer } from './offer';
 import { OfferType } from './offerType';
 import { IPermit } from './permit';
@@ -51,37 +50,6 @@ export type IServiceOutput = Pick<IPermit, 'typeOf' | 'amount'> & {
     membershipPointsEarned?: IMembershipPointsEarned;
     automaticRenewal?: boolean;
 };
-export type IPointAwardAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
-/**
- * ポイント特典
- */
-export interface IPointAward {
-    typeOf: ActionType.MoneyTransfer;
-    amount?: IPointAwardAmount;
-    /**
-     * 特典付与先
-     */
-    toLocation?: {
-        /**
-         * Permit
-         */
-        typeOf?: string;
-        /**
-         * カード番号
-         */
-        identifier: string;
-        issuedThrough: {
-            /**
-             * カード発行サービスID
-             */
-            id: string;
-        };
-    };
-    description?: string;
-    recipient?: any;
-    purpose?: { identifier?: string };
-}
-
 /**
  * 外部サービス認証情報
  */
@@ -98,10 +66,10 @@ export interface IAvailableChannel {
     serviceUrl?: string;
     credentials?: ICredentials;
 }
-export type IServiceType = Pick<ICategoryCode, 'codeValue' | 'inCodeSet' | 'project' | 'typeOf'>;
+export type IServiceType = Pick<ICategoryCode, 'codeValue' | 'inCodeSet' | 'typeOf'>;
 export type IOffer = Pick<
     IBaseOffer,
-    'project' | 'typeOf' | 'priceCurrency' | 'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough'
+    'typeOf' | 'priceCurrency' | 'availabilityEnds' | 'availabilityStarts' | 'validFrom' | 'validThrough'
 > & {
     seller?: { id?: string };
 };
@@ -114,15 +82,16 @@ export interface IProduct extends Pick<IThing, 'name' | 'description'> {
     typeOf: ProductType;
     id?: string;
     availableChannel?: IAvailableChannel;
+    description?: IMultilingualString;
     /**
      * Indicates an OfferCatalog listing for this Organization, Person, or Service.
      */
     hasOfferCatalog?: IHasOfferCatalog;
+    name?: IMultilingualString;
     /**
      * An offer to provide this item
      */
     offers?: IOffer[];
-    pointAward?: IPointAward;
     /**
      * The product identifier, such as ISBN. For example: meta itemprop="productID" content="isbn:123-456-789".
      */

@@ -10,13 +10,15 @@ import { IProduct, IServiceOutput as IProductServiceOutput, ITicketPriceSpecific
 import { ISeller } from '../../../seller';
 import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
+import { IPointAward } from '../../transfer/moneyTransfer';
 
 export type IAgent = ActionFactory.IParticipantAsSeller;
 // 最適化(2022-06-01~)
 export type IRecipient = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
 // IItemOfferedを最適化(2022-08-19~)
-export type IItemOffered = Pick<IProduct, 'project' | 'typeOf' | 'id' | 'name' | 'pointAward'> & {
+export type IItemOffered = Pick<IProduct, 'project' | 'typeOf' | 'id' | 'name'> & {
     serviceOutput: IProductServiceOutput & IPermit;
+    pointAward?: IPointAward;
 };
 export type IAcceptedOfferWithoutDetail = RegisterServiceTransactionFactory.IAcceptedOfferWithoutDetail;
 export type ISellerMakesOffer = Pick<ISeller, 'project' | 'id' | 'name' | 'typeOf'>;
