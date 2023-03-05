@@ -4,6 +4,7 @@ import { ActionType } from '../../actionType';
 import * as MoneyTransferTransactionFactory from '../../assetTransaction/moneyTransfer';
 import { AssetTransactionType } from '../../assetTransactionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
+import { PermitType } from '../../permit';
 
 /**
  * 進行中取引
@@ -73,3 +74,36 @@ export interface IAttributes extends ActionFactory.IAttributes<ActionType.MoneyT
     toLocation: ILocation;
 }
 export type IAction = ActionFactory.IAction<IAttributes>;
+
+export type IPointAwardAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
+/**
+ * ポイント特典
+ */
+export interface IPointAward {
+    typeOf: ActionType.MoneyTransfer;
+    amount?: IPointAwardAmount;
+    /**
+     * 特典付与先
+     */
+    toLocation?: {
+        typeOf: PermitType.Permit;
+        /**
+         * カード番号
+         */
+        identifier: string;
+        issuedThrough: {
+            /**
+             * カード発行サービスID
+             */
+            id: string;
+        };
+    };
+    description?: string;
+    recipient?: IRecipient;
+    purpose?: {
+        /**
+         * 特典識別子
+         */
+        identifier?: string;
+    };
+}

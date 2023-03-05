@@ -1,10 +1,10 @@
-import { ActionType } from './actionType';
+import { IPointAward } from './action/transfer/moneyTransfer';
 import { ItemAvailability } from './itemAvailability';
 import { IAddOn, IName, IOffer } from './offer';
 import { OfferType } from './offerType';
 import { IAmount as IPermitAmount, IDepositAmount, IPaymentAmount } from './permit';
 import { IAppliesToMovieTicket, IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
-import { IPointAwardAmount, IProduct, ProductType } from './product';
+import { IProduct, ProductType } from './product';
 import { SortType } from './sortType';
 import {
     IOfferMerchantReturnPolicy,
@@ -43,17 +43,7 @@ export interface IItemOffered {
     /**
      * 特典
      */
-    pointAward?: {
-        /**
-         * 付与金額
-         */
-        amount?: IPointAwardAmount;
-        /**
-         * 特典説明
-         */
-        description?: string;
-        typeOf: ActionType.MoneyTransfer;
-    };
+    pointAward?: Pick<IPointAward, 'amount' | 'description' | 'typeOf'>;
 }
 /**
  * 単価オファーの価格仕様
