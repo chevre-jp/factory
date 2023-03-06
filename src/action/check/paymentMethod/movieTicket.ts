@@ -3,6 +3,7 @@ import * as surfrock from '@surfrock/sdk';
 import * as ActionFactory from '../../../action';
 import { OrganizationType } from '../../../organizationType';
 import { IMovieTicket as IMovieTicketPaymentCard, IServiceOutput as IMovieTicketServiceOutput } from '../../../paymentMethod/paymentCard/movieTicket';
+import { TransactionType } from '../../../transactionType';
 import * as CheckActionFactory from '../../check';
 import * as PayActionFactory from '../../trade/pay';
 
@@ -26,19 +27,22 @@ export interface IResult {
     purchaseNumberAuthIn: IPurchaseNumberAuthIn;
     purchaseNumberAuthResult: IPurchaseNumberAuthResult;
     /**
-     * 認証結果としてのムビチケリスト
+     * 認証結果としてのMovieTicketリスト
      */
     movieTickets: IMovieTicket[];
 }
 export type IError = any;
-/**
- * ムビチケ確認アクション属性
- */
+export interface IPurpose {
+    typeOf: TransactionType;
+    id: string;
+}
 export interface IAttributes extends CheckActionFactory.IAttributes<IObject, IResult> {
     agent: IAgent;
     object: IObject;
+    // add purpose(2023-03-06~)
+    purpose?: IPurpose;
 }
 /**
- * ムビチケ確認アクション
+ * MovieTicket認証アクション
  */
 export type IAction = ActionFactory.IAction<IAttributes>;

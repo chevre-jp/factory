@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.296.0 - 2023-03-06
+
+### Added
+
+- MovieTicket認証アクションにpurposeを追加
+
 ## v4.295.0 - 2023-03-06
 
 ### Changed
