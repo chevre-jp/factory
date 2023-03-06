@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- MovieTicket認証アクションにpurposeを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.296.0 - 2023-03-06
+
+### Added
+
+- MovieTicket認証アクションにpurposeを追加
 
 ## v4.295.0 - 2023-03-06
 
