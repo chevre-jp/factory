@@ -26,34 +26,33 @@ export interface IAttributes {
     project?: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: CreativeWorkType.EmailMessage;
     sender: IParticipant;
-    toRecipient: IParticipant;
+    // multiple対応(2023-03-06~)
+    toRecipient: IParticipant[];
     about: IAbout;
     text: string;
 }
 
 /**
- * Eメールメッセージインターフェース
+ * Eメールメッセージ
  */
 export type ICreativeWork = IAttributes & CreativeWorkFactory.ICreativeWork;
-
+export interface ICustomizedParticipant {
+    name?: string;
+    email?: string;
+}
 /**
- * Eメールカスタマイズオプションインターフェース
+ * Eメールカスタマイズオプション
  */
 export interface ICustomization {
     /**
      * 送信者
      */
-    sender?: {
-        name?: string;
-        email?: string;
-    };
+    sender?: ICustomizedParticipant;
     /**
      * 受信者
+     * multiple対応(2023-03-06~)
      */
-    toRecipient?: {
-        name?: string;
-        email?: string;
-    };
+    toRecipient?: ICustomizedParticipant | ICustomizedParticipant[];
     /**
      * 件名
      */
