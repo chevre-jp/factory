@@ -9,7 +9,7 @@ export interface IAbout {
     typeOf: string;
 }
 export type IAuthor = Pick<IPerson, 'id' | 'name' | 'typeOf'>;
-
+export type IMention = Pick<IPerson, 'id' | 'name' | 'typeOf'>;
 /**
  * コメント
  * {@link https://schema.org/Comment}
@@ -21,6 +21,7 @@ export interface IComment extends Pick<CreativeWorkFactory.ICreativeWork, 'addit
     commentCount?: number;
     dateCreated: Date;
     dateModified?: Date;
+    mentions?: IMention[];
     project: Pick<IProject, 'id' | 'typeOf'>;
     text: string;
     typeOf: CreativeWorkType.Comment;
