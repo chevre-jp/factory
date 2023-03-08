@@ -1,3 +1,4 @@
+import { CreativeWorkType } from './creativeWorkType';
 import { EventType } from './eventType';
 import { IMultilingualString } from './multilingualString';
 import { OfferType } from './offerType';
@@ -7,7 +8,8 @@ import { PropertyValueType } from './propertyValue';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 
-export type CategorySetIdentifier = EventType.ScreeningEvent
+export type CategorySetIdentifier = CreativeWorkType.Movie
+    | EventType.ScreeningEvent
     | EventType.ScreeningEventSeries
     | PropertyValueType.LocationFeatureSpecification
     | 'OfferCatalog'
