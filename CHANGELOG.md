@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 追加特性のCategoryCodeSetにコンテンツを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.299.0 - 2023-03-08
+
+### Added
+
+- 追加特性のCategoryCodeSetにコンテンツを追加
 
 ## v4.298.0 - 2023-03-07
 
