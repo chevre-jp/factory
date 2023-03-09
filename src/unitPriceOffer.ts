@@ -216,6 +216,9 @@ export interface ISearchConditions {
                  */
                 $eq?: string;
             };
+            value?: {
+                $eq?: string;
+            };
         };
     };
     /**
