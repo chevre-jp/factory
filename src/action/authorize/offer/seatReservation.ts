@@ -125,7 +125,11 @@ export type IAcceptedOffer4COA =
          * COAイベントでは、priceSpecificationで価格を表現しきれないので、numberとしてのpriceが必要
          */
         price: number;
-        priceSpecification?: OrderFactory.ITicketPriceSpecification;
+        priceSpecification?: OrderFactory.ITicketPriceSpecification & {
+            appliesToSurfrock?: {
+                identifier?: string;
+            };
+        };
     };
 export type IAcceptedOfferWithoutDetail4COA = COAReservationOfferFactory.IOffer;
 export interface IObjectWithoutDetail4COA {

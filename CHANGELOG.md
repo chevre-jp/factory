@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- COA興行オファー承認パラメータにappliesToSurfrockを拡張
+
 ### Changed
 
 ### Deprecated
