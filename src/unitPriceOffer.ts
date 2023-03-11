@@ -209,6 +209,16 @@ export interface ISearchConditions {
         typeOf?: { $eq?: string };
     };
     additionalProperty?: {
+        $all?: {
+            $elemMatch: {
+                name?: {
+                    $eq?: string;
+                };
+                value?: {
+                    $in?: string[];
+                };
+            };
+        }[];
         $elemMatch?: {
             name?: {
                 /**
