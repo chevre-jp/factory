@@ -128,6 +128,7 @@ export type IAcceptedOffer4COA =
         priceSpecification?: OrderFactory.ITicketPriceSpecification & {
             appliesToSurfrock?: {
                 identifier?: string;
+                serviceOutput?: { typeOf?: string };
             };
         };
     };
