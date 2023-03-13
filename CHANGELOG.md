@@ -8,10 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- COA興行オファー承認パラメータにappliesToSurfrockを拡張
-- 単価オファー検索条件拡張
-- COA興行オファー承認時のticketInfoを拡張
-
 ### Changed
 
 ### Deprecated
@@ -21,6 +17,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.301.0 - 2023-03-14
+
+### Added
+
+- COA興行オファー承認パラメータにappliesToSurfrockを拡張
+- 単価オファー検索条件拡張
+- COA興行オファー承認時のticketInfoを拡張
 
 ## v4.300.0 - 2023-03-09
 
