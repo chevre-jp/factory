@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - COA興行オファー承認パラメータにappliesToSurfrockを拡張
 - 単価オファー検索条件拡張
+- COA興行オファー承認時のticketInfoを拡張
 
 ### Changed
 

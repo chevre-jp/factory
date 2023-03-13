@@ -85,18 +85,13 @@ export type IAcceptedAddOn = Pick<OfferFactory.IAddOn, 'typeOf' | 'id' | 'priceC
 export type IAcceptedOffer4chevre =
     Pick<
         ITicketOffer,
-        // 最適化(2022-08-02~)
         'id' | 'identifier' | 'typeOf' | 'priceCurrency' | 'itemOffered' | 'additionalProperty'
     >
-    // & Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty' | 'paymentMethod'>
-    // paymentMethodは不要なので廃止(2023-02-08~)
     & Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty'>
     & {
         addOn?: IAcceptedAddOn[];
         itemOffered?: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
         priceSpecification: IAcceptedOfferPriceSpecification;
-        // 不要なので廃止(2022-11-02~)
-        // movieTicketIdentifire?: string;
     };
 export type IAcceptedOfferWithoutDetail4chevre = ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail;
 export type IObjectWithoutDetail4chevre = ReserveTransactionFactory.IObjectWithoutDetail;
@@ -116,16 +111,12 @@ export type IAcceptedOffer4COA =
         | 'eligibleMonetaryAmount'
     > & {
         itemOffered: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
-        // itemOfferedに完全置き換え(2022-08-22~)
-        // seatSection: string;
-        // itemOfferedに完全置き換え(2022-08-22~)
-        // seatNumber: string;
         ticketInfo: ICOATicketInfoWithDetails;
         /**
          * COAイベントでは、priceSpecificationで価格を表現しきれないので、numberとしてのpriceが必要
          */
         price: number;
-        priceSpecification?: OrderFactory.ITicketPriceSpecification & {
+        priceSpecification: OrderFactory.ITicketPriceSpecification & {
             appliesToSurfrock?: {
                 identifier?: string;
                 serviceOutput?: { typeOf?: string };

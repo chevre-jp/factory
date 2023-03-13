@@ -86,6 +86,14 @@ export type ICOATicketInfoWithDetails = COA.factory.reserve.IUpdReserveTicket & 
      * ポイント割引の場合の消費ポイント
      */
     usePoint: number;
+    /**
+     * 制限単位(001：ｎ人単位、002：ｎ人以上)
+     */
+    limitUnit: string;
+    /**
+     * 人数制限
+     */
+    limitCount: number;
 };
 
 /**
