@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.302.0 - 2023-03-14
+
+### Added
+
+- 決済通知に予約チケットトークンを追加
+
 ## v4.301.0 - 2023-03-14
 
 ### Added
