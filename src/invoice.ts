@@ -32,9 +32,13 @@ export interface IReservation {
      * 予約価格
      * priceSpecificationへ完全移行(2022-11-23~)
      */
-    // price?: number;
-    // priceだけでは不足の可能性があるので拡張(2022-10-29~)
-    priceSpecification?: IReservationPriceSpecification;
+    priceSpecification: IReservationPriceSpecification;
+    reservedTicket?: {
+        /**
+         * COAの場合のみチケットトークンが存在(2023-03-14~)
+         */
+        ticketToken?: string;
+    };
 }
 export interface IMovieTicketAsPaymentServiceOutput {
     /**
