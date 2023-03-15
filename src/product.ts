@@ -1,6 +1,6 @@
 import { ICategoryCode } from './categoryCode';
 import { IMultilingualString } from './multilingualString';
-import { IAddOn as IBaseAddOn, IName as IOfferName, IOffer as IBaseOffer } from './offer';
+import { IName as IOfferName, IOffer as IBaseOffer } from './offer';
 import { OfferType } from './offerType';
 import { IPermit } from './permit';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
@@ -207,23 +207,14 @@ export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue
  * プロダクトオファーの価格仕様
  */
 export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicketPriceComponent>, 'project'>;
-export type ITicketAddOn =
-    Pick<IBaseAddOn, 'id' | 'identifier' | 'itemOffered' | 'priceCurrency' | 'typeOf' | 'validFrom' | 'validThrough'> & {
-        priceSpecification: ITicketUnitPriceComponent;
-    };
-export type IAddOnItemOffered = Pick<IProduct, 'typeOf' | 'id' | 'name'>;
-export type IMinimizedTicketAddOn = Pick<IBaseAddOn, 'typeOf' | 'priceCurrency'> & {
-    itemOffered: IAddOnItemOffered;
-};
+export import IMinimizedTicketAddOn = UnitPriceOfferFactory.IAddOn4unitPriceOffer;
 /**
  * プロダクトオファー
  * strict definition(2023-02-24~)
  */
-// export interface ITicketOffer extends Omit<IBaseOffer, 'priceSpecification' | 'project'> {
 export interface ITicketOffer extends Pick<
     IBaseOffer,
     'name' | 'description' | 'alternateName' | 'color' | 'typeOf' | 'id' |
-    // 'addOn' |
     'availability' |
     'availableAtOrFrom' |
     'category' |
@@ -235,7 +226,7 @@ export interface ITicketOffer extends Pick<
     'validRateLimit' |
     'additionalProperty'
 > {
-    addOn?: ITicketAddOn[] | IMinimizedTicketAddOn[];
+    addOn?: IMinimizedTicketAddOn[];
     identifier: string;
     name: IOfferName;
     priceSpecification: ITicketPriceSpecification;
