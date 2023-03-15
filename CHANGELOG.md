@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- プロダクトオファーのaddOnを最適化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.303.0 - 2023-03-16
+
+### Changed
+
+- プロダクトオファーのaddOnを最適化
 
 ## v4.302.0 - 2023-03-14
 
