@@ -94,6 +94,11 @@ export type ICOATicketInfoWithDetails = COA.factory.reserve.IUpdReserveTicket & 
      * 人数制限
      */
     limitCount: number;
+    /**
+     * 販売可能チケットのsalePrice
+     * COA予約確定時に指定するsalePriceと異なる
+     */
+    salesTicketSalePrice: number;
 };
 
 /**

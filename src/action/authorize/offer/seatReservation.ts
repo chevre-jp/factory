@@ -107,8 +107,7 @@ export type IAcceptedOffer4COA =
     > & Pick<
         OfferFactory.IOffer,
         'typeOf' | 'id' | 'identifier' | 'name'
-        | 'priceCurrency' | 'seller' | 'additionalProperty'
-        | 'eligibleMonetaryAmount'
+        | 'priceCurrency' | 'additionalProperty' | 'eligibleMonetaryAmount'
     > & {
         itemOffered: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
         ticketInfo: ICOATicketInfoWithDetails;
@@ -116,7 +115,18 @@ export type IAcceptedOffer4COA =
          * COAイベントでは、priceSpecificationで価格を表現しきれないので、numberとしてのpriceが必要
          */
         price: number;
-        priceSpecification: OrderFactory.ITicketPriceSpecification & {
+        priceSpecification: OrderFactory.ITicketPriceSpecification;
+    };
+export type IAcceptedOfferBeforeAuthorize4COA =
+    Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail,
+        'id' | 'itemOffered' | 'additionalProperty'
+    > & Pick<
+        OfferFactory.IOffer,
+        'id' | 'name' | 'additionalProperty'
+    > & {
+        itemOffered: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
+        ticketInfo: Omit<ICOATicketInfoWithDetails, 'salePrice'>;
+        priceSpecification: {
             appliesToSurfrock?: {
                 identifier?: string;
                 serviceOutput?: { typeOf?: string };
