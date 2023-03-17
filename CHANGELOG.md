@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- COA興行オファー承認パラメータにsalesTicketSalePriceを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.304.0 - 2023-03-18
+
+### Added
+
+- COA興行オファー承認パラメータにsalesTicketSalePriceを追加
 
 ## v4.303.0 - 2023-03-16
 
