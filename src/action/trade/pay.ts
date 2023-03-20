@@ -18,7 +18,7 @@ export import IAgent = ActionFactory.IParticipantAsProject;
 export import IRecipient = ActionFactory.IParticipantAsSeller;
 export interface IOrderAsPayPurpose {
     typeOf: OrderType.Order;
-    confirmationNumber?: string;
+    confirmationNumber: string;
     orderNumber?: string;
 }
 export interface IAssetTransactionAsPayPurpose {
@@ -31,8 +31,7 @@ export interface ITransactionAsPayPurpose {
     id: string;
 }
 export type IReturnActionAsPayPurpose = IReturnOrderActionAttributes;
-export type IPayPurpose = IOrderAsPayPurpose | IAssetTransactionAsPayPurpose | IReturnActionAsPayPurpose | ITransactionAsPayPurpose;
-export type IPurpose = IPayPurpose;
+export type IPurpose = IOrderAsPayPurpose | IAssetTransactionAsPayPurpose | IReturnActionAsPayPurpose | ITransactionAsPayPurpose;
 export type AvailablePaymentMethodType = string;
 export interface IPendingTransaction {
     typeOf: AccountFactory.transactionType;

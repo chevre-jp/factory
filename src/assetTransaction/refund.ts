@@ -37,8 +37,6 @@ export interface IStartParams extends AssetTransactionFactory.IStartParams<Asset
 export type IRefundPurpose = IReturnActionAsPayPurpose;
 export interface IPotentialActionsParams {
     refund?: {
-        // IReturnActionAsPayPurposeに限定(2022-06-08~)
-        // purpose?: IPayPurpose;
         purpose?: IRefundPurpose;
     };
 }

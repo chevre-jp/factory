@@ -1,7 +1,7 @@
 import * as ActionFactory from '../../action';
 import { ActionType } from '../../actionType';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
-import { IPaymentService as IPaymentServiceOnPay, IPayPurpose } from './pay';
+import { IPaymentService as IPaymentServiceOnPay, IPurpose as IPayPurpose } from './pay';
 
 export type IAgent = ActionFactory.IParticipantAsSeller | ActionFactory.IParticipantAsPerson;
 export type IRecipient = ActionFactory.IParticipant;
