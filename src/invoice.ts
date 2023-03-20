@@ -33,6 +33,10 @@ export interface IReservation {
      * priceSpecificationへ完全移行(2022-11-23~)
      */
     priceSpecification: IReservationPriceSpecification;
+    /**
+     * 予約番号
+     */
+    reservationNumber: string;
     reservedTicket?: {
         /**
          * COAの場合のみチケットトークンが存在(2023-03-14~)

@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 決済通知に予約番号を追加
+
 ### Changed
 
 ### Deprecated
