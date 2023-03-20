@@ -8,11 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 決済通知に予約番号を追加
-
 ### Changed
-
-- 決済アクションのpurposeを最適化
 
 ### Deprecated
 
@@ -21,6 +17,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.305.0 - 2023-03-20
+
+### Added
+
+- 決済通知に予約番号を追加
+
+### Changed
+
+- 決済アクションのpurposeを最適化
 
 ## v4.304.0 - 2023-03-18
 
