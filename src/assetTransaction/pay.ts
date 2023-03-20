@@ -5,8 +5,9 @@ import {
     IAttributes as IPayActionAttributes,
     ILocation,
     IMovieTicket,
-    IOrderAsPayPurpose, IPayPurpose,
+    IOrderAsPayPurpose,
     IPendingTransaction,
+    IPurpose as IPayPurpose,
     IRecipient as IPayRecipient,
     ITotalPaymentDue
 } from '../action/trade/pay';
