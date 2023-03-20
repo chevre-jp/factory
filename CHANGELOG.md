@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.306.0 - 2023-03-21
+
+### Changed
+
+- COA興行オファー承認パラメータを最適化
+
 ## v4.305.0 - 2023-03-20
 
 ### Added
