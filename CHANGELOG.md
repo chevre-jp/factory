@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- COA興行オファー承認パラメータを最適化
+
 ### Deprecated
 
 ### Removed

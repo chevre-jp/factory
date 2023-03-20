@@ -119,13 +119,13 @@ export type IAcceptedOffer4COA =
     };
 export type IAcceptedOfferBeforeAuthorize4COA =
     Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail,
-        'id' | 'itemOffered' | 'additionalProperty'
+        'itemOffered' | 'additionalProperty'
     > & Pick<
         OfferFactory.IOffer,
-        'id' | 'name' | 'additionalProperty'
+        'name' | 'additionalProperty'
     > & {
         itemOffered: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
-        ticketInfo: Omit<ICOATicketInfoWithDetails, 'salePrice'>;
+        ticketInfo: Omit<ICOATicketInfoWithDetails, 'salePrice' | 'usePoint'>;
         priceSpecification: {
             appliesToSurfrock?: {
                 identifier?: string;
