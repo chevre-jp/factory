@@ -2,7 +2,7 @@ import { ICategoryCode } from '../categoryCode';
 import { IPriceSpecification as BaseSpecification } from '../priceSpecification';
 import { PriceSpecificationType } from '../priceSpecificationType';
 
-export type IAppliesToCategoryCode = Pick<ICategoryCode, 'project' | 'typeOf' | 'codeValue' | 'inCodeSet'>;
+export type IAppliesToCategoryCode = Pick<ICategoryCode, 'typeOf' | 'codeValue' | 'inCodeSet'>;
 /**
  * 区分加算料金
  */
