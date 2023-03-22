@@ -65,8 +65,7 @@ export interface IAcceptedOfferWithoutDetail {
     id: string;
     itemOffered: IAcceptedItemOffered;
 }
-// IProductを最適化(2022-08-19~)
-export interface IItemOffered extends Pick<IProduct, 'id' | 'project' | 'serviceOutput' | 'typeOf'> {
+export interface IItemOffered extends Pick<IProduct, 'id' | 'serviceOutput' | 'typeOf'> {
     serviceOutput: IServiceOutput;
     pointAward?: IPointAward;
 }

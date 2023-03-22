@@ -16,15 +16,15 @@ export type IAgent = ActionFactory.IParticipantAsSeller;
 // 最適化(2022-06-01~)
 export type IRecipient = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
 // IItemOfferedを最適化(2022-08-19~)
-export type IItemOffered = Pick<IProduct, 'project' | 'typeOf' | 'id' | 'name'> & {
+export type IItemOffered = Pick<IProduct, 'typeOf' | 'id' | 'name'> & {
     serviceOutput: IProductServiceOutput & IPermit;
     pointAward?: IPointAward;
 };
 export type IAcceptedOfferWithoutDetail = RegisterServiceTransactionFactory.IAcceptedOfferWithoutDetail;
-export type ISellerMakesOffer = Pick<ISeller, 'project' | 'id' | 'name' | 'typeOf'>;
+export type ISellerMakesOffer = Pick<ISeller, 'id' | 'name' | 'typeOf'>;
 export interface IAcceptedOffer extends Pick<
     IOffer,
-    'project' | 'typeOf' | 'id' | 'identifier' | 'itemOffered' | 'name' | 'priceCurrency' | 'seller'
+    'typeOf' | 'id' | 'identifier' | 'itemOffered' | 'name' | 'priceCurrency' | 'seller'
 > {
     /**
      * オファーコード
