@@ -21,6 +21,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.307.0 - 2023-03-22
+
+### Changed
+
+- 区分加算料金のappliesToCategoryCodeを最適化
+- プロダクトオファー承認アクションのobjectを最適化
+
 ## v4.306.0 - 2023-03-21
 
 ### Changed
