@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 区分加算料金のappliesToCategoryCodeを最適化
-- プロダクトオファー承認アクションのobjectを最適化
-
 ### Deprecated
 
 ### Removed
