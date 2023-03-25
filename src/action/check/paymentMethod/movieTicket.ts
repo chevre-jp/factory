@@ -29,7 +29,7 @@ export interface IResult {
     /**
      * 認証結果としてのMovieTicketリスト
      */
-    movieTickets: IMovieTicket[];
+    // movieTickets: IMovieTicket[];
 }
 export type IError = any;
 export interface IPurpose {

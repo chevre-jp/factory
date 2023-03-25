@@ -51,6 +51,10 @@ export interface IProvider extends Pick<IOrganization, 'id' | 'name' | 'typeOf'>
 }
 export type IAvailableChannel = IProductAvailableChannel & {
     onPaymentStatusChanged?: IOnPaymentStatusChanged;
+    totalPaymentDue?: {
+        // 最大同時着券数(MovieTicketIFの場合)
+        maxValue?: number;
+    };
 };
 /**
  * 決済サービスインターフェース
