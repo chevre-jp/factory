@@ -154,9 +154,15 @@ export interface ISearchConditions {
             };
         };
         acceptedOffer?: {
-            ticketedSeat?: {
-                seatNumber?: {
-                    $in?: string[];
+            itemOffered?: {
+                serviceOutput?: {
+                    reservedTicket?: {
+                        ticketedSeat?: {
+                            seatNumber?: {
+                                $in?: string[];
+                            };
+                        };
+                    };
                 };
             };
         };

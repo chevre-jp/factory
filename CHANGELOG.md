@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - MovieTicketIFの決済取引において最大同時着券数を設定可能にする
+- アクション検索条件拡張
 
 ### Changed
 
