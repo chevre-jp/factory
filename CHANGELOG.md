@@ -8,12 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- MovieTicketIFの決済取引において最大同時着券数を設定可能にする
-- アクション検索条件拡張
-
 ### Changed
-
-- MovieTicket認証アクションのresultからmovieTicketsを排除
 
 ### Deprecated
 
@@ -22,6 +17,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.308.0 - 2023-03-27
+
+### Added
+
+- MovieTicketIFの決済取引において最大同時着券数を設定可能にする
+- アクション検索条件拡張
+
+### Changed
+
+- MovieTicket認証アクションのresultからmovieTicketsを排除
 
 ## v4.307.0 - 2023-03-22
 
