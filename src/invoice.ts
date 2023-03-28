@@ -18,7 +18,6 @@ export interface IReferenceOrder extends OrderFactory.IOrder {
 export type IReservationPriceAccounting = Pick<IAccounting, 'accountsReceivable'>;
 export type IAppliesToAddOn = Pick<IUnitPriceSpecAppliesToAddOn, 'typeOf'>;
 export type IMinimizedCategoryCodeChargeSpecification = Pick<ICategoryCodeChargeSpecification, 'typeOf' | 'price'>;
-// TODO MovieTicketTypeChargeの場合、appliesToMovieTicketを追加
 export type IMinimizedMovieTicketTypeChargeSpecification = Pick<IMovieTicketTypeChargeSpecification, 'typeOf' | 'price'> & {
     appliesToMovieTicket: Pick<IAppliesToMovieTicket, 'serviceOutput'>;
 };
