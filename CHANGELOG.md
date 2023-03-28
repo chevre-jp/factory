@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 決済通知の決済カード加算料金に適用決済方法区分を追加
+
 ### Changed
 
 ### Deprecated
