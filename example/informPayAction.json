@@ -1,117 +1,119 @@
 {
-    "object": [
-        {
-            "paymentMethod": {
-                /**
-                 * ムビチケリスト
-                 */
-                "serviceOutput": [
-                    {
-                        /**
-                         * 購入番号
-                         */
-                        "identifier": "2127021398",
-                        "serviceOutput": {
+    "data": {
+        "object": [
+            {
+                "paymentMethod": {
+                    /**
+                     * ムビチケリスト
+                     */
+                    "serviceOutput": [
+                        {
                             /**
-                             * 予約の価格仕様
+                             * 購入番号
                              */
-                            "priceSpecification": {
-                                "priceComponent": [
-                                    {
-                                        /**
-                                         * 価格仕様タイプ
-                                         */
-                                        "typeOf": "UnitPriceSpecification",
-                                        /**
-                                         * 価格
-                                         */
-                                        "price": 0,
-                                        /**
-                                         * 単価基準数量
-                                         */
-                                        "referenceQuantity": {
-                                            "typeOf": "QuantitativeValue",
-                                            "value": 1,
-                                            "unitCode": "C62"
-                                        },
-                                        "accounting": {
-                                            /**
-                                             * 売上金額
-                                             */
-                                            "accountsReceivable": 1400
-                                        }
-                                    },
-                                    {
-                                        /**
-                                         * 価格仕様タイプ
-                                         */
-                                        "typeOf": "MovieTicketTypeChargeSpecification",
-                                        /**
-                                         * 価格
-                                         */
-                                        "price": 0,
-                                        "appliesToMovieTicket": {
-                                            "serviceOutput": {
-                                                /**
-                                                * 適用決済方法区分
-                                                */
-                                                "typeOf": "MGTicket"
-                                            }
-                                        }
-                                    },
-                                    {
-                                        /**
-                                         * 価格仕様タイプ
-                                         */
-                                        "typeOf": "CategoryCodeChargeSpecification",
-                                        /**
-                                         * 価格
-                                         */
-                                        "price": 0
-                                    },
-                                    {
-                                        /**
-                                         * 価格仕様タイプ
-                                         */
-                                        "typeOf": "UnitPriceSpecification",
-                                        /**
-                                         * 価格
-                                         */
-                                        "price": 300,
-                                        /**
-                                         * 単価基準数量
-                                         */
-                                        "referenceQuantity": {
-                                            "typeOf": "QuantitativeValue",
-                                            "value": 1,
-                                            "unitCode": "C62"
-                                        },
-                                        /**
-                                         * 適用アドオンオファー
-                                         */
-                                        "appliesToAddOn": []
-                                    }
-                                ]
-                            },
-                            /**
-                            * 予約番号
-                            */
-                            "reservationNumber": "12345",
-                            "reservedTicket": {
+                            "identifier": "2127021398",
+                            "serviceOutput": {
                                 /**
-                                * チケットトークン(COAの場合のみ)
+                                 * 予約の価格仕様
+                                 */
+                                "priceSpecification": {
+                                    "priceComponent": [
+                                        {
+                                            /**
+                                             * 価格仕様タイプ
+                                             */
+                                            "typeOf": "UnitPriceSpecification",
+                                            /**
+                                             * 価格
+                                             */
+                                            "price": 0,
+                                            /**
+                                             * 単価基準数量
+                                             */
+                                            "referenceQuantity": {
+                                                "typeOf": "QuantitativeValue",
+                                                "value": 1,
+                                                "unitCode": "C62"
+                                            },
+                                            "accounting": {
+                                                /**
+                                                 * 売上金額
+                                                 */
+                                                "accountsReceivable": 1400
+                                            }
+                                        },
+                                        {
+                                            /**
+                                             * 価格仕様タイプ
+                                             */
+                                            "typeOf": "MovieTicketTypeChargeSpecification",
+                                            /**
+                                             * 価格
+                                             */
+                                            "price": 0,
+                                            "appliesToMovieTicket": {
+                                                "serviceOutput": {
+                                                    /**
+                                                    * 適用決済方法区分
+                                                    */
+                                                    "typeOf": "MGTicket"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            /**
+                                             * 価格仕様タイプ
+                                             */
+                                            "typeOf": "CategoryCodeChargeSpecification",
+                                            /**
+                                             * 価格
+                                             */
+                                            "price": 0
+                                        },
+                                        {
+                                            /**
+                                             * 価格仕様タイプ
+                                             */
+                                            "typeOf": "UnitPriceSpecification",
+                                            /**
+                                             * 価格
+                                             */
+                                            "price": 300,
+                                            /**
+                                             * 単価基準数量
+                                             */
+                                            "referenceQuantity": {
+                                                "typeOf": "QuantitativeValue",
+                                                "value": 1,
+                                                "unitCode": "C62"
+                                            },
+                                            /**
+                                             * 適用アドオンオファー
+                                             */
+                                            "appliesToAddOn": []
+                                        }
+                                    ]
+                                },
+                                /**
+                                * 予約番号
                                 */
-                                "ticketToken": "xxxxx"
+                                "reservationNumber": "12345",
+                                "reservedTicket": {
+                                    /**
+                                    * チケットトークン(COAの場合のみ)
+                                    */
+                                    "ticketToken": "xxxxx"
+                                }
                             }
                         }
-                    }
-                ]
-            },
-            /**
-             * 決済方法ID
-             */
-            "paymentMethodId": "648829745997954"
-        }
-    ],
-    "typeOf": "PayAction"
+                    ]
+                },
+                /**
+                 * 決済方法ID
+                 */
+                "paymentMethodId": "648829745997954"
+            }
+        ],
+        "typeOf": "PayAction"
+    }
 }

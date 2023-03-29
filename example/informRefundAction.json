@@ -1,0 +1,16 @@
+{
+    "data": {
+        "object": [
+            {
+                /**
+                 * 決済方法ID
+                 */
+                "paymentMethodId": "581367984638698"
+            }
+        ],
+        /**
+         * 返金アクションタイプ
+         */
+        "typeOf": "RefundAction"
+    }
+}
