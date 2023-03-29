@@ -4,7 +4,7 @@ import { PaymentStatusType } from './paymentStatusType';
 import * as PersonFactory from './person';
 import { IAccounting } from './priceSpecification';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
-import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
+import { IAppliesToMovieTicket, IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
 import { IAppliesToAddOn as IUnitPriceSpecAppliesToAddOn, IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IPriceSpecification } from './reservation/event';
 import * as SellerFactory from './seller';
@@ -17,13 +17,16 @@ export interface IReferenceOrder extends OrderFactory.IOrder {
 }
 export type IReservationPriceAccounting = Pick<IAccounting, 'accountsReceivable'>;
 export type IAppliesToAddOn = Pick<IUnitPriceSpecAppliesToAddOn, 'typeOf'>;
+export type IMinimizedCategoryCodeChargeSpecification = Pick<ICategoryCodeChargeSpecification, 'typeOf' | 'price'>;
+export type IMinimizedMovieTicketTypeChargeSpecification = Pick<IMovieTicketTypeChargeSpecification, 'typeOf' | 'price'> & {
+    appliesToMovieTicket: Pick<IAppliesToMovieTicket, 'serviceOutput'>;
+};
+export type IMinimizedUnitPriceSpecification = Pick<IUnitPriceSpecification, 'typeOf' | 'price' | 'referenceQuantity'> & {
+    accounting?: IReservationPriceAccounting;
+    appliesToAddOn?: IAppliesToAddOn[];
+};
 export type IPriceComponentSpecification =
-    Pick<ICategoryCodeChargeSpecification, 'typeOf' | 'price'>
-    | Pick<IMovieTicketTypeChargeSpecification, 'typeOf' | 'price'>
-    | Pick<IUnitPriceSpecification, 'typeOf' | 'price' | 'referenceQuantity'> & {
-        accounting?: IReservationPriceAccounting;
-        appliesToAddOn?: IAppliesToAddOn[];
-    };
+    IMinimizedCategoryCodeChargeSpecification | IMinimizedMovieTicketTypeChargeSpecification | IMinimizedUnitPriceSpecification;
 export type IReservationPriceSpecification = Pick<IPriceSpecification, 'typeOf'> & {
     priceComponent: IPriceComponentSpecification[];
 };

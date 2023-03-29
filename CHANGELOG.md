@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.309.0 - 2023-03-29
+
+### Added
+
+- 決済通知の決済カード加算料金に適用決済方法区分を追加
+- タスク検索条件拡張
+
 ## v4.308.0 - 2023-03-27
 
 ### Added
