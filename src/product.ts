@@ -177,7 +177,7 @@ export interface ISearchConditions {
 export interface IServiceOutputSearchConditions {
     limit?: number;
     page?: number;
-    sort?: ISortOrder;
+    // sort?: ISortOrder;
     project?: { id?: { $eq?: string } };
     accessCode?: { $eq?: string };
     id?: { $eq?: string };
