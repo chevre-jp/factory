@@ -16,6 +16,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Fixed
 
+- 顧客ソート条件を修正
+
 ### Security
 
 ## v4.309.0 - 2023-03-29
