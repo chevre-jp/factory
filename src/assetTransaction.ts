@@ -121,8 +121,6 @@ export type ITransaction<TStartParams, TResult, TError, TPotentialActions> =
  */
 export interface ISortOrder {
     startDate?: SortType;
-    endDate?: SortType;
-    status?: SortType;
 }
 export interface ISearchConditions<T extends AssetTransactionType> {
     limit?: number;

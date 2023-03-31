@@ -48,15 +48,15 @@ export interface IAccountTitle {
 }
 
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     codeValue?: SortType;
-    name?: SortType;
+    // name?: SortType;
 }
 
 /**
- * 検索条件インターフェース
+ * 検索条件
  */
 export interface ISearchConditions {
     limit?: number;

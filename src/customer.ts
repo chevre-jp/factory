@@ -36,12 +36,11 @@ export interface ICustomer extends IOrganization {
 }
 
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
-    startDate?: SortType;
+    branchCode?: SortType;
 }
-
 /**
  * 顧客検索条件
  */
