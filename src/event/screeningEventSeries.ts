@@ -216,5 +216,6 @@ export interface ISearchConditions extends EventFactory.ISearchConditions<EventT
          * コンテンツコード
          */
         identifiers?: string[];
+        version?: { $eq?: string };
     };
 }

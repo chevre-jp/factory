@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - 施設コンテンツのworkPerformedにversionを追加
+- 施設コンテンツ検索条件拡張
 
 ### Changed
 
