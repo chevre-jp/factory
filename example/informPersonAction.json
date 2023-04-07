@@ -1,0 +1,517 @@
+{
+    "data": {
+        /**
+         * 旧ユーザープールにおけるCognitoユーザー情報
+         */
+        "cognitoUser": {
+            "Attributes": [
+                {
+                    "Name": "sub",
+                    "Value": "6513970e-5094-461a-9bed-43db9d28592c"
+                },
+                {
+                    "Name": "birthdate",
+                    "Value": "1988-01-01"
+                },
+                {
+                    "Name": "email_verified",
+                    "Value": "true"
+                },
+                {
+                    "Name": "gender",
+                    "Value": "0"
+                },
+                {
+                    "Name": "phone_number_verified",
+                    "Value": "false"
+                },
+                {
+                    "Name": "phone_number",
+                    "Value": "+819012345678"
+                },
+                {
+                    "Name": "given_name",
+                    "Value": "メイ"
+                },
+                {
+                    "Name": "family_name",
+                    "Value": "セイ"
+                },
+                {
+                    "Name": "email",
+                    "Value": "test@example.com"
+                },
+                {
+                    "Name": "custom:postalCode",
+                    "Value": "1234567"
+                }
+            ],
+            "Enabled": true,
+            "UserCreateDate": "2023-04-03T06:34:13.507Z",
+            "UserLastModifiedDate": "2023-04-03T06:34:28.336Z",
+            "UserStatus": "CONFIRMED",
+            /**
+             * 旧ユーザーネーム
+             */
+            "Username": "oldusername12345"
+        },
+        /**
+         * 所有予約
+         */
+        "reservations": [
+            {
+                "typeOf": "OwnershipInfo",
+                /**
+                 * 予約内容
+                 */
+                "typeOfGood": {
+                    "project": {
+                        "typeOf": "Project",
+                        "id": "sskts-development"
+                    },
+                    "typeOf": "EventReservation",
+                    "id": "35389-0",
+                    "issuedThrough": {
+                        "typeOf": "EventService",
+                        "id": "",
+                        "availableChannel": {
+                            "typeOf": "ServiceChannel",
+                            "serviceLocation": {
+                                "typeOf": "ScreeningRoom",
+                                "branchCode": "30",
+                                "name": {
+                                    "ja": "シアター３",
+                                    "en": "THEATER3"
+                                },
+                                "containedInPlace": {
+                                    "typeOf": "MovieTheater",
+                                    "id": "5e9a6a7602536f0007a597bd",
+                                    "branchCode": "120",
+                                    "name": {
+                                        "ja": "シネマテスト",
+                                        "en": "CinemaTest120"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "bookingTime": "2023-04-03T06:36:17.349Z",
+                    "reservationFor": {
+                        "typeOf": "ScreeningEvent",
+                        "coaInfo": {
+                            "theaterCode": "120",
+                            "dateJouei": "20230403",
+                            "titleCode": "99100",
+                            "titleBranchNum": "0",
+                            "timeBegin": "1720",
+                            "timeEnd": "1906",
+                            "screenCode": "30",
+                            "trailerTime": 6,
+                            "kbnService": {
+                                "kubunCode": "000",
+                                "kubunName": "通常",
+                                "kubunNameEng": null,
+                                "kubunAddPrice": 0
+                            },
+                            "kbnAcoustic": {
+                                "kubunCode": "000",
+                                "kubunName": "なし",
+                                "kubunNameEng": null,
+                                "kubunAddPrice": 0
+                            },
+                            "nameServiceDay": "",
+                            "availableNum": 6,
+                            "rsvStartDate": "20221226",
+                            "rsvEndDate": "20230403",
+                            "flgEarlyBooking": "0"
+                        },
+                        "endDate": "2023-04-03T10:06:00.000Z",
+                        "identifier": "12099100020230403301720",
+                        "location": {
+                            "typeOf": "ScreeningRoom",
+                            "branchCode": "30",
+                            "name": {
+                                "ja": "シアター３",
+                                "en": "THEATER3"
+                            }
+                        },
+                        "name": {
+                            "ja": "通常作品テスト",
+                            "en": "TEST"
+                        },
+                        "startDate": "2023-04-03T08:20:00.000Z",
+                        "superEvent": {
+                            "typeOf": "ScreeningEventSeries",
+                            "id": "120991000",
+                            "identifier": "120991000",
+                            "name": {
+                                "ja": "通常作品テスト",
+                                "en": "TEST"
+                            },
+                            "kanaName": "ツウジョウサクヒンテスト",
+                            "alternativeHeadline": "通常作品テスト",
+                            "location": {
+                                "id": "5e9a6a7602536f0007a597bd",
+                                "branchCode": "120",
+                                "name": {
+                                    "ja": "シネマテスト",
+                                    "en": "CinemaTest120"
+                                },
+                                "kanaName": "シネマ１２０",
+                                "typeOf": "MovieTheater"
+                            },
+                            "videoFormat": {
+                                "kubunCode": "001",
+                                "kubunName": "２Ｄ",
+                                "kubunNameEng": null,
+                                "kubunAddPrice": 0
+                            },
+                            "soundFormat": [],
+                            "workPerformed": {
+                                "id": "120-99100",
+                                "identifier": "99100",
+                                "name": {
+                                    "ja": "通常作品テスト"
+                                },
+                                "duration": "PT1H40M",
+                                "typeOf": "Movie"
+                            },
+                            "duration": "PT1H40M",
+                            "coaInfo": {
+                                "titleBranchNum": "0",
+                                "kbnEirin": {
+                                    "kubunCode": "000",
+                                    "kubunName": "なし",
+                                    "kubunNameEng": null,
+                                    "kubunAddPrice": 0
+                                },
+                                "kbnEizou": {
+                                    "kubunCode": "001",
+                                    "kubunName": "２Ｄ",
+                                    "kubunNameEng": null,
+                                    "kubunAddPrice": 0
+                                },
+                                "kbnJoueihousiki": {
+                                    "kubunCode": "000",
+                                    "kubunName": "通常",
+                                    "kubunNameEng": null,
+                                    "kubunAddPrice": 0
+                                },
+                                "kbnJimakufukikae": {
+                                    "kubunCode": "000",
+                                    "kubunName": "なし",
+                                    "kubunNameEng": null,
+                                    "kubunAddPrice": 0
+                                },
+                                "flgMvtkUse": "0",
+                                "dateMvtkBegin": "        "
+                            }
+                        },
+                        "id": "12099100020230403301720"
+                    },
+                    "reservationNumber": "35389",
+                    "reservedTicket": {
+                        "typeOf": "Ticket",
+                        "coaTicketInfo": {
+                            "ticketCode": "10",
+                            "ticketName": "当日一般",
+                            "ticketNameEng": "General Price",
+                            "ticketNameKana": "トウジツイッパン",
+                            "stdPrice": 1800,
+                            "addPrice": 0,
+                            "disPrice": 0,
+                            "salesTicketSalePrice": 1800,
+                            "spseatAdd1": 0,
+                            "spseatAdd2": 0,
+                            "spseatKbn": "000",
+                            "addGlasses": 0,
+                            "ticketCount": 1,
+                            "seatNum": "ｐ－２２",
+                            "mvtkAppPrice": 0,
+                            "kbnEisyahousiki": "00",
+                            "mvtkNum": "",
+                            "mvtkKbnDenshiken": "00",
+                            "mvtkKbnMaeuriken": "00",
+                            "mvtkKbnKensyu": "00",
+                            "mvtkSalesPrice": 0,
+                            "kbnMgtk": "",
+                            "limitUnit": "001",
+                            "limitCount": 1,
+                            "usePoint": 0,
+                            "salePrice": 1800
+                        },
+                        "coaReserveAmount": 3300,
+                        "dateIssued": "2023-04-03T06:36:17.349Z",
+                        "ticketedSeat": {
+                            "typeOf": "Seat",
+                            "seatNumber": "ｐ－２２",
+                            "seatRow": "",
+                            "seatSection": "   "
+                        },
+                        "ticketNumber": "1202023040300035389001",
+                        "ticketToken": "1202023040300035389001",
+                        "ticketType": {
+                            "typeOf": "Offer",
+                            "id": "7iri35ckkgecdj2",
+                            "identifier": "COA-120-10",
+                            "name": {
+                                "ja": "当日一般",
+                                "en": "General Price"
+                            }
+                        }
+                    },
+                    "bookingService": {
+                        "typeOf": "WebAPI",
+                        "identifier": "COA"
+                    }
+                },
+                "ownedFrom": "2023-04-03T06:36:32.366Z",
+                "ownedThrough": "2023-04-03T10:06:00.000Z"
+            },
+            {
+                "id": "ec05cdc0-a3ad-4cc1-a56c-1fb47a02f571",
+                "typeOf": "OwnershipInfo",
+                "typeOfGood": {
+                    "project": {
+                        "typeOf": "Project",
+                        "id": "sskts-development"
+                    },
+                    "typeOf": "EventReservation",
+                    "id": "35389-1",
+                    "issuedThrough": {
+                        "typeOf": "EventService",
+                        "id": "",
+                        "availableChannel": {
+                            "typeOf": "ServiceChannel",
+                            "serviceLocation": {
+                                "typeOf": "ScreeningRoom",
+                                "branchCode": "30",
+                                "name": {
+                                    "ja": "シアター３",
+                                    "en": "THEATER3"
+                                },
+                                "containedInPlace": {
+                                    "typeOf": "MovieTheater",
+                                    "id": "5e9a6a7602536f0007a597bd",
+                                    "branchCode": "120",
+                                    "name": {
+                                        "ja": "シネマテスト",
+                                        "en": "CinemaTest120"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "bookingTime": "2023-04-03T06:36:17.349Z",
+                    "reservationFor": {
+                        "typeOf": "ScreeningEvent",
+                        "coaInfo": {
+                            "theaterCode": "120",
+                            "dateJouei": "20230403",
+                            "titleCode": "99100",
+                            "titleBranchNum": "0",
+                            "timeBegin": "1720",
+                            "timeEnd": "1906",
+                            "screenCode": "30",
+                            "trailerTime": 6,
+                            "kbnService": {
+                                "kubunCode": "000",
+                                "kubunName": "通常",
+                                "kubunNameEng": null,
+                                "kubunAddPrice": 0
+                            },
+                            "kbnAcoustic": {
+                                "kubunCode": "000",
+                                "kubunName": "なし",
+                                "kubunNameEng": null,
+                                "kubunAddPrice": 0
+                            },
+                            "nameServiceDay": "",
+                            "availableNum": 6,
+                            "rsvStartDate": "20221226",
+                            "rsvEndDate": "20230403",
+                            "flgEarlyBooking": "0"
+                        },
+                        "endDate": "2023-04-03T10:06:00.000Z",
+                        "identifier": "12099100020230403301720",
+                        "location": {
+                            "typeOf": "ScreeningRoom",
+                            "branchCode": "30",
+                            "name": {
+                                "ja": "シアター３",
+                                "en": "THEATER3"
+                            }
+                        },
+                        "name": {
+                            "ja": "通常作品テスト",
+                            "en": "TEST"
+                        },
+                        "startDate": "2023-04-03T08:20:00.000Z",
+                        "superEvent": {
+                            "typeOf": "ScreeningEventSeries",
+                            "id": "120991000",
+                            "identifier": "120991000",
+                            "name": {
+                                "ja": "通常作品テスト",
+                                "en": "TEST"
+                            },
+                            "kanaName": "ツウジョウサクヒンテスト",
+                            "alternativeHeadline": "通常作品テスト",
+                            "location": {
+                                "id": "5e9a6a7602536f0007a597bd",
+                                "branchCode": "120",
+                                "name": {
+                                    "ja": "シネマテスト",
+                                    "en": "CinemaTest120"
+                                },
+                                "kanaName": "シネマ１２０",
+                                "typeOf": "MovieTheater"
+                            },
+                            "videoFormat": {
+                                "kubunCode": "001",
+                                "kubunName": "２Ｄ",
+                                "kubunNameEng": null,
+                                "kubunAddPrice": 0
+                            },
+                            "soundFormat": [],
+                            "workPerformed": {
+                                "id": "120-99100",
+                                "identifier": "99100",
+                                "name": {
+                                    "ja": "通常作品テスト"
+                                },
+                                "duration": "PT1H40M",
+                                "typeOf": "Movie"
+                            },
+                            "duration": "PT1H40M",
+                            "coaInfo": {
+                                "titleBranchNum": "0",
+                                "kbnEirin": {
+                                    "kubunCode": "000",
+                                    "kubunName": "なし",
+                                    "kubunNameEng": null,
+                                    "kubunAddPrice": 0
+                                },
+                                "kbnEizou": {
+                                    "kubunCode": "001",
+                                    "kubunName": "２Ｄ",
+                                    "kubunNameEng": null,
+                                    "kubunAddPrice": 0
+                                },
+                                "kbnJoueihousiki": {
+                                    "kubunCode": "000",
+                                    "kubunName": "通常",
+                                    "kubunNameEng": null,
+                                    "kubunAddPrice": 0
+                                },
+                                "kbnJimakufukikae": {
+                                    "kubunCode": "000",
+                                    "kubunName": "なし",
+                                    "kubunNameEng": null,
+                                    "kubunAddPrice": 0
+                                },
+                                "flgMvtkUse": "0",
+                                "dateMvtkBegin": "        "
+                            }
+                        },
+                        "id": "12099100020230403301720"
+                    },
+                    "reservationNumber": "35389",
+                    "reservedTicket": {
+                        "typeOf": "Ticket",
+                        "coaTicketInfo": {
+                            "ticketCode": "40",
+                            "ticketName": "大学生",
+                            "ticketNameEng": "",
+                            "ticketNameKana": "",
+                            "stdPrice": 1500,
+                            "addPrice": 0,
+                            "disPrice": 0,
+                            "salesTicketSalePrice": 1500,
+                            "spseatAdd1": 0,
+                            "spseatAdd2": 0,
+                            "spseatKbn": "000",
+                            "addGlasses": 0,
+                            "ticketCount": 1,
+                            "seatNum": "ｐ－２３",
+                            "mvtkAppPrice": 0,
+                            "kbnEisyahousiki": "00",
+                            "mvtkNum": "",
+                            "mvtkKbnDenshiken": "00",
+                            "mvtkKbnMaeuriken": "00",
+                            "mvtkKbnKensyu": "00",
+                            "mvtkSalesPrice": 0,
+                            "kbnMgtk": "",
+                            "limitUnit": "001",
+                            "limitCount": 1,
+                            "usePoint": 0,
+                            "salePrice": 1500
+                        },
+                        "coaReserveAmount": 3300,
+                        "dateIssued": "2023-04-03T06:36:17.349Z",
+                        "ticketedSeat": {
+                            "typeOf": "Seat",
+                            "seatNumber": "ｐ－２３",
+                            "seatRow": "",
+                            "seatSection": "   "
+                        },
+                        "ticketNumber": "1202023040300035389002",
+                        "ticketToken": "1202023040300035389002",
+                        "ticketType": {
+                            "typeOf": "Offer",
+                            "id": "7iri35ckkgecdj4",
+                            "identifier": "COA-120-40",
+                            "name": {
+                                "ja": "大学生",
+                                "en": ""
+                            }
+                        }
+                    },
+                    "bookingService": {
+                        "typeOf": "WebAPI",
+                        "identifier": "COA"
+                    }
+                },
+                "ownedFrom": "2023-04-03T06:36:32.366Z",
+                "ownedThrough": "2023-04-03T10:06:00.000Z"
+            }
+        ],
+        /**
+         * 所有メンバーシップ
+         */
+        "memberships": [
+            {
+                "typeOf": "OwnershipInfo",
+                "typeOfGood": {
+                    "identifier": "791847452956279"
+                },
+                /**
+                 * メンバーシップ有効期間(from)
+                 */
+                "ownedFrom": "2023-04-03T06:35:19.295Z",
+                /**
+                 * メンバーシップ有効期間(through)
+                 */
+                "ownedThrough": "2023-04-03T07:05:19.295Z"
+            }
+        ],
+        /**
+         * 所有ポイントカード
+         */
+        "paymentCards": [
+            {
+                "typeOf": "OwnershipInfo",
+                "typeOfGood": {
+                    /**
+                     * ポイント残高
+                     */
+                    "balance": 2,
+                    /**
+                     * ポイントカード番号
+                     */
+                    "identifier": "139045419054583"
+                }
+            }
+        ]
+    }
+}

@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.310.0 - 2023-04-07
+
+### Added
+
+- 施設コンテンツのworkPerformedにversionを追加
+- 施設コンテンツ検索条件拡張
+
 ## v4.309.1 - 2023-03-31
 
 ### Fixed

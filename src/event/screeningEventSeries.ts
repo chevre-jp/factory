@@ -34,10 +34,14 @@ export interface ISoundFormat {
  */
 export type IWorkPerformed = Pick<
     IMovie,
-    // 不要なので廃止(2022-12-19~)
-    // 'project' |
     'typeOf' | 'id' | 'identifier' | 'name' | 'duration' | 'contentRating'
->;
+> & {
+    /**
+     * 同コンテンツに対する複数施設コンテンツのバージョン
+     * identifier+versionでuniqueな想定
+     */
+    version?: string;
+};
 export interface IOrganizer {
     typeOf: OrganizationType.Corporation;
     identifier: string;
@@ -163,7 +167,14 @@ export type ICreateParams = Omit<
     'location' | 'workPerformed' | 'coaInfo' | 'organizer' | 'duration' | 'videoFormat' | 'alternativeHeadline'
 > & {
     location: { id: string };
-    workPerformed: { identifier: string };
+    workPerformed: {
+        identifier: string;
+        /**
+         * 同コンテンツに対する複数施設コンテンツのバージョン
+         * identifier+versionでuniqueな想定
+         */
+        version?: string;
+    };
     videoFormat: IVideoFormat[];
 };
 /**
@@ -205,5 +216,6 @@ export interface ISearchConditions extends EventFactory.ISearchConditions<EventT
          * コンテンツコード
          */
         identifiers?: string[];
+        version?: { $eq?: string };
     };
 }
