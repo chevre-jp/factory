@@ -163,4 +163,5 @@ export interface ISearchConditions<T extends AssetTransactionType> {
     transactionNumber?: {
         $eq?: string;
     };
+    tasksExportationStatuses?: TransactionTasksExportationStatus[];
 }
