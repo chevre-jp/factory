@@ -39,6 +39,11 @@ export interface IProject {
     id: string;
     typeOf: OrganizationType.Project;
 }
+export interface ITasksExportAction {
+    agent?: { name: string };
+    startDate: Date;
+    endDate?: Date;
+}
 /**
  * 資産取引開始パラメータ
  */
@@ -98,6 +103,7 @@ export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TSta
      * 取引終了日時
      */
     endDate?: Date;
+    tasksExportAction?: ITasksExportAction;
     /**
      * タスクエクスポート日時
      */

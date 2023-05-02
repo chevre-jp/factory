@@ -8,7 +8,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 取引にtasksExportActionを追加
+- 資産取引にtasksExportActionを追加
+- タスクにexecutorを追加
+
 ### Changed
+
+- タスクのexecutionResultsを拡張
 
 ### Deprecated
 
