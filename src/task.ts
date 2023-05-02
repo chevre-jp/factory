@@ -5,12 +5,17 @@ import { TaskName } from './taskName';
 import { TaskStatus } from './taskStatus';
 
 export type IData = any;
+export type IExecutionErrorAsObject = Error;
 /**
  * タスク実行結果
  */
 export interface IExecutionResult {
     executedAt: Date;
-    error: any;
+    endDate: Date;
+    error: string | IExecutionErrorAsObject;
+}
+export interface IExecutor {
+    name: string;
 }
 /**
  * タスク
@@ -46,6 +51,7 @@ export interface IAttributes {
      * 実行結果リスト
      */
     executionResults: IExecutionResult[];
+    executor?: IExecutor;
     /**
      * データ
      * TaskNameによってインターフェースが決定する
