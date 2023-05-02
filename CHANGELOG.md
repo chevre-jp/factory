@@ -8,13 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 取引にtasksExportActionを追加
-- 資産取引にtasksExportActionを追加
-- タスクにexecutorを追加
-
 ### Changed
-
-- タスクのexecutionResultsを拡張
 
 ### Deprecated
 
@@ -23,6 +17,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.312.0 - 2023-05-02
+
+### Added
+
+- 取引にtasksExportActionを追加
+- 資産取引にtasksExportActionを追加
+- タスクにexecutorを追加
+
+### Changed
+
+- タスクのexecutionResultsを拡張
 
 ## v4.311.0 - 2023-04-21
 
