@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - 取引への承認アクションの保管を廃止
+- 注文削除タスクを最適化
+- 取引削除タスクを最適化
 
 ### Deprecated
 

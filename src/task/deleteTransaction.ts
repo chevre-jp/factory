@@ -5,7 +5,7 @@ import { ITransaction as IMoneyTransfer } from '../transaction/moneyTransfer';
 import { ITransaction as IPlaceOrder } from '../transaction/placeOrder';
 import { ITransaction as IReturnOrder } from '../transaction/returnOrder';
 
-export type IObject = IPlaceOrder | IReturnOrder | IMoneyTransfer;
+export type IObject = Pick<IPlaceOrder | IReturnOrder | IMoneyTransfer, 'project' | 'id' | 'typeOf' | 'startDate' | 'endDate'>;
 export interface IData {
     object: IObject;
 }

@@ -4,13 +4,13 @@ import * as TaskFactory from '../task';
 import { TaskName } from '../taskName';
 
 export interface IData {
-    object: IOrder;
+    object: Pick<IOrder, 'project' | 'typeOf' | 'confirmationNumber' | 'orderDate' | 'orderNumber'>;
 }
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.DeleteOrder;
     data: IData;
 }
 /**
- * 注文削除タスクインターフェース
+ * 注文削除タスク
  */
 export type ITask = IExtendId<IAttributes>;
