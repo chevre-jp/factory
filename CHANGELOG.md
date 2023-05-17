@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- インボイスのMovieTicketに計上金額を追加
+
 ### Changed
 
 - 取引への承認アクションの保管を廃止
