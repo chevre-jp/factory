@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - インボイスのMovieTicketに計上金額を追加
+- 返金取引検索条件拡張
 
 ### Changed
 
