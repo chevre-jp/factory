@@ -10,7 +10,10 @@ import { SortType } from './sortType';
 import { UnitCode } from './unitCode';
 
 // strict definition(2022-08-04~)
-export type ISellerMerchantReturnPolicy = Pick<IMerchantReturnPolicy, 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'url'>;
+export type ISellerMerchantReturnPolicy = Pick<
+    IMerchantReturnPolicy,
+    'itemCondition' | 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'url'
+>;
 export type IHasMerchantReturnPolicy = ISellerMerchantReturnPolicy[];
 /**
  * 利用可能決済

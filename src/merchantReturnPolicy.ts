@@ -1,4 +1,5 @@
 import { IMonetaryAmount } from './monetaryAmount';
+import { IOfferItemCondition } from './offerItemCondition';
 import { IThing } from './thing';
 
 export enum RefundTypeEnumeration {
@@ -47,6 +48,7 @@ export enum MerchantReturnEnumeration {
     MerchantReturnUnspecified = 'MerchantReturnUnspecified'
 }
 export type IRestockingFee = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
+export type IItemCondition = Pick<IOfferItemCondition, 'typeOf' | 'id'>;
 export interface IMerchantReturnPolicy extends Pick<IThing, 'name' | 'url'> {
     typeOf: 'MerchantReturnPolicy';
     /**
@@ -61,6 +63,7 @@ export interface IMerchantReturnPolicy extends Pick<IThing, 'name' | 'url'> {
      * Are in-store returns offered?
      */
     inStoreReturnsOffered?: boolean;
+    itemCondition?: IItemCondition;
     /**
      * The merchantReturnDays property indicates the number of days (from purchase)
      * within which relevant merchant return policy is applicable. Supersedes productReturnDays.
