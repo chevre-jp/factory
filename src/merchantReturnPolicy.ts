@@ -49,16 +49,19 @@ export enum MerchantReturnEnumeration {
 }
 export type IRestockingFee = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
 export type IItemCondition = Pick<IOfferItemCondition, 'typeOf' | 'id'>;
+export type ICustomerRemorseReturnFees = ReturnFeesEnumeration;
+export type ICustomerRemorseReturnFeesMovieTicket =
+    ReturnFeesEnumeration.FreeReturn | ReturnFeesEnumeration.ReturnFeesCustomerResponsibility;
 export interface IMerchantReturnPolicy extends Pick<IThing, 'name' | 'url'> {
     typeOf: 'MerchantReturnPolicy';
     /**
      * The type of return fees if the product is returned due to customer remorse.
      */
-    customerRemorseReturnFees?: ReturnFeesEnumeration;
+    customerRemorseReturnFees?: ICustomerRemorseReturnFees;
     /**
      * 決済カード着券取消仕様
      */
-    customerRemorseReturnFeesMovieTicket?: ReturnFeesEnumeration;
+    customerRemorseReturnFeesMovieTicket?: ICustomerRemorseReturnFeesMovieTicket;
     /**
      * Are in-store returns offered?
      */
@@ -81,7 +84,8 @@ export interface IMerchantReturnPolicy extends Pick<IThing, 'name' | 'url'> {
      * Use MonetaryAmount to specify a fixed restocking fee for product returns,
      * or use Number to specify a percentage of the product price paid by the customer.
      */
-    restockingFee?: IRestockingFee | number;
+    // restockingFee?: IRestockingFee | number;
+    restockingFee?: IRestockingFee;
     /**
      * Indicates (via enumerated options) the return fees policy for a MerchantReturnPolicy
      */

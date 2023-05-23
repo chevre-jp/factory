@@ -1,4 +1,4 @@
-import { IMerchantReturnPolicy } from './merchantReturnPolicy';
+import { IMerchantReturnPolicy, IRestockingFee } from './merchantReturnPolicy';
 import { IMultilingualString } from './multilingualString';
 import { IOffer } from './offer';
 import { IOrganization } from './organization';
@@ -13,7 +13,9 @@ import { UnitCode } from './unitCode';
 export type ISellerMerchantReturnPolicy = Pick<
     IMerchantReturnPolicy,
     'itemCondition' | 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'url'
->;
+> & {
+    restockingFee: IRestockingFee;
+};
 export type IHasMerchantReturnPolicy = ISellerMerchantReturnPolicy[];
 /**
  * 利用可能決済
