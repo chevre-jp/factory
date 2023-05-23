@@ -48,7 +48,7 @@ export enum MerchantReturnEnumeration {
     MerchantReturnUnspecified = 'MerchantReturnUnspecified'
 }
 export type IRestockingFee = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
-export type IItemCondition = Pick<IOfferItemCondition, 'typeOf' | 'id'>;
+export type IItemCondition = Pick<IOfferItemCondition, 'typeOf' | 'id'> & { id: string; name: { ja: string } };
 export type ICustomerRemorseReturnFees = ReturnFeesEnumeration;
 export type ICustomerRemorseReturnFeesMovieTicket =
     ReturnFeesEnumeration.FreeReturn | ReturnFeesEnumeration.ReturnFeesCustomerResponsibility;
