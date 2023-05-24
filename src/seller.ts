@@ -79,6 +79,13 @@ export interface ISearchConditions {
         $eq?: string;
         $regex?: string;
     };
+    hasMerchantReturnPolicy?: {
+        itemCondition?: {
+            id?: {
+                $eq?: string;
+            };
+        };
+    };
     /**
      * 名称
      */
