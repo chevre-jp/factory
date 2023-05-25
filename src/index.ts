@@ -140,9 +140,7 @@ import * as ConfirmPayTransactionTaskFactory from './task/confirmPayTransaction'
 import * as ConfirmRegisterServiceTaskFactory from './task/confirmRegisterService';
 import * as ConfirmRegisterServiceTransactionTaskFactory from './task/confirmRegisterServiceTransaction';
 import * as ConfirmReserveTransactionTaskFactory from './task/confirmReserveTransaction';
-import * as DeleteAssetTransactionTaskFactory from './task/deleteAssetTransaction';
 import * as DeleteMemberTaskFactory from './task/deleteMember';
-import * as DeleteOrderTaskFactory from './task/deleteOrder';
 import * as DeleteTransactionTaskFactory from './task/deleteTransaction';
 import * as GivePointAwardTaskFactory from './task/givePointAward';
 import * as ImportEventCapacitiesFromCOATaskFactory from './task/importEventCapacitiesFromCOA';
@@ -550,9 +548,7 @@ export import seller = SellerFactory;
 export namespace task {
     export type IData<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.IData :
-        T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.IData :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IData :
-        T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.IData :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.IData :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IData :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IData :
@@ -577,9 +573,7 @@ export namespace task {
 
     export type IAttributes<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.IAttributes :
-        T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.IAttributes :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IAttributes :
-        T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.IAttributes :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.IAttributes :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IAttributes :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IAttributes :
@@ -604,9 +598,7 @@ export namespace task {
 
     export type ITask<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.ITask :
-        T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.ITask :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.ITask :
-        T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.ITask :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.ITask :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.ITask :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.ITask :
@@ -638,7 +630,6 @@ export namespace task {
     export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
-    export import deleteAssetTransaction = DeleteAssetTransactionTaskFactory;
     export import deleteTransaction = DeleteTransactionTaskFactory;
     export import importEventCapacitiesFromCOA = ImportEventCapacitiesFromCOATaskFactory;
     export import importEventsFromCOA = ImportEventsFromCOATaskFactory;

@@ -25,6 +25,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- DeleteAssetTransactionタスクを廃止
+- DeleteOrderタスクを廃止
+
 ### Fixed
 
 ### Security

@@ -2,31 +2,19 @@
  * タスク名
  */
 export enum TaskName {
-    Reserve = 'reserve',
-    CancelReservation = 'cancelReservation',
-    CancelPendingReservation = 'cancelPendingReservation',
+    /**
+     * 口座転送
+     */
+    AccountMoneyTransfer = 'accountMoneyTransfer',
     AggregateScreeningEvent = 'aggregateScreeningEvent',
     AggregateUseActionsOnEvent = 'aggregateUseActionsOnEvent',
-    DeleteAssetTransaction = 'deleteAssetTransaction',
-    DeleteOrder = 'deleteOrder',
-    DeleteTransaction = 'deleteTransaction',
-    ImportEventCapacitiesFromCOA = 'importEventCapacitiesFromCOA',
-    ImportEventsFromCOA = 'importEventsFromCOA',
-    ImportOffersFromCOA = 'importOffersFromCOA',
+    /**
+     * 口座転送中止
+     */
+    CancelAccountMoneyTransfer = 'cancelAccountMoneyTransfer',
     CancelMoneyTransfer = 'cancelMoneyTransfer',
-    MoneyTransfer = 'moneyTransfer',
-    Refund = 'refund',
-    RegisterService = 'registerService',
-    Pay = 'pay',
-    /**
-     *  Eメールメッセージ送信
-     */
-    SendEmailMessage = 'sendEmailMessage',
-    /**
-     * ウェブフックをたたく
-     */
-    TriggerWebhook = 'triggerWebhook',
-    VoidPayment = 'voidPayment',
+    CancelReservation = 'cancelReservation',
+    CancelPendingReservation = 'cancelPendingReservation',
     /**
      * 通貨転送
      */
@@ -51,18 +39,30 @@ export enum TaskName {
      * 会員削除
      */
     DeleteMember = 'deleteMember',
+    DeleteTransaction = 'deleteTransaction',
     /**
      * ポイント特典付与
      */
     GivePointAward = 'givePointAward',
+    ImportEventCapacitiesFromCOA = 'importEventCapacitiesFromCOA',
+    ImportEventsFromCOA = 'importEventsFromCOA',
+    ImportOffersFromCOA = 'importOffersFromCOA',
+    MoneyTransfer = 'moneyTransfer',
     /**
      * メンバーシップ注文
      */
     OrderProgramMembership = 'orderProgramMembership',
+    Pay = 'pay',
     /**
      * 注文受付
      */
     PlaceOrder = 'placeOrder',
+    Refund = 'refund',
+    RegisterService = 'registerService',
+    /**
+     *  Eメールメッセージ送信
+     */
+    Reserve = 'reserve',
     /**
      * 注文返品
      */
@@ -83,10 +83,16 @@ export enum TaskName {
      * 予約資産取引返却
      */
     ReturnReserveTransaction = 'returnReserveTransaction',
+    SendEmailMessage = 'sendEmailMessage',
     /**
      * 注文配送
      */
     SendOrder = 'sendOrder',
+    /**
+     * ウェブフックをたたく
+     */
+    TriggerWebhook = 'triggerWebhook',
+    VoidPayment = 'voidPayment',
     /**
      * 通貨転送中止
      */
@@ -102,14 +108,5 @@ export enum TaskName {
     /**
      * 予約中止
      */
-    VoidReserveTransaction = 'voidReserveTransaction',
-
-    /**
-     * 口座転送中止
-     */
-    CancelAccountMoneyTransfer = 'cancelAccountMoneyTransfer',
-    /**
-     * 口座転送
-     */
-    AccountMoneyTransfer = 'accountMoneyTransfer'
+    VoidReserveTransaction = 'voidReserveTransaction'
 }
