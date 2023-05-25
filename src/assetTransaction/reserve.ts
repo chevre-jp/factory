@@ -229,13 +229,19 @@ export interface IObjectWithoutDetail {
 export type IReservationFor = IBusReservationReservationFor | IEventReservationReservationFor;
 // 取引のsubReservationからはreservationForを削除する
 export type IObjectSubReservation = ReserveActionFactory.ISubReservation;
+export type IMinimizedObjectSubReservation = Pick<
+    ReserveActionFactory.ISubReservation,
+    'typeOf' | 'id' | 'reservationStatus' | 'subReservation' | 'underName'
+>;
 /**
  * 取引対象物
  */
-export interface IObject extends IReservationPackage {
+export interface IObject extends Omit<IReservationPackage, 'subReservation'> {
     acceptedOffer?: IAcceptedOffer4object[];
     reservationFor?: IReservationFor;
+    reservationNumber: string;
     subReservation?: IObjectSubReservation[];
+    // subReservation?: IMinimizedObjectSubReservation[];
 }
 export interface IPotentialActions {
     reserve: ReserveActionFactory.IAttributes[];
