@@ -22,6 +22,10 @@ export interface IItemOffered {
     typeOf: ProductType.EventService;
     serviceOutput?: {
         typeOf: ReservationType.EventReservation;
+        /**
+         * 未使用のみ
+         */
+        onlyUnused?: boolean;
         reservationFor: {
             /**
              * n秒前設定
