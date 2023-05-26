@@ -131,7 +131,6 @@ export interface IAcceptedAddOn {
      */
     id?: string;
 }
-// export type IAcceptedPaymentMethod = Omit<IMovieTicket, 'category'>;
 export interface ISingleAcceptedAppliesToMovieTicket {
     /**
      * 適用決済カード識別子
@@ -229,19 +228,22 @@ export interface IObjectWithoutDetail {
 export type IReservationFor = IBusReservationReservationFor | IEventReservationReservationFor;
 // 取引のsubReservationからはreservationForを削除する
 export type IObjectSubReservation = ReserveActionFactory.ISubReservation;
+export type IObjectSubReservationReservedTicket = Pick<ReservationFactory.ITicket, 'issuedBy' | 'ticketedSeat' | 'ticketType'>;
 export type IMinimizedObjectSubReservation = Pick<
     ReserveActionFactory.ISubReservation,
-    'typeOf' | 'id' | 'reservationStatus' | 'subReservation' | 'underName'
->;
+    'typeOf' | 'id' | 'subReservation'
+> & {
+    reservedTicket: IObjectSubReservationReservedTicket;
+};
 /**
  * 取引対象物
  */
-export interface IObject extends Omit<IReservationPackage, 'subReservation'> {
+export interface IObject extends Pick<IReservationPackage, 'broker' | 'reservationStatus' | 'typeOf'> {
     acceptedOffer?: IAcceptedOffer4object[];
     reservationFor?: IReservationFor;
     reservationNumber: string;
-    subReservation?: IObjectSubReservation[];
-    // subReservation?: IMinimizedObjectSubReservation[];
+    // subReservation?: IObjectSubReservation[];
+    subReservation?: IMinimizedObjectSubReservation[];
 }
 export interface IPotentialActions {
     reserve: ReserveActionFactory.IAttributes[];
