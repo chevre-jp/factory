@@ -2,10 +2,9 @@ import * as ActionFactory from '../action';
 import { ActionType } from '../actionType';
 import { AssetTransactionType } from '../assetTransactionType';
 import { OrderType } from '../order';
-import { IUnderName } from '../reservation';
+import { IAvailableReservationStatusType, IUnderName } from '../reservation';
 import { IReservation as IBusReservation, IReservationFor as IBusReservationFor } from '../reservation/busReservation';
 import { IReservation as IEventReservation, IReservationFor as IEventReservationFor } from '../reservation/event';
-import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
 import { IAttributes as IMoneyTransferActionAttributes } from './transfer/moneyTransfer';
 
@@ -16,7 +15,7 @@ export type IReservationFor = IBusReservationFor | IEventReservationFor;
 export interface IReservationPackageAsObject {
     reservationFor: IReservationFor;
     reservationNumber: string;
-    reservationStatus: ReservationStatusType;
+    reservationStatus: IAvailableReservationStatusType;
     // 不要なので廃止(2023-01-19~)
     // subReservation?: ISubReservation[];
     underName?: IUnderName;

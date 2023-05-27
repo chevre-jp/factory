@@ -242,8 +242,9 @@ export interface IObject extends Pick<IReservationPackage, 'broker' | 'reservati
     acceptedOffer?: IAcceptedOffer4object[];
     reservationFor?: IReservationFor;
     reservationNumber: string;
-    // subReservation?: IObjectSubReservation[];
-    subReservation?: IMinimizedObjectSubReservation[];
+    subReservation?: IObjectSubReservation[];
+    disablePendingReservations: boolean;
+    // subReservation?: IObjectSubReservation[] | IMinimizedObjectSubReservation[];
 }
 export interface IPotentialActions {
     reserve: ReserveActionFactory.IAttributes[];
