@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 取引削除タスクを最適化
 - 単価オファーの返品ポリシーを最適化
 - 予約取引のobjectを最適化
+- 予約取引のobjectにunderNameを保管
 
 ### Deprecated
 
