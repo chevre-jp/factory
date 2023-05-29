@@ -257,6 +257,9 @@ export interface IAttributes extends AssetTransactionFactory.IAttributes<IStartP
  */
 export type ITransaction = IExtendId<IAttributes>;
 export interface IObjectSearchConditions {
+    reservationFor?: {
+        id?: { $eq?: string };
+    };
     reservationNumber?: {
         $eq?: string;
     };
@@ -272,6 +275,9 @@ export interface IObjectSearchConditions {
                 $in?: string[];
             };
         };
+    };
+    underName?: {
+        id?: { $eq?: string };
     };
 }
 export interface ISearchConditions extends AssetTransactionFactory.ISearchConditions<AssetTransactionType.Reserve> {
