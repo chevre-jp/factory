@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 販売者検索条件拡張
 - 予約取引にdisablePendingReservationsオプションを追加
 - 承認作成時タスクを追加
+- 予約使用タスクを追加
 
 ### Changed
 

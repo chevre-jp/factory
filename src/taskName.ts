@@ -93,6 +93,7 @@ export enum TaskName {
      * ウェブフックをたたく
      */
     TriggerWebhook = 'triggerWebhook',
+    UseReservation = 'useReservation',
     VoidPayment = 'voidPayment',
     /**
      * 通貨転送中止

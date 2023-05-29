@@ -162,6 +162,7 @@ import * as ReturnReserveTransactionTaskFactory from './task/returnReserveTransa
 import * as SendEmailMessageTaskFactory from './task/sendEmailMessage';
 import * as SendOrderTaskFactory from './task/sendOrder';
 import * as TriggerWebhookTaskFactory from './task/triggerWebhook';
+import * as UseReservationTaskFactory from './task/useReservation';
 import * as VoidMoneyTransferTransactionTaskFactory from './task/voidMoneyTransferTransaction';
 import * as VoidPaymentTaskFactory from './task/voidPayment';
 import * as VoidPayTransactionTaskFactory from './task/voidPayTransaction';
@@ -567,6 +568,7 @@ export namespace task {
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IData :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
+        T extends TaskName.UseReservation ? UseReservationTaskFactory.IData :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.IData :
         T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.IData :
         T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.IData :
@@ -593,6 +595,7 @@ export namespace task {
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IAttributes :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
+        T extends TaskName.UseReservation ? UseReservationTaskFactory.IAttributes :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.IAttributes :
         T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.IAttributes :
         T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.IAttributes :
@@ -619,6 +622,7 @@ export namespace task {
         T extends TaskName.SendOrder ? SendOrderTaskFactory.ITask :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
+        T extends TaskName.UseReservation ? UseReservationTaskFactory.ITask :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.ITask :
         T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.ITask :
         T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.ITask :
@@ -645,6 +649,7 @@ export namespace task {
     export import reserve = ReserveTaskFactory;
     export import sendEmailMessage = SendEmailMessageTaskFactory;
     export import triggerWebhook = TriggerWebhookTaskFactory;
+    export import useReservation = UseReservationTaskFactory;
     export import voidPayment = VoidPaymentTaskFactory;
     export import onAuthorizationCreated = OnAuthorizationCreatedTaskFactory;
     export import orderProgramMembership = OrderProgramMembershipTaskFactory;
