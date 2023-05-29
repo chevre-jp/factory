@@ -24,6 +24,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 単価オファーの返品ポリシーを最適化
 - 予約取引のobjectを最適化
 - 予約取引のobjectにunderNameを保管
+- 会員削除アクションを最適化
 
 ### Deprecated
 
@@ -31,6 +32,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - DeleteAssetTransactionタスクを廃止
 - DeleteOrderタスクを廃止
+- DeleteMemberタスクを廃止
 
 ### Fixed
 

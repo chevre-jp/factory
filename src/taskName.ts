@@ -35,10 +35,7 @@ export enum TaskName {
      * 予約資産取引確定
      */
     ConfirmReserveTransaction = 'confirmReserveTransaction',
-    /**
-     * 会員削除
-     */
-    DeleteMember = 'deleteMember',
+    // DeleteMember = 'deleteMember',
     DeleteTransaction = 'deleteTransaction',
     /**
      * ポイント特典付与
