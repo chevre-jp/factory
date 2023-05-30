@@ -238,14 +238,13 @@ export type IMinimizedObjectSubReservation = Pick<
 /**
  * 取引対象物
  */
-export interface IObject extends Pick<IReservationPackage, 'broker' | 'reservationStatus' | 'typeOf'> {
+export interface IObject extends Pick<IReservationPackage, 'broker' | 'reservationStatus' | 'underName' | 'typeOf'> {
     acceptedOffer?: IAcceptedOffer4object[];
     reservationFor?: IReservationFor;
     reservationNumber: string;
     subReservation?: IObjectSubReservation[];
     disablePendingReservations: boolean;
     // subReservation?: IObjectSubReservation[] | IMinimizedObjectSubReservation[];
-    underName?: ReservationFactory.IUnderName;
 }
 export interface IPotentialActions {
     reserve: ReserveActionFactory.IAttributes[];

@@ -2,7 +2,7 @@ import * as ActionFactory from '../action';
 import { ActionType } from '../actionType';
 import { AssetTransactionType } from '../assetTransactionType';
 import { OrderType } from '../order';
-import { IAvailableReservationStatusType, IUnderName } from '../reservation';
+import { IAvailableReservationStatusType } from '../reservation';
 import { IReservation as IBusReservation, IReservationFor as IBusReservationFor } from '../reservation/busReservation';
 import { IReservation as IEventReservation, IReservationFor as IEventReservationFor } from '../reservation/event';
 import { ReservationType } from '../reservationType';
@@ -18,7 +18,8 @@ export interface IReservationPackageAsObject {
     reservationStatus: IAvailableReservationStatusType;
     // 不要なので廃止(2023-01-19~)
     // subReservation?: ISubReservation[];
-    underName?: IUnderName;
+    // 不要なので廃止(2023-05-31~)→予約取引から取得に変更
+    // underName?: IUnderName;
     typeOf: ReservationType.ReservationPackage;
 }
 // IReservationPackageAsObject以外を廃止(2023-01-19~)
