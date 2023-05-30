@@ -261,6 +261,7 @@ export interface IObjectSearchConditions {
     };
     reservationNumber?: {
         $eq?: string;
+        $in?: string[];
     };
     reservations?: {
         id?: {
