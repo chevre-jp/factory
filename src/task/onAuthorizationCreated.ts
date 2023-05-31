@@ -8,6 +8,10 @@ export interface IData {
      */
     code: string;
     project: { id: string };
+    /**
+     * 発券前に予約アクションを実行するかどうか
+     */
+    reserveIfNotYet: boolean;
 }
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.OnAuthorizationCreated;

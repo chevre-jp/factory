@@ -8,6 +8,10 @@ export type IData = Pick<
     IUseReservationActionAttributes,
     'agent' | 'instrument' | 'location' | 'project' | 'typeOf'> & {
         object: IUseReservationObject;
+        /**
+         * 発券前に予約アクションを実行するかどうか
+         */
+        reserveIfNotYet: boolean;
     };
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.UseReservation;
