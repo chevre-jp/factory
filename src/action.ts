@@ -133,6 +133,10 @@ export interface ISearchConditions {
         reservationFor?: {
             id?: { $eq?: string };
         };
+        reservationNumber?: {
+            $eq?: string;
+            $in?: string[];
+        };
         paymentMethod?: {
             accountId?: {
                 $eq?: string;
