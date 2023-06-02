@@ -244,6 +244,7 @@ export interface IObject extends Pick<IReservationPackage, 'broker' | 'reservati
     reservationNumber: string;
     subReservation?: IObjectSubReservation[];
     disablePendingReservations: boolean;
+    useHoldStockByTransactionNumber?: boolean;
     // subReservation?: IObjectSubReservation[] | IMinimizedObjectSubReservation[];
 }
 export interface IPotentialActions {

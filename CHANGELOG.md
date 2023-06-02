@@ -28,6 +28,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 予約取引のobjectにunderNameを保管
 - 会員削除アクションを最適化
 - 予約タスクを最適化
+- stockのholderを予約取引番号に対応
 
 ### Deprecated
 
