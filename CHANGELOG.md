@@ -17,6 +17,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 予約使用タスクを追加
 - 予約取引検索条件拡張
 - アクション検索条件拡張
+- 予約取引のobjectにissuedThroughを保管
+- 予約取引のobjectにunderNameを保管
 
 ### Changed
 
@@ -25,7 +27,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 取引削除タスクを最適化
 - 単価オファーの返品ポリシーを最適化
 - 予約取引のobjectを最適化
-- 予約取引のobjectにunderNameを保管
 - 会員削除アクションを最適化
 - 予約タスクを最適化
 - stockのholderを予約取引番号に対応
