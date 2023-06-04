@@ -282,6 +282,13 @@ export interface IObjectSearchConditions {
                 $in?: string[];
             };
         };
+        reservedTicket?: {
+            ticketedSeat?: {
+                seatNumber?: {
+                    $eq?: string;
+                };
+            };
+        };
     };
     underName?: {
         id?: { $eq?: string };
