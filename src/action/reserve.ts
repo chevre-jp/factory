@@ -9,7 +9,9 @@ import { ReservationType } from '../reservationType';
 import { IAttributes as IMoneyTransferActionAttributes } from './transfer/moneyTransfer';
 
 export type IAgent = ActionFactory.IParticipantAsProject;
-export type ISubReservation = Omit<IBusReservation, 'reservationFor'> | Omit<IEventReservation, 'reservationFor'>;
+// 最適化(2023-06-06~)
+export type IOmittedReservationProperty = 'reservationFor' | 'broker' | 'issuedThrough';
+export type ISubReservation = Omit<IBusReservation, IOmittedReservationProperty> | Omit<IEventReservation, IOmittedReservationProperty>;
 export type IReservationFor = IBusReservationFor | IEventReservationFor;
 // ReservationPackageに拡張(2022-12-22~)
 export interface IReservationPackageAsObject {
