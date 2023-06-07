@@ -10,6 +10,9 @@ export interface IChangedEvent {
 }
 export interface IData {
     event: IChangedEvent[];
+    id: string[];
+    project: { id: string };
+    typeOf: EventType;
     isNew: boolean;
     useInform: boolean;
 }
