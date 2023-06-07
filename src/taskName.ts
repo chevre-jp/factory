@@ -46,6 +46,7 @@ export enum TaskName {
     ImportOffersFromCOA = 'importOffersFromCOA',
     MoneyTransfer = 'moneyTransfer',
     OnAuthorizationCreated = 'onAuthorizationCreated',
+    OnEventChanged = 'onEventChanged',
     /**
      * メンバーシップ注文
      */
