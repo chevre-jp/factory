@@ -9,15 +9,18 @@ import { OfferType } from '../offerType';
 import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
 import { PriceCurrency } from '../priceCurrency';
-import { IProject } from '../project';
 
 /**
  * 施設コンテンツに対するオファー
  */
 export interface IOffer {
-    project: Pick<IProject, 'id' | 'typeOf'>;
+    // 不要なので廃止(2023-06-09~)
+    // project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType.Offer;
     priceCurrency: PriceCurrency.JPY;
+    /**
+     * 利用不可決済方法区分
+     */
     unacceptedPaymentMethod?: string[];
 }
 export interface IVideoFormat {

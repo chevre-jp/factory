@@ -31,6 +31,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 会員削除アクションを最適化
 - 予約タスクを最適化
 - stockのholderを予約取引番号に対応
+- 施設コンテンツの不要なproject属性を廃止
 
 ### Deprecated
 
