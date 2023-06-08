@@ -47,6 +47,7 @@ export enum TaskName {
     MoneyTransfer = 'moneyTransfer',
     OnAuthorizationCreated = 'onAuthorizationCreated',
     OnEventChanged = 'onEventChanged',
+    OnResourceUpdated = 'OnResourceUpdated',
     /**
      * メンバーシップ注文
      */

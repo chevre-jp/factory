@@ -148,6 +148,7 @@ import * as ImportOffersFromCOATaskFactory from './task/importOffersFromCOA';
 import * as MoneyTransferTaskFactory from './task/moneyTransfer';
 import * as OnAuthorizationCreatedTaskFactory from './task/onAuthorizationCreated';
 import * as OnEventChangedTaskFactory from './task/onEventChanged';
+import * as OnResourceUpdatedTaskFactory from './task/onResourceUpdated';
 import * as OrderProgramMembershipTaskFactory from './task/orderProgramMembership';
 import * as PayTaskFactory from './task/pay';
 import * as PlaceOrderTaskFactory from './task/placeOrder';
@@ -556,6 +557,7 @@ export namespace task {
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IData :
         T extends TaskName.OnAuthorizationCreated ? OnAuthorizationCreatedTaskFactory.IData :
         T extends TaskName.OnEventChanged ? OnEventChangedTaskFactory.IData :
+        T extends TaskName.OnResourceUpdated ? OnResourceUpdatedTaskFactory.IData :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IData :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IData :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.IData :
@@ -584,6 +586,7 @@ export namespace task {
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IAttributes :
         T extends TaskName.OnAuthorizationCreated ? OnAuthorizationCreatedTaskFactory.IAttributes :
         T extends TaskName.OnEventChanged ? OnEventChangedTaskFactory.IAttributes :
+        T extends TaskName.OnResourceUpdated ? OnResourceUpdatedTaskFactory.IAttributes :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.IAttributes :
@@ -612,6 +615,7 @@ export namespace task {
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.ITask :
         T extends TaskName.OnAuthorizationCreated ? OnAuthorizationCreatedTaskFactory.ITask :
         T extends TaskName.OnEventChanged ? OnEventChangedTaskFactory.ITask :
+        T extends TaskName.OnResourceUpdated ? OnResourceUpdatedTaskFactory.ITask :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.ITask :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.ITask :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.ITask :
@@ -656,6 +660,7 @@ export namespace task {
     export import voidPayment = VoidPaymentTaskFactory;
     export import onAuthorizationCreated = OnAuthorizationCreatedTaskFactory;
     export import onEventChanged = OnEventChangedTaskFactory;
+    export import onResourceUpdated = OnResourceUpdatedTaskFactory;
     export import orderProgramMembership = OrderProgramMembershipTaskFactory;
 
     export import accountMoneyTransfer = AccountMoneyTransferTaskFactory;

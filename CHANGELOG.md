@@ -20,6 +20,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 予約取引のobjectにissuedThroughを保管
 - 予約取引のobjectにunderNameを保管
 - イベント変更時タスクを追加
+- リソース変更時タスクを追加
+- コンテンツ検索条件拡張
 
 ### Changed
 

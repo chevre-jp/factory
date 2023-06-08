@@ -71,6 +71,10 @@ export interface ISearchConditions {
     distributor?: {
         codeValue?: { $eq?: string };
     };
+    id?: {
+        $eq?: string;
+        $in?: string[];
+    };
     identifier?: string | {
         $eq?: string;
         $in?: string[];
