@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - イベント変更時タスクを追加
 - リソース変更時タスクを追加
 - コンテンツ検索条件拡張
+- 区分検索条件拡張
 
 ### Changed
 
