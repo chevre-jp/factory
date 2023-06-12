@@ -3,13 +3,7 @@ import { EventType } from '../eventType';
 import * as TaskFactory from '../task';
 import { TaskName } from '../taskName';
 
-export interface IChangedEvent {
-    id: string;
-    typeOf: EventType;
-    project: { id: string };
-}
 export interface IData {
-    event: IChangedEvent[];
     id: string[];
     project: { id: string };
     typeOf: EventType;
