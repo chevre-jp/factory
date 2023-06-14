@@ -40,6 +40,7 @@ export interface ISearchConditions {
     project?: { id?: { $eq?: string } };
     branchCode?: {
         $eq?: string;
+        $in?: string[];
         $regex?: string;
     };
     containedInPlace?: {

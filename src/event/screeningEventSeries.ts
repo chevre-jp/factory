@@ -192,6 +192,7 @@ export interface ISearchConditions extends EventFactory.ISearchConditions<EventT
     location?: {
         branchCode?: {
             $eq?: string;
+            $in?: string[];
         };
         /**
          * 施設コードリスト
