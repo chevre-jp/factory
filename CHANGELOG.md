@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 施設コンテンツ検索条件拡張
 - イベント検索条件拡張
 - ルーム検索条件拡張
+- イベントのIOffer4COAに座席有無を追加
 
 ### Changed
 

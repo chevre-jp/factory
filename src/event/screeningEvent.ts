@@ -97,7 +97,13 @@ export interface IOffer {
 export type IOffer4COA = Pick<
     IOffer,
     'typeOf' | 'offeredThrough' | 'priceCurrency'
->;
+> & {
+    // 追加(2023-06-20~)
+    itemOffered: {
+        serviceOutput: Pick<IServiceOutput, 'reservedTicket'>;
+    };
+
+};
 export interface ICOAInfo {
     theaterCode: string;
     dateJouei: string;
