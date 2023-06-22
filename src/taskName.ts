@@ -89,6 +89,10 @@ export enum TaskName {
      */
     SendOrder = 'sendOrder',
     /**
+     * ルーム同期
+     */
+    SyncScreeningRooms = 'syncScreeningRooms',
+    /**
      * ウェブフックをたたく
      */
     TriggerWebhook = 'triggerWebhook',
