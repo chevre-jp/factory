@@ -3,14 +3,21 @@ import * as PlaceFactory from '../place';
 import { PlaceType } from '../placeType';
 import { IPlace as IScreeningRoomSection } from './screeningRoomSection';
 
+export interface IContainedInPlace {
+    id: string;
+    typeOf: PlaceType.MovieTheater;
+    branchCode: string;
+    name: IMultilingualString;
+}
 /**
  * ルームインターフェース
  */
 export interface IPlace extends Pick<
     PlaceFactory.IPlace,
-    'project' | 'typeOf' | 'amenityFeature' | 'branchCode' | 'name' | 'address' | 'containedInPlace' | 'containsPlace' | 'additionalProperty' | 'openSeatingAllowed' | 'maximumAttendeeCapacity'
+    'project' | 'typeOf' | 'amenityFeature' | 'branchCode' | 'name' | 'address' | 'containsPlace' | 'additionalProperty' | 'openSeatingAllowed' | 'maximumAttendeeCapacity'
 > {
     typeOf: PlaceType.ScreeningRoom;
+    containedInPlace?: IContainedInPlace;
     /**
      * セクションリスト
      */
