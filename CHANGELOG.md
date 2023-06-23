@@ -29,6 +29,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - イベントのIOffer4COAに座席有無を追加
 - 決済サービス検索条件拡張
 - ルーム同期タスクを追加
+- 追加特性のCategoryCodeSetに販売者を追加
 
 ### Changed
 

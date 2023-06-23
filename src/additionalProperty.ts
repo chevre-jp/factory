@@ -5,16 +5,19 @@ import { OfferType } from './offerType';
 import { OrderType } from './order';
 import { IProject } from './project';
 import { PropertyValueType } from './propertyValue';
+import { ISeller } from './seller';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 
+export type SellerType = ISeller['typeOf'];
 export type CategorySetIdentifier = CreativeWorkType.Movie
     | EventType.ScreeningEvent
     | EventType.ScreeningEventSeries
     | PropertyValueType.LocationFeatureSpecification
     | 'OfferCatalog'
     | OfferType.Offer
-    | OrderType.Order;
+    | OrderType.Order
+    | SellerType;
 /**
  * {@link https://schema.org/CategoryCodeSet}
  */
