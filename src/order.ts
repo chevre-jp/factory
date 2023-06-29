@@ -93,8 +93,6 @@ export interface IDiscount {
 }
 export type IWorkPerformed = Pick<
     EventReservationFactory.IOptimizedWorkPerformed,
-    // 不要なので廃止(2022-12-19~)
-    // 'project' |
     'typeOf' | 'id' | 'identifier' | 'name' | 'duration'
 >;
 export type ISuperEvent = Omit<EventReservationFactory.IOptimizedSuperEvent, 'workPerformed'> & {
@@ -124,7 +122,8 @@ export type IBusReservation = Pick<
     'id' |
     'issuedThrough' |
     'programMembershipUsed' |
-    'project' |
+    // 不要なので廃止(2023-07-01~)
+    // 'project' |
     'reservationNumber' |
     'typeOf'
 > & {
@@ -139,7 +138,8 @@ export type IEventReservation = Pick<
     'id' |
     'issuedThrough' |
     'programMembershipUsed' |
-    'project' |
+    // 不要なので廃止(2023-07-01~)
+    // 'project' |
     'reservationNumber' |
     'typeOf'
 > & {
@@ -149,7 +149,9 @@ export type IEventReservation = Pick<
 export type IReservation = IBusReservation | IEventReservation;
 export type IPermit = Pick<
     PermitFactory.IPermit,
-    'amount' | 'identifier' | 'issuedThrough' | 'name' | 'project' | 'typeOf' | 'validFor'
+    'amount' | 'identifier' | 'issuedThrough' | 'name' | 'typeOf' | 'validFor'
+// 不要なので廃止(2023-07-01~)
+// | 'project'
 >;
 export interface IMoneyTransferPendingTransaction {
     typeOf: AssetTransactionType.MoneyTransfer;
@@ -182,15 +184,6 @@ export interface IMoneyTransfer {
  * 注文アイテム
  */
 export type IItemOffered = IMoneyTransfer | IReservation | IPermit;
-// Pickで定義(2022-08-18~)
-export type IOfferOptimized4acceptedOffer = Pick<
-    IOffer,
-    'typeOf' |
-    'id' |
-    'itemOffered' |
-    'offeredThrough' |
-    'priceCurrency'
->;
 export type ICategoryChargePriceComponent = Omit<ICategoryCodeChargeSpecification, 'project'>;
 export type IMovieTicketTypeChargePriceComponent = Omit<IMovieTicketTypeChargeSpecification, 'project'>;
 export type IUnitPriceComponent = Pick<
@@ -201,16 +194,17 @@ export type IUnitPriceComponent = Pick<
 /**
  * 承認時に提供される価格仕様要素
  */
-// 不要な属性をOmit(2022-11-03~)
-export type ITicketPriceComponent =
-    ICategoryChargePriceComponent
-    | IMovieTicketTypeChargePriceComponent
-    | IUnitPriceComponent;
+export type ITicketPriceComponent = ICategoryChargePriceComponent | IMovieTicketTypeChargePriceComponent | IUnitPriceComponent;
 /**
  * 承認時に提供される価格仕様
  */
-// 不要な属性をOmit(2022-11-02~)
 export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicketPriceComponent>, 'project'>;
+export type IOfferOptimized4acceptedOffer = Pick<
+    IOffer,
+    'typeOf' | 'id' | 'itemOffered' | 'offeredThrough' | 'name'
+// 不要なので廃止(2023-07-01~)
+// | 'priceCurrency'
+>;
 /**
  * 受け入れオファー
  */
@@ -219,20 +213,17 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOfferOptimized4
      * オファー対象アイテム
      */
     itemOffered: T;
-    /**
-     * 販売者
-     */
-    seller: {
-        typeOf: OrganizationType.Corporation;
-        name?: string | IMultilingualString;
-    };
+    // 不要なので廃止(2023-07-01~)
+    // seller: {
+    //     typeOf: OrganizationType.Corporation;
+    //     name?: string | IMultilingualString;
+    // };
     priceSpecification?: ITicketPriceSpecification;
 }
 /**
  * 販売者
  */
 export interface ISeller {
-    // 最適化(2022-11-15~)
     id: string;
     typeOf: OrganizationType.Corporation;
     name: string;
@@ -250,13 +241,11 @@ export type IPersonCustomer = Pick<IPerson, 'id' | 'typeOf' | 'memberOf'> & IPro
  * カスタマー
  */
 export type ICustomer = IPersonCustomer | IWebApplicationCustomer | IOrganizationCustomer;
-// 最適化(2022-11-15~)
 export type IBroker = Pick<IPerson, 'id' | 'identifier' | 'typeOf'>;
 /**
  * 返品者
  */
 export type IParticipantAsReturner = IParticipantAsPerson | IParticipantAsProject | IParticipantAsWebApplication;
-// 最適化(2022-11-15~)
 export type IReturner = Pick<IParticipantAsReturner, 'id' | 'typeOf'>;
 export type IIdentifier = IPropertyValue<string>[];
 export type ISimpleCustomer = Pick<ICustomer, 'id' | 'typeOf' | 'name'>;

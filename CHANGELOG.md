@@ -45,6 +45,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 施設コンテンツの不要なproject属性を廃止
 - 興行スケジュールのsuperEventを最適化
 - 経理レポートを最適化
+- 注文を最適化
 
 ### Deprecated
 
