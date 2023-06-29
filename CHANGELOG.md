@@ -30,6 +30,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済サービス検索条件拡張
 - ルーム同期タスクを追加
 - 追加特性のCategoryCodeSetに販売者を追加
+- 取引のagent.idによる削除に対応
 
 ### Changed
 
