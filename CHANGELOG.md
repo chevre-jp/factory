@@ -47,6 +47,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 経理レポートを最適化
 - 注文を最適化
 - SendActionのIRecipientを最適化
+- ISimpleOrderを最適化
 
 ### Deprecated
 

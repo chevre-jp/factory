@@ -28,7 +28,6 @@ import * as BusReservationFactory from './reservation/busReservation';
 import * as EventReservationFactory from './reservation/event';
 import { ReservationType } from './reservationType';
 import { SortType } from './sortType';
-import { IThing } from './thing';
 import { IUnitPriceOfferPriceSpecification } from './unitPriceOffer';
 
 export interface IProject {
@@ -248,8 +247,8 @@ export type IBroker = Pick<IPerson, 'id' | 'identifier' | 'typeOf'>;
 export type IParticipantAsReturner = IParticipantAsPerson | IParticipantAsProject | IParticipantAsWebApplication;
 export type IReturner = Pick<IParticipantAsReturner, 'id' | 'typeOf'>;
 export type IIdentifier = IPropertyValue<string>[];
-export type ISimpleCustomer = Pick<ICustomer, 'id' | 'typeOf' | 'name'>;
-export interface ISimpleOrder extends Pick<IThing, 'name'> {
+export type ISimpleCustomer = Pick<ICustomer, 'id' | 'typeOf'>;
+export interface ISimpleOrder {
     /**
      * object type
      */
@@ -326,7 +325,7 @@ export interface IOrderedItem {
  * 注文
  * {@link https://schema.org/Order}
  */
-export interface IOrder extends ISimpleOrder {
+export interface IOrder extends Omit<ISimpleOrder, 'customer'> {
     id?: string; // 追加(2023-02-13~)
     project: IProject;
     /**
