@@ -1,4 +1,9 @@
-import * as ActionFactory from '../../../action';
+import {
+    IParticipantAsCustomer,
+    IParticipantAsPerson,
+    IParticipantAsProject,
+    IParticipantAsWebApplication
+} from '../../../action';
 import * as OrderFactory from '../../../order';
 import * as OwnershipInfoFactory from '../../../ownershipInfo';
 import * as WebAPIFactory from '../../../service/webAPI';
@@ -8,8 +13,8 @@ import { IAttributes as IConfirmReservationActionAttributes } from '../../intera
 import * as SendActionFactory from '../send';
 import { IAttributes as ISendEmailMessageActionAttributes } from './message/email';
 
-export type IAgent = ActionFactory.IParticipantAsPerson | ActionFactory.IParticipantAsProject | ActionFactory.IParticipantAsWebApplication;
-export type IRecipient = ActionFactory.IParticipant;
+export type IAgent = IParticipantAsPerson | IParticipantAsProject | IParticipantAsWebApplication;
+export type IRecipient = IParticipantAsWebApplication | IParticipantAsPerson | IParticipantAsCustomer;
 export type IObject = OrderFactory.ISimpleOrder;
 /**
  * 注文配送結果としての所有権
