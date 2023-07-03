@@ -86,6 +86,10 @@ export interface IPaymentMethod {
      */
     creditCard?: ICreditCard;
 }
+export interface IAccountsReceivableByServiceType {
+    serviceType: string;
+    accountsReceivable?: number;
+}
 /**
  * 取引対象物
  */
@@ -107,6 +111,7 @@ export interface IObject {
     execTranResult?: IExecTranResult;
     payAction?: IPayAction;
     onPaymentStatusChanged?: IOnPaymentStatusChanged;
+    accountsReceivablesByServiceType?: IAccountsReceivableByServiceType[];
 }
 export type IObjectWithoutDetail = Pick<IObject, 'typeOf' | 'id' | 'paymentMethod'>;
 export type IStartParamsWithoutDetail =

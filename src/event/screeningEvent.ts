@@ -97,7 +97,13 @@ export interface IOffer {
 export type IOffer4COA = Pick<
     IOffer,
     'typeOf' | 'offeredThrough' | 'priceCurrency'
->;
+> & {
+    // 追加(2023-06-20~)
+    itemOffered: {
+        serviceOutput: Pick<IServiceOutput, 'reservedTicket'>;
+    };
+
+};
 export interface ICOAInfo {
     theaterCode: string;
     dateJouei: string;
@@ -168,7 +174,19 @@ export type ICOAOffer = COA.factory.reserve.IUpdReserveTicket & {
 };
 export type IWorkPerformed = ScreeningEventSeriesFactory.IWorkPerformed;
 export import ILocation = AnyEventFactory.ILocation;
-export type ISuperEvent = Omit<ScreeningEventSeriesFactory.IEvent, 'eventStatus' | 'offers' | 'organizer'>;
+// 最適化(2023-06-09~)
+// export type ISuperEvent = Omit<
+//     ScreeningEventSeriesFactory.IEvent,
+//     'eventStatus' | 'offers' | 'organizer'
+// >;
+export type ISuperEvent = Pick<
+    ScreeningEventSeriesFactory.IEvent,
+    'typeOf' | 'id' | 'videoFormat' | 'soundFormat' | 'workPerformed' | 'location'
+    | 'kanaName' | 'name' | 'additionalProperty' | 'startDate' | 'endDate' | 'description' | 'headline'
+    | 'dubLanguage' | 'subtitleLanguage'
+    // ↓COAのみ
+    | 'identifier' | 'alternativeHeadline' | 'duration' | 'coaInfo'
+>;
 export import IName = AnyEventFactory.IName;
 /**
  * イベント属性
@@ -338,6 +356,7 @@ export interface ISearchConditions extends EventFactory.ISearchConditions<EventT
          */
         branchCode?: {
             $eq?: string;
+            $in?: string[];
         };
     };
     /**

@@ -47,6 +47,7 @@ export interface IReservation {
         ticketToken?: string;
     };
 }
+export type IAmountOfMovieTicketAsPaymentServiceOutput = Pick<IMonetaryAmount, 'typeOf' | 'value'>;
 export interface IMovieTicketAsPaymentServiceOutput {
     /**
      * 購入管理番号
@@ -56,6 +57,8 @@ export interface IMovieTicketAsPaymentServiceOutput {
      * 利用対象予約
      */
     serviceOutput?: IReservation;
+    // 計上金額を追加(2023-05-17~)
+    amount?: IAmountOfMovieTicketAsPaymentServiceOutput;
 }
 export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[];
 /**
@@ -68,7 +71,7 @@ export interface IPaymentMethod {
 }
 export type ITotalPaymentDue = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
 /**
- * インボイスインターフェース
+ * インボイス
  * {@link https://schema.org/Invoice}
  */
 export interface IInvoice {

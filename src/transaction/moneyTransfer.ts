@@ -1,6 +1,5 @@
 import * as waiter from '@waiter/factory';
 
-import { IAction as IAuthorizeAction, IAttributes as IAuthorizeActionAttributes } from '../action/authorize';
 import { IAttributes as IMoneyTransferActionAttributes } from '../action/interact/confirm/moneyTransfer';
 import { IAmount as IMoneyTransferAmount } from '../action/transfer/moneyTransfer';
 import * as MoneyTransferAssetTransactionFactory from '../assetTransaction/moneyTransfer';
@@ -126,10 +125,8 @@ export interface IObject {
      * WAITER許可証
      */
     passport?: waiter.passport.IPassport;
-    /**
-     * 承認アクションリスト
-     */
-    authorizeActions: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
+    // 廃止(2023-05-18~)
+    // authorizeActions?: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
 }
 
 export interface IPotentialActions {

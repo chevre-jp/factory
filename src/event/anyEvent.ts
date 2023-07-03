@@ -395,6 +395,7 @@ export interface ISearchConditions extends EventFactory.ISearchConditions<EventT
          */
         branchCode?: {
             $eq?: string;
+            $in?: string[];
         };
     };
     /**

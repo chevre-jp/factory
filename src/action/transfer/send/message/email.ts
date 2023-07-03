@@ -1,11 +1,15 @@
-import * as ActionFactory from '../../../../action';
+import {
+    IParticipantAsCustomer,
+    IParticipantAsPerson,
+    IParticipantAsProject,
+    IParticipantAsWebApplication
+} from '../../../../action';
 import { ICreativeWork as IEmailMessage } from '../../../../creativeWork/message/email';
 import { ISimpleOrder } from '../../../../order';
 import * as SendActionFactory from '../../send';
 
-// プロジェクトに変更(2022-05-18~)
-export type IAgent = ActionFactory.IParticipantAsProject;
-export type IRecipient = ActionFactory.IParticipant;
+export type IAgent = IParticipantAsProject;
+export type IRecipient = IParticipantAsWebApplication | IParticipantAsPerson | IParticipantAsCustomer;
 /**
  * オブジェクト
  * 「Eメール通知」を送信する
@@ -20,6 +24,7 @@ export interface IAttributes extends SendActionFactory.IAttributes<IObject, IRes
     agent: IAgent;
     purpose: IPurpose;
     potentialActions?: IPotentialActions;
+    recipient: IRecipient;
 }
 /**
  * Eメール送信アクション

@@ -18,6 +18,58 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.313.0 - 2023-07-03
+
+### Added
+
+- インボイスのMovieTicketに計上金額を追加
+- 返金取引検索条件拡張
+- OfferItemConditionを追加
+- 販売者検索条件拡張
+- 予約取引にdisablePendingReservationsオプションを追加
+- 承認作成時タスクを追加
+- 予約使用タスクを追加
+- 予約取引検索条件拡張
+- アクション検索条件拡張
+- 予約取引のobjectにissuedThroughを保管
+- 予約取引のobjectにunderNameを保管
+- イベント変更時タスクを追加
+- リソース変更時タスクを追加
+- コンテンツ検索条件拡張
+- 区分検索条件拡張
+- 施設コンテンツ検索条件拡張
+- イベント検索条件拡張
+- ルーム検索条件拡張
+- イベントのIOffer4COAに座席有無を追加
+- 決済サービス検索条件拡張
+- ルーム同期タスクを追加
+- 追加特性のCategoryCodeSetに販売者を追加
+- 取引のagent.idによる削除に対応
+- 追加特性のCategoryCodeSetに区分を追加
+
+### Changed
+
+- 取引への承認アクションの保管を廃止
+- 注文削除タスクを最適化
+- 取引削除タスクを最適化
+- 単価オファーの返品ポリシーを最適化
+- 予約取引のobjectを最適化
+- 会員削除アクションを最適化
+- 予約タスクを最適化
+- stockのholderを予約取引番号に対応
+- 施設コンテンツの不要なproject属性を廃止
+- 興行スケジュールのsuperEventを最適化
+- 経理レポートを最適化
+- 注文を最適化
+- SendActionのIRecipientを最適化
+- ISimpleOrderを最適化
+
+### Removed
+
+- DeleteAssetTransactionタスクを廃止
+- DeleteOrderタスクを廃止
+- DeleteMemberタスクを廃止
+
 ## v4.312.0 - 2023-05-02
 
 ### Added

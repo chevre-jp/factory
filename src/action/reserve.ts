@@ -2,24 +2,26 @@ import * as ActionFactory from '../action';
 import { ActionType } from '../actionType';
 import { AssetTransactionType } from '../assetTransactionType';
 import { OrderType } from '../order';
-import { IUnderName } from '../reservation';
+import { IAvailableReservationStatusType } from '../reservation';
 import { IReservation as IBusReservation, IReservationFor as IBusReservationFor } from '../reservation/busReservation';
 import { IReservation as IEventReservation, IReservationFor as IEventReservationFor } from '../reservation/event';
-import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
 import { IAttributes as IMoneyTransferActionAttributes } from './transfer/moneyTransfer';
 
 export type IAgent = ActionFactory.IParticipantAsProject;
-export type ISubReservation = Omit<IBusReservation, 'reservationFor'> | Omit<IEventReservation, 'reservationFor'>;
+// 最適化(2023-06-06~)
+export type IOmittedReservationProperty = 'reservationFor' | 'broker' | 'issuedThrough';
+export type ISubReservation = Omit<IBusReservation, IOmittedReservationProperty> | Omit<IEventReservation, IOmittedReservationProperty>;
 export type IReservationFor = IBusReservationFor | IEventReservationFor;
 // ReservationPackageに拡張(2022-12-22~)
 export interface IReservationPackageAsObject {
     reservationFor: IReservationFor;
     reservationNumber: string;
-    reservationStatus: ReservationStatusType;
+    reservationStatus: IAvailableReservationStatusType;
     // 不要なので廃止(2023-01-19~)
     // subReservation?: ISubReservation[];
-    underName?: IUnderName;
+    // 不要なので廃止(2023-05-31~)→予約取引から取得に変更
+    // underName?: IUnderName;
     typeOf: ReservationType.ReservationPackage;
 }
 // IReservationPackageAsObject以外を廃止(2023-01-19~)

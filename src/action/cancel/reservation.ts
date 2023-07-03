@@ -3,7 +3,7 @@ import { ActionType } from '../../actionType';
 import { AssetTransactionType } from '../../assetTransactionType';
 import { EventType } from '../../eventType';
 import { ProductType } from '../../product';
-import { ReservationStatusType } from '../../reservationStatusType';
+import { IAvailableReservationStatusType } from '../../reservation';
 import { ReservationType } from '../../reservationType';
 import { TripType } from '../../tripType';
 
@@ -18,7 +18,7 @@ export interface IReservationPackageAsObject {
     /**
      * previousReservationStatusを変更時に指定するために必要
      */
-    reservationStatus: ReservationStatusType;
+    reservationStatus: IAvailableReservationStatusType;
     // subReservation?: ISubReservation[];
     typeOf: ReservationType.ReservationPackage;
 }
@@ -35,7 +35,7 @@ export interface IBusReservationAsObject {
     /**
      * previousReservationStatusを変更時に指定するために必要
      */
-    reservationStatus: ReservationStatusType;
+    reservationStatus: IAvailableReservationStatusType;
     typeOf: ReservationType.BusReservation;
 }
 /**
@@ -54,7 +54,7 @@ export interface IEventReservationAsObject {
     /**
      * previousReservationStatusを変更時に指定するために必要
      */
-    reservationStatus: ReservationStatusType;
+    reservationStatus: IAvailableReservationStatusType;
     typeOf: ReservationType.EventReservation;
 }
 export type IObject = IBusReservationAsObject | IEventReservationAsObject | IReservationPackageAsObject;

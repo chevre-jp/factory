@@ -71,7 +71,7 @@ export interface IObject {
     /**
      * 承認アクションリスト
      */
-    authorizeActions: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
+    authorizeActions?: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
     potentialActions?: {
         givePointAward?: IGivePointAwardParams[];
     };

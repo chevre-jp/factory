@@ -133,6 +133,14 @@ export interface ISearchConditions {
         $in?: string[];
         $regex?: string;
     };
+    provider?: {
+        id?: {
+            /**
+             * プロバイダーに指定IDの販売者が含まれる
+             */
+            $eq?: string;
+        };
+    };
     typeOf?: {
         $eq?: string;
         $in?: string[];

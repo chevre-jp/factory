@@ -1,4 +1,4 @@
-import { IMerchantReturnPolicy } from '../merchantReturnPolicy';
+import { ICustomerRemorseReturnFees, ICustomerRemorseReturnFeesMovieTicket, IMerchantReturnPolicy } from '../merchantReturnPolicy';
 import { IMultilingualString } from '../multilingualString';
 import { IProject } from '../project';
 import { IPropertyValue } from '../propertyValue';
@@ -8,6 +8,8 @@ export type IOfferMerchantReturnPolicy = Pick<
     IMerchantReturnPolicy,
     'typeOf' | 'customerRemorseReturnFees' | 'customerRemorseReturnFeesMovieTicket'
 > & {
+    customerRemorseReturnFees: ICustomerRemorseReturnFees;
+    customerRemorseReturnFeesMovieTicket: ICustomerRemorseReturnFeesMovieTicket;
     project: Pick<IProject, 'id' | 'typeOf'>;
     additionalProperty?: IPropertyValue<string>[];
     id?: string;

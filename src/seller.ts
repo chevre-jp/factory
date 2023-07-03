@@ -1,4 +1,4 @@
-import { IMerchantReturnPolicy } from './merchantReturnPolicy';
+import { IMerchantReturnPolicy, IRestockingFee } from './merchantReturnPolicy';
 import { IMultilingualString } from './multilingualString';
 import { IOffer } from './offer';
 import { IOrganization } from './organization';
@@ -10,7 +10,12 @@ import { SortType } from './sortType';
 import { UnitCode } from './unitCode';
 
 // strict definition(2022-08-04~)
-export type ISellerMerchantReturnPolicy = Pick<IMerchantReturnPolicy, 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'url'>;
+export type ISellerMerchantReturnPolicy = Pick<
+    IMerchantReturnPolicy,
+    'itemCondition' | 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'url'
+> & {
+    restockingFee: IRestockingFee;
+};
 export type IHasMerchantReturnPolicy = ISellerMerchantReturnPolicy[];
 /**
  * 利用可能決済
@@ -73,6 +78,13 @@ export interface ISearchConditions {
     branchCode?: {
         $eq?: string;
         $regex?: string;
+    };
+    hasMerchantReturnPolicy?: {
+        itemCondition?: {
+            id?: {
+                $eq?: string;
+            };
+        };
     };
     /**
      * 名称

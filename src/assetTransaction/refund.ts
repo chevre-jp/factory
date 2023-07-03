@@ -68,9 +68,9 @@ export interface ISearchConditions extends AssetTransactionFactory.ISearchCondit
         accountId?: {
             $eq?: string;
         };
-        // 追加(2022-06-09~)
         paymentMethodId?: {
             $eq?: string;
+            $in?: string[];
         };
     };
 }

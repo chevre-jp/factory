@@ -85,7 +85,10 @@ export interface ISearchConditions {
         codeValue?: SortType;
     };
     project?: { id?: { $eq?: string } };
-    id?: { $eq?: string };
+    id?: {
+        $eq?: string;
+        $in?: string[];
+    };
     name?: { $regex?: string };
     codeValue?: {
         $eq?: string;

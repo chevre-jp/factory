@@ -1,20 +1,28 @@
+import { ICategoryCode } from './categoryCode';
 import { CreativeWorkType } from './creativeWorkType';
 import { EventType } from './eventType';
 import { IMultilingualString } from './multilingualString';
+import { IOfferCatalog } from './offerCatalog';
 import { OfferType } from './offerType';
 import { OrderType } from './order';
 import { IProject } from './project';
 import { PropertyValueType } from './propertyValue';
+import { ISeller } from './seller';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 
-export type CategorySetIdentifier = CreativeWorkType.Movie
+export type CategoryCodeType = ICategoryCode['typeOf'];
+export type OfferCatalogType = IOfferCatalog['typeOf'];
+export type SellerType = ISeller['typeOf'];
+export type CategorySetIdentifier = CategoryCodeType
+    | CreativeWorkType.Movie
     | EventType.ScreeningEvent
     | EventType.ScreeningEventSeries
     | PropertyValueType.LocationFeatureSpecification
-    | 'OfferCatalog'
+    | OfferCatalogType
     | OfferType.Offer
-    | OrderType.Order;
+    | OrderType.Order
+    | SellerType;
 /**
  * {@link https://schema.org/CategoryCodeSet}
  */

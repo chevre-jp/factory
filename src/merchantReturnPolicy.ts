@@ -1,4 +1,5 @@
 import { IMonetaryAmount } from './monetaryAmount';
+import { IOfferItemCondition } from './offerItemCondition';
 import { IThing } from './thing';
 
 export enum RefundTypeEnumeration {
@@ -47,20 +48,25 @@ export enum MerchantReturnEnumeration {
     MerchantReturnUnspecified = 'MerchantReturnUnspecified'
 }
 export type IRestockingFee = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
+export type IItemCondition = Pick<IOfferItemCondition, 'typeOf' | 'id'> & { id: string; name: { ja: string } };
+export type ICustomerRemorseReturnFees = ReturnFeesEnumeration;
+export type ICustomerRemorseReturnFeesMovieTicket =
+    ReturnFeesEnumeration.FreeReturn | ReturnFeesEnumeration.ReturnFeesCustomerResponsibility;
 export interface IMerchantReturnPolicy extends Pick<IThing, 'name' | 'url'> {
     typeOf: 'MerchantReturnPolicy';
     /**
      * The type of return fees if the product is returned due to customer remorse.
      */
-    customerRemorseReturnFees?: ReturnFeesEnumeration;
+    customerRemorseReturnFees?: ICustomerRemorseReturnFees;
     /**
      * 決済カード着券取消仕様
      */
-    customerRemorseReturnFeesMovieTicket?: ReturnFeesEnumeration;
+    customerRemorseReturnFeesMovieTicket?: ICustomerRemorseReturnFeesMovieTicket;
     /**
      * Are in-store returns offered?
      */
     inStoreReturnsOffered?: boolean;
+    itemCondition?: IItemCondition;
     /**
      * The merchantReturnDays property indicates the number of days (from purchase)
      * within which relevant merchant return policy is applicable. Supersedes productReturnDays.
@@ -78,7 +84,8 @@ export interface IMerchantReturnPolicy extends Pick<IThing, 'name' | 'url'> {
      * Use MonetaryAmount to specify a fixed restocking fee for product returns,
      * or use Number to specify a percentage of the product price paid by the customer.
      */
-    restockingFee?: IRestockingFee | number;
+    // restockingFee?: IRestockingFee | number;
+    restockingFee?: IRestockingFee;
     /**
      * Indicates (via enumerated options) the return fees policy for a MerchantReturnPolicy
      */

@@ -1,7 +1,6 @@
 import { ITicketPriceComponent, ITicketPriceSpecification } from '../order';
 import { ProductType } from '../product';
 import * as ReservationFactory from '../reservation';
-import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
 import { ITripWithDetails as IBusTrip } from '../trip/busTrip';
 import { TripType } from '../tripType';
@@ -29,7 +28,7 @@ export interface IReservation extends ReservationFactory.IReservation<IPriceSpec
     issuedThrough: IIssuedThrough;
     reservationFor: IReservationFor;
     reservationNumber: string;
-    reservationStatus: ReservationStatusType;
+    reservationStatus: ReservationFactory.IAvailableReservationStatusType;
     reservedTicket: ReservationFactory.ITicket;
     subReservation?: ISubReservation[];
     typeOf: ReservationType.BusReservation;

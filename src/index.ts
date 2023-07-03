@@ -76,6 +76,7 @@ import * as MonetaryAmountFactory from './monetaryAmount';
 import { IMultilingualString } from './multilingualString';
 import * as OfferFactory from './offer';
 import * as OfferCatalogFactory from './offerCatalog';
+import * as OfferItemConditionFactory from './offerItemCondition';
 import { OfferType } from './offerType';
 import * as OrderFactory from './order';
 import { OrderStatus } from './orderStatus';
@@ -139,15 +140,15 @@ import * as ConfirmPayTransactionTaskFactory from './task/confirmPayTransaction'
 import * as ConfirmRegisterServiceTaskFactory from './task/confirmRegisterService';
 import * as ConfirmRegisterServiceTransactionTaskFactory from './task/confirmRegisterServiceTransaction';
 import * as ConfirmReserveTransactionTaskFactory from './task/confirmReserveTransaction';
-import * as DeleteAssetTransactionTaskFactory from './task/deleteAssetTransaction';
-import * as DeleteMemberTaskFactory from './task/deleteMember';
-import * as DeleteOrderTaskFactory from './task/deleteOrder';
 import * as DeleteTransactionTaskFactory from './task/deleteTransaction';
 import * as GivePointAwardTaskFactory from './task/givePointAward';
 import * as ImportEventCapacitiesFromCOATaskFactory from './task/importEventCapacitiesFromCOA';
 import * as ImportEventsFromCOATaskFactory from './task/importEventsFromCOA';
 import * as ImportOffersFromCOATaskFactory from './task/importOffersFromCOA';
 import * as MoneyTransferTaskFactory from './task/moneyTransfer';
+import * as OnAuthorizationCreatedTaskFactory from './task/onAuthorizationCreated';
+import * as OnEventChangedTaskFactory from './task/onEventChanged';
+import * as OnResourceUpdatedTaskFactory from './task/onResourceUpdated';
 import * as OrderProgramMembershipTaskFactory from './task/orderProgramMembership';
 import * as PayTaskFactory from './task/pay';
 import * as PlaceOrderTaskFactory from './task/placeOrder';
@@ -161,7 +162,9 @@ import * as ReturnPointAwardTaskFactory from './task/returnPointAward';
 import * as ReturnReserveTransactionTaskFactory from './task/returnReserveTransaction';
 import * as SendEmailMessageTaskFactory from './task/sendEmailMessage';
 import * as SendOrderTaskFactory from './task/sendOrder';
+import * as SyncScreeningRoomsTaskFactory from './task/syncScreeningRooms';
 import * as TriggerWebhookTaskFactory from './task/triggerWebhook';
+import * as UseReservationTaskFactory from './task/useReservation';
 import * as VoidMoneyTransferTransactionTaskFactory from './task/voidMoneyTransferTransaction';
 import * as VoidPaymentTaskFactory from './task/voidPayment';
 import * as VoidPayTransactionTaskFactory from './task/voidPayTransaction';
@@ -389,6 +392,7 @@ export import monetaryAmount = MonetaryAmountFactory;
 export type multilingualString = IMultilingualString;
 export import offer = OfferFactory;
 export import offerCatalog = OfferCatalogFactory;
+export import offerItemCondition = OfferItemConditionFactory;
 export import offerType = OfferType;
 export import order = OrderFactory;
 export import orderStatus = OrderStatus;
@@ -548,12 +552,13 @@ export import seller = SellerFactory;
 export namespace task {
     export type IData<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.IData :
-        T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.IData :
-        T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IData :
-        T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.IData :
+        // T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IData :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.IData :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IData :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IData :
+        T extends TaskName.OnAuthorizationCreated ? OnAuthorizationCreatedTaskFactory.IData :
+        T extends TaskName.OnEventChanged ? OnEventChangedTaskFactory.IData :
+        T extends TaskName.OnResourceUpdated ? OnResourceUpdatedTaskFactory.IData :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IData :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IData :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.IData :
@@ -565,8 +570,10 @@ export namespace task {
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.IData :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IData :
+        T extends TaskName.SyncScreeningRooms ? SyncScreeningRoomsTaskFactory.IData :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
+        T extends TaskName.UseReservation ? UseReservationTaskFactory.IData :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.IData :
         T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.IData :
         T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.IData :
@@ -575,12 +582,13 @@ export namespace task {
 
     export type IAttributes<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.IAttributes :
-        T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.IAttributes :
-        T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IAttributes :
-        T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.IAttributes :
+        // T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IAttributes :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.IAttributes :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IAttributes :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IAttributes :
+        T extends TaskName.OnAuthorizationCreated ? OnAuthorizationCreatedTaskFactory.IAttributes :
+        T extends TaskName.OnEventChanged ? OnEventChangedTaskFactory.IAttributes :
+        T extends TaskName.OnResourceUpdated ? OnResourceUpdatedTaskFactory.IAttributes :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.IAttributes :
@@ -592,8 +600,10 @@ export namespace task {
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.IAttributes :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IAttributes :
+        T extends TaskName.SyncScreeningRooms ? SyncScreeningRoomsTaskFactory.IAttributes :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
+        T extends TaskName.UseReservation ? UseReservationTaskFactory.IAttributes :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.IAttributes :
         T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.IAttributes :
         T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.IAttributes :
@@ -602,12 +612,13 @@ export namespace task {
 
     export type ITask<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.ITask :
-        T extends TaskName.DeleteAssetTransaction ? DeleteAssetTransactionTaskFactory.ITask :
-        T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.ITask :
-        T extends TaskName.DeleteOrder ? DeleteOrderTaskFactory.ITask :
+        // T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.ITask :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.ITask :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.ITask :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.ITask :
+        T extends TaskName.OnAuthorizationCreated ? OnAuthorizationCreatedTaskFactory.ITask :
+        T extends TaskName.OnEventChanged ? OnEventChangedTaskFactory.ITask :
+        T extends TaskName.OnResourceUpdated ? OnResourceUpdatedTaskFactory.ITask :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.ITask :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.ITask :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.ITask :
@@ -619,8 +630,10 @@ export namespace task {
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.ITask :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.ITask :
+        T extends TaskName.SyncScreeningRooms ? SyncScreeningRoomsTaskFactory.ITask :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
+        T extends TaskName.UseReservation ? UseReservationTaskFactory.ITask :
         T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.ITask :
         T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.ITask :
         T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.ITask :
@@ -636,7 +649,7 @@ export namespace task {
     export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
-    export import deleteAssetTransaction = DeleteAssetTransactionTaskFactory;
+    export import deleteTransaction = DeleteTransactionTaskFactory;
     export import importEventCapacitiesFromCOA = ImportEventCapacitiesFromCOATaskFactory;
     export import importEventsFromCOA = ImportEventsFromCOATaskFactory;
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
@@ -646,8 +659,13 @@ export namespace task {
     export import registerService = RegisterServiceTaskFactory;
     export import reserve = ReserveTaskFactory;
     export import sendEmailMessage = SendEmailMessageTaskFactory;
+    export import syncScreeningRooms = SyncScreeningRoomsTaskFactory;
     export import triggerWebhook = TriggerWebhookTaskFactory;
+    export import useReservation = UseReservationTaskFactory;
     export import voidPayment = VoidPaymentTaskFactory;
+    export import onAuthorizationCreated = OnAuthorizationCreatedTaskFactory;
+    export import onEventChanged = OnEventChangedTaskFactory;
+    export import onResourceUpdated = OnResourceUpdatedTaskFactory;
     export import orderProgramMembership = OrderProgramMembershipTaskFactory;
 
     export import accountMoneyTransfer = AccountMoneyTransferTaskFactory;

@@ -32,11 +32,7 @@ export interface ITicketType {
     description?: string | IMultilingualString;
     id?: string;
     identifier: string;
-    name?: string | IMultilingualString;
-    // 不要なので廃止(2022-12-17~)
-    // priceCurrency: PriceCurrency;
-    // 不要なので廃止(2022-12-17~)
-    // project: Pick<IProject, 'id' | 'typeOf'>;
+    name?: IMultilingualString;
     typeOf: OfferType.Offer;
     validRateLimit?: OfferFactory.IValidRateLimit;
 }
@@ -209,6 +205,11 @@ export interface IIssuedThrough {
     // serviceLocationを追加(2023-01-06~)
     availableChannel: IServiceChannel;
 }
+export type IAvailableReservationStatusType =
+    ReservationStatusType.ReservationCancelled
+    | ReservationStatusType.ReservationConfirmed
+    | ReservationStatusType.ReservationPending;
+
 /**
  * 予約
  * Describes a reservation for travel, dining or an event. Some reservations require tickets.
@@ -294,7 +295,7 @@ export interface IReservation<T extends Omit<IPriceSpecification, 'project'>> ex
     /**
      * Current status of the reservation.
      */
-    reservationStatus?: ReservationStatusType;
+    reservationStatus?: IAvailableReservationStatusType;
     /**
      * A ticket associated with the reservation.
      */
@@ -436,14 +437,14 @@ export interface ISearchConditions<T extends ReservationType> {
     additionalTicketText?: string | IStringSearchConditions;
     broker?: IBrokerSearchConditions;
     reservationStatus?: {
-        $eq?: ReservationStatusType;
-        $ne?: ReservationStatusType;
-        $in?: ReservationStatusType[];
+        $eq?: IAvailableReservationStatusType;
+        $ne?: IAvailableReservationStatusType;
+        $in?: IAvailableReservationStatusType[];
     };
     /**
      * 予約ステータスリスト
      */
-    reservationStatuses?: ReservationStatusType[];
+    reservationStatuses?: IAvailableReservationStatusType[];
     bookingFrom?: Date;
     bookingThrough?: Date;
     modifiedFrom?: Date;

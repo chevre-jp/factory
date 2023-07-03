@@ -70,7 +70,7 @@ export type IParentOrganization = Pick<ISeller, 'typeOf' | 'id'> & {
 /**
  * place interface without screening room
  */
-export interface IPlaceWithoutScreeningRoom extends PlaceFactory.IPlace {
+export interface IPlaceWithoutScreeningRoom extends Omit<PlaceFactory.IPlace, 'containsPlace'> {
     typeOf: PlaceType.MovieTheater;
     id: string;
     /**

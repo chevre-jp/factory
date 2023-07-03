@@ -122,6 +122,18 @@ export interface ISearchConditions {
             $eq?: string;
             $in?: string[];
         };
+        movieTickets?: {
+            identifier?: {
+                $eq?: string;
+            };
+            serviceOutput?: {
+                reservationFor?: {
+                    id?: {
+                        $eq?: string;
+                    };
+                };
+            };
+        };
         object?: {
             paymentMethodId?: {
                 $eq?: string;
@@ -132,6 +144,10 @@ export interface ISearchConditions {
         };
         reservationFor?: {
             id?: { $eq?: string };
+        };
+        reservationNumber?: {
+            $eq?: string;
+            $in?: string[];
         };
         paymentMethod?: {
             accountId?: {
