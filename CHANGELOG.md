@@ -31,6 +31,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - ルーム同期タスクを追加
 - 追加特性のCategoryCodeSetに販売者を追加
 - 取引のagent.idによる削除に対応
+- 追加特性のCategoryCodeSetに区分を追加
 
 ### Changed
 
