@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.313.0 - 2023-07-03
+
+### Added
+
 - インボイスのMovieTicketに計上金額を追加
 - 返金取引検索条件拡張
 - OfferItemConditionを追加
@@ -50,17 +64,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - SendActionのIRecipientを最適化
 - ISimpleOrderを最適化
 
-### Deprecated
-
 ### Removed
 
 - DeleteAssetTransactionタスクを廃止
 - DeleteOrderタスクを廃止
 - DeleteMemberタスクを廃止
-
-### Fixed
-
-### Security
 
 ## v4.312.0 - 2023-05-02
 
