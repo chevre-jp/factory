@@ -86,6 +86,7 @@ export interface ISearchConditions {
             };
         };
     };
+    id?: { $eq?: string };
     /**
      * 名称
      */
