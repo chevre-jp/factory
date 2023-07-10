@@ -185,6 +185,9 @@ export interface ILocation {
     maximumAttendeeCapacity?: number;
 }
 export type IName = IMultilingualString;
+export interface IOrganizer {
+    id: string;
+}
 /**
  * イベント属性
  */
@@ -236,6 +239,8 @@ export interface IAttributes extends EventFactory.IAttributes<EventType.Event> {
      * オファー集計
      */
     aggregateOffer?: IAggregateOffer;
+    // 必須化(2023-07-12~)
+    organizer: IOrganizer;
 }
 /**
  * イベント

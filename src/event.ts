@@ -102,6 +102,9 @@ export interface ISearchConditions<T extends EventType> {
     id?: {
         $in?: string[];
     };
+    organizer?: {
+        id?: { $eq?: string };
+    };
     project?: {
         id?: { $eq?: string };
     };

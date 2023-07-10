@@ -6,7 +6,7 @@ import { EventType } from '../eventType';
 import { ILanguage } from '../language';
 import { IMultilingualString } from '../multilingualString';
 import { OfferType } from '../offerType';
-import { OrganizationType } from '../organizationType';
+// import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
 import { PriceCurrency } from '../priceCurrency';
 
@@ -46,9 +46,10 @@ export type IWorkPerformed = Pick<
     version?: string;
 };
 export interface IOrganizer {
-    typeOf: OrganizationType.Corporation;
-    identifier: string;
-    name: IMultilingualString;
+    /**
+     * 販売者ID
+     */
+    id: string;
 }
 export interface ICOAInfo {
     titleBranchNum: string;
@@ -131,7 +132,9 @@ export interface IAttributes extends Pick<
      * 施設
      */
     location: ILocation;
-    organizer?: IOrganizer;
+    // 必須化(2023-07-12~)
+    // organizer?: IOrganizer;
+    organizer: IOrganizer;
     /**
      * カナ名称
      */
