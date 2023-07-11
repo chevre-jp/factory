@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - イベントのorganizerを必須化
 - イベント検索条件拡張
+- ルームのparentOrganizationを必須化
+- ルーム検索条件拡張
+- セクション検索条件拡張
+- 座席検索条件拡張
 
 ### Changed
 
