@@ -112,7 +112,9 @@ export interface ISearchConditions<T extends EventType> {
     /**
      * イベントタイプ
      */
-    typeOf: T;
+    typeOf?: T;
+    // $inでの検索を可能にする)(2023-07-13~)
+    typeOfIn?: EventType[];
     /**
      * イベント名称
      */
