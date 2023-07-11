@@ -100,6 +100,7 @@ export interface ISearchConditions<T extends EventType> {
     page?: number;
     sort?: ISortOrder;
     id?: {
+        $eq?: string;
         $in?: string[];
     };
     organizer?: {

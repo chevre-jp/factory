@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - イベントのorganizerを必須化
+- イベント検索条件拡張
 
 ### Changed
 
