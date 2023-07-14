@@ -1,6 +1,7 @@
 import { IMultilingualString } from '../multilingualString';
 import * as PlaceFactory from '../place';
 import { PlaceType } from '../placeType';
+import { ISeller } from '../seller';
 import { IPlace as IScreeningRoomSection } from './screeningRoomSection';
 
 export interface IContainedInPlace {
@@ -9,6 +10,9 @@ export interface IContainedInPlace {
     branchCode: string;
     name: IMultilingualString;
 }
+export type IParentOrganization = Pick<ISeller, 'typeOf' | 'id'> & {
+    id: string;
+};
 /**
  * ルームインターフェース
  */
@@ -38,6 +42,8 @@ export interface IPlace extends Pick<
      * セクション数
      */
     sectionCount?: number;
+    // 必須化(2023-07-14~)
+    parentOrganization: IParentOrganization;
 }
 
 export interface ISearchConditions {
@@ -45,6 +51,9 @@ export interface ISearchConditions {
     page?: number;
     sort?: any;
     project?: { id?: { $eq?: string } };
+    parentOrganization?: {
+        id?: { $eq?: string };
+    };
     branchCode?: {
         $eq?: string;
         $in?: string[];

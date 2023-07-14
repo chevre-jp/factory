@@ -63,6 +63,9 @@ export interface ISearchConditions {
     page?: number;
     sort?: any;
     project?: { id?: { $eq?: string } };
+    parentOrganization?: {
+        id?: { $eq?: string };
+    };
     branchCode?: {
         $eq?: string;
         $in?: string[];

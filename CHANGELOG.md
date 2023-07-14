@@ -18,6 +18,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.315.0 - 2023-07-14
+
+### Added
+
+- イベントのorganizerを必須化
+- イベント検索条件拡張
+- ルームのparentOrganizationを必須化
+- ルーム検索条件拡張
+- セクション検索条件拡張
+- 座席検索条件拡張
+
 ## v4.314.0 - 2023-07-07
 
 ### Added
