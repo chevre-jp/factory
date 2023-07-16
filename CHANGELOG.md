@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 予約のproviderを必須化
+
 ### Changed
 
 ### Deprecated

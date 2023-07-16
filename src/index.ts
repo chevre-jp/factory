@@ -469,7 +469,10 @@ export namespace reservation {
         T extends ReservationType.BusReservation ? ReservationFactory.IBroker :
         T extends ReservationType.EventReservation ? ReservationFactory.IBroker :
         ReservationFactory.IBroker;
-
+    export type IIssuedThrough<T extends ReservationType> =
+        T extends ReservationType.BusReservation ? BusReservationFactory.IIssuedThrough :
+        T extends ReservationType.EventReservation ? EventReservationFactory.IIssuedThrough :
+        ReservationFactory.IIssuedThrough;
     export type IPriceSpecification<T extends ReservationType> =
         T extends ReservationType.BusReservation ? BusReservationFactory.IPriceSpecification :
         T extends ReservationType.EventReservation ? EventReservationFactory.IPriceSpecification :
@@ -480,7 +483,7 @@ export namespace reservation {
         T extends ReservationType.BusReservation ? ReservationFactory.IProgramMembershipUsed :
         T extends ReservationType.EventReservation ? ReservationFactory.IProgramMembershipUsed :
         ReservationFactory.IProgramMembershipUsed;
-
+    export import IProvider = ReservationFactory.IProvider;
     export type IReservationFor<T extends ReservationType> =
         T extends ReservationType.BusReservation ? BusReservationFactory.IReservationFor :
         T extends ReservationType.EventReservation ? EventReservationFactory.IReservationFor :

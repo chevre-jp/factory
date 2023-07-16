@@ -209,7 +209,13 @@ export type IAvailableReservationStatusType =
     ReservationStatusType.ReservationCancelled
     | ReservationStatusType.ReservationConfirmed
     | ReservationStatusType.ReservationPending;
-
+export interface IProvider {
+    /**
+     * 販売者ID
+     */
+    id: string;
+    typeOf: OrganizationType.Corporation;
+}
 /**
  * 予約
  * Describes a reservation for travel, dining or an event. Some reservations require tickets.
@@ -284,6 +290,12 @@ export interface IReservation<T extends Omit<IPriceSpecification, 'project'>> ex
      * Any membership in a frequent flyer, hotel loyalty program, etc. being applied to the reservation.
      */
     programMembershipUsed?: IProgramMembershipUsed;
+    /**
+     * The service provider, service operator, or service performer; the goods producer.
+     * Another party (a seller) may offer those services or goods on behalf of the provider.
+     * A provider may also serve as the seller.
+     */
+    provider: IProvider;
     /**
      * The thing -- restaurant, movie, event, flight, etc. -- the reservation is for.
      */
@@ -413,6 +425,9 @@ export interface ISearchConditions<T extends ReservationType> {
     page?: number;
     sort?: ISortOrder;
     project?: {
+        id?: { $eq?: string };
+    };
+    provider?: {
         id?: { $eq?: string };
     };
     /**

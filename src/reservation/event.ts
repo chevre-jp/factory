@@ -10,6 +10,7 @@ import { IMultilingualString } from '../multilingualString';
 import { ITicketPriceComponent, ITicketPriceSpecification } from '../order';
 import { ProductType } from '../product';
 import * as ReservationFactory from '../reservation';
+import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
 
 export type IOptimizedWorkPerformed = Omit<
@@ -79,7 +80,7 @@ export interface IReservation extends ReservationFactory.IReservation<IPriceSpec
     issuedThrough: IIssuedThrough;
     reservationFor: IReservationFor;
     reservationNumber: string;
-    reservationStatus: ReservationFactory.IAvailableReservationStatusType;
+    reservationStatus: ReservationStatusType.ReservationCancelled | ReservationStatusType.ReservationConfirmed;
     reservedTicket: ReservationFactory.ITicket;
     subReservation?: ISubReservation[];
     typeOf: ReservationType.EventReservation;
