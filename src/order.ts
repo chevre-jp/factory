@@ -447,6 +447,7 @@ export interface ISellerSearchConditions {
      * 販売者IDリスト
      */
     ids?: string[];
+    id?: { $eq?: string };
 }
 export interface ICustomerSearchConditions {
     typeOf?: PersonType;
@@ -590,6 +591,10 @@ export interface ISearchConditions {
      * 販売者条件
      */
     seller?: ISellerSearchConditions;
+    /**
+     * 販売者条件(リクエストによるフィルター専用)
+     */
+    provider?: { id?: { $eq?: string } };
     /**
      * 顧客条件
      */
