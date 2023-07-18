@@ -170,7 +170,10 @@ export type IEvent = EventFactory.IEvent<IAttributes>;
 // 最適化(2022-10-01~)
 export type ICreateParams = Omit<
     IAttributes,
-    'location' | 'workPerformed' | 'coaInfo' | 'organizer' | 'duration' | 'videoFormat' | 'alternativeHeadline'
+    'location' | 'workPerformed' | 'coaInfo' | 'organizer'
+    // durationの上書き指定を可能にする(2023-07-20~)
+    // | 'duration'
+    | 'videoFormat' | 'alternativeHeadline'
 > & {
     location: { id: string };
     workPerformed: {
