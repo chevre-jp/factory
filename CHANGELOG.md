@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 予約のproviderを必須化
 - 注文検索条件拡張
+- イベント作成タスクを追加
 
 ### Changed
 

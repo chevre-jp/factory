@@ -35,6 +35,10 @@ export enum TaskName {
      * 予約資産取引確定
      */
     ConfirmReserveTransaction = 'confirmReserveTransaction',
+    /**
+     * イベント作成
+     */
+    CreateEvent = 'createEvent',
     // DeleteMember = 'deleteMember',
     DeleteTransaction = 'deleteTransaction',
     /**
