@@ -11,6 +11,10 @@ export type IActionObject = IScreeningEventAttributes[] | IScreeningEventSeriesA
 export interface IActionInstrument {
     // createIfNotExist: boolean,
     createScreeningEventSeriesIfNotExistByWorkPerformed: boolean;
+    /**
+     * 全施設に施設コンテンツを作成するかどうか
+     */
+    createScreeningEventSeriesOnAllLocation?: boolean;
 }
 export type IData = IActionAttributes<ActionType.CreateAction, IActionObject, any> & {
     instrument: IActionInstrument;
