@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - 施設コンテンツのdurationを指定可能にする
+- IAMメンバーを販売者メンバーに対応
 
 ### Deprecated
 

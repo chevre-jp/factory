@@ -41,7 +41,7 @@ export interface IMemberOfRole {
     username?: string;
     hasRole: IMemberHasRole;
     // memberOfを必須化(2023-07-24~)
-    memberOf: { typeOf: OrganizationType.Project; id: string };
+    memberOf: { typeOf: OrganizationType.Corporation | OrganizationType.Project; id: string };
 }
 export interface IMember {
     typeOf: RoleType;
@@ -80,7 +80,7 @@ export interface ISearchConditions {
         // memberOfを必須化(2023-07-24~)
         memberOf?: {
             id?: { $eq?: string };
-            typeOf?: { $eq?: OrganizationType.Project };
+            typeOf?: { $eq?: OrganizationType.Corporation | OrganizationType.Project };
         };
     };
 }
