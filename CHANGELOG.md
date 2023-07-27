@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- onResourceUpdatedタスクをリソース削除に対応
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.317.0 - 2023-07-27
+
+### Added
+
+- onResourceUpdatedタスクをリソース削除に対応
 
 ## v4.316.0 - 2023-07-27
 
