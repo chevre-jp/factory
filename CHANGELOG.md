@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.316.0 - 2023-07-27
+
+### Added
+
 - 予約のproviderを必須化
 - 注文検索条件拡張
 - イベント作成タスクを追加
@@ -17,14 +31,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 施設コンテンツのdurationを指定可能にする
 - IAMメンバーを販売者メンバーに対応
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v4.315.0 - 2023-07-14
 
