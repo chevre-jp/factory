@@ -18,6 +18,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.316.0 - 2023-07-27
+
+### Added
+
+- 予約のproviderを必須化
+- 注文検索条件拡張
+- イベント作成タスクを追加
+- IAMメンバーのmember.memberOfを必須化
+
+### Changed
+
+- 施設コンテンツのdurationを指定可能にする
+- IAMメンバーを販売者メンバーに対応
+
 ## v4.315.0 - 2023-07-14
 
 ### Added

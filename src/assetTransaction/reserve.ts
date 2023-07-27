@@ -8,10 +8,12 @@ import { IPropertyValue } from '../propertyValue';
 import * as ReservationFactory from '../reservation';
 import {
     IIssuedThrough as IBusReservationIssuedThrough,
+    IReservation as IBusReservation,
     IReservationFor as IBusReservationReservationFor
 } from '../reservation/busReservation';
 import {
     IIssuedThrough as IEventReservationIssuedThrough,
+    IReservation as IEventReservation,
     IReservationFor as IEventReservationReservationFor,
     ISubReservation as ISubReservation4eventReservation
 } from '../reservation/event';
@@ -230,11 +232,13 @@ export interface IObjectWithoutDetail {
 }
 // IReservationForを最適化
 export type IReservationFor = IBusReservationReservationFor | IEventReservationReservationFor;
-// 取引のsubReservationからはreservationForを削除する
-export type IObjectSubReservation = ReserveActionFactory.ISubReservation;
+// reservationStatusは不要なので削除(2023-07-19~)
+export type IOmittedReservationProperty = 'reservationFor' | 'broker' | 'issuedThrough' | 'provider' | 'reservationStatus';
+export type IObjectSubReservation =
+    Omit<IBusReservation, IOmittedReservationProperty> | Omit<IEventReservation, IOmittedReservationProperty>;
 export type IObjectSubReservationReservedTicket = Pick<ReservationFactory.ITicket, 'issuedBy' | 'ticketedSeat' | 'ticketType'>;
 export type IMinimizedObjectSubReservation = Pick<
-    ReserveActionFactory.ISubReservation,
+    IObjectSubReservation,
     'typeOf' | 'id' | 'subReservation'
 > & {
     reservedTicket: IObjectSubReservationReservedTicket;
@@ -243,15 +247,17 @@ export type IIssuedThrough = IBusReservationIssuedThrough | IEventReservationIss
 /**
  * 取引対象物
  */
-export interface IObject extends Pick<IReservationPackage, 'broker' | 'reservationStatus' | 'underName' | 'typeOf'> {
+export interface IObject extends Pick<IReservationPackage, 'broker' | 'provider' | 'reservationStatus' | 'underName' | 'typeOf'> {
     acceptedOffer?: IAcceptedOffer4object[];
     issuedThrough?: IIssuedThrough;
     reservationFor?: IReservationFor;
     reservationNumber: string;
     subReservation?: IObjectSubReservation[];
-    disablePendingReservations: boolean;
+    /**
+     * trueで固定(2023-07-19~)
+     */
+    disablePendingReservations: true;
     useHoldStockByTransactionNumber?: boolean;
-    // subReservation?: IObjectSubReservation[] | IMinimizedObjectSubReservation[];
 }
 export interface IPotentialActions {
     reserve: ReserveActionFactory.IAttributes[];

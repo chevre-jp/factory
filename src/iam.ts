@@ -31,7 +31,8 @@ export interface IRoleSearchConditions {
 }
 
 export type IMemberType = PersonType | CreativeWorkType.WebApplication;
-export type IMemberHasRole = Pick<IRole, 'typeOf' | 'memberOf' | 'roleName'>[];
+// export type IMemberHasRole = Pick<IRole, 'typeOf' | 'memberOf' | 'roleName'>[];
+export type IMemberHasRole = Pick<IRole, 'typeOf' | 'roleName'>[];
 export interface IMemberOfRole {
     typeOf: IMemberType;
     id: string;
@@ -39,6 +40,8 @@ export interface IMemberOfRole {
     name?: string;
     username?: string;
     hasRole: IMemberHasRole;
+    // memberOfを必須化(2023-07-24~)
+    memberOf: { typeOf: OrganizationType.Corporation | OrganizationType.Project; id: string };
 }
 export interface IMember {
     typeOf: RoleType;
@@ -73,6 +76,11 @@ export interface ISearchConditions {
         name?: { $regex?: string };
         typeOf?: {
             $eq?: string;
+        };
+        // memberOfを必須化(2023-07-24~)
+        memberOf?: {
+            id?: { $eq?: string };
+            typeOf?: { $eq?: OrganizationType.Corporation | OrganizationType.Project };
         };
     };
 }

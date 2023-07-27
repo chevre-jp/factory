@@ -3,15 +3,12 @@ import { ActionType } from '../actionType';
 import { AssetTransactionType } from '../assetTransactionType';
 import { OrderType } from '../order';
 import { IAvailableReservationStatusType } from '../reservation';
-import { IReservation as IBusReservation, IReservationFor as IBusReservationFor } from '../reservation/busReservation';
-import { IReservation as IEventReservation, IReservationFor as IEventReservationFor } from '../reservation/event';
+import { IReservationFor as IBusReservationFor } from '../reservation/busReservation';
+import { IReservationFor as IEventReservationFor } from '../reservation/event';
 import { ReservationType } from '../reservationType';
 import { IAttributes as IMoneyTransferActionAttributes } from './transfer/moneyTransfer';
 
 export type IAgent = ActionFactory.IParticipantAsProject;
-// 最適化(2023-06-06~)
-export type IOmittedReservationProperty = 'reservationFor' | 'broker' | 'issuedThrough';
-export type ISubReservation = Omit<IBusReservation, IOmittedReservationProperty> | Omit<IEventReservation, IOmittedReservationProperty>;
 export type IReservationFor = IBusReservationFor | IEventReservationFor;
 // ReservationPackageに拡張(2022-12-22~)
 export interface IReservationPackageAsObject {
@@ -45,7 +42,6 @@ export interface IAssetTransactionAsReservePurpose {
      */
     id: string;
 }
-// export type IPurpose = IOrderAsReservePurpose | IAssetTransactionAsReservePurpose;
 export type IPurpose = IAssetTransactionAsReservePurpose;
 export interface IPotentialActions {
     moneyTransfer?: IMoneyTransferActionAttributes[];
