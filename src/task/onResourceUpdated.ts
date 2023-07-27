@@ -15,6 +15,8 @@ export interface IData {
     project: { id: string };
     typeOf: IResourceTypeOf;
     isNew: boolean;
+    // 削除に対応(2023-07-28~)
+    isDeleted?: boolean;
     useInform: boolean;
 }
 export interface IAttributes extends TaskFactory.IAttributes {
