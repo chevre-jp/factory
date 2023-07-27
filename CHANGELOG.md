@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.318.0 - 2023-07-27
+
+### Added
+
+- onResourceUpdatedタスクを販売者に対応
+
 ## v4.317.0 - 2023-07-27
 
 ### Added
