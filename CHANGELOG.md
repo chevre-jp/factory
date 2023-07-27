@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- onResourceUpdatedタスクを販売者に対応
+
 ### Changed
 
 ### Deprecated
