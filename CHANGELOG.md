@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.319.0 - 2023-07-28
+
+### Added
+
+- onEventChangedタスクにuseSyncオプションを追加
+
 ## v4.318.0 - 2023-07-27
 
 ### Added
