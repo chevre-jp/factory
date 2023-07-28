@@ -9,6 +9,10 @@ export interface IData {
     typeOf: EventType;
     isNew: boolean;
     useInform: boolean;
+    /**
+     * 関連リソースへの同期有無(2023-07-28~)
+     */
+    useSync?: boolean;
 }
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.OnEventChanged;
