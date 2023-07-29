@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.320.0 - 2023-07-29
+
+### Added
+
+- onResourceUpdatedタスクを施設コンテンツに対応
+- onResourceUpdatedタスクをルームに対応
+
 ## v4.319.0 - 2023-07-28
 
 ### Added
