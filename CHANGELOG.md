@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - onResourceUpdatedタスクを施設コンテンツに対応
+- onResourceUpdatedタスクをルームに対応
 
 ### Changed
 

@@ -14,7 +14,7 @@ export type CategoryCodeType = ICategoryCode['typeOf'];
 export type IResourceTypeOf = AccountTitleType | CategoryCodeType | CreativeWorkType
     | EventType.ScreeningEventSeries
     | OrganizationType.Corporation | PlaceType.MovieTheater | ProductType;
-export interface IData {
+export interface IData4common {
     id: string[];
     project: { id: string };
     typeOf: IResourceTypeOf;
@@ -23,6 +23,25 @@ export interface IData {
     isDeleted?: boolean;
     useInform: boolean;
 }
+// ルーム削除に対応(2023-07-31~)
+export interface IData4screeningRoom {
+    /**
+     * ルームコード
+     */
+    branchCode: string;
+    containedInPlace: {
+        /**
+         * 施設ID
+         */
+        id: string;
+    };
+    project: { id: string };
+    typeOf: PlaceType.ScreeningRoom;
+    // isNew: boolean;
+    isDeleted: boolean;
+    useInform: boolean;
+}
+export type IData = IData4common | IData4screeningRoom;
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.OnResourceUpdated;
     data: IData;
