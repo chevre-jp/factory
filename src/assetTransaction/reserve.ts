@@ -269,6 +269,9 @@ export interface IAttributes extends AssetTransactionFactory.IAttributes<IStartP
  */
 export type ITransaction = IExtendId<IAttributes>;
 export interface IObjectSearchConditions {
+    provider?: {
+        id?: { $eq?: string };
+    };
     reservationFor?: {
         id?: { $eq?: string };
     };
