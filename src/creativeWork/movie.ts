@@ -5,14 +5,16 @@ import { IProject } from '../project';
 import { SortType } from '../sortType';
 
 /**
- * コンテンツに対するオファーインターフェース
+ * コンテンツに対するオファー
+ * 最適化(2023-08-01~)
  */
 // tslint:disable-next-line:no-empty-interface
-export interface IOffer extends OfferFactory.IOffer {
-}
+// export interface IOffer extends OfferFactory.IOffer {
+// }
+export type IOffer = Pick<OfferFactory.IOffer, 'typeOf' | 'availabilityEnds' | 'availabilityStarts'>;
 
 /**
- * 配給者インターフェース
+ * 配給者
  */
 export interface IDistributor {
     id?: string;
@@ -20,7 +22,7 @@ export interface IDistributor {
 }
 
 /**
- * コンテンツインターフェース
+ * コンテンツ
  * {@link https://schema.org/Movie}
  */
 export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
@@ -35,7 +37,7 @@ export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
     /**
      * 販売情報
      */
-    offers?: IOffer;
+    offers: IOffer;
     /**
      * 配給者
      */
@@ -43,13 +45,10 @@ export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
 }
 
 /**
- * ソート条件インターフェース
+ * ソート条件
  */
 export interface ISortOrder {
     identifier?: SortType;
-    // name?: SortType;
-    // datePublished?: SortType;
-    // 'offers.availabilityEnds'?: SortType;
 }
 
 export interface IOfferSearchConditions {
@@ -58,7 +57,7 @@ export interface IOfferSearchConditions {
 }
 
 /**
- * 検索条件インターフェース
+ * 検索条件
  */
 export interface ISearchConditions {
     limit?: number;
