@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.322.0 - 2023-08-02
+
+### Added
+
+- COAオファー承認パラメータにオファーごとのappliesToSurfrock指定を追加
+
 ## v4.321.1 - 2023-08-01
 
 ### Changed

@@ -117,6 +117,21 @@ export type IAcceptedOffer4COA =
         price: number;
         priceSpecification: OrderFactory.ITicketPriceSpecification;
     };
+export interface IAppliesToSurfrock {
+    /**
+     * コード
+     */
+    identifier?: string;
+    serviceOutput?: {
+        /**
+         * 決済方法区分
+         */
+        typeOf?: string;
+    };
+}
+export interface IPriceSpecification4COA {
+    appliesToSurfrock?: IAppliesToSurfrock;
+}
 export type IAcceptedOfferBeforeAuthorize4COA =
     Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail,
         'itemOffered' | 'additionalProperty'
@@ -126,14 +141,12 @@ export type IAcceptedOfferBeforeAuthorize4COA =
     > & {
         itemOffered: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
         ticketInfo: Omit<ICOATicketInfoWithDetails, 'salePrice' | 'usePoint'>;
-        priceSpecification: {
-            appliesToSurfrock?: {
-                identifier?: string;
-                serviceOutput?: { typeOf?: string };
-            };
-        };
+        priceSpecification: IPriceSpecification4COA;
     };
-export type IAcceptedOfferWithoutDetail4COA = COAReservationOfferFactory.IOffer;
+export type IAcceptedOfferWithoutDetail4COA = COAReservationOfferFactory.IOffer & {
+    // オファーごとに指定可能化(2023-08-02~)
+    priceSpecification?: IPriceSpecification4COA;
+};
 export interface IObjectWithoutDetail4COA {
     acceptedOffer: IAcceptedOfferWithoutDetail4COA[];
     event: {
