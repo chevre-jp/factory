@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- コンテンツのoffersを最適化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.321.1 - 2023-08-01
+
+### Changed
+
+- コンテンツのoffersを最適化
 
 ## v4.321.0 - 2023-07-31
 
