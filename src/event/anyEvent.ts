@@ -5,7 +5,7 @@ import * as OfferFactory from '../offer';
 import { OfferType } from '../offerType';
 import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
-import { PriceCurrency } from '../priceCurrency';
+// import { PriceCurrency } from '../priceCurrency';
 import { IServiceType as IProductServiceType, ProductType } from '../product';
 import * as ReservationFactory from '../reservation';
 import { ReservationType } from '../reservationType';
@@ -135,7 +135,8 @@ export import IEligibleQuantity = OfferFactory.IEligibleQuantity;
  */
 export interface IOffer {
     typeOf: OfferType.Offer;
-    priceCurrency: PriceCurrency.JPY;
+    // 廃止(2023-08-07~)
+    // priceCurrency: PriceCurrency.JPY;
     /**
      * 情報提供終了日時(オンライン取引アプリケーションの設定)
      * @deprecated Use seller.makesOffer
@@ -278,10 +279,7 @@ export type IItemOffered4create = Pick<IItemOffered, 'id'> & {
     availableChannel: IAvailableChannel4create;
     serviceOutput: IServiceOutput4create;
 };
-export type IOffers4create = Pick<
-    IOffer,
-    'unacceptedPaymentMethod'
-> & {
+export type IOffers4create = Pick<IOffer, 'unacceptedPaymentMethod'> & {
     /**
      * 最大予約数を指定
      */

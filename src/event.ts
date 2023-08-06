@@ -8,7 +8,13 @@ import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { SortType } from './sortType';
 
-export type IOffer = Omit<OfferFactory.IOffer, 'project'>;
+// Pickで再定義(2023-08-07~)
+// export type IOffer = Omit<OfferFactory.IOffer, 'project' | 'priceCurrency'>;
+export type IOffer = Pick<
+    OfferFactory.IOffer,
+    'typeOf' | 'unacceptedPaymentMethod' | 'seller' | 'eligibleQuantity' | 'itemOffered' | 'offeredThrough'
+>;
+
 export interface IAttributes<T extends EventType> {
     project: Pick<IProject, 'id' | 'typeOf'>;
     /**

@@ -6,18 +6,16 @@ import { EventType } from '../eventType';
 import { ILanguage } from '../language';
 import { IMultilingualString } from '../multilingualString';
 import { OfferType } from '../offerType';
-// import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
-import { PriceCurrency } from '../priceCurrency';
+// import { PriceCurrency } from '../priceCurrency';
 
 /**
  * 施設コンテンツに対するオファー
  */
 export interface IOffer {
-    // 不要なので廃止(2023-06-09~)
-    // project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferType.Offer;
-    priceCurrency: PriceCurrency.JPY;
+    // 廃止(2023-08-07~)
+    // priceCurrency: PriceCurrency.JPY;
     /**
      * 利用不可決済方法区分
      */
