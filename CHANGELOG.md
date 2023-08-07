@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- CreditCardIF決済サービスのカード通貨区分を追加
+
 ### Changed
 
 - インボイスのtotalPaymentDue.valueを必須化
@@ -17,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Removed
 
 - イベントのoffers.priceCurrencyを廃止
+- 決済承認アクションのresult.amountを廃止
 
 ### Fixed
 

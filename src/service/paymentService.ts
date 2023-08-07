@@ -61,7 +61,20 @@ export type IAvailableChannel = IProductAvailableChannel & {
     };
 };
 /**
- * 決済サービスインターフェース
+ * CreditCardIF決済サービスのカード属性
+ * ポイントカード情報など
+ */
+export interface ICreditCardAsPaymentServiceOutput {
+    amount?: {
+        /**
+         * 通貨区分
+         */
+        currency: string;
+    };
+}
+export type IServiceOutput = ICreditCardAsPaymentServiceOutput;
+/**
+ * 決済サービス
  * {@link https://schema.org/Service}
  */
 export interface IService extends Pick<IThing, 'name' | 'description'> {
@@ -74,7 +87,11 @@ export interface IService extends Pick<IThing, 'name' | 'description'> {
      * 決済サービス提供者(決済サービスを利用する販売者)
      */
     provider?: IProvider[];
-    // serviceOutput?: IServiceOutput;
+    // CreditCardIFのカード通貨区分を追加(2023-08-07~)
+    /**
+     * 提供元のカード情報
+     */
+    serviceOutput?: IServiceOutput;
     /**
      * The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
      * 決済サービスの場合、serviceType.codeValueが決済方法区分

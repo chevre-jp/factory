@@ -8,7 +8,7 @@ import { IAppliesToMovieTicket, IPriceSpecification as IMovieTicketTypeChargeSpe
 import { IAppliesToAddOn as IUnitPriceSpecAppliesToAddOn, IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IPriceSpecification } from './reservation/event';
 import * as SellerFactory from './seller';
-import { PaymentServiceType } from './service/paymentService';
+import { ICreditCardAsPaymentServiceOutput, PaymentServiceType } from './service/paymentService';
 
 export type IBroker = SellerFactory.ISeller | PersonFactory.IPerson;
 export type IProvider = SellerFactory.ISeller | PersonFactory.IPerson;
@@ -60,7 +60,7 @@ export interface IMovieTicketAsPaymentServiceOutput {
     // 計上金額を追加(2023-05-17~)
     amount?: IAmountOfMovieTicketAsPaymentServiceOutput;
 }
-export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[];
+export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[] | ICreditCardAsPaymentServiceOutput;
 /**
  * 決済方法(サービス)
  */
@@ -69,9 +69,6 @@ export interface IPaymentMethod {
     typeOf: PaymentServiceType;
     serviceOutput?: IPaymentServiceOutput;
 }
-export type ITotalPaymentDue = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'> & {
-    value: number;
-};
 /**
  * インボイス
  * {@link https://schema.org/Invoice}
@@ -141,5 +138,5 @@ export interface IInvoice {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: ITotalPaymentDue;
+    totalPaymentDue?: OrderFactory.ITotalPaymentDue;
 }

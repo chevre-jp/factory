@@ -1,5 +1,4 @@
 import { IParticipantAsPerson, IParticipantAsProject, IParticipantAsWebApplication } from './action';
-import { IPaymentService, ITotalPaymentDue } from './action/trade/pay';
 import {
     IAmount as IMoneyTransferAmount,
     IPaymentCard as IPaymentCardAsMoneyTransferToLocation
@@ -9,6 +8,7 @@ import { AssetTransactionType } from './assetTransactionType';
 import { ICreativeWork as IWebApplication } from './creativeWork/softwareApplication/webApplication';
 import { ICustomer as ICustomerOrganization } from './customer';
 import { EventType } from './eventType';
+import { IMonetaryAmount } from './monetaryAmount';
 import { IMultilingualString } from './multilingualString';
 import { IOffer } from './offer';
 import { OrderStatus } from './orderStatus';
@@ -27,6 +27,7 @@ import { IProgramMembershipUsedSearchConditions, ITicket, ITicketType } from './
 import * as BusReservationFactory from './reservation/busReservation';
 import * as EventReservationFactory from './reservation/event';
 import { ReservationType } from './reservationType';
+import { ICreditCardAsPaymentServiceOutput, PaymentServiceType } from './service/paymentService';
 import { SortType } from './sortType';
 import { IUnitPriceOfferPriceSpecification } from './unitPriceOffer';
 
@@ -37,7 +38,19 @@ export interface IProject {
 export enum OrderType {
     Order = 'Order'
 }
-export type IPaymentMethodIssuedThrough = Pick<IPaymentService, 'typeOf' | 'id' | 'serviceOutput'>;
+// CreditCardIFのカード通貨区分を追加(2023-08-07~)
+// export type IOrderPaymentMethodIssuedThrough = Pick<IPaymentService, 'typeOf' | 'id' | 'serviceOutput'>;
+export interface IOrderPaymentMethodIssuedThrough {
+    typeOf: PaymentServiceType;
+    /**
+     * 発行決済サービスID
+     */
+    id: string;
+    serviceOutput?: ICreditCardAsPaymentServiceOutput;
+}
+export interface ITotalPaymentDue extends Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'> {
+    value: number;
+}
 /**
  * 決済方法
  */
@@ -66,7 +79,7 @@ export interface IPaymentMethod {
      * 追加特性
      */
     additionalProperty: IPropertyValue<string>[];
-    issuedThrough: IPaymentMethodIssuedThrough;
+    issuedThrough: IOrderPaymentMethodIssuedThrough;
 }
 /**
  * ディスカウント

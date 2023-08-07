@@ -6,8 +6,8 @@ import { IAttributes as IReturnOrderActionAttributes } from '../../action/transf
 import { ActionType } from '../../actionType';
 import { AssetTransactionType } from '../../assetTransactionType';
 import { CreativeWorkType } from '../../creativeWorkType';
-import { IPaymentServiceOutput, ITotalPaymentDue } from '../../invoice';
-import { OrderType } from '../../order';
+import { IPaymentServiceOutput } from '../../invoice';
+import { ITotalPaymentDue, OrderType } from '../../order';
 import { IMovieTicket as IMovieTicketPaymentCard } from '../../paymentMethod/paymentCard/movieTicket';
 import { IPropertyValue } from '../../propertyValue';
 import { PaymentServiceType } from '../../service/paymentService';
@@ -142,4 +142,3 @@ export interface IAttributes extends Omit<
  * 決済アクション
  */
 export type IAction = ActionFactory.IAction<IAttributes>;
-export { ITotalPaymentDue };
