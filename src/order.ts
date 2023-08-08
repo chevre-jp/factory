@@ -13,7 +13,7 @@ import { IMultilingualString } from './multilingualString';
 import { IOffer } from './offer';
 import { OrderStatus } from './orderStatus';
 import { OrganizationType } from './organizationType';
-import * as PermitFactory from './permit';
+import { IPermit as IBasePermit } from './permit';
 import { IPerson, IProfile } from './person';
 import { PersonType } from './personType';
 import { PlaceType } from './placeType';
@@ -27,6 +27,7 @@ import { IProgramMembershipUsedSearchConditions, ITicket, ITicketType } from './
 import * as BusReservationFactory from './reservation/busReservation';
 import * as EventReservationFactory from './reservation/event';
 import { ReservationType } from './reservationType';
+import { ISeller as IBaseSeller } from './seller';
 import { ICreditCardAsPaymentServiceOutput, PaymentServiceType } from './service/paymentService';
 import { SortType } from './sortType';
 import { IUnitPriceOfferPriceSpecification } from './unitPriceOffer';
@@ -165,7 +166,7 @@ export type IEventReservation = Pick<
 };
 export type IReservation = IBusReservation | IEventReservation;
 export type IPermit = Pick<
-    PermitFactory.IPermit,
+    IBasePermit,
     'amount' | 'identifier' | 'issuedThrough' | 'name' | 'typeOf' | 'validFor'
 // 不要なので廃止(2023-07-01~)
 // | 'project'
@@ -240,9 +241,8 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOfferOptimized4
 /**
  * 販売者
  */
-export interface ISeller {
+export interface ISeller extends Pick<IBaseSeller, 'typeOf' | 'additionalProperty'> {
     id: string;
-    typeOf: OrganizationType.Corporation;
     name: string;
 }
 /**
@@ -266,21 +266,16 @@ export type IParticipantAsReturner = IParticipantAsPerson | IParticipantAsProjec
 export type IReturner = Pick<IParticipantAsReturner, 'id' | 'typeOf'>;
 export type IIdentifier = IPropertyValue<string>[];
 export type ISimpleCustomer = Pick<ICustomer, 'id' | 'typeOf'>;
+export type ISimpleSeller = Pick<ISeller, 'id' | 'typeOf' | 'name'>;
 export interface ISimpleOrder {
     /**
      * object type
      */
     typeOf: OrderType;
     /**
-     * The party taking the order (e.g. Amazon.com is a merchant for many sellers). Also accepts a string (e.g. "Amazon.com").
-     */
-    seller: ISeller;
-    /**
      * Party placing the order.
      */
     customer: ISimpleCustomer;
-    // IOrderへ移行(2022-11-17~)
-    // confirmationNumber?: string;
     /**
      * The merchant- specific identifier for the transaction.
      */
@@ -297,6 +292,7 @@ export interface ISimpleOrder {
      * Date order was placed.
      */
     orderDate: Date;
+    seller: ISimpleSeller;
 }
 export interface IReservationFor4EventServiceOrderedItem {
     location?: {
@@ -396,6 +392,10 @@ export interface IOrder extends Omit<ISimpleOrder, 'customer'> {
      * Returner
      */
     returner?: IReturner;
+    /**
+     * The party taking the order (e.g. Amazon.com is a merchant for many sellers). Also accepts a string (e.g. "Amazon.com").
+     */
+    seller: ISeller;
     /**
      * URL	(recommended for confirmation cards/ Search Answers)
      * URL of the Order, typically a link to the merchant's website where the user can retrieve further details about an order.

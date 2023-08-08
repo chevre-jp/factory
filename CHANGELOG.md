@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - CreditCardIF決済サービスのカード通貨区分を追加
+- 注文のISellerに追加特性を追加
 
 ### Changed
 

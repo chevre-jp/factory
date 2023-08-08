@@ -95,7 +95,7 @@ export interface IStartParamsWithoutDetail {
         name?: string;
     };
 }
-export type ISeller = TransactionFactory.ISeller;
+export type ISeller = TransactionFactory.ISeller & Pick<OrderFactory.ISeller, 'additionalProperty'>;
 /**
  * 取引開始パラメーター
  */
