@@ -8,7 +8,7 @@ import { IAppliesToMovieTicket, IPriceSpecification as IMovieTicketTypeChargeSpe
 import { IAppliesToAddOn as IUnitPriceSpecAppliesToAddOn, IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IPriceSpecification } from './reservation/event';
 import * as SellerFactory from './seller';
-import { ICreditCardAsPaymentServiceOutput, PaymentServiceType } from './service/paymentService';
+import { PaymentServiceType } from './service/paymentService';
 
 export type IBroker = SellerFactory.ISeller | PersonFactory.IPerson;
 export type IProvider = SellerFactory.ISeller | PersonFactory.IPerson;
@@ -60,7 +60,7 @@ export interface IMovieTicketAsPaymentServiceOutput {
     // 計上金額を追加(2023-05-17~)
     amount?: IAmountOfMovieTicketAsPaymentServiceOutput;
 }
-export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[] | ICreditCardAsPaymentServiceOutput;
+export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[] | OrderFactory.IOrderPaymentMethodIssuedThroughServiceOutput;
 /**
  * 決済方法(サービス)
  */

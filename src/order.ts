@@ -39,14 +39,19 @@ export enum OrderType {
     Order = 'Order'
 }
 // CreditCardIFのカード通貨区分を追加(2023-08-07~)
-// export type IOrderPaymentMethodIssuedThrough = Pick<IPaymentService, 'typeOf' | 'id' | 'serviceOutput'>;
+export interface IOrderPaymentMethodIssuedThroughServiceOutput extends ICreditCardAsPaymentServiceOutput {
+    amount?: {
+        currency: string;
+        value: number;
+    };
+}
 export interface IOrderPaymentMethodIssuedThrough {
     typeOf: PaymentServiceType;
     /**
      * 発行決済サービスID
      */
     id: string;
-    serviceOutput?: ICreditCardAsPaymentServiceOutput;
+    serviceOutput?: IOrderPaymentMethodIssuedThroughServiceOutput;
 }
 export interface ITotalPaymentDue extends Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'> {
     value: number;
