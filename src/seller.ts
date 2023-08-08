@@ -80,6 +80,7 @@ export interface ISearchConditions {
         $regex?: string;
     };
     hasMerchantReturnPolicy?: {
+        applicablePaymentMethod?: { $eq?: string };
         itemCondition?: {
             id?: {
                 $eq?: string;
@@ -99,5 +100,8 @@ export interface ISearchConditions {
         $in?: IPropertyValue<string>[];
         $nin?: IPropertyValue<string>[];
         $elemMatch?: any;
+    };
+    paymentAccepted?: {
+        paymentMethodType?: { $eq?: string };
     };
 }
