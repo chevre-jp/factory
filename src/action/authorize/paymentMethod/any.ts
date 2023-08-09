@@ -1,10 +1,10 @@
 import * as ActionFactory from '../../../action';
 import * as CheckMovieTicketActionFactory from '../../../action/check/paymentMethod/movieTicket';
-import { IMovieTicket, ITotalPaymentDue } from '../../../action/trade/pay';
+import { IMovieTicket } from '../../../action/trade/pay';
 import { ActionType } from '../../../actionType';
 import * as PayTransactionFactory from '../../../assetTransaction/pay';
 import { AssetTransactionType } from '../../../assetTransactionType';
-import { IPaymentMethodIssuedThrough } from '../../../order';
+import { IOrderPaymentMethodIssuedThrough, ITotalPaymentDue } from '../../../order';
 import * as CreditCardFactory from '../../../paymentMethod/paymentCard/creditCard';
 import { PaymentStatusType } from '../../../paymentStatusType';
 import { IPropertyValue } from '../../../propertyValue';
@@ -119,8 +119,9 @@ export interface IResult {
     accountId: string;
     /**
      * The amount of money.
+     * 廃止(2023-08-07~)
      */
-    amount: number;
+    // amount: number;
     /**
      * 決済方法
      */
@@ -146,7 +147,7 @@ export interface IResult {
      */
     additionalProperty?: IPropertyValue<string>[];
     typeOf: ResultType;
-    issuedThrough: IPaymentMethodIssuedThrough;
+    issuedThrough: IOrderPaymentMethodIssuedThrough;
 }
 
 export interface IPurpose {

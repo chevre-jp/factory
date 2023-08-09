@@ -1,17 +1,17 @@
 import { IMonetaryAmount } from './monetaryAmount';
 import * as OrderFactory from './order';
 import { PaymentStatusType } from './paymentStatusType';
-import * as PersonFactory from './person';
+import { IPerson } from './person';
 import { IAccounting } from './priceSpecification';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
 import { IAppliesToMovieTicket, IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
 import { IAppliesToAddOn as IUnitPriceSpecAppliesToAddOn, IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IPriceSpecification } from './reservation/event';
-import * as SellerFactory from './seller';
+import { ISeller } from './seller';
 import { PaymentServiceType } from './service/paymentService';
 
-export type IBroker = SellerFactory.ISeller | PersonFactory.IPerson;
-export type IProvider = SellerFactory.ISeller | PersonFactory.IPerson;
+export type IBroker = Pick<ISeller, 'id' | 'typeOf'> | IPerson;
+export type IProvider = Pick<ISeller, 'id' | 'typeOf'> | IPerson;
 export interface IReferenceOrder extends OrderFactory.IOrder {
     acceptedOffers: OrderFactory.IAcceptedOffer<OrderFactory.IItemOffered>[];
 }
@@ -60,7 +60,7 @@ export interface IMovieTicketAsPaymentServiceOutput {
     // 計上金額を追加(2023-05-17~)
     amount?: IAmountOfMovieTicketAsPaymentServiceOutput;
 }
-export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[];
+export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[] | OrderFactory.IOrderPaymentMethodIssuedThroughServiceOutput;
 /**
  * 決済方法(サービス)
  */
@@ -69,7 +69,6 @@ export interface IPaymentMethod {
     typeOf: PaymentServiceType;
     serviceOutput?: IPaymentServiceOutput;
 }
-export type ITotalPaymentDue = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
 /**
  * インボイス
  * {@link https://schema.org/Invoice}
@@ -139,5 +138,5 @@ export interface IInvoice {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: ITotalPaymentDue;
+    totalPaymentDue?: OrderFactory.ITotalPaymentDue;
 }

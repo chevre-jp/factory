@@ -12,7 +12,7 @@ import { UnitCode } from './unitCode';
 // strict definition(2022-08-04~)
 export type ISellerMerchantReturnPolicy = Pick<
     IMerchantReturnPolicy,
-    'itemCondition' | 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'url'
+    'itemCondition' | 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'url' | 'applicablePaymentMethod'
 > & {
     restockingFee: IRestockingFee;
 };
@@ -80,6 +80,7 @@ export interface ISearchConditions {
         $regex?: string;
     };
     hasMerchantReturnPolicy?: {
+        applicablePaymentMethod?: { $eq?: string };
         itemCondition?: {
             id?: {
                 $eq?: string;
@@ -99,5 +100,8 @@ export interface ISearchConditions {
         $in?: IPropertyValue<string>[];
         $nin?: IPropertyValue<string>[];
         $elemMatch?: any;
+    };
+    paymentAccepted?: {
+        paymentMethodType?: { $eq?: string };
     };
 }

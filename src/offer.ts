@@ -27,7 +27,9 @@ export interface ICategory {
 // 最適化(2023-02-24~)
 // export type IEligibleCategoryCode = Pick<ICategoryCode, 'project' | 'typeOf' | 'id' | 'codeValue' | 'inCodeSet'>;
 export type IEligibleCategoryCode = Pick<ICategoryCode, 'typeOf' | 'id' | 'codeValue' | 'inCodeSet'>;
-export type IEligibleMonetaryAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'>;
+export type IEligibleMonetaryAmount = Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'> & {
+    value: number;
+};
 /**
  * 適用サブ予約条件
  */

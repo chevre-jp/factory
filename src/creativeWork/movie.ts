@@ -1,4 +1,5 @@
 import * as CreativeWorkFactory from '../creativeWork';
+import { CreativeWorkType } from '../creativeWorkType';
 import { IMultilingualString } from '../multilingualString';
 import * as OfferFactory from '../offer';
 import { IProject } from '../project';
@@ -25,7 +26,11 @@ export interface IDistributor {
  * コンテンツ
  * {@link https://schema.org/Movie}
  */
-export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
+export interface ICreativeWork extends Pick<
+    CreativeWorkFactory.ICreativeWork,
+    'additionalProperty' | 'alternativeHeadline' | 'contentRating' | 'copyrightHolder' | 'datePublished'
+    | 'headline' | 'thumbnailUrl' | 'typeOf' | 'name' | 'identifier' | 'id'
+> {
     project: Pick<IProject, 'id' | 'typeOf'>;
     identifier: string;
     /**
@@ -42,6 +47,7 @@ export interface ICreativeWork extends CreativeWorkFactory.ICreativeWork {
      * 配給者
      */
     distributor?: IDistributor;
+    typeOf: CreativeWorkType.Movie;
 }
 
 /**

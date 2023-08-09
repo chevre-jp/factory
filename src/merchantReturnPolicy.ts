@@ -55,6 +55,10 @@ export type ICustomerRemorseReturnFeesMovieTicket =
 export interface IMerchantReturnPolicy extends Pick<IThing, 'name' | 'url'> {
     typeOf: 'MerchantReturnPolicy';
     /**
+     * 適用決済方法
+     */
+    applicablePaymentMethod?: string[];
+    /**
      * The type of return fees if the product is returned due to customer remorse.
      */
     customerRemorseReturnFees?: ICustomerRemorseReturnFees;

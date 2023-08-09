@@ -144,7 +144,10 @@ export type IReturnPolicyItemCondition = IOfferItemCondition;
 /**
  * 取引に適用される返品ポリシー
  */
-export type IReturnPolicy = Pick<IMerchantReturnPolicy, 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'returnFees'> & {
+export type IReturnPolicy = Pick<
+    IMerchantReturnPolicy,
+    'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'returnFees' | 'applicablePaymentMethod'
+> & {
     returnFees: ReturnFeesEnumeration;
     /**
      * 決済カードコードごとの着券取消実行有無

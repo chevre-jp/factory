@@ -5,9 +5,8 @@ import * as ScreeningEventSeriesFactory from '../event/screeningEventSeries';
 import { EventType } from '../eventType';
 import { OfferType } from '../offerType';
 import { PlaceType } from '../placeType';
-import { PriceCurrency } from '../priceCurrency';
+// import { PriceCurrency } from '../priceCurrency';
 import { IServiceType as IProductServiceType, ProductType } from '../product';
-// import { IProject } from '../project';
 import * as ReservationFactory from '../reservation';
 import { ReservationType } from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
@@ -64,7 +63,8 @@ export import IEligibleQuantity = AnyEventFactory.IEligibleQuantity;
  */
 export interface IOffer {
     typeOf: OfferType.Offer;
-    priceCurrency: PriceCurrency.JPY;
+    // 廃止(2023-08-07~)
+    // priceCurrency: PriceCurrency.JPY;
     /**
      * 情報提供終了日時(オンライン取引アプリケーションの設定)
      * @deprecated Use seller.makesOffer
@@ -96,7 +96,9 @@ export interface IOffer {
 }
 export type IOffer4COA = Pick<
     IOffer,
-    'typeOf' | 'offeredThrough' | 'priceCurrency'
+    'typeOf' | 'offeredThrough'
+// 廃止(2023-08-07~)
+// | 'priceCurrency'
 > & {
     // 追加(2023-06-20~)
     itemOffered: {

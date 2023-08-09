@@ -18,6 +18,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.324.0 - 2023-08-10
+
+### Added
+
+- CreditCardIF決済サービスのカード通貨区分を追加
+- 注文のISellerに追加特性を追加
+- 販売者の返品ポリシーに適用決済方法を追加
+- 販売者検索条件拡張
+
+### Changed
+
+- インボイスのtotalPaymentDue.valueを必須化
+- creativeWorkインターフェースを最適化
+
+### Removed
+
+- イベントのoffers.priceCurrencyを廃止
+- 決済承認アクションのresult.amountを廃止
+
 ## v4.323.0 - 2023-08-03
 
 ### Added

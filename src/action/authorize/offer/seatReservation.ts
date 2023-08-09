@@ -1,7 +1,6 @@
 import * as COA from '@motionpicture/coa-service';
 
 import * as ActionFactory from '../../../action';
-import { ITotalPaymentDue } from '../../../action/trade/pay';
 import { ActionType } from '../../../actionType';
 import * as ReserveTransactionFactory from '../../../assetTransaction/reserve';
 import { AssetTransactionType } from '../../../assetTransactionType';
@@ -52,7 +51,7 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
      * オファーに対して必要な金額
      * currencyを口座タイプとして扱う
      */
-    amount: ITotalPaymentDue[];
+    amount: OrderFactory.ITotalPaymentDue[];
     /**
      * 外部リクエストエンドポイント
      */
