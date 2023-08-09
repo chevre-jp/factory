@@ -22,7 +22,13 @@ export interface IAbout extends Pick<IThing, 'name'> {
     name: string;
 }
 
-export interface IAttributes {
+/**
+ * Eメールメッセージ
+ */
+export interface ICreativeWork extends Pick<
+    CreativeWorkFactory.ICreativeWork,
+    'id' | 'identifier' | 'name' | 'typeOf'
+> {
     project?: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: CreativeWorkType.EmailMessage;
     sender: IParticipant;
@@ -31,11 +37,6 @@ export interface IAttributes {
     about: IAbout;
     text: string;
 }
-
-/**
- * Eメールメッセージ
- */
-export type ICreativeWork = IAttributes & CreativeWorkFactory.ICreativeWork;
 export interface ICustomizedParticipant {
     name?: string;
     email?: string;

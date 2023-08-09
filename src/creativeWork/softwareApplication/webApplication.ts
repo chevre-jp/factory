@@ -2,7 +2,10 @@ import * as CreativeWorkFactory from '../../creativeWork';
 import { CreativeWorkType } from '../../creativeWorkType';
 import { IIdentifier } from '../../thing';
 
-export interface IWebApplicationAttributes {
+/**
+ * ウェブアプリケーション
+ */
+export interface ICreativeWork extends Pick<CreativeWorkFactory.ICreativeWork, 'id' | 'identifier' | 'typeOf'> {
     typeOf: CreativeWorkType.WebApplication;
     /**
      * アプリケーションクライアントID
@@ -10,7 +13,3 @@ export interface IWebApplicationAttributes {
     id: string;
     identifier?: IIdentifier;
 }
-/**
- * ウェブアプリケーション
- */
-export type ICreativeWork = CreativeWorkFactory.ICreativeWork & IWebApplicationAttributes;

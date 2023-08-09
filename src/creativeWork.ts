@@ -11,7 +11,7 @@ export interface ICopyrightHolder {
 export type IContentRating = COA.factory.master.IKubunNameResult | string;
 
 /**
- * 作品インターフェース
+ * 作品
  * {@link https://schema.org/CreativeWork}
  */
 export interface ICreativeWork extends Pick<IThing, 'name' | 'identifier'> {
