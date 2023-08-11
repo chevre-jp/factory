@@ -63,6 +63,7 @@ export interface ISettings {
 }
 export interface IAdvanceBookingRequirement extends Pick<IQuantitativeValue<UnitCode.Sec>, 'typeOf' | 'minValue' | 'unitCode' | 'description'> {
 }
+export type IAvailability = ItemAvailability.InStock | ItemAvailability.OutOfStock;
 /**
  * 単価オファー
  */
@@ -80,7 +81,7 @@ export interface IUnitPriceOffer extends Pick<
      * 事前予約要件(興行オファー承認日時とイベント開始日時の差)
      */
     advanceBookingRequirement?: IAdvanceBookingRequirement;
-    availability: ItemAvailability;
+    availability: IAvailability;
     /**
      * コード
      */
@@ -163,6 +164,7 @@ export interface ISearchConditions {
             id?: { $eq?: string };
         };
     };
+    availability?: { $eq?: IAvailability };
     availableAtOrFrom?: {
         id?: {
             $eq?: string;
