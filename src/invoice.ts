@@ -60,7 +60,8 @@ export interface IMovieTicketAsPaymentServiceOutput {
     // 計上金額を追加(2023-05-17~)
     amount?: IAmountOfMovieTicketAsPaymentServiceOutput;
 }
-export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[] | OrderFactory.IOrderPaymentMethodIssuedThroughServiceOutput;
+// export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[] | OrderFactory.IOrderPaymentMethodIssuedThroughServiceOutput;
+export type IPaymentServiceOutput = IMovieTicketAsPaymentServiceOutput[];
 /**
  * 決済方法(サービス)
  */

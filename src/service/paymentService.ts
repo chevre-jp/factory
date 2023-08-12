@@ -1,3 +1,4 @@
+import { IInvoice } from '../invoice';
 import { IAvailableChannel as IProductAvailableChannel, IServiceType } from '../product';
 import { IOnPaymentStatusChanged, IProject } from '../project';
 import { IPropertyValue } from '../propertyValue';
@@ -64,15 +65,21 @@ export type IAvailableChannel = IProductAvailableChannel & {
  * CreditCardIF決済サービスのカード属性
  * ポイントカード情報など
  */
-export interface ICreditCardAsPaymentServiceOutput {
+export interface IPaymentMethodAsServiceOutput {
     amount?: {
         /**
-         * 通貨区分
+         * カード通貨区分
          */
         currency: string;
     };
 }
-export type IServiceOutput = ICreditCardAsPaymentServiceOutput;
+export interface IInvoiceAsServiceOutput extends Pick<IInvoice, 'paymentStatus' | 'typeOf'> {
+    /**
+     * 発行される決済方法
+     */
+    paymentMethod?: IPaymentMethodAsServiceOutput;
+}
+export type IServiceOutput = IInvoiceAsServiceOutput;
 /**
  * 決済サービス
  * {@link https://schema.org/Service}

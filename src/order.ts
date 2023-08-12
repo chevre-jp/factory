@@ -28,7 +28,7 @@ import * as BusReservationFactory from './reservation/busReservation';
 import * as EventReservationFactory from './reservation/event';
 import { ReservationType } from './reservationType';
 import { ISeller as IBaseSeller } from './seller';
-import { ICreditCardAsPaymentServiceOutput, PaymentServiceType } from './service/paymentService';
+import { PaymentServiceType } from './service/paymentService';
 import { SortType } from './sortType';
 import { IUnitPriceOfferPriceSpecification } from './unitPriceOffer';
 
@@ -40,10 +40,12 @@ export enum OrderType {
     Order = 'Order'
 }
 // CreditCardIFのカード通貨区分を追加(2023-08-07~)
-export interface IOrderPaymentMethodIssuedThroughServiceOutput extends ICreditCardAsPaymentServiceOutput {
-    amount?: {
-        currency: string;
-        value: number;
+export interface IOrderPaymentMethodIssuedThroughServiceOutput {
+    paymentMethod?: {
+        amount?: {
+            currency: string;
+            value: number;
+        };
     };
 }
 export interface IOrderPaymentMethodIssuedThrough {

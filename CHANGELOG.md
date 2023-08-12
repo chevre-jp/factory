@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 決済サービスのserviceOutputを再定義
+- 決済取引のobject.paymentMethod.amountをIMonetaryAmountに対応
+
 ### Deprecated
 
 ### Removed
