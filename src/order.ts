@@ -28,7 +28,7 @@ import * as BusReservationFactory from './reservation/busReservation';
 import * as EventReservationFactory from './reservation/event';
 import { ReservationType } from './reservationType';
 import { ISeller as IBaseSeller } from './seller';
-import { PaymentServiceType } from './service/paymentService';
+import { IPaymentMethodAsServiceOutput, PaymentServiceType } from './service/paymentService';
 import { SortType } from './sortType';
 import { IUnitPriceOfferPriceSpecification } from './unitPriceOffer';
 
@@ -39,30 +39,20 @@ export interface IProject {
 export enum OrderType {
     Order = 'Order'
 }
-// CreditCardIFのカード通貨区分を追加(2023-08-07~)
-export interface IOrderPaymentMethodIssuedThroughServiceOutput {
-    paymentMethod?: {
-        amount?: {
-            currency: string;
-            value: number;
-        };
-    };
-}
 export interface IOrderPaymentMethodIssuedThrough {
     typeOf: PaymentServiceType;
     /**
      * 発行決済サービスID
      */
     id: string;
-    serviceOutput?: IOrderPaymentMethodIssuedThroughServiceOutput;
 }
 export interface ITotalPaymentDue extends Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'> {
     value: number;
 }
 /**
- * 決済方法
+ * 請求
  */
-export interface IPaymentMethod {
+export interface IReferencedInvoice {
     /**
      * The identifier for the account the payment will be applied to.
      */
@@ -75,6 +65,11 @@ export interface IPaymentMethod {
      * 決済方法名称
      */
     name: string;
+    /**
+     * The name of the credit card or other method of payment for the order.
+     * 追加(2023-08-13~)
+     */
+    paymentMethod?: Pick<IPaymentMethodAsServiceOutput, 'amount'>;
     /**
      * An identifier for the method of payment used (e.g.the last 4 digits of the credit card).
      */
@@ -389,7 +384,7 @@ export interface IOrder extends Omit<ISimpleOrder, 'customer'> {
     /**
      * payment methods
      */
-    paymentMethods: IPaymentMethod[];
+    paymentMethods: IReferencedInvoice[];
     /**
      * Returner
      */

@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 単価オファーに事前予約要件を追加
 - 単価オファー検索条件拡張
+- 注文のpaymentMethodsにpaymentMethodを追加
 
 ### Changed
 
