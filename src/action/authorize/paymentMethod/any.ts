@@ -112,6 +112,10 @@ export interface IObject {
      */
     movieTickets?: IMovieTicket[];
 }
+export interface IResultPaymentMethod {
+    typeOf: IAnyPaymentMethod;
+    amount?: { currency?: string };
+}
 export interface IResult {
     /**
      * The identifier for the account the payment will be applied to.
@@ -126,6 +130,10 @@ export interface IResult {
      * 決済方法
      */
     paymentMethod: IAnyPaymentMethod;
+    /**
+     * amount.currencyに対応するために追加(2023-08-13~)
+     */
+    paymentMethodAsObject?: IResultPaymentMethod;
     /**
      * 決済ID
      */
