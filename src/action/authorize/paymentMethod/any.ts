@@ -1,6 +1,6 @@
 import * as ActionFactory from '../../../action';
 import * as CheckMovieTicketActionFactory from '../../../action/check/paymentMethod/movieTicket';
-import { IMovieTicket } from '../../../action/trade/pay';
+import { AvailablePaymentMethodType, IMovieTicket } from '../../../action/trade/pay';
 import { ActionType } from '../../../actionType';
 import * as PayTransactionFactory from '../../../assetTransaction/pay';
 import { AssetTransactionType } from '../../../assetTransactionType';
@@ -11,18 +11,12 @@ import { IPropertyValue } from '../../../propertyValue';
 import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
-// 最適化(2022-06-01~)
 export type IAgent = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
 export type IRecipient = ActionFactory.IParticipantAsSeller;
 
 export enum ResultType {
     Payment = 'Payment'
 }
-
-/**
- * 汎用決済方法タイプ
- */
-export type IAnyPaymentMethod = string;
 
 /**
  * 進行中取引
@@ -75,7 +69,7 @@ export interface IObject {
     /**
      * 決済方法
      */
-    paymentMethod: IAnyPaymentMethod;
+    paymentMethod: AvailablePaymentMethodType;
     /**
      * 決済ID
      */
@@ -113,8 +107,16 @@ export interface IObject {
     movieTickets?: IMovieTicket[];
 }
 export interface IResultPaymentMethod {
-    typeOf: IAnyPaymentMethod;
-    amount?: { currency?: string };
+    /**
+     * 決済方法区分
+     */
+    typeOf: AvailablePaymentMethodType;
+    amount?: {
+        /**
+         * 決済カード通貨区分
+         */
+        currency?: string;
+    };
 }
 export interface IResult {
     /**
@@ -128,12 +130,14 @@ export interface IResult {
     // amount: number;
     /**
      * 決済方法
+     * @deprecated Use paymentMethodAsObject(2023-08-15~)
      */
-    paymentMethod: IAnyPaymentMethod;
+    paymentMethod?: AvailablePaymentMethodType;
     /**
+     * 決済方法
      * amount.currencyに対応するために追加(2023-08-13~)
      */
-    paymentMethodAsObject?: IResultPaymentMethod;
+    paymentMethodAsObject: IResultPaymentMethod;
     /**
      * 決済ID
      */
@@ -191,7 +195,3 @@ export interface IAttributes extends AuthorizeActionFactory.IAttributes<IObject,
  * 決済承認アクション
  */
 export type IAction = ActionFactory.IAction<IAttributes>;
-
-export {
-    ITotalPaymentDue
-};
