@@ -1,7 +1,6 @@
 import * as waiter from '@waiter/factory';
 
 import { AccountType } from '../accountType';
-import { IAction as IAuthorizeAction, IAttributes as IAuthorizeActionAttributes } from '../action/authorize';
 import { IObject as IConfirmReservationObject } from '../action/interact/confirm/reservation';
 import { IAttributes as IOrderActionAttributes } from '../action/trade/order';
 import { IObject as IGivePointAwardObject } from '../action/transfer/give/pointAward';
@@ -68,10 +67,8 @@ export interface IObject {
      * WAITER許可証
      */
     passport?: waiter.passport.IPassport;
-    /**
-     * 承認アクションリスト
-     */
-    authorizeActions?: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
+    // 使用していないので廃止(2023-08-15~)
+    // authorizeActions?: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
     potentialActions?: {
         givePointAward?: IGivePointAwardParams[];
     };

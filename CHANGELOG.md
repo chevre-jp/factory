@@ -24,6 +24,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- 注文取引のobject.authorizeActionsを廃止
+
 ### Fixed
 
 ### Security
