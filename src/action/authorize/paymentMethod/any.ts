@@ -123,19 +123,12 @@ export interface IResult {
      * The identifier for the account the payment will be applied to.
      */
     accountId: string;
-    /**
-     * The amount of money.
-     * 廃止(2023-08-07~)
-     */
-    // amount: number;
-    /**
-     * 決済方法
-     * @deprecated Use paymentMethodAsObject(2023-08-15~)
-     */
-    paymentMethod?: AvailablePaymentMethodType;
+    // amount: number; // 廃止(2023-08-07~)
+    // paymentMethod?: AvailablePaymentMethodType; // 廃止 Use paymentMethodAsObject(2023-08-18~)
     /**
      * 決済方法
      * amount.currencyに対応するために追加(2023-08-13~)
+     * startDate>=2022-08-16T00:00:00Zのアクションの関しては互換性維持済
      */
     paymentMethodAsObject: IResultPaymentMethod;
     /**

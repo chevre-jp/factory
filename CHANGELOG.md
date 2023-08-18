@@ -20,10 +20,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Deprecated
 
-- 決済承認アクションのresult.paymentMethodを非推奨化
-
 ### Removed
 
+- 決済承認アクションのresult.paymentMethodを廃止
 - 注文取引のobject.authorizeActionsを廃止
 
 ### Fixed
