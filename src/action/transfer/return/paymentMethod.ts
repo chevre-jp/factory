@@ -1,11 +1,11 @@
 import * as ActionFactory from '../../../action';
-import * as OrderFactory from '../../../order';
+import { IReferencedInvoice, ISimpleOrder } from '../../../order';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../../transfer/send/message/email';
 import * as ReturnActionFactory from '../return';
 
 export type IAgent = ActionFactory.IParticipantAsProject;
 export type IRecipient = ActionFactory.IParticipant;
-export type IObject = OrderFactory.IPaymentMethod;
+export type IObject = IReferencedInvoice;
 export type IResult = any;
 export interface IPotentialActions {
     /**
@@ -13,7 +13,7 @@ export interface IPotentialActions {
      */
     sendEmailMessage?: ISendEmailMessageActionAttributes[];
 }
-export type IPurpose = OrderFactory.ISimpleOrder;
+export type IPurpose = ISimpleOrder;
 export interface IAttributes extends ReturnActionFactory.IAttributes<IObject, IResult> {
     agent: IAgent;
     recipient: IRecipient;

@@ -5,7 +5,9 @@ import { OfferType } from './offerType';
 import { IAmount as IPermitAmount, IDepositAmount, IPaymentAmount } from './permit';
 import { IAppliesToMovieTicket, IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IProduct, ProductType } from './product';
+import { IQuantitativeValue } from './quantitativeValue';
 import { SortType } from './sortType';
+import { UnitCode } from './unitCode';
 import {
     IOfferMerchantReturnPolicy,
     IOfferMerchantReturnPolicySearchConditions,
@@ -59,6 +61,9 @@ export interface IAddOn4unitPriceOffer extends Pick<IAddOn, 'typeOf' | 'priceCur
 export interface ISettings {
     ignoreCategoryCodeChargeSpec?: boolean;
 }
+export interface IAdvanceBookingRequirement extends Pick<IQuantitativeValue<UnitCode.Sec>, 'typeOf' | 'minValue' | 'unitCode' | 'description'> {
+}
+export type IAvailability = ItemAvailability.InStock | ItemAvailability.OutOfStock;
 /**
  * 単価オファー
  */
@@ -70,7 +75,13 @@ export interface IUnitPriceOffer extends Pick<
     | 'eligibleSeatingType' | 'eligibleMembershipType' | 'eligibleMonetaryAmount' | 'eligibleSubReservation'
     | 'validFrom' | 'validThrough' | 'validRateLimit'
 > {
-    availability: ItemAvailability;
+    // advanceBookingRequirementを追加(2023-08-10~)
+    /**
+     * The amount of time that is required between accepting the offer and the actual usage of the resource or service.
+     * 事前予約要件(興行オファー承認日時とイベント開始日時の差)
+     */
+    advanceBookingRequirement?: IAdvanceBookingRequirement;
+    availability: IAvailability;
     /**
      * コード
      */
@@ -153,6 +164,7 @@ export interface ISearchConditions {
             id?: { $eq?: string };
         };
     };
+    availability?: { $eq?: IAvailability };
     availableAtOrFrom?: {
         id?: {
             $eq?: string;

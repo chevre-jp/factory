@@ -18,6 +18,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.325.0 - 2023-08-18
+
+### Added
+
+- 単価オファーに事前予約要件を追加
+- 単価オファー検索条件拡張
+- 決済承認アクションのresultにpaymentMethodAsObjectを追加
+- 注文のpaymentMethodsにpaymentMethodを追加
+
+### Changed
+
+- 決済サービスのserviceOutputを再定義
+- 決済取引のobject.paymentMethod.amountをIMonetaryAmountに対応
+
+### Removed
+
+- 決済承認アクションのresult.paymentMethodを廃止
+- 注文取引のobject.authorizeActionsを廃止
+
 ## v4.324.0 - 2023-08-10
 
 ### Added
