@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- メンバーシップ注文タスクを廃止
+
 ### Fixed
 
 ### Security
