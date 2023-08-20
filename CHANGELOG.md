@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- Eメール送信元アドレスをプロジェクト設定化
+
 ### Changed
 
 - 注文タスクのdataを最適化
