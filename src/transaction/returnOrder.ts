@@ -163,11 +163,12 @@ export interface IObject {
     reason: Reason;
     returnPolicy: IReturnPolicy;
 }
+export type IReturnOrderPotentialAction = Pick<IReturnOrderActionAttributes, 'agent' | 'object' | 'potentialActions' | 'typeOf'>;
 export interface IPotentialActions {
     /**
      * 注文返品アクション属性
      */
-    returnOrder: IReturnOrderActionAttributes[];
+    returnOrder: IReturnOrderPotentialAction[];
 }
 export interface IAttributes extends
     TransactionFactory.IAttributes<Omit<IStartParams, 'expiresInSeconds'>, IResult, IError, IPotentialActions> {

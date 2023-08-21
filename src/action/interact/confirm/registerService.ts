@@ -1,7 +1,7 @@
 import * as RegisterServiceFactory from '../../../assetTransaction/registerService';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
-import * as OrderProgramMembershipFactory from '../../../task/orderProgramMembership';
+// import * as OrderProgramMembershipFactory from '../../../task/orderProgramMembership';
 import * as ConfirmActionFactory from '../confirm';
 
 export type IObject = Pick<RegisterServiceFactory.IConfirmParams, 'transactionNumber' | 'endDate'> & {
@@ -12,8 +12,9 @@ export type IObject = Pick<RegisterServiceFactory.IConfirmParams, 'transactionNu
 };
 export type IPurpose = ISimpleOrder;
 export type IResult = any;
+// tslint:disable-next-line:no-empty-interface
 export interface IPotentialActions {
-    orderProgramMembership?: OrderProgramMembershipFactory.IAttributes[];
+    // orderProgramMembership?: OrderProgramMembershipFactory.IAttributes[]; // 廃止(2023-08-18~)
 }
 export interface IAttributes extends ConfirmActionFactory.IAttributes<IObject, IResult> {
     potentialActions?: IPotentialActions;

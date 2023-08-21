@@ -43,6 +43,9 @@ export interface IWebhookSettings {
      */
     timeout?: number;
 }
+export interface ISendEmailMessageSettings {
+    sender?: { email?: string };
+}
 /**
  * プロジェクト設定
  */
@@ -55,6 +58,8 @@ export interface ISettings {
     webhook?: IWebhookSettings;
 
     // ↓その他の設定
+    // sendEmailMessage設定追加(2023-08-21~)
+    sendEmailMessage?: ISendEmailMessageSettings;
     sendgridApiKey?: string;
     transactionWebhookUrls?: string[];
     useMyCreditCards?: boolean;

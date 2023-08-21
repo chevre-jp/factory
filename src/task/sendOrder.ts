@@ -10,7 +10,7 @@ export type IObject = SendOrderActionFactory.IObject & {
 export interface IData {
     project: Pick<IProject, 'id' | 'typeOf'>;
     object: IObject;
-    potentialActions?: SendOrderActionFactory.IPotentialActions;
+    // potentialActions?: SendOrderActionFactory.IPotentialActions; // 廃止(2023-08-21~)
 }
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.SendOrder;

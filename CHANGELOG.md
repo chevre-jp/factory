@@ -18,6 +18,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.326.0 - 2023-08-22
+
+### Added
+
+- Eメール送信元アドレスをプロジェクト設定化
+
+### Changed
+
+- 注文タスクのdataを最適化
+- 注文配送タスクのdataを最適化
+- 返品タスクのdataを最適化
+
+### Removed
+
+- メンバーシップ注文タスクを廃止
+
 ## v4.325.0 - 2023-08-18
 
 ### Added
