@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.326.0 - 2023-08-22
+
+### Added
+
 - Eメール送信元アドレスをプロジェクト設定化
 
 ### Changed
@@ -16,15 +30,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文配送タスクのdataを最適化
 - 返品タスクのdataを最適化
 
-### Deprecated
-
 ### Removed
 
 - メンバーシップ注文タスクを廃止
-
-### Fixed
-
-### Security
 
 ## v4.325.0 - 2023-08-18
 
