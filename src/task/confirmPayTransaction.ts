@@ -12,6 +12,7 @@ export interface IData extends IConfirmPayActionAttributes {
      * OrderPaymentDue->OrderProcessing処理を実行するかどうかのオプションを追加(2023-08-23~)
      */
     processOrder?: boolean;
+    useOnOrderStatusChanged?: boolean;
 }
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.ConfirmPayTransaction;
