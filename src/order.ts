@@ -13,6 +13,7 @@ import { IMultilingualString } from './multilingualString';
 import { IOffer } from './offer';
 import { OrderStatus } from './orderStatus';
 import { OrganizationType } from './organizationType';
+import { PaymentStatusType } from './paymentStatusType';
 import { IPermit as IBasePermit } from './permit';
 import { IPerson, IProfile } from './person';
 import { PersonType } from './personType';
@@ -75,6 +76,10 @@ export interface IReferencedInvoice {
      * An identifier for the method of payment used (e.g.the last 4 digits of the credit card).
      */
     paymentMethodId: string;
+    /**
+     * 自動決済かどうか判定するために追加(2023-08-23~)
+     */
+    paymentStatus?: PaymentStatusType.PaymentAutomaticallyApplied;
     /**
      * The total amount due.
      */
