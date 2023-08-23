@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文のpaymentMethodsにpaymentStatusを追加
 - 資産取引検索条件拡張
 - 決済取引確定タスクにprocessOrderオプションを追加
+- タスク検索条件拡張
 
 ### Changed
 
