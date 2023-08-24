@@ -52,6 +52,7 @@ export enum TaskName {
     OnAuthorizationCreated = 'onAuthorizationCreated',
     OnEventChanged = 'onEventChanged',
     OnResourceUpdated = 'onResourceUpdated',
+    OnOrderPaymentCompleted = 'onOrderPaymentCompleted',
     // OrderProgramMembership = 'orderProgramMembership', // 廃止(2023-08-18~)
     Pay = 'pay',
     /**
