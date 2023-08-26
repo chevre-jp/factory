@@ -77,8 +77,9 @@ export interface IReferencedInvoice {
      * The name of the credit card or other method of payment for the order.
      * 追加(2023-08-13~)
      * 存在を保証(2023-08-28~)
+     * OrderPaymentDueの状態では存在しない可能性あり
      */
-    paymentMethod: IPaymentMethodOfInvoice;
+    paymentMethod?: IPaymentMethodOfInvoice;
     /**
      * An identifier for the method of payment used (e.g.the last 4 digits of the credit card).
      */
