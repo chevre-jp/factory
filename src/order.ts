@@ -50,7 +50,13 @@ export interface IOrderPaymentMethodIssuedThrough {
 export interface ITotalPaymentDue extends Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'> {
     value: number;
 }
-export type IPaymentMethodOfInvoice = Pick<IPaymentMethodAsServiceOutput, 'amount'>;
+// identifierを決済方法区分として保証(2023-08-28~)
+export type IPaymentMethodOfInvoice = Pick<IPaymentMethodAsServiceOutput, 'amount'> & {
+    /**
+     * 決済方法区分コード
+     */
+    identifier: string;
+};
 /**
  * 請求
  */
@@ -70,8 +76,9 @@ export interface IReferencedInvoice {
     /**
      * The name of the credit card or other method of payment for the order.
      * 追加(2023-08-13~)
+     * 存在を保証(2023-08-28~)
      */
-    paymentMethod?: IPaymentMethodOfInvoice;
+    paymentMethod: IPaymentMethodOfInvoice;
     /**
      * An identifier for the method of payment used (e.g.the last 4 digits of the credit card).
      */
