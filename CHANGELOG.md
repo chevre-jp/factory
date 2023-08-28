@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済取引確定タスクにprocessOrderオプションを追加
 - タスク検索条件拡張
 - onOrderPaymentCompletedタスクを追加
+- onAssetTransactionStatusChangedタスクを追加
 - 注文にinvoice.paymentMethod.identifierを決済方法区分コードとして保証
 
 ### Changed

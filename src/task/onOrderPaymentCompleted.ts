@@ -3,9 +3,13 @@ import { IProject } from '../project';
 import * as TaskFactory from '../task';
 import { TaskName } from '../taskName';
 
+export interface IObjectAsOrder {
+    confirmationNumber: string;
+    orderNumber: string;
+}
 export interface IData {
     project: Pick<IProject, 'id' | 'typeOf'>;
-    object: { confirmationNumber: string; orderNumber: string };
+    object: IObjectAsOrder;
     useOnOrderStatusChanged: boolean;
 }
 export interface IAttributes extends TaskFactory.IAttributes {
@@ -13,6 +17,6 @@ export interface IAttributes extends TaskFactory.IAttributes {
     data: IData;
 }
 /**
- * 注文に対する全決済完了時タスク
+ * 注文に対する決済完了時タスク
  */
 export type ITask = IExtendId<IAttributes>;
