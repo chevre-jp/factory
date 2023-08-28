@@ -139,7 +139,7 @@ export interface IResult {
      * 決済ステータス
      * 注文に連携(2023-08-23~)
      */
-    paymentStatus: PaymentStatusType.PaymentAutomaticallyApplied;
+    paymentStatus: PaymentStatusType.PaymentAutomaticallyApplied | PaymentStatusType.PaymentDue;
     /**
      * 決済方法名称
      */

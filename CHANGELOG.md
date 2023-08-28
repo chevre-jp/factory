@@ -18,6 +18,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 決済方法区分未指定の対面決済承認に対応
+
 ### Deprecated
 
 ### Removed

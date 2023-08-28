@@ -71,9 +71,13 @@ export interface IPaymentMethod {
      */
     totalPaymentDue?: ITotalPaymentDue;
     /**
-     * 決済方法タイプ
+     * 決済方法区分
      */
     typeOf: string;
+    /**
+     * 決済方法区分
+     */
+    identifier?: string;
     /**
      * 出金元ペイメントカード
      */

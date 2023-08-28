@@ -87,7 +87,7 @@ export interface IReferencedInvoice {
     /**
      * 自動決済かどうか判定するために追加(2023-08-23~)
      */
-    paymentStatus?: PaymentStatusType.PaymentAutomaticallyApplied;
+    paymentStatus?: PaymentStatusType.PaymentAutomaticallyApplied | PaymentStatusType.PaymentDue;
     /**
      * The total amount due.
      */
