@@ -14,6 +14,10 @@ export interface IObjectAsPayTransaction {
     typeOf: AssetTransactionType.Pay;
     transactionNumber: string;
     status: TransactionStatusType.Confirmed;
+    // 確定時の決済方法区分指定(2023-08-29~)
+    object?: {
+        paymentMethod?: { identifier?: string };
+    };
 }
 export interface IData {
     project: Pick<IProject, 'id' | 'typeOf'>;

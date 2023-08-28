@@ -161,6 +161,10 @@ export interface IPotentialActionsParams {
  */
 export interface IConfirmParams {
     id?: string;
+    // 確定時の決済方法区分指定(2023-08-29~)
+    object?: {
+        paymentMethod?: { identifier?: string };
+    };
     transactionNumber?: string;
     endDate?: Date;
     potentialActions: IPotentialActionsParams;

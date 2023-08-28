@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - onOrderPaymentCompletedタスクを追加
 - onAssetTransactionStatusChangedタスクを追加
 - 注文にinvoice.paymentMethod.identifierを決済方法区分コードとして保証
+- 決済取引確定時の決済方法区分指定を追加
 
 ### Changed
 
