@@ -13,7 +13,7 @@ export interface IPurposeAsOrder {
 export interface IObjectAsPayTransaction {
     typeOf: AssetTransactionType.Pay;
     transactionNumber: string;
-    status: TransactionStatusType.Confirmed;
+    status: TransactionStatusType.Confirmed | TransactionStatusType.Canceled | TransactionStatusType.Expired;
     // 確定時の決済方法区分指定(2023-08-29~)
     object?: {
         paymentMethod?: { identifier?: string };
