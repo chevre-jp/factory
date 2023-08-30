@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 予約取引開始時のアドオン数量指定を追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.328.0 - 2023-08-31
+
+### Added
+
+- 予約取引開始時のアドオン数量指定を追加
 
 ## v4.327.1 - 2023-08-30
 
