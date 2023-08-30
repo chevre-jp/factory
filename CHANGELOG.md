@@ -21,6 +21,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 決済方法区分未指定の対面決済承認に対応
 - 決済取引のobjectを最適化(paymentMethodId,paymentMethod.identifier)
+- voidPayTransactionタスクをOrderCancelledに対応
+- voidReserveTransactionOrderCancelledに対応
 
 ### Deprecated
 
