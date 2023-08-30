@@ -12,13 +12,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Deprecated
 
-- 注文のpaymentMethods.typeOfを非推奨化(paymentMethods.paymentMethod.identifierへ移行)
-
 ### Removed
 
 ### Fixed
 
 ### Security
+
+## v4.327.1 - 2023-08-30
+
+### Deprecated
+
+- 注文のpaymentMethods.typeOfを非推奨化(paymentMethods.paymentMethod.identifierへ移行)
 
 ## v4.327.0 - 2023-08-30
 
