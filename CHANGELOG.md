@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Deprecated
 
+- 注文のpaymentMethods.typeOfを非推奨化(paymentMethods.paymentMethod.identifierへ移行)
+
 ### Removed
 
 ### Fixed
