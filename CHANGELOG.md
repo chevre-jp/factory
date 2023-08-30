@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.327.0 - 2023-08-30
+
+### Added
+
 - 注文のpaymentMethodsにpaymentStatusを追加
 - 資産取引検索条件拡張
 - 決済取引確定タスクにprocessOrderオプションを追加
@@ -24,14 +38,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済取引のobjectを最適化(paymentMethodId,paymentMethod.identifier)
 - voidPayTransactionタスクをOrderCancelledに対応
 - voidReserveTransactionOrderCancelledに対応
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v4.326.0 - 2023-08-22
 
