@@ -399,6 +399,7 @@ export interface IOrder extends Omit<ISimpleOrder, 'customer'> {
      * payment methods
      */
     paymentMethods: IReferencedInvoice[];
+    previousOrderStatus?: OrderStatus;
     /**
      * Returner
      */
