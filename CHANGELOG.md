@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 予約取引開始時のアドオン数量指定を追加
+
 ### Changed
 
 ### Deprecated

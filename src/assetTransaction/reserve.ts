@@ -19,6 +19,7 @@ import {
 } from '../reservation/event';
 import { IReservation as IReservationPackage } from '../reservation/reservationPackage';
 import { ReservationType } from '../reservationType';
+import { IUnitPriceOffer } from '../unitPriceOffer';
 
 // 最適化(2022-05-27~)
 export import IAgent = AssetTransactionFactory.IAgent;
@@ -131,11 +132,23 @@ export interface IAcceptedTicketOfferItemOffered4object {
         id: string;
     };
 }
-export interface IAcceptedAddOn {
+/**
+ * 予約取引開始時の受入アドオンオファー
+ */
+export interface IAcceptedAddOn extends Pick<IUnitPriceOffer, 'id'> {
     /**
-     * アドオンID
+     * アドオン単価オファーID
      */
     id?: string;
+    priceSpecification?: {
+        referenceQuantity?: {
+            /**
+             * 数量指定(2023-08-31~)
+             * 単価オファーの基準数量で割り切れる必要あり
+             */
+            value?: number;
+        };
+    };
 }
 export interface ISingleAcceptedAppliesToMovieTicket {
     /**
@@ -177,7 +190,7 @@ export interface IAcceptedTicketOfferWithoutDetail {
      */
     itemOffered?: IAcceptedTicketOfferItemOffered;
     /**
-     * 受け入れるアドオン
+     * 受入アドオン
      */
     addOn?: IAcceptedAddOn[];
     // 不要なので廃止(2023-02-08~)
