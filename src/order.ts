@@ -13,6 +13,7 @@ import { IMultilingualString } from './multilingualString';
 import { IOffer } from './offer';
 import { OrderStatus } from './orderStatus';
 import { OrganizationType } from './organizationType';
+import { PaymentStatusType } from './paymentStatusType';
 import { IPermit as IBasePermit } from './permit';
 import { IPerson, IProfile } from './person';
 import { PersonType } from './personType';
@@ -49,7 +50,13 @@ export interface IOrderPaymentMethodIssuedThrough {
 export interface ITotalPaymentDue extends Pick<IMonetaryAmount, 'typeOf' | 'currency' | 'value'> {
     value: number;
 }
-export type IPaymentMethodOfInvoice = Pick<IPaymentMethodAsServiceOutput, 'amount'>;
+// identifierを決済方法区分として保証(2023-08-28~)
+export type IPaymentMethodOfInvoice = Pick<IPaymentMethodAsServiceOutput, 'amount'> & {
+    /**
+     * 決済方法区分コード
+     */
+    identifier: string;
+};
 /**
  * 請求
  */
@@ -69,12 +76,18 @@ export interface IReferencedInvoice {
     /**
      * The name of the credit card or other method of payment for the order.
      * 追加(2023-08-13~)
+     * 存在を保証(2023-08-28~)
+     * OrderPaymentDueの状態では存在しない可能性あり
      */
     paymentMethod?: IPaymentMethodOfInvoice;
     /**
      * An identifier for the method of payment used (e.g.the last 4 digits of the credit card).
      */
     paymentMethodId: string;
+    /**
+     * 自動決済かどうか判定するために追加(2023-08-23~)
+     */
+    paymentStatus?: PaymentStatusType.PaymentAutomaticallyApplied | PaymentStatusType.PaymentDue;
     /**
      * The total amount due.
      */
@@ -386,6 +399,7 @@ export interface IOrder extends Omit<ISimpleOrder, 'customer'> {
      * payment methods
      */
     paymentMethods: IReferencedInvoice[];
+    previousOrderStatus?: OrderStatus;
     /**
      * Returner
      */

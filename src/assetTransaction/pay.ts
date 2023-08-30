@@ -62,18 +62,20 @@ export interface IPaymentMethod {
      * 未指定であればデフォルト値が使用されます
      */
     name?: string;
-    /**
-     * 決済ID
-     */
-    paymentMethodId?: string;
+    // object.paymentMethodIdと重複していることを確認済(12months)
+    // object.paymentMethodIdへ完全移行(2023-08-30~)
+    // paymentMethodId?: string;
     /**
      * The total amount due.
      */
     totalPaymentDue?: ITotalPaymentDue;
+    // データの互換性維持対応は済(2023-08-29)
+    // identifierへ完全移行(2023-08-30~)
+    // typeOf: string;
     /**
-     * 決済方法タイプ
+     * 決済方法区分
      */
-    typeOf: string;
+    identifier: string;
     /**
      * 出金元ペイメントカード
      */
@@ -157,6 +159,10 @@ export interface IPotentialActionsParams {
  */
 export interface IConfirmParams {
     id?: string;
+    // 確定時の決済方法区分指定(2023-08-29~)
+    object?: {
+        paymentMethod?: { identifier?: string };
+    };
     transactionNumber?: string;
     endDate?: Date;
     potentialActions: IPotentialActionsParams;

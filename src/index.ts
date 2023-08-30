@@ -147,8 +147,10 @@ import * as ImportEventCapacitiesFromCOATaskFactory from './task/importEventCapa
 import * as ImportEventsFromCOATaskFactory from './task/importEventsFromCOA';
 import * as ImportOffersFromCOATaskFactory from './task/importOffersFromCOA';
 import * as MoneyTransferTaskFactory from './task/moneyTransfer';
+import * as OnAssetTransactionStatusChangedTaskFactory from './task/onAssetTransactionStatusChanged';
 import * as OnAuthorizationCreatedTaskFactory from './task/onAuthorizationCreated';
 import * as OnEventChangedTaskFactory from './task/onEventChanged';
+import * as OnOrderPaymentCompletedTaskFactory from './task/onOrderPaymentCompleted';
 import * as OnResourceUpdatedTaskFactory from './task/onResourceUpdated';
 import * as PayTaskFactory from './task/pay';
 import * as PlaceOrderTaskFactory from './task/placeOrder';
@@ -559,8 +561,10 @@ export namespace task {
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.IData :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IData :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IData :
+        T extends TaskName.OnAssetTransactionStatusChanged ? OnAssetTransactionStatusChangedTaskFactory.IData :
         T extends TaskName.OnAuthorizationCreated ? OnAuthorizationCreatedTaskFactory.IData :
         T extends TaskName.OnEventChanged ? OnEventChangedTaskFactory.IData :
+        T extends TaskName.OnOrderPaymentCompleted ? OnOrderPaymentCompletedTaskFactory.IData :
         T extends TaskName.OnResourceUpdated ? OnResourceUpdatedTaskFactory.IData :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IData :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.IData :
@@ -588,8 +592,10 @@ export namespace task {
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.IAttributes :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IAttributes :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IAttributes :
+        T extends TaskName.OnAssetTransactionStatusChanged ? OnAssetTransactionStatusChangedTaskFactory.IAttributes :
         T extends TaskName.OnAuthorizationCreated ? OnAuthorizationCreatedTaskFactory.IAttributes :
         T extends TaskName.OnEventChanged ? OnEventChangedTaskFactory.IAttributes :
+        T extends TaskName.OnOrderPaymentCompleted ? OnOrderPaymentCompletedTaskFactory.IAttributes :
         T extends TaskName.OnResourceUpdated ? OnResourceUpdatedTaskFactory.IAttributes :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.IAttributes :
@@ -617,8 +623,10 @@ export namespace task {
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.ITask :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.ITask :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.ITask :
+        T extends TaskName.OnAssetTransactionStatusChanged ? OnAssetTransactionStatusChangedTaskFactory.ITask :
         T extends TaskName.OnAuthorizationCreated ? OnAuthorizationCreatedTaskFactory.ITask :
         T extends TaskName.OnEventChanged ? OnEventChangedTaskFactory.ITask :
+        T extends TaskName.OnOrderPaymentCompleted ? OnOrderPaymentCompletedTaskFactory.ITask :
         T extends TaskName.OnResourceUpdated ? OnResourceUpdatedTaskFactory.ITask :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.ITask :
         T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.ITask :

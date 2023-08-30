@@ -49,9 +49,11 @@ export enum TaskName {
     ImportEventsFromCOA = 'importEventsFromCOA',
     ImportOffersFromCOA = 'importOffersFromCOA',
     MoneyTransfer = 'moneyTransfer',
+    OnAssetTransactionStatusChanged = 'onAssetTransactionStatusChanged',
     OnAuthorizationCreated = 'onAuthorizationCreated',
     OnEventChanged = 'onEventChanged',
     OnResourceUpdated = 'onResourceUpdated',
+    OnOrderPaymentCompleted = 'onOrderPaymentCompleted',
     // OrderProgramMembership = 'orderProgramMembership', // 廃止(2023-08-18~)
     Pay = 'pay',
     /**

@@ -71,6 +71,7 @@ export interface ISortOrder {
 export interface IDataSearchConditions {
     object?: {
         id?: { $eq?: string };
+        orderNumber?: { $eq?: string };
         transactionNumber?: { $eq?: string };
     };
     purpose?: {

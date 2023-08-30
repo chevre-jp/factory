@@ -18,6 +18,27 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.327.0 - 2023-08-30
+
+### Added
+
+- 注文のpaymentMethodsにpaymentStatusを追加
+- 資産取引検索条件拡張
+- 決済取引確定タスクにprocessOrderオプションを追加
+- タスク検索条件拡張
+- onOrderPaymentCompletedタスクを追加
+- onAssetTransactionStatusChangedタスクを追加
+- 注文にinvoice.paymentMethod.identifierを決済方法区分コードとして保証
+- 決済取引確定時の決済方法区分指定を追加
+- 注文にpreviousOrderStatusを追加
+
+### Changed
+
+- 決済方法区分未指定の対面決済承認に対応
+- 決済取引のobjectを最適化(paymentMethodId,paymentMethod.identifier)
+- voidPayTransactionタスクをOrderCancelledに対応
+- voidReserveTransactionOrderCancelledに対応
+
 ## v4.326.0 - 2023-08-22
 
 ### Added
