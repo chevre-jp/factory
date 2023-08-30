@@ -67,6 +67,7 @@ export interface IReferencedInvoice {
     accountId?: string;
     /**
      * 決済方法区分コード
+     * @deprecated Use paymentMethod.identifier
      */
     typeOf: string;
     /**
