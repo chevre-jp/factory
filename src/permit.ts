@@ -4,11 +4,16 @@ import { IOrganization } from './organization';
 import { IProduct } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
+import { PaymentServiceType } from './service/paymentService';
 
 export enum PermitType {
     Permit = 'Permit'
 }
-export type IIssuedThrough = Pick<IProduct, 'id' | 'serviceType' | 'typeOf'>;
+export type IIssuedThroughAsPaymentService = Pick<IProduct, 'id' | 'serviceType'> & {
+    typeOf: PaymentServiceType.CreditCard;
+};
+export type IIssuedThroughAsProduct = Pick<IProduct, 'id' | 'serviceType' | 'typeOf'>;
+export type IIssuedThrough = IIssuedThroughAsPaymentService | IIssuedThroughAsProduct;
 // accountTypeは不要なので廃止(2023-02-16~)
 // export type IPaymentAccount = Pick<IAccount, 'project' | 'typeOf' | 'accountNumber' | 'accountType'>;
 export type IPaymentAccount = Pick<IAccount, 'accountNumber' | 'typeOf'>;

@@ -183,8 +183,7 @@ export interface IBroker {
     identifier?: IPropertyValue<string>[];
     name?: string;
 }
-// export type IBroker = IUnderName;
-export type IProgramMembershipUsed = IPermit;
+export type IProgramMembershipUsed = Pick<IPermit, 'identifier' | 'issuedThrough' | 'project' | 'typeOf'>; // 最適化(2023-09-01~)
 // 最適化(2022-09-08~)
 export type IServiceTypeOfIssuedThrough = Pick<IServiceType, 'codeValue' | 'inCodeSet' | 'typeOf'>;
 export type IServiceLocationContainedInPlace = Pick<MovieTheaterFactory.IPlaceWithoutScreeningRoom, 'typeOf' | 'id' | 'branchCode'> & {

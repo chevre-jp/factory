@@ -14,7 +14,7 @@ import { IOffer } from './offer';
 import { OrderStatus } from './orderStatus';
 import { OrganizationType } from './organizationType';
 import { PaymentStatusType } from './paymentStatusType';
-import { IPermit as IBasePermit } from './permit';
+import { IIssuedThroughAsProduct, IPermit as IBasePermit } from './permit';
 import { IPerson, IProfile } from './person';
 import { PersonType } from './personType';
 import { PlaceType } from './placeType';
@@ -180,10 +180,12 @@ export type IEventReservation = Pick<
 export type IReservation = IBusReservation | IEventReservation;
 export type IPermit = Pick<
     IBasePermit,
-    'amount' | 'identifier' | 'issuedThrough' | 'name' | 'typeOf' | 'validFor'
+    'amount' | 'identifier' | 'name' | 'typeOf' | 'validFor'
 // 不要なので廃止(2023-07-01~)
 // | 'project'
->;
+> & {
+    issuedThrough?: IIssuedThroughAsProduct; // 注文アイテムとして可能性があるのはプロダクトの発行するPermitのみ
+};
 export interface IMoneyTransferPendingTransaction {
     typeOf: AssetTransactionType.MoneyTransfer;
     /**

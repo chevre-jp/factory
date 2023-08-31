@@ -4,7 +4,7 @@ import * as RegisterServiceTransactionFactory from '../../../assetTransaction/re
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { IOffer } from '../../../offer';
 import * as OrderFactory from '../../../order';
-import { IPermit } from '../../../permit';
+import { IIssuedThroughAsProduct, IPermit } from '../../../permit';
 import { PriceCurrency } from '../../../priceCurrency';
 import { IProduct, IServiceOutput as IProductServiceOutput, ITicketPriceSpecification } from '../../../product';
 import { ISeller } from '../../../seller';
@@ -16,8 +16,11 @@ export type IAgent = ActionFactory.IParticipantAsSeller;
 // 最適化(2022-06-01~)
 export type IRecipient = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
 // IItemOfferedを最適化(2022-08-19~)
+export type IPermitIssuedByProduct = Omit<IPermit, 'issuedThrough'> & {
+    issuedThrough?: IIssuedThroughAsProduct; // プロダクトオファー承認として可能性があるのはプロダクトの発行するPermitのみ
+};
 export type IItemOffered = Pick<IProduct, 'typeOf' | 'id' | 'name'> & {
-    serviceOutput: IProductServiceOutput & IPermit;
+    serviceOutput: IProductServiceOutput & IPermitIssuedByProduct;
     pointAward?: IPointAward;
 };
 export type IAcceptedOfferWithoutDetail = RegisterServiceTransactionFactory.IAcceptedOfferWithoutDetail;
