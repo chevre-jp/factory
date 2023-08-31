@@ -22,6 +22,7 @@ import { PriceCurrency } from './priceCurrency';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
+import { IPriceSpecification as IUnitPriceOfferPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IProduct, ProductType } from './product';
 import { IPropertyValue } from './propertyValue';
 import { IProgramMembershipUsedSearchConditions, ITicket, ITicketType } from './reservation';
@@ -31,7 +32,7 @@ import { ReservationType } from './reservationType';
 import { ISeller as IBaseSeller } from './seller';
 import { IPaymentMethodAsServiceOutput, PaymentServiceType } from './service/paymentService';
 import { SortType } from './sortType';
-import { IUnitPriceOfferPriceSpecification } from './unitPriceOffer';
+// import { IUnitPriceOfferPriceSpecification } from './unitPriceOffer';
 
 export interface IProject {
     typeOf: OrganizationType.Project;

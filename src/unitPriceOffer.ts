@@ -3,7 +3,7 @@ import { ItemAvailability } from './itemAvailability';
 import { IAddOn, IName, IOffer } from './offer';
 import { OfferType } from './offerType';
 import { IAmount as IPermitAmount, IDepositAmount, IPaymentAmount } from './permit';
-import { IAppliesToMovieTicket, IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
+import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IProduct, ProductType } from './product';
 import { IQuantitativeValue } from './quantitativeValue';
 import { SortType } from './sortType';
@@ -49,11 +49,18 @@ export interface IItemOffered {
 }
 /**
  * 単価オファーの価格仕様
+ * 最適化(Pickで表現)(2023-09-01~)
  */
-export type IUnitPriceOfferPriceSpecification = Omit<IUnitPriceSpecification, 'appliesToMovieTicket' | 'project'> & {
+export type IUnitPriceOfferPriceSpecification = Pick<
+    IUnitPriceSpecification,
+    'accounting'
     // Arrayに限定(2022-09-09~)
-    appliesToMovieTicket?: IAppliesToMovieTicket[];
-};
+    | 'appliesToMovieTicket'
+    | 'eligibleQuantity' | 'eligibleTransactionVolume'
+    | 'name' | 'price'
+    | 'priceCurrency' | 'referenceQuantity' | 'typeOf' | 'valueAddedTaxIncluded'
+>;
+// export type IUnitPriceOfferPriceSpecification = Omit<IUnitPriceSpecification, 'appliesToMovieTicket' | 'project'> & {
 export type IAddOnItemOffered = Pick<IProduct, 'typeOf' | 'id' | 'name'>;
 export interface IAddOn4unitPriceOffer extends Pick<IAddOn, 'typeOf' | 'priceCurrency'> {
     itemOffered: IAddOnItemOffered;
@@ -64,29 +71,51 @@ export interface ISettings {
 export interface IAdvanceBookingRequirement extends Pick<IQuantitativeValue<UnitCode.Sec>, 'typeOf' | 'minValue' | 'unitCode' | 'description'> {
 }
 export type IAvailability = ItemAvailability.InStock | ItemAvailability.OutOfStock;
+export type ISubOfferPriceSpecification = Pick<
+    IUnitPriceOfferPriceSpecification,
+    'accounting' | 'price' | 'typeOf'
+>;
+export interface ISubOffer extends Pick<
+    IOffer,
+    'typeOf' | 'identifier' | 'name'
+> {
+    /**
+     * コード
+     */
+    identifier: string;
+    /**
+     * 単価仕様
+     */
+    priceSpecification: ISubOfferPriceSpecification;
+}
 /**
  * 単価オファー
  */
 export interface IUnitPriceOffer extends Pick<
     IOffer,
     'project' | 'typeOf' | 'priceCurrency' | 'id' | 'identifier' | 'name' | 'description'
-    | 'alternateName' | 'availability' | 'availableAtOrFrom' | 'itemOffered' | 'priceSpecification'
-    | 'additionalProperty' | 'color' | 'category'
+    | 'alternateName' | 'availability' | 'availableAtOrFrom' | 'itemOffered'
+    | 'priceSpecification' | 'additionalProperty' | 'color' | 'category'
     | 'eligibleSeatingType' | 'eligibleMembershipType' | 'eligibleMonetaryAmount' | 'eligibleSubReservation'
     | 'validFrom' | 'validThrough' | 'validRateLimit'
 > {
-    // advanceBookingRequirementを追加(2023-08-10~)
     /**
      * The amount of time that is required between accepting the offer and the actual usage of the resource or service.
      * 事前予約要件(興行オファー承認日時とイベント開始日時の差)
      */
-    advanceBookingRequirement?: IAdvanceBookingRequirement;
+    advanceBookingRequirement?: IAdvanceBookingRequirement; // 追加(2023-08-10~)
     availability: IAvailability;
     /**
      * コード
      */
     identifier: string;
     name: IName;
+    /**
+     * サブオファー
+     * 基本的に1つの基本オファーが含まれる
+     * 条件によるバリエーションが存在する場合、2つ以上のオファーが含まれる
+     */
+    offers: ISubOffer[]; // 追加(2023-09-01~)
     /**
      * 単価仕様
      */
