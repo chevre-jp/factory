@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - 単価オファーにサブオファーを追加
+- タスクに識別子を追加
 
 ### Changed
 

@@ -22,6 +22,11 @@ export interface IExecutor {
  */
 export type ITask = IExtendId<IAttributes>;
 export interface IAttributes {
+    /**
+     * タスク識別子
+     * 冗長なタスク作成を回避するために使用(2023-09-01~)
+     */
+    identifier?: string;
     project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * タスク名
