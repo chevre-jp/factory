@@ -75,6 +75,7 @@ import * as MerchantReturnPolicyFactory from './merchantReturnPolicy';
 import * as MonetaryAmountFactory from './monetaryAmount';
 import { IMultilingualString } from './multilingualString';
 import * as OfferFactory from './offer';
+import * as AggregateOfferFactory from './offer/aggregateOffer';
 import * as OfferCatalogFactory from './offerCatalog';
 import * as OfferItemConditionFactory from './offerItemCondition';
 import { OfferType } from './offerType';
@@ -335,6 +336,7 @@ export namespace action {
 export import accountTitle = AccountTitleFactory;
 export import accountType = AccountType;
 export import additionalProperty = AdditionalPropertyFactory;
+export import aggregateOffer = AggregateOfferFactory;
 export import authorization = AuthorizationFactory;
 export import categoryCode = CategoryCodeFactory;
 export import clientUser = ClientUserFactory;

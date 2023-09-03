@@ -71,23 +71,6 @@ export interface ISettings {
 export interface IAdvanceBookingRequirement extends Pick<IQuantitativeValue<UnitCode.Sec>, 'typeOf' | 'minValue' | 'unitCode' | 'description'> {
 }
 export type IAvailability = ItemAvailability.InStock | ItemAvailability.OutOfStock;
-export type ISubOfferPriceSpecification = Pick<
-    IUnitPriceOfferPriceSpecification,
-    'accounting' | 'price' | 'typeOf'
->;
-export interface ISubOffer extends Pick<
-    IOffer,
-    'typeOf' | 'identifier' | 'name'
-> {
-    /**
-     * コード
-     */
-    identifier: string;
-    /**
-     * 単価仕様
-     */
-    priceSpecification: ISubOfferPriceSpecification;
-}
 /**
  * 単価オファー
  */
@@ -110,12 +93,6 @@ export interface IUnitPriceOffer extends Pick<
      */
     identifier: string;
     name: IName;
-    /**
-     * サブオファー
-     * 基本的に1つの基本オファーが含まれる
-     * 条件によるバリエーションが存在する場合、2つ以上のオファーが含まれる
-     */
-    offers: ISubOffer[]; // 追加(2023-09-01~)
     /**
      * 単価仕様
      */
