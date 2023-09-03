@@ -165,6 +165,7 @@ import * as ReturnPointAwardTaskFactory from './task/returnPointAward';
 import * as ReturnReserveTransactionTaskFactory from './task/returnReserveTransaction';
 import * as SendEmailMessageTaskFactory from './task/sendEmailMessage';
 import * as SendOrderTaskFactory from './task/sendOrder';
+import * as SyncAggregateOfferTaskFactory from './task/syncAggregateOffer';
 import * as SyncScreeningRoomsTaskFactory from './task/syncScreeningRooms';
 import * as TriggerWebhookTaskFactory from './task/triggerWebhook';
 import * as UseReservationTaskFactory from './task/useReservation';
@@ -578,6 +579,7 @@ export namespace task {
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.IData :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IData :
+        T extends TaskName.SyncAggregateOffer ? SyncAggregateOfferTaskFactory.IData :
         T extends TaskName.SyncScreeningRooms ? SyncScreeningRoomsTaskFactory.IData :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
@@ -609,6 +611,7 @@ export namespace task {
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.IAttributes :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IAttributes :
+        T extends TaskName.SyncAggregateOffer ? SyncAggregateOfferTaskFactory.IAttributes :
         T extends TaskName.SyncScreeningRooms ? SyncScreeningRoomsTaskFactory.IAttributes :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
@@ -640,6 +643,7 @@ export namespace task {
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.ITask :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.ITask :
+        T extends TaskName.SyncAggregateOffer ? SyncAggregateOfferTaskFactory.ITask :
         T extends TaskName.SyncScreeningRooms ? SyncScreeningRoomsTaskFactory.ITask :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
@@ -670,6 +674,7 @@ export namespace task {
     export import registerService = RegisterServiceTaskFactory;
     export import reserve = ReserveTaskFactory;
     export import sendEmailMessage = SendEmailMessageTaskFactory;
+    export import syncAggregateOffer = SyncAggregateOfferTaskFactory;
     export import syncScreeningRooms = SyncScreeningRoomsTaskFactory;
     export import triggerWebhook = TriggerWebhookTaskFactory;
     export import useReservation = UseReservationTaskFactory;

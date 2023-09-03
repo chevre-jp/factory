@@ -1,11 +1,13 @@
+import { IOffer } from '../offer';
+import { OfferType } from '../offerType';
 import { IUnitPriceOffer } from '../unitPriceOffer';
 
 export type ISubOffer = IUnitPriceOffer;
 /**
  * 集計オファー
  */
-export interface IAggregateOffer extends IUnitPriceOffer {
-
+export interface IAggregateOffer extends Pick<IOffer, 'typeOf' | 'project'> {
+    typeOf: OfferType.AggregateOffer;
     /**
      * サブオファー
      * 基本的に1つの基本オファーが含まれる
