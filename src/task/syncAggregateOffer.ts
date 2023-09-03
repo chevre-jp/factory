@@ -6,8 +6,9 @@ import { TaskName } from '../taskName';
 export interface IData {
     id?: { $in: string[] };
     identifier?: { $in: string[] };
+    isDeleted: boolean;
     project: { id: string };
-    typeOf: OfferType.Offer;
+    typeOf: OfferType.AggregateOffer | OfferType.Offer;
 }
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.SyncAggregateOffer;
