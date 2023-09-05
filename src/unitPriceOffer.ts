@@ -108,6 +108,7 @@ export interface IUnitPriceOffer extends Pick<
  * ソート条件
  */
 export interface ISortOrder {
+    identifier?: SortType;
     'priceSpecification.price'?: SortType;
 }
 /**
@@ -167,7 +168,10 @@ export interface ISearchConditions {
             /**
              * アドオンプロダクトID
              */
-            id?: { $eq?: string };
+            id?: {
+                $eq?: string;
+                $in?: string[];
+            };
         };
     };
     availability?: { $eq?: IAvailability };

@@ -8,10 +8,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 単価オファーにサブオファーを追加
 - タスクに識別子を追加
 - 集計オファーを追加
 - 集計オファー同期タスクを追加
+- 単価オファー検索条件拡張
 
 ### Changed
 
