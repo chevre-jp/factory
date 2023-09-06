@@ -77,7 +77,6 @@ export type IAcceptedOfferPriceSpecification =
          */
         appliesToMovieTicket?: ReserveTransactionFactory.IAcceptedAppliesToMovieTicket;
     };
-export type IAcceptedAddOn = Pick<OfferFactory.IAddOn, 'typeOf' | 'id' | 'priceCurrency'>;
 /**
  * 受け入れられたチケットオファー
  */
@@ -88,7 +87,7 @@ export type IAcceptedOffer4chevre =
     >
     & Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty'>
     & {
-        addOn?: IAcceptedAddOn[];
+        addOn?: ReserveTransactionFactory.IAcceptedAddOn[];
         itemOffered?: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
         priceSpecification: IAcceptedOfferPriceSpecification;
     };
