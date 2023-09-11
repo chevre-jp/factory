@@ -16,7 +16,6 @@ import * as AuthorizeActionFactory from '../../authorize';
 import * as COAReservationOfferFactory from './seatReservation/coa';
 
 export type IAgent = ActionFactory.IParticipantAsSeller;
-// 最適化(2022-06-01~)
 export type IRecipient = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
 
 export enum ObjectType {
@@ -27,12 +26,10 @@ export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.ISer
 
 export type IRequestBody<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? COA.factory.reserve.IUpdTmpReserveSeatArgs :
-    // T extends WebAPIFactory.Identifier.Chevre ? ReserveTransactionFactory.IStartParamsWithoutDetail :
     T extends WebAPIFactory.Identifier.Chevre ? {} :
     never;
 export type IResponseBody<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? COA.factory.reserve.IUpdTmpReserveSeatResult :
-    // T extends WebAPIFactory.Identifier.Chevre ? ReserveTransactionFactory.ITransaction :
     T extends WebAPIFactory.Identifier.Chevre ? {} :
     never;
 
@@ -69,8 +66,7 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
     acceptedOffers?: IResultAcceptedOffer[];
 }
 
-export type IAcceptedOfferPriceSpecification =
-    ITicketPriceSpecification
+export type IAcceptedOfferPriceSpecification = ITicketPriceSpecification
     & {
         /**
          * 複合価格仕様に、指定された適用決済カード情報を付加できるように
@@ -80,13 +76,12 @@ export type IAcceptedOfferPriceSpecification =
 /**
  * 受け入れられたチケットオファー
  */
-export type IAcceptedOffer4chevre =
-    Pick<
-        ITicketOffer,
-        'id' | 'identifier' | 'typeOf' |
-        'priceCurrency' |
-        'itemOffered' | 'additionalProperty'
-    >
+export type IAcceptedOffer4chevre = Pick<
+    ITicketOffer,
+    'id' | 'identifier' | 'typeOf' |
+    'priceCurrency' |
+    'itemOffered' | 'additionalProperty'
+>
     & Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty'>
     & {
         addOn?: ReserveTransactionFactory.IAcceptedAddOn[];
@@ -101,22 +96,21 @@ export import ICOATicketInfoWithDetails = COAReservationOfferFactory.ICOATicketI
 /**
  * 受入COA興行オファー
  */
-export type IAcceptedOffer4COA =
-    Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail,
-        'id' | 'itemOffered' | 'additionalProperty'
-    > & Pick<
-        OfferFactory.IOffer,
-        'typeOf' | 'id' | 'identifier' | 'name'
-        | 'priceCurrency' | 'additionalProperty' | 'eligibleMonetaryAmount'
-    > & {
-        itemOffered: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
-        ticketInfo: ICOATicketInfoWithDetails;
-        /**
-         * COAイベントでは、priceSpecificationで価格を表現しきれないので、numberとしてのpriceが必要
-         */
-        price: number;
-        priceSpecification: OrderFactory.ITicketPriceSpecification;
-    };
+export type IAcceptedOffer4COA = Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail,
+    'id' | 'itemOffered' | 'additionalProperty'
+> & Pick<
+    OfferFactory.IOffer,
+    'typeOf' | 'id' | 'identifier' | 'name'
+    | 'priceCurrency' | 'additionalProperty' | 'eligibleMonetaryAmount'
+> & {
+    itemOffered: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
+    ticketInfo: ICOATicketInfoWithDetails;
+    /**
+     * COAイベントでは、priceSpecificationで価格を表現しきれないので、numberとしてのpriceが必要
+     */
+    price: number;
+    priceSpecification: OrderFactory.ITicketPriceSpecification;
+};
 export interface IAppliesToSurfrock {
     /**
      * コード
@@ -132,17 +126,16 @@ export interface IAppliesToSurfrock {
 export interface IPriceSpecification4COA {
     appliesToSurfrock?: IAppliesToSurfrock;
 }
-export type IAcceptedOfferBeforeAuthorize4COA =
-    Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail,
-        'itemOffered' | 'additionalProperty'
-    > & Pick<
-        OfferFactory.IOffer,
-        'name' | 'additionalProperty'
-    > & {
-        itemOffered: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
-        ticketInfo: Omit<ICOATicketInfoWithDetails, 'salePrice' | 'usePoint'>;
-        priceSpecification: IPriceSpecification4COA;
-    };
+export type IAcceptedOfferBeforeAuthorize4COA = Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail,
+    'itemOffered' | 'additionalProperty'
+> & Pick<
+    OfferFactory.IOffer,
+    'name' | 'additionalProperty'
+> & {
+    itemOffered: ReserveTransactionFactory.IAcceptedTicketOfferItemOffered;
+    ticketInfo: Omit<ICOATicketInfoWithDetails, 'salePrice' | 'usePoint'>;
+    priceSpecification: IPriceSpecification4COA;
+};
 export type IAcceptedOfferWithoutDetail4COA = COAReservationOfferFactory.IOffer & {
     // オファーごとに指定可能化(2023-08-02~)
     priceSpecification?: IPriceSpecification4COA;
@@ -169,18 +162,24 @@ export type IObjectWithoutDetail<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.Chevre ? IObjectWithoutDetail4chevre :
     never;
 
-export interface IPendingTransaction {
-    typeOf: AssetTransactionType.Reserve;
-    transactionNumber: string;
-}
-
-// 最適化(2022-06-07~)
-// Pickで定義(2022-08-19~)
-export type IEvent = Pick<
-    ScreeningEventFactory.IEvent,
-    'id' | 'typeOf'
-// | 'superEvent'
+// COAケースの進行中取引を定義(2023-09-11~)
+export type ICOAPendingTransaction = Pick<
+    COA.factory.reserve.IDelTmpReserveArgs,
+    'theaterCode' | 'dateJouei' | 'titleCode' | 'titleBranchNum' | 'timeBegin' | 'tmpReserveNum'
 > & {
+    transactionNumber: string;
+    typeOf: 'COAReserveTransaction';
+};
+export interface IChevrePendingTransaction {
+    transactionNumber: string;
+    typeOf: AssetTransactionType.Reserve;
+}
+export type IPendingTransaction<T extends WebAPIFactory.Identifier> =
+    T extends WebAPIFactory.Identifier.COA ? ICOAPendingTransaction :
+    T extends WebAPIFactory.Identifier.Chevre ? IChevrePendingTransaction :
+    never;
+
+export type IEvent = Pick<ScreeningEventFactory.IEvent, 'id' | 'typeOf'> & {
     offers: {
         // イベント提供サービスを識別できるようにするために追加(2022-06-03~)
         offeredThrough: ScreeningEventFactory.IOfferedThrough;
@@ -194,9 +193,9 @@ export type IObject<T extends WebAPIFactory.Identifier> = {
     event?: IEvent;
     acceptedOffer: IAcceptedOffer<T>[];
     /**
-     * Chevre進行中取引
+     * 進行中取引
      */
-    pendingTransaction?: IPendingTransaction;
+    pendingTransaction?: IPendingTransaction<T>;
 } & Omit<IObjectWithoutDetail<T>, 'acceptedOffer' | 'reservationFor'>;
 
 export interface IPurpose {
@@ -218,6 +217,6 @@ export interface IAttributes<T extends WebAPIFactory.Identifier>
     instrument: IInstrument<T>;
 }
 /**
- * イベントオファー承認アクション
+ * 興行オファー承認アクション
  */
 export type IAction<T extends WebAPIFactory.Identifier> = ActionFactory.IAction<IAttributes<T>>;
