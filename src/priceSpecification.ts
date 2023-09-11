@@ -17,11 +17,6 @@ export interface IAccounting {
      */
     operatingRevenue?: IAccountTitle;
     /**
-     * 営業外収益
-     * 廃止(2022-10-31~)
-     */
-    // nonOperatingRevenue?: IAccountTitle;
-    /**
      * 売上金額
      */
     accountsReceivable?: number;
@@ -36,14 +31,11 @@ export interface IPriceSpecification<T extends PriceSpecificationType> {
     id?: string;
     typeOf: T;
     name?: string | IMultilingualString;
-    // 不要なので廃止(2022-11-04~)
-    // description?: string | IMultilingualString;
+    /**
+     * 適用数量
+     */
     eligibleQuantity?: IEligibleQuantity;
     eligibleTransactionVolume?: IEligibleTransactionVolume;
-    // 不要なので廃止(2022-11-04~)
-    // maxPrice?: number;
-    // 不要なので廃止(2022-11-04~)
-    // minPrice?: number;
     /**
      * 発生金額
      */
@@ -52,10 +44,6 @@ export interface IPriceSpecification<T extends PriceSpecificationType> {
      * 通貨
      */
     priceCurrency: PriceCurrency;
-    // 不要なので廃止(2022-11-04~)
-    // validFrom?: Date;
-    // 不要なので廃止(2022-11-04~)
-    // validThrough?: Date;
     valueAddedTaxIncluded: boolean;
     /**
      * 勘定内容

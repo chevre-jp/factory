@@ -476,7 +476,7 @@ export interface IReservationForSearchConditions {
     };
 }
 export interface ISellerSearchConditions {
-    typeOf?: string;
+    // typeOf?: string; // 不要なので廃止(2023-09-11~)
     /**
      * 販売者IDリスト
      */
@@ -539,6 +539,7 @@ export interface IPaymentMethodsSearchConditions {
     };
     /**
      * 決済方法区分コード
+     * @deprecated Use paymentMethod.identifier
      */
     typeOfs?: string[];
     /**
@@ -546,6 +547,12 @@ export interface IPaymentMethodsSearchConditions {
      * 決済代行オーダーIDなど
      */
     paymentMethodIds?: string[];
+    paymentMethod?: {
+        /**
+         * 決済方法区分コード
+         */
+        identifier?: { $in?: string[] }; // 追加(2023-09-11~)
+    };
 }
 export interface IAcceptedOffersSearchConditions {
     itemOffered?: {

@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済サービスのserviceOutputをArrayに対応
 - PermitのissuedThrough.typeOfをCreditCardに対応
 - 決済承認アクションのresultをArray対応
+- 注文検索条件最適化
 
 ### Deprecated
 

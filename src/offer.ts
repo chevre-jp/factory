@@ -153,7 +153,7 @@ export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternate
      */
     eligibleDuration?: IQuantitativeValue<UnitCode.Sec>;
     /**
-     * オファーの有効となる数
+     * 適用数量
      */
     eligibleQuantity?: IEligibleQuantity;
     /**

@@ -83,7 +83,9 @@ export type IAcceptedOfferPriceSpecification =
 export type IAcceptedOffer4chevre =
     Pick<
         ITicketOffer,
-        'id' | 'identifier' | 'typeOf' | 'priceCurrency' | 'itemOffered' | 'additionalProperty'
+        'id' | 'identifier' | 'typeOf' |
+        'priceCurrency' |
+        'itemOffered' | 'additionalProperty'
     >
     & Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty'>
     & {
