@@ -262,5 +262,11 @@ export interface ISearchConditions {
          * 集計オファーID
          */
         id?: { $in?: string[] };
+        includedInDataCatalog?: {
+            /**
+             * 記載カタログID
+             */
+            id?: { $in?: string[] };
+        };
     };
 }
