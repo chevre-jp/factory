@@ -60,6 +60,7 @@ export interface ISearchConditions {
             $in?: string[];
             $nin?: string[];
         };
+        typeOf?: { $eq?: string };
     };
     itemOffered?: {
         typeOf?: { $eq?: string };

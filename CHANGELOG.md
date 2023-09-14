@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 集計オファー同期タスクを追加
 - 単価オファー検索条件拡張
 - 興行オファー承認アクションにアドオン数量指定を追加
+- オファーカタログ検索条件拡張
 
 ### Changed
 
