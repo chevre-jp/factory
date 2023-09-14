@@ -118,7 +118,7 @@ export interface IResultPaymentMethod {
         currency?: string;
     };
 }
-export interface IResult {
+export interface IResultAsInvoice {
     /**
      * The identifier for the account the payment will be applied to.
      */
@@ -155,7 +155,8 @@ export interface IResult {
     typeOf: ResultType;
     issuedThrough: IOrderPaymentMethodIssuedThrough;
 }
-
+// Array対応(2023-09-02~)
+export type IResult = IResultAsInvoice | IResultAsInvoice[];
 export interface IPurpose {
     typeOf: TransactionType;
     id: string;

@@ -41,9 +41,11 @@ export interface IPriceSpecification extends Pick<
     referenceQuantity: IReferenceQuantity;
     /**
      * 適用MovieTicket
+     * 複数決済カード対応(2022-07-11~)
+     * Arrayに完全限定(2023-09-01~)
      */
-    // 複数決済カード対応(2022-07-11~)
-    appliesToMovieTicket?: IAppliesToMovieTicket | IAppliesToMovieTicket[];
+    appliesToMovieTicket?: IAppliesToMovieTicket[];
+    // appliesToMovieTicket?: IAppliesToMovieTicket | IAppliesToMovieTicket[];
     /**
      * 適用アドオン
      * アドオンを指定された場合に適用される

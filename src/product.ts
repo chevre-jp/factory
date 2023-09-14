@@ -239,6 +239,10 @@ export interface ITicketOffer extends Pick<
     name: IOfferName;
     priceSpecification: ITicketPriceSpecification;
     itemOffered?: UnitPriceOfferFactory.IItemOffered;
+    offerIndex?: number;
+    /**
+     * カタログ内ソートインデックス
+     */
     sortIndex?: number;
     typeOf: OfferType.Offer;
 }

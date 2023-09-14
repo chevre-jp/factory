@@ -14,7 +14,7 @@ import { IOffer } from './offer';
 import { OrderStatus } from './orderStatus';
 import { OrganizationType } from './organizationType';
 import { PaymentStatusType } from './paymentStatusType';
-import { IPermit as IBasePermit } from './permit';
+import { IIssuedThroughAsProduct, IPermit as IBasePermit } from './permit';
 import { IPerson, IProfile } from './person';
 import { PersonType } from './personType';
 import { PlaceType } from './placeType';
@@ -22,6 +22,7 @@ import { PriceCurrency } from './priceCurrency';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
+import { IPriceSpecification as IUnitPriceOfferPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IProduct, ProductType } from './product';
 import { IPropertyValue } from './propertyValue';
 import { IProgramMembershipUsedSearchConditions, ITicket, ITicketType } from './reservation';
@@ -31,7 +32,7 @@ import { ReservationType } from './reservationType';
 import { ISeller as IBaseSeller } from './seller';
 import { IPaymentMethodAsServiceOutput, PaymentServiceType } from './service/paymentService';
 import { SortType } from './sortType';
-import { IUnitPriceOfferPriceSpecification } from './unitPriceOffer';
+// import { IUnitPriceOfferPriceSpecification } from './unitPriceOffer';
 
 export interface IProject {
     typeOf: OrganizationType.Project;
@@ -179,10 +180,12 @@ export type IEventReservation = Pick<
 export type IReservation = IBusReservation | IEventReservation;
 export type IPermit = Pick<
     IBasePermit,
-    'amount' | 'identifier' | 'issuedThrough' | 'name' | 'typeOf' | 'validFor'
+    'amount' | 'identifier' | 'name' | 'typeOf' | 'validFor'
 // 不要なので廃止(2023-07-01~)
 // | 'project'
->;
+> & {
+    issuedThrough?: IIssuedThroughAsProduct; // 注文アイテムとして可能性があるのはプロダクトの発行するPermitのみ
+};
 export interface IMoneyTransferPendingTransaction {
     typeOf: AssetTransactionType.MoneyTransfer;
     /**
@@ -473,7 +476,7 @@ export interface IReservationForSearchConditions {
     };
 }
 export interface ISellerSearchConditions {
-    typeOf?: string;
+    // typeOf?: string; // 不要なので廃止(2023-09-11~)
     /**
      * 販売者IDリスト
      */
@@ -536,6 +539,7 @@ export interface IPaymentMethodsSearchConditions {
     };
     /**
      * 決済方法区分コード
+     * @deprecated Use paymentMethod.identifier
      */
     typeOfs?: string[];
     /**
@@ -543,6 +547,12 @@ export interface IPaymentMethodsSearchConditions {
      * 決済代行オーダーIDなど
      */
     paymentMethodIds?: string[];
+    paymentMethod?: {
+        /**
+         * 決済方法区分コード
+         */
+        identifier?: { $in?: string[] }; // 追加(2023-09-11~)
+    };
 }
 export interface IAcceptedOffersSearchConditions {
     itemOffered?: {

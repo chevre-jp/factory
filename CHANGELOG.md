@@ -18,6 +18,26 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.329.0 - 2023-09-15
+
+### Added
+
+- タスクに識別子を追加
+- 集計オファーを追加
+- 集計オファー同期タスクを追加
+- 単価オファー検索条件拡張
+- 興行オファー承認アクションにアドオン数量指定を追加
+- オファーカタログ検索条件拡張
+
+### Changed
+
+- 決済サービスのserviceOutputをArrayに対応
+- PermitのissuedThrough.typeOfをCreditCardに対応
+- 決済承認アクションのresultをArray対応
+- 注文検索条件最適化
+- COA興行オファー承認アクションを拡張
+- オファーカタログのitemListElementをサブカタログに対応
+
 ## v4.328.0 - 2023-08-31
 
 ### Added

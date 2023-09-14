@@ -6,19 +6,37 @@ import { IPropertyValue } from './propertyValue';
 import { SortType } from './sortType';
 import { IThing } from './thing';
 
+export type OfferCatalogType = 'OfferCatalog';
 export interface IItemOffered {
     typeOf: ProductType;
 }
-export interface IItemListElement {
-    typeOf: OfferType.Offer;
+/**
+ * カタログのアイテムリスト
+ */
+export interface IItemListElementAsOfferCatalog {
+    typeOf: OfferCatalogType;
+    /**
+     * サブカタログID
+     */
     id: string;
 }
+/**
+ * サブカタログのアイテムリスト
+ */
+export interface IItemListElementAsAggregateOffer {
+    typeOf: OfferType.Offer;
+    /**
+     * 集計オファーID
+     */
+    id: string;
+}
+export type IItemListElement = IItemListElementAsOfferCatalog | IItemListElementAsAggregateOffer;
 /**
  * オファーカタログ
  */
 export interface IOfferCatalog extends Pick<IThing, 'name' | 'description' | 'alternateName'> {
     project: Pick<IProject, 'id' | 'typeOf'>;
-    typeOf: 'OfferCatalog';
+    typeOf: OfferCatalogType;
     id?: string;
     identifier: string;
     name: IMultilingualString;
@@ -60,6 +78,7 @@ export interface ISearchConditions {
             $in?: string[];
             $nin?: string[];
         };
+        typeOf?: { $eq?: string };
     };
     itemOffered?: {
         typeOf?: { $eq?: string };
