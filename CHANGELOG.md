@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.329.0 - 2023-09-15
+
+### Added
+
 - タスクに識別子を追加
 - 集計オファーを追加
 - 集計オファー同期タスクを追加
@@ -23,14 +37,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文検索条件最適化
 - COA興行オファー承認アクションを拡張
 - オファーカタログのitemListElementをサブカタログに対応
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v4.328.0 - 2023-08-31
 
