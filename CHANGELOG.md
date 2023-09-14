@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済承認アクションのresultをArray対応
 - 注文検索条件最適化
 - COA興行オファー承認アクションを拡張
+- オファーカタログのitemListElementをサブカタログに対応
 
 ### Deprecated
 
