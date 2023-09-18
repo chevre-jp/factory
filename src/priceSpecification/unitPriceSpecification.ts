@@ -45,7 +45,6 @@ export interface IPriceSpecification extends Pick<
      * Arrayに完全限定(2023-09-01~)
      */
     appliesToMovieTicket?: IAppliesToMovieTicket[];
-    // appliesToMovieTicket?: IAppliesToMovieTicket | IAppliesToMovieTicket[];
     /**
      * 適用アドオン
      * アドオンを指定された場合に適用される
