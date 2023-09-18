@@ -108,4 +108,16 @@ export interface ISearchConditions {
             };
         };
     };
+    relatedOffer?: {
+        priceSpecification?: {
+            appliesToMovieTicket?: {
+                serviceOutput?: {
+                    /**
+                     * 決済方法区分
+                     */
+                    typeOf?: { $in?: string[] };
+                };
+            };
+        };
+    };
 }
