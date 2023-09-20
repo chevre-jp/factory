@@ -269,4 +269,12 @@ export interface ISearchConditions {
          */
         id?: { $in?: string[] };
     };
+    includedInOfferCatalogItem?: {
+        includedInDataCatalog?: {
+            /**
+             * 記載カタログID
+             */
+            id?: { $in?: string[] };
+        };
+    };
 }
