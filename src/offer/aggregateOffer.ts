@@ -6,7 +6,7 @@ export type ISubOffer = IUnitPriceOffer;
 /**
  * 集計オファー
  */
-export interface IAggregateOffer extends Pick<IOffer, 'typeOf' | 'project'> {
+export interface IAggregateOffer extends Pick<IOffer, 'id' | 'typeOf' | 'project'> {
     typeOf: OfferType.AggregateOffer;
     highPrice?: number;
     lowPrice?: number;

@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - オファーカタログにrelatedOfferを拡張
+- onResourceUpdatedタスクを集計オファーに対応
 
 ### Changed
 
