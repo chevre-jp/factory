@@ -1,5 +1,6 @@
 import { IMultilingualString } from './multilingualString';
 import { OfferType } from './offerType';
+import { IAppliesToMovieTicket } from './priceSpecification/unitPriceSpecification';
 import { ProductType } from './product';
 import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
@@ -31,6 +32,13 @@ export interface IItemListElementAsAggregateOffer {
     id: string;
 }
 export type IItemListElement = IItemListElementAsOfferCatalog | IItemListElementAsAggregateOffer;
+export interface IReletedOfferPriceSpecification {
+    appliesToMovieTicket?: Pick<IAppliesToMovieTicket, 'serviceOutput'>[];
+}
+export interface IRelatedOffer {
+    typeOf: OfferType.Offer;
+    priceSpecification?: IReletedOfferPriceSpecification;
+}
 /**
  * オファーカタログ
  */
@@ -43,6 +51,10 @@ export interface IOfferCatalog extends Pick<IThing, 'name' | 'description' | 'al
     itemListElement: IItemListElement[];
     itemOffered: IItemOffered;
     additionalProperty?: IPropertyValue<string>[];
+    /**
+     * 関連オファー
+     */
+    relatedOffer?: IRelatedOffer;
 }
 /**
  * ソート条件
@@ -93,6 +105,18 @@ export interface ISearchConditions {
                  * 一致する名称の追加特性がひとつでも存在する
                  */
                 $eq?: string;
+            };
+        };
+    };
+    relatedOffer?: {
+        priceSpecification?: {
+            appliesToMovieTicket?: {
+                serviceOutput?: {
+                    /**
+                     * 決済方法区分
+                     */
+                    typeOf?: { $in?: string[] };
+                };
             };
         };
     };

@@ -18,7 +18,8 @@ export type IResourceTypeOf = AccountTitleType | CategoryCodeType | CreativeWork
     | EventType.ScreeningEventSeries
     | OrganizationType.Corporation | PlaceType.MovieTheater | ProductType
     | OfferCatalogType
-    | OfferType.Offer;
+    | OfferType.AggregateOffer;
+// | OfferType.Offer;
 export interface IData4common {
     id: string[];
     project: { id: string };
@@ -27,6 +28,10 @@ export interface IData4common {
     // 削除に対応(2023-07-28~)
     isDeleted?: boolean;
     useInform: boolean;
+    /**
+     * typeOf: OfferCatalogのリポジトリを判定するため
+     */
+    isOfferCatalogItem?: boolean;
 }
 // ルーム削除に対応(2023-07-31~)
 export interface IData4screeningRoom {
