@@ -10,7 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - オファーカタログにrelatedOfferを拡張
 - onResourceUpdatedタスクを集計オファーに対応
-- 単価オファー検索条件拡張
 
 ### Changed
 
