@@ -8,20 +8,26 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- オファーカタログにrelatedOfferを拡張
-- onResourceUpdatedタスクを集計オファーに対応
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
 
-- syncAggregateOfferタスクを削除
-
 ### Fixed
 
 ### Security
+
+## v4.330.0 - 2023-09-21
+
+### Added
+
+- オファーカタログにrelatedOfferを拡張
+- onResourceUpdatedタスクを集計オファーに対応
+
+### Removed
+
+- syncAggregateOfferタスクを削除
 
 ## v4.329.0 - 2023-09-15
 
