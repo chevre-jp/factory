@@ -92,10 +92,6 @@ export enum TaskName {
      */
     SendOrder = 'sendOrder',
     /**
-     * オファー同期
-     */
-    SyncAggregateOffer = 'syncAggregateOffer',
-    /**
      * ルーム同期
      */
     SyncScreeningRooms = 'syncScreeningRooms',
