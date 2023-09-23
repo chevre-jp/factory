@@ -555,6 +555,7 @@ export interface IPaymentMethodsSearchConditions {
     };
 }
 export interface IAcceptedOffersSearchConditions {
+    $size?: number;
     itemOffered?: {
         /**
          * アイテムタイプ
@@ -678,6 +679,9 @@ export interface ISearchConditions {
      * @deprecated Use orderDate.$lte
      */
     orderDateThrough?: Date;
+    orderedItem?: {
+        $size?: number;
+    };
     /**
      * 確認番号リスト
      */

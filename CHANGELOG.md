@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 注文検索条件拡張
+
 ### Changed
 
 ### Deprecated
