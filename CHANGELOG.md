@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- プロジェクトのsubscriptionにuseOfferCatalogItemを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.332.0 - 2023-09-24
+
+### Added
+
+- プロジェクトのsubscriptionにuseOfferCatalogItemを追加
 
 ## v4.331.0 - 2023-09-23
 
