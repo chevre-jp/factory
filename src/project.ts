@@ -51,8 +51,6 @@ export interface ISendEmailMessageSettings {
  */
 export interface ISettings {
     importEventsInWeeks?: number;
-    // 廃止(2023-01-30~)
-    // onReservationUsed?: IOnReservationUsed;
     cognito?: ICognitoSettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;
     webhook?: IWebhookSettings;
@@ -64,25 +62,30 @@ export interface ISettings {
     transactionWebhookUrls?: string[];
     useMyCreditCards?: boolean;
     useUsernameAsGMOMemberId?: boolean;
-    // useEventServiceAsProduct?: boolean;
+}
+export interface ISubscription {
+    identifier?: string;
+    /**
+     * プロダクトとしての興行管理を利用するかどうか
+     */
+    useEventServiceAsProduct?: boolean;
+    /**
+     * サブカタログ管理を利用するかどうか
+     */
+    useOfferCatalogItem?: boolean;
+
 }
 /**
  * プロジェクト
  */
-export interface IProject extends IOrganization {
+export interface IProject extends Pick<IOrganization, 'id' | 'logo' | 'name' | 'typeOf'> {
     typeOf: OrganizationType.Project;
     id: string;
     alternateName?: string;
     description?: string;
     name?: string;
     settings?: ISettings;
-    subscription?: {
-        identifier?: string;
-        /**
-         * プロダクトとしての興行管理を利用するかどうか
-         */
-        useEventServiceAsProduct?: boolean;
-    };
+    subscription?: ISubscription;
 }
 /**
  * ソート条件
