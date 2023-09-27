@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 施設のhasPOSを再定義
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.333.0 - 2023-09-27
+
+### Changed
+
+- 施設のhasPOSを再定義
 
 ## v4.332.0 - 2023-09-24
 
