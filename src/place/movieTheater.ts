@@ -37,17 +37,21 @@ export interface IOffer extends Pick<OfferFactory.IOffer, 'priceCurrency' | 'pro
      */
     availabilityEndsGraceTimeOnPOS: IAvailabilityEndsGraceTime;
 }
-export type POSType = 'POS';
+// export type POSType = 'POS';
 /**
- * POS
- * 管理者が識別しやすいようPOSの属性を指定します
+ * 施設の操作するPoints-of-Sales
  */
 export interface IPOS {
-    typeOf: POSType;
+    // typeOf: POSType;
+    /**
+     * コード
+     * @deprecated Use branchCode(2023-09-27~)
+     */
+    id: string;
     /**
      * コード
      */
-    id: string;
+    branchCode: string;
     /**
      * 名称
      */
