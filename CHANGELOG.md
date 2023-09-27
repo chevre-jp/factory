@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 施設のhasPOSを再定義
+
 ### Deprecated
 
 ### Removed
