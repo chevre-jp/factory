@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- onResourceUpdatedタスクをhasPOSに対応
+
 ### Changed
 
 ### Deprecated

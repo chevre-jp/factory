@@ -51,7 +51,24 @@ export interface IData4screeningRoom {
     isDeleted: boolean;
     useInform: boolean;
 }
-export type IData = IData4common | IData4screeningRoom;
+export interface IData4pos {
+    /**
+     * コード
+     */
+    branchCode: string;
+    operator: {
+        /**
+         * 施設ID
+         */
+        id: string;
+    };
+    project: { id: string };
+    typeOf: 'POS';
+    isNew: boolean;
+    isDeleted: boolean;
+    useInform: boolean;
+}
+export type IData = IData4common | IData4screeningRoom | IData4pos;
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.OnResourceUpdated;
     data: IData;
