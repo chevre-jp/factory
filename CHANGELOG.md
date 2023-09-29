@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.334.0 - 2023-09-29
+
+### Added
+
+- onResourceUpdatedタスクをhasPOSに対応
+
 ## v4.333.0 - 2023-09-27
 
 ### Changed
