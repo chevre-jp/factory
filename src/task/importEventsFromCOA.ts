@@ -25,6 +25,7 @@ export interface IData {
      * 施設コンテンツを保管するかどうか
      */
     saveScreeningEventSeries: boolean;
+    saveScreeningEventSeriesPeriodInMonth: number;
 }
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.ImportEventsFromCOA;

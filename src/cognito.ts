@@ -1,8 +1,8 @@
 /**
  * Cognitoインターフェース
  */
-import * as AWS from 'aws-sdk';
+import type { CognitoIdentityServiceProvider } from 'aws-sdk';
 
-export import UserPoolClientType = AWS.CognitoIdentityServiceProvider.UserPoolClientType;
-export import UserPoolClientListType = AWS.CognitoIdentityServiceProvider.UserPoolClientListType;
-export import UserPoolType = AWS.CognitoIdentityServiceProvider.UserPoolType;
+export type UserPoolClientType = CognitoIdentityServiceProvider.UserPoolClientType;
+export type UserPoolClientListType = CognitoIdentityServiceProvider.UserPoolClientListType;
+export type UserPoolType = CognitoIdentityServiceProvider.UserPoolType;
