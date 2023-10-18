@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.335.0 - 2023-10-19
+
+### Changed
+
+- importEventsFromCOAタスクを拡張
+
 ## v4.334.0 - 2023-09-29
 
 ### Added
