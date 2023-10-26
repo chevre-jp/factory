@@ -37,7 +37,6 @@ export interface IOffer extends Pick<OfferFactory.IOffer, 'priceCurrency' | 'pro
      */
     availabilityEndsGraceTimeOnPOS: IAvailabilityEndsGraceTime;
 }
-// export type POSType = 'POS';
 /**
  * 施設の操作するPoints-of-Sales
  */
@@ -89,10 +88,7 @@ export interface IPlaceWithoutScreeningRoom extends Omit<PlaceFactory.IPlace, 'c
      * 入場ゲート
      */
     hasEntranceGate?: IEntranceGate[];
-    /**
-     * Points-of-Sales operated by the organization or person.
-     */
-    hasPOS?: IPOS[];
+    // hasPOS?: IPOS[]; // interfaceとしては廃止(2023-10-26~)
     /**
      * 名称
      */
