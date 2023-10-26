@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.336.0 - 2023-10-26
+
+### Changed
+
+- 施設IFからhasPOSを除外
+
 ## v4.335.0 - 2023-10-19
 
 ### Changed
