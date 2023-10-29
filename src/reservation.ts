@@ -186,7 +186,7 @@ export interface IBroker {
 export type IProgramMembershipUsed = Pick<IPermit, 'identifier' | 'issuedThrough' | 'project' | 'typeOf'>; // 最適化(2023-09-01~)
 // 最適化(2022-09-08~)
 export type IServiceTypeOfIssuedThrough = Pick<IServiceType, 'codeValue' | 'inCodeSet' | 'typeOf'>;
-export type IServiceLocationContainedInPlace = Pick<MovieTheaterFactory.IPlaceWithoutScreeningRoom, 'typeOf' | 'id' | 'branchCode'> & {
+export type IServiceLocationContainedInPlace = Pick<MovieTheaterFactory.IPlace, 'typeOf' | 'id' | 'branchCode'> & {
     name?: IMultilingualString;
 };
 export type IServiceLocation = Pick<ScreeningRoomFactory.IPlace, 'typeOf' | 'branchCode'> & {

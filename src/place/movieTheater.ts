@@ -6,7 +6,6 @@ import { IQuantitativeValue } from '../quantitativeValue';
 import { ISeller } from '../seller';
 import { SortType } from '../sortType';
 import { UnitCode } from '../unitCode';
-import { IPlace as IScreeningRoom } from './screeningRoom';
 
 export interface IAvailabilityStartsGraceTime extends Pick<IQuantitativeValue<UnitCode.Day>, 'typeOf' | 'value' | 'unitCode'> {
     unitCode: UnitCode.Day;
@@ -71,9 +70,12 @@ export type IParentOrganization = Pick<ISeller, 'typeOf' | 'id'> & {
 };
 
 /**
- * place interface without screening room
+ * 施設
  */
-export interface IPlaceWithoutScreeningRoom extends Omit<PlaceFactory.IPlace, 'containsPlace'> {
+export interface IPlace extends Pick<
+    PlaceFactory.IPlace,
+    'additionalProperty' | 'branchCode' | 'name' | 'project' | 'telephone' | 'typeOf'
+> {
     typeOf: PlaceType.MovieTheater;
     id: string;
     /**
@@ -110,16 +112,7 @@ export interface IPlaceWithoutScreeningRoom extends Omit<PlaceFactory.IPlace, 'c
      */
     parentOrganization: IParentOrganization;
 }
-
-/**
- * 施設
- */
-export type IPlace = IPlaceWithoutScreeningRoom & {
-    /**
-     * ルームリスト
-     */
-    containsPlace: IScreeningRoom[];
-};
+// export type IPlaceWithoutScreeningRoom = IPlace; // 廃止(2023-10-30~)
 
 /**
  * 施設ソート条件

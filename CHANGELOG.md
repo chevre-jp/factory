@@ -10,9 +10,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 施設を最適化
+- 座席の$projectionを定義
+
 ### Deprecated
 
 ### Removed
+
+- 注文の非推奨決済方法区分コードを廃止
 
 ### Fixed
 

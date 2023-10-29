@@ -56,9 +56,11 @@ export interface IPlace extends Pick<
 export interface IPlaceWithOffer extends IPlace {
     offers?: IOffer[];
 }
-
+export type IKeyOfProjection =
+    'typeOf' | 'branchCode' | 'name' | 'seatingType' | 'additionalProperty' | 'containedInPlace.containedInPlace';
+export type IProjection = { [key in IKeyOfProjection]?: 0; };
 export interface ISearchConditions {
-    $projection?: { [key: string]: number };
+    $projection?: IProjection;
     limit?: number;
     page?: number;
     sort?: any;
