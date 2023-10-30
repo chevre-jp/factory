@@ -10,20 +10,26 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.337.0 - 2023-10-30
+
+### Changed
+
 - 施設を最適化
 - 座席の$projectionを定義
 - aws-sdk -> @aws-sdk/client-cognito-identity-provider
 - update typescript@5.x.x
 
-### Deprecated
-
 ### Removed
 
 - 注文の非推奨決済方法区分コードを廃止
-
-### Fixed
-
-### Security
 
 ## v4.336.0 - 2023-10-26
 
