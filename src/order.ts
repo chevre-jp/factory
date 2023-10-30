@@ -66,11 +66,7 @@ export interface IReferencedInvoice {
      * The identifier for the account the payment will be applied to.
      */
     accountId?: string;
-    /**
-     * 決済方法区分コード
-     * @deprecated Use paymentMethod.identifier
-     */
-    typeOf: string;
+    // typeOf: string; // @deprecated Use paymentMethod.identifier
     /**
      * 決済方法名称
      */

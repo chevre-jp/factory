@@ -23,7 +23,7 @@ export interface IPlace extends Pick<IThing, 'identifier' | 'name'> {
     name?: IMultilingualString;
     // openingHoursSpecification?: any;
     openSeatingAllowed?: boolean;
-    smokingAllowed?: boolean;
+    // smokingAllowed?: boolean;
     telephone?: string;
     additionalProperty?: IPropertyValue<string>[];
 }

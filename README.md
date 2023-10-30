@@ -10,7 +10,6 @@
 ## Table of contents
 
 * [Usage](#usage)
-* [License](#license)
 
 ## Usage
 
@@ -22,7 +21,3 @@ npm install @chevre/factory
 
 | Name | Required | Value | Purpose |
 | ---- | -------- | ----- | ------- |
-
-## License
-
-ISC

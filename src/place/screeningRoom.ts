@@ -14,7 +14,7 @@ export type IParentOrganization = Pick<ISeller, 'typeOf' | 'id'> & {
     id: string;
 };
 /**
- * ルームインターフェース
+ * ルーム
  */
 export interface IPlace extends Pick<
     PlaceFactory.IPlace,
