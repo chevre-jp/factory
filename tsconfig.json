@@ -2,7 +2,6 @@
     "compilerOptions": {
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
-        "charset": "utf8",
         "declaration": true,
         "diagnostics": false,
         "disableSizeLimit": false,
@@ -12,9 +11,12 @@
         "inlineSourceMap": false,
         "inlineSources": false,
         "isolatedModules": false,
+        "lib": [
+            "DOM",
+            "ES2018"
+        ],
         "listEmittedFiles": false,
         "listFiles": false,
-        "locale": "en-us",
         "module": "commonjs",
         "newLine": "LF",
         "noImplicitAny": true,
@@ -34,8 +36,7 @@
         "stripInternal": false,
         "suppressExcessPropertyErrors": false,
         "suppressImplicitAnyIndexErrors": false,
-        "target": "es5",
-        "watch": false
+        "target": "es5"
     },
     "include": [
         "src"

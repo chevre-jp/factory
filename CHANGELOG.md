@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 施設を最適化
 - 座席の$projectionを定義
+- aws-sdk -> @aws-sdk/client-cognito-identity-provider
+- update typescript@5.x.x
 
 ### Deprecated
 
