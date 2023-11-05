@@ -18,7 +18,7 @@ export interface IAvailabilityEndsGraceTime extends Pick<IQuantitativeValue<Unit
 /**
  * 施設に対するオファー
  */
-export interface IOffer extends Pick<OfferFactory.IOffer, 'priceCurrency' | 'project' | 'typeOf' | 'eligibleQuantity'> {
+export interface IOffer extends Pick<OfferFactory.IOffer, 'typeOf' | 'eligibleQuantity'> {
     /**
      * イベント開始前の販売猶予期間
      */
@@ -40,7 +40,6 @@ export interface IOffer extends Pick<OfferFactory.IOffer, 'priceCurrency' | 'pro
  * 施設の操作するPoints-of-Sales
  */
 export interface IPOS {
-    // typeOf: POSType;
     /**
      * コード
      * @deprecated Use branchCode(2023-09-27~)
@@ -74,7 +73,7 @@ export type IParentOrganization = Pick<ISeller, 'typeOf' | 'id'> & {
  */
 export interface IPlace extends Pick<
     PlaceFactory.IPlace,
-    'additionalProperty' | 'branchCode' | 'name' | 'project' | 'telephone' | 'typeOf'
+    'additionalProperty' | 'branchCode' | 'name' | 'project' | 'telephone' | 'typeOf' | 'url'
 > {
     typeOf: PlaceType.MovieTheater;
     id: string;

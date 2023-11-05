@@ -18,6 +18,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.338.0 - 2023-11-06
+
+### Added
+
+- 追加特性のCategoryCodeSetに施設を追加
+
+### Changed
+
+- optimize movieTheater.offers
+
 ## v4.337.0 - 2023-10-30
 
 ### Changed

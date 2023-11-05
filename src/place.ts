@@ -10,7 +10,7 @@ export type IAmenityFeature = ILocationFeatureSpecification;
 /**
  * 場所インターフェース
  */
-export interface IPlace extends Pick<IThing, 'identifier' | 'name'> {
+export interface IPlace extends Pick<IThing, 'identifier' | 'name' | 'url'> {
     project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: PlaceType;
     id?: string;

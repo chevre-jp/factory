@@ -5,6 +5,7 @@ import { IMultilingualString } from './multilingualString';
 import { IOfferCatalog } from './offerCatalog';
 import { OfferType } from './offerType';
 import { OrderType } from './order';
+import { PlaceType } from './placeType';
 import { IProject } from './project';
 import { PropertyValueType } from './propertyValue';
 import { ISeller } from './seller';
@@ -22,6 +23,7 @@ export type CategorySetIdentifier = CategoryCodeType
     | OfferCatalogType
     | OfferType.Offer
     | OrderType.Order
+    | PlaceType.MovieTheater
     | SellerType;
 /**
  * {@link https://schema.org/CategoryCodeSet}
