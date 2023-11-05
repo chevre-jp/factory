@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 追加特性のCategoryCodeSetに施設を追加
+
 ### Changed
 
 - optimize movieTheater.offers
