@@ -13,16 +13,17 @@ export type IPriceComponent = ICategoryCodeChargeSpecification;
 
 /**
  * 座席に対する価格仕様
- * 最適化(2022-11-15~)
  */
 export type IPriceSpecification = Pick<ICompoundPriceSpecification<IPriceComponent>, 'typeOf' | 'priceComponent'>;
 
 /**
- * 座席オファー
- * 最適化(2022-11-15~)
+ * 座席に対するオファー
  */
-export interface IOffer extends Pick<OfferFactory.IOffer, 'typeOf'> {
+export interface IOffer extends Pick<OfferFactory.IOffer, 'availability'> {
     availability: ItemAvailability;
+    /**
+     * 座席区分加算料金の存在する場合、価格仕様が含まれる
+     */
     priceSpecification?: IPriceSpecification;
 }
 
@@ -57,7 +58,8 @@ export interface IPlaceWithOffer extends IPlace {
     offers?: IOffer[];
 }
 export type IKeyOfProjection =
-    'typeOf' | 'branchCode' | 'name' | 'seatingType' | 'additionalProperty' | 'containedInPlace.containedInPlace';
+    'typeOf' | 'branchCode' | 'name' | 'seatingType' | 'additionalProperty'
+    | 'containedInPlace.containedInPlace' | 'containedInPlace.typeOf' | 'containedInPlace.branchCode' | 'containedInPlace.name';
 export type IProjection = { [key in IKeyOfProjection]?: 0; };
 export interface ISearchConditions {
     $projection?: IProjection;

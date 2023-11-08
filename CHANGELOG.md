@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.339.0 - 2023-11-08
+
+### Changed
+
+- 座席検索のprojectionを拡張
+
 ## v4.338.0 - 2023-11-06
 
 ### Added
