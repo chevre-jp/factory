@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 座席に対する価格構成要素を最適化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.340.0 - 2023-11-08
+
+### Changed
+
+- 座席に対する価格構成要素を最適化
 
 ## v4.339.0 - 2023-11-08
 
