@@ -9,7 +9,10 @@ import { IPriceSpecification as ICompoundPriceSpecification } from '../priceSpec
 /**
  * 座席に対する価格構成要素
  */
-export type IPriceComponent = ICategoryCodeChargeSpecification;
+export type IPriceComponent = Pick<
+    ICategoryCodeChargeSpecification,
+    'appliesToCategoryCode' | 'name' | 'price' | 'priceCurrency' | 'typeOf' | 'valueAddedTaxIncluded'
+>;
 
 /**
  * 座席に対する価格仕様
