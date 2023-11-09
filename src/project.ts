@@ -100,6 +100,7 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    id?: { $eq?: string };
     ids?: string[];
     /**
      * 名称
