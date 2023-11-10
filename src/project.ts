@@ -24,9 +24,6 @@ export interface IOnPaymentStatusChanged {
 export interface IOnReservationUsed {
     informAction?: IInformParams[];
 }
-// tslint:disable-next-line:no-empty-interface
-export interface ICognitoSettings {
-}
 /**
  * 注文ステータス変更時イベント
  */
@@ -51,7 +48,6 @@ export interface ISendEmailMessageSettings {
  */
 export interface ISettings {
     importEventsInWeeks?: number;
-    cognito?: ICognitoSettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;
     webhook?: IWebhookSettings;
 
