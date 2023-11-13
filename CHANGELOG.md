@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- add project.hasMerchantReturnPolicy
+
 ### Changed
 
 - discontinue project.settings.cognito

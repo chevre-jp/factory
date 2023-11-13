@@ -34,6 +34,7 @@ export interface IThing {
      * The name of the item.
      */
     name?: string | IMultilingualString;
+    sameAs?: string;
     /**
      * URL of the item.
      */

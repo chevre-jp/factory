@@ -1,3 +1,4 @@
+import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { SortType } from './sortType';
@@ -71,6 +72,7 @@ export interface ISubscription {
     useOfferCatalogItem?: boolean;
 
 }
+export type IHasMerchantReturnPolicy = Pick<IMerchantReturnPolicy, 'sameAs' | 'typeOf'>;
 /**
  * プロジェクト
  */
@@ -79,6 +81,7 @@ export interface IProject extends Pick<IOrganization, 'id' | 'logo' | 'name' | '
     id: string;
     alternateName?: string;
     description?: string;
+    hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
     name?: string;
     settings?: ISettings;
     subscription?: ISubscription;

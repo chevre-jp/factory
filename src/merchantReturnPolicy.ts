@@ -52,7 +52,7 @@ export type IItemCondition = Pick<IOfferItemCondition, 'typeOf' | 'id'> & { id: 
 export type ICustomerRemorseReturnFees = ReturnFeesEnumeration;
 export type ICustomerRemorseReturnFeesMovieTicket =
     ReturnFeesEnumeration.FreeReturn | ReturnFeesEnumeration.ReturnFeesCustomerResponsibility;
-export interface IMerchantReturnPolicy extends Pick<IThing, 'name' | 'url'> {
+export interface IMerchantReturnPolicy extends Pick<IThing, 'name' | 'sameAs' | 'url'> {
     typeOf: 'MerchantReturnPolicy';
     /**
      * 適用決済方法
