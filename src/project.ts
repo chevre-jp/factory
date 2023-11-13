@@ -1,3 +1,4 @@
+import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { SortType } from './sortType';
@@ -24,9 +25,6 @@ export interface IOnPaymentStatusChanged {
 export interface IOnReservationUsed {
     informAction?: IInformParams[];
 }
-// tslint:disable-next-line:no-empty-interface
-export interface ICognitoSettings {
-}
 /**
  * 注文ステータス変更時イベント
  */
@@ -51,7 +49,6 @@ export interface ISendEmailMessageSettings {
  */
 export interface ISettings {
     importEventsInWeeks?: number;
-    cognito?: ICognitoSettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;
     webhook?: IWebhookSettings;
 
@@ -75,6 +72,7 @@ export interface ISubscription {
     useOfferCatalogItem?: boolean;
 
 }
+export type IHasMerchantReturnPolicy = Pick<IMerchantReturnPolicy, 'sameAs' | 'typeOf'>;
 /**
  * プロジェクト
  */
@@ -83,6 +81,7 @@ export interface IProject extends Pick<IOrganization, 'id' | 'logo' | 'name' | '
     id: string;
     alternateName?: string;
     description?: string;
+    hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
     name?: string;
     settings?: ISettings;
     subscription?: ISubscription;
