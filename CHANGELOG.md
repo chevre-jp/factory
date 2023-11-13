@@ -8,11 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- add project.hasMerchantReturnPolicy
-
 ### Changed
-
-- discontinue project.settings.cognito
 
 ### Deprecated
 
@@ -21,6 +17,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.342.0 - 2023-11-13
+
+### Added
+
+- add project.hasMerchantReturnPolicy
+
+### Changed
+
+- discontinue project.settings.cognito
 
 ## v4.341.0 - 2023-11-10
 
