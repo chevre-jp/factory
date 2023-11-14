@@ -1,0 +1,81 @@
+{
+    "order": {
+        "orderDate": "2023-11-14T04:16:04.840Z",
+        "price": 2700,
+        "acceptedOffers": [
+            {
+                "itemOffered": {
+                    "additionalProperty": [],
+                    "reservationFor": {
+                        "doorTime": "2023-11-14T09:15:00.000Z",
+                        "endDate": "2023-11-14T11:45:00.000Z",
+                        "startDate": "2023-11-14T09:15:00.000Z"
+                    },
+                    "reservedTicket": {
+                        "ticketedSeat": {
+                            "typeOf": "Seat",
+                            "seatNumber": "B-1",
+                            "seatRow": "",
+                            "seatSection": "Default",
+                            "seatingType": [
+                                "Meal"
+                            ]
+                        }
+                    }
+                },
+                "priceSpecification": {
+                    "priceComponent": [
+                        {
+                            "price": 1800,
+                            "referenceQuantity": {
+                                "typeOf": "QuantitativeValue",
+                                "value": 1,
+                                "unitCode": "C62"
+                            },
+                            "typeOf": "UnitPriceSpecification"
+                        },
+                        {
+                            "price": 500,
+                            "typeOf": "CategoryCodeChargeSpecification",
+                            "appliesToCategoryCode": [
+                                {
+                                    "typeOf": "CategoryCode",
+                                    "codeValue": "Meal",
+                                    "inCodeSet": {
+                                        "typeOf": "CategoryCodeSet",
+                                        "identifier": "SeatingType"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "typeOf": "UnitPriceSpecification",
+                            "price": 400,
+                            "referenceQuantity": {
+                                "typeOf": "QuantitativeValue",
+                                "value": 1,
+                                "unitCode": "C62"
+                            },
+                            "appliesToAddOn": [
+                                {
+                                    "typeOf": "Offer",
+                                    "id": "7k7bbepxp",
+                                    "identifier": "addOn-drink-m",
+                                    "itemOffered": {
+                                        "id": "62b90fef5b3eb4000b75150f",
+                                        "name": {
+                                            "ja": "ドリンク",
+                                            "en": "drinks"
+                                        },
+                                        "productID": "drinks",
+                                        "typeOf": "Product"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
