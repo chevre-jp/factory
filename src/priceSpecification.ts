@@ -21,6 +21,10 @@ export interface IAccounting {
      */
     accountsReceivable?: number;
 }
+/**
+ * 適用数量
+ * n以上n以下のアイテム数に適用する設定
+ */
 export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode>, 'maxValue' | 'minValue' | 'typeOf' | 'unitCode'>;
 export type IEligibleTransactionVolume = Pick<IPriceSpecification<PriceSpecificationType>, 'typeOf' | 'price' | 'priceCurrency' | 'valueAddedTaxIncluded'>;
 /**

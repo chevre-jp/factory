@@ -49,18 +49,15 @@ export interface IItemOffered {
 }
 /**
  * 単価オファーの価格仕様
- * 最適化(Pickで表現)(2023-09-01~)
  */
 export type IUnitPriceOfferPriceSpecification = Pick<
     IUnitPriceSpecification,
     'accounting'
-    // Arrayに限定(2022-09-09~)
     | 'appliesToMovieTicket'
     | 'eligibleQuantity' | 'eligibleTransactionVolume'
     | 'name' | 'price'
     | 'priceCurrency' | 'referenceQuantity' | 'typeOf' | 'valueAddedTaxIncluded'
 >;
-// export type IUnitPriceOfferPriceSpecification = Omit<IUnitPriceSpecification, 'appliesToMovieTicket' | 'project'> & {
 export type IAddOnItemOffered = Pick<IProduct, 'typeOf' | 'id' | 'name'>;
 export interface IAddOn4unitPriceOffer extends Pick<IAddOn, 'typeOf' | 'priceCurrency'> {
     itemOffered: IAddOnItemOffered;
@@ -76,7 +73,8 @@ export type IAvailability = ItemAvailability.InStock | ItemAvailability.OutOfSto
  */
 export interface IUnitPriceOffer extends Pick<
     IOffer,
-    'project' | 'typeOf' | 'priceCurrency' | 'id' | 'identifier' | 'name' | 'description'
+    'acceptedPaymentMethod' // add(2023-11-15~)
+    | 'project' | 'typeOf' | 'priceCurrency' | 'id' | 'identifier' | 'name' | 'description'
     | 'alternateName' | 'availability' | 'availableAtOrFrom' | 'itemOffered'
     | 'priceSpecification' | 'additionalProperty' | 'color' | 'category'
     | 'eligibleSeatingType' | 'eligibleMembershipType' | 'eligibleMonetaryAmount' | 'eligibleSubReservation'

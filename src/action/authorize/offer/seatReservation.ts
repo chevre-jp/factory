@@ -78,6 +78,7 @@ export type IAcceptedOfferPriceSpecification = ITicketPriceSpecification
  */
 export type IAcceptedOffer4chevre = Pick<
     ITicketOffer,
+    'acceptedPaymentMethod' | // add(2023-11-15~)
     'id' | 'identifier' | 'typeOf' |
     'priceCurrency' |
     'itemOffered' | 'additionalProperty'
