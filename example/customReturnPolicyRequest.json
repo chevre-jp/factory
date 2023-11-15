@@ -1,17 +1,41 @@
 {
     "order": {
+        /**
+         * 注文日時
+         */
         "orderDate": "2023-11-14T04:16:04.840Z",
+        /**
+         * 注文金額
+         */
         "price": 2700,
+        /**
+         * 注文アイテム
+         */
         "acceptedOffers": [
             {
+                /**
+                 * アイテム(予約)
+                 */
                 "itemOffered": {
+                    /**
+                     * 追加特性
+                     */
                     "additionalProperty": [],
+                    /**
+                     * イベント
+                     */
                     "reservationFor": {
                         "doorTime": "2023-11-14T09:15:00.000Z",
                         "endDate": "2023-11-14T11:45:00.000Z",
                         "startDate": "2023-11-14T09:15:00.000Z"
                     },
+                    /**
+                     * 予約チケット
+                     */
                     "reservedTicket": {
+                        /**
+                         * 指定座席
+                         */
                         "ticketedSeat": {
                             "typeOf": "Seat",
                             "seatNumber": "B-1",
@@ -23,6 +47,9 @@
                         }
                     }
                 },
+                /**
+                 * 価格仕様
+                 */
                 "priceSpecification": {
                     "priceComponent": [
                         {
@@ -32,11 +59,20 @@
                                 "value": 1,
                                 "unitCode": "C62"
                             },
+                            /**
+                             * 単価仕様
+                             */
                             "typeOf": "UnitPriceSpecification"
                         },
                         {
                             "price": 500,
+                            /**
+                             * 区分加算料金
+                             */
                             "typeOf": "CategoryCodeChargeSpecification",
+                            /**
+                             * 適用区分
+                             */
                             "appliesToCategoryCode": [
                                 {
                                     "typeOf": "CategoryCode",
@@ -49,6 +85,9 @@
                             ]
                         },
                         {
+                            /**
+                             * アドオン単価仕様
+                             */
                             "typeOf": "UnitPriceSpecification",
                             "price": 400,
                             "referenceQuantity": {
@@ -56,17 +95,22 @@
                                 "value": 1,
                                 "unitCode": "C62"
                             },
+                            /**
+                             * 適用アドオン
+                             */
                             "appliesToAddOn": [
                                 {
                                     "typeOf": "Offer",
                                     "id": "7k7bbepxp",
                                     "identifier": "addOn-drink-m",
                                     "itemOffered": {
-                                        "id": "62b90fef5b3eb4000b75150f",
                                         "name": {
                                             "ja": "ドリンク",
                                             "en": "drinks"
                                         },
+                                        /**
+                                         * アドオンプロダクトID
+                                         */
                                         "productID": "drinks",
                                         "typeOf": "Product"
                                     }
