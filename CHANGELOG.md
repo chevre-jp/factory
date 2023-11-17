@@ -9,12 +9,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - add unitPriceOffer.acceptedPaymentMethod
+- seller.makesOfferに適用カスタマータイプを追加
 
 ### Changed
 
 ### Deprecated
 
 ### Removed
+
+- discontinue placeOrder.startParams.expiresInSeconds
 
 ### Fixed
 

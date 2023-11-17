@@ -14,6 +14,10 @@ export enum CategorySetIdentifier {
      */
     CurrencyType = 'CurrencyType',
     /**
+     * カスタマータイプ
+     */
+    CustomerType = 'CustomerType',
+    /**
      * 配給区分
      */
     DistributorType = 'DistributorType',

@@ -75,9 +75,7 @@ export interface IObject {
 }
 export interface IStartParamsWithoutDetail {
     project: Pick<IProject, 'id' | 'typeOf'>;
-    // expiresInSeconds指定に変更(2022-11-29~)
-    // expires: Date;
-    expiresInSeconds?: number;
+    // expiresInSeconds?: number; // discontinue(2023-11-18~)
     agent: IAgent;
     seller: {
         id: string;
