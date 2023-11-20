@@ -13,6 +13,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- update @waiter/factory
+
 ### Deprecated
 
 ### Removed
