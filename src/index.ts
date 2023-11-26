@@ -13,9 +13,9 @@ import * as AccountFactory from './account';
 import * as ActionFactory from './action';
 import * as AuthorizeActionFactory from './action/authorize';
 import * as PointAwardAuthorizeActionFactory from './action/authorize/award/point';
+import * as AuthorizeEventServiceOfferActionFactory from './action/authorize/offer/eventService';
 import * as AuthorizeMoneyTransferOfferActionFactory from './action/authorize/offer/moneyTransfer';
 import * as AuthorizeProductOfferActionFactory from './action/authorize/offer/product';
-import * as AuthorizeSeatReservationOfferActionFactory from './action/authorize/offer/seatReservation';
 import * as AuthorizeAnyPaymentActionFactory from './action/authorize/paymentMethod/any';
 import * as CancelReservationActionFactory from './action/cancel/reservation';
 import * as CheckMovieTicketActionFactory from './action/check/paymentMethod/movieTicket';
@@ -233,11 +233,11 @@ export namespace action {
         }
         // tslint:disable-next-line:no-shadowed-variable
         export namespace offer {
+            export import eventService = AuthorizeEventServiceOfferActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
             export import moneyTransfer = AuthorizeMoneyTransferOfferActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
             export import product = AuthorizeProductOfferActionFactory;
-            export import seatReservation = AuthorizeSeatReservationOfferActionFactory;
         }
     }
     export namespace cancel {

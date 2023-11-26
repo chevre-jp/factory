@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - update @waiter/factory
+- 興行オファー承認をオファー未指定に対応
 
 ### Deprecated
 
