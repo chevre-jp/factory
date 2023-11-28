@@ -130,6 +130,7 @@ export interface IPriceSpecificationSearchConditions {
              */
             typeOf?: {
                 $eq?: string;
+                $all?: string[];
                 $nin?: string[];
             };
         };
