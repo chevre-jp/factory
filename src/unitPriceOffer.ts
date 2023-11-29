@@ -173,6 +173,7 @@ export interface ISearchConditions {
             };
         };
     };
+    acceptedPaymentMethod?: { identifier?: { $in?: string[] } };
     availability?: { $eq?: IAvailability };
     availableAtOrFrom?: {
         id?: {
