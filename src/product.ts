@@ -218,10 +218,10 @@ export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicket
 export import IMinimizedTicketAddOn = UnitPriceOfferFactory.IAddOn4unitPriceOffer;
 /**
  * プロダクトオファー
- * strict definition(2023-02-24~)
  */
 export interface ITicketOffer extends Pick<
     IBaseOffer,
+    'acceptedPaymentMethod' | // add(2023-11-15~)
     'name' | 'description' | 'alternateName' | 'color' | 'typeOf' | 'id' |
     'availability' |
     'availableAtOrFrom' |

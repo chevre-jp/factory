@@ -18,6 +18,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.343.0 - 2023-11-29
+
+### Added
+
+- add unitPriceOffer.acceptedPaymentMethod
+- seller.makesOfferに適用カスタマータイプを追加
+
+### Changed
+
+- update @waiter/factory
+- 興行オファー承認をオファー未指定に対応
+- 単価オファー検索条件拡張
+
+### Removed
+
+- discontinue placeOrder.startParams.expiresInSeconds
+
 ## v4.342.0 - 2023-11-13
 
 ### Added

@@ -33,10 +33,18 @@ export interface IItemListElementAsAggregateOffer {
 }
 export type IItemListElement = IItemListElementAsOfferCatalog | IItemListElementAsAggregateOffer;
 export interface IReletedOfferPriceSpecification {
+    /**
+     * 適用決済カード条件
+     * 複数の場合、全条件を満たすオファーのみが対象
+     */
     appliesToMovieTicket?: Pick<IAppliesToMovieTicket, 'serviceOutput'>[];
 }
 export interface IRelatedOffer {
     typeOf: OfferType.Offer;
+    /**
+     * 対象オファーの価格仕様条件
+     * 適用決済カード条件無しの場合、存在しない
+     */
     priceSpecification?: IReletedOfferPriceSpecification;
 }
 /**

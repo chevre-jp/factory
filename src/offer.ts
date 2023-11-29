@@ -85,8 +85,17 @@ export interface IAddOn {
     validFrom?: Date;
     validThrough?: Date;
 }
-export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue' | 'typeOf' | 'unitCode' | 'value'>;
+export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue' | 'typeOf' | 'unitCode'>;
 export type IName = IMultilingualString;
+/**
+ * 利用可能決済方法
+ */
+export interface IAcceptedPaymentMethod {
+    /**
+     * 決済方法区分コード
+     */
+    identifier: string;
+}
 /**
  * offer interface
  * An offer to transfer some rights to an item or to provide a service
@@ -101,7 +110,7 @@ export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternate
     /**
      * The payment method(s) accepted by seller for this offer.
      */
-    // acceptedPaymentMethod?: string[];
+    acceptedPaymentMethod?: IAcceptedPaymentMethod[];
     /**
      * An additional offer that can only be obtained in combination with the first base offer
      * (e.g. supplements and extensions that are available for a surcharge).

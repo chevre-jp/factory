@@ -12,17 +12,13 @@ import { TransactionStatusType } from './transactionStatusType';
 import { TransactionTasksExportationStatus } from './transactionTasksExportationStatus';
 import { TransactionType } from './transactionType';
 
-// 最適化(2022-11-15~)
 export interface IAgentAsWebApplication extends Pick<IWebApplication, 'id' | 'identifier' | 'typeOf'> {
     name?: string;
 }
-// 最適化(2022-11-15~)
 export interface IAgentAsPerson extends Pick<IPersonAttributes, 'id' | 'identifier' | 'memberOf' | 'typeOf'> {
     name?: string;
 }
-// 最適化(2022-05-30~)
 export type IAgent = IAgentAsWebApplication | IAgentAsPerson;
-// 最適化(2022-05-30~)
 /**
  * 販売者
  */

@@ -13,7 +13,7 @@ import * as WebAPIFactory from '../../../service/webAPI';
 import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
-import * as COAReservationOfferFactory from './seatReservation/coa';
+import * as COAReservationOfferFactory from './eventService/coa';
 
 export type IAgent = ActionFactory.IParticipantAsSeller;
 export type IRecipient = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
@@ -40,19 +40,16 @@ export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IRes
  */
 export interface IResult<T extends WebAPIFactory.Identifier> {
     /**
-     * オファー分の金額
+     * 決済金額
+     * オファー未指定の場合、金額非確定なので、この属性は存在しない
      */
-    price: number;
+    price?: number; // noOfferSpecifiedに対応(2023-11-27~)
     priceCurrency: PriceCurrency;
     /**
      * オファーに対して必要な金額
      * currencyを口座タイプとして扱う
      */
     amount: OrderFactory.ITotalPaymentDue[];
-    /**
-     * 外部リクエストエンドポイント
-     */
-    requestEndpoint?: string;
     /**
      * 外部サービスへのリクエスト
      * COAの場合存在する
@@ -78,6 +75,7 @@ export type IAcceptedOfferPriceSpecification = ITicketPriceSpecification
  */
 export type IAcceptedOffer4chevre = Pick<
     ITicketOffer,
+    'acceptedPaymentMethod' | // add(2023-11-15~)
     'id' | 'identifier' | 'typeOf' |
     'priceCurrency' |
     'itemOffered' | 'additionalProperty'
@@ -186,7 +184,7 @@ export type IEvent = Pick<ScreeningEventFactory.IEvent, 'id' | 'typeOf'> & {
     };
 };
 /**
- * 承認アクション対象
+ * 興行オファー承認アクション対象
  */
 export type IObject<T extends WebAPIFactory.Identifier> = {
     typeOf: ObjectType;
@@ -202,10 +200,6 @@ export interface IPurpose {
     typeOf: TransactionType.PlaceOrder;
     id: string;
 }
-
-/**
- * authorize action error interface
- */
 export type IError = any;
 export interface IAttributes<T extends WebAPIFactory.Identifier>
     extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult<T>> {

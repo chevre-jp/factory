@@ -1,6 +1,7 @@
+import { IBusinessEntityType } from './businessEntityType';
 import { IMerchantReturnPolicy, IRestockingFee } from './merchantReturnPolicy';
 import { IMultilingualString } from './multilingualString';
-import { IOffer } from './offer';
+import { IAvailableAtOrFrom, IOffer } from './offer';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { IProject } from './project';
@@ -9,7 +10,6 @@ import { IQuantitativeValue } from './quantitativeValue';
 import { SortType } from './sortType';
 import { UnitCode } from './unitCode';
 
-// strict definition(2022-08-04~)
 export type ISellerMerchantReturnPolicy = Pick<
     IMerchantReturnPolicy,
     'itemCondition' | 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'url' | 'applicablePaymentMethod'
@@ -27,16 +27,20 @@ export interface IPaymentAccepted {
     paymentMethodType: string;
 }
 export type IEligibleTransactionDuration = Pick<IQuantitativeValue<UnitCode.Sec>, 'maxValue' | 'typeOf' | 'unitCode'>;
-export type IMakesOffer = Pick<
+export interface IMakesOffer extends Pick<
     IOffer,
     'typeOf' | 'availableAtOrFrom'
-> & {
+> {
+    availableAtOrFrom: IAvailableAtOrFrom[]; // required
+    /**
+     * 適用カスタマータイプ
+     */
+    eligibleCustomerType?: IBusinessEntityType[]; // add eligibleCustomerType(2023-11-18~)
     /**
      * 適用取引期間
      */
-    eligibleTransactionDuration?: IEligibleTransactionDuration;
-
-};
+    eligibleTransactionDuration: IEligibleTransactionDuration; // required
+}
 export interface ISeller extends Pick<
     IOrganization,
     'typeOf' | 'id' | 'location' | 'telephone' | 'additionalProperty' | 'name' | 'url'
@@ -53,7 +57,7 @@ export interface ISeller extends Pick<
     hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
     name: IMultilingualString;
     /**
-     * A pointer to products or services offered by the organization or person.
+     * 各アプリケーションに対するオファー
      */
     makesOffer?: IMakesOffer[];
     paymentAccepted?: IPaymentAccepted[];
