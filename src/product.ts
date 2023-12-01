@@ -224,7 +224,7 @@ export interface ITicketOffer extends Pick<
     'acceptedPaymentMethod' | // add(2023-11-15~)
     'name' | 'description' | 'alternateName' | 'color' | 'typeOf' | 'id' |
     'availability' |
-    'availableAtOrFrom' |
+    // 'availableAtOrFrom' | // discontinue(2023-12-01~)
     'category' |
     'eligibleMembershipType' | 'eligibleSeatingType' | 'eligibleMonetaryAmount' | 'eligibleSubReservation' |
     'eligibleQuantity' |
