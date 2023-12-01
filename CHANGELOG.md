@@ -14,11 +14,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
-- discontinue product.ticketOffer.availableAtOrFrom
-
 ### Fixed
 
 ### Security
+
+## v4.344.0 - 2023-12-01
+
+### Removed
+
+- discontinue product.ticketOffer.availableAtOrFrom
 
 ## v4.343.0 - 2023-11-29
 
