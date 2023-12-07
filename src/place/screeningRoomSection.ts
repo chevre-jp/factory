@@ -27,8 +27,12 @@ export interface IPlace extends Pick<
 export interface IPlaceWithOffer extends IPlace {
     containsPlace: ISeatWithOffer[];
 }
-
+export interface IProjection {
+    containedInPlace?: 1;
+    seatCount?: 1;
+}
 export interface ISearchConditions {
+    $projection?: IProjection;
     limit?: number;
     page?: number;
     sort?: any;
@@ -48,9 +52,6 @@ export interface ISearchConditions {
     };
     name?: {
         $regex?: string;
-    };
-    $projection?: {
-        seatCount?: 1;
     };
     additionalProperty?: {
         $elemMatch?: {
