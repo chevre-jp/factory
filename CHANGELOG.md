@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- IOrderからaccpetedOffersを分離
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.346.0 - 2023-12-09
+
+### Changed
+
+- IOrderからaccpetedOffersを分離
 
 ## v4.345.0 - 2023-12-08
 
