@@ -172,6 +172,9 @@ export interface IConfirmParams {
      */
     result?: IResultParams;
 }
+export type IOrderAsResult = OrderFactory.IOrder & {
+    acceptedOffers: OrderFactory.IAcceptedOffer<OrderFactory.IItemOffered>[];
+};
 /**
  * 取引結果
  */
@@ -179,7 +182,7 @@ export interface IResult {
     /**
      * 注文
      */
-    order: OrderFactory.IOrder;
+    order: IOrderAsResult;
 }
 /**
  * エラー

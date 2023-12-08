@@ -353,11 +353,6 @@ export interface IOrderedItem {
 export interface IOrder extends Omit<ISimpleOrder, 'customer'> {
     id?: string; // 追加(2023-02-13~)
     project: IProject;
-    /**
-     * Offer
-     * The offers included in the order.Also accepts an array of objects.
-     */
-    acceptedOffers?: IAcceptedOffer<IItemOffered>[];
     additionalProperty?: IPropertyValue<string>[]; // 追加(2023-02-13~)
     /**
      * An entity that arranges for an exchange between a buyer and a seller.

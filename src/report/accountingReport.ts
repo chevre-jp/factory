@@ -1,6 +1,6 @@
 import { IAction as IPayAction, IPaymentService as IPayObject } from '../action/trade/pay';
 import { IAction as IRefundAction, IPaymentService as IRefundObject } from '../action/trade/refund';
-import { ICustomer, IOrder } from '../order';
+import { IAcceptedOffer, ICustomer, IItemOffered, IOrder } from '../order';
 
 export type IPayActionObject = Pick<IPayObject, 'id' | 'paymentMethod' | 'typeOf'>;
 // 最適化(2023-06-30~)
@@ -23,12 +23,13 @@ export type IOptimizedCustomer = Pick<ICustomer, 'additionalProperty' | 'id' | '
 // 最適化(2023-06-30~)
 export type IOrderAsMainEntity = Pick<
     IOrder,
-    'acceptedOffers' | 'broker' | 'confirmationNumber'
+    'broker' | 'confirmationNumber'
     | 'id' | 'orderDate' | 'orderNumber' | 'orderedItem'
     | 'paymentMethods' | 'price' | 'priceCurrency' | 'seller' | 'typeOf'
 > & {
     numItems: number;
     customer: IOptimizedCustomer;
+    acceptedOffers: IAcceptedOffer<IItemOffered>[];
 };
 /**
  * 経理レポート
