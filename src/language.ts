@@ -1,8 +1,9 @@
+type ILanguageName = 'Japanese';
 /**
  * 言語インターフェース
  */
 export interface ILanguage {
     typeOf: 'Language';
-    name: string;
-    alternateName?: string;
+    name: ILanguageName;
+    // alternateName?: string;
 }

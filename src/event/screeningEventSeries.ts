@@ -178,8 +178,10 @@ export type ICreateParams =
     Pick<
         IAttributes,
         'typeOf' | 'name' | 'duration' | 'endDate' | 'headline' | 'offers' | 'startDate'
-        | 'additionalProperty' | 'subtitleLanguage' | 'dubLanguage' | 'kanaName' | 'eventStatus'
+        | 'additionalProperty' | 'kanaName' | 'eventStatus' | 'description'
     > & {
+        subtitleLanguage?: Pick<ILanguage, 'name'>;
+        dubLanguage?: Pick<ILanguage, 'name'>;
         location: {
             /**
              * 施設ID
