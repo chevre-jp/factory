@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- コンテンツのICreateParamsを追加
+
 ### Changed
 
 - 施設コンテンツのICreateParamsを最適化
