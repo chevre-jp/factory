@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - コンテンツのICreateParamsを追加
+- オファーのICreateParamsを追加
 
 ### Changed
 

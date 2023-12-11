@@ -102,6 +102,13 @@ export interface IUnitPriceOffer extends Pick<
     // settings追加(2023-01-26~)
     settings?: ISettings;
 }
+export type ICreateParams = Pick<
+    IUnitPriceOffer,
+    'acceptedPaymentMethod' | 'addOn' | 'additionalProperty' | 'advanceBookingRequirement' | 'alternateName' | 'availability'
+    | 'availableAtOrFrom' | 'category' | 'color' | 'description' | 'eligibleMembershipType' | 'eligibleMonetaryAmount'
+    | 'eligibleSeatingType' | 'eligibleSubReservation' | 'hasMerchantReturnPolicy' | 'identifier' | 'itemOffered' | 'name'
+    | 'priceSpecification' | 'settings' | 'typeOf' | 'validFrom' | 'validRateLimit' | 'validThrough'
+>;
 /**
  * ソート条件
  */
