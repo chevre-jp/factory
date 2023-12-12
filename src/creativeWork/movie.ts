@@ -55,11 +55,15 @@ export interface ICreativeWork extends Pick<
  */
 export type ICreateParams = Pick<
     ICreativeWork,
-    'additionalProperty' | 'contentRating' | 'datePublished' | 'duration' | 'headline' | 'identifier' | 'thumbnailUrl' | 'typeOf'
+    'additionalProperty' | 'datePublished' | 'duration' | 'headline' | 'identifier' | 'thumbnailUrl' | 'typeOf'
 > & {
     name?: Pick<IMultilingualString, 'en' | 'ja'>;
     offers: Pick<IOffer, 'availabilityEnds'>;
     distributor?: Pick<IDistributor, 'codeValue'>;
+    /**
+     * レイティング区分コード
+     */
+    contentRating?: string;
 };
 
 /**

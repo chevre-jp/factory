@@ -3,6 +3,7 @@ import { ItemAvailability } from './itemAvailability';
 import { IAddOn, ICategory, IEligibleCategoryCode, IEligibleMonetaryAmount, IName, IOffer } from './offer';
 import { OfferType } from './offerType';
 import { IAmount as IPermitAmount, IDepositAmount, IPaymentAmount } from './permit';
+import { IAccounting } from './priceSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IProduct, ProductType } from './product';
 import { IQuantitativeValue } from './quantitativeValue';
@@ -134,8 +135,13 @@ export type ICreateParams = Pick<
     }[];
     priceSpecification: Pick<
         IUnitPriceOfferPriceSpecification,
-        'accounting' | 'appliesToMovieTicket' | 'eligibleQuantity' | 'eligibleTransactionVolume' | 'price' | 'referenceQuantity'
-    >;
+        'appliesToMovieTicket' | 'eligibleQuantity' | 'eligibleTransactionVolume' | 'price' | 'referenceQuantity'
+    > & {
+        /**
+         * 勘定内容
+         */
+        accounting?: Pick<IAccounting, 'accountsReceivable' | 'operatingRevenue'>;
+    };
 };
 /**
  * ソート条件
