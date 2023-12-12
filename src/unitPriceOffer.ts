@@ -1,6 +1,6 @@
 import { IPointAward } from './action/transfer/moneyTransfer';
 import { ItemAvailability } from './itemAvailability';
-import { IAddOn, IName, IOffer } from './offer';
+import { IAddOn, ICategory, IEligibleCategoryCode, IEligibleMonetaryAmount, IName, IOffer } from './offer';
 import { OfferType } from './offerType';
 import { IAmount as IPermitAmount, IDepositAmount, IPaymentAmount } from './permit';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
@@ -104,11 +104,39 @@ export interface IUnitPriceOffer extends Pick<
 }
 export type ICreateParams = Pick<
     IUnitPriceOffer,
-    'acceptedPaymentMethod' | 'addOn' | 'additionalProperty' | 'advanceBookingRequirement' | 'alternateName' | 'availability'
-    | 'availableAtOrFrom' | 'category' | 'color' | 'description' | 'eligibleMembershipType' | 'eligibleMonetaryAmount'
-    | 'eligibleSeatingType' | 'eligibleSubReservation' | 'hasMerchantReturnPolicy' | 'identifier' | 'itemOffered' | 'name'
-    | 'priceSpecification' | 'settings' | 'typeOf' | 'validFrom' | 'validRateLimit' | 'validThrough'
->;
+    'acceptedPaymentMethod'
+    // | 'addOn' | 'advanceBookingRequirement' | 'category' | 'priceSpecification' | 'typeOf'
+    // | 'eligibleMembershipType' | 'eligibleMonetaryAmount' | 'eligibleSeatingType' | 'eligibleSubReservation'| 'hasMerchantReturnPolicy'
+    | 'additionalProperty' | 'alternateName' | 'availability'
+    | 'availableAtOrFrom' | 'color' | 'description'
+    | 'identifier' | 'itemOffered' | 'name'
+    | 'settings' | 'validFrom' | 'validRateLimit' | 'validThrough'
+> & {
+    addOn?: {
+        itemOffered: {
+            /**
+             * アドオンID
+             */
+            id: string;
+        };
+    }[];
+    advanceBookingRequirement?: Pick<IAdvanceBookingRequirement, 'description' | 'minValue'>;
+    category?: Pick<ICategory, 'codeValue'>;
+    eligibleMembershipType?: Pick<IEligibleCategoryCode, 'codeValue'>[];
+    eligibleMonetaryAmount?: Pick<IEligibleMonetaryAmount, 'currency' | 'value'>[];
+    eligibleSeatingType?: Pick<IEligibleCategoryCode, 'codeValue'>[];
+    eligibleSubReservation?: Pick<IEligibleCategoryCode, 'codeValue'>[];
+    hasMerchantReturnPolicy?: {
+        /**
+         * 返品ポリシーコード
+         */
+        identifier: string;
+    }[];
+    priceSpecification: Pick<
+        IUnitPriceOfferPriceSpecification,
+        'accounting' | 'appliesToMovieTicket' | 'eligibleQuantity' | 'eligibleTransactionVolume' | 'price' | 'referenceQuantity'
+    >;
+};
 /**
  * ソート条件
  */
