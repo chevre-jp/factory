@@ -106,7 +106,8 @@ export type ICreateParams = Pick<
     IUnitPriceOffer,
     'acceptedPaymentMethod'
     // | 'addOn' | 'advanceBookingRequirement' | 'category' | 'priceSpecification' | 'typeOf'
-    // | 'eligibleMembershipType' | 'eligibleMonetaryAmount' | 'eligibleSeatingType' | 'eligibleSubReservation'| 'hasMerchantReturnPolicy'
+    // | 'eligibleMembershipType' | 'eligibleMonetaryAmount' | 'eligibleSeatingType' | 'hasMerchantReturnPolicy'
+    | 'eligibleSubReservation'
     | 'additionalProperty' | 'alternateName' | 'availability'
     | 'availableAtOrFrom' | 'color' | 'description'
     | 'identifier' | 'itemOffered' | 'name'
@@ -125,7 +126,6 @@ export type ICreateParams = Pick<
     eligibleMembershipType?: Pick<IEligibleCategoryCode, 'codeValue'>[];
     eligibleMonetaryAmount?: Pick<IEligibleMonetaryAmount, 'currency' | 'value'>[];
     eligibleSeatingType?: Pick<IEligibleCategoryCode, 'codeValue'>[];
-    eligibleSubReservation?: Pick<IEligibleCategoryCode, 'codeValue'>[];
     hasMerchantReturnPolicy?: {
         /**
          * 返品ポリシーコード
