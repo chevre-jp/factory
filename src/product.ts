@@ -106,6 +106,25 @@ export interface IProduct extends Pick<IThing, 'name' | 'description'> {
     serviceType?: IServiceType;
     additionalProperty?: IPropertyValue<string>[];
 }
+export type ICreateParams = Pick<
+    IProduct,
+    'typeOf' | 'productID' | 'name' | 'description' | 'availableChannel' | 'serviceOutput'
+> & {
+    hasOfferCatalog?: Pick<IHasOfferCatalog, 'id'>
+    | {
+        /**
+         * カタログコードを指定する場合
+         */
+        identifier: string;
+    };
+    /**
+     * サービスタイプ
+     * 興行->興行区分
+     * メンバーシップ->メンバーシップ区分
+     * ペイメントカード->決済方法区分
+     */
+    serviceType?: Pick<IServiceType, 'codeValue'>;
+};
 
 export interface ISortOrder {
     productID?: SortType;
