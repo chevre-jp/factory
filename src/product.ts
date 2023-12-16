@@ -110,8 +110,11 @@ export type ICreateParams = Pick<
     IProduct,
     'typeOf' | 'productID' | 'name' | 'description' | 'availableChannel' | 'serviceOutput'
 > & {
-    hasOfferCatalog?: Pick<IHasOfferCatalog, 'id'>
-    | {
+    hasOfferCatalog?: {
+        /**
+         * IDを指定する場合
+         */
+        id?: string;
         /**
          * カタログコードを指定する場合
          */
