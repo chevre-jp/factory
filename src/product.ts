@@ -2,7 +2,7 @@ import { ICategoryCode } from './categoryCode';
 import { IMultilingualString } from './multilingualString';
 import { IName as IOfferName, IOffer as IBaseOffer } from './offer';
 import { OfferType } from './offerType';
-import { IPermit } from './permit';
+import { IAmount as IPermitAmount, IPermit } from './permit';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
@@ -45,10 +45,14 @@ export interface IHasOfferCatalog {
     typeOf: 'OfferCatalog';
     id: string;
 }
-export type IMembershipPointsEarned = Pick<IQuantitativeValue<string>, 'name' | 'typeOf' | 'unitText' | 'value'>;
-export type IServiceOutput = Pick<IPermit, 'typeOf' | 'amount'> & {
-    membershipPointsEarned?: IMembershipPointsEarned;
-    automaticRenewal?: boolean;
+// export type IMembershipPointsEarned = Pick<IQuantitativeValue<string>, 'name' | 'typeOf' | 'unitText' | 'value'>;
+export type IServiceOutput = Pick<IPermit, 'typeOf'> & {
+    /**
+     * ペイメントカードの場合、通貨区分
+     */
+    amount?: Pick<IPermitAmount, 'currency' | 'typeOf'>;
+    // membershipPointsEarned?: IMembershipPointsEarned; // discontinue(2023-12-17~)
+    // automaticRenewal?: boolean; // discontinue(2023-12-17~)
 };
 /**
  * 外部サービス認証情報
