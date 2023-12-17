@@ -122,7 +122,7 @@ export type ICreateParams = Pick<
         /**
          * カタログコードを指定する場合
          */
-        identifier: string;
+        identifier?: string;
     };
     /**
      * サービスタイプ
