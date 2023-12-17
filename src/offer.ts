@@ -109,6 +109,7 @@ export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternate
     id?: string;
     /**
      * The payment method(s) accepted by seller for this offer.
+     * 対応決済方法区分
      */
     acceptedPaymentMethod?: IAcceptedPaymentMethod[];
     /**
@@ -130,15 +131,14 @@ export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternate
     availabilityStarts?: Date;
     /**
      * The place(s) from which the offer can be obtained (e.g. store locations).
+     * 利用可能アプリケーション
      */
     availableAtOrFrom?: IAvailableAtOrFrom[];
     /**
      * A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+     * カテゴリー
      */
     category?: ICategory;
-    /**
-     * 有効な顧客タイプ
-     */
     // eligibleCustomerType?: any;
     /**
      * 有効なメンバーシップタイプ
@@ -197,10 +197,12 @@ export interface IOffer extends Pick<IThing, 'name' | 'description' | 'alternate
     unacceptedPaymentMethod?: string[];
     /**
      * The date when the item becomes valid.
+     * 有効期間(from)
      */
     validFrom?: Date;
     /**
      * The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
+     * 有効期間(through)
      */
     validThrough?: Date;
     /**

@@ -64,6 +64,9 @@ export interface IAddOn4unitPriceOffer extends Pick<IAddOn, 'typeOf' | 'priceCur
     itemOffered: IAddOnItemOffered;
 }
 export interface ISettings {
+    /**
+     * 区分加算料金を適用しない
+     */
     ignoreCategoryCodeChargeSpec?: boolean;
 }
 export interface IAdvanceBookingRequirement extends Pick<IQuantitativeValue<UnitCode.Sec>, 'typeOf' | 'minValue' | 'unitCode' | 'description'> {
@@ -91,17 +94,31 @@ export interface IUnitPriceOffer extends Pick<
      * コード
      */
     identifier: string;
+    /**
+     * 名称
+     */
     name: IName;
     /**
      * 単価仕様
      */
     priceSpecification: IUnitPriceOfferPriceSpecification;
+    /**
+     * プロダクト
+     */
     itemOffered?: IItemOffered;
+    /**
+     * アドオン
+     */
     addOn?: IAddOn4unitPriceOffer[];
     typeOf: OfferType.Offer;
+    /**
+     * 返品ポリシー
+     */
     hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
-    // settings追加(2023-01-26~)
-    settings?: ISettings;
+    /**
+     * オプション
+     */
+    settings?: ISettings; // settings追加(2023-01-26~)
 }
 export type ICreateParams = Pick<
     IUnitPriceOffer,
@@ -114,6 +131,9 @@ export type ICreateParams = Pick<
     | 'identifier' | 'itemOffered' | 'name'
     | 'settings' | 'validFrom' | 'validRateLimit' | 'validThrough'
 > & {
+    /**
+     * アドオン
+     */
     addOn?: {
         itemOffered: {
             /**
@@ -122,17 +142,29 @@ export type ICreateParams = Pick<
             id: string;
         };
     }[];
+    /**
+     * 事前予約要件
+     */
     advanceBookingRequirement?: Pick<IAdvanceBookingRequirement, 'description' | 'minValue'>;
+    /**
+     * カテゴリー
+     */
     category?: Pick<ICategory, 'codeValue'>;
     eligibleMembershipType?: Pick<IEligibleCategoryCode, 'codeValue'>[];
     eligibleMonetaryAmount?: Pick<IEligibleMonetaryAmount, 'currency' | 'value'>[];
     eligibleSeatingType?: Pick<IEligibleCategoryCode, 'codeValue'>[];
+    /**
+     * 返品ポリシー
+     */
     hasMerchantReturnPolicy?: {
         /**
          * 返品ポリシーコード
          */
         identifier: string;
     }[];
+    /**
+     * 価格仕様
+     */
     priceSpecification: Pick<
         IUnitPriceOfferPriceSpecification,
         'appliesToMovieTicket' | 'eligibleQuantity' | 'eligibleTransactionVolume' | 'price' | 'referenceQuantity'

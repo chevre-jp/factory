@@ -36,11 +36,11 @@ export interface IProviderCredentials {
     tokenizationCode?: string;
     paymentUrl?: IPaymentUrlSettings;
     /**
-     * ムビチケ興行会社コード
+     * 決済カード興行会社コード
      */
     kgygishCd?: string;
     /**
-     * ムビチケサイトコード
+     * 決済カードサイトコード
      */
     stCd?: string;
 }

@@ -97,7 +97,7 @@ export interface IReturnOrderActionParams {
         // chevre/apiへ移行できるか
         refundCreditCard?: IRefundParams[];
         /**
-         * ムビチケ着券取消を実行するかどうか
+         * 決済カード着券取消を実行するかどうか
          */
         // 廃止(2022-06-08~)
         // refundMovieTicket?: boolean;

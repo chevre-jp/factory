@@ -81,7 +81,7 @@ export interface IPaymentMethod {
      */
     fromLocation?: IFromLocation;
     /**
-     * ムビチケリスト
+     * 決済カードリスト
      */
     movieTickets?: IMovieTicket[];
     /**
