@@ -1,7 +1,8 @@
 import { IInvoice } from '../invoice';
+import { IMultilingualString } from '../multilingualString';
 import { IIssuedThrough, IPermit } from '../permit';
 import { IAvailableChannel as IProductAvailableChannel, IServiceType } from '../product';
-import { IOnPaymentStatusChanged, IProject } from '../project';
+import { IProject } from '../project';
 import { IPropertyValue } from '../propertyValue';
 import { ISeller } from '../seller';
 import { IThing } from '../thing';
@@ -56,7 +57,6 @@ export interface IProvider extends Pick<ISeller, 'name' | 'typeOf'> {
     credentials?: IProviderCredentials;
 }
 export type IAvailableChannel = IProductAvailableChannel & {
-    onPaymentStatusChanged?: IOnPaymentStatusChanged;
     totalPaymentDue?: {
         // 最大同時着券数(MovieTicketIFの場合)
         maxValue?: number;
@@ -103,9 +103,11 @@ export interface IService extends Pick<IThing, 'name' | 'description'> {
     typeOf: PaymentServiceType;
     id?: string;
     availableChannel?: IAvailableChannel;
+    description?: Pick<IMultilingualString, 'en' | 'ja'>;
+    name?: Pick<IMultilingualString, 'en' | 'ja'>;
     /**
      * The product identifier, such as ISBN.
-     * プロジェクト内でユニークな想定
+     * プロジェクト内でユニークなプロダクトID
      */
     productID: string;
     /**

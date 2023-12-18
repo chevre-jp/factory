@@ -7,7 +7,7 @@ import { IPriceSpecification as ICategoryCodeChargeSpecification } from './price
 import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
-import { IProject } from './project';
+import { IOnPaymentStatusChanged, IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
 import { SortType } from './sortType';
@@ -69,6 +69,7 @@ export interface IAvailableChannel {
     typeOf: 'ServiceChannel';
     serviceUrl?: string;
     credentials?: ICredentials;
+    onPaymentStatusChanged?: IOnPaymentStatusChanged;
 }
 export type IServiceType = Pick<ICategoryCode, 'codeValue' | 'inCodeSet' | 'typeOf'>;
 export type IOffer = Pick<
@@ -86,18 +87,26 @@ export interface IProduct extends Pick<IThing, 'name' | 'description'> {
     typeOf: ProductType;
     id?: string;
     availableChannel?: IAvailableChannel;
-    description?: IMultilingualString;
+    /**
+     * 説明
+     */
+    description?: Pick<IMultilingualString, 'en' | 'ja'>;
     /**
      * Indicates an OfferCatalog listing for this Organization, Person, or Service.
+     * カタログ
      */
     hasOfferCatalog?: IHasOfferCatalog;
-    name?: IMultilingualString;
+    /**
+     * 名称
+     */
+    name?: Pick<IMultilingualString, 'en' | 'ja'>;
     /**
      * An offer to provide this item
      */
     offers?: IOffer[];
     /**
      * The product identifier, such as ISBN. For example: meta itemprop="productID" content="isbn:123-456-789".
+     * プロジェクト内でユニークなプロダクトID
      */
     productID: string;
     /**
@@ -106,6 +115,7 @@ export interface IProduct extends Pick<IThing, 'name' | 'description'> {
     serviceOutput?: IServiceOutput;
     /**
      * The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
+     * サービスタイプ(興行区分、メンバーシップ区分、決済方法区分)
      */
     serviceType?: IServiceType;
     additionalProperty?: IPropertyValue<string>[];
