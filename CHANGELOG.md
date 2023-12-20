@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 施設コンテンツのICreateParamsを最適化
 - プロダクトIFを最適化(offersを除外)
 - 決済サービスIFを最適化(providerを除外)
+- 決済サービスプロバイダーIFを最適化(nameを除外)
 
 ### Deprecated
 

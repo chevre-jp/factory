@@ -45,8 +45,7 @@ export interface IProviderCredentials {
      */
     stCd?: string;
 }
-
-export interface IProvider extends Pick<ISeller, 'name' | 'typeOf'> {
+export interface IProvider extends Pick<ISeller, 'typeOf'> {
     /**
      * 販売者ID
      */
