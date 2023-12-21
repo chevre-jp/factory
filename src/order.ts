@@ -512,7 +512,7 @@ export interface ICustomerSearchConditions {
 export interface IPaymentMethodsSearchConditions {
     /**
      * 決済アカウントID
-     * ムビチケ購入番号、ペイメントカード番号など
+     * 決済カードコード、ペイメントカード番号など
      */
     accountIds?: string[];
     /**

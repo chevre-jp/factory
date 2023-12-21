@@ -165,25 +165,47 @@ export interface IAttributes extends Pick<
  * 施設コンテンツ
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
-// 最適化(2022-10-01~)
-export type ICreateParams = Omit<
-    IAttributes,
-    'location' | 'workPerformed' | 'coaInfo' | 'organizer'
-    // durationの上書き指定を可能にする(2023-07-20~)
-    // | 'duration'
-    | 'videoFormat' | 'alternativeHeadline'
-> & {
-    location: { id: string };
-    workPerformed: {
-        identifier: string;
-        /**
-         * 同コンテンツに対する複数施設コンテンツのバージョン
-         * identifier+versionでuniqueな想定
-         */
-        version?: string;
+export type ICreateParams =
+    // Omit<
+    //     IAttributes,
+    //     'location' | 'workPerformed' | 'coaInfo' | 'organizer'
+    //     // durationの上書き指定を可能にする(2023-07-20~)
+    //     // | 'duration'
+    //     | 'videoFormat' | 'alternativeHeadline'
+    //     | 'project' | 'eventStatus'
+    // > &
+    // Pickで表現(2023-12-10~)
+    Pick<
+        IAttributes,
+        'typeOf' | 'name' | 'duration' | 'endDate' | 'headline' | 'offers' | 'startDate'
+        | 'additionalProperty' | 'kanaName' | 'eventStatus' | 'description'
+    > & {
+        subtitleLanguage?: Pick<ILanguage, 'name'>;
+        dubLanguage?: Pick<ILanguage, 'name'>;
+        location: {
+            /**
+             * 施設ID
+             */
+            id: string;
+        };
+        workPerformed: {
+            /**
+             * コンテンツコード
+             */
+            identifier: string;
+            /**
+             * 同コンテンツに対する複数施設コンテンツのバージョン
+             * identifier+versionでuniqueな想定
+             */
+            version?: string;
+        };
+        videoFormat: {
+            /**
+             * 上映方式区分コード
+             */
+            typeOf: string;
+        }[];
     };
-    videoFormat: IVideoFormat[];
-};
 /**
  * ソート条件
  */

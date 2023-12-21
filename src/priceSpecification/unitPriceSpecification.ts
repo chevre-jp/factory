@@ -34,17 +34,18 @@ export interface IPriceSpecification extends Pick<
     | 'valueAddedTaxIncluded' | 'accounting'
     | 'eligibleQuantity' | 'eligibleTransactionVolume'
 > {
+    /**
+     * 発生金額
+     */
     price: number;
     /**
      * 基準数量
      */
     referenceQuantity: IReferenceQuantity;
     /**
-     * 適用MovieTicket
-     * 複数決済カード対応(2022-07-11~)
-     * Arrayに完全限定(2023-09-01~)
+     * 適用決済カード
      */
-    appliesToMovieTicket?: IAppliesToMovieTicket[];
+    appliesToMovieTicket?: IAppliesToMovieTicket[]; // Arrayに完全限定(2023-09-01~)
     /**
      * 適用アドオン
      * アドオンを指定された場合に適用される

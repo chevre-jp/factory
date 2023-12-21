@@ -50,17 +50,37 @@ export interface IRelatedOffer {
 /**
  * オファーカタログ
  */
-export interface IOfferCatalog extends Pick<IThing, 'name' | 'description' | 'alternateName'> {
+export interface IOfferCatalog extends Pick<IThing, 'name' | 'description'> {
     project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: OfferCatalogType;
     id?: string;
+    /**
+     * コード
+     */
     identifier: string;
+    /**
+     * 説明
+     */
+    description?: IMultilingualString;
+    /**
+     * 名称
+     */
     name: IMultilingualString;
+    /**
+     * アイテムリスト
+     */
     itemListElement: IItemListElement[];
+    /**
+     * プロダクト
+     */
     itemOffered: IItemOffered;
+    /**
+     * 追加特性
+     */
     additionalProperty?: IPropertyValue<string>[];
     /**
      * 関連オファー
+     * サブカタログの場合のみ存在
      */
     relatedOffer?: IRelatedOffer;
 }

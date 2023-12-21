@@ -13,9 +13,9 @@ import { UnitCode } from './unitCode';
 export interface IAccounting {
     typeOf: 'Accounting';
     /**
-     * 営業収益
+     * 細目
      */
-    operatingRevenue?: IAccountTitle;
+    operatingRevenue?: Pick<IAccountTitle, 'codeValue' | 'typeOf'>;
     /**
      * 売上金額
      */

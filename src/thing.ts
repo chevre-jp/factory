@@ -20,6 +20,7 @@ export interface IThing {
     color?: string;
     /**
      * A description of the item.
+     * 説明
      */
     description?: string | IMultilingualString;
     /**
@@ -32,6 +33,7 @@ export interface IThing {
     image?: string;
     /**
      * The name of the item.
+     * 名称
      */
     name?: string | IMultilingualString;
     sameAs?: string;

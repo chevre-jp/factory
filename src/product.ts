@@ -2,12 +2,12 @@ import { ICategoryCode } from './categoryCode';
 import { IMultilingualString } from './multilingualString';
 import { IName as IOfferName, IOffer as IBaseOffer } from './offer';
 import { OfferType } from './offerType';
-import { IPermit } from './permit';
+import { IAmount as IPermitAmount, IPermit } from './permit';
 import { IPriceSpecification as ICategoryCodeChargeSpecification } from './priceSpecification/categoryCodeChargeSpecification';
 import { IPriceSpecification as ICompoundPriceSpecification } from './priceSpecification/compoundPriceSpecification';
 import { IPriceSpecification as IMovieTicketTypeChargeSpecification } from './priceSpecification/movieTicketTypeChargeSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
-import { IProject } from './project';
+import { IOnPaymentStatusChanged, IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
 import { SortType } from './sortType';
@@ -45,10 +45,14 @@ export interface IHasOfferCatalog {
     typeOf: 'OfferCatalog';
     id: string;
 }
-export type IMembershipPointsEarned = Pick<IQuantitativeValue<string>, 'name' | 'typeOf' | 'unitText' | 'value'>;
-export type IServiceOutput = Pick<IPermit, 'typeOf' | 'amount'> & {
-    membershipPointsEarned?: IMembershipPointsEarned;
-    automaticRenewal?: boolean;
+// export type IMembershipPointsEarned = Pick<IQuantitativeValue<string>, 'name' | 'typeOf' | 'unitText' | 'value'>;
+export type IServiceOutput = Pick<IPermit, 'typeOf'> & {
+    /**
+     * ペイメントカードの場合、通貨区分
+     */
+    amount?: Pick<IPermitAmount, 'currency' | 'typeOf'>;
+    // membershipPointsEarned?: IMembershipPointsEarned; // discontinue(2023-12-17~)
+    // automaticRenewal?: boolean; // discontinue(2023-12-17~)
 };
 /**
  * 外部サービス認証情報
@@ -65,6 +69,7 @@ export interface IAvailableChannel {
     typeOf: 'ServiceChannel';
     serviceUrl?: string;
     credentials?: ICredentials;
+    onPaymentStatusChanged?: IOnPaymentStatusChanged;
 }
 export type IServiceType = Pick<ICategoryCode, 'codeValue' | 'inCodeSet' | 'typeOf'>;
 export type IOffer = Pick<
@@ -82,18 +87,22 @@ export interface IProduct extends Pick<IThing, 'name' | 'description'> {
     typeOf: ProductType;
     id?: string;
     availableChannel?: IAvailableChannel;
-    description?: IMultilingualString;
+    /**
+     * 説明
+     */
+    description?: Pick<IMultilingualString, 'en' | 'ja'>;
     /**
      * Indicates an OfferCatalog listing for this Organization, Person, or Service.
+     * カタログ
      */
     hasOfferCatalog?: IHasOfferCatalog;
-    name?: IMultilingualString;
     /**
-     * An offer to provide this item
+     * 名称
      */
-    offers?: IOffer[];
+    name?: Pick<IMultilingualString, 'en' | 'ja'>;
     /**
      * The product identifier, such as ISBN. For example: meta itemprop="productID" content="isbn:123-456-789".
+     * プロジェクト内でユニークなプロダクトID
      */
     productID: string;
     /**
@@ -102,10 +111,33 @@ export interface IProduct extends Pick<IThing, 'name' | 'description'> {
     serviceOutput?: IServiceOutput;
     /**
      * The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
+     * サービスタイプ(興行区分、メンバーシップ区分、決済方法区分)
      */
     serviceType?: IServiceType;
     additionalProperty?: IPropertyValue<string>[];
 }
+export type ICreateParams = Pick<
+    IProduct,
+    'typeOf' | 'productID' | 'name' | 'description' | 'availableChannel' | 'serviceOutput'
+> & {
+    hasOfferCatalog?: {
+        /**
+         * IDを指定する場合
+         */
+        id?: string;
+        /**
+         * カタログコードを指定する場合
+         */
+        identifier?: string;
+    };
+    /**
+     * サービスタイプ
+     * 興行->興行区分
+     * メンバーシップ->メンバーシップ区分
+     * ペイメントカード->決済方法区分
+     */
+    serviceType?: Pick<IServiceType, 'codeValue'>;
+};
 
 export interface ISortOrder {
     productID?: SortType;

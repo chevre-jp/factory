@@ -7,7 +7,7 @@ export enum PriceSpecificationType {
      */
     PriceSpecification = 'PriceSpecification',
     /**
-     * カテゴリーコードチャージ仕様
+     * 区分加算料金
      */
     CategoryCodeChargeSpecification = 'CategoryCodeChargeSpecification',
     /**
@@ -15,7 +15,7 @@ export enum PriceSpecificationType {
      */
     CompoundPriceSpecification = 'CompoundPriceSpecification',
     /**
-     * ムビチケ券種区分チャージ仕様
+     * 決済カード加算料金
      */
     MovieTicketTypeChargeSpecification = 'MovieTicketTypeChargeSpecification',
     /**

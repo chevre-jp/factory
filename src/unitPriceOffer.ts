@@ -1,8 +1,9 @@
 import { IPointAward } from './action/transfer/moneyTransfer';
 import { ItemAvailability } from './itemAvailability';
-import { IAddOn, IName, IOffer } from './offer';
+import { IAddOn, ICategory, IEligibleCategoryCode, IEligibleMonetaryAmount, IName, IOffer } from './offer';
 import { OfferType } from './offerType';
 import { IAmount as IPermitAmount, IDepositAmount, IPaymentAmount } from './permit';
+import { IAccounting } from './priceSpecification';
 import { IPriceSpecification as IUnitPriceSpecification } from './priceSpecification/unitPriceSpecification';
 import { IProduct, ProductType } from './product';
 import { IQuantitativeValue } from './quantitativeValue';
@@ -63,6 +64,9 @@ export interface IAddOn4unitPriceOffer extends Pick<IAddOn, 'typeOf' | 'priceCur
     itemOffered: IAddOnItemOffered;
 }
 export interface ISettings {
+    /**
+     * 区分加算料金を適用しない
+     */
     ignoreCategoryCodeChargeSpec?: boolean;
 }
 export interface IAdvanceBookingRequirement extends Pick<IQuantitativeValue<UnitCode.Sec>, 'typeOf' | 'minValue' | 'unitCode' | 'description'> {
@@ -90,18 +94,87 @@ export interface IUnitPriceOffer extends Pick<
      * コード
      */
     identifier: string;
+    /**
+     * 名称
+     */
     name: IName;
     /**
      * 単価仕様
      */
     priceSpecification: IUnitPriceOfferPriceSpecification;
+    /**
+     * プロダクト
+     */
     itemOffered?: IItemOffered;
+    /**
+     * アドオン
+     */
     addOn?: IAddOn4unitPriceOffer[];
     typeOf: OfferType.Offer;
+    /**
+     * 返品ポリシー
+     */
     hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
-    // settings追加(2023-01-26~)
-    settings?: ISettings;
+    /**
+     * オプション
+     */
+    settings?: ISettings; // settings追加(2023-01-26~)
 }
+export type ICreateParams = Pick<
+    IUnitPriceOffer,
+    'acceptedPaymentMethod'
+    // | 'addOn' | 'advanceBookingRequirement' | 'category' | 'priceSpecification' | 'typeOf'
+    // | 'eligibleMembershipType' | 'eligibleMonetaryAmount' | 'eligibleSeatingType' | 'hasMerchantReturnPolicy'
+    | 'eligibleSubReservation'
+    | 'additionalProperty' | 'alternateName' | 'availability'
+    | 'availableAtOrFrom' | 'color' | 'description'
+    | 'identifier' | 'itemOffered' | 'name'
+    | 'settings' | 'validFrom' | 'validRateLimit' | 'validThrough'
+> & {
+    /**
+     * アドオン
+     */
+    addOn?: {
+        itemOffered: {
+            /**
+             * アドオンID
+             */
+            id: string;
+        };
+    }[];
+    /**
+     * 事前予約要件
+     */
+    advanceBookingRequirement?: Pick<IAdvanceBookingRequirement, 'description' | 'minValue'>;
+    /**
+     * カテゴリー
+     */
+    category?: Pick<ICategory, 'codeValue'>;
+    eligibleMembershipType?: Pick<IEligibleCategoryCode, 'codeValue'>[];
+    eligibleMonetaryAmount?: Pick<IEligibleMonetaryAmount, 'currency' | 'value'>[];
+    eligibleSeatingType?: Pick<IEligibleCategoryCode, 'codeValue'>[];
+    /**
+     * 返品ポリシー
+     */
+    hasMerchantReturnPolicy?: {
+        /**
+         * 返品ポリシーコード
+         */
+        identifier: string;
+    }[];
+    /**
+     * 価格仕様
+     */
+    priceSpecification: Pick<
+        IUnitPriceOfferPriceSpecification,
+        'appliesToMovieTicket' | 'eligibleQuantity' | 'eligibleTransactionVolume' | 'price' | 'referenceQuantity'
+    > & {
+        /**
+         * 勘定内容
+         */
+        accounting?: Pick<IAccounting, 'accountsReceivable' | 'operatingRevenue'>;
+    };
+};
 /**
  * ソート条件
  */

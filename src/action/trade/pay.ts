@@ -89,7 +89,7 @@ export interface IPaymentService {
     paymentMethod: IPaymentMethod;
     pendingTransaction?: IPendingTransaction;
     /**
-     * ムビチケリスト
+     * 決済カードリスト
      */
     movieTickets?: IMovieTicket[];
     /**

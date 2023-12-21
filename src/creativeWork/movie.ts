@@ -51,6 +51,22 @@ export interface ICreativeWork extends Pick<
 }
 
 /**
+ * コンテンツ作成パラメータ
+ */
+export type ICreateParams = Pick<
+    ICreativeWork,
+    'additionalProperty' | 'datePublished' | 'duration' | 'headline' | 'identifier' | 'thumbnailUrl' | 'typeOf'
+> & {
+    name?: Pick<IMultilingualString, 'en' | 'ja'>;
+    offers: Pick<IOffer, 'availabilityEnds'>;
+    distributor?: Pick<IDistributor, 'codeValue'>;
+    /**
+     * レイティング区分コード
+     */
+    contentRating?: string;
+};
+
+/**
  * ソート条件
  */
 export interface ISortOrder {

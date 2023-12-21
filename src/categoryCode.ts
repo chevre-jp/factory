@@ -6,7 +6,7 @@ import { IThing } from './thing';
 
 export enum CategorySetIdentifier {
     /**
-     * レーティングタイプ
+     * レイティング区分
      */
     ContentRatingType = 'ContentRatingType',
     /**
@@ -26,7 +26,7 @@ export enum CategorySetIdentifier {
      */
     MembershipType = 'MembershipType',
     /**
-     * 決済カード(ムビチケ券種)区分
+     * 決済カード区分
      */
     MovieTicketType = 'MovieTicketType',
     /**
