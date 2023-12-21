@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.347.0 - 2023-12-22
+
+### Added
+
 - コンテンツのICreateParamsを追加
 - オファーのICreateParamsを追加
 - プロダクトのICreateParamsを追加
@@ -18,14 +32,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - プロダクトIFを最適化(offersを除外)
 - 決済サービスIFを最適化(providerを除外)
 - 決済サービスプロバイダーIFを最適化(nameを除外)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v4.346.0 - 2023-12-09
 
