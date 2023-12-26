@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.348.0 - 2023-12-26
+
+### Changed
+
+- 集計オファーのISubOfferを最適化
+- プロダクト検索条件と決済サービス検索条件を分離
+
 ## v4.347.0 - 2023-12-22
 
 ### Added
