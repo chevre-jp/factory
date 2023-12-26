@@ -1,7 +1,7 @@
 import { IInvoice } from '../invoice';
 import { IMultilingualString } from '../multilingualString';
 import { IIssuedThrough, IPermit } from '../permit';
-import { IAvailableChannel as IProductAvailableChannel, IServiceType } from '../product';
+import { IAvailableChannel as IProductAvailableChannel, ISearchConditions as ISearchProductConditions, IServiceType } from '../product';
 import { IProject } from '../project';
 import { IPropertyValue } from '../propertyValue';
 import { ISeller } from '../seller';
@@ -121,3 +121,9 @@ export interface IService extends Pick<IThing, 'name' | 'description'> {
     serviceType: IServiceType;
     additionalProperty?: IPropertyValue<string>[];
 }
+export type ISearchConditions = Omit<ISearchProductConditions, 'typeOf'> & {
+    typeOf?: {
+        $eq?: PaymentServiceType;
+        $in?: PaymentServiceType[];
+    };
+};

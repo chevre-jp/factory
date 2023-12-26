@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - 集計オファーのISubOfferを最適化
+- プロダクト検索条件と決済サービス検索条件を分離
 
 ### Deprecated
 

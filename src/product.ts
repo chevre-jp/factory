@@ -174,8 +174,8 @@ export interface ISearchConditions {
         };
     };
     typeOf?: {
-        $eq?: string;
-        $in?: string[];
+        $eq?: ProductType;
+        $in?: ProductType[];
     };
     offers?: {
         $elemMatch?: {
