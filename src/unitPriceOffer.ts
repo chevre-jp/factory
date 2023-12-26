@@ -199,12 +199,13 @@ export interface IPriceSpecificationSearchConditions {
         };
         serviceOutput?: {
             /**
-             * 適用決済方法タイプ
+             * 適用決済方法区分
              */
             typeOf?: {
                 $eq?: string;
                 $all?: string[];
                 $nin?: string[];
+                $size?: number;
             };
         };
     };
