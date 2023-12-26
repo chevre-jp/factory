@@ -188,6 +188,10 @@ export interface ISortOrder {
 export interface IPriceSpecificationSearchConditions {
     appliesToMovieTicket?: {
         /**
+         * 適用決済カード数
+         */
+        $size?: number;
+        /**
          * 適用決済カード区分
          */
         serviceType?: {
@@ -199,7 +203,7 @@ export interface IPriceSpecificationSearchConditions {
         };
         serviceOutput?: {
             /**
-             * 適用決済方法タイプ
+             * 適用決済方法区分
              */
             typeOf?: {
                 $eq?: string;
