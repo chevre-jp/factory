@@ -205,7 +205,6 @@ export interface IPriceSpecificationSearchConditions {
                 $eq?: string;
                 $all?: string[];
                 $nin?: string[];
-                $size?: number;
             };
         };
     };
