@@ -102,7 +102,7 @@ export interface IProduct extends Pick<IThing, 'name' | 'description'> {
     name?: Pick<IMultilingualString, 'en' | 'ja'>;
     /**
      * The product identifier, such as ISBN. For example: meta itemprop="productID" content="isbn:123-456-789".
-     * プロジェクト内でユニークなプロダクトID
+     * プロジェクト内でユニークなプロダクトコード
      */
     productID: string;
     /**
