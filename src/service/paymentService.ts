@@ -106,7 +106,7 @@ export interface IService extends Pick<IThing, 'name' | 'description'> {
     name?: Pick<IMultilingualString, 'en' | 'ja'>;
     /**
      * The product identifier, such as ISBN.
-     * プロジェクト内でユニークなプロダクトID
+     * プロジェクト内でユニークなプロダクトコード
      */
     productID: string;
     /**

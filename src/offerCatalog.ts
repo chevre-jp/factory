@@ -106,6 +106,7 @@ export interface ISearchConditions {
     };
     identifier?: {
         $eq?: string;
+        $in?: string[];
         $regex?: string;
     };
     name?: string;
