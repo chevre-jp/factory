@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 注文取引中の外部ロケーションでの決済情報IFを拡張
+
 ### Changed
 
 ### Deprecated
