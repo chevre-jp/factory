@@ -31,7 +31,7 @@ export interface ICheckedCard extends IPaymentCard {
 }
 
 /**
- * 生の有効性確認前GMOカードインターフェース
+ * 生の有効性確認前GMOカード
  */
 export interface IUncheckedCardRaw {
     /**
@@ -53,17 +53,28 @@ export interface IUncheckedCardRaw {
 }
 
 /**
- * トークン化有効性確認前GMOカードインターフェース
+ * トークン化有効性確認前GMOカード
  */
 export interface IUncheckedCardTokenized {
     token: string;
 }
 
 /**
- * オーソリ取得前の会員カードインターフェース
+ * オーソリ取得前の会員カード
  */
 export interface IUnauthorizedCardOfMember {
     memberId: string;
     cardSeq: number;
     cardPass?: string;
+}
+
+/**
+ * 3DS対応クレジットカード
+ */
+export interface ICreditCard3DS {
+    /**
+     * 加盟店戻りURL
+     * 3Dセキュア認証後にお戻しする加盟店様側のURLになります。
+     */
+    retUrl?: string;
 }
