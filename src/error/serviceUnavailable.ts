@@ -14,8 +14,8 @@ export class ServiceUnavailableError extends ChevreError {
         }
 
         // tslint:disable-next-line:no-single-line-block-comment
-        super(ErrorCode.ServiceUnavailable, actualMessage)/* istanbul ignore next */;
-
+        /* istanbul ignore next */
+        super(ErrorCode.ServiceUnavailable, actualMessage);
         setPrototypeOf(this, ServiceUnavailableError.prototype);
     }
 }

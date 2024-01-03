@@ -8,13 +8,12 @@ import { ErrorCode } from '../errorCode';
 export class ChevreError extends Error {
     public readonly reason: ErrorCode;
 
+    // tslint:disable-next-line:no-single-line-block-comment
+    /* istanbul ignore next */
     constructor(code: ErrorCode, message?: string) {
-        // tslint:disable-next-line:no-single-line-block-comment
-        super(message)/* istanbul ignore next */;
-
+        super(message);
         this.name = 'ChevreError';
         this.reason = code;
-
         setPrototypeOf(this, ChevreError.prototype);
     }
 }

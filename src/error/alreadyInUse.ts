@@ -17,11 +17,10 @@ export class AlreadyInUseError extends ChevreError {
         }
 
         // tslint:disable-next-line:no-single-line-block-comment
-        super(ErrorCode.AlreadyInUse, actualMessage)/* istanbul ignore next */;
-
+        /* istanbul ignore next */
+        super(ErrorCode.AlreadyInUse, actualMessage);
         this.entityName = entityName;
         this.fieldNames = fieldNames;
-
         setPrototypeOf(this, AlreadyInUseError.prototype);
     }
 }

@@ -1,4 +1,4 @@
-import * as COA from '@motionpicture/coa-service';
+import type * as COA from '@motionpicture/coa-service';
 
 import * as ReserveTransactionFactory from '../../../assetTransaction/reserve';
 import { AssetTransactionType } from '../../../assetTransactionType';

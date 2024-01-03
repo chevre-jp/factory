@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - クレジットカードIFを3DSに対応
+- 決済取引を3DSクレジットカードに対応
 
 ### Deprecated
 

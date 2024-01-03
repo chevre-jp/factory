@@ -1,4 +1,4 @@
-import * as GMO from '@motionpicture/gmo-service';
+import type { factory as GMOFactory } from '@motionpicture/gmo-service';
 
 import {
     IAction as IPayAction,
@@ -39,21 +39,13 @@ export {
     IUncheckedCardRaw,
     IUncheckedCardTokenized
 };
-export import IEntryTranArgs = GMO.factory.credit.IEntryTranArgs;
-export import IEntryTranResult = GMO.factory.credit.IEntryTranResult;
-export import IExecTranArgs = GMO.factory.credit.IExecTranArgs;
-export import IExecTranResult = GMO.factory.credit.IExecTranResult;
-export interface IExecTran3dsResult {
-    /**
-     * ACS呼出判定
-     */
-    acs: string;
-    /**
-     * 3DSサーバーへのリダイレクトURL
-     * 3DS2.0認証初期化へのURL
-     */
-    redirectUrl?: string;
-}
+export type IEntryTranArgs = GMOFactory.credit.IEntryTranArgs;
+export type IEntryTranResult = GMOFactory.credit.IEntryTranResult;
+export type IExecTranArgs = GMOFactory.credit.IExecTranArgs;
+export type IExecTranResult = GMOFactory.credit.IExecTranResult;
+export type IExecTran3dsArgs = GMOFactory.credit.IExecTran3dsArgs;
+export type IExecTran3dsResult = GMOFactory.credit.IExecTran3dsResult;
+export type ISecureTran2Result = GMOFactory.credit.ISecureTran2Result;
 export interface IPaymentMethodAmount extends Pick<IMonetaryAmount, 'currency' | 'typeOf' | 'value'> {
     value: number;
 }
@@ -134,8 +126,9 @@ export interface IObject {
     pendingTransaction?: IPendingTransaction;
     entryTranArgs?: IEntryTranArgs;
     entryTranResult?: IEntryTranResult;
-    execTranArgs?: IExecTranArgs;
-    execTranResult?: IExecTranResult;
+    execTranArgs?: IExecTranArgs | IExecTran3dsArgs; // 3DS拡張(2024-01-02~)
+    execTranResult?: IExecTranResult | IExecTran3dsResult; // 3DS拡張(2024-01-02~)
+    secureTran2Result?: ISecureTran2Result; // 3DS拡張(2024-01-02~)
     payAction?: IPayAction;
     onPaymentStatusChanged?: IOnPaymentStatusChanged;
     accountsReceivablesByServiceType?: IAccountsReceivableByServiceType[];

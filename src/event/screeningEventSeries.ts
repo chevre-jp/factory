@@ -1,4 +1,4 @@
-import * as COA from '@motionpicture/coa-service';
+import type * as COA from '@motionpicture/coa-service';
 
 import { ICreativeWork as IMovie } from '../creativeWork/movie';
 import * as EventFactory from '../event';

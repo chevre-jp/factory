@@ -14,8 +14,8 @@ export class UnauthorizedError extends ChevreError {
         }
 
         // tslint:disable-next-line:no-single-line-block-comment
-        super(ErrorCode.Unauthorized, actualMessage)/* istanbul ignore next */;
-
+        /* istanbul ignore next */
+        super(ErrorCode.Unauthorized, actualMessage);
         setPrototypeOf(this, UnauthorizedError.prototype);
     }
 }
