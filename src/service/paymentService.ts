@@ -35,6 +35,10 @@ export interface IProviderCredentials {
      * トークン認証コード
      */
     tokenizationCode?: string;
+    /**
+     * 3Dセキュア認証後加盟店戻りURL
+     */
+    returnUrls3ds?: string[];
     paymentUrl?: IPaymentUrlSettings;
     /**
      * 決済カード興行会社コード

@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - 注文取引中の外部ロケーションでの決済情報IFを拡張
+- 決済サービスプロバイダーに3Dセキュア認証後加盟店戻りURLを追加
 
 ### Changed
 
