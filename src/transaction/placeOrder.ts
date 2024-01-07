@@ -31,7 +31,7 @@ export interface IPaymentMethodByPaymentUrl {
          */
         id: string;
     };
-    // ↓GMO IF拡張(2024-01-01~)
+    // ↓決済代行IF拡張(2024-01-01~)
     entryTranArgs?: IEntryTranArgs;
     entryTranResult?: IEntryTranResult;
     execTranArgs?: IExecTranArgs;

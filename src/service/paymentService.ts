@@ -22,13 +22,14 @@ export interface IPaymentUrlSettings {
     useCallback?: boolean;
     useWebhook?: boolean;
 }
+export type ICallbackType3ds = 'GET' | 'POST';
 export interface IProviderCredentials {
     /**
-     * GMOショップID
+     * ショップID
      */
     shopId?: string;
     /**
-     * GMOショップパス
+     * ショップパス
      */
     shopPass?: string;
     /**
@@ -39,6 +40,10 @@ export interface IProviderCredentials {
      * 3Dセキュア認証後加盟店戻りURL
      */
     returnUrls3ds?: string[];
+    /**
+     * 3Dセキュアコールバック方法
+     */
+    callbackType3ds?: ICallbackType3ds;
     paymentUrl?: IPaymentUrlSettings;
     /**
      * 決済カード興行会社コード
