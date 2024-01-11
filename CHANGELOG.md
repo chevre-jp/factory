@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済サービスプロバイダーに3Dセキュア認証後加盟店戻りURLを追加
 - 決済サービスプロバイダーに3Dセキュアコールバック方法を追加
 - 注文の部分配送に対応
+- 注文ステータスにOrderInTransitを追加
 
 ### Changed
 
