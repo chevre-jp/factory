@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - クレジットカードIFを3DSに対応
 - 決済取引を3DSクレジットカードに対応
+- OnAssetTransactionStatusChangedを予約取引に対応
 
 ### Deprecated
 
