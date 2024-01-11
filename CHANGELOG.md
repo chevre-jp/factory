@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文取引中の外部ロケーションでの決済情報IFを拡張
 - 決済サービスプロバイダーに3Dセキュア認証後加盟店戻りURLを追加
 - 決済サービスプロバイダーに3Dセキュアコールバック方法を追加
+- 注文の部分配送に対応
 
 ### Changed
 
