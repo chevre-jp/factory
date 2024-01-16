@@ -10,12 +10,11 @@ export type IObject = SendOrderActionFactory.IObject & {
     /**
      * OrderInTransit導入期の互換性維持対応として
      */
-    previousOrderStatus?: OrderStatus.OrderProcessing | OrderStatus.OrderInTransit;
+    previousOrderStatus?: OrderStatus.OrderInTransit;
 };
 export interface IData {
     project: Pick<IProject, 'id' | 'typeOf'>;
     object: IObject;
-    // potentialActions?: SendOrderActionFactory.IPotentialActions; // 廃止(2023-08-21~)
 }
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.SendOrder;
