@@ -1,4 +1,4 @@
-import * as GMO from '@motionpicture/gmo-service';
+import type { factory as GMOFactory } from '@motionpicture/gmo-service';
 
 import * as AccountFactory from '../../account';
 import * as ActionFactory from '../../action';
@@ -46,7 +46,7 @@ export interface IPendingTransaction {
         };
     };
 }
-export import ICreditCardSales = GMO.factory.credit.IAlterTranResult;
+export type ICreditCardSales = GMOFactory.credit.IAlterTranResult;
 /**
  * 決済方法インターフェース
  */

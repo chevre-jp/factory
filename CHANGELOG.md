@@ -18,6 +18,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.351.0 - 2024-01-17
+
+### Added
+
+- 注文取引中の外部ロケーションでの決済情報IFを拡張
+- 決済サービスプロバイダーに3Dセキュア認証後加盟店戻りURLを追加
+- 決済サービスプロバイダーに3Dセキュアコールバック方法を追加
+- 注文の部分配送に対応
+- 注文ステータスにOrderInTransitを追加
+
+### Changed
+
+- クレジットカードIFを3DSに対応
+- 決済取引を3DSクレジットカードに対応
+- OnAssetTransactionStatusChangedを予約取引に対応
+- 注文取引のpotentialActions(sendOrder)を最適化
+
 ## v4.350.0 - 2023-12-27
 
 ### Changed

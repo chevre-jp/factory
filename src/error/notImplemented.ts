@@ -14,8 +14,8 @@ export class NotImplementedError extends ChevreError {
         }
 
         // tslint:disable-next-line:no-single-line-block-comment
-        super(ErrorCode.NotImplemented, actualMessage)/* istanbul ignore next */;
-
+        /* istanbul ignore next */
+        super(ErrorCode.NotImplemented, actualMessage);
         setPrototypeOf(this, NotImplementedError.prototype);
     }
 }

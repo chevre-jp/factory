@@ -14,8 +14,8 @@ export class RateLimitExceededError extends ChevreError {
         }
 
         // tslint:disable-next-line:no-single-line-block-comment
-        super(ErrorCode.RateLimitExceeded, actualMessage)/* istanbul ignore next */;
-
+        /* istanbul ignore next */
+        super(ErrorCode.RateLimitExceeded, actualMessage);
         setPrototypeOf(this, RateLimitExceededError.prototype);
     }
 }

@@ -16,10 +16,9 @@ export class ArgumentError extends ChevreError {
         }
 
         // tslint:disable-next-line:no-single-line-block-comment
-        super(ErrorCode.Argument, actualMessage)/* istanbul ignore next */;
-
+        /* istanbul ignore next */
+        super(ErrorCode.Argument, actualMessage);
         this.argumentName = argumentName;
-
         setPrototypeOf(this, ArgumentError.prototype);
     }
 }

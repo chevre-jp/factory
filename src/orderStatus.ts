@@ -4,7 +4,7 @@
 export enum OrderStatus {
     OrderCancelled = 'OrderCancelled',
     OrderDelivered = 'OrderDelivered',
-    // OrderInTransit = 'OrderInTransit',
+    OrderInTransit = 'OrderInTransit',
     OrderPaymentDue = 'OrderPaymentDue',
     // OrderPickupAvailable = 'OrderPickupAvailable',
     // OrderProblem = 'OrderProblem',

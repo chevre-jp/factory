@@ -14,8 +14,8 @@ export class GatewayTimeoutError extends ChevreError {
         }
 
         // tslint:disable-next-line:no-single-line-block-comment
-        super(ErrorCode.GatewayTimeout, actualMessage)/* istanbul ignore next */;
-
+        /* istanbul ignore next */
+        super(ErrorCode.GatewayTimeout, actualMessage);
         setPrototypeOf(this, GatewayTimeoutError.prototype);
     }
 }

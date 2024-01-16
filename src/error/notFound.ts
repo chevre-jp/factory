@@ -16,10 +16,9 @@ export class NotFoundError extends ChevreError {
         }
 
         // tslint:disable-next-line:no-single-line-block-comment
-        super(ErrorCode.NotFound, actualMessage)/* istanbul ignore next */;
-
+        /* istanbul ignore next */
+        super(ErrorCode.NotFound, actualMessage);
         this.entityName = entityName;
-
         setPrototypeOf(this, NotFoundError.prototype);
     }
 }

@@ -14,8 +14,8 @@ export class ForbiddenError extends ChevreError {
         }
 
         // tslint:disable-next-line:no-single-line-block-comment
-        super(ErrorCode.Forbidden, actualMessage)/* istanbul ignore next */;
-
+        /* istanbul ignore next */
+        super(ErrorCode.Forbidden, actualMessage);
         setPrototypeOf(this, ForbiddenError.prototype);
     }
 }

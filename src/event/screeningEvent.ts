@@ -1,4 +1,4 @@
-import * as COA from '@motionpicture/coa-service';
+import type * as COA from '@motionpicture/coa-service';
 
 import * as EventFactory from '../event';
 import * as ScreeningEventSeriesFactory from '../event/screeningEventSeries';
