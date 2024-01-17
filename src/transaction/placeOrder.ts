@@ -182,6 +182,7 @@ export interface IConfirmParams {
 export type IOrderAsResult = OrderFactory.IOrder & {
     acceptedOffers: OrderFactory.IAcceptedOffer<OrderFactory.IItemOffered>[];
 };
+export interface IAuthorizeActionAsResult { id: string; }
 /**
  * 取引結果
  */
@@ -190,6 +191,14 @@ export interface IResult {
      * 注文
      */
     order: IOrderAsResult;
+    /**
+     * 承認アクションID(2024-01-17~)
+     */
+    authorizeActions?: IAuthorizeActionAsResult[];
+    /**
+     * オファー数(2024-01-17~)
+     */
+    numAcceptedOffers?: number;
 }
 /**
  * エラー
