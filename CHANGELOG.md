@@ -13,6 +13,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 決済タスクを最適化された決済アクションデータに対応
+
 ### Deprecated
 
 ### Removed
