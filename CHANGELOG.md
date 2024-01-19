@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - アクション検索条件拡張
 - 注文取引のresult拡張
+- 注文取引にignoreAccpetedOffersFromResultオプションを追加
 
 ### Changed
 
