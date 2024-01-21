@@ -211,7 +211,8 @@ export interface IResult {
  */
 export type IError = any;
 export interface IPotentialActions {
-    order: IOrderActionAttributes;
+    // order: IOrderActionAttributes;
+    order: Pick<IOrderActionAttributes, 'potentialActions'>; // optimize(2024-01-22~)
 }
 export interface IAttributes extends
     TransactionFactory.IAttributes<Omit<IStartParams, 'expiresInSeconds'>, IResult, IError, IPotentialActions> {
@@ -225,6 +226,7 @@ export interface ISearchConditions extends TransactionFactory.ISearchConditions<
         ids?: string[];
     };
     object?: {
+        orderNumber?: { $eq?: string };
     };
     result?: {
         order?: {

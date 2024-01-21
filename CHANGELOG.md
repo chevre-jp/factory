@@ -11,10 +11,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - アクション検索条件拡張
 - 注文取引のresult拡張
 - 注文取引にignoreAccpetedOffersFromResultオプションを追加
+- 注文取引検索条件拡張
 
 ### Changed
 
 - 決済タスクを最適化された決済アクションデータに対応
+- 注文取引のpotentialActionsを最適化
 
 ### Deprecated
 
