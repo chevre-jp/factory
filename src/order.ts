@@ -122,7 +122,16 @@ export type IWorkPerformed = Pick<
     EventReservationFactory.IOptimizedWorkPerformed,
     'typeOf' | 'id' | 'identifier' | 'name' | 'duration'
 >;
-export type ISuperEvent = Omit<EventReservationFactory.IOptimizedSuperEvent, 'workPerformed'> & {
+export type ISuperEvent = Pick<
+    EventReservationFactory.IOptimizedSuperEvent,
+    'additionalProperty' | 'id'
+    // | 'kanaName' // 廃止(2024-01-22~)
+    | 'location'
+    | 'name' | 'soundFormat' | 'typeOf'
+    | 'videoFormat' | 'description' | 'headline'
+    // ↓COAのみ
+    | 'identifier' | 'alternativeHeadline' | 'duration' | 'coaInfo'
+> & {
     workPerformed: IWorkPerformed;
 };
 export type ITripAsReservationFor = BusReservationFactory.IReservationFor;

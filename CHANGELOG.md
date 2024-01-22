@@ -22,6 +22,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- 注文のISuperEventからkanaNameを廃止
+
 ### Fixed
 
 ### Security

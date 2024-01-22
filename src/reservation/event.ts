@@ -23,9 +23,9 @@ export type IOptimizedWorkPerformed = Omit<
     name?: string | IMultilingualString;
 };
 export type IOptimizedSuperEvent = Pick<ISuperEvent,
-    // 不要なので廃止(2022-12-19~)
-    // 'project' |
-    'additionalProperty' | 'id' | 'kanaName' | 'location'
+    'additionalProperty' | 'id'
+    | 'kanaName'
+    | 'location'
     | 'name' | 'soundFormat' | 'typeOf'
     | 'videoFormat' | 'description' | 'headline'
     // ↓COAのみ
