@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済タスクを最適化された決済アクションデータに対応
 - 注文取引のpotentialActionsを最適化
 - ConfirmReserveTransactionタスクのobjectを最適化
+- ReserveActionのobjectを最適化
 
 ### Deprecated
 
