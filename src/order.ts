@@ -128,7 +128,9 @@ export type ISuperEvent = Pick<
     // | 'kanaName' // 廃止(2024-01-22~)
     | 'location'
     | 'name' | 'soundFormat' | 'typeOf'
-    | 'videoFormat' | 'description' | 'headline'
+    | 'videoFormat'
+    // | 'description' // 廃止(2024-01-26~)
+    | 'headline'
     // ↓COAのみ
     | 'identifier' | 'alternativeHeadline' | 'duration' | 'coaInfo'
 > & {

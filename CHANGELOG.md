@@ -19,12 +19,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文取引のpotentialActionsを最適化
 - ConfirmReserveTransactionタスクのobjectを最適化
 - ReserveActionのobjectを最適化
+- 予約のISuperEventを最適化
+- 注文のISuperEventを最適化
 
 ### Deprecated
 
 ### Removed
-
-- 注文のISuperEventからkanaNameを廃止
 
 ### Fixed
 

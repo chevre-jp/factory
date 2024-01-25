@@ -24,10 +24,12 @@ export type IOptimizedWorkPerformed = Omit<
 };
 export type IOptimizedSuperEvent = Pick<ISuperEvent,
     'additionalProperty' | 'id'
-    | 'kanaName'
+    // | 'kanaName' // 廃止(2024-01-26~)
     | 'location'
     | 'name' | 'soundFormat' | 'typeOf'
-    | 'videoFormat' | 'description' | 'headline'
+    | 'videoFormat'
+    // | 'description' // 廃止(2024-01-26~)
+    | 'headline'
     // ↓COAのみ
     | 'identifier' | 'alternativeHeadline' | 'duration' | 'coaInfo'
 > & {
