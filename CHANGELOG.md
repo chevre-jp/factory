@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - ReserveActionのobjectを最適化
 - 予約のISuperEventを最適化
 - 注文のISuperEventを最適化
+- タスクのreserveIfNotYetを廃止
 
 ### Deprecated
 
