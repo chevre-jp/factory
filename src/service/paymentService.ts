@@ -21,6 +21,7 @@ export interface IPaymentUrlSettings {
     expiresInSeconds: number;
     useCallback?: boolean;
     useWebhook?: boolean;
+    use3DS?: boolean;
 }
 export type ICallbackType3ds = 'GET' | 'POST';
 export interface IProviderCredentials {

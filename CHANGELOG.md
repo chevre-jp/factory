@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文取引のresult拡張
 - 注文取引にignoreAccpetedOffersFromResultオプションを追加
 - 注文取引検索条件拡張
+- 決済サービスプロバイダーのIPaymentUrlSettingsにuse3DSを追加
 
 ### Changed
 
