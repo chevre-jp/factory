@@ -591,6 +591,7 @@ export interface IAcceptedOffersSearchConditions {
          */
         programMembershipUsed?: IProgramMembershipUsedSearchConditions;
     };
+    serialNumber?: { $eq?: string };
 }
 /**
  * 注文検索条件

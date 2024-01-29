@@ -114,6 +114,9 @@ export interface ISearchConditions {
             $in?: string[];
         };
     };
+    instrument?: {
+        transactionNumber?: { $eq?: string };
+    };
     location?: {
         id?: { $eq?: string };
         identifier?: { $eq?: string };
