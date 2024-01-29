@@ -25,7 +25,12 @@ export interface IObjectAsReserveTransaction {
     transactionNumber: string;
     status: TransactionStatusType.Confirmed;
 }
-export type IObject = IObjectAsPayTransaction | IObjectAsReserveTransaction;
+export interface IObjectAsMoneyTransferTransaction {
+    typeOf: AssetTransactionType.MoneyTransfer;
+    transactionNumber: string;
+    status: TransactionStatusType.Confirmed;
+}
+export type IObject = IObjectAsPayTransaction | IObjectAsReserveTransaction | IObjectAsMoneyTransferTransaction;
 export interface IData {
     project: Pick<IProject, 'id' | 'typeOf'>;
     object: IObject;

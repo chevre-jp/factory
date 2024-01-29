@@ -6,7 +6,6 @@ import {
 } from '../../../action';
 import * as OrderFactory from '../../../order';
 import { IGood, IOwnershipInfo } from '../../../ownershipInfo';
-import { IAttributes as IMoneyTransferActionAttributes } from '../../interact/confirm/moneyTransfer';
 import { IAttributes as IRegisterServiceAttributes } from '../../interact/confirm/registerService';
 import * as SendActionFactory from '../send';
 import { IAttributes as ISendEmailMessageActionAttributes } from './message/email';
@@ -27,10 +26,7 @@ export type IObject = OrderFactory.ISimpleOrder & {
  */
 export type IResult = IOwnershipInfo<IGood>[];
 export interface IPotentialActions {
-    /**
-     * 通貨転送アクション
-     */
-    moneyTransfer?: IMoneyTransferActionAttributes[];
+    // moneyTransfer?: IMoneyTransferActionAttributes[]; // 通貨転送アクション廃止(2024-01-29~)
     /**
      * サービス登録アクション
      */
