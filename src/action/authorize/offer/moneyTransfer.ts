@@ -1,6 +1,7 @@
 import * as ActionFactory from '../../../action';
 import { ActionType } from '../../../actionType';
 import * as MoneyTransferTransactionFactory from '../../../assetTransaction/moneyTransfer';
+import { AssetTransactionType } from '../../../assetTransactionType';
 import { IOffer } from '../../../offer';
 import * as OrderFactory from '../../../order';
 import { PriceCurrency } from '../../../priceCurrency';
@@ -32,9 +33,14 @@ export interface ITransactionPurpose {
 }
 export type IPurpose = ITransactionPurpose;
 export type IError = any;
+export interface IInstrument {
+    typeOf: AssetTransactionType.MoneyTransfer;
+    transactionNumber: string;
+}
 export interface IAttributes extends AuthorizeActionFactory.IAttributes<IObject, IResult> {
     typeOf: ActionType.AuthorizeAction;
     agent: IAgent;
+    instrument: IInstrument;
     recipient: IRecipient;
     object: IObject;
     purpose: IPurpose;
