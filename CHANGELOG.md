@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文のISuperEventを最適化
 - タスクのreserveIfNotYetを廃止
 - 通貨転送取引確定アクションを最適化
+- SendOrderアクションのpotentialActionsを最適化
 
 ### Deprecated
 
