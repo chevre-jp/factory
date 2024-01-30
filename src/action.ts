@@ -99,7 +99,10 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
-    id?: { $nin?: string[] };
+    id?: {
+        $in?: string[];
+        $nin?: string[];
+    };
     project?: {
         id?: { $eq?: string };
     };
