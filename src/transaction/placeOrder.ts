@@ -13,10 +13,19 @@ import * as WebAPIFactory from '../service/webAPI';
 import * as TransactionFactory from '../transaction';
 import { TransactionType } from '../transactionType';
 
+export interface IMemberOfPayload {
+    sub: string;
+}
 /**
  * 取引人
  */
-export type IAgent = TransactionFactory.IAgent;
+export type IAgent = TransactionFactory.IAgent & {
+    /**
+     * 外部メンバーシップトークン
+     */
+    memberOfToken?: string;
+    memberOfPayload?: IMemberOfPayload;
+};
 export type ICustomer = OrderFactory.ICustomer;
 export interface IPaymentMethodByPaymentUrl {
     /**
@@ -82,7 +91,6 @@ export interface IObject {
 }
 export interface IStartParamsWithoutDetail {
     project: Pick<IProject, 'id' | 'typeOf'>;
-    // expiresInSeconds?: number; // discontinue(2023-11-18~)
     agent: IAgent;
     seller: {
         id: string;

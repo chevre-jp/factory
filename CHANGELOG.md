@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文オファーにserialNumberを追加
 - オファー承認アクションにinstrument.transactionNumberを保証
 - 販売者のmakesOfferにeligibleMembershipを追加
+- 注文取引agentに外部メンバーシップ情報を追加
 
 ### Changed
 
