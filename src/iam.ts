@@ -32,12 +32,6 @@ export interface IRoleSearchConditions {
 
 export type IMemberType = PersonType | CreativeWorkType.WebApplication;
 export type IMemberHasRole = Pick<IRole, 'typeOf' | 'roleName'>[];
-export interface IMemberSettings {
-    /**
-     * メンバーシップトークン検証シークレット(2024-01-31~)
-     */
-    verifySecret?: string;
-}
 export interface IMemberOfRole {
     typeOf: IMemberType;
     /**
@@ -52,7 +46,6 @@ export interface IMemberOfRole {
      * プロジェクトメンバー or 販売者メンバー
      */
     memberOf: { typeOf: OrganizationType.Corporation | OrganizationType.Project; id: string }; // memberOfを必須化(2023-07-24~)
-    settings?: IMemberSettings;
 }
 export interface IMember {
     typeOf: RoleType;
