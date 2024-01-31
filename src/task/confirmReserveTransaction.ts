@@ -4,7 +4,10 @@ import * as WebAPIFactory from '../service/webAPI';
 import * as TaskFactory from '../task';
 import { TaskName } from '../taskName';
 
-export type IObject4COAOptimized = IObject4COA | Pick<IObject4COA, 'transactionNumber' | 'typeOf'>;
+// export type IObject4COAOptimized = IObject4COA | Pick<IObject4COA, 'transactionNumber' | 'typeOf'>;
+export type IObject4COAOptimized = Pick<IObject4COA, 'transactionNumber' | 'typeOf'> & {
+    optimized: boolean;
+};
 export type IObject<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? IObject4COAOptimized :
     IObject4Chevre;
