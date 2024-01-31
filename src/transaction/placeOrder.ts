@@ -13,10 +13,19 @@ import * as WebAPIFactory from '../service/webAPI';
 import * as TransactionFactory from '../transaction';
 import { TransactionType } from '../transactionType';
 
+export interface IMemberOfPayload {
+    sub: string;
+}
 /**
  * 取引人
  */
-export type IAgent = TransactionFactory.IAgent;
+export type IAgent = TransactionFactory.IAgent & {
+    /**
+     * 外部メンバーシップトークン
+     */
+    memberOfToken?: string;
+    memberOfPayload?: IMemberOfPayload;
+};
 export type ICustomer = OrderFactory.ICustomer;
 export interface IPaymentMethodByPaymentUrl {
     /**
@@ -82,7 +91,6 @@ export interface IObject {
 }
 export interface IStartParamsWithoutDetail {
     project: Pick<IProject, 'id' | 'typeOf'>;
-    // expiresInSeconds?: number; // discontinue(2023-11-18~)
     agent: IAgent;
     seller: {
         id: string;
@@ -182,6 +190,7 @@ export interface IConfirmParams {
 export type IOrderAsResult = OrderFactory.IOrder & {
     acceptedOffers: OrderFactory.IAcceptedOffer<OrderFactory.IItemOffered>[];
 };
+export interface IAuthorizeActionAsResult { id: string; }
 /**
  * 取引結果
  */
@@ -190,13 +199,28 @@ export interface IResult {
      * 注文
      */
     order: IOrderAsResult;
+    /**
+     * 承認アクションID(2024-01-17~)
+     */
+    authorizeActions?: IAuthorizeActionAsResult[];
+    /**
+     * オファー数(2024-01-17~)
+     */
+    numAcceptedOffers?: number;
+    options?: {
+        /**
+         * 取引resultの注文オファーを無視する(Orderに適用しない)
+         */
+        ignoreAccpetedOffersFromResult?: boolean;
+    };
 }
 /**
  * エラー
  */
 export type IError = any;
 export interface IPotentialActions {
-    order: IOrderActionAttributes;
+    // order: IOrderActionAttributes;
+    order: Pick<IOrderActionAttributes, 'potentialActions'>; // optimize(2024-01-22~)
 }
 export interface IAttributes extends
     TransactionFactory.IAttributes<Omit<IStartParams, 'expiresInSeconds'>, IResult, IError, IPotentialActions> {
@@ -210,6 +234,7 @@ export interface ISearchConditions extends TransactionFactory.ISearchConditions<
         ids?: string[];
     };
     object?: {
+        orderNumber?: { $eq?: string };
     };
     result?: {
         order?: {

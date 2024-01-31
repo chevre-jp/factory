@@ -23,11 +23,13 @@ export type IOptimizedWorkPerformed = Omit<
     name?: string | IMultilingualString;
 };
 export type IOptimizedSuperEvent = Pick<ISuperEvent,
-    // 不要なので廃止(2022-12-19~)
-    // 'project' |
-    'additionalProperty' | 'id' | 'kanaName' | 'location'
+    'additionalProperty' | 'id'
+    // | 'kanaName' // 廃止(2024-01-26~)
+    | 'location'
     | 'name' | 'soundFormat' | 'typeOf'
-    | 'videoFormat' | 'description' | 'headline'
+    | 'videoFormat'
+    // | 'description' // 廃止(2024-01-26~)
+    | 'headline'
     // ↓COAのみ
     | 'identifier' | 'alternativeHeadline' | 'duration' | 'coaInfo'
 > & {

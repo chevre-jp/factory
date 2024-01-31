@@ -660,6 +660,7 @@ export namespace task {
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
     export import createEvent = CreateEventTaskFactory;
+    export import confirmReserveTransaction = ConfirmReserveTransactionTaskFactory;
     export import deleteTransaction = DeleteTransactionTaskFactory;
     export import importEventCapacitiesFromCOA = ImportEventCapacitiesFromCOATaskFactory;
     export import importEventsFromCOA = ImportEventsFromCOATaskFactory;

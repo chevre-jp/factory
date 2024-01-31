@@ -99,6 +99,10 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    id?: {
+        $in?: string[];
+        $nin?: string[];
+    };
     project?: {
         id?: { $eq?: string };
     };
@@ -112,6 +116,9 @@ export interface ISearchConditions {
         id?: {
             $in?: string[];
         };
+    };
+    instrument?: {
+        transactionNumber?: { $eq?: string };
     };
     location?: {
         id?: { $eq?: string };

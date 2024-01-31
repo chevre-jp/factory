@@ -122,7 +122,18 @@ export type IWorkPerformed = Pick<
     EventReservationFactory.IOptimizedWorkPerformed,
     'typeOf' | 'id' | 'identifier' | 'name' | 'duration'
 >;
-export type ISuperEvent = Omit<EventReservationFactory.IOptimizedSuperEvent, 'workPerformed'> & {
+export type ISuperEvent = Pick<
+    EventReservationFactory.IOptimizedSuperEvent,
+    'additionalProperty' | 'id'
+    // | 'kanaName' // 廃止(2024-01-22~)
+    | 'location'
+    | 'name' | 'soundFormat' | 'typeOf'
+    | 'videoFormat'
+    // | 'description' // 廃止(2024-01-26~)
+    | 'headline'
+    // ↓COAのみ
+    | 'identifier' | 'alternativeHeadline' | 'duration' | 'coaInfo'
+> & {
     workPerformed: IWorkPerformed;
 };
 export type ITripAsReservationFor = BusReservationFactory.IReservationFor;
@@ -231,8 +242,6 @@ export type ITicketPriceSpecification = Omit<ICompoundPriceSpecification<ITicket
 export type IOfferOptimized4acceptedOffer = Pick<
     IOffer,
     'typeOf' | 'id' | 'itemOffered' | 'offeredThrough' | 'name'
-// 不要なので廃止(2023-07-01~)
-// | 'priceCurrency'
 >;
 /**
  * 受け入れオファー
@@ -242,12 +251,11 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOfferOptimized4
      * オファー対象アイテム
      */
     itemOffered: T;
-    // 不要なので廃止(2023-07-01~)
-    // seller: {
-    //     typeOf: OrganizationType.Corporation;
-    //     name?: string | IMultilingualString;
-    // };
     priceSpecification?: ITicketPriceSpecification;
+    /**
+     * 資産取引を特定する番号(2024-01-30~)
+     */
+    serialNumber?: string;
 }
 /**
  * 販売者
@@ -583,6 +591,7 @@ export interface IAcceptedOffersSearchConditions {
          */
         programMembershipUsed?: IProgramMembershipUsedSearchConditions;
     };
+    serialNumber?: { $eq?: string };
 }
 /**
  * 注文検索条件

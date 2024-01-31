@@ -9,7 +9,11 @@ import { ReservationType } from '../reservationType';
 import { IAttributes as IMoneyTransferActionAttributes } from './transfer/moneyTransfer';
 
 export type IAgent = ActionFactory.IParticipantAsProject;
-export type IReservationFor = IBusReservationFor | IEventReservationFor;
+// optimize(2024-01-24~)
+// export type IReservationFor = IBusReservationFor | IEventReservationFor;
+export type IReservationFor = (Pick<IBusReservationFor, 'id' | 'typeOf'> | Pick<IEventReservationFor, 'id' | 'typeOf'>) & {
+    optimized: boolean;
+};
 // ReservationPackageに拡張(2022-12-22~)
 export interface IReservationPackageAsObject {
     reservationFor: IReservationFor;

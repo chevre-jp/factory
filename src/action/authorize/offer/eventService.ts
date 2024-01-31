@@ -22,7 +22,13 @@ export enum ObjectType {
     SeatReservation = 'SeatReservation'
 }
 
-export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.IService<T>;
+export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.IService<T> & {
+    /**
+     * Chevre->予約取引番号
+     * COA->仮予約番号
+     */
+    transactionNumber?: string;
+};
 
 export type IRequestBody<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? COA.factory.reserve.IUpdTmpReserveSeatArgs :
@@ -193,7 +199,7 @@ export type IObject<T extends WebAPIFactory.Identifier> = {
     /**
      * 進行中取引
      */
-    pendingTransaction?: IPendingTransaction<T>;
+    pendingTransaction: IPendingTransaction<T>;
 } & Omit<IObjectWithoutDetail<T>, 'acceptedOffer' | 'reservationFor'>;
 
 export interface IPurpose {

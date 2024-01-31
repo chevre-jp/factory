@@ -18,6 +18,32 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.352.0 - 2024-02-01
+
+### Added
+
+- アクション検索条件拡張
+- 注文取引のresult拡張
+- 注文取引にignoreAccpetedOffersFromResultオプションを追加
+- 注文取引検索条件拡張
+- 決済サービスプロバイダーのIPaymentUrlSettingsにuse3DSを追加
+- 注文オファーにserialNumberを追加
+- オファー承認アクションにinstrument.transactionNumberを保証
+- 販売者のmakesOfferにeligibleMembershipを追加
+- 注文取引agentに外部メンバーシップ情報を追加
+
+### Changed
+
+- 決済タスクを最適化された決済アクションデータに対応
+- 注文取引のpotentialActionsを最適化
+- ConfirmReserveTransactionタスクのobjectを最適化
+- ReserveActionのobjectを最適化
+- 予約のISuperEventを最適化
+- 注文のISuperEventを最適化
+- タスクのreserveIfNotYetを廃止
+- 通貨転送取引確定アクションを最適化
+- SendOrderアクションのpotentialActionsを最適化
+
 ## v4.351.0 - 2024-01-17
 
 ### Added

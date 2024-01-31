@@ -154,11 +154,29 @@ export interface IStartParams extends AssetTransactionFactory.IStartParams<Asset
     location?: ILocation;
     recipient: IRecipient;
 }
+export interface IOptimizedPayAction4order {
+    object: {
+        paymentMethod: {
+            /**
+             * 決済取引番号
+             */
+            paymentMethodId: string;
+        };
+    };
+    /**
+     * 決済元の注文
+     */
+    purpose: Pick<IOrderAsPayPurpose, 'typeOf'> & {
+        confirmationNumber: string;
+        orderNumber: string;
+    };
+    typeOf?: never;
+}
 export interface IPotentialActions {
     /**
      * 決済アクション
      */
-    pay: IPayActionAttributes[];
+    pay: IPayActionAttributes[] | IOptimizedPayAction4order[];
 }
 export interface IPotentialActionsParams {
     pay: {
