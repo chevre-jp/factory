@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.352.0 - 2024-02-01
+
+### Added
+
 - アクション検索条件拡張
 - 注文取引のresult拡張
 - 注文取引にignoreAccpetedOffersFromResultオプションを追加
@@ -29,14 +43,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - タスクのreserveIfNotYetを廃止
 - 通貨転送取引確定アクションを最適化
 - SendOrderアクションのpotentialActionsを最適化
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v4.351.0 - 2024-01-17
 
