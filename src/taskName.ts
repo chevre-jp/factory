@@ -36,10 +36,13 @@ export enum TaskName {
      */
     ConfirmReserveTransaction = 'confirmReserveTransaction',
     /**
+     * 経理レポート作成
+     */
+    CreateAccountingReport = 'createAccountingReport',
+    /**
      * イベント作成
      */
     CreateEvent = 'createEvent',
-    // DeleteMember = 'deleteMember',
     DeleteTransaction = 'deleteTransaction',
     /**
      * ポイント特典付与
@@ -91,10 +94,6 @@ export enum TaskName {
      * 注文配送
      */
     SendOrder = 'sendOrder',
-    /**
-     * ルーム同期
-     */
-    SyncScreeningRooms = 'syncScreeningRooms',
     /**
      * ウェブフックをたたく
      */
