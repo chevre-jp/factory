@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 返品取引のpotentialActionsを最適化
 - 通貨転送返却アクションを最適化
+- 注文取引のresultを最適化(order.acceptedOffersを除外)
 
 ### Deprecated
 

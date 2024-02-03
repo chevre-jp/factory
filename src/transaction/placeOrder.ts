@@ -83,8 +83,6 @@ export interface IObject {
      * WAITER許可証
      */
     passport?: waiter.passport.IPassport;
-    // 使用していないので廃止(2023-08-15~)
-    // authorizeActions?: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
     potentialActions?: {
         givePointAward?: IGivePointAwardParams[];
     };
@@ -188,7 +186,7 @@ export interface IConfirmParams {
     result?: IResultParams;
 }
 export type IOrderAsResult = OrderFactory.IOrder & {
-    acceptedOffers: OrderFactory.IAcceptedOffer<OrderFactory.IItemOffered>[];
+    // acceptedOffers: OrderFactory.IAcceptedOffer<OrderFactory.IItemOffered>[]; // 廃止(2024-02-04~)
 };
 export interface IAuthorizeActionAsResult { id: string; }
 /**
