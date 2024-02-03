@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 返品取引のpotentialActionsを最適化
+- 通貨転送返却アクションを最適化
+
 ### Deprecated
 
 ### Removed
