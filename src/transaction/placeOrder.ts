@@ -198,6 +198,10 @@ export interface IResult {
      */
     order: IOrderAsResult;
     /**
+     * 取引確定時の同期的な注文コード発行に対応(2024-02-05~)
+     */
+    code?: string;
+    /**
      * 承認アクションID(2024-01-17~)
      */
     authorizeActions?: IAuthorizeActionAsResult[];

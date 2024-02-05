@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - CreateAccountingReportタスクを追加
+- 注文取引確定時の同期的な注文コード発行に対応
 
 ### Changed
 
