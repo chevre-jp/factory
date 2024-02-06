@@ -1,6 +1,7 @@
 import { CreativeWorkType } from './creativeWorkType';
 import { OrganizationType } from './organizationType';
 import { PersonType } from './personType';
+import { IProgramMembership } from './programMembership';
 import { SortType } from './sortType';
 
 export enum RoleType {
@@ -31,21 +32,41 @@ export interface IRoleSearchConditions {
 }
 
 export type IMemberType = PersonType | CreativeWorkType.WebApplication;
-export type IMemberHasRole = Pick<IRole, 'typeOf' | 'roleName'>[];
+export type IMemberRole = Pick<IRole, 'typeOf' | 'roleName'>;
+export type IProgramMembershipOfProject = Pick<IProgramMembership, 'typeOf'> & {
+    issuer: string;
+    secret: string;
+};
+export interface IMemberOfAsProject {
+    typeOf: OrganizationType.Project;
+    id: string;
+}
+export interface IMemberOfAsSeller {
+    typeOf: OrganizationType.Corporation;
+    id: string;
+}
+export type IMemberOf = IMemberOfAsProject | IMemberOfAsSeller;
+export interface IMemberOfWebApplication {
+    memberOf?: IProgramMembershipOfProject;
+}
 export interface IMemberOfRole {
     typeOf: IMemberType;
     /**
-     * クライアントID
+     * クライアントID or Person ID
      */
     id: string;
     image?: string;
     name?: string;
     username?: string;
-    hasRole: IMemberHasRole;
+    hasRole: IMemberRole[];
     /**
      * プロジェクトメンバー or 販売者メンバー
      */
-    memberOf: { typeOf: OrganizationType.Corporation | OrganizationType.Project; id: string }; // memberOfを必須化(2023-07-24~)
+    memberOf: IMemberOf; // memberOfを必須化(2023-07-24~)
+    /**
+     * 所属会員
+     */
+    member?: IMemberOfWebApplication[]; // 所属メンバーシップを定義(2024-02-07~)
 }
 export interface IMember {
     typeOf: RoleType;

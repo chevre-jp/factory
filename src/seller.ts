@@ -27,12 +27,12 @@ export interface IPaymentAccepted {
     paymentMethodType: string;
 }
 export type IEligibleTransactionDuration = Pick<IQuantitativeValue<UnitCode.Sec>, 'maxValue' | 'typeOf' | 'unitCode'>;
-export interface IEligibleMembership {
-    /**
-     * メンバーシップトークン検証シークレット(2024-01-31~)
-     */
-    secret?: string;
-}
+// export interface IEligibleMembership {
+//     /**
+//      * メンバーシップトークン検証シークレット(2024-01-31~)
+//      */
+//     secret?: string;
+// }
 export interface IMakesOffer extends Pick<
     IOffer,
     'typeOf' | 'availableAtOrFrom'
@@ -46,7 +46,7 @@ export interface IMakesOffer extends Pick<
      * 適用取引期間
      */
     eligibleTransactionDuration: IEligibleTransactionDuration; // required
-    eligibleMembership?: IEligibleMembership;
+    // eligibleMembership?: IEligibleMembership;
 }
 export interface ISeller extends Pick<
     IOrganization,

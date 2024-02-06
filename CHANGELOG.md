@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - CreateAccountingReportタスクを追加
 - 注文取引確定時の同期的な注文コード発行に対応
+- IAMメンバー(WebApplication)に所属会員属性を追加
 
 ### Changed
 
@@ -20,6 +21,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Deprecated
 
 ### Removed
+
+- 販売者のmakesOfferからeligibleMembershipを廃止
 
 ### Fixed
 
