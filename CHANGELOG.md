@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文取引のresultを最適化(order.acceptedOffersを除外)
 - update coa-service
 - update gmo-service
+- 注文のIBrokerを最適化
 
 ### Deprecated
 
