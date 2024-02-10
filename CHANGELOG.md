@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.353.0 - 2024-02-11
+
+### Added
+
 - CreateAccountingReportタスクを追加
 - 注文取引確定時の同期的な注文コード発行に対応
 - IAMメンバー(WebApplication)に所属会員属性を追加
@@ -21,15 +35,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - update gmo-service
 - 注文のIBrokerを最適化
 
-### Deprecated
-
 ### Removed
 
 - 販売者のmakesOfferからeligibleMembershipを廃止
-
-### Fixed
-
-### Security
 
 ## v4.352.0 - 2024-02-01
 
