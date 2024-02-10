@@ -141,6 +141,7 @@ import * as ConfirmPayTransactionTaskFactory from './task/confirmPayTransaction'
 import * as ConfirmRegisterServiceTaskFactory from './task/confirmRegisterService';
 import * as ConfirmRegisterServiceTransactionTaskFactory from './task/confirmRegisterServiceTransaction';
 import * as ConfirmReserveTransactionTaskFactory from './task/confirmReserveTransaction';
+import * as CreateAccountingReportTaskFactory from './task/createAccountingReport';
 import * as CreateEventTaskFactory from './task/createEvent';
 import * as DeleteTransactionTaskFactory from './task/deleteTransaction';
 import * as GivePointAwardTaskFactory from './task/givePointAward';
@@ -165,7 +166,6 @@ import * as ReturnPointAwardTaskFactory from './task/returnPointAward';
 import * as ReturnReserveTransactionTaskFactory from './task/returnReserveTransaction';
 import * as SendEmailMessageTaskFactory from './task/sendEmailMessage';
 import * as SendOrderTaskFactory from './task/sendOrder';
-import * as SyncScreeningRoomsTaskFactory from './task/syncScreeningRooms';
 import * as TriggerWebhookTaskFactory from './task/triggerWebhook';
 import * as UseReservationTaskFactory from './task/useReservation';
 import * as VoidMoneyTransferTransactionTaskFactory from './task/voidMoneyTransferTransaction';
@@ -560,6 +560,7 @@ export namespace task {
     export type IData<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.IData :
         T extends TaskName.CreateEvent ? CreateEventTaskFactory.IData :
+        T extends TaskName.CreateAccountingReport ? CreateAccountingReportTaskFactory.IData :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.IData :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IData :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IData :
@@ -578,7 +579,6 @@ export namespace task {
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.IData :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IData :
-        T extends TaskName.SyncScreeningRooms ? SyncScreeningRoomsTaskFactory.IData :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         T extends TaskName.UseReservation ? UseReservationTaskFactory.IData :
@@ -591,6 +591,7 @@ export namespace task {
     export type IAttributes<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.IAttributes :
         T extends TaskName.CreateEvent ? CreateEventTaskFactory.IAttributes :
+        T extends TaskName.CreateAccountingReport ? CreateAccountingReportTaskFactory.IAttributes :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.IAttributes :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IAttributes :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IAttributes :
@@ -609,7 +610,6 @@ export namespace task {
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.IAttributes :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IAttributes :
-        T extends TaskName.SyncScreeningRooms ? SyncScreeningRoomsTaskFactory.IAttributes :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         T extends TaskName.UseReservation ? UseReservationTaskFactory.IAttributes :
@@ -622,6 +622,7 @@ export namespace task {
     export type ITask<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.ITask :
         T extends TaskName.CreateEvent ? CreateEventTaskFactory.ITask :
+        T extends TaskName.CreateAccountingReport ? CreateAccountingReportTaskFactory.ITask :
         T extends TaskName.DeleteTransaction ? DeleteTransactionTaskFactory.ITask :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.ITask :
         T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.ITask :
@@ -640,7 +641,6 @@ export namespace task {
         T extends TaskName.ReturnReserveTransaction ? ReturnReserveTransactionTaskFactory.ITask :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.ITask :
-        T extends TaskName.SyncScreeningRooms ? SyncScreeningRoomsTaskFactory.ITask :
         T extends TaskName.ConfirmPayTransaction ? ConfirmPayTransactionTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         T extends TaskName.UseReservation ? UseReservationTaskFactory.ITask :
@@ -660,6 +660,7 @@ export namespace task {
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
     export import createEvent = CreateEventTaskFactory;
+    export import CreateAccountingReport = CreateAccountingReportTaskFactory;
     export import confirmReserveTransaction = ConfirmReserveTransactionTaskFactory;
     export import deleteTransaction = DeleteTransactionTaskFactory;
     export import importEventCapacitiesFromCOA = ImportEventCapacitiesFromCOATaskFactory;
@@ -671,7 +672,6 @@ export namespace task {
     export import registerService = RegisterServiceTaskFactory;
     export import reserve = ReserveTaskFactory;
     export import sendEmailMessage = SendEmailMessageTaskFactory;
-    export import syncScreeningRooms = SyncScreeningRoomsTaskFactory;
     export import triggerWebhook = TriggerWebhookTaskFactory;
     export import useReservation = UseReservationTaskFactory;
     export import voidPayment = VoidPaymentTaskFactory;

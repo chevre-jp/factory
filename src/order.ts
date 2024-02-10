@@ -277,7 +277,7 @@ export type IPersonCustomer = Pick<IPerson, 'id' | 'typeOf' | 'memberOf'> & IPro
  * カスタマー
  */
 export type ICustomer = IPersonCustomer | IWebApplicationCustomer | IOrganizationCustomer;
-export type IBroker = Pick<IPerson, 'id' | 'identifier' | 'typeOf'>;
+export type IBroker = Pick<IPerson, 'id' | 'typeOf'>;
 /**
  * 返品者
  */

@@ -7,7 +7,10 @@ export type IRecipient = ActionFactory.IParticipantAsSeller;
 /**
  * 返却対象は入金アクション
  */
-export type IObject = MoneyTransferActionFactory.IAction;
+export type IObject = Pick<
+    MoneyTransferActionFactory.IAction,
+    'object' | 'typeOf'
+>;
 export type IResult = any;
 // tslint:disable-next-line:no-empty-interface
 export interface IPotentialActions {

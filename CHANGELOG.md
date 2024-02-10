@@ -18,6 +18,27 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.353.0 - 2024-02-11
+
+### Added
+
+- CreateAccountingReportタスクを追加
+- 注文取引確定時の同期的な注文コード発行に対応
+- IAMメンバー(WebApplication)に所属会員属性を追加
+
+### Changed
+
+- 返品取引のpotentialActionsを最適化
+- 通貨転送返却アクションを最適化
+- 注文取引のresultを最適化(order.acceptedOffersを除外)
+- update coa-service
+- update gmo-service
+- 注文のIBrokerを最適化
+
+### Removed
+
+- 販売者のmakesOfferからeligibleMembershipを廃止
+
 ## v4.352.0 - 2024-02-01
 
 ### Added

@@ -3,7 +3,6 @@ import * as OrderFactory from '../../../order';
 import { IAttributes as IReturnPaymentMethodActionAttributes } from '../../transfer/return/paymentMethod';
 import * as ReturnActionFactory from '../return';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../send/message/email';
-import * as ReturnMoneyTransferActionFactory from './moneyTransfer';
 import * as ReturnPointAwardActionFactory from './pointAward';
 
 export type IAgent = OrderFactory.IParticipantAsReturner;
@@ -24,10 +23,7 @@ export interface IPotentialActions {
      * refundから移行(2022-08-10~)
      */
     returnPaymentMethod: IReturnPaymentMethodActionAttributes[];
-    /**
-     * 入金返却アクション
-     */
-    returnMoneyTransfer: ReturnMoneyTransferActionFactory.IAttributes[];
+    // returnMoneyTransfer: ReturnMoneyTransferActionFactory.IAttributes[]; // 廃止(2024-02-04~)
     /**
      * ポイントインセンティブ返却アクション
      */
