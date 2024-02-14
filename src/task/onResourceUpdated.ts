@@ -14,12 +14,13 @@ import { TaskName } from '../taskName';
 export type AccountTitleType = IAccountTitle['typeOf'];
 export type CategoryCodeType = ICategoryCode['typeOf'];
 export type OfferCatalogType = IOfferCatalog['typeOf'];
-export type IResourceTypeOf = AccountTitleType | CategoryCodeType | CreativeWorkType
+export type IResourceTypeOf = AccountTitleType | CategoryCodeType
+    | CreativeWorkType.Movie
+    | CreativeWorkType.NoteDigitalDocument
     | EventType.ScreeningEventSeries
     | OrganizationType.Corporation | PlaceType.MovieTheater | ProductType
     | OfferCatalogType
     | OfferType.AggregateOffer;
-// | OfferType.Offer;
 export interface IData4common {
     id: string[];
     project: { id: string };

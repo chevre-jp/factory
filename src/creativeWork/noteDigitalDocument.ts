@@ -47,6 +47,9 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    id?: {
+        $in?: string[];
+    };
     project?: {
         id?: { $eq?: string };
     };
@@ -62,5 +65,6 @@ export interface ISearchConditions {
     };
     identifier?: {
         $eq?: string;
+        $in?: string[];
     };
 }
