@@ -37,7 +37,7 @@ export interface INoteDigitalDocument extends Pick<CreativeWorkFactory.ICreative
  * ソート条件
  */
 export interface ISortOrder {
-    dateCreated?: SortType;
+    identifier?: SortType;
 }
 
 /**
