@@ -57,7 +57,8 @@ import * as ClientUserFactory from './clientUser';
 import * as CreativeWorkFactory from './creativeWork';
 import * as CommentFactory from './creativeWork/comment';
 import * as EmailMessageFactory from './creativeWork/message/email';
-import * as MovieCreativeWorkFactory from './creativeWork/movie';
+import * as MovieFactory from './creativeWork/movie';
+import * as NoteDigitalDocumentFactory from './creativeWork/noteDigitalDocument';
 import * as WebApplicationFactory from './creativeWork/softwareApplication/webApplication';
 import { CreativeWorkType } from './creativeWorkType';
 import * as CustomerFactory from './customer';
@@ -346,7 +347,8 @@ export namespace creativeWork {
     export namespace message {
         export import email = EmailMessageFactory;
     }
-    export import movie = MovieCreativeWorkFactory;
+    export import movie = MovieFactory;
+    export import noteDigitalDocument = NoteDigitalDocumentFactory;
     export namespace softwareApplication {
         export import webApplication = WebApplicationFactory;
     }
