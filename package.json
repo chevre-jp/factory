@@ -57,7 +57,7 @@
     "@motionpicture/coa-service": "9.3.0-alpha.5",
     "@motionpicture/gmo-service": "5.3.0-alpha.4",
     "@surfrock/sdk": "1.1.0",
-    "@waiter/factory": "2.2.0-alpha.3",
+    "@waiter/factory": "2.2.0",
     "setprototypeof": "1.2.0"
   },
   "repository": {
