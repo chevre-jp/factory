@@ -59,6 +59,10 @@ export interface ISettings {
     transactionWebhookUrls?: string[];
     useMyCreditCards?: boolean;
     useUsernameAsGMOMemberId?: boolean;
+    /**
+     * 受け入れるトークン発行者
+     */
+    tokenIssuers?: string;
 }
 export interface ISubscription {
     identifier?: string;
