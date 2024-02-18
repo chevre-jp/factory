@@ -27,12 +27,6 @@ export interface IPaymentAccepted {
     paymentMethodType: string;
 }
 export type IEligibleTransactionDuration = Pick<IQuantitativeValue<UnitCode.Sec>, 'maxValue' | 'typeOf' | 'unitCode'>;
-// export interface IEligibleMembership {
-//     /**
-//      * メンバーシップトークン検証シークレット(2024-01-31~)
-//      */
-//     secret?: string;
-// }
 export interface IMakesOffer extends Pick<
     IOffer,
     'typeOf' | 'availableAtOrFrom'

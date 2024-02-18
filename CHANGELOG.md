@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - プロジェクト設定にtokenIssuersを追加
+- プロジェクトにmakesOfferを追加
 
 ### Changed
 
