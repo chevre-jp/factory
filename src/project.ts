@@ -62,7 +62,7 @@ export interface ISettings {
     /**
      * 受け入れるトークン発行者
      */
-    tokenIssuers?: string;
+    tokenIssuers?: string[];
 }
 export interface ISubscription {
     identifier?: string;
