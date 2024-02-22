@@ -1,4 +1,6 @@
+import { IBusinessEntityType } from './businessEntityType';
 import { IMerchantReturnPolicy } from './merchantReturnPolicy';
+import { IAvailableAtOrFrom, IOffer } from './offer';
 import { IOrganization } from './organization';
 import { OrganizationType } from './organizationType';
 import { SortType } from './sortType';
@@ -59,6 +61,10 @@ export interface ISettings {
     transactionWebhookUrls?: string[];
     useMyCreditCards?: boolean;
     useUsernameAsGMOMemberId?: boolean;
+    /**
+     * 受け入れるトークン発行者
+     */
+    tokenIssuers?: string[];
 }
 export interface ISubscription {
     identifier?: string;
@@ -73,6 +79,16 @@ export interface ISubscription {
 
 }
 export type IHasMerchantReturnPolicy = Pick<IMerchantReturnPolicy, 'sameAs' | 'typeOf'>;
+export interface IMakesOffer extends Pick<
+    IOffer,
+    'typeOf' | 'availableAtOrFrom'
+> {
+    availableAtOrFrom: IAvailableAtOrFrom[];
+    /**
+     * 適用カスタマータイプ
+     */
+    eligibleCustomerType?: IBusinessEntityType[];
+}
 /**
  * プロジェクト
  */

@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.355.0 - 2024-02-22
+
+### Added
+
+- プロジェクト設定にtokenIssuersを追加
+- プロジェクトにmakesOfferを追加
+
 ## v4.354.1 - 2024-02-16
 
 ### Changed
