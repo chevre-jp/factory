@@ -20,9 +20,21 @@ export type IObject = IOrderAsObject | IOwnershipInfoAsObject;
 export interface IAuthorization {
     project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: 'Authorization';
+    /**
+     * 承認コード
+     */
     code: string;
+    /**
+     * 承認対象
+     */
     object: IObject;
+    /**
+     * 有効期間
+     */
     validFrom: Date;
+    /**
+     * 有効期間
+     */
     validUntil: Date;
 }
 
@@ -53,12 +65,13 @@ export interface ISearchConditions {
         id?: { $eq?: string };
     };
     id?: {
+        $eq?: string;
         $in?: string[];
     };
     code?: {
+        $eq?: string;
         $in?: string[];
     };
-    codes?: string[];
     validFrom?: Date;
     validThrough?: Date;
     object?: IObjectSearchConditions;
