@@ -1,6 +1,7 @@
 import * as CreativeWorkFactory from '../creativeWork';
 import { CreativeWorkType } from '../creativeWorkType';
 import { IOrder } from '../order';
+import { OrganizationType } from '../organizationType';
 import { IPerson } from '../person';
 import { IProject } from '../project';
 import { SortType } from '../sortType';
@@ -11,6 +12,13 @@ export type IAboutAsOrder = Pick<IOrder, 'orderNumber' | 'typeOf'> & {
 export type IAbout = IAboutAsOrder;
 export type ICreator = Pick<IPerson, 'id' | 'typeOf'>;
 export type IEditor = Pick<IPerson, 'id' | 'typeOf'>;
+export interface IProvider {
+    /**
+     * 販売者ID
+     */
+    id: string;
+    typeOf: OrganizationType.Corporation;
+}
 /**
  * メモ
  */
@@ -27,9 +35,19 @@ export interface INoteDigitalDocument extends Pick<CreativeWorkFactory.ICreative
     about: IAbout;
     dateCreated: Date;
     dateModified?: Date;
-    creator: ICreator; // 作成者
-    editor?: IEditor; // 変更者
-    version: string; // バージョン
+    /**
+     * 作成者
+     */
+    creator: ICreator;
+    /**
+     * 変更者
+     */
+    editor?: IEditor;
+    provider: IProvider;
+    /**
+     * バージョン
+     */
+    version: string;
     typeOf: CreativeWorkType.NoteDigitalDocument;
 }
 
@@ -51,6 +69,9 @@ export interface ISearchConditions {
         $in?: string[];
     };
     project?: {
+        id?: { $eq?: string };
+    };
+    provider?: {
         id?: { $eq?: string };
     };
     about?: {
