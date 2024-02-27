@@ -6,7 +6,6 @@ import * as UseActionFactory from '../use';
 
 export type IAgent = IParticipantAsPerson | IParticipantAsWebApplication;
 export type IReservationAsObject = Pick<IReservation, 'id' | 'issuedThrough' | 'reservationFor' | 'reservationNumber' | 'reservedTicket' | 'typeOf'>;
-// オブジェクト最適化(2023-01-30~)
 export type IObject = IReservationAsObject[];
 // tslint:disable-next-line:no-empty-interface
 export interface IResult { }
@@ -17,16 +16,23 @@ export interface ILocation {
      */
     identifier: string;
 }
-export type IPotentialActions = any;
+// export type IPotentialActions = any;
 export interface IInstrument {
+    /**
+     * JWT
+     */
     token?: string;
+    /**
+     * 承認コード
+     */
+    ticketToken?: string; // add(2024-02-28~)
     typeOf: ObjectType.Ticket;
 }
 export interface IAttributes extends UseActionFactory.IAttributes<IObject, IResult> {
     agent: IAgent;
-    instrument?: IInstrument;
+    instrument: IInstrument;
     location?: ILocation;
-    potentialActions?: IPotentialActions;
+    // potentialActions?: IPotentialActions;
 }
 /**
  * 予約使用アクション
