@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 予約使用アクションをinstrument.ticketTokenに対応
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.358.0 - 2024-02-28
+
+### Changed
+
+- 予約使用アクションをinstrument.ticketTokenに対応
 
 ## v4.357.0 - 2024-02-27
 
