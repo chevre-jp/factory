@@ -4,7 +4,6 @@ import * as PermitFactory from './permit';
 import { PersonType } from './personType';
 import * as ProductFactory from './product';
 import { IProject } from './project';
-import { IPropertyValue } from './propertyValue';
 import { IReservation as IBusReservation } from './reservation/busReservation';
 import { IReservation as IEventReservation } from './reservation/event';
 import { ReservationType } from './reservationType';
@@ -58,8 +57,6 @@ export type IPermitIssuedThrough = Pick<PermitFactory.IIssuedThrough, 'id' | 'ty
 export type IPermitAsGood = Pick<
     PermitFactory.IPermit,
     'identifier' | 'typeOf' | 'name' | 'validFor'
-// | 'issuedThrough'
-// | 'project' // 不要なので廃止(2023-02-01~)
 > & {
     issuedThrough?: IPermitIssuedThrough;
 };
@@ -71,35 +68,24 @@ export type IGood = IReservation | IPermitAsGood;
  * 所有対象物(対象物詳細有)
  */
 export type IGoodWithDetail = IReservationWithDetail | PermitFactory.IPermit;
-/**
- * 所有者
- */
 export interface IOwnerAsOrganization {
-    // 個人情報排除するように
     typeOf: OrganizationType.Organization;
     id: string;
-    // 不要なので廃止(2022-07-26~)
-    // project: { id: string; typeOf: OrganizationType.Project };
-    identifier?: IPropertyValue<string>[];
 }
 export interface IOwnerAsPerson {
-    // 個人情報排除するように
     typeOf: PersonType;
     id: string;
-    identifier?: IPropertyValue<string>[];
-    // 不要なので廃止(2022-07-26~)
-    // memberOf?: IMemberOf;
 }
 export interface IOwnerAsWebApplication {
-    // 個人情報排除するように
     typeOf: CreativeWorkType.WebApplication;
     id: string;
-    identifier?: IPropertyValue<string>[];
 }
+/**
+ * 所有者
+ * 個人情報排除するように
+ */
 export type IOwner = IOwnerAsOrganization | IOwnerAsPerson | IOwnerAsWebApplication;
 export interface IAcquiredFrom {
-    // 最適化(2022-11-15~)
-    // project: { id: string; typeOf: OrganizationType.Project };
     id: string;
     typeOf: OrganizationType.Corporation;
     name: string;
