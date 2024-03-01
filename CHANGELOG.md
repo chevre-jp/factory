@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 所有権のIOwnerを最適化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.359.0 - 2024-03-01
+
+### Changed
+
+- 所有権のIOwnerを最適化
 
 ## v4.358.0 - 2024-02-28
 
