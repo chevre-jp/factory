@@ -11,12 +11,11 @@ export enum AssetTransactionType {
      */
     Reserve = 'Reserve',
     /**
-     * 予約キャンセル
+     * 予約取消
      */
     CancelReservation = 'CancelReservation',
     /**
      * 決済
-     * PaymentMethod: PaymentCard,CreditCard...
      */
     Pay = 'Pay',
     /**

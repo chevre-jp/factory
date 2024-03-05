@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - update @motionpicture/gmo-service
 - 施設コンテンツのcoaInfoを拡張
 - 施設コンテンツのlocationを最適化(kanaNameを廃止)
+- 資産取引を最適化(agent)
 
 ### Deprecated
 
