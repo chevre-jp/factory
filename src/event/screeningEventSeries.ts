@@ -7,15 +7,12 @@ import { ILanguage } from '../language';
 import { IMultilingualString } from '../multilingualString';
 import { OfferType } from '../offerType';
 import { PlaceType } from '../placeType';
-// import { PriceCurrency } from '../priceCurrency';
 
 /**
  * 施設コンテンツに対するオファー
  */
 export interface IOffer {
     typeOf: OfferType.Offer;
-    // 廃止(2023-08-07~)
-    // priceCurrency: PriceCurrency.JPY;
     /**
      * 利用不可決済方法区分
      */
@@ -92,8 +89,6 @@ export interface ICOAInfo {
     dateMgtkBegin?: string;
 }
 export interface ILocation {
-    // 不要なので廃止(2022-12-19~)
-    // project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: PlaceType.MovieTheater;
     /**
      * 施設ID
@@ -107,10 +102,7 @@ export interface ILocation {
      * 名称
      */
     name?: IMultilingualString;
-    /**
-     * カナ名称
-     */
-    kanaName?: string;
+    // kanaName?: string; // 廃止(2024-03-05~)
 }
 export interface IAttributes extends Pick<
     EventFactory.IAttributes<EventType.ScreeningEventSeries>,
@@ -142,9 +134,7 @@ export interface IAttributes extends Pick<
      * 施設
      */
     location: ILocation;
-    // 必須化(2023-07-12~)
-    // organizer?: IOrganizer;
-    organizer: IOrganizer;
+    organizer: IOrganizer; // 必須化(2023-07-12~)
     /**
      * カナ名称
      */
@@ -177,47 +167,38 @@ export interface IAttributes extends Pick<
  * 施設コンテンツ
  */
 export type IEvent = EventFactory.IEvent<IAttributes>;
-export type ICreateParams =
-    // Omit<
-    //     IAttributes,
-    //     'location' | 'workPerformed' | 'coaInfo' | 'organizer'
-    //     // durationの上書き指定を可能にする(2023-07-20~)
-    //     // | 'duration'
-    //     | 'videoFormat' | 'alternativeHeadline'
-    //     | 'project' | 'eventStatus'
-    // > &
-    // Pickで表現(2023-12-10~)
-    Pick<
-        IAttributes,
-        'typeOf' | 'name' | 'duration' | 'endDate' | 'headline' | 'offers' | 'startDate'
-        | 'additionalProperty' | 'kanaName' | 'eventStatus' | 'description'
-    > & {
-        subtitleLanguage?: Pick<ILanguage, 'name'>;
-        dubLanguage?: Pick<ILanguage, 'name'>;
-        location: {
-            /**
-             * 施設ID
-             */
-            id: string;
-        };
-        workPerformed: {
-            /**
-             * コンテンツコード
-             */
-            identifier: string;
-            /**
-             * 同コンテンツに対する複数施設コンテンツのバージョン
-             * identifier+versionでuniqueな想定
-             */
-            version?: string;
-        };
-        videoFormat: {
-            /**
-             * 上映方式区分コード
-             */
-            typeOf: string;
-        }[];
+// Pickで表現(2023-12-10~)
+export type ICreateParams = Pick<
+    IAttributes,
+    'typeOf' | 'name' | 'duration' | 'endDate' | 'headline' | 'offers' | 'startDate'
+    | 'additionalProperty' | 'kanaName' | 'eventStatus' | 'description'
+> & {
+    subtitleLanguage?: Pick<ILanguage, 'name'>;
+    dubLanguage?: Pick<ILanguage, 'name'>;
+    location: {
+        /**
+         * 施設ID
+         */
+        id: string;
     };
+    workPerformed: {
+        /**
+         * コンテンツコード
+         */
+        identifier: string;
+        /**
+         * 同コンテンツに対する複数施設コンテンツのバージョン
+         * identifier+versionでuniqueな想定
+         */
+        version?: string;
+    };
+    videoFormat: {
+        /**
+         * 上映方式区分コード
+         */
+        typeOf: string;
+    }[];
+};
 /**
  * ソート条件
  */
