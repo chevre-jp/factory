@@ -78,6 +78,18 @@ export interface ICOAInfo {
      * ※日付は西暦8桁 "YYYYMMDD"
      */
     dateMvtkBegin: string;
+    /**
+     * MGチケット使用フラグ
+     * 0：使用不可、1：使用可、2：無料券（計上単価=0）使用不可
+     * (2024-03-05~)
+     */
+    flgMgtkUse?: string;
+    /**
+     * MGチケット利用開始日
+     * ※日付は西暦8桁 "YYYYMMDD"
+     * (2024-03-05~)
+     */
+    dateMgtkBegin?: string;
 }
 export interface ILocation {
     // 不要なので廃止(2022-12-19~)

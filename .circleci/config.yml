@@ -107,18 +107,24 @@ workflows:
       - test:
           requires:
             - build
+          filters:
+            branches:
+              only: develop
       - doc:
           requires:
             - test
+          filters:
+            branches:
+              only: develop
       - prerelease:
           requires:
-            - doc
+            - build
           filters:
             branches:
               only: /feature\/.+-alpha.+/
       - deploy:
           requires:
-            - doc
+            - build
           filters:
             branches:
               only: master
