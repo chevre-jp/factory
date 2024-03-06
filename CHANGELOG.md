@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文のorderedItem.orderedItemにidを保証
 - ISimpleOrderを最適化(customer,sellerを廃止)
 - 決済返却アクションのobjectを最適化
+- 興行オファー承認アクションのresult.acceptedOffersへの依存排除
 
 ### Deprecated
 

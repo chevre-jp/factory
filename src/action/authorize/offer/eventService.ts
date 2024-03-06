@@ -58,12 +58,10 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
     amount: OrderFactory.ITotalPaymentDue[];
     /**
      * 外部サービスへのリクエスト
-     * COAの場合存在する
      */
     requestBody: IRequestBody<T>;
     /**
      * 外部サービスからのレスポンス
-     * COAの場合存在する
      */
     responseBody: IResponseBody<T>;
     acceptedOffers?: IResultAcceptedOffer[];
@@ -200,6 +198,10 @@ export type IObject<T extends WebAPIFactory.Identifier> = {
      * 進行中取引
      */
     pendingTransaction: IPendingTransaction<T>;
+    /**
+     * result.acceptedOffers廃止に際して使用有無を保管
+     */
+    useResultAcceptedOffers?: boolean;
 } & Omit<IObjectWithoutDetail<T>, 'acceptedOffer' | 'reservationFor'>;
 
 export interface IPurpose {
