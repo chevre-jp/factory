@@ -3,7 +3,8 @@ import * as OrderFactory from '../../../order';
 import { ObjectType as AuthorizePointAwardActionObjectType } from '../../authorize/award/point';
 import * as GiveActionFactory from '../give';
 
-export type IAgent = ActionFactory.IParticipantAsProject;
+// export type IAgent = ActionFactory.IParticipantAsProject; // 変更(2024-03-06~)
+export type IAgent = ActionFactory.IParticipantAsSeller;
 export import ObjectType = AuthorizePointAwardActionObjectType;
 /**
  * ポイント特典付与対象

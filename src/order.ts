@@ -285,7 +285,7 @@ export type IParticipantAsReturner = IParticipantAsPerson | IParticipantAsProjec
 export type IReturner = Pick<IParticipantAsReturner, 'id' | 'typeOf'>;
 export type IIdentifier = IPropertyValue<string>[];
 // export type ISimpleCustomer = Pick<ICustomer, 'id' | 'typeOf'>; // 廃止(2024-03-06~)
-export type ISimpleSeller = Pick<ISeller, 'id' | 'typeOf' | 'name'>;
+// export type ISimpleSeller = Pick<ISeller, 'id' | 'typeOf' | 'name'>; // 廃止(2024-03-06~)
 export interface ISimpleOrder {
     /**
      * object type
@@ -308,7 +308,7 @@ export interface ISimpleOrder {
      * Date order was placed.
      */
     orderDate: Date;
-    seller: ISimpleSeller;
+    // seller: ISimpleSeller; // 廃止(2024-03-06~)
 }
 export interface IReservationFor4EventServiceOrderedItem {
     location?: {
@@ -356,7 +356,7 @@ export interface IOrderedItem {
  * 注文
  * {@link https://schema.org/Order}
  */
-export interface IOrder extends Omit<ISimpleOrder, 'customer'> {
+export interface IOrder extends ISimpleOrder {
     id?: string; // 追加(2023-02-13~)
     project: IProject;
     additionalProperty?: IPropertyValue<string>[]; // 追加(2023-02-13~)
