@@ -284,17 +284,14 @@ export type IBroker = Pick<IPerson, 'id' | 'typeOf'>;
 export type IParticipantAsReturner = IParticipantAsPerson | IParticipantAsProject | IParticipantAsWebApplication;
 export type IReturner = Pick<IParticipantAsReturner, 'id' | 'typeOf'>;
 export type IIdentifier = IPropertyValue<string>[];
-export type ISimpleCustomer = Pick<ICustomer, 'id' | 'typeOf'>;
+// export type ISimpleCustomer = Pick<ICustomer, 'id' | 'typeOf'>; // 廃止(2024-03-06~)
 export type ISimpleSeller = Pick<ISeller, 'id' | 'typeOf' | 'name'>;
 export interface ISimpleOrder {
     /**
      * object type
      */
     typeOf: OrderType;
-    /**
-     * Party placing the order.
-     */
-    customer: ISimpleCustomer;
+    // customer: ISimpleCustomer; // 廃止(2024-03-06~)
     /**
      * The merchant- specific identifier for the transaction.
      */
@@ -332,6 +329,7 @@ export interface IEventServiceAsOrderedItem {
         reservationFor: IReservationFor4EventServiceOrderedItem;
     };
     serviceType?: EventReservationFactory.IServiceTypeOfIssuedThrough;
+    id: string; // add(2024-03-06~)
 }
 export type IReservationFor4TransportationOrderedItem = Pick<ITripAsReservationFor, 'typeOf' | 'id' | 'arrivalTime' | 'departureTime'>;
 export interface ITransportationAsOrderedItem {
@@ -341,11 +339,11 @@ export interface ITransportationAsOrderedItem {
         reservationFor: IReservationFor4TransportationOrderedItem;
     };
     serviceType?: EventReservationFactory.IServiceTypeOfIssuedThrough;
+    id: string; // add(2024-03-06~)
 }
-export type IProductAsOrderedItem = Pick<
-    IProduct,
-    'id' | 'serviceType' | 'typeOf'
->;
+export type IProductAsOrderedItem = Pick<IProduct, 'serviceType' | 'typeOf'> & {
+    id: string;
+};
 /**
  * 注文アイテム
  * {@link https://schema.org/OrderItem}

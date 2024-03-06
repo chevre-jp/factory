@@ -15,6 +15,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 施設コンテンツのcoaInfoを拡張
 - 施設コンテンツのlocationを最適化(kanaNameを廃止)
 - 資産取引を最適化(agent)
+- 注文のorderedItem.orderedItemにidを保証
+- ISimpleOrderを最適化(customerを廃止)
 
 ### Deprecated
 
