@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 資産取引を最適化(agent)
 - 注文のorderedItem.orderedItemにidを保証
 - ISimpleOrderを最適化(customer,sellerを廃止)
+- 決済返却アクションのobjectを最適化
 
 ### Deprecated
 
