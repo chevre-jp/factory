@@ -10,6 +10,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.360.0 - 2024-03-08
+
+### Changed
+
 - update @motionpicture/coa-service
 - update @motionpicture/gmo-service
 - 施設コンテンツのcoaInfoを拡張
@@ -21,14 +33,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 興行オファー承認アクションのresult.acceptedOffersへの依存排除
 - 興行オファー承認アクションのinstrumentを資産取引化
 - 注文取引IFを最適化
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v4.359.0 - 2024-03-01
 
