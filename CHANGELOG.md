@@ -19,6 +19,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - ISimpleOrderを最適化(customer,sellerを廃止)
 - 決済返却アクションのobjectを最適化
 - 興行オファー承認アクションのresult.acceptedOffersへの依存排除
+- 興行オファー承認アクションのinstrumentを資産取引化
+- 注文取引IFを最適化
 
 ### Deprecated
 

@@ -22,6 +22,10 @@ export enum ObjectType {
     SeatReservation = 'SeatReservation'
 }
 
+/**
+ * IInstrumentAsAssetTransactionへ移行前のinstrument(~2024-03-08)
+ * @deprecated use IInstrumentAsAssetTransaction
+ */
 export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.IService<T> & {
     /**
      * Chevre->予約取引番号
@@ -29,6 +33,26 @@ export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.ISer
      */
     transactionNumber?: string;
 };
+export type IInstrumentAsAssetTransaction<T extends WebAPIFactory.Identifier> =
+    T extends WebAPIFactory.Identifier.COA ? {
+        typeOf: 'COAReserveTransaction';
+        identifier: T;
+        /**
+         * Chevre->予約取引番号
+         * COA->仮予約番号
+         */
+        transactionNumber?: string;
+    } :
+    T extends WebAPIFactory.Identifier.Chevre ? {
+        typeOf: AssetTransactionType.Reserve;
+        identifier: T;
+        /**
+         * Chevre->予約取引番号
+         * COA->仮予約番号
+         */
+        transactionNumber?: string;
+    } :
+    never;
 
 export type IRequestBody<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? COA.factory.reserve.IUpdTmpReserveSeatArgs :
@@ -216,7 +240,7 @@ export interface IAttributes<T extends WebAPIFactory.Identifier>
     recipient: IRecipient;
     object: IObject<T>;
     purpose: IPurpose;
-    instrument: IInstrument<T>;
+    instrument: IInstrument<T> | IInstrumentAsAssetTransaction<T>;
 }
 /**
  * 興行オファー承認アクション
