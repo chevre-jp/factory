@@ -284,17 +284,14 @@ export type IBroker = Pick<IPerson, 'id' | 'typeOf'>;
 export type IParticipantAsReturner = IParticipantAsPerson | IParticipantAsProject | IParticipantAsWebApplication;
 export type IReturner = Pick<IParticipantAsReturner, 'id' | 'typeOf'>;
 export type IIdentifier = IPropertyValue<string>[];
-export type ISimpleCustomer = Pick<ICustomer, 'id' | 'typeOf'>;
-export type ISimpleSeller = Pick<ISeller, 'id' | 'typeOf' | 'name'>;
+// export type ISimpleCustomer = Pick<ICustomer, 'id' | 'typeOf'>; // 廃止(2024-03-06~)
+// export type ISimpleSeller = Pick<ISeller, 'id' | 'typeOf' | 'name'>; // 廃止(2024-03-06~)
 export interface ISimpleOrder {
     /**
      * object type
      */
     typeOf: OrderType;
-    /**
-     * Party placing the order.
-     */
-    customer: ISimpleCustomer;
+    // customer: ISimpleCustomer; // 廃止(2024-03-06~)
     /**
      * The merchant- specific identifier for the transaction.
      */
@@ -311,7 +308,7 @@ export interface ISimpleOrder {
      * Date order was placed.
      */
     orderDate: Date;
-    seller: ISimpleSeller;
+    // seller: ISimpleSeller; // 廃止(2024-03-06~)
 }
 export interface IReservationFor4EventServiceOrderedItem {
     location?: {
@@ -332,6 +329,7 @@ export interface IEventServiceAsOrderedItem {
         reservationFor: IReservationFor4EventServiceOrderedItem;
     };
     serviceType?: EventReservationFactory.IServiceTypeOfIssuedThrough;
+    id: string; // add(2024-03-06~)
 }
 export type IReservationFor4TransportationOrderedItem = Pick<ITripAsReservationFor, 'typeOf' | 'id' | 'arrivalTime' | 'departureTime'>;
 export interface ITransportationAsOrderedItem {
@@ -341,11 +339,11 @@ export interface ITransportationAsOrderedItem {
         reservationFor: IReservationFor4TransportationOrderedItem;
     };
     serviceType?: EventReservationFactory.IServiceTypeOfIssuedThrough;
+    id: string; // add(2024-03-06~)
 }
-export type IProductAsOrderedItem = Pick<
-    IProduct,
-    'id' | 'serviceType' | 'typeOf'
->;
+export type IProductAsOrderedItem = Pick<IProduct, 'serviceType' | 'typeOf'> & {
+    id: string;
+};
 /**
  * 注文アイテム
  * {@link https://schema.org/OrderItem}
@@ -358,7 +356,7 @@ export interface IOrderedItem {
  * 注文
  * {@link https://schema.org/Order}
  */
-export interface IOrder extends Omit<ISimpleOrder, 'customer'> {
+export interface IOrder extends ISimpleOrder {
     id?: string; // 追加(2023-02-13~)
     project: IProject;
     additionalProperty?: IPropertyValue<string>[]; // 追加(2023-02-13~)

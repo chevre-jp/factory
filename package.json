@@ -1,6 +1,6 @@
 {
   "name": "@chevre/factory",
-  "version": "4.359.0",
+  "version": "4.360.0",
   "description": "Chevre Factory Library for Javascript",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -54,8 +54,8 @@
   },
   "dependencies": {
     "@aws-sdk/client-cognito-identity-provider": "3.438.0",
-    "@motionpicture/coa-service": "9.3.0-alpha.5",
-    "@motionpicture/gmo-service": "5.3.0-alpha.4",
+    "@motionpicture/coa-service": "9.4.0",
+    "@motionpicture/gmo-service": "5.3.0",
     "@surfrock/sdk": "1.1.0",
     "@waiter/factory": "2.2.0",
     "setprototypeof": "1.2.0"

@@ -18,6 +18,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.360.0 - 2024-03-08
+
+### Changed
+
+- update @motionpicture/coa-service
+- update @motionpicture/gmo-service
+- 施設コンテンツのcoaInfoを拡張
+- 施設コンテンツのlocationを最適化(kanaNameを廃止)
+- 資産取引を最適化(agent)
+- 注文のorderedItem.orderedItemにidを保証
+- ISimpleOrderを最適化(customer,sellerを廃止)
+- 決済返却アクションのobjectを最適化
+- 興行オファー承認アクションのresult.acceptedOffersへの依存排除
+- 興行オファー承認アクションのinstrumentを資産取引化
+- 注文取引IFを最適化
+
 ## v4.359.0 - 2024-03-01
 
 ### Changed

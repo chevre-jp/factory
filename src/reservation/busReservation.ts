@@ -5,7 +5,9 @@ import { ReservationType } from '../reservationType';
 import { ITripWithDetails as IBusTrip } from '../trip/busTrip';
 import { TripType } from '../tripType';
 
-export type IReservationFor = Pick<IBusTrip, 'arrivalBusStop' | 'arrivalTime' | 'busName' | 'busNumber' | 'departureBusStop' | 'departureTime' | 'id' | 'identifier' | 'name' | 'typeOf'>;
+export type IReservationFor = Pick<IBusTrip, 'arrivalBusStop' | 'arrivalTime' | 'busName' | 'busNumber' | 'departureBusStop' | 'departureTime' | 'id' | 'identifier' | 'name' | 'typeOf'> & {
+    id: string;
+};
 export type IPriceComponentSpecification = ITicketPriceComponent;
 export type IPriceSpecification = ITicketPriceSpecification;
 export interface ISubReservation {

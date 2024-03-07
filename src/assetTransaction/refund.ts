@@ -22,7 +22,7 @@ export interface IObject {
      */
     id: string;
     onPaymentStatusChanged?: IOnPaymentStatusChanged;
-    paymentMethod: IPaymentMethod;
+    paymentMethod: Pick<IPaymentMethod, 'accountId' | 'name' | 'paymentMethodId' | 'typeOf' | 'additionalProperty'>;
     refundFee?: number;
 }
 export type IObjectWithoutDetail = Pick<IObject, 'typeOf' | 'id' | 'paymentMethod' | 'refundFee'>;

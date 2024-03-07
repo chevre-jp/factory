@@ -1,12 +1,13 @@
 import * as ActionFactory from '../../action';
 import { ActionType } from '../../actionType';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
-import { IPaymentService as IPaymentServiceOnPay, IPurpose as IPayPurpose } from './pay';
+import { IPaymentMethod, IPaymentService as IPaymentServiceOnPay, IPurpose as IPayPurpose } from './pay';
 
 export type IAgent = ActionFactory.IParticipantAsSeller | ActionFactory.IParticipantAsPerson;
 export type IRecipient = ActionFactory.IParticipant;
-export type IPaymentService = IPaymentServiceOnPay & {
+export type IPaymentService = Omit<IPaymentServiceOnPay, 'paymentMethod'> & {
     refundFee?: number;
+    paymentMethod: Pick<IPaymentMethod, 'accountId' | 'name' | 'paymentMethodId' | 'typeOf' | 'additionalProperty'>;
 };
 
 export type IObject = IPaymentService[];

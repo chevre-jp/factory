@@ -22,6 +22,10 @@ export enum ObjectType {
     SeatReservation = 'SeatReservation'
 }
 
+/**
+ * IInstrumentAsAssetTransactionへ移行前のinstrument(~2024-03-08)
+ * @deprecated use IInstrumentAsAssetTransaction
+ */
 export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.IService<T> & {
     /**
      * Chevre->予約取引番号
@@ -29,6 +33,26 @@ export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.ISer
      */
     transactionNumber?: string;
 };
+export type IInstrumentAsAssetTransaction<T extends WebAPIFactory.Identifier> =
+    T extends WebAPIFactory.Identifier.COA ? {
+        typeOf: 'COAReserveTransaction';
+        identifier: T;
+        /**
+         * Chevre->予約取引番号
+         * COA->仮予約番号
+         */
+        transactionNumber?: string;
+    } :
+    T extends WebAPIFactory.Identifier.Chevre ? {
+        typeOf: AssetTransactionType.Reserve;
+        identifier: T;
+        /**
+         * Chevre->予約取引番号
+         * COA->仮予約番号
+         */
+        transactionNumber?: string;
+    } :
+    never;
 
 export type IRequestBody<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? COA.factory.reserve.IUpdTmpReserveSeatArgs :
@@ -58,12 +82,10 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
     amount: OrderFactory.ITotalPaymentDue[];
     /**
      * 外部サービスへのリクエスト
-     * COAの場合存在する
      */
     requestBody: IRequestBody<T>;
     /**
      * 外部サービスからのレスポンス
-     * COAの場合存在する
      */
     responseBody: IResponseBody<T>;
     acceptedOffers?: IResultAcceptedOffer[];
@@ -200,6 +222,10 @@ export type IObject<T extends WebAPIFactory.Identifier> = {
      * 進行中取引
      */
     pendingTransaction: IPendingTransaction<T>;
+    /**
+     * result.acceptedOffers廃止に際して使用有無を保管
+     */
+    useResultAcceptedOffers?: boolean;
 } & Omit<IObjectWithoutDetail<T>, 'acceptedOffer' | 'reservationFor'>;
 
 export interface IPurpose {
@@ -214,7 +240,7 @@ export interface IAttributes<T extends WebAPIFactory.Identifier>
     recipient: IRecipient;
     object: IObject<T>;
     purpose: IPurpose;
-    instrument: IInstrument<T>;
+    instrument: IInstrument<T> | IInstrumentAsAssetTransaction<T>;
 }
 /**
  * 興行オファー承認アクション
