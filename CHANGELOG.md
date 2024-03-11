@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - 決済承認アクションのinstrumentを資産取引化
+- 決済承認アクションのobjectを最適化
 
 ### Deprecated
 

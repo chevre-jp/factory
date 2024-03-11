@@ -17,14 +17,11 @@ export enum ResultType {
     Payment = 'Payment'
 }
 
-/**
- * 進行中取引
- */
-export interface IObjectPendingTransaction {
-    typeOf: AssetTransactionType.MoneyTransfer;
-    id?: string;
-    transactionNumber?: string;
-}
+// export interface IObjectPendingTransaction {
+//     typeOf: AssetTransactionType.MoneyTransfer;
+//     id?: string;
+//     transactionNumber?: string;
+// }
 
 export {
     ICreditCard,
@@ -75,10 +72,7 @@ export interface IObject {
         id: string;
     };
 
-    /**
-     * 進行中取引(ペイメントカード決済)
-     */
-    pendingTransaction?: IObjectPendingTransaction;
+    // pendingTransaction?: IObjectPendingTransaction; // 進行中取引(ペイメントカード決済) 廃止(2024-03-11~)
 
     /**
      * 転送元(PaymentCard決済)
