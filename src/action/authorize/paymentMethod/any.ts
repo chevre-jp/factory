@@ -160,12 +160,19 @@ export enum ServiceIdentifier {
     Chevre = 'Chevre'
 }
 
-export interface IService {
+export interface IInstrumentAsService {
     typeOf: 'WebAPI';
     identifier: ServiceIdentifier;
 }
+export interface IInstrumentAsAssetTransaction {
+    typeOf: AssetTransactionType.Pay;
+    transactionNumber: string;
+    identifier: ServiceIdentifier;
+}
 
-export type IInstrument = IService;
+// 資産取引化(2024-03-11~)
+export type IInstrument = IInstrumentAsAssetTransaction
+    | IInstrumentAsService;
 
 /**
  * 決済承認アクション属性

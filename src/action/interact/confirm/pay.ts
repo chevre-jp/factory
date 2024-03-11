@@ -18,6 +18,7 @@ export interface IPayAssetTransaction {
 export type IObject = IPayAssetTransaction[];
 export type IResult = any;
 export interface IAttributes extends ConfirmActionFactory.IAttributes<IObject, IResult> {
+    // 資産取引化(2024-03-11~)
     instrument: IInstrument;
     // potentialActions?: any;
     purpose: IPurpose;
