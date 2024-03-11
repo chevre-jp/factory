@@ -17,6 +17,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- 特典承認アクションを廃止
+
 ### Fixed
 
 ### Security

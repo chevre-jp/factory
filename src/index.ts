@@ -12,7 +12,6 @@ import * as AccountFactory from './account';
 
 import * as ActionFactory from './action';
 import * as AuthorizeActionFactory from './action/authorize';
-import * as PointAwardAuthorizeActionFactory from './action/authorize/award/point';
 import * as AuthorizeEventServiceOfferActionFactory from './action/authorize/offer/eventService';
 import * as AuthorizeMoneyTransferOfferActionFactory from './action/authorize/offer/moneyTransfer';
 import * as AuthorizeProductOfferActionFactory from './action/authorize/offer/product';
@@ -223,14 +222,9 @@ export namespace action {
         export import IAction = AuthorizeActionFactory.IAction;
         // tslint:disable-next-line:no-shadowed-variable
         export import IAttributes = AuthorizeActionFactory.IAttributes;
-        export namespace award {
-            export import point = PointAwardAuthorizeActionFactory;
-        }
         // tslint:disable-next-line:no-shadowed-variable
         export namespace paymentMethod {
             export import any = AuthorizeAnyPaymentActionFactory;
-        }
-        export namespace discount {
         }
         // tslint:disable-next-line:no-shadowed-variable
         export namespace offer {
