@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 決済取引確定アクションのagentを拡張
+- 資産取引確定アクションのpotentialActionsを廃止
+
 ### Deprecated
 
 ### Removed

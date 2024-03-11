@@ -1,11 +1,13 @@
 import type * as COA from '@motionpicture/coa-service';
 
+import { IParticipantAsProject } from '../../../action';
 import * as ReserveTransactionFactory from '../../../assetTransaction/reserve';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
 import * as WebAPIFactory from '../../../service/webAPI';
 import * as ConfirmActionFactory from '../confirm';
 
+export type IAgent = IParticipantAsProject;
 export type IObject4COA = COA.factory.reserve.IUpdReserveArgs & {
     // 取引番号は必須
     transactionNumber: string;
@@ -28,11 +30,11 @@ export type IPurpose = ISimpleOrder;
 export type IResult = any;
 export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.IService<T>;
 export interface IAttributes<T extends WebAPIFactory.Identifier> extends ConfirmActionFactory.IAttributes<IObject<T>, IResult> {
-    // agent: IAgent;
+    agent: IAgent;
     instrument: IInstrument<T>;
     purpose: IPurpose;
 }
 /**
- * 予約確定アクション
+ * 予約取引確定アクション
  */
 export type IAction<T extends WebAPIFactory.Identifier> = ConfirmActionFactory.IAction<IAttributes<T>>;

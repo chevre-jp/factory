@@ -1,8 +1,10 @@
+import { IParticipantAsProject } from '../../../action';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
 import { TransactionType } from '../../../transactionType';
 import * as ConfirmActionFactory from '../confirm';
 
+export type IAgent = IParticipantAsProject;
 export interface IObject {
     // pendingTransaction: { // 廃止(2024-01-30~)
     //     /**
@@ -20,6 +22,7 @@ export interface ITransactionPurpose {
 }
 export type IPurpose = ITransactionPurpose | ISimpleOrder;
 export interface IAttributes extends ConfirmActionFactory.IAttributes<IObject, IResult> {
+    agent: IAgent;
     /**
      * 注文取引から発生した場合はISimpleOrder
      */
