@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 決済承認アクションのinstrumentを資産取引化
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.361.0 - 2024-03-11
+
+### Changed
+
+- 決済承認アクションのinstrumentを資産取引化
 
 ## v4.360.0 - 2024-03-08
 
