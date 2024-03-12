@@ -5,7 +5,6 @@ import { CreativeWorkType } from './creativeWorkType';
 import { OrganizationType } from './organizationType';
 import { IPersonAttributes } from './person';
 import { IProject } from './project';
-// import { IPropertyValue } from './propertyValue';
 import { SortType } from './sortType';
 
 export interface IParticipantOptionalAttributes {
@@ -15,19 +14,23 @@ export interface IParticipantOptionalAttributes {
 export type IParticipantAsWebApplication = IParticipantOptionalAttributes & {
     typeOf: CreativeWorkType.WebApplication;
     id: string;
+    identifier?: never; // identifierを排除のため
 };
 export type IParticipantAsPerson = IParticipantOptionalAttributes & Pick<IPersonAttributes, 'id' | 'typeOf'>;
 export type IParticipantAsSeller = IParticipantOptionalAttributes & {
     typeOf: OrganizationType.Corporation;
     id: string;
+    identifier?: never; // identifierを排除のため
 };
 export type IParticipantAsProject = IParticipantOptionalAttributes & {
     typeOf: OrganizationType.Project;
     id: string;
+    identifier?: never; // identifierを排除のため
 };
 export type IParticipantAsCustomer = IParticipantOptionalAttributes & {
     typeOf: OrganizationType.Organization;
     id: string;
+    identifier?: never; // identifierを排除のため
 };
 /**
  * アクションへの関係者
@@ -44,16 +47,10 @@ export interface IPurpose {
     typeOf: string;
 }
 /**
- * 追加属性
- */
-// export type IAdditionalProperty = IPropertyValue<string>[];
-/**
  * アクション属性
  */
 export interface IAttributes<T extends ActionType, TObject, TResult> {
     project: Pick<IProject, 'id' | 'typeOf'>;
-    // 不要なので廃止(2022-11-12~)
-    // additionalProperty?: IAdditionalProperty;
     agent: IParticipant;
     description?: string;
     error?: any;

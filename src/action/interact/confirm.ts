@@ -20,9 +20,8 @@ export type IResult = any;
 export type IPotentialActions = any;
 export interface IAttributes<TObject, TResult> extends Pick<
     ActionFactory.IAttributes<ActionType.ConfirmAction, TObject, TResult>,
-    'agent' | 'error' | 'instrument' | 'object'
-    // | 'potentialActions' // 廃止(2024-03-11~)
-    | 'project' | 'purpose' | 'result' | 'typeOf'
+    'agent' | 'error' | 'object' | 'project' | 'purpose' | 'result' | 'typeOf'
+// | 'potentialActions' // 廃止(2024-03-11~)
 > {
     agent: IAgent;
     purpose: IPurpose;

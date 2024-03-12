@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 決済取引確定アクションのagentを拡張
 - 資産取引確定アクションのpotentialActionsを廃止
+- 決済取引確定アクションのinstrumentを廃止
+- アクションのIParticipantからidentifierを明示的に除外
 
 ### Deprecated
 
