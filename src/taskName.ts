@@ -16,6 +16,10 @@ export enum TaskName {
     CancelReservation = 'cancelReservation',
     CancelPendingReservation = 'cancelPendingReservation',
     /**
+     * リソース検証
+     */
+    CheckResource = 'checkResource',
+    /**
      * 通貨転送
      */
     ConfirmMoneyTransfer = 'confirmMoneyTransfer',

@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- リソース検証タスクを追加
+
 ### Changed
 
 - 決済取引確定アクションのagentを拡張

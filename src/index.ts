@@ -136,6 +136,7 @@ import * as CancelAccountMoneyTransferTaskFactory from './task/cancelAccountMone
 import * as CancelMoneyTransferTaskFactory from './task/cancelMoneyTransfer';
 import * as CancelPendingReservationTaskFactory from './task/cancelPendingReservation';
 import * as CancelReservationTaskFactory from './task/cancelReservation';
+import * as CheckResourceTaskFactory from './task/checkResource';
 import * as ConfirmMoneyTransferTaskFactory from './task/confirmMoneyTransfer';
 import * as ConfirmPayTransactionTaskFactory from './task/confirmPayTransaction';
 import * as ConfirmRegisterServiceTaskFactory from './task/confirmRegisterService';
@@ -655,6 +656,7 @@ export namespace task {
     export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
+    export import checkResource = CheckResourceTaskFactory;
     export import createEvent = CreateEventTaskFactory;
     export import CreateAccountingReport = CreateAccountingReportTaskFactory;
     export import confirmReserveTransaction = ConfirmReserveTransactionTaskFactory;
