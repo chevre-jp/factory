@@ -31,7 +31,7 @@ export type IResult = any;
 export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.IService<T>;
 export interface IAttributes<T extends WebAPIFactory.Identifier> extends ConfirmActionFactory.IAttributes<IObject<T>, IResult> {
     agent: IAgent;
-    instrument: IInstrument<T>;
+    // instrument: IInstrument<T>; // 廃止(2024-03-13~)
     purpose: IPurpose;
 }
 /**
