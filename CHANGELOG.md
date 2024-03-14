@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.362.0 - 2024-03-14
+
+### Added
+
 - リソース検証タスクを追加
 
 ### Changed
@@ -18,15 +32,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - アクションのIParticipantからidentifierを明示的に除外
 - 予約取引確定アクションのinstrumentを廃止
 
-### Deprecated
-
 ### Removed
 
 - 特典承認アクションを廃止
-
-### Fixed
-
-### Security
 
 ## v4.361.0 - 2024-03-11
 
