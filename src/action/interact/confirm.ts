@@ -3,17 +3,26 @@ import { ActionType } from '../../actionType';
 import * as OrderFactory from '../../order';
 import { TransactionType } from '../../transactionType';
 
-// agent: Projectに統一(2022-05-16~)
-export type IAgent = ActionFactory.IParticipantAsProject;
+/**
+ * 確定アクション主体
+ * Projectに統一(2022-05-16~)
+ * 決済取引に関してはクライアントによる確定がありうるので拡張(2024-03-11~)
+ */
+export type IAgent = ActionFactory.IParticipantAsPerson | ActionFactory.IParticipantAsProject | ActionFactory.IParticipantAsWebApplication;
+// export type IAgent = ActionFactory.IParticipantAsProject;
 export type IObject = any;
 export interface ITransactionPurpose {
-    typeOf: TransactionType;
+    typeOf: TransactionType.MoneyTransfer | TransactionType.PlaceOrder;
     id: string;
 }
 export type IPurpose = ITransactionPurpose | OrderFactory.ISimpleOrder;
 export type IResult = any;
 export type IPotentialActions = any;
-export interface IAttributes<TObject, TResult> extends Omit<ActionFactory.IAttributes<ActionType.ConfirmAction, TObject, TResult>, 'description' | 'location' | 'recipient'> {
+export interface IAttributes<TObject, TResult> extends Pick<
+    ActionFactory.IAttributes<ActionType.ConfirmAction, TObject, TResult>,
+    'agent' | 'error' | 'object' | 'project' | 'purpose' | 'result' | 'typeOf'
+// | 'potentialActions' // 廃止(2024-03-11~)
+> {
     agent: IAgent;
     purpose: IPurpose;
 }

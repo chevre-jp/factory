@@ -18,6 +18,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.362.0 - 2024-03-14
+
+### Added
+
+- リソース検証タスクを追加
+
+### Changed
+
+- 決済取引確定アクションのagentを拡張
+- 資産取引確定アクションのpotentialActionsを廃止
+- 決済取引確定アクションのinstrumentを廃止
+- アクションのIParticipantからidentifierを明示的に除外
+- 予約取引確定アクションのinstrumentを廃止
+
+### Removed
+
+- 特典承認アクションを廃止
+
 ## v4.361.0 - 2024-03-11
 
 ### Changed

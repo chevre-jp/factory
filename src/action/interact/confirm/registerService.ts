@@ -1,8 +1,10 @@
+import { IParticipantAsProject } from '../../../action';
 import * as RegisterServiceFactory from '../../../assetTransaction/registerService';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
 import * as ConfirmActionFactory from '../confirm';
 
+export type IAgent = IParticipantAsProject;
 export type IObject = Pick<RegisterServiceFactory.IConfirmParams, 'transactionNumber' | 'endDate'> & {
     transactionNumber: string;
     typeOf: AssetTransactionType.RegisterService;
@@ -11,11 +13,11 @@ export type IObject = Pick<RegisterServiceFactory.IConfirmParams, 'transactionNu
 };
 export type IPurpose = ISimpleOrder;
 export type IResult = any;
-// tslint:disable-next-line:no-empty-interface
-export interface IPotentialActions {
-}
+// export interface IPotentialActions {
+// }
 export interface IAttributes extends ConfirmActionFactory.IAttributes<IObject, IResult> {
-    potentialActions?: IPotentialActions;
+    agent: IAgent;
+    // potentialActions?: IPotentialActions; // 廃止(2024-03-11~)
     purpose: IPurpose;
 }
 /**

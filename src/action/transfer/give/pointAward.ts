@@ -1,11 +1,12 @@
 import * as ActionFactory from '../../../action';
 import * as OrderFactory from '../../../order';
-import { ObjectType as AuthorizePointAwardActionObjectType } from '../../authorize/award/point';
 import * as GiveActionFactory from '../give';
 
 // export type IAgent = ActionFactory.IParticipantAsProject; // 変更(2024-03-06~)
 export type IAgent = ActionFactory.IParticipantAsSeller;
-export import ObjectType = AuthorizePointAwardActionObjectType;
+export enum ObjectType {
+    PointAward = 'PointAward'
+}
 /**
  * ポイント特典付与対象
  */

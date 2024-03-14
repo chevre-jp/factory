@@ -12,7 +12,6 @@ import * as AccountFactory from './account';
 
 import * as ActionFactory from './action';
 import * as AuthorizeActionFactory from './action/authorize';
-import * as PointAwardAuthorizeActionFactory from './action/authorize/award/point';
 import * as AuthorizeEventServiceOfferActionFactory from './action/authorize/offer/eventService';
 import * as AuthorizeMoneyTransferOfferActionFactory from './action/authorize/offer/moneyTransfer';
 import * as AuthorizeProductOfferActionFactory from './action/authorize/offer/product';
@@ -137,6 +136,7 @@ import * as CancelAccountMoneyTransferTaskFactory from './task/cancelAccountMone
 import * as CancelMoneyTransferTaskFactory from './task/cancelMoneyTransfer';
 import * as CancelPendingReservationTaskFactory from './task/cancelPendingReservation';
 import * as CancelReservationTaskFactory from './task/cancelReservation';
+import * as CheckResourceTaskFactory from './task/checkResource';
 import * as ConfirmMoneyTransferTaskFactory from './task/confirmMoneyTransfer';
 import * as ConfirmPayTransactionTaskFactory from './task/confirmPayTransaction';
 import * as ConfirmRegisterServiceTaskFactory from './task/confirmRegisterService';
@@ -223,14 +223,9 @@ export namespace action {
         export import IAction = AuthorizeActionFactory.IAction;
         // tslint:disable-next-line:no-shadowed-variable
         export import IAttributes = AuthorizeActionFactory.IAttributes;
-        export namespace award {
-            export import point = PointAwardAuthorizeActionFactory;
-        }
         // tslint:disable-next-line:no-shadowed-variable
         export namespace paymentMethod {
             export import any = AuthorizeAnyPaymentActionFactory;
-        }
-        export namespace discount {
         }
         // tslint:disable-next-line:no-shadowed-variable
         export namespace offer {
@@ -661,6 +656,7 @@ export namespace task {
     export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
+    export import checkResource = CheckResourceTaskFactory;
     export import createEvent = CreateEventTaskFactory;
     export import CreateAccountingReport = CreateAccountingReportTaskFactory;
     export import confirmReserveTransaction = ConfirmReserveTransactionTaskFactory;

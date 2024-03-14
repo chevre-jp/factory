@@ -1,6 +1,6 @@
 import { AssetTransactionType } from '../../../assetTransactionType';
 import { ISimpleOrder } from '../../../order';
-import { IInstrument } from '../../authorize/paymentMethod/any';
+// import { IInstrument } from '../../authorize/paymentMethod/any';
 import * as ConfirmActionFactory from '../confirm';
 
 export type IPurpose = ISimpleOrder;
@@ -12,15 +12,19 @@ export interface IPayAssetTransaction {
     transactionNumber: string;
     // 確定時の決済方法区分指定(2023-08-29~)
     object?: {
-        paymentMethod?: { identifier?: string };
+        paymentMethod?: {
+            /**
+             * 決済方法区分
+             */
+            identifier?: string;
+        };
     };
 }
 export type IObject = IPayAssetTransaction[];
 export type IResult = any;
 export interface IAttributes extends ConfirmActionFactory.IAttributes<IObject, IResult> {
     // 資産取引化(2024-03-11~)
-    instrument: IInstrument;
-    // potentialActions?: any;
+    // instrument: IInstrument; // 廃止(2024-03-12~)
     purpose: IPurpose;
 }
 /**
