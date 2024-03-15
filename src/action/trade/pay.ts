@@ -56,7 +56,7 @@ export interface IPaymentMethod {
      */
     accountId?: string;
     /**
-     * 決済方法タイプ
+     * 決済方法区分
      */
     typeOf: AvailablePaymentMethodType;
     /**

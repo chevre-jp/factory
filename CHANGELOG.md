@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- MovieTicket認証アクションのobjectを最適化
+
 ### Deprecated
 
 ### Removed
