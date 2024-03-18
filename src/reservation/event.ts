@@ -13,15 +13,14 @@ import * as ReservationFactory from '../reservation';
 import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
 
-export type IOptimizedWorkPerformed = Omit<
+export type IOptimizedWorkPerformed = Pick<
     IWorkPerformed,
-    // 不要なので廃止(2022-12-19~)
-    'project' |
-    'name'
-> & {
-    // ↓コンテンツ名称がstring型だった時期の予約に関して互換性を維持するため(2022-07-28~)
-    name?: string | IMultilingualString;
-};
+    'typeOf' | 'id' | 'identifier' | 'duration' | 'contentRating' | 'version'
+>
+    & {
+        // ↓コンテンツ名称がstring型だった時期の予約に関して互換性を維持するため(2022-07-28~)
+        name?: string | IMultilingualString;
+    };
 export type IOptimizedSuperEvent = Pick<ISuperEvent,
     'additionalProperty' | 'id'
     // | 'kanaName' // 廃止(2024-01-26~)
@@ -37,8 +36,6 @@ export type IOptimizedSuperEvent = Pick<ISuperEvent,
 };
 export interface IReservationFor {
     endDate: Date;
-    // 不要なので廃止(2022-12-19~)
-    // eventStatus: EventStatusType;
     id: string;
     /**
      * COA予約でのみ使用されている
@@ -51,13 +48,9 @@ export interface IReservationFor {
     coaInfo?: ICOAInfo;
     location: IEventLocation;
     name: IEventName;
-    // 不要なので廃止(2022-12-19~)
-    // project: Pick<IProject, 'id' | 'typeOf'>;
     startDate: Date;
     superEvent: IOptimizedSuperEvent;
     typeOf: EventType.ScreeningEvent;
-    // ↓廃止(2022-04-18~)
-    // workPerformed?: IWorkPerformed;
     doorTime?: Date;
 }
 export type IPriceComponentSpecification = ITicketPriceComponent;

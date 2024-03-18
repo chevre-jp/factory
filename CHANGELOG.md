@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 置換アクションを追加
+
 ### Changed
 
 - MovieTicket認証アクションのobjectを最適化

@@ -58,6 +58,9 @@ export interface IUnderName {
     gender?: string;
     givenName?: string;
     id?: string;
+    /**
+     * システム利用識別子のみ継承
+     */
     identifier?: IPropertyValue<string>[];
     telephone?: string;
     url?: string;
