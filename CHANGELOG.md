@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - MovieTicket認証アクションのobjectを最適化
+- 決済アクションのpurposeを最適化
+- 返金アクションのpurposeを最適化
+- 返金アクションのresultを定義
 
 ### Deprecated
 

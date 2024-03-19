@@ -1,4 +1,4 @@
-import { IPaymentMethod, IReturnActionAsPayPurpose } from '../action/trade/pay';
+import { IPaymentMethod, IPurposeAsReturnAction } from '../action/trade/pay';
 import { IAttributes as IRefundActionAttributes, IRecipient as IRefundRecipient } from '../action/trade/refund';
 import * as AssetTransactionFactory from '../assetTransaction';
 import { AssetTransactionType } from '../assetTransactionType';
@@ -30,7 +30,7 @@ export type IStartParamsWithoutDetail =
     AssetTransactionFactory.IStartParams<AssetTransactionType.Refund, IAgent, IRecipient, IObjectWithoutDetail>;
 export interface IStartParams extends AssetTransactionFactory.IStartParams<AssetTransactionType.Refund, IAgent, IRecipient, IObject> {
 }
-export type IRefundPurpose = IReturnActionAsPayPurpose;
+export type IRefundPurpose = IPurposeAsReturnAction;
 export interface IPotentialActionsParams {
     refund?: {
         purpose?: IRefundPurpose;

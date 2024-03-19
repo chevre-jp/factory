@@ -1,4 +1,4 @@
-import * as surfrock from '@surfrock/sdk';
+import type * as surfrock from '@surfrock/sdk';
 
 import * as ActionFactory from '../../../action';
 import { OrganizationType } from '../../../organizationType';
