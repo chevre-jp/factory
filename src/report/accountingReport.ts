@@ -15,6 +15,7 @@ export type IRefundActionObject = Pick<IRefundObject, 'id' | 'paymentMethod' | '
 export type IOptimizedRefundAction = Pick<
     IRefundAction,
     'actionStatus' | 'endDate' | 'id' | 'purpose' | 'startDate' | 'typeOf'
+    | 'error' // FailedActionStatusに対応(2024-03-21~)
 > & {
     object: IRefundActionObject[];
 };
