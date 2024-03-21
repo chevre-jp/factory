@@ -37,6 +37,7 @@ export interface IAttributes extends ReturnActionFactory.IAttributes<IObject, IR
     agent: IAgent;
     recipient: IRecipient;
     potentialActions?: IPotentialActions;
+    purpose?: never;
 }
 /**
  * 返品アクション

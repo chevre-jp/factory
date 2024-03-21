@@ -18,6 +18,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.363.0 - 2024-03-21
+
+### Added
+
+- 置換アクションを追加
+
+### Changed
+
+- MovieTicket認証アクションのobjectを最適化
+- 決済アクションのpurposeを最適化
+- 返金アクションのpurposeを最適化
+- 返金アクションのresultを定義
+- 施設コンテンツ作成パラメータを最適化
+- イベント属性を最適化
+
 ## v4.362.0 - 2024-03-14
 
 ### Added

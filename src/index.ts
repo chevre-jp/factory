@@ -43,6 +43,7 @@ import * as SendEmailMessageActionFactory from './action/transfer/send/message/e
 import * as SendOrderActionFactory from './action/transfer/send/order';
 import * as DeleteActionFactory from './action/update/delete';
 import * as DeleteMemberActionFactory from './action/update/delete/member';
+import * as ReplaceActionFactory from './action/update/replace';
 
 import { ActionStatusType } from './actionStatusType';
 import { ActionType } from './actionType';
@@ -318,6 +319,7 @@ export namespace action {
             export import IAttributes = DeleteActionFactory.IAttributes;
             export import member = DeleteMemberActionFactory;
         }
+        export import replace = ReplaceActionFactory;
     }
 
     export namespace consume {

@@ -11,7 +11,6 @@ import { ITotalPaymentDue, OrderType } from '../../order';
 import { IMovieTicket as IMovieTicketPaymentCard } from '../../paymentMethod/paymentCard/movieTicket';
 import { IPropertyValue } from '../../propertyValue';
 import { PaymentServiceType } from '../../service/paymentService';
-import { TransactionType } from '../../transactionType';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 
 export import IAgent = ActionFactory.IParticipantAsProject;
@@ -21,17 +20,17 @@ export interface IOrderAsPayPurpose {
     confirmationNumber: string;
     orderNumber?: string;
 }
-export interface IAssetTransactionAsPayPurpose {
+export interface IPurposeAsAssetTransaction {
     typeOf: AssetTransactionType.Pay | AssetTransactionType.Refund;
     id?: string;
     transactionNumber?: string;
 }
-export interface ITransactionAsPayPurpose {
-    typeOf: TransactionType;
-    id: string;
-}
-export type IReturnActionAsPayPurpose = IReturnOrderActionAttributes;
-export type IPurpose = IOrderAsPayPurpose | IAssetTransactionAsPayPurpose | IReturnActionAsPayPurpose | ITransactionAsPayPurpose;
+export type IPurposeAsReturnAction = Pick<
+    IReturnOrderActionAttributes,
+    'object' | 'typeOf'
+>; // 最適化(2024-03-19~)
+export type IPurpose = IOrderAsPayPurpose | IPurposeAsAssetTransaction | IPurposeAsReturnAction;
+// | ITransactionAsPayPurpose // 廃止(2024-03-19~)
 export type AvailablePaymentMethodType = string;
 export interface IPendingTransaction {
     typeOf: AccountFactory.transactionType;
@@ -56,7 +55,7 @@ export interface IPaymentMethod {
      */
     accountId?: string;
     /**
-     * 決済方法タイプ
+     * 決済方法区分
      */
     typeOf: AvailablePaymentMethodType;
     /**

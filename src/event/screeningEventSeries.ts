@@ -16,7 +16,7 @@ export interface IOffer {
     /**
      * 利用不可決済方法区分
      */
-    unacceptedPaymentMethod?: string[];
+    unacceptedPaymentMethod?: EventFactory.IUnacceptedPaymentMethodType[];
 }
 export interface IVideoFormat {
     typeOf: string;
@@ -170,7 +170,8 @@ export type IEvent = EventFactory.IEvent<IAttributes>;
 // Pickで表現(2023-12-10~)
 export type ICreateParams = Pick<
     IAttributes,
-    'typeOf' | 'name' | 'duration' | 'endDate' | 'headline' | 'offers' | 'startDate'
+    'typeOf' | 'name' | 'duration' | 'endDate' | 'headline'
+    | 'startDate'
     | 'additionalProperty' | 'kanaName' | 'eventStatus' | 'description'
 > & {
     subtitleLanguage?: Pick<ILanguage, 'name'>;
@@ -181,6 +182,7 @@ export type ICreateParams = Pick<
          */
         id: string;
     };
+    offers?: Pick<IOffer, 'unacceptedPaymentMethod'>;
     workPerformed: {
         /**
          * コンテンツコード

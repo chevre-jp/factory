@@ -124,7 +124,7 @@ export type IWorkPerformed = Pick<
 >;
 export type ISuperEvent = Pick<
     EventReservationFactory.IOptimizedSuperEvent,
-    'additionalProperty' | 'id'
+    'id'
     // | 'kanaName' // 廃止(2024-01-22~)
     | 'location'
     | 'name' | 'soundFormat' | 'typeOf'
