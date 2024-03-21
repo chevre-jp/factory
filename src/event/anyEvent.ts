@@ -5,7 +5,6 @@ import * as OfferFactory from '../offer';
 import { OfferType } from '../offerType';
 import { OrganizationType } from '../organizationType';
 import { PlaceType } from '../placeType';
-// import { PriceCurrency } from '../priceCurrency';
 import { IServiceType as IProductServiceType, ProductType } from '../product';
 import * as ReservationFactory from '../reservation';
 import { ReservationType } from '../reservationType';
@@ -128,15 +127,12 @@ export interface ISeller {
     // アプリケーション対応(2022-11-18~)
     makesOffer: ISellerMakesOffer[];
 }
-// export type IEligibleQuantity = Pick<IQuantitativeValue<UnitCode.C62>, 'maxValue' | 'typeOf' | 'unitCode' | 'value'>;
 export import IEligibleQuantity = OfferFactory.IEligibleQuantity;
 /**
  * イベントに対するオファー
  */
 export interface IOffer {
     typeOf: OfferType.Offer;
-    // 廃止(2023-08-07~)
-    // priceCurrency: PriceCurrency.JPY;
     /**
      * 情報提供終了日時(オンライン取引アプリケーションの設定)
      * @deprecated Use seller.makesOffer
@@ -163,7 +159,7 @@ export interface IOffer {
      * @deprecated Use seller.makesOffer
      */
     validThrough: Date;
-    unacceptedPaymentMethod?: string[];
+    unacceptedPaymentMethod?: EventFactory.IUnacceptedPaymentMethodType[];
     seller: ISeller;
 }
 export interface ILocation {
@@ -192,7 +188,11 @@ export interface IOrganizer {
 /**
  * イベント属性
  */
-export interface IAttributes extends EventFactory.IAttributes<EventType.Event> {
+export interface IAttributes extends Pick<
+    EventFactory.IAttributes<EventType.Event>,
+    'additionalProperty' | 'project' | 'identifier' | 'description' | 'eventStatus' | 'maximumAttendeeCapacity' | 'remainingAttendeeCapacity' | 'location'
+    | 'name' | 'doorTime' | 'endDate' | 'startDate' | 'typeOf'
+> {
     /**
      * 上映場所
      */

@@ -16,6 +16,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済アクションのpurposeを最適化
 - 返金アクションのpurposeを最適化
 - 返金アクションのresultを定義
+- 施設コンテンツ作成パラメータを最適化
+- イベント属性を最適化
 
 ### Deprecated
 

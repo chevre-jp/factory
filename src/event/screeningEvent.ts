@@ -62,8 +62,6 @@ export import IEligibleQuantity = AnyEventFactory.IEligibleQuantity;
  */
 export interface IOffer {
     typeOf: OfferType.Offer;
-    // 廃止(2023-08-07~)
-    // priceCurrency: PriceCurrency.JPY;
     /**
      * 情報提供終了日時(オンライン取引アプリケーションの設定)
      * @deprecated Use seller.makesOffer
@@ -90,7 +88,7 @@ export interface IOffer {
      * @deprecated Use seller.makesOffer
      */
     validThrough: Date;
-    unacceptedPaymentMethod?: string[];
+    unacceptedPaymentMethod?: EventFactory.IUnacceptedPaymentMethodType[];
     seller: ISeller;
 }
 export type IOffer4COA = Pick<IOffer, 'typeOf' | 'offeredThrough'> & {
@@ -181,9 +179,17 @@ export type ISuperEvent = Pick<
 export import IName = AnyEventFactory.IName;
 /**
  * イベント属性
- * workPerformed->superEvent.workPerformed完全移行(2023-02-20~)
  */
-export interface IAttributes extends Omit<AnyEventFactory.IAttributes, 'offers' | 'typeOf' | 'workPerformed'> {
+// alternateName ?: IMultilingualString;
+// alternativeHeadline ?: IMultilingualString | string;
+// duration ?: string;
+// headline ?: IMultilingualString;
+export interface IAttributes extends Pick<
+    AnyEventFactory.IAttributes,
+    'additionalProperty' | 'project' | 'identifier' | 'description' | 'eventStatus' | 'maximumAttendeeCapacity' | 'remainingAttendeeCapacity' | 'location'
+    | 'name' | 'doorTime' | 'endDate' | 'startDate' | 'aggregateEntranceGate' | 'aggregateReservation' | 'aggregateOffer' | 'organizer'
+    | 'checkInCount' | 'attendeeCount'
+> {
     /**
      * 親イベント
      * 施設コンテンツに相当
