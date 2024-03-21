@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.363.0 - 2024-03-21
+
+### Added
+
 - 置換アクションを追加
 
 ### Changed
@@ -18,14 +32,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 返金アクションのresultを定義
 - 施設コンテンツ作成パラメータを最適化
 - イベント属性を最適化
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v4.362.0 - 2024-03-14
 
