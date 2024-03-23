@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - 経理レポートの返金アクションをFailedActionStatusに対応
+- 決済承認アクションのobjectを最適化
 
 ### Deprecated
 

@@ -37,33 +37,39 @@ export import IPurchaseNumberAuthResult = CheckMovieTicketActionFactory.IPurchas
 export interface IObject {
     /**
      * The identifier for the account the payment will be applied to.
+     * MovieTicket->購入管理番号
+     * PaymentCard->カード識別子
+     * その他->空文字
      */
-    accountId?: string;
+    accountId: string; // 必須化(2024-03-23~)
     /**
      * 追加特性
      */
     additionalProperty?: IPropertyValue<string>[];
     /**
      * The amount of money.
+     * MovieTicket->固定で0指定(金額として0)
+     * その他->決済金額
      */
     amount: number;
     /**
      * 説明
+     * PaymentCardのみ対応
      */
     description?: string;
     /**
      * 決済方法名称
-     * 未指定であればデフォルト値が使用されます
+     * 指定すると注文の決済方法名称へ連携
      */
     name?: string;
     /**
-     * 決済方法
+     * 決済方法区分
      */
     paymentMethod: AvailablePaymentMethodType;
     /**
      * 決済ID
      */
-    paymentMethodId?: string;
+    paymentMethodId: string; // 必須化(2024-03-23~)
     typeOf: ResultType;
     issuedThrough: {
         /**
@@ -71,8 +77,6 @@ export interface IObject {
          */
         id: string;
     };
-
-    // pendingTransaction?: IObjectPendingTransaction; // 進行中取引(ペイメントカード決済) 廃止(2024-03-11~)
 
     /**
      * 転送元(PaymentCard決済)
@@ -93,6 +97,17 @@ export interface IObject {
      */
     movieTickets?: IMovieTicket[];
 }
+export type IObjectWithoutDetail = Pick<
+    IObject,
+    'additionalProperty' | 'amount' | 'issuedThrough' | 'paymentMethod'
+    | 'name' | 'creditCard' | 'method' | 'movieTickets' | 'fromLocation'
+> & {
+    /**
+     * 外部決済URL発行の場合に指定
+     * CreditCardのみ対応
+     */
+    paymentMethodId?: string;
+};
 export interface IResultPaymentMethod {
     /**
      * 決済方法区分
