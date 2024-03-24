@@ -100,7 +100,7 @@ export interface IObject {
 export type IObjectWithoutDetail = Pick<
     IObject,
     'additionalProperty' | 'amount' | 'issuedThrough' | 'paymentMethod'
-    | 'name' | 'creditCard' | 'method' | 'movieTickets' | 'fromLocation'
+    | 'description' | 'name' | 'creditCard' | 'method' | 'movieTickets' | 'fromLocation'
 > & {
     /**
      * 外部決済URL発行の場合に指定

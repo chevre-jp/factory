@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- イベントに対するオファー集計タスクを追加
+
 ### Changed
 
 - 経理レポートの返金アクションをFailedActionStatusに対応

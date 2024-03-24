@@ -6,6 +6,7 @@ export enum TaskName {
      * 口座転送
      */
     AccountMoneyTransfer = 'accountMoneyTransfer',
+    AggregateOffers = 'aggregateOffers',
     AggregateScreeningEvent = 'aggregateScreeningEvent',
     AggregateUseActionsOnEvent = 'aggregateUseActionsOnEvent',
     /**
