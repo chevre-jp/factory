@@ -9,7 +9,7 @@ import { IServiceType as IProductServiceType, ProductType } from '../product';
 import * as ReservationFactory from '../reservation';
 import { ReservationType } from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
-import { IThing } from '../thing';
+// import { IThing } from '../thing';
 import { ITripWithDetails as IBusTrip } from '../trip/busTrip';
 
 /**
@@ -26,11 +26,12 @@ export interface IAggregateReservation {
 /**
  * 予約集計つきオファー
  */
-export interface IOfferWithAggregateReservation extends Pick<IThing, 'name'> {
+// export interface IOfferWithAggregateReservation extends Pick<IThing, 'name'> {
+export interface IOfferWithAggregateReservation {
     typeOf: OfferType.Offer;
-    id?: string;
-    identifier?: string;
-    aggregateReservation?: IAggregateReservation;
+    id: string;
+    identifier: string;
+    aggregateReservation?: Pick<IAggregateReservation, 'typeOf' | 'attendeeCount' | 'checkInCount' | 'reservationCount'>;
     category?: OfferFactory.ICategory;
     maximumAttendeeCapacity?: number;
     remainingAttendeeCapacity?: number;
@@ -40,28 +41,31 @@ export interface IOfferWithAggregateReservation extends Pick<IThing, 'name'> {
  */
 export interface IAggregateOffer {
     typeOf: OfferType.AggregateOffer;
+    aggregateDate: Date;
     offerCount?: number;
     offers?: IOfferWithAggregateReservation[];
+}
+export interface IAggregateOfferOfPlace {
+    typeOf: OfferType.AggregateOffer;
+    offers?: {
+        typeOf: OfferType.Offer;
+        id: string;
+        identifier?: string;
+        category?: OfferFactory.ICategory;
+        aggregateReservation?: Pick<IAggregateReservation, 'typeOf' | 'useActionCount'>;
+    }[];
 }
 export interface IPlaceWithAggregateOffer {
     typeOf: PlaceType;
     identifier?: string;
-    aggregateOffer?: {
-        typeOf: OfferType.AggregateOffer;
-        offers?: {
-            typeOf: OfferType.Offer;
-            id?: string;
-            identifier?: string;
-            category?: OfferFactory.ICategory;
-            aggregateReservation?: IAggregateReservation;
-        }[];
-    };
+    aggregateOffer?: IAggregateOfferOfPlace;
 }
 /**
  * 入場ゲート集計
  */
 export interface IAggregateEntranceGate {
     typeOf: PlaceType.AggregatePlace;
+    aggregateDate: Date;
     places: IPlaceWithAggregateOffer[];
 }
 /**

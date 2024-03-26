@@ -14,6 +14,7 @@ import * as AnyEventFactory from './anyEvent';
 export import IAggregateReservation = AnyEventFactory.IAggregateReservation;
 export import IOfferWithAggregateReservation = AnyEventFactory.IOfferWithAggregateReservation;
 export import IAggregateOffer = AnyEventFactory.IAggregateOffer;
+export import IAggregateOfferOfPlace = AnyEventFactory.IAggregateOfferOfPlace;
 export import IPlaceWithAggregateOffer = AnyEventFactory.IPlaceWithAggregateOffer;
 export import IAggregateEntranceGate = AnyEventFactory.IAggregateEntranceGate;
 export interface IServiceOutput {
