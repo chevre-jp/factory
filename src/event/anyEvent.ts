@@ -235,7 +235,7 @@ export interface IAttributes extends Pick<
     /**
      * 入場ゲート集計
      */
-    aggregateEntranceGate?: IAggregateEntranceGate;
+    // aggregateEntranceGate?: IAggregateEntranceGate; // 廃止(2024-03-27~)
     /**
      * 予約集計
      */
@@ -243,7 +243,7 @@ export interface IAttributes extends Pick<
     /**
      * オファー集計
      */
-    aggregateOffer?: IAggregateOffer;
+    // aggregateOffer?: IAggregateOffer; // 廃止(2024-03-27~)
     // 必須化(2023-07-12~)
     organizer: IOrganizer;
 }
