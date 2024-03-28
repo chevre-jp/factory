@@ -11,11 +11,6 @@ import { ReservationType } from '../reservationType';
 import * as WebAPIFactory from '../service/webAPI';
 import * as AnyEventFactory from './anyEvent';
 
-export import IAggregateReservation = AnyEventFactory.IAggregateReservation;
-export import IOfferWithAggregateReservation = AnyEventFactory.IOfferWithAggregateReservation;
-export import IAggregateOffer = AnyEventFactory.IAggregateOffer;
-export import IPlaceWithAggregateOffer = AnyEventFactory.IPlaceWithAggregateOffer;
-export import IAggregateEntranceGate = AnyEventFactory.IAggregateEntranceGate;
 export interface IServiceOutput {
     typeOf: ReservationType.EventReservation;
     reservedTicket?: {
@@ -91,12 +86,10 @@ export interface IOffer {
     unacceptedPaymentMethod?: EventFactory.IUnacceptedPaymentMethodType[];
     seller: ISeller;
 }
-export type IOffer4COA = Pick<IOffer, 'typeOf' | 'offeredThrough'> & {
-    // 追加(2023-06-20~)
-    itemOffered: {
+export type IOffer4COA = Pick<IOffer, 'typeOf' | 'offeredThrough' | 'eligibleQuantity' | 'seller'> & {
+    itemOffered: { // 追加(2023-06-20~)
         serviceOutput: Pick<IServiceOutput, 'reservedTicket'>;
     };
-
 };
 export interface ICOAInfo {
     theaterCode: string;
@@ -180,14 +173,14 @@ export import IName = AnyEventFactory.IName;
 /**
  * イベント属性
  */
-// alternateName ?: IMultilingualString;
-// alternativeHeadline ?: IMultilingualString | string;
-// duration ?: string;
-// headline ?: IMultilingualString;
 export interface IAttributes extends Pick<
     AnyEventFactory.IAttributes,
     'additionalProperty' | 'project' | 'identifier' | 'description' | 'eventStatus' | 'maximumAttendeeCapacity' | 'remainingAttendeeCapacity' | 'location'
-    | 'name' | 'doorTime' | 'endDate' | 'startDate' | 'aggregateEntranceGate' | 'aggregateReservation' | 'aggregateOffer' | 'organizer'
+    | 'name' | 'doorTime' | 'endDate' | 'startDate'
+    // | 'aggregateEntranceGate' // 廃止(2024-03-27~)
+    | 'aggregateReservation'
+    // | 'aggregateOffer' // 廃止(2024-03-27~)
+    | 'organizer'
     | 'checkInCount' | 'attendeeCount'
 > {
     /**

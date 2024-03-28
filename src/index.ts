@@ -11,6 +11,7 @@ export import waiter = waiter;
 import * as AccountFactory from './account';
 
 import * as ActionFactory from './action';
+import * as AcceptActionFactory from './action/accept';
 import * as AuthorizeActionFactory from './action/authorize';
 import * as AuthorizeEventServiceOfferActionFactory from './action/authorize/offer/eventService';
 import * as AuthorizeMoneyTransferOfferActionFactory from './action/authorize/offer/moneyTransfer';
@@ -131,6 +132,7 @@ import * as UnitPriceOfferFactory from './unitPriceOffer';
 
 import * as TaskFactory from './task';
 import * as AccountMoneyTransferTaskFactory from './task/accountMoneyTransfer';
+import * as AggregateOffersTaskFactory from './task/aggregateOffers';
 import * as AggregateScreeningEventTaskFactory from './task/aggregateScreeningEvent';
 import * as AggregateUseActionsOnEventTaskFactory from './task/aggregateUseActionsOnEvent';
 import * as CancelAccountMoneyTransferTaskFactory from './task/cancelAccountMoneyTransfer';
@@ -219,6 +221,7 @@ export namespace action {
     export import ISortOrder = ActionFactory.ISortOrder;
     export import ISearchConditions = ActionFactory.ISearchConditions;
 
+    export import accept = AcceptActionFactory;
     export namespace authorize {
         // tslint:disable-next-line:no-shadowed-variable
         export import IAction = AuthorizeActionFactory.IAction;
@@ -586,7 +589,6 @@ export namespace task {
         T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.IData :
         T extends TaskName.VoidReserveTransaction ? VoidReserveTransactionTaskFactory.IData :
         TaskFactory.IData;
-
     export type IAttributes<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.IAttributes :
         T extends TaskName.CreateEvent ? CreateEventTaskFactory.IAttributes :
@@ -617,7 +619,6 @@ export namespace task {
         T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.IAttributes :
         T extends TaskName.VoidReserveTransaction ? VoidReserveTransactionTaskFactory.IAttributes :
         TaskFactory.IAttributes;
-
     export type ITask<T extends TaskName | string> =
         T extends TaskName.ConfirmReserveTransaction ? ConfirmReserveTransactionTaskFactory.ITask :
         T extends TaskName.CreateEvent ? CreateEventTaskFactory.ITask :
@@ -648,11 +649,10 @@ export namespace task {
         T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.ITask :
         T extends TaskName.VoidReserveTransaction ? VoidReserveTransactionTaskFactory.ITask :
         TaskFactory.ITask;
-
     export import ISearchConditions = TaskFactory.ISearchConditions;
-
     export import IExecutionResult = TaskFactory.IExecutionResult;
 
+    export import aggregateOffers = AggregateOffersTaskFactory;
     export import aggregateScreeningEvent = AggregateScreeningEventTaskFactory;
     export import aggregateUseActionsOnEvent = AggregateUseActionsOnEventTaskFactory;
     export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;

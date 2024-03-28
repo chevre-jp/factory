@@ -2,6 +2,7 @@
  * アクションタイプ
  */
 export enum ActionType {
+    AcceptAction = 'AcceptAction',
     AuthorizeAction = 'AuthorizeAction',
     CancelAction = 'CancelAction',
     CheckAction = 'CheckAction',
@@ -13,7 +14,6 @@ export enum ActionType {
     MoneyTransfer = 'MoneyTransfer',
     OrderAction = 'OrderAction',
     PayAction = 'PayAction',
-    // PrintAction = 'PrintAction',
     RefundAction = 'RefundAction',
     RegisterAction = 'RegisterAction',
     ReplaceAction = 'ReplaceAction',

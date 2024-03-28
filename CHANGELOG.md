@@ -18,6 +18,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.364.0 - 2024-03-29
+
+### Added
+
+- イベントに対するオファー集計タスクを追加
+- AcceptActionを追加
+- アクション検索条件拡張
+
+### Changed
+
+- 経理レポートの返金アクションをFailedActionStatusに対応
+- 決済承認アクションのobjectを最適化
+- イベントの予約集計IFを最適化
+- COAイベントのoffersを本家に統一
+
+### Removed
+
+- イベント属性からaggregateEntranceGate,aggregateOfferを廃止
+
 ## v4.363.0 - 2024-03-21
 
 ### Added
