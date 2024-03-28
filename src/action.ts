@@ -115,6 +115,7 @@ export interface ISearchConditions {
         };
     };
     instrument?: {
+        typeOf?: { $eq?: string };
         transactionNumber?: { $eq?: string };
     };
     location?: {
@@ -139,6 +140,9 @@ export interface ISearchConditions {
             };
         };
         object?: {
+            /**
+             * 通知アクション(決済、返金)の決済方法ID
+             */
             paymentMethodId?: {
                 $eq?: string;
             };
@@ -157,6 +161,9 @@ export interface ISearchConditions {
             accountId?: {
                 $eq?: string;
             };
+            /**
+             * 決済アクションの決済方法ID
+             */
             paymentMethodId?: {
                 $eq?: string;
                 $in?: string[];
@@ -165,6 +172,9 @@ export interface ISearchConditions {
                 $eq?: string;
             };
         };
+        /**
+         * 承認アクションの決済方法ID
+         */
         paymentMethodId?: {
             $eq?: string;
         };
@@ -190,6 +200,10 @@ export interface ISearchConditions {
             $eq?: string;
             $in?: string[];
         };
+        /**
+         * 確定アクション、採用アクションなどの資産取引番号
+         */
+        transactionNumber?: { $eq?: string };
     };
     startFrom?: Date;
     startThrough?: Date;

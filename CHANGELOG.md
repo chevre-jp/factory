@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - イベントに対するオファー集計タスクを追加
 - AcceptActionを追加
+- アクション検索条件拡張
 
 ### Changed
 
