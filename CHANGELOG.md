@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.364.0 - 2024-03-29
+
+### Added
+
 - イベントに対するオファー集計タスクを追加
 - AcceptActionを追加
 - アクション検索条件拡張
@@ -19,15 +33,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - イベントの予約集計IFを最適化
 - COAイベントのoffersを本家に統一
 
-### Deprecated
-
 ### Removed
 
 - イベント属性からaggregateEntranceGate,aggregateOfferを廃止
-
-### Fixed
-
-### Security
 
 ## v4.363.0 - 2024-03-21
 
