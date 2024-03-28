@@ -128,8 +128,10 @@ export interface ISeller {
      */
     id: string;
     name?: IMultilingualString;
-    // アプリケーション対応(2022-11-18~)
-    makesOffer: ISellerMakesOffer[];
+    /**
+     * アプリケーションごとのオファー
+     */
+    makesOffer: ISellerMakesOffer[]; // アプリケーション対応(2022-11-18~)
 }
 export import IEligibleQuantity = OfferFactory.IEligibleQuantity;
 /**

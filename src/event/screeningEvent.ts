@@ -86,12 +86,10 @@ export interface IOffer {
     unacceptedPaymentMethod?: EventFactory.IUnacceptedPaymentMethodType[];
     seller: ISeller;
 }
-export type IOffer4COA = Pick<IOffer, 'typeOf' | 'offeredThrough'> & {
-    // 追加(2023-06-20~)
-    itemOffered: {
+export type IOffer4COA = Pick<IOffer, 'typeOf' | 'offeredThrough' | 'eligibleQuantity' | 'seller'> & {
+    itemOffered: { // 追加(2023-06-20~)
         serviceOutput: Pick<IServiceOutput, 'reservedTicket'>;
     };
-
 };
 export interface ICOAInfo {
     theaterCode: string;
