@@ -40,7 +40,7 @@ export type ISeatingType = string | string[];
  */
 export interface IPlace extends Pick<
     PlaceFactory.IPlace,
-    'project' | 'typeOf' | 'branchCode' | 'containedInPlace' | 'additionalProperty' | 'name'
+    'project' | 'typeOf' | 'branchCode' | 'containedInPlace' | 'additionalProperty' | 'name' | 'maximumAttendeeCapacity'
 > {
     typeOf: PlaceType.Seat;
     /**
