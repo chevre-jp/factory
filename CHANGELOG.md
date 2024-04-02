@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 追加特性のCategoryCodeSetに座席を追加
+
 ### Changed
 
 - 座席にmaximumAttendeeCapacityを拡張
