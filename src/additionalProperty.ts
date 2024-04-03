@@ -24,6 +24,7 @@ export type CategorySetIdentifier = CategoryCodeType
     | OfferType.Offer
     | OrderType.Order
     | PlaceType.MovieTheater
+    | PlaceType.Seat
     | SellerType;
 /**
  * {@link https://schema.org/CategoryCodeSet}
