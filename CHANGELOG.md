@@ -8,11 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 追加特性のCategoryCodeSetに座席を追加
-
 ### Changed
-
-- 座席にmaximumAttendeeCapacityを拡張
 
 ### Deprecated
 
@@ -21,6 +17,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.365.0 - 2024-04-03
+
+### Added
+
+- 追加特性のCategoryCodeSetに座席を追加
+
+### Changed
+
+- 座席にmaximumAttendeeCapacityを拡張
 
 ## v4.364.0 - 2024-03-29
 
