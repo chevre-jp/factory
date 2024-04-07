@@ -239,6 +239,14 @@ export interface IObjectWithoutDetail {
 export type IReservationFor = IBusReservationReservationFor | IEventReservationReservationFor;
 // reservationStatusは不要なので削除(2023-07-19~)
 export type IOmittedReservationProperty = 'reservationFor' | 'broker' | 'issuedThrough' | 'provider' | 'reservationStatus';
+// tslint:disable-next-line:no-suspicious-comment
+// TODO さらに最適化
+// | 'project'
+// | 'reservationNumber'
+// | 'bookingTime'
+// | 'modifiedTime'
+// | 'underName'
+// | 'checkedIn' | 'attended';
 export type IObjectSubReservation =
     Omit<IBusReservation, IOmittedReservationProperty> | Omit<IEventReservation, IOmittedReservationProperty>;
 export type IObjectSubReservationReservedTicket = Pick<ReservationFactory.ITicket, 'issuedBy' | 'ticketedSeat' | 'ticketType'>;
@@ -256,6 +264,9 @@ export interface IObject extends Pick<IReservationPackage, 'broker' | 'provider'
     acceptedOffer?: IAcceptedOffer4object[];
     issuedThrough?: IIssuedThrough;
     reservationFor?: IReservationFor;
+    /**
+     * 予約番号
+     */
     reservationNumber: string;
     subReservation?: IObjectSubReservation[];
     /**
