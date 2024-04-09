@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 予約取引のobject.subReservationを最適化
 - 興行オファー承認アクションのobject.acceptedOfferを最適化
+- 決済取引のobject.payActionを最適化
 
 ### Deprecated
 

@@ -20,7 +20,6 @@ import { IOnPaymentStatusChanged } from '../project';
 import { IPropertyValue } from '../propertyValue';
 import { PaymentServiceType } from '../service/paymentService';
 
-// 最適化(2022-05-27~)
 export import IAgent = AssetTransactionFactory.IAgent;
 export type IRecipient = IPayRecipient;
 /**
@@ -107,6 +106,7 @@ export interface IAccountsReceivableByServiceType {
     serviceType: string;
     accountsReceivable?: number;
 }
+export type IPayActionInObject = Pick<IPayAction, 'actionStatus' | 'id' | 'typeOf'>;
 /**
  * 取引対象物
  */
@@ -123,14 +123,17 @@ export interface IObject {
     // CreditCardIFのカード通貨区分を追加(2023-08-07~)
     // serviceOutput?: IOrderPaymentMethodIssuedThroughServiceOutput;
     paymentMethod: IPaymentMethod;
+    onPaymentStatusChanged?: IOnPaymentStatusChanged;
     pendingTransaction?: IPendingTransaction;
     entryTranArgs?: IEntryTranArgs;
     entryTranResult?: IEntryTranResult;
     execTranArgs?: IExecTranArgs | IExecTran3dsArgs; // 3DS拡張(2024-01-02~)
     execTranResult?: IExecTranResult | IExecTran3dsResult; // 3DS拡張(2024-01-02~)
     secureTran2Result?: ISecureTran2Result; // 3DS拡張(2024-01-02~)
-    payAction?: IPayAction;
-    onPaymentStatusChanged?: IOnPaymentStatusChanged;
+    /**
+     * PaymentServiceType.MovieTicketの場合、着券アクション
+     */
+    payAction?: IPayActionInObject; // 最適化(2024-04-09~)
     accountsReceivablesByServiceType?: IAccountsReceivableByServiceType[];
 }
 export interface IPaymentMethodWithoutDetail extends IPaymentMethod {
