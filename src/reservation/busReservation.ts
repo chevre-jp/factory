@@ -23,9 +23,10 @@ export interface IIssuedThrough extends ReservationFactory.IIssuedThrough {
     id: string;
 }
 /**
- * イベント予約
+ * トリップ予約
  */
 export interface IReservation extends ReservationFactory.IReservation<IPriceSpecification> {
+    bookingTime: Date;
     id: string;
     issuedThrough: IIssuedThrough;
     reservationFor: IReservationFor;

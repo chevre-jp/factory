@@ -8,7 +8,10 @@ import * as ScreeningEventFactory from '../../../event/screeningEvent';
 import * as OfferFactory from '../../../offer';
 import * as OrderFactory from '../../../order';
 import { PriceCurrency } from '../../../priceCurrency';
-import { ITicketOffer, ITicketPriceSpecification } from '../../../product';
+import {
+    ICategoryCodeChargePriceComponent, IMovieTicketTypeChargePriceComponent,
+    ITicketOffer, ITicketPriceSpecification, ITicketUnitPriceComponent
+} from '../../../product';
 import * as WebAPIFactory from '../../../service/webAPI';
 import { TransactionType } from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
@@ -91,8 +94,16 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
     acceptedOffers?: IResultAcceptedOffer[];
 }
 
-export type IAcceptedOfferPriceSpecification = ITicketPriceSpecification
+export type ExcludedFieldsFromTicketPriceComponent = 'accounting' | 'id' | 'name' | 'priceCurrency' | 'valueAddedTaxIncluded';
+export type ITicketPriceComponent = Omit<ICategoryCodeChargePriceComponent, ExcludedFieldsFromTicketPriceComponent>
+    | Omit<IMovieTicketTypeChargePriceComponent, ExcludedFieldsFromTicketPriceComponent>
+    | Omit<ITicketUnitPriceComponent, ExcludedFieldsFromTicketPriceComponent>;
+export type IAcceptedOfferPriceSpecification = Pick<ITicketPriceSpecification, 'priceCurrency' | 'typeOf' | 'valueAddedTaxIncluded'>
     & {
+        /**
+         * 承認アクションobjectに不要な属性を除外して再定義(2024-04-09~)
+         */
+        priceComponent: ITicketPriceComponent[];
         /**
          * 複合価格仕様に、指定された適用決済カード情報を付加できるように
          */
