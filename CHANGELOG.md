@@ -10,10 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 予約取引のobject.subReservationを最適化
-- 興行オファー承認アクションのobject.acceptedOfferを最適化
-- 決済取引のobject.payActionを最適化
-
 ### Deprecated
 
 ### Removed
@@ -21,6 +17,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.366.0 - 2024-04-12
+
+### Changed
+
+- 予約取引のobject.subReservationを最適化
+- 興行オファー承認アクションのobject.acceptedOfferを最適化
+- 決済取引のobject.payActionを最適化
 
 ## v4.365.0 - 2024-04-03
 
