@@ -597,19 +597,19 @@ export interface ISearchConditions {
     project?: {
         id?: { $eq?: string };
     };
-    additionalProperty?: {
-        $all?: IPropertyValue<string>[];
-        $in?: IPropertyValue<string>[];
-        $nin?: IPropertyValue<string>[];
-        $elemMatch?: {
-            name?: {
-                /**
-                 * 一致する名称の追加特性がひとつでも存在する
-                 */
-                $eq?: string;
-            };
-        };
-    };
+    // additionalProperty?: { // 廃止(2024-04-12~)
+    //     $all?: IPropertyValue<string>[];
+    //     $in?: IPropertyValue<string>[];
+    //     $nin?: IPropertyValue<string>[];
+    //     $elemMatch?: {
+    //         name?: {
+    //             /**
+    //              * 一致する名称の追加特性がひとつでも存在する
+    //              */
+    //             $eq?: string;
+    //         };
+    //     };
+    // };
     broker?: {
         id?: { $eq?: string };
     };
