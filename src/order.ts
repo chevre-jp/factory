@@ -355,7 +355,7 @@ export interface IOrderedItem {
 export interface IOrder extends ISimpleOrder {
     id?: string; // 追加(2023-02-13~)
     project: IProject;
-    additionalProperty?: IPropertyValue<string>[]; // 追加(2023-02-13~)
+    // additionalProperty?: IPropertyValue<string>[]; // 追加(2023-02-13~) // 廃止(2024-04-12~)
     /**
      * An entity that arranges for an exchange between a buyer and a seller.
      * In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.

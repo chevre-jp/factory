@@ -4,7 +4,6 @@ import { EventType } from './eventType';
 import { IMultilingualString } from './multilingualString';
 import { IOfferCatalog } from './offerCatalog';
 import { OfferType } from './offerType';
-import { OrderType } from './order';
 import { PlaceType } from './placeType';
 import { IProject } from './project';
 import { PropertyValueType } from './propertyValue';
@@ -22,7 +21,7 @@ export type CategorySetIdentifier = CategoryCodeType
     | PropertyValueType.LocationFeatureSpecification
     | OfferCatalogType
     | OfferType.Offer
-    | OrderType.Order
+    // | OrderType.Order // 廃止(2024-04-12~)
     | PlaceType.MovieTheater
     | PlaceType.Seat
     | SellerType;
