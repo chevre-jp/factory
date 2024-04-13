@@ -156,8 +156,8 @@ export type IBusReservation = Pick<
     BusReservationFactory.IReservation,
     'additionalProperty' |
     'additionalTicketText' |
-    // 'bookingTime' |
     'id' |
+    'identifier' | // 追加(2024-04-15~)
     'issuedThrough' |
     'programMembershipUsed' |
     'reservationNumber' |
@@ -170,8 +170,8 @@ export type IEventReservation = Pick<
     EventReservationFactory.IReservation,
     'additionalProperty' |
     'additionalTicketText' |
-    // 'bookingTime' |
     'id' |
+    'identifier' | // 追加(2024-04-15~)
     'issuedThrough' |
     'programMembershipUsed' |
     'reservationNumber' |

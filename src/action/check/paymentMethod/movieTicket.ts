@@ -2,7 +2,7 @@ import type * as surfrock from '@surfrock/sdk';
 
 import * as ActionFactory from '../../../action';
 import { OrganizationType } from '../../../organizationType';
-import { IMovieTicket as IMovieTicketPaymentCard, IServiceOutput as IMovieTicketServiceOutput } from '../../../paymentMethod/paymentCard/movieTicket';
+import { IMovieTicketPaymentCard, IMovieTicketServiceOutput } from '../../../paymentMethod/paymentCard/movieTicket';
 import { TransactionType } from '../../../transactionType';
 import * as CheckActionFactory from '../../check';
 import * as PayActionFactory from '../../trade/pay';

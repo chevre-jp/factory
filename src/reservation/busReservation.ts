@@ -28,6 +28,10 @@ export interface IIssuedThrough extends ReservationFactory.IIssuedThrough {
 export interface IReservation extends ReservationFactory.IReservation<IPriceSpecification> {
     bookingTime: Date;
     id: string;
+    /**
+     * 予約識別子
+     */
+    identifier?: string; // 追加(2024-04-15~)
     issuedThrough: IIssuedThrough;
     reservationFor: IReservationFor;
     reservationNumber: string;

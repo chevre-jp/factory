@@ -2,18 +2,39 @@ import { EventType } from '../../eventType';
 import { ISeat } from '../../reservation';
 import { IPaymentCard } from '../paymentCard';
 
-export interface IReservationFor { typeOf: EventType.ScreeningEvent; id: string; }
-export interface IServiceOutput {
+export interface IMovieTicketReservationFor { typeOf: EventType.ScreeningEvent; id: string; }
+export interface IMovieTicketServiceOutput {
+    /**
+     * 予約識別子
+     */
+    identifier?: string; // 追加(2024-04-15~)
     /**
      * 予約対象イベント
      */
-    reservationFor: IReservationFor;
+    reservationFor: IMovieTicketReservationFor;
     /**
      * 予約チケット
      */
     reservedTicket: { ticketedSeat: ISeat };
 }
-export interface IAttributes extends IPaymentCard {
+/**
+ * 決済カード
+ */
+export interface IMovieTicketPaymentCard extends Pick<
+    IPaymentCard,
+    'accessCode' | 'amount' | 'serviceOutput' | 'serviceType' | 'identifier' | 'typeOf'
+> {
+    /**
+     * 決済方法区分コード
+     */
+    typeOf: string;
+    category: {
+        /**
+         * 前売券（カード）の種類
+         * 全国券,劇場券など
+         */
+        codeValue: string; // 追加(2023-02-08~)
+    };
     /**
      * 購入管理番号
      */
@@ -29,22 +50,5 @@ export interface IAttributes extends IPaymentCard {
     /**
      * 利用対象予約
      */
-    serviceOutput: IServiceOutput;
-}
-
-/**
- * MovieTicket決済カード
- */
-export interface IMovieTicket extends IAttributes {
-    /**
-     * 決済方法区分コード
-     */
-    typeOf: string;
-    category: {
-        /**
-         * 前売券（カード）の種類
-         * 全国券,劇場券など
-         */
-        codeValue: string; // 追加(2023-02-08~)
-    };
+    serviceOutput: IMovieTicketServiceOutput;
 }
