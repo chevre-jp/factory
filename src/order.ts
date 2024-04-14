@@ -143,9 +143,9 @@ export type IEventAsReservationFor = Omit<EventReservationFactory.IReservationFo
 export type IReservedTicket = Pick<
     ITicket,
     'typeOf' | 'ticketedSeat' |
+    'ticketNumber' |
     // 以下COAのみ
     'dateIssued' |
-    'ticketNumber' |
     'ticketToken' |
     'coaTicketInfo' |
     'coaReserveAmount'
@@ -157,7 +157,6 @@ export type IBusReservation = Pick<
     'additionalProperty' |
     'additionalTicketText' |
     'id' |
-    'identifier' | // 追加(2024-04-15~)
     'issuedThrough' |
     'programMembershipUsed' |
     'reservationNumber' |
@@ -171,7 +170,6 @@ export type IEventReservation = Pick<
     'additionalProperty' |
     'additionalTicketText' |
     'id' |
-    'identifier' | // 追加(2024-04-15~)
     'issuedThrough' |
     'programMembershipUsed' |
     'reservationNumber' |

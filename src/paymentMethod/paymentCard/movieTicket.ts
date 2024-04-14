@@ -5,17 +5,20 @@ import { IPaymentCard } from '../paymentCard';
 export interface IMovieTicketReservationFor { typeOf: EventType.ScreeningEvent; id: string; }
 export interface IMovieTicketServiceOutput {
     /**
-     * 予約識別子
-     */
-    identifier?: string; // 追加(2024-04-15~)
-    /**
      * 予約対象イベント
      */
     reservationFor: IMovieTicketReservationFor;
     /**
      * 予約チケット
      */
-    reservedTicket: { ticketedSeat: ISeat };
+    reservedTicket: {
+        /**
+         * チケット識別子
+         * 指定された場合、予約のチケット識別子と関連付けされます
+         */
+        ticketNumber?: string; // 追加(2024-04-15~)
+        ticketedSeat: ISeat;
+    };
 }
 /**
  * 決済カード
