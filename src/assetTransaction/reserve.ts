@@ -84,12 +84,16 @@ export interface IBusReservatonAsItemOfferedServiceOutput {
     // 適用メンバーシップ
     programMembershipUsed?: IAcceptedProgramMembershipUsed;
     reservedTicket?: {
+        /**
+         * チケット識別子
+         * 指定された場合、決済カードの対象チケット識別子と関連付けされます
+         * /^[0-9a-zA-Z]{8,16}$/
+         */
+        identifier?: string; // 拡張(2024-04-15~)
         issuedBy?: ReservationFactory.IUnderName;
         typeOf: ReservationFactory.TicketType;
         /**
-         * 予約座席指定
-         * 指定席イベントの場合、座席を指定
-         * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
+         * 座席指定
          */
         ticketedSeat?: ReservationFactory.ISeat;
     };
@@ -108,12 +112,16 @@ export interface IEventReservatonAsItemOfferedServiceOutput {
     // 適用メンバーシップ
     programMembershipUsed?: IAcceptedProgramMembershipUsed;
     reservedTicket?: {
+        /**
+         * チケット識別子
+         * 指定された場合、決済カードの対象チケット識別子と関連付けされます
+         * /^[0-9a-zA-Z]{8,16}$/
+         */
+        identifier?: string; // 拡張(2024-04-15~)
         issuedBy?: ReservationFactory.IUnderName;
         typeOf: ReservationFactory.TicketType;
         /**
-         * 予約座席指定
-         * 指定席イベントの場合、座席を指定
-         * 自由席イベントの場合、あるいは、最大収容人数がないイベントの場合は、座席指定不要
+         * 座席指定
          */
         ticketedSeat?: ReservationFactory.ISeat;
     };
@@ -242,13 +250,6 @@ export type IOmittedReservationProperty = 'reservationFor' | 'broker' | 'issuedT
     | 'project' | 'reservationNumber' | 'bookingTime' | 'modifiedTime' | 'underName' | 'checkedIn' | 'attended';
 export type IObjectSubReservation =
     Omit<IBusReservation, IOmittedReservationProperty> | Omit<IEventReservation, IOmittedReservationProperty>;
-export type IObjectSubReservationReservedTicket = Pick<ReservationFactory.ITicket, 'issuedBy' | 'ticketedSeat' | 'ticketType'>;
-export type IMinimizedObjectSubReservation = Pick<
-    IObjectSubReservation,
-    'typeOf' | 'id' | 'subReservation'
-> & {
-    reservedTicket: IObjectSubReservationReservedTicket;
-};
 export type IIssuedThrough = IBusReservationIssuedThrough | IEventReservationIssuedThrough;
 /**
  * 取引対象物
