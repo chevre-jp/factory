@@ -126,6 +126,10 @@ export interface ITicket {
      */
     dateUsed?: Date;
     /**
+     * チケット識別子
+     */
+    identifier?: string; // 追加(2024-04-15~)
+    /**
      * The organization issuing the ticket or permit.
      */
     issuedBy?: ITicketIssuedBy;
@@ -143,7 +147,6 @@ export interface ITicket {
      */
     ticketedSeat?: ISeat;
     /**
-     * チケット識別子
      * The unique identifier for the ticket.
      */
     ticketNumber?: string;

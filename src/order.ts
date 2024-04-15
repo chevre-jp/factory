@@ -143,6 +143,7 @@ export type IEventAsReservationFor = Omit<EventReservationFactory.IReservationFo
 export type IReservedTicket = Pick<
     ITicket,
     'typeOf' | 'ticketedSeat' |
+    'identifier' | // 追加(2024-04-15~)
     'ticketNumber' |
     // 以下COAのみ
     'dateIssued' |

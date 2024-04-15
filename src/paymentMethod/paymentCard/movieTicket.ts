@@ -16,7 +16,7 @@ export interface IMovieTicketServiceOutput {
          * チケット識別子
          * 指定された場合、予約のチケット識別子と関連付けされます
          */
-        ticketNumber?: string; // 追加(2024-04-15~)
+        identifier?: string; // 追加(2024-04-15~)
         ticketedSeat: ISeat;
     };
 }
