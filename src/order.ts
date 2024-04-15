@@ -96,28 +96,6 @@ export interface IReferencedInvoice {
     additionalProperty: IPropertyValue<string>[];
     issuedThrough: IOrderPaymentMethodIssuedThrough;
 }
-/**
- * ディスカウント
- */
-export interface IDiscount {
-    /**
-     * 割引タイプ
-     */
-    typeOf: string;
-    name: string;
-    /**
-     * Any discount applied.
-     */
-    discount: number;
-    /**
-     * Code used to redeem a discount.
-     */
-    discountCode: string;
-    /**
-     * The currency (in 3 - letter ISO 4217 format) of the discount.
-     */
-    discountCurrency: string;
-}
 export type IWorkPerformed = Pick<
     EventReservationFactory.IOptimizedWorkPerformed,
     'typeOf' | 'id' | 'identifier' | 'name' | 'duration'
@@ -369,10 +347,7 @@ export interface IOrder extends ISimpleOrder {
      * Date order was returned.
      */
     dateReturned?: Date;
-    /**
-     * discount infos
-     */
-    discounts: IDiscount[];
+    // discounts: IDiscount[]; // 廃止(2024-04-16~)
     /**
      * The identifier property represents any kind of identifier for any kind of Thing
      */
