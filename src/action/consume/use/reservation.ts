@@ -16,7 +16,6 @@ export interface ILocation {
      */
     identifier: string;
 }
-// export type IPotentialActions = any;
 export interface IInstrument {
     /**
      * JWT
@@ -32,7 +31,6 @@ export interface IAttributes extends UseActionFactory.IAttributes<IObject, IResu
     agent: IAgent;
     instrument: IInstrument;
     location?: ILocation;
-    // potentialActions?: IPotentialActions;
 }
 /**
  * 予約使用アクション

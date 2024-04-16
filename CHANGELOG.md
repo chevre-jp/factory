@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 予約にチケット識別子を拡張
 - 決済カードにチケット識別子を拡張
 - 予約取引開始時のチケット識別子指定に対応
+- アクションのpurposeを最適化
 
 ### Deprecated
 

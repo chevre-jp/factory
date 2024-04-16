@@ -3,9 +3,10 @@ import { ActionType } from '../../actionType';
 
 export type IObject = any;
 export type IResult = any;
-export type IPurpose = any;
-export interface IAttributes<TObject, TResult> extends ActionFactory.IAttributes<ActionType.UseAction, TObject, TResult> {
-    purpose?: IPurpose;
+export interface IAttributes<TObject, TResult> extends Pick<
+    ActionFactory.IAttributes<ActionType.UseAction, TObject, TResult>,
+    'typeOf' | 'result' | 'project' | 'object' | 'location' | 'error' | 'instrument' | 'agent'
+> {
 }
 /**
  * 使用アクション
