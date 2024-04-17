@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 予約取引開始時のチケット識別子指定に対応
 - アクションのpurposeを最適化
 - 注文検索条件拡張
+- 資産取引検索条件拡張
 
 ### Deprecated
 

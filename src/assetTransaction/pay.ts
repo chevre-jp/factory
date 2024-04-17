@@ -209,5 +209,11 @@ export interface ISearchConditions extends AssetTransactionFactory.ISearchCondit
         accountId?: {
             $eq?: string;
         };
+        /**
+         * 決済サービスタイプ
+         */
+        typeOf?: {
+            $eq?: string;
+        };
     };
 }
