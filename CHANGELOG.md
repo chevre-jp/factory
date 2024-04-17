@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - アクションのpurposeを最適化
 - 注文検索条件拡張
 - 資産取引検索条件拡張
+- 予約取消取引のobjectをReservationPackageとして再定義
 
 ### Deprecated
 
