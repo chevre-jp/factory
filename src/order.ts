@@ -558,6 +558,12 @@ export interface IAcceptedOffersSearchConditions {
          * 使用メンバーシップ
          */
         programMembershipUsed?: IProgramMembershipUsedSearchConditions;
+        reservedTicket?: {
+            /**
+             * 予約チケット識別子
+             */
+            identifier?: { $eq?: string };
+        };
     };
     serialNumber?: { $eq?: string };
 }
