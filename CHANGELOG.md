@@ -10,6 +10,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.367.0 - 2024-04-19
+
+### Changed
+
 - 注文のadditionalPropertyを廃止
 - 注文のdiscountsを廃止
 - 予約にチケット識別子を拡張
@@ -19,14 +31,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文検索条件拡張
 - 資産取引検索条件拡張
 - 予約取消取引のobjectをReservationPackageとして再定義
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v4.366.0 - 2024-04-12
 
