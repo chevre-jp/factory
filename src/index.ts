@@ -408,7 +408,7 @@ export import ownershipInfo = OwnershipInfoFactory;
 
 export namespace paymentMethod {
     export type ISearchConditions = any;
-    export type IPaymentMethod = CreditCardFactory.ICheckedCard | MovieTicketFactory.IMovieTicket;
+    export type IPaymentMethod = CreditCardFactory.ICheckedCard | MovieTicketFactory.IMovieTicketPaymentCard;
 
     export namespace paymentCard {
         export import IPaymentCard = PaymentCardFactory.IPaymentCard;

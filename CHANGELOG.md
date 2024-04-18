@@ -18,6 +18,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.367.0 - 2024-04-19
+
+### Changed
+
+- 注文のadditionalPropertyを廃止
+- 注文のdiscountsを廃止
+- 予約にチケット識別子を拡張
+- 決済カードにチケット識別子を拡張
+- 予約取引開始時のチケット識別子指定に対応
+- アクションのpurposeを最適化
+- 注文検索条件拡張
+- 資産取引検索条件拡張
+- 予約取消取引のobjectをReservationPackageとして再定義
+
 ## v4.366.0 - 2024-04-12
 
 ### Changed

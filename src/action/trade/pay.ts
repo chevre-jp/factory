@@ -8,7 +8,7 @@ import { AssetTransactionType } from '../../assetTransactionType';
 import { CreativeWorkType } from '../../creativeWorkType';
 import { IPaymentServiceOutput } from '../../invoice';
 import { ITotalPaymentDue, OrderType } from '../../order';
-import { IMovieTicket as IMovieTicketPaymentCard } from '../../paymentMethod/paymentCard/movieTicket';
+import { IMovieTicketPaymentCard } from '../../paymentMethod/paymentCard/movieTicket';
 import { IPropertyValue } from '../../propertyValue';
 import { PaymentServiceType } from '../../service/paymentService';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';

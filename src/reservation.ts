@@ -20,7 +20,6 @@ import { IPropertyValue } from './propertyValue';
 import { ReservationStatusType } from './reservationStatusType';
 import { ReservationType } from './reservationType';
 import { SortType } from './sortType';
-import { IThing } from './thing';
 
 export type TicketType = 'Ticket';
 
@@ -127,6 +126,10 @@ export interface ITicket {
      */
     dateUsed?: Date;
     /**
+     * チケット識別子
+     */
+    identifier?: string; // 追加(2024-04-15~)
+    /**
      * The organization issuing the ticket or permit.
      */
     issuedBy?: ITicketIssuedBy;
@@ -144,17 +147,9 @@ export interface ITicket {
      */
     ticketedSeat?: ISeat;
     /**
-     * Where the ticket can be downloaded.
-     */
-    // ticketDownloadUrl?: string;
-    /**
-     * The number or id of the ticket.
+     * The unique identifier for the ticket.
      */
     ticketNumber?: string;
-    /**
-     * Where the ticket can be printed.
-     */
-    // ticketPrintUrl?: string;
     /**
      * If the barcode image is hosted on your site, the value of the field is URL of the image, or a barcode or QR URI,
      * such as "barcode128:AB34" (ISO-15417 barcodes), "qrCode:AB34" (QR codes),
@@ -162,12 +157,7 @@ export interface ITicket {
      */
     ticketToken?: string;
     /**
-     * The person or organization the reservation is for.
-     * ルートのunderNameに統合(2022-12-19~)
-     */
-    // underName?: IUnderName;
-    /**
-     * 券種
+     * オファー
      */
     ticketType: ITicketType;
     /**
@@ -226,7 +216,7 @@ export interface IProvider {
  * For offers of tickets, restaurant reservations, flights, or rental cars, use Offer.
  * {@link https://schema.org/Reservation}
  */
-export interface IReservation<T extends Omit<IPriceSpecification, 'project'>> extends Pick<IThing, 'identifier' | 'name'> {
+export interface IReservation<T extends Omit<IPriceSpecification, 'project'>> {
     project: Pick<IProject, 'id' | 'typeOf'>;
     /**
      * type of object

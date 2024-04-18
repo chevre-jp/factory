@@ -96,28 +96,6 @@ export interface IReferencedInvoice {
     additionalProperty: IPropertyValue<string>[];
     issuedThrough: IOrderPaymentMethodIssuedThrough;
 }
-/**
- * ディスカウント
- */
-export interface IDiscount {
-    /**
-     * 割引タイプ
-     */
-    typeOf: string;
-    name: string;
-    /**
-     * Any discount applied.
-     */
-    discount: number;
-    /**
-     * Code used to redeem a discount.
-     */
-    discountCode: string;
-    /**
-     * The currency (in 3 - letter ISO 4217 format) of the discount.
-     */
-    discountCurrency: string;
-}
 export type IWorkPerformed = Pick<
     EventReservationFactory.IOptimizedWorkPerformed,
     'typeOf' | 'id' | 'identifier' | 'name' | 'duration'
@@ -143,9 +121,10 @@ export type IEventAsReservationFor = Omit<EventReservationFactory.IReservationFo
 export type IReservedTicket = Pick<
     ITicket,
     'typeOf' | 'ticketedSeat' |
+    'identifier' | // 追加(2024-04-15~)
+    'ticketNumber' |
     // 以下COAのみ
     'dateIssued' |
-    'ticketNumber' |
     'ticketToken' |
     'coaTicketInfo' |
     'coaReserveAmount'
@@ -156,7 +135,6 @@ export type IBusReservation = Pick<
     BusReservationFactory.IReservation,
     'additionalProperty' |
     'additionalTicketText' |
-    // 'bookingTime' |
     'id' |
     'issuedThrough' |
     'programMembershipUsed' |
@@ -170,7 +148,6 @@ export type IEventReservation = Pick<
     EventReservationFactory.IReservation,
     'additionalProperty' |
     'additionalTicketText' |
-    // 'bookingTime' |
     'id' |
     'issuedThrough' |
     'programMembershipUsed' |
@@ -355,7 +332,7 @@ export interface IOrderedItem {
 export interface IOrder extends ISimpleOrder {
     id?: string; // 追加(2023-02-13~)
     project: IProject;
-    additionalProperty?: IPropertyValue<string>[]; // 追加(2023-02-13~)
+    // additionalProperty?: IPropertyValue<string>[]; // 追加(2023-02-13~) // 廃止(2024-04-12~)
     /**
      * An entity that arranges for an exchange between a buyer and a seller.
      * In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.
@@ -370,10 +347,7 @@ export interface IOrder extends ISimpleOrder {
      * Date order was returned.
      */
     dateReturned?: Date;
-    /**
-     * discount infos
-     */
-    discounts: IDiscount[];
+    // discounts: IDiscount[]; // 廃止(2024-04-16~)
     /**
      * The identifier property represents any kind of identifier for any kind of Thing
      */
@@ -584,6 +558,12 @@ export interface IAcceptedOffersSearchConditions {
          * 使用メンバーシップ
          */
         programMembershipUsed?: IProgramMembershipUsedSearchConditions;
+        reservedTicket?: {
+            /**
+             * 予約チケット識別子
+             */
+            identifier?: { $eq?: string };
+        };
     };
     serialNumber?: { $eq?: string };
 }
@@ -597,19 +577,19 @@ export interface ISearchConditions {
     project?: {
         id?: { $eq?: string };
     };
-    additionalProperty?: {
-        $all?: IPropertyValue<string>[];
-        $in?: IPropertyValue<string>[];
-        $nin?: IPropertyValue<string>[];
-        $elemMatch?: {
-            name?: {
-                /**
-                 * 一致する名称の追加特性がひとつでも存在する
-                 */
-                $eq?: string;
-            };
-        };
-    };
+    // additionalProperty?: { // 廃止(2024-04-12~)
+    //     $all?: IPropertyValue<string>[];
+    //     $in?: IPropertyValue<string>[];
+    //     $nin?: IPropertyValue<string>[];
+    //     $elemMatch?: {
+    //         name?: {
+    //             /**
+    //              * 一致する名称の追加特性がひとつでも存在する
+    //              */
+    //             $eq?: string;
+    //         };
+    //     };
+    // };
     broker?: {
         id?: { $eq?: string };
     };
