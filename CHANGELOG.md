@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 決済承認タスクを追加
+
 ### Changed
 
 ### Deprecated

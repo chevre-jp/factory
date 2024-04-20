@@ -10,6 +10,10 @@ export enum TaskName {
     AggregateScreeningEvent = 'aggregateScreeningEvent',
     AggregateUseActionsOnEvent = 'aggregateUseActionsOnEvent',
     /**
+     * 決済承認(2024-04-20~)
+     */
+    AuthorizePayment = 'authorizePayment',
+    /**
      * 口座転送中止
      */
     CancelAccountMoneyTransfer = 'cancelAccountMoneyTransfer',
