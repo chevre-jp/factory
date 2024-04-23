@@ -66,6 +66,10 @@ export interface IAttributes {
      * 中止日時
      */
     dateAborted?: Date;
+    /**
+     * 実行期限
+     */
+    expires?: Date; // add(2024-04-34~)
 }
 /**
  * ソート条件

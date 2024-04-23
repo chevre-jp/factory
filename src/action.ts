@@ -64,6 +64,12 @@ export interface IAttributes<T extends ActionType, TObject, TResult> {
     purpose?: IPurpose;
     recipient?: IParticipant;
     result?: TResult;
+    sameAs?: {
+        /**
+         * タスクID
+         */
+        id: string;
+    };
     /**
      * アクションタイプ
      */
@@ -230,6 +236,11 @@ export interface ISearchConditions {
         };
         code?: {
             $in?: string[];
+        };
+    };
+    sameAs?: {
+        id?: {
+            $eq?: string;
         };
     };
     fromLocation?: {

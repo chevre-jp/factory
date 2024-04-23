@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - 決済承認タスクを追加
+- アクションにsameAsを追加
+- タスクにexpiresを追加
 
 ### Changed
 
