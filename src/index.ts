@@ -135,6 +135,7 @@ import * as AccountMoneyTransferTaskFactory from './task/accountMoneyTransfer';
 import * as AggregateOffersTaskFactory from './task/aggregateOffers';
 import * as AggregateScreeningEventTaskFactory from './task/aggregateScreeningEvent';
 import * as AggregateUseActionsOnEventTaskFactory from './task/aggregateUseActionsOnEvent';
+import * as AuthorizePaymentTaskFactory from './task/authorizePayment';
 import * as CancelAccountMoneyTransferTaskFactory from './task/cancelAccountMoneyTransfer';
 import * as CancelMoneyTransferTaskFactory from './task/cancelMoneyTransfer';
 import * as CancelPendingReservationTaskFactory from './task/cancelPendingReservation';
@@ -655,6 +656,7 @@ export namespace task {
     export import aggregateOffers = AggregateOffersTaskFactory;
     export import aggregateScreeningEvent = AggregateScreeningEventTaskFactory;
     export import aggregateUseActionsOnEvent = AggregateUseActionsOnEventTaskFactory;
+    export import authorizePayment = AuthorizePaymentTaskFactory;
     export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;

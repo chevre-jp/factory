@@ -46,6 +46,13 @@ export type IParticipant = IParticipantAsWebApplication
 export interface IPurpose {
     typeOf: string;
 }
+export interface ISameAs {
+    /**
+     * タスクID
+     */
+    id: string;
+    typeOf: 'Task';
+}
 /**
  * アクション属性
  */
@@ -64,6 +71,7 @@ export interface IAttributes<T extends ActionType, TObject, TResult> {
     purpose?: IPurpose;
     recipient?: IParticipant;
     result?: TResult;
+    sameAs?: ISameAs;
     /**
      * アクションタイプ
      */
@@ -230,6 +238,11 @@ export interface ISearchConditions {
         };
         code?: {
             $in?: string[];
+        };
+    };
+    sameAs?: {
+        id?: {
+            $eq?: string;
         };
     };
     fromLocation?: {
