@@ -8,10 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 決済承認タスクを追加
-- アクションにsameAsを追加
-- タスクにexpiresを追加
-
 ### Changed
 
 ### Deprecated
@@ -21,6 +17,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.368.0 - 2024-04-25
+
+### Added
+
+- 決済承認タスクを追加
+- アクションにsameAsを追加
+- タスクにexpiresを追加
 
 ## v4.367.0 - 2024-04-19
 
