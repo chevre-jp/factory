@@ -63,6 +63,7 @@ export interface ICredentials {
     authorizeServerDomain?: string;
     clientId?: string;
     clientSecret?: string;
+    useSeatInfoSyncCancel?: boolean; // add(2024-04-27~)
 }
 
 export interface IAvailableChannel {

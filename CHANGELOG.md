@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 決済サービスのavailableChannel.credentialsにuseSeatInfoSyncCancelを追加
+
 ### Changed
 
 ### Deprecated
