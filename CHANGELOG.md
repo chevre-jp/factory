@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- Eメール送信アクションをメッセージリポジトリに対応
+
 ### Deprecated
 
 ### Removed
