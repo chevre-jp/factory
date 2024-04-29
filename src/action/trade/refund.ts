@@ -24,10 +24,15 @@ export type IAlterTranResult = GMO.factory.credit.IAlterTranResult;
 export interface ISeatInfoSyncResultAsError { name: string; message: string; }
 export type ISeatInfoSyncIn = surfrock.service.seat.factory.ISeatInfoSyncIn;
 export type ISeatInfoSyncResult = surfrock.service.seat.factory.ISeatInfoSyncResult | ISeatInfoSyncResultAsError;
+export type ISeatInfoSyncCancelIn = surfrock.service.seat.factory.seatInfoSyncCancel.ISeatInfoSyncCancelIn;
+export type ISeatInfoSyncCancelResult = surfrock.service.seat.factory.seatInfoSyncCancel.ISeatInfoSyncCancelResult
+    | ISeatInfoSyncResultAsError;
 export interface IResult {
     alterTranResult?: IAlterTranResult[];
     seatInfoSyncIn?: ISeatInfoSyncIn;
     seatInfoSyncResult?: ISeatInfoSyncResult;
+    seatInfoSyncCancelIn?: ISeatInfoSyncCancelIn;
+    seatInfoSyncCancelResult?: ISeatInfoSyncCancelResult;
     /**
      * ペイメントカード決済の場合
      */
