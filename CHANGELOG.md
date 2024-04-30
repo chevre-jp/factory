@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - Eメール送信アクションをメッセージリポジトリに対応
 - 返金アクションをseatInfoSyncCancelに対応
+- update @surfrock/sdk
 
 ### Deprecated
 

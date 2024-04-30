@@ -1,5 +1,5 @@
 import type * as GMO from '@motionpicture/gmo-service';
-import type * as surfrock from '@surfrock/sdk';
+import { factory as surfrockFactory } from '@surfrock/sdk';
 
 import * as ActionFactory from '../../action';
 import { ActionType } from '../../actionType';
@@ -22,10 +22,10 @@ export type IPaymentService = Omit<IPaymentServiceOnPay, 'paymentMethod'> & {
 export type IObject = IPaymentService[];
 export type IAlterTranResult = GMO.factory.credit.IAlterTranResult;
 export interface ISeatInfoSyncResultAsError { name: string; message: string; }
-export type ISeatInfoSyncIn = surfrock.service.seat.factory.ISeatInfoSyncIn;
-export type ISeatInfoSyncResult = surfrock.service.seat.factory.ISeatInfoSyncResult | ISeatInfoSyncResultAsError;
-export type ISeatInfoSyncCancelIn = surfrock.service.seat.factory.seatInfoSyncCancel.ISeatInfoSyncCancelIn;
-export type ISeatInfoSyncCancelResult = surfrock.service.seat.factory.seatInfoSyncCancel.ISeatInfoSyncCancelResult
+export type ISeatInfoSyncIn = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncIn;
+export type ISeatInfoSyncResult = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncResult | ISeatInfoSyncResultAsError;
+export type ISeatInfoSyncCancelIn = surfrockFactory.service.seat.seatInfoSyncCancel.ISeatInfoSyncCancelIn;
+export type ISeatInfoSyncCancelResult = surfrockFactory.service.seat.seatInfoSyncCancel.ISeatInfoSyncCancelResult
     | ISeatInfoSyncResultAsError;
 export interface IResult {
     alterTranResult?: IAlterTranResult[];
