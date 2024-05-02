@@ -1,9 +1,9 @@
+import { IMemberRole } from './iam';
 import { IOrder } from './order';
 import { IOwnershipInfo, IPermitAsGood, IPermitIssuedThrough, IReservation } from './ownershipInfo';
 import { IProject } from './project';
 import { SortType } from './sortType';
 
-// strict definetion(2023-01-31~)
 export type IOrderAsObject = Pick<IOrder, 'orderNumber' | 'typeOf'>;
 export type IPermitIssuedThroughOfObjectTypeOfGood = Pick<IPermitIssuedThrough, 'id' | 'typeOf'>;
 export type IPermitAsObjectTypeOfGood = Pick<IPermitAsGood, 'identifier' | 'typeOf'> & {
@@ -12,7 +12,15 @@ export type IPermitAsObjectTypeOfGood = Pick<IPermitAsGood, 'identifier' | 'type
 export type IPermitOwnershipInfoAsObject = Pick<IOwnershipInfo<IPermitAsObjectTypeOfGood>, 'id' | 'identifier' | 'typeOf' | 'typeOfGood'>;
 export type IReservationOwnershipInfoAsObject = Pick<IOwnershipInfo<IReservation>, 'id' | 'identifier' | 'typeOf' | 'typeOfGood'>;
 export type IOwnershipInfoAsObject = IPermitOwnershipInfoAsObject | IReservationOwnershipInfoAsObject;
-export type IObject = IOrderAsObject | IOwnershipInfoAsObject;
+export type IRoleAsObject = Pick<IMemberRole, 'roleName' | 'typeOf'>;
+export type IObject = IOrderAsObject | IOwnershipInfoAsObject | IRoleAsObject[];
+export interface IAudience {
+    /**
+     * クライアントID
+     */
+    id: string;
+    typeOf: string;
+}
 
 /**
  * 承認
@@ -36,6 +44,7 @@ export interface IAuthorization {
      * 有効期間
      */
     validUntil: Date;
+    audience?: IAudience;
 }
 
 /**
