@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済サービスのavailableChannel.credentialsにuseSeatInfoSyncCancelを追加
 - 承認にaudienceを拡張
 - 承認オブジェクトをOrganizationRoleに拡張
+- 承認にauthorを拡張
 
 ### Changed
 

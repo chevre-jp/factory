@@ -1,6 +1,8 @@
+import { CreativeWorkType } from './creativeWorkType';
 import { IMemberRole } from './iam';
 import { IOrder } from './order';
 import { IOwnershipInfo, IPermitAsGood, IPermitIssuedThrough, IReservation } from './ownershipInfo';
+import { PersonType } from './personType';
 import { IProject } from './project';
 import { SortType } from './sortType';
 
@@ -20,6 +22,10 @@ export interface IAudience {
      */
     id: string;
     typeOf: string;
+}
+export interface IAuthor {
+    id: string;
+    typeOf: PersonType.Person | CreativeWorkType.WebApplication;
 }
 
 /**
@@ -45,6 +51,7 @@ export interface IAuthorization {
      */
     validUntil: Date;
     audience?: IAudience;
+    author?: IAuthor;
 }
 
 /**
