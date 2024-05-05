@@ -9,15 +9,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - 決済サービスのavailableChannel.credentialsにuseSeatInfoSyncCancelを追加
-- 承認にaudienceを拡張
 - 承認オブジェクトをOrganizationRoleに拡張
-- 承認にauthorを拡張
+- creativeWorkTypeにSoftwareApplicationを追加
+- 承認にaudience,author,issuedByを拡張
 
 ### Changed
 
 - Eメール送信アクションをメッセージリポジトリに対応
 - 返金アクションをseatInfoSyncCancelに対応
 - update @surfrock/sdk
+- 予約使用アクションのobjectを最適化
 
 ### Deprecated
 

@@ -1,11 +1,19 @@
 import { IParticipantAsPerson, IParticipantAsWebApplication } from '../../../action';
 import { PlaceType } from '../../../placeType';
-import { IReservation } from '../../../reservation/event';
+import { ITicket, ITicketType } from '../../../reservation';
+import { IIssuedThrough, IReservation, IReservationFor } from '../../../reservation/event';
 import { ObjectType } from '../../check/token';
 import * as UseActionFactory from '../use';
 
 export type IAgent = IParticipantAsPerson | IParticipantAsWebApplication;
-export type IReservationAsObject = Pick<IReservation, 'id' | 'issuedThrough' | 'reservationFor' | 'reservationNumber' | 'reservedTicket' | 'typeOf'>;
+// optimize(2024-05-06~)
+export interface IReservationAsObject extends Pick<IReservation, 'id' | 'reservationNumber' | 'typeOf'> {
+    issuedThrough: Pick<IIssuedThrough, 'id' | 'typeOf'>;
+    reservationFor: Pick<IReservationFor, 'id' | 'typeOf'>;
+    reservedTicket: Pick<ITicket, 'identifier' | 'ticketedSeat' | 'typeOf'> & {
+        ticketType: Pick<ITicketType, 'id' | 'identifier' | 'typeOf'>;
+    };
+}
 export type IObject = IReservationAsObject[];
 // tslint:disable-next-line:no-empty-interface
 export interface IResult { }

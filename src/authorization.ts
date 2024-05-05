@@ -1,6 +1,7 @@
 import { CreativeWorkType } from './creativeWorkType';
 import { IMemberRole } from './iam';
 import { IOrder } from './order';
+import { OrganizationType } from './organizationType';
 import { IOwnershipInfo, IPermitAsGood, IPermitIssuedThrough, IReservation } from './ownershipInfo';
 import { PersonType } from './personType';
 import { IProject } from './project';
@@ -21,11 +22,15 @@ export interface IAudience {
      * クライアントID
      */
     id: string;
-    typeOf: string;
+    typeOf: CreativeWorkType.SoftwareApplication | CreativeWorkType.WebApplication;
 }
 export interface IAuthor {
     id: string;
     typeOf: PersonType.Person | CreativeWorkType.WebApplication;
+}
+export interface IIssuedBy {
+    id: string;
+    typeOf: OrganizationType.Corporation | OrganizationType.Project;
 }
 
 /**
@@ -34,6 +39,7 @@ export interface IAuthor {
 export interface IAuthorization {
     project: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: 'Authorization';
+    id?: string;
     /**
      * 承認コード
      */
@@ -52,6 +58,7 @@ export interface IAuthorization {
     validUntil: Date;
     audience?: IAudience;
     author?: IAuthor;
+    issuedBy?: IIssuedBy;
 }
 
 /**

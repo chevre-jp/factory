@@ -31,7 +31,7 @@ export interface IRoleSearchConditions {
     };
 }
 
-export type IMemberType = PersonType | CreativeWorkType.WebApplication;
+export type IMemberType = PersonType | CreativeWorkType.WebApplication | CreativeWorkType.SoftwareApplication;
 export type IMemberRole = Pick<IRole, 'typeOf' | 'roleName'>;
 export type IProgramMembershipOfProject = Pick<IProgramMembership, 'typeOf'> & {
     issuer: string;

@@ -6,5 +6,6 @@ export enum CreativeWorkType {
     EmailMessage = 'EmailMessage',
     Movie = 'Movie',
     NoteDigitalDocument = 'NoteDigitalDocument',
+    SoftwareApplication = 'SoftwareApplication',
     WebApplication = 'WebApplication'
 }
