@@ -24,13 +24,15 @@ export type IObject = OrderFactory.ISimpleOrder & {
  * 注文配送結果としての所有権
  */
 export type IResult = IOwnershipInfo<IGood>[];
+export type ISendEmailMessage = Pick<ISendEmailMessageActionAttributes, 'object'>;
 export interface IPotentialActions {
     // moneyTransfer?: IMoneyTransferActionAttributes[]; // 通貨転送アクション廃止(2024-01-29~)
     // registerService?: IRegisterServiceAttributes[]; // サービス登録アクション廃止(2024-01-30~)
     /**
      * Eメール送信アクション
+     * 注文処理後のメッセージ送信として機能しているので注意
      */
-    sendEmailMessage?: ISendEmailMessageActionAttributes[];
+    sendEmailMessage?: ISendEmailMessage[]; // optimize(2024-05-07~)
 }
 export interface IAttributes extends SendActionFactory.IAttributes<IObject, IResult> {
     agent: IAgent;

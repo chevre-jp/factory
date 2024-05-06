@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 返金アクションをseatInfoSyncCancelに対応
 - update @surfrock/sdk
 - 予約使用アクションのobjectを最適化
+- 注文取引のpotentialActionsを最適化
 
 ### Deprecated
 
