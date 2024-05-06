@@ -1,5 +1,5 @@
 import { CreativeWorkType } from './creativeWorkType';
-import { IMemberRole } from './iam';
+import { IMember, IMemberOfRole } from './iam';
 import { IOrder } from './order';
 import { OrganizationType } from './organizationType';
 import { IOwnershipInfo, IPermitAsGood, IPermitIssuedThrough, IReservation } from './ownershipInfo';
@@ -15,8 +15,13 @@ export type IPermitAsObjectTypeOfGood = Pick<IPermitAsGood, 'identifier' | 'type
 export type IPermitOwnershipInfoAsObject = Pick<IOwnershipInfo<IPermitAsObjectTypeOfGood>, 'id' | 'identifier' | 'typeOf' | 'typeOfGood'>;
 export type IReservationOwnershipInfoAsObject = Pick<IOwnershipInfo<IReservation>, 'id' | 'identifier' | 'typeOf' | 'typeOfGood'>;
 export type IOwnershipInfoAsObject = IPermitOwnershipInfoAsObject | IReservationOwnershipInfoAsObject;
-export type IRoleAsObject = Pick<IMemberRole, 'roleName' | 'typeOf'>;
-export type IObject = IOrderAsObject | IOwnershipInfoAsObject | IRoleAsObject[];
+/**
+ * 承認対象としてのIAMメンバー
+ */
+export type IRoleAsObject = Pick<IMember, 'member' | 'typeOf'> & {
+    member: Pick<IMemberOfRole, 'hasRole' | 'id' | 'memberOf' | 'typeOf'>;
+};
+export type IObject = IOrderAsObject | IOwnershipInfoAsObject | IRoleAsObject;
 export interface IAudience {
     /**
      * クライアントID
