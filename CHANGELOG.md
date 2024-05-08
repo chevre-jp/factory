@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - update @surfrock/sdk
 - 予約使用アクションのobjectを最適化
 - 注文取引のpotentialActionsを最適化
+- IClientUserを拡張
 
 ### Deprecated
 
