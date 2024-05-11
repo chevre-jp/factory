@@ -49,6 +49,7 @@ export interface ISearchConditions {
     page?: number;
     sort?: ISortOrder;
     branchCode?: { $regex?: string };
+    id?: { $eq?: string };
     name?: { $regex?: string };
     project?: { id?: { $eq?: string } };
 }
