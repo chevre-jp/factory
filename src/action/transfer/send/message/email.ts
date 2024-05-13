@@ -10,12 +10,20 @@ import * as SendActionFactory from '../../send';
 
 export type IAgent = IParticipantAsProject;
 export type IRecipient = IParticipantAsWebApplication | IParticipantAsPerson | IParticipantAsCustomer;
-/**
- * オブジェクト
- * 「Eメール通知」を送信する
- */
-export type IObject = IEmailMessage;
-export type IResult = any;
+// メッセージリポジトリに対応(2024-04-29~)
+export type IObjectAsEmailMessage = Pick<
+    IEmailMessage,
+    'about' | 'identifier' | 'name' | 'sender' | 'text' | 'toRecipient' | 'typeOf'
+>;
+export type IOptimizedObject = Pick<IEmailMessage, 'identifier' | 'typeOf'> & {
+    identifier: string;
+    text?: never;
+};
+export type IObject = IObjectAsEmailMessage | IOptimizedObject;
+export interface IResult {
+    statusCode?: number;
+    statusMessage?: string;
+}
 export type IPurpose = ISimpleOrder;
 // tslint:disable-next-line:no-empty-interface
 export interface IPotentialActions {

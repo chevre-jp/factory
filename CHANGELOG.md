@@ -18,6 +18,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.369.0 - 2024-05-14
+
+### Added
+
+- 決済サービスのavailableChannel.credentialsにuseSeatInfoSyncCancelを追加
+- 承認オブジェクトをOrganizationRoleに拡張
+- creativeWorkTypeにSoftwareApplicationを追加
+- 承認にaudience,author,issuedByを拡張
+
+### Changed
+
+- Eメール送信アクションをメッセージリポジトリに対応
+- 返金アクションをseatInfoSyncCancelに対応
+- update @surfrock/sdk
+- 予約使用アクションのobjectを最適化
+- 注文取引のpotentialActionsを最適化
+- IClientUserを拡張
+- 顧客検索条件
+
 ## v4.368.0 - 2024-04-25
 
 ### Added

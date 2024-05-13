@@ -15,14 +15,12 @@ export interface IProject {
     typeOf: OrganizationType.Project;
 }
 export interface IObjectWithoutDetail {
-    // clientUser?: IClientUser;
     amount: {
         value: number;
     };
     description?: string;
 }
 export interface IObject {
-    // clientUser?: IClientUser;
     /**
      * 金額
      */

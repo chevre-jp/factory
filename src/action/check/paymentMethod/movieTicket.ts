@@ -1,4 +1,4 @@
-import type * as surfrock from '@surfrock/sdk';
+import { factory as surfrockFactory } from '@surfrock/sdk';
 
 import * as ActionFactory from '../../../action';
 import { OrganizationType } from '../../../organizationType';
@@ -8,8 +8,8 @@ import * as CheckActionFactory from '../../check';
 import * as PayActionFactory from '../../trade/pay';
 
 export type IAgent = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
-export type IPurchaseNumberAuthIn = surfrock.service.auth.factory.IPurchaseNumberAuthIn;
-export type IPurchaseNumberAuthResult = surfrock.service.auth.factory.IPurchaseNumberAuthResult;
+export type IPurchaseNumberAuthIn = surfrockFactory.service.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
+export type IPurchaseNumberAuthResult = surfrockFactory.service.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
 /**
  * 認証対象のmovieTicket
  */

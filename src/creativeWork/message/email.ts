@@ -32,10 +32,11 @@ export interface ICreativeWork extends Pick<
     project?: Pick<IProject, 'id' | 'typeOf'>;
     typeOf: CreativeWorkType.EmailMessage;
     sender: IParticipant;
-    // multiple対応(2023-03-06~)
-    toRecipient: IParticipant[];
+    toRecipient: IParticipant[]; // multiple対応(2023-03-06~)
     about: IAbout;
     text: string;
+    name?: string;
+    identifier?: string;
 }
 export interface ICustomizedParticipant {
     name?: string;

@@ -1,10 +1,5 @@
 /**
- * アプリケーションクライアントユーザーファクトリー
- * クライアントサイドでapiを利用するユーザー
- */
-
-/**
- * クライアントユーザーインターフェース
+ * クライアントユーザー
  */
 export interface IClientUser {
     sub: string;
@@ -14,8 +9,11 @@ export interface IClientUser {
     iss: string;
     exp: number;
     iat: number;
-    version: number;
+    version: number | string;
     jti: string;
     client_id: string;
     username?: string;
+
+    aud?: string;
+    typ?: string;
 }
