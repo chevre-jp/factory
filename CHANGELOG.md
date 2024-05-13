@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.369.1 - 2024-05-14
+
+### Changed
+
+- optimize packages
+
 ## v4.369.0 - 2024-05-14
 
 ### Added
