@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.369.0 - 2024-05-14
+
+### Added
+
 - 決済サービスのavailableChannel.credentialsにuseSeatInfoSyncCancelを追加
 - 承認オブジェクトをOrganizationRoleに拡張
 - creativeWorkTypeにSoftwareApplicationを追加
@@ -22,14 +36,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文取引のpotentialActionsを最適化
 - IClientUserを拡張
 - 顧客検索条件
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v4.368.0 - 2024-04-25
 
