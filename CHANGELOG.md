@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - discontinue order.IPersonCustomer.memberOf
+- discontinue placeOrder.agent.memberOf
 - optimize placeOrder.object.clientUser
 
 ### Deprecated
