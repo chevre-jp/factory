@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - discontinue order.IPersonCustomer.memberOf
 - discontinue placeOrder.agent.memberOf
 - optimize placeOrder.object.clientUser
+- support SoftwareApplication as an action participant
 
 ### Deprecated
 

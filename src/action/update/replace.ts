@@ -1,7 +1,9 @@
 import * as ActionFactory from '../../action';
 import { ActionType } from '../../actionType';
 
-export type IAgent = ActionFactory.IParticipantAsPerson | ActionFactory.IParticipantAsWebApplication;
+export type IAgent = ActionFactory.IParticipantAsPerson
+    | ActionFactory.IParticipantAsWebApplication
+    | ActionFactory.IParticipantAsSoftwareApplication;
 export type IObject = any;
 export type IResult = any;
 export type IReplacer = any;

@@ -16,6 +16,10 @@ export type IParticipantAsWebApplication = IParticipantOptionalAttributes & {
     id: string;
     identifier?: never; // identifierを排除のため
 };
+export type IParticipantAsSoftwareApplication = IParticipantOptionalAttributes & {
+    typeOf: CreativeWorkType.SoftwareApplication;
+    id: string;
+};
 export type IParticipantAsPerson = IParticipantOptionalAttributes & Pick<IPersonAttributes, 'id' | 'typeOf'>;
 export type IParticipantAsSeller = IParticipantOptionalAttributes & {
     typeOf: OrganizationType.Corporation;
@@ -36,6 +40,7 @@ export type IParticipantAsCustomer = IParticipantOptionalAttributes & {
  * アクションへの関係者
  */
 export type IParticipant = IParticipantAsWebApplication
+    | IParticipantAsSoftwareApplication // add(2024-05-17~)
     | IParticipantAsPerson
     | IParticipantAsSeller
     | IParticipantAsProject
