@@ -54,7 +54,7 @@ export interface IAwardAccount {
     accountNumber: string;
 }
 export interface IObject {
-    clientUser?: IClientUser;
+    clientUser?: Omit<IClientUser, 'scope' | 'scopes'>;
     broker?: OrderFactory.IBroker;
     customer?: ICustomer;
     identifier?: OrderFactory.IIdentifier;
@@ -93,7 +93,7 @@ export interface IStartParamsWithoutDetail {
         id: string;
     };
     object: {
-        clientUser?: IClientUser;
+        clientUser?: Omit<IClientUser, 'scope' | 'scopes'>;
         customer?: ICustomer;
         passport?: TransactionFactory.IPassportBeforeStart;
         /**
