@@ -15,7 +15,11 @@ import { TransactionType } from './transactionType';
 export interface IAgentAsWebApplication extends Pick<IWebApplication, 'id' | 'identifier' | 'typeOf'> {
     name?: string;
 }
-export interface IAgentAsPerson extends Pick<IPersonAttributes, 'id' | 'identifier' | 'memberOf' | 'typeOf'> {
+// discontinue memberOf(2024-05-17~)
+// export interface IAgentAsPerson extends Pick<IPersonAttributes, 'id' | 'identifier' | 'memberOf' | 'typeOf'> {
+//     name?: string;
+// }
+export interface IAgentAsPerson extends Pick<IPersonAttributes, 'id' | 'identifier' | 'typeOf'> {
     name?: string;
 }
 export type IAgent = IAgentAsWebApplication | IAgentAsPerson;

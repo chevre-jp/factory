@@ -18,6 +18,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.370.0 - 2024-05-17
+
+### Changed
+
+- discontinue order.IPersonCustomer.memberOf
+- discontinue placeOrder.agent.memberOf
+- optimize placeOrder.object.clientUser
+- support SoftwareApplication as an action participant
+
 ## v4.369.1 - 2024-05-14
 
 ### Changed

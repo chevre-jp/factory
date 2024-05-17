@@ -245,7 +245,9 @@ export type IWebApplicationCustomer = Pick<IWebApplication, 'id' | 'typeOf'> & I
  * 顧客組織としてのカスタマー
  */
 export type IOrganizationCustomer = Pick<ICustomerOrganization, 'id' | 'typeOf'> & IProfile;
-export type IPersonCustomer = Pick<IPerson, 'id' | 'typeOf' | 'memberOf'> & IProfile;
+// discontinue memberOf(2024-05-16~)
+// export type IPersonCustomer = Pick<IPerson, 'id' | 'typeOf' | 'memberOf'> & IProfile;
+export type IPersonCustomer = Pick<IPerson, 'id' | 'typeOf'> & IProfile;
 /**
  * カスタマー
  */
