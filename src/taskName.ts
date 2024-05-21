@@ -21,6 +21,10 @@ export enum TaskName {
     CancelReservation = 'cancelReservation',
     CancelPendingReservation = 'cancelPendingReservation',
     /**
+     * 決済カード認証(2024-05-21~)
+     */
+    CheckMovieTicket = 'checkMovieTicket',
+    /**
      * リソース検証
      */
     CheckResource = 'checkResource',
