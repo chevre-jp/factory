@@ -76,6 +76,10 @@ export enum TaskName {
      * 注文受付
      */
     PlaceOrder = 'placeOrder',
+    /**
+     * 決済URL発行(2024-05-22~)
+     */
+    PublishPaymentUrl = 'publishPaymentUrl',
     Refund = 'refund',
     RegisterService = 'registerService',
     /**

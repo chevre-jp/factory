@@ -163,6 +163,7 @@ import * as OnOrderPaymentCompletedTaskFactory from './task/onOrderPaymentComple
 import * as OnResourceUpdatedTaskFactory from './task/onResourceUpdated';
 import * as PayTaskFactory from './task/pay';
 import * as PlaceOrderTaskFactory from './task/placeOrder';
+import * as PublishPaymentUrlTaskFactory from './task/publishPaymentUrl';
 import * as RefundTaskFactory from './task/refund';
 import * as RegisterServiceTaskFactory from './task/registerService';
 import * as ReserveTaskFactory from './task/reserve';
@@ -674,6 +675,7 @@ export namespace task {
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
     export import moneyTransfer = MoneyTransferTaskFactory;
     export import pay = PayTaskFactory;
+    export import publishPaymentUrl = PublishPaymentUrlTaskFactory;
     export import refund = RefundTaskFactory;
     export import registerService = RegisterServiceTaskFactory;
     export import reserve = ReserveTaskFactory;
