@@ -11,7 +11,7 @@ export import waiter = waiter;
 import * as AccountFactory from './account';
 
 import * as ActionFactory from './action';
-import * as AcceptActionFactory from './action/accept';
+import * as AcceptPayActionFactory from './action/accept/pay';
 import * as AuthorizeActionFactory from './action/authorize';
 import * as AuthorizeEventServiceOfferActionFactory from './action/authorize/offer/eventService';
 import * as AuthorizeMoneyTransferOfferActionFactory from './action/authorize/offer/moneyTransfer';
@@ -225,7 +225,10 @@ export namespace action {
     export import ISortOrder = ActionFactory.ISortOrder;
     export import ISearchConditions = ActionFactory.ISearchConditions;
 
-    export import accept = AcceptActionFactory;
+    // export import accept = AcceptActionFactory;
+    export namespace accept {
+        export import pay = AcceptPayActionFactory;
+    }
     export namespace authorize {
         // tslint:disable-next-line:no-shadowed-variable
         export import IAction = AuthorizeActionFactory.IAction;
