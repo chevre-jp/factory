@@ -2,6 +2,7 @@
  * タスク名
  */
 export enum TaskName {
+    AcceptCOAOffer = 'acceptCOAOffer',
     /**
      * 口座転送
      */

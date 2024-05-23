@@ -11,6 +11,7 @@ export import waiter = waiter;
 import * as AccountFactory from './account';
 
 import * as ActionFactory from './action';
+import * as AcceptCOAOfferActionFactory from './action/accept/coaOffer';
 import * as AcceptPayActionFactory from './action/accept/pay';
 import * as AuthorizeActionFactory from './action/authorize';
 import * as AuthorizeEventServiceOfferActionFactory from './action/authorize/offer/eventService';
@@ -132,6 +133,7 @@ import { UnitCode } from './unitCode';
 import * as UnitPriceOfferFactory from './unitPriceOffer';
 
 import * as TaskFactory from './task';
+import * as AcceptCOAOfferTaskFactory from './task/acceptCOAOffer';
 import * as AccountMoneyTransferTaskFactory from './task/accountMoneyTransfer';
 import * as AggregateOffersTaskFactory from './task/aggregateOffers';
 import * as AggregateScreeningEventTaskFactory from './task/aggregateScreeningEvent';
@@ -212,7 +214,6 @@ export import actionStatusType = ActionStatusType;
 export import actionType = ActionType;
 export namespace action {
     export import IAction = ActionFactory.IAction;
-    // export import IAdditionalProperty = ActionFactory.IAdditionalProperty;
     export import IAttributes = ActionFactory.IAttributes;
     export import IDynamicAttributes = ActionFactory.IDynamicAttributes;
     export import IParticipantAsWebApplication = ActionFactory.IParticipantAsWebApplication;
@@ -227,6 +228,7 @@ export namespace action {
 
     // export import accept = AcceptActionFactory;
     export namespace accept {
+        export import coaOffer = AcceptCOAOfferActionFactory;
         export import pay = AcceptPayActionFactory;
     }
     export namespace authorize {
@@ -660,6 +662,7 @@ export namespace task {
     export import ISearchConditions = TaskFactory.ISearchConditions;
     export import IExecutionResult = TaskFactory.IExecutionResult;
 
+    export import acceptCOAOffer = AcceptCOAOfferTaskFactory;
     export import aggregateOffers = AggregateOffersTaskFactory;
     export import aggregateScreeningEvent = AggregateScreeningEventTaskFactory;
     export import aggregateUseActionsOnEvent = AggregateUseActionsOnEventTaskFactory;

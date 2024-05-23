@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済カード認証タスクを追加
 - 決済URL発行タスクを追加
 - define acceptPayAction
+- support async accpetCOAOffer
 
 ### Changed
 
