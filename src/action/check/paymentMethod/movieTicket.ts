@@ -10,6 +10,8 @@ import * as PayActionFactory from '../../trade/pay';
 export type IAgent = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
 export type IPurchaseNumberAuthIn = surfrockFactory.service.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
 export type IPurchaseNumberAuthResult = surfrockFactory.service.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
+export type IMkknInfo = surfrockFactory.service.auth.purchaseNumberAuth.INvalidTicket;
+export type IYkknInfo = surfrockFactory.service.auth.purchaseNumberAuth.IValidTicket;
 /**
  * 認証対象の決済カード
  */

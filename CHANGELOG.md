@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済URL発行タスクを追加
 - define acceptPayAction
 - support async accpetCOAOffer
+- export IMkknInfo,IYkknInfo on checkMovieTicketAction
 
 ### Changed
 
