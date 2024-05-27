@@ -31,7 +31,7 @@ export interface IObject extends Pick<IObjectWithoutDetail<Identifier.COA>, 'acc
     flgMember: FlgMember;
     typeOf: OfferType.AggregateOffer;
 }
-export type IAuthorizeCOAOfferResult = Pick<IAuthorizeOfferResult<Identifier.COA>, 'requestBody' | 'responseBody'>;
+export type IAuthorizeCOAOfferResult = Pick<IAuthorizeOfferResult<Identifier.COA>, 'responseBody'>; // requestBodyはinstrumentに
 export interface IResult {
     /**
      * 承認アクションID
@@ -57,12 +57,20 @@ export interface IPotentialActions {
     id?: string;
     typeOf: IAuthorizeOfferAction<Identifier.COA>['typeOf'];
 }
+export interface IInstrument {
+    typeOf: 'COAReserveTransaction';
+    /**
+     * 仮予約実行時は存在する
+     */
+    requestBody?: IAuthorizeOfferResult<Identifier.COA>['requestBody'];
+}
 export interface IAttributes extends AcceptActionFactory.IAttributes<IObject, IResult> {
-    typeOf: ActionType.AcceptAction;
-    object: IObject;
     agent: IAgent;
+    instrument: IInstrument;
+    object: IObject;
     purpose: IPurpose;
     potentialActions: IPotentialActions;
+    typeOf: ActionType.AcceptAction;
 }
 /**
  * COA興行オファー採用アクション
