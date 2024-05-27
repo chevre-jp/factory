@@ -1,12 +1,11 @@
-import type * as COA from '@motionpicture/coa-service';
-import { actionType } from '../..';
-
 import * as ActionFactory from '../../action';
-import { IAcceptedOfferBeforeAuthorize4COA, IObjectWithoutDetail } from '../../action/authorize/offer/eventService';
+import {
+    IAcceptedOfferBeforeAuthorize4COA, IAction as IAuthorizeOfferAction,
+    IObjectWithoutDetail, IPurpose, IResult as IAuthorizeOfferResult
+} from '../../action/authorize/offer/eventService';
 import { ActionType } from '../../actionType';
 import { OfferType } from '../../offerType';
 import { Identifier } from '../../service/webAPI';
-import { TransactionType } from '../../transactionType';
 import * as AcceptActionFactory from '../accept';
 
 export interface IAppliesToSurfrock {
@@ -14,56 +13,49 @@ export interface IAppliesToSurfrock {
     serviceOutput: { typeOf: string };
 }
 export type IAgent = ActionFactory.IParticipantAsPerson | ActionFactory.IParticipantAsWebApplication;
-// export interface IObject {
-//     /**
-//      * 承認アクションID
-//      * 仮予約済の場合に指定
-//      */
-//     id?: string;
-//     object: IObjectWithoutDetail<Identifier.COA>;
-//     // agent: { typeOf: factory.personType.Person | factory.creativeWorkType.WebApplication };
-//     // purpose: { id: string };
-//     appliesToSurfrock: IAppliesToSurfrock;
-//     flgMember: COA.factory.reserve.FlgMember;
-//     typeOf: IAuthorizeAction<Identifier.COA>['typeOf'];
-// }
+/**
+ * COA会員用フラグ
+ */
+export enum FlgMember {
+    /**
+     * 非会員
+     */
+    NonMember = '0',
+    /**
+     * 会員
+     */
+    Member = '1'
+}
 export interface IObject extends Pick<IObjectWithoutDetail<Identifier.COA>, 'acceptedOffer' | 'event'> {
-    // id?: string;
-    // object: IObjectWithoutDetail<Identifier.COA>;
     appliesToSurfrock: IAppliesToSurfrock;
-    flgMember: COA.factory.reserve.FlgMember;
+    flgMember: FlgMember;
     typeOf: OfferType.AggregateOffer;
 }
+export type IAuthorizeCOAOfferResult = Pick<IAuthorizeOfferResult<Identifier.COA>, 'requestBody' | 'responseBody'>;
 export interface IResult {
+    /**
+     * 承認アクションID
+     * 仮予約済の場合に指定
+     */
+    id?: string;
     object: {
         acceptedOffer: IAcceptedOfferBeforeAuthorize4COA[];
         event: { id: string };
     };
-    // purpose: { id: string };
-    // purposeRaw: params.purpose.id,
-    result: {
-        /**
-         * 仮予約実行時は存在する
-         */
-        requestBody?: COA.factory.reserve.IUpdTmpReserveSeatArgs;
-        /**
-         * 仮予約実行時は存在する
-         */
-        responseBody?: COA.factory.reserve.IUpdTmpReserveSeatResult;
-    };
-    typeOf: actionType.AuthorizeAction;
+    /**
+     * 仮予約実行時は存在する
+     */
+    result?: IAuthorizeCOAOfferResult;
+    typeOf: IAuthorizeOfferAction<Identifier.COA>['typeOf'];
 }
-export interface IPurpose {
-    typeOf: TransactionType.PlaceOrder;
-    id: string;
-}
+export { IPurpose };
 export interface IPotentialActions {
     /**
      * 承認アクションID
      * 仮予約済の場合に指定
      */
     id?: string;
-    typeOf: actionType.AuthorizeAction;
+    typeOf: IAuthorizeOfferAction<Identifier.COA>['typeOf'];
 }
 export interface IAttributes extends AcceptActionFactory.IAttributes<IObject, IResult> {
     typeOf: ActionType.AcceptAction;
