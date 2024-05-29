@@ -783,6 +783,7 @@ export namespace transaction {
     export import IPassportBeforeStart = TransactionFactory.IPassportBeforeStart;
     export import ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
     export import ISortOrder = TransactionFactory.ISortOrder;
+    export import ITasksExportAction = TransactionFactory.ITasksExportAction;
     export type ISearchConditions<T extends TransactionType> =
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ISearchConditions :
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ISearchConditions :
