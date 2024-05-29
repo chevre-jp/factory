@@ -11,7 +11,8 @@ export import waiter = waiter;
 import * as AccountFactory from './account';
 
 import * as ActionFactory from './action';
-import * as AcceptActionFactory from './action/accept';
+import * as AcceptCOAOfferActionFactory from './action/accept/coaOffer';
+import * as AcceptPayActionFactory from './action/accept/pay';
 import * as AuthorizeActionFactory from './action/authorize';
 import * as AuthorizeEventServiceOfferActionFactory from './action/authorize/offer/eventService';
 import * as AuthorizeMoneyTransferOfferActionFactory from './action/authorize/offer/moneyTransfer';
@@ -132,6 +133,7 @@ import { UnitCode } from './unitCode';
 import * as UnitPriceOfferFactory from './unitPriceOffer';
 
 import * as TaskFactory from './task';
+import * as AcceptCOAOfferTaskFactory from './task/acceptCOAOffer';
 import * as AccountMoneyTransferTaskFactory from './task/accountMoneyTransfer';
 import * as AggregateOffersTaskFactory from './task/aggregateOffers';
 import * as AggregateScreeningEventTaskFactory from './task/aggregateScreeningEvent';
@@ -141,6 +143,7 @@ import * as CancelAccountMoneyTransferTaskFactory from './task/cancelAccountMone
 import * as CancelMoneyTransferTaskFactory from './task/cancelMoneyTransfer';
 import * as CancelPendingReservationTaskFactory from './task/cancelPendingReservation';
 import * as CancelReservationTaskFactory from './task/cancelReservation';
+import * as CheckMovieTicketTaskFactory from './task/checkMovieTicket';
 import * as CheckResourceTaskFactory from './task/checkResource';
 import * as ConfirmMoneyTransferTaskFactory from './task/confirmMoneyTransfer';
 import * as ConfirmPayTransactionTaskFactory from './task/confirmPayTransaction';
@@ -162,6 +165,7 @@ import * as OnOrderPaymentCompletedTaskFactory from './task/onOrderPaymentComple
 import * as OnResourceUpdatedTaskFactory from './task/onResourceUpdated';
 import * as PayTaskFactory from './task/pay';
 import * as PlaceOrderTaskFactory from './task/placeOrder';
+import * as PublishPaymentUrlTaskFactory from './task/publishPaymentUrl';
 import * as RefundTaskFactory from './task/refund';
 import * as RegisterServiceTaskFactory from './task/registerService';
 import * as ReserveTaskFactory from './task/reserve';
@@ -210,7 +214,6 @@ export import actionStatusType = ActionStatusType;
 export import actionType = ActionType;
 export namespace action {
     export import IAction = ActionFactory.IAction;
-    // export import IAdditionalProperty = ActionFactory.IAdditionalProperty;
     export import IAttributes = ActionFactory.IAttributes;
     export import IDynamicAttributes = ActionFactory.IDynamicAttributes;
     export import IParticipantAsWebApplication = ActionFactory.IParticipantAsWebApplication;
@@ -223,7 +226,11 @@ export namespace action {
     export import ISortOrder = ActionFactory.ISortOrder;
     export import ISearchConditions = ActionFactory.ISearchConditions;
 
-    export import accept = AcceptActionFactory;
+    // export import accept = AcceptActionFactory;
+    export namespace accept {
+        export import coaOffer = AcceptCOAOfferActionFactory;
+        export import pay = AcceptPayActionFactory;
+    }
     export namespace authorize {
         // tslint:disable-next-line:no-shadowed-variable
         export import IAction = AuthorizeActionFactory.IAction;
@@ -655,6 +662,7 @@ export namespace task {
     export import ISearchConditions = TaskFactory.ISearchConditions;
     export import IExecutionResult = TaskFactory.IExecutionResult;
 
+    export import acceptCOAOffer = AcceptCOAOfferTaskFactory;
     export import aggregateOffers = AggregateOffersTaskFactory;
     export import aggregateScreeningEvent = AggregateScreeningEventTaskFactory;
     export import aggregateUseActionsOnEvent = AggregateUseActionsOnEventTaskFactory;
@@ -662,6 +670,7 @@ export namespace task {
     export import cancelMoneyTransfer = CancelMoneyTransferTaskFactory;
     export import cancelPendingReservation = CancelPendingReservationTaskFactory;
     export import cancelReservation = CancelReservationTaskFactory;
+    export import checkMovieTicket = CheckMovieTicketTaskFactory;
     export import checkResource = CheckResourceTaskFactory;
     export import createEvent = CreateEventTaskFactory;
     export import CreateAccountingReport = CreateAccountingReportTaskFactory;
@@ -672,6 +681,7 @@ export namespace task {
     export import importOffersFromCOA = ImportOffersFromCOATaskFactory;
     export import moneyTransfer = MoneyTransferTaskFactory;
     export import pay = PayTaskFactory;
+    export import publishPaymentUrl = PublishPaymentUrlTaskFactory;
     export import refund = RefundTaskFactory;
     export import registerService = RegisterServiceTaskFactory;
     export import reserve = ReserveTaskFactory;
@@ -773,6 +783,7 @@ export namespace transaction {
     export import IPassportBeforeStart = TransactionFactory.IPassportBeforeStart;
     export import ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
     export import ISortOrder = TransactionFactory.ISortOrder;
+    export import ITasksExportAction = TransactionFactory.ITasksExportAction;
     export type ISearchConditions<T extends TransactionType> =
         T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ISearchConditions :
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ISearchConditions :

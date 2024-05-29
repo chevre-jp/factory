@@ -2,6 +2,7 @@
  * タスク名
  */
 export enum TaskName {
+    AcceptCOAOffer = 'acceptCOAOffer',
     /**
      * 口座転送
      */
@@ -20,6 +21,10 @@ export enum TaskName {
     CancelMoneyTransfer = 'cancelMoneyTransfer',
     CancelReservation = 'cancelReservation',
     CancelPendingReservation = 'cancelPendingReservation',
+    /**
+     * 決済カード認証(2024-05-21~)
+     */
+    CheckMovieTicket = 'checkMovieTicket',
     /**
      * リソース検証
      */
@@ -72,6 +77,10 @@ export enum TaskName {
      * 注文受付
      */
     PlaceOrder = 'placeOrder',
+    /**
+     * 決済URL発行(2024-05-22~)
+     */
+    PublishPaymentUrl = 'publishPaymentUrl',
     Refund = 'refund',
     RegisterService = 'registerService',
     /**

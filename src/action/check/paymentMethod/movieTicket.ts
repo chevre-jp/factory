@@ -10,8 +10,11 @@ import * as PayActionFactory from '../../trade/pay';
 export type IAgent = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
 export type IPurchaseNumberAuthIn = surfrockFactory.service.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
 export type IPurchaseNumberAuthResult = surfrockFactory.service.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
+export type IPurchaseNumberInfo = surfrockFactory.service.auth.purchaseNumberAuth.IPurchaseNumberInfo;
+export type IMkknInfo = surfrockFactory.service.auth.purchaseNumberAuth.INvalidTicket;
+export type IYkknInfo = surfrockFactory.service.auth.purchaseNumberAuth.IValidTicket;
 /**
- * 認証対象のmovieTicket
+ * 認証対象の決済カード
  */
 export type IMovieTicket =
     // 最適化(2024-03-15~)
@@ -47,23 +50,18 @@ export type IObject = IPaymentService[];
 export interface IResult {
     purchaseNumberAuthIn: IPurchaseNumberAuthIn;
     purchaseNumberAuthResult: IPurchaseNumberAuthResult;
-    /**
-     * 認証結果としてのMovieTicketリスト
-     */
-    // movieTickets: IMovieTicket[];
 }
 export type IError = any;
 export interface IPurpose {
-    typeOf: TransactionType;
+    typeOf: TransactionType.PlaceOrder;
     id: string;
 }
 export interface IAttributes extends CheckActionFactory.IAttributes<IObject, IResult> {
     agent: IAgent;
     object: IObject;
-    // add purpose(2023-03-06~)
-    purpose?: IPurpose;
+    purpose?: IPurpose; // add purpose(2023-03-06~)
 }
 /**
- * MovieTicket認証アクション
+ * 決済カード認証アクション
  */
 export type IAction = ActionFactory.IAction<IAttributes>;

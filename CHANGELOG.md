@@ -18,6 +18,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.371.0 - 2024-05-30
+
+### Added
+
+- 決済カード認証タスクを追加
+- 決済URL発行タスクを追加
+- define acceptPayAction
+- support async accpetCOAOffer
+- export IMkknInfo,IYkknInfo,IPurchaseNumberInfo on checkMovieTicketAction
+
+### Changed
+
+- redefine transaction.ITasksExportAction
+
 ## v4.370.0 - 2024-05-17
 
 ### Changed
