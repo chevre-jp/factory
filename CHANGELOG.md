@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.372.0 - 2024-05-30
+
+### Changed
+
+- extend transaction.ISearchConditions
+
 ## v4.371.0 - 2024-05-30
 
 ### Added
