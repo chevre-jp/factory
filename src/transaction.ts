@@ -186,4 +186,7 @@ export interface ISearchConditions<T extends TransactionType> {
         email?: string;
     };
     tasksExportationStatuses?: TransactionTasksExportationStatus[];
+    tasksExportAction?: {
+        actionStatus?: { $eq?: ActionStatusType };
+    };
 }
