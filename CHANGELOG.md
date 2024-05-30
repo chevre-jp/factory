@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- add placeOrder.instrument
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.373.0 - 2024-05-30
+
+### Added
+
+- add placeOrder.instrument
 
 ## v4.372.0 - 2024-05-30
 
