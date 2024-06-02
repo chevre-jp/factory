@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- define action recipe
+
 ### Changed
 
 ### Deprecated

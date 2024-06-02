@@ -115,6 +115,7 @@ import * as PropertyValueFactory from './propertyValue';
 import * as LocationFeatureSpecificationFactory from './propertyValue/locationFeatureSpecification';
 import * as QualitativeValueFactory from './qualitativeValue';
 import * as QuantitativeValueFactory from './quantitativeValue';
+import * as RecipeFactory from './recipe';
 import * as AccountingReportFactory from './report/accountingReport';
 import * as ReservationFactory from './reservation';
 import * as BusReservationFactory from './reservation/busReservation';
@@ -472,6 +473,7 @@ export namespace propertyValue {
 
 export import qualitativeValue = QualitativeValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
+export import recipe = RecipeFactory;
 
 export namespace report {
     export import accountingReport = AccountingReportFactory;
