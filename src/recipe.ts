@@ -2,16 +2,21 @@ import { ActionType } from './actionType';
 import { OrganizationType } from './organizationType';
 
 export enum RecipeCategory {
+    payCreditCard = 'payCreditCard',
+    payMovieTicket = 'payMovieTicket',
     publishPaymentUrl = 'publishPaymentUrl'
 }
 export enum StepIdentifier {
     entryTran = 'entryTran',
-    execTran = 'execTran'
+    execTran = 'execTran',
+    searchTrade = 'searchTrade',
+    alterTran = 'alterTran',
+    seatInfoSync = 'seatInfoSync'
 }
 export interface IHowToDirection {
     typeOf: 'HowToDirection';
-    beforeMedia: any;
-    afterMedia: any;
+    beforeMedia?: any;
+    afterMedia?: any;
     // text: string;
 }
 export interface IHowToStep {

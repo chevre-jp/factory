@@ -1,4 +1,5 @@
 import type { factory as GMOFactory } from '@motionpicture/gmo-service';
+import { factory as surfrockFactory } from '@surfrock/sdk';
 
 import * as AccountFactory from '../../account';
 import * as ActionFactory from '../../action';
@@ -10,9 +11,12 @@ import { IPaymentServiceOutput } from '../../invoice';
 import { ITotalPaymentDue, OrderType } from '../../order';
 import { IMovieTicketPaymentCard } from '../../paymentMethod/paymentCard/movieTicket';
 import { IPropertyValue } from '../../propertyValue';
+import { IRecipe as IPayCreditCardRecipe } from '../../recipe/payCreditCard';
+import { IRecipe as IPayMovieTicketRecipe } from '../../recipe/payMovieTicket';
 import { PaymentServiceType } from '../../service/paymentService';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 
+export { IPayCreditCardRecipe, IPayMovieTicketRecipe };
 export import IAgent = ActionFactory.IParticipantAsProject;
 export import IRecipient = ActionFactory.IParticipantAsSeller;
 export interface IOrderAsPayPurpose {
@@ -102,9 +106,11 @@ export interface IPotentialActions {
     add2report: boolean;
     informPayment?: IInformPayment[];
 }
+export type ISeatInfoSyncIn = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncIn;
+export type ISeatInfoSyncResult = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncResult;
 export interface IInstrument {
     typeOf: string;
-    seatInfoSyncIn?: any;
+    seatInfoSyncIn?: ISeatInfoSyncIn;
 }
 /**
  * 決済結果
@@ -114,9 +120,7 @@ export interface IResult {
      * クレジットカード売上結果
      */
     creditCardSales?: ICreditCardSales[];
-    // ↓instrumentへ完全移行(2022-05-02~)
-    // seatInfoSyncIn?: any;
-    seatInfoSyncResult?: any;
+    seatInfoSyncResult?: ISeatInfoSyncResult;
 }
 export interface ILocation {
     typeOf: CreativeWorkType.WebApplication;
