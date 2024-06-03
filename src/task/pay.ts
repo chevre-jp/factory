@@ -5,7 +5,10 @@ import * as TaskFactory from '../task';
 import { TaskName } from '../taskName';
 
 export { IOptimizedPayAction4order };
-export type IPayActionData = IPayActionAttributes;
+export type IPayActionData = Pick<
+    IPayActionAttributes,
+    'agent' | 'instrument' | 'location' | 'object' | 'potentialActions' | 'project' | 'purpose' | 'recipient' | 'typeOf'
+>;
 export type IData = IPayActionData | IOptimizedPayAction4order;
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.Pay;
