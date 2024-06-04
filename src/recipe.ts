@@ -4,14 +4,17 @@ import { OrganizationType } from './organizationType';
 export enum RecipeCategory {
     payCreditCard = 'payCreditCard',
     payMovieTicket = 'payMovieTicket',
-    publishPaymentUrl = 'publishPaymentUrl'
+    publishPaymentUrl = 'publishPaymentUrl',
+    refundCreditCard = 'refundCreditCard',
+    refundMovieTicket = 'refundMovieTicket'
 }
 export enum StepIdentifier {
     entryTran = 'entryTran',
     execTran = 'execTran',
     searchTrade = 'searchTrade',
     alterTran = 'alterTran',
-    seatInfoSync = 'seatInfoSync'
+    seatInfoSync = 'seatInfoSync',
+    seatInfoSyncCancel = 'seatInfoSyncCancel'
 }
 export interface IHowToDirection {
     typeOf: 'HowToDirection';

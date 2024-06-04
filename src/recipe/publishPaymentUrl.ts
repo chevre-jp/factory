@@ -17,8 +17,7 @@ export interface IStepExecTran extends RecipeFactory.IHowToStep {
     identifier: RecipeFactory.StepIdentifier.execTran;
     itemListElement: [IDirectionExecTran];
 }
-export interface IHowToSection {
-    typeOf: 'HowToSection';
+export interface IHowToSection extends RecipeFactory.IHowToSection {
     itemListElement: [IStepEntryTran, IStepExecTran];
 }
 export interface IRecipe extends RecipeFactory.IRecipe {
