@@ -65,7 +65,7 @@ export interface IObject {
      */
     name?: string;
     /**
-     * 外部ロケーションでの決済情報
+     * 決済URLでの決済情報
      */
     paymentMethods?: IPaymentMethodByPaymentUrl;
     /**

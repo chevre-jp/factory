@@ -2,12 +2,12 @@ import { IEntryTranArgs, IEntryTranResult, IExecTran3dsResult, IExecTranArgs, IE
 import * as RecipeFactory from '../recipe';
 
 export interface IDirectionEntryTran extends RecipeFactory.IHowToDirection {
-    beforeMedia: IEntryTranArgs;
-    afterMedia: IEntryTranResult;
+    beforeMedia?: IEntryTranArgs;
+    afterMedia?: IEntryTranResult;
 }
 export interface IDirectionExecTran extends RecipeFactory.IHowToDirection {
-    beforeMedia: IExecTranArgs;
-    afterMedia: IExecTranResult | IExecTran3dsResult;
+    beforeMedia?: IExecTranArgs;
+    afterMedia?: IExecTranResult | IExecTran3dsResult;
 }
 export interface IStepEntryTran extends RecipeFactory.IHowToStep {
     identifier: RecipeFactory.StepIdentifier.entryTran;
