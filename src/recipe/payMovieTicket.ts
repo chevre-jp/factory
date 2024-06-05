@@ -9,8 +9,8 @@ export interface ISeatInfoSyncResultAsError {
 export type ISeatInfoSyncIn = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncIn;
 export type ISeatInfoSyncResult = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncResult | ISeatInfoSyncResultAsError;
 export interface IDirectionSeatInfoSync extends RecipeFactory.IHowToDirection {
-    beforeMedia: ISeatInfoSyncIn;
-    afterMedia: ISeatInfoSyncResult;
+    beforeMedia?: ISeatInfoSyncIn;
+    afterMedia?: ISeatInfoSyncResult;
 }
 export interface IStepSeatInfoSync extends RecipeFactory.IHowToStep {
     identifier: RecipeFactory.StepIdentifier.seatInfoSync;

@@ -8,12 +8,12 @@ export type ISearchTradeResult = GMOFactory.credit.ISearchTradeResult;
 export type IAlterTranArgs = GMOFactory.credit.IAlterTranArgs & IOptionalSiteArgs;
 export type IAlterTranResult = GMOFactory.credit.IAlterTranResult;
 export interface IDirectionSearchTrade extends RecipeFactory.IHowToDirection {
-    beforeMedia: ISearchTradeArgs;
-    afterMedia: ISearchTradeResult;
+    beforeMedia?: ISearchTradeArgs;
+    afterMedia?: ISearchTradeResult;
 }
 export interface IDirectionAlterTran extends RecipeFactory.IHowToDirection {
     beforeMedia?: IAlterTranArgs;
-    afterMedia: IAlterTranResult;
+    afterMedia?: IAlterTranResult;
 }
 export interface IStepSearchTrade extends RecipeFactory.IHowToStep {
     identifier: RecipeFactory.StepIdentifier.searchTrade;

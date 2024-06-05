@@ -11,12 +11,12 @@ export type ISeatInfoSyncCancelResult = surfrockFactory.service.seat.seatInfoSyn
 export type ISeatInfoSyncIn = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncIn;
 export type ISeatInfoSyncResult = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncResult | IResultAsError;
 export interface IDirectionSeatInfoSyncCancel extends RecipeFactory.IHowToDirection {
-    beforeMedia: ISeatInfoSyncCancelIn;
-    afterMedia: ISeatInfoSyncCancelResult;
+    beforeMedia?: ISeatInfoSyncCancelIn;
+    afterMedia?: ISeatInfoSyncCancelResult;
 }
 export interface IDirectionSeatInfoSync extends RecipeFactory.IHowToDirection {
-    beforeMedia: ISeatInfoSyncIn;
-    afterMedia: ISeatInfoSyncResult;
+    beforeMedia?: ISeatInfoSyncIn;
+    afterMedia?: ISeatInfoSyncResult;
 }
 export interface IStepSeatInfoSyncCancel extends RecipeFactory.IHowToStep {
     identifier: RecipeFactory.StepIdentifier.seatInfoSyncCancel;
