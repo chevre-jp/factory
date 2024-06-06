@@ -3,13 +3,13 @@ import { factory as surfrockFactory } from '@surfrock/sdk';
 import * as ActionFactory from '../../../action';
 import { OrganizationType } from '../../../organizationType';
 import { IMovieTicketPaymentCard, IMovieTicketServiceOutput } from '../../../paymentMethod/paymentCard/movieTicket';
+import { IPurchaseNumberAuthIn, IPurchaseNumberAuthResult, IRecipe } from '../../../recipe/checkMovieTicket';
 import { TransactionType } from '../../../transactionType';
 import * as CheckActionFactory from '../../check';
 import * as PayActionFactory from '../../trade/pay';
 
+export { IPurchaseNumberAuthIn, IPurchaseNumberAuthResult, IRecipe };
 export type IAgent = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
-export type IPurchaseNumberAuthIn = surfrockFactory.service.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
-export type IPurchaseNumberAuthResult = surfrockFactory.service.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
 export type IPurchaseNumberInfo = surfrockFactory.service.auth.purchaseNumberAuth.IPurchaseNumberInfo;
 export type IMkknInfo = surfrockFactory.service.auth.purchaseNumberAuth.INvalidTicket;
 export type IYkknInfo = surfrockFactory.service.auth.purchaseNumberAuth.IValidTicket;
@@ -59,7 +59,7 @@ export interface IPurpose {
 export interface IAttributes extends CheckActionFactory.IAttributes<IObject, IResult> {
     agent: IAgent;
     object: IObject;
-    purpose?: IPurpose; // add purpose(2023-03-06~)
+    purpose?: IPurpose;
 }
 /**
  * 決済カード認証アクション

@@ -5,6 +5,7 @@ export enum RecipeCategory {
     payCreditCard = 'payCreditCard',
     payMovieTicket = 'payMovieTicket',
     publishPaymentUrl = 'publishPaymentUrl',
+    checkMovieTicket = 'checkMovieTicket',
     refundCreditCard = 'refundCreditCard',
     refundMovieTicket = 'refundMovieTicket'
 }
@@ -14,7 +15,8 @@ export enum StepIdentifier {
     searchTrade = 'searchTrade',
     alterTran = 'alterTran',
     seatInfoSync = 'seatInfoSync',
-    seatInfoSyncCancel = 'seatInfoSyncCancel'
+    seatInfoSyncCancel = 'seatInfoSyncCancel',
+    purchaseNumberAuth = 'purchaseNumberAuth'
 }
 export interface IHowToDirection {
     typeOf: 'HowToDirection';
