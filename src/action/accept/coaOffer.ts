@@ -1,13 +1,17 @@
 import * as ActionFactory from '../../action';
 import {
     IAcceptedOfferBeforeAuthorize4COA, IAction as IAuthorizeOfferAction,
-    IObjectWithoutDetail, IPurpose, IResult as IAuthorizeOfferResult
+    IObjectWithoutDetail, IPurpose
 } from '../../action/authorize/offer/eventService';
 import { ActionType } from '../../actionType';
 import { OfferType } from '../../offerType';
+import { IRecipe, IUpdTmpReserveSeatArgs, IUpdTmpReserveSeatResult } from '../../recipe/acceptCOAOffer';
 import { Identifier } from '../../service/webAPI';
 import * as AcceptActionFactory from '../accept';
 
+export {
+    IRecipe, IUpdTmpReserveSeatArgs, IUpdTmpReserveSeatResult
+};
 export interface IAppliesToSurfrock {
     identifier: string;
     serviceOutput: { typeOf: string };
@@ -31,7 +35,7 @@ export interface IObject extends Pick<IObjectWithoutDetail<Identifier.COA>, 'acc
     flgMember: FlgMember;
     typeOf: OfferType.AggregateOffer;
 }
-export type IAuthorizeCOAOfferResult = Pick<IAuthorizeOfferResult<Identifier.COA>, 'responseBody'>; // requestBodyはinstrumentに
+export interface IAuthorizeCOAOfferResult { responseBody: IUpdTmpReserveSeatResult; } // requestBodyはinstrumentに
 export interface IResult {
     /**
      * 承認アクションID
@@ -62,7 +66,7 @@ export interface IInstrument {
     /**
      * 仮予約実行時は存在する
      */
-    requestBody?: IAuthorizeOfferResult<Identifier.COA>['requestBody'];
+    requestBody?: IUpdTmpReserveSeatArgs;
 }
 export interface IAttributes extends AcceptActionFactory.IAttributes<IObject, IResult> {
     agent: IAgent;
