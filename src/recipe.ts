@@ -1,4 +1,3 @@
-import { ActionType } from './actionType';
 import { OrganizationType } from './organizationType';
 
 export enum RecipeCategory {
@@ -38,10 +37,12 @@ export interface IHowToSection {
     typeOf: 'HowToSection';
     itemListElement: IHowToStep[];
 }
+/**
+ * action recipe
+ */
 export interface IRecipe {
     project: { id: string; typeOf: OrganizationType.Project };
     typeOf: 'Recipe';
     recipeCategory: RecipeCategory;
     step: IHowToSection[];
-    recipeFor: { id: string; typeOf: ActionType };
 }
