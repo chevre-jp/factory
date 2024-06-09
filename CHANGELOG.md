@@ -13,6 +13,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - optimize placeOrder.object.paymentMethods
+- optimize payAction.result
+- optmize refundAction.result
 
 ### Deprecated
 

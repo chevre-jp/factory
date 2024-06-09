@@ -32,11 +32,9 @@ export type ISeatInfoSyncCancelIn = surfrockFactory.service.seat.seatInfoSyncCan
 export type ISeatInfoSyncCancelResult =
     surfrockFactory.service.seat.seatInfoSyncCancel.ISeatInfoSyncCancelResult | ISeatInfoSyncResultAsError;
 export interface IResult {
-    alterTranResult?: (IAlterTranResult | IAlterTranResultAsError)[];
-    // seatInfoSyncIn?: ISeatInfoSyncIn;
-    seatInfoSyncResult?: ISeatInfoSyncResult;
-    // seatInfoSyncCancelIn?: ISeatInfoSyncCancelIn;
-    seatInfoSyncCancelResult?: ISeatInfoSyncCancelResult;
+    // alterTranResult?: (IAlterTranResult | IAlterTranResultAsError)[]; // discontinue(2024-06-10~)
+    // seatInfoSyncResult?: ISeatInfoSyncResult; // discontinue(2024-06-10~)
+    // seatInfoSyncCancelResult?: ISeatInfoSyncCancelResult; // discontinue(2024-06-10~)
     /**
      * ペイメントカード決済の場合
      */

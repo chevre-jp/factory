@@ -112,15 +112,10 @@ export interface IInstrument {
     typeOf: string;
     seatInfoSyncIn?: ISeatInfoSyncIn;
 }
-/**
- * 決済結果
- */
+// tslint:disable-next-line:no-empty-interface
 export interface IResult {
-    /**
-     * クレジットカード売上結果
-     */
-    creditCardSales?: ICreditCardSales[];
-    seatInfoSyncResult?: ISeatInfoSyncResult;
+    // creditCardSales?: ICreditCardSales[]; // discontinue(2024-06-10~)
+    // seatInfoSyncResult?: ISeatInfoSyncResult; // discontinue(2024-06-10~)
 }
 export interface ILocation {
     typeOf: CreativeWorkType.WebApplication;
