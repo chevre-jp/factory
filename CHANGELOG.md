@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - optimize refundAction.result
 - optimize payAction.instrument
 - optimize checkMovieTicketAction.result
+- optimize returnReserveTransaction task
 
 ### Deprecated
 
