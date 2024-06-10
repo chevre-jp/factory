@@ -8,7 +8,8 @@ export enum RecipeCategory {
     refundCreditCard = 'refundCreditCard',
     refundMovieTicket = 'refundMovieTicket',
     acceptCOAOffer = 'acceptCOAOffer',
-    confirmCOAReserve = 'confirmCOAReserve'
+    confirmCOAReserve = 'confirmCOAReserve',
+    returnCOAReserve = 'returnCOAReserve'
 }
 export enum StepIdentifier {
     entryTran = 'entryTran',
@@ -20,7 +21,8 @@ export enum StepIdentifier {
     purchaseNumberAuth = 'purchaseNumberAuth',
     updTmpReserveSeat = 'updTmpReserveSeat',
     updReserve = 'updReserve',
-    stateReserve = 'stateReserve'
+    stateReserve = 'stateReserve',
+    delReserve = 'delReserve'
 }
 export interface IHowToDirection {
     typeOf: 'HowToDirection';

@@ -47,11 +47,15 @@ export interface IConfirmParams {
 }
 export type IResult = any;
 export type IError = any;
+export type IPotentialRefundActionAttributes = Pick<
+    IRefundActionAttributes,
+    'agent' | 'object' | 'potentialActions' | 'project' | 'purpose' | 'recipient' | 'typeOf'
+>;
 export interface IPotentialActions {
     /**
      * 返金アクション
      */
-    refund: IRefundActionAttributes[];
+    refund: IPotentialRefundActionAttributes[];
 }
 export type ITransaction = IExtendId<IAttributes>;
 /**
