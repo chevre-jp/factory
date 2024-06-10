@@ -226,8 +226,8 @@ export namespace action {
     export import IPurpose = ActionFactory.IPurpose;
     export import ISortOrder = ActionFactory.ISortOrder;
     export import ISearchConditions = ActionFactory.ISearchConditions;
+    export import ISameAs = ActionFactory.ISameAs;
 
-    // export import accept = AcceptActionFactory;
     export namespace accept {
         export import coaOffer = AcceptCOAOfferActionFactory;
         export import pay = AcceptPayActionFactory;
