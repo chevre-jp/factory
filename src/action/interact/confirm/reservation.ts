@@ -34,7 +34,6 @@ export type IObject<T extends WebAPIFactory.Identifier> =
 export type IPurpose = ISimpleOrder;
 // tslint:disable-next-line:no-empty-interface
 export interface IResult { }
-export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.IService<T>;
 export interface IAttributes<T extends WebAPIFactory.Identifier> extends ConfirmActionFactory.IAttributes<IObject<T>, IResult> {
     agent: IAgent;
     // instrument: IInstrument<T>; // 廃止(2024-03-13~)

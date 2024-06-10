@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - optimize payAction.instrument
 - optimize checkMovieTicketAction.result
 - optimize returnReserveTransaction task
+- optimize acceptCOAOfferAction.instrument
 
 ### Deprecated
 
@@ -47,7 +48,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済カード認証タスクを追加
 - 決済URL発行タスクを追加
 - define acceptPayAction
-- support async accpetCOAOffer
+- support async acceptCOAOffer
 - export IMkknInfo,IYkknInfo,IPurchaseNumberInfo on checkMovieTicketAction
 
 ### Changed

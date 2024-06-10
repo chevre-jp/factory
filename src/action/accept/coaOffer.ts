@@ -35,7 +35,7 @@ export interface IObject extends Pick<IObjectWithoutDetail<Identifier.COA>, 'acc
     flgMember: FlgMember;
     typeOf: OfferType.AggregateOffer;
 }
-export interface IAuthorizeCOAOfferResult { responseBody: IUpdTmpReserveSeatResult; } // requestBodyはinstrumentに
+export interface IAuthorizeCOAOfferResult { responseBody: Pick<IUpdTmpReserveSeatResult, 'tmpReserveNum'>; }
 export interface IResult {
     /**
      * 承認アクションID
@@ -66,9 +66,12 @@ export interface IInstrument {
     /**
      * 仮予約実行時は存在する
      */
-    requestBody?: IUpdTmpReserveSeatArgs;
+    // requestBody?: IUpdTmpReserveSeatArgs; // discontinue
 }
-export interface IAttributes extends AcceptActionFactory.IAttributes<IObject, IResult> {
+export interface IAttributes extends Pick<
+    AcceptActionFactory.IAttributes<IObject, IResult>,
+    'agent' | 'error' | 'instrument' | 'object' | 'potentialActions' | 'purpose' | 'result' | 'project' | 'sameAs' | 'typeOf'
+> {
     agent: IAgent;
     instrument: IInstrument;
     object: IObject;
