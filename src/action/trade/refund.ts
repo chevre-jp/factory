@@ -50,7 +50,10 @@ export interface IPurposeAsPlaceOrder {
     id: string;
 }
 export type IPurpose = IOrderAsPayPurpose | IPurposeAsAssetTransaction | IPurposeAsReturnAction | IPurposeAsPlaceOrder;
-export interface IAttributes extends ActionFactory.IAttributes<ActionType.RefundAction, IObject, IResult> {
+export interface IAttributes extends Pick<
+    ActionFactory.IAttributes<ActionType.RefundAction, IObject, IResult>,
+    'agent' | 'error' | 'object' | 'potentialActions' | 'purpose' | 'recipient' | 'result' | 'project' | 'sameAs' | 'typeOf'
+> {
     agent: IAgent;
     recipient?: IRecipient;
     purpose: IPurpose;

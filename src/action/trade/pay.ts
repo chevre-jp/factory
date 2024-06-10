@@ -110,7 +110,7 @@ export type ISeatInfoSyncIn = surfrockFactory.service.seat.seatInfoSync.ISeatInf
 export type ISeatInfoSyncResult = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncResult;
 export interface IInstrument {
     typeOf: string;
-    seatInfoSyncIn?: ISeatInfoSyncIn;
+    // seatInfoSyncIn?: ISeatInfoSyncIn; // discontinue(2024-06-10~)
 }
 // tslint:disable-next-line:no-empty-interface
 export interface IResult {
@@ -124,9 +124,9 @@ export interface ILocation {
      */
     id: string;
 }
-export interface IAttributes extends Omit<
+export interface IAttributes extends Pick<
     ActionFactory.IAttributes<ActionType.PayAction, IObject, IResult>,
-    'description' | 'identifier' | 'location'
+    'agent' | 'error' | 'instrument' | 'location' | 'object' | 'potentialActions' | 'purpose' | 'recipient' | 'result' | 'project' | 'sameAs' | 'typeOf'
 > {
     agent: IAgent;
     instrument?: IInstrument;

@@ -47,16 +47,20 @@ export interface IPaymentService extends Pick<
     };
 }
 export type IObject = IPaymentService[];
+// tslint:disable-next-line:no-empty-interface
 export interface IResult {
-    purchaseNumberAuthIn: IPurchaseNumberAuthIn;
-    purchaseNumberAuthResult: IPurchaseNumberAuthResult;
+    // purchaseNumberAuthIn: IPurchaseNumberAuthIn; // discontinue(2024-06-10~)
+    // purchaseNumberAuthResult: IPurchaseNumberAuthResult; // discontinue(2024-06-10~)
 }
 export type IError = any;
 export interface IPurpose {
     typeOf: TransactionType.PlaceOrder;
     id: string;
 }
-export interface IAttributes extends CheckActionFactory.IAttributes<IObject, IResult> {
+export interface IAttributes extends Pick<
+    CheckActionFactory.IAttributes<IObject, IResult>,
+    'agent' | 'error' | 'instrument' | 'object' | 'potentialActions' | 'purpose' | 'result' | 'project' | 'sameAs' | 'typeOf'
+> {
     agent: IAgent;
     object: IObject;
     purpose?: IPurpose;

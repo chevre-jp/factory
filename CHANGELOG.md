@@ -15,7 +15,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - optimize placeOrder.object.paymentMethods
 - optimize payAction.result
-- optmize refundAction.result
+- optimize refundAction.result
+- optimize payAction.instrument
+- optimize checkMovieTicketAction.result
 
 ### Deprecated
 
