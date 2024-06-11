@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - define action recipe
 - add confirmAction.sameAs
 - add authorizeCOAOffer.object.id
+- add authorizeInvoiceAction
 
 ### Changed
 

@@ -14,6 +14,7 @@ import * as ActionFactory from './action';
 import * as AcceptCOAOfferActionFactory from './action/accept/coaOffer';
 import * as AcceptPayActionFactory from './action/accept/pay';
 import * as AuthorizeActionFactory from './action/authorize';
+import * as AuthorizeInvoiceActionFactory from './action/authorize/invoice';
 import * as AuthorizeEventServiceOfferActionFactory from './action/authorize/offer/eventService';
 import * as AuthorizeMoneyTransferOfferActionFactory from './action/authorize/offer/moneyTransfer';
 import * as AuthorizeProductOfferActionFactory from './action/authorize/offer/product';
@@ -249,6 +250,8 @@ export namespace action {
             // tslint:disable-next-line:no-shadowed-variable
             export import product = AuthorizeProductOfferActionFactory;
         }
+        // tslint:disable-next-line:no-shadowed-variable
+        export import invoice = AuthorizeInvoiceActionFactory;
     }
     export namespace cancel {
         // tslint:disable-next-line:no-shadowed-variable

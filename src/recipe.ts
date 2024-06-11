@@ -9,7 +9,8 @@ export enum RecipeCategory {
     refundMovieTicket = 'refundMovieTicket',
     acceptCOAOffer = 'acceptCOAOffer',
     confirmCOAReserve = 'confirmCOAReserve',
-    returnCOAReserve = 'returnCOAReserve'
+    returnCOAReserve = 'returnCOAReserve',
+    authorizeInvoice = 'authorizeInvoice'
 }
 export enum StepIdentifier {
     entryTran = 'entryTran',
