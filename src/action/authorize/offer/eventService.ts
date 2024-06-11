@@ -230,6 +230,10 @@ export type IObject<T extends WebAPIFactory.Identifier> = {
     event?: IEvent;
     acceptedOffer: IAcceptedOffer<T>[];
     /**
+     * recipe有(仮予約時)のCOA興行オファー採用アクションID(2024-06-11~)
+     */
+    id?: string;
+    /**
      * 進行中取引
      */
     pendingTransaction: IPendingTransaction<T>;
