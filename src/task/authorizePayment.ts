@@ -17,7 +17,6 @@ export interface IData {
          * アクション失敗時に即時に決済取引を中止するかどうか
          */
         useCancelPayTransactionOnFailed: boolean;
-        useCheckMovieTicketBeforePay: boolean;
         useCheckByIdentifierIfNotYet: boolean;
         useUnlockTransactionProcess: boolean;
     };
