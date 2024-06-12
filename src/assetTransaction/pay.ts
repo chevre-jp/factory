@@ -44,6 +44,7 @@ export type IExecTranArgs = GMOFactory.credit.IExecTranArgs;
 export type IExecTranResult = GMOFactory.credit.IExecTranResult;
 export type IExecTran3dsArgs = GMOFactory.credit.IExecTran3dsArgs;
 export type IExecTran3dsResult = GMOFactory.credit.IExecTran3dsResult;
+export type ISecureTran2Args = GMOFactory.credit.ISecureTran2Args;
 export type ISecureTran2Result = GMOFactory.credit.ISecureTran2Result;
 export interface IPaymentMethodAmount extends Pick<IMonetaryAmount, 'currency' | 'typeOf' | 'value'> {
     value: number;

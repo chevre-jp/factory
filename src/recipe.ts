@@ -10,13 +10,15 @@ export enum RecipeCategory {
     acceptCOAOffer = 'acceptCOAOffer',
     confirmCOAReserve = 'confirmCOAReserve',
     returnCOAReserve = 'returnCOAReserve',
-    authorizeInvoice = 'authorizeInvoice'
+    authorizeInvoice = 'authorizeInvoice',
+    authorizeInvoice3ds = 'authorizeInvoice3ds'
 }
 export enum StepIdentifier {
     entryTran = 'entryTran',
     execTran = 'execTran',
     searchTrade = 'searchTrade',
     alterTran = 'alterTran',
+    secureTran2 = 'secureTran2',
     seatInfoSync = 'seatInfoSync',
     seatInfoSyncCancel = 'seatInfoSyncCancel',
     purchaseNumberAuth = 'purchaseNumberAuth',
