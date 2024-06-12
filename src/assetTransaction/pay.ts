@@ -1,5 +1,3 @@
-import type { factory as GMOFactory } from '@motionpicture/gmo-service';
-
 import {
     IAction as IPayAction,
     IAttributes as IPayActionAttributes,
@@ -38,14 +36,14 @@ export {
     IUncheckedCardRaw,
     IUncheckedCardTokenized
 };
-export type IEntryTranArgs = GMOFactory.credit.IEntryTranArgs;
-export type IEntryTranResult = GMOFactory.credit.IEntryTranResult;
-export type IExecTranArgs = GMOFactory.credit.IExecTranArgs;
-export type IExecTranResult = GMOFactory.credit.IExecTranResult;
-export type IExecTran3dsArgs = GMOFactory.credit.IExecTran3dsArgs;
-export type IExecTran3dsResult = GMOFactory.credit.IExecTran3dsResult;
-export type ISecureTran2Args = GMOFactory.credit.ISecureTran2Args;
-export type ISecureTran2Result = GMOFactory.credit.ISecureTran2Result;
+// export type IEntryTranArgs = GMOFactory.credit.IEntryTranArgs;
+// export type IEntryTranResult = GMOFactory.credit.IEntryTranResult;
+// export type IExecTranArgs = GMOFactory.credit.IExecTranArgs;
+// export type IExecTranResult = GMOFactory.credit.IExecTranResult;
+// export type IExecTran3dsArgs = GMOFactory.credit.IExecTran3dsArgs;
+// export type IExecTran3dsResult = GMOFactory.credit.IExecTran3dsResult;
+// export type ISecureTran2Args = GMOFactory.credit.ISecureTran2Args;
+// export type ISecureTran2Result = GMOFactory.credit.ISecureTran2Result;
 export interface IPaymentMethodAmount extends Pick<IMonetaryAmount, 'currency' | 'typeOf' | 'value'> {
     value: number;
 }
@@ -126,15 +124,12 @@ export interface IObject {
     paymentMethod: IPaymentMethod;
     onPaymentStatusChanged?: IOnPaymentStatusChanged;
     pendingTransaction?: IPendingTransaction;
-    entryTranArgs?: IEntryTranArgs;
-    entryTranResult?: IEntryTranResult;
-    execTranArgs?: IExecTranArgs | IExecTran3dsArgs; // 3DS拡張(2024-01-02~)
-    execTranResult?: IExecTranResult | IExecTran3dsResult; // 3DS拡張(2024-01-02~)
-    secureTran2Result?: ISecureTran2Result; // 3DS拡張(2024-01-02~)
-    /**
-     * PaymentServiceType.MovieTicketの場合、着券アクション
-     */
-    payAction?: IPayActionInObject; // 最適化(2024-04-09~)
+    // entryTranArgs?: IEntryTranArgs;
+    // entryTranResult?: IEntryTranResult;
+    // execTranArgs?: IExecTranArgs | IExecTran3dsArgs; // 3DS拡張(2024-01-02~)
+    // execTranResult?: IExecTranResult | IExecTran3dsResult; // 3DS拡張(2024-01-02~)
+    // secureTran2Result?: ISecureTran2Result; // 3DS拡張(2024-01-02~)
+    // payAction?: IPayActionInObject; // 最適化(2024-04-09~) // PaymentServiceType.MovieTicketの場合、着券アクション
     accountsReceivablesByServiceType?: IAccountsReceivableByServiceType[];
 }
 export interface IPaymentMethodWithoutDetail extends IPaymentMethod {

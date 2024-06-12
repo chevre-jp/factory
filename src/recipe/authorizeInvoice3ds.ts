@@ -1,6 +1,9 @@
-import { ISecureTran2Args, ISecureTran2Result } from '../assetTransaction/pay';
+import type { factory as GMO } from '@motionpicture/gmo-service';
+
 import * as RecipeFactory from '../recipe';
 
+export type ISecureTran2Args = GMO.credit.ISecureTran2Args;
+export type ISecureTran2Result = GMO.credit.ISecureTran2Result;
 export interface IDirectionSecureTran2 extends RecipeFactory.IHowToDirection {
     beforeMedia?: ISecureTran2Args;
     afterMedia?: ISecureTran2Result;

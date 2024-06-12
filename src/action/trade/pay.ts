@@ -1,6 +1,3 @@
-import type { factory as GMOFactory } from '@motionpicture/gmo-service';
-import { factory as surfrockFactory } from '@surfrock/sdk';
-
 import * as AccountFactory from '../../account';
 import * as ActionFactory from '../../action';
 import { IAttributes as IReturnOrderActionAttributes } from '../../action/transfer/return/order';
@@ -11,12 +8,16 @@ import { IPaymentServiceOutput } from '../../invoice';
 import { ITotalPaymentDue, OrderType } from '../../order';
 import { IMovieTicketPaymentCard } from '../../paymentMethod/paymentCard/movieTicket';
 import { IPropertyValue } from '../../propertyValue';
-import { IRecipe as IPayCreditCardRecipe } from '../../recipe/payCreditCard';
-import { IRecipe as IPayMovieTicketRecipe } from '../../recipe/payMovieTicket';
+import { IAlterTranResult, IRecipe as IPayCreditCardRecipe } from '../../recipe/payCreditCard';
+import { IRecipe as IPayMovieTicketRecipe, ISeatInfoSyncIn, ISeatInfoSyncResult } from '../../recipe/payMovieTicket';
 import { PaymentServiceType } from '../../service/paymentService';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 
-export { IPayCreditCardRecipe, IPayMovieTicketRecipe };
+export {
+    IAlterTranResult,
+    ISeatInfoSyncIn, ISeatInfoSyncResult,
+    IPayCreditCardRecipe, IPayMovieTicketRecipe
+};
 export import IAgent = ActionFactory.IParticipantAsProject;
 export import IRecipient = ActionFactory.IParticipantAsSeller;
 export interface IOrderAsPayPurpose {
@@ -49,7 +50,6 @@ export interface IPendingTransaction {
         };
     };
 }
-export type ICreditCardSales = GMOFactory.credit.IAlterTranResult;
 /**
  * 決済方法インターフェース
  */
@@ -106,8 +106,6 @@ export interface IPotentialActions {
     add2report: boolean;
     informPayment?: IInformPayment[];
 }
-export type ISeatInfoSyncIn = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncIn;
-export type ISeatInfoSyncResult = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncResult;
 export interface IInstrument {
     typeOf: string;
     // seatInfoSyncIn?: ISeatInfoSyncIn; // discontinue(2024-06-10~)

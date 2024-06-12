@@ -1,6 +1,11 @@
-import { IEntryTranArgs, IEntryTranResult, IExecTranArgs, IExecTranResult } from '../assetTransaction/pay';
+import type { factory as GMO } from '@motionpicture/gmo-service';
+
 import * as RecipeFactory from '../recipe';
 
+export type IEntryTranArgs = GMO.credit.IEntryTranArgs;
+export type IEntryTranResult = GMO.credit.IEntryTranResult;
+export type IExecTranArgs = GMO.credit.IExecTranArgs;
+export type IExecTranResult = GMO.credit.IExecTranResult;
 export interface IDirectionEntryTran extends RecipeFactory.IHowToDirection {
     beforeMedia?: IEntryTranArgs;
     afterMedia?: IEntryTranResult;

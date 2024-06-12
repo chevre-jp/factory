@@ -1,10 +1,7 @@
-import type * as GMO from '@motionpicture/gmo-service';
-import { factory as surfrockFactory } from '@surfrock/sdk';
-
 import * as ActionFactory from '../../action';
 import { ActionType } from '../../actionType';
-import { IRecipe as IRefundCreditCardRecipe } from '../../recipe/refundCreditCard';
-import { IRecipe as IRefundMovieTicketRecipe } from '../../recipe/refundMovieTicket';
+import { IAlterTranResult, IRecipe as IRefundCreditCardRecipe } from '../../recipe/refundCreditCard';
+import { IRecipe as IRefundMovieTicketRecipe, ISeatInfoSyncCancelIn, ISeatInfoSyncCancelResult, ISeatInfoSyncIn, ISeatInfoSyncResult } from '../../recipe/refundMovieTicket';
 import { TransactionType } from '../../transactionType';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 import {
@@ -15,7 +12,11 @@ import {
     IPurposeAsReturnAction
 } from './pay';
 
-export { IRefundCreditCardRecipe, IRefundMovieTicketRecipe };
+export {
+    IAlterTranResult,
+    ISeatInfoSyncCancelIn, ISeatInfoSyncCancelResult, ISeatInfoSyncIn, ISeatInfoSyncResult,
+    IRefundCreditCardRecipe, IRefundMovieTicketRecipe
+};
 export type IAgent = ActionFactory.IParticipantAsSeller | ActionFactory.IParticipantAsPerson;
 export type IRecipient = ActionFactory.IParticipant;
 export type IPaymentService = Omit<IPaymentServiceOnPay, 'paymentMethod'> & {
@@ -24,13 +25,7 @@ export type IPaymentService = Omit<IPaymentServiceOnPay, 'paymentMethod'> & {
 };
 export type IObject = IPaymentService[];
 export interface IAlterTranResultAsError { name: string; message: string; }
-export type IAlterTranResult = GMO.factory.credit.IAlterTranResult;
 export interface ISeatInfoSyncResultAsError { name: string; message: string; }
-export type ISeatInfoSyncIn = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncIn;
-export type ISeatInfoSyncResult = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncResult | ISeatInfoSyncResultAsError;
-export type ISeatInfoSyncCancelIn = surfrockFactory.service.seat.seatInfoSyncCancel.ISeatInfoSyncCancelIn;
-export type ISeatInfoSyncCancelResult =
-    surfrockFactory.service.seat.seatInfoSyncCancel.ISeatInfoSyncCancelResult | ISeatInfoSyncResultAsError;
 export interface IResult {
     // alterTranResult?: (IAlterTranResult | IAlterTranResultAsError)[]; // discontinue(2024-06-10~)
     // seatInfoSyncResult?: ISeatInfoSyncResult; // discontinue(2024-06-10~)

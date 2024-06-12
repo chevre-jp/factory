@@ -1,9 +1,12 @@
-import { factory as surfrockFactory } from '@surfrock/sdk';
+import type { factory as SFR } from '@surfrock/sdk';
 
 import * as RecipeFactory from '../recipe';
 
-export type IPurchaseNumberAuthIn = surfrockFactory.service.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
-export type IPurchaseNumberAuthResult = surfrockFactory.service.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
+export type IPurchaseNumberAuthIn = SFR.service.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
+export type IPurchaseNumberAuthResult = SFR.service.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
+export type IPurchaseNumberInfo = SFR.service.auth.purchaseNumberAuth.IPurchaseNumberInfo;
+export type IMkknInfo = SFR.service.auth.purchaseNumberAuth.INvalidTicket;
+export type IYkknInfo = SFR.service.auth.purchaseNumberAuth.IValidTicket;
 export interface IDirectionPurchaseNumberAuth extends RecipeFactory.IHowToDirection {
     beforeMedia?: IPurchaseNumberAuthIn;
     afterMedia?: IPurchaseNumberAuthResult;

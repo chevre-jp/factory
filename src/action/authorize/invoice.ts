@@ -1,12 +1,16 @@
 import * as ActionFactory from '../../action';
 import { ActionType } from '../../actionType';
 import { IInvoice } from '../../invoice';
-import { IRecipe as IAuthorizeInvoiceRecipe } from '../../recipe/authorizeInvoice';
-import { IRecipe as IAuthorizeInvoice3dsRecipe } from '../../recipe/authorizeInvoice3ds';
+import { IEntryTranArgs, IEntryTranResult, IExecTranArgs, IExecTranResult, IRecipe as IAuthorizeInvoiceRecipe } from '../../recipe/authorizeInvoice';
+import { IRecipe as IAuthorizeInvoice3dsRecipe, ISecureTran2Args, ISecureTran2Result } from '../../recipe/authorizeInvoice3ds';
 import * as AuthorizeActionFactory from '../authorize';
 
 // 3DSecureの場合レシピが異なる
-export { IAuthorizeInvoiceRecipe, IAuthorizeInvoice3dsRecipe };
+export {
+    IEntryTranArgs, IEntryTranResult, IExecTranArgs, IExecTranResult,
+    ISecureTran2Args, ISecureTran2Result,
+    IAuthorizeInvoiceRecipe, IAuthorizeInvoice3dsRecipe
+};
 export type IAgent = ActionFactory.IParticipantAsProject;
 export type IObject = Pick<IInvoice, 'paymentMethodId' | 'typeOf'>;
 // tslint:disable-next-line:no-empty-interface

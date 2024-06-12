@@ -1,18 +1,13 @@
-import { factory as surfrockFactory } from '@surfrock/sdk';
-
 import * as ActionFactory from '../../../action';
 import { OrganizationType } from '../../../organizationType';
 import { IMovieTicketPaymentCard, IMovieTicketServiceOutput } from '../../../paymentMethod/paymentCard/movieTicket';
-import { IPurchaseNumberAuthIn, IPurchaseNumberAuthResult, IRecipe } from '../../../recipe/checkMovieTicket';
+import { IMkknInfo, IPurchaseNumberAuthIn, IPurchaseNumberAuthResult, IPurchaseNumberInfo, IRecipe, IYkknInfo } from '../../../recipe/checkMovieTicket';
 import { TransactionType } from '../../../transactionType';
 import * as CheckActionFactory from '../../check';
 import * as PayActionFactory from '../../trade/pay';
 
-export { IPurchaseNumberAuthIn, IPurchaseNumberAuthResult, IRecipe };
+export { IMkknInfo, IYkknInfo, IPurchaseNumberInfo, IPurchaseNumberAuthIn, IPurchaseNumberAuthResult, IRecipe };
 export type IAgent = ActionFactory.IParticipantAsWebApplication | ActionFactory.IParticipantAsPerson;
-export type IPurchaseNumberInfo = surfrockFactory.service.auth.purchaseNumberAuth.IPurchaseNumberInfo;
-export type IMkknInfo = surfrockFactory.service.auth.purchaseNumberAuth.INvalidTicket;
-export type IYkknInfo = surfrockFactory.service.auth.purchaseNumberAuth.IValidTicket;
 /**
  * 認証対象の決済カード
  */

@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - optimize returnReserveTransaction task
 - optimize acceptCOAOfferAction.instrument
 - optimize authorizeCOAOfferAction.result
+- optimize payTransaction.object
 
 ### Deprecated
 

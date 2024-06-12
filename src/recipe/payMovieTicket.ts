@@ -1,4 +1,4 @@
-import { factory as surfrockFactory } from '@surfrock/sdk';
+import type { factory as SFR } from '@surfrock/sdk';
 
 import * as RecipeFactory from '../recipe';
 
@@ -6,8 +6,8 @@ export interface ISeatInfoSyncResultAsError {
     name: string;
     message: string;
 }
-export type ISeatInfoSyncIn = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncIn;
-export type ISeatInfoSyncResult = surfrockFactory.service.seat.seatInfoSync.ISeatInfoSyncResult | ISeatInfoSyncResultAsError;
+export type ISeatInfoSyncIn = SFR.service.seat.seatInfoSync.ISeatInfoSyncIn;
+export type ISeatInfoSyncResult = SFR.service.seat.seatInfoSync.ISeatInfoSyncResult | ISeatInfoSyncResultAsError;
 export interface IDirectionSeatInfoSync extends RecipeFactory.IHowToDirection {
     beforeMedia?: ISeatInfoSyncIn;
     afterMedia?: ISeatInfoSyncResult;
