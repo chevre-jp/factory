@@ -107,7 +107,10 @@ export interface IPotentialActions {
     informPayment?: IInformPayment[];
 }
 export interface IInstrument {
-    typeOf: string;
+    // instrumentをpayTransaction化(2024-06-14~)
+    id: string;
+    transactionNumber: string;
+    typeOf: AssetTransactionType.Pay;
     // seatInfoSyncIn?: ISeatInfoSyncIn; // discontinue(2024-06-10~)
 }
 // tslint:disable-next-line:no-empty-interface
@@ -127,12 +130,16 @@ export interface IAttributes extends Pick<
     'agent' | 'error' | 'instrument' | 'location' | 'object' | 'potentialActions' | 'purpose' | 'recipient' | 'result' | 'project' | 'sameAs' | 'typeOf'
 > {
     agent: IAgent;
+    /**
+     * redefine IInstrument(2024-06-15~)
+     * 注文決済の場合、決済取引として存在(2024-06-15~)
+     * 返品手数料決済の場合、存在しない
+     */
     instrument?: IInstrument;
     potentialActions?: IPotentialActions;
     purpose: IPurpose;
     recipient: IRecipient;
-    // add location(2022-11-11~)
-    location?: ILocation;
+    location?: ILocation; // add location(2022-11-11~)
 }
 /**
  * 決済アクション

@@ -28,6 +28,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - optimize payTransaction.potentialActions
 - optimize refundAction.agent
 - optimize payTask.data
+- redefine payAction.instrument
 
 ### Deprecated
 
