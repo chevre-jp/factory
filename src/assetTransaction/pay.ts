@@ -1,6 +1,6 @@
 import {
     IAction as IPayAction,
-    IAttributes as IPayActionAttributes,
+    // IAttributes as IPayActionAttributes,
     ILocation,
     IMovieTicket,
     IOrderAsPayPurpose,
@@ -169,13 +169,10 @@ export interface IOptimizedPayAction4order {
         confirmationNumber: string;
         orderNumber: string;
     };
-    typeOf?: never;
 }
 export interface IPotentialActions {
-    /**
-     * 決済アクション
-     */
-    pay: IPayActionAttributes[] | IOptimizedPayAction4order[];
+    // pay: IPayActionAttributes[] | IOptimizedPayAction4order[]; // completely discontinue IPayActionData(2024-06-13~)
+    pay: IOptimizedPayAction4order[];
 }
 export interface IPotentialActionsParams {
     pay: {

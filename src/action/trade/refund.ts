@@ -17,7 +17,8 @@ export {
     ISeatInfoSyncCancelIn, ISeatInfoSyncCancelResult, ISeatInfoSyncIn, ISeatInfoSyncResult,
     IRefundCreditCardRecipe, IRefundMovieTicketRecipe
 };
-export type IAgent = ActionFactory.IParticipantAsSeller | ActionFactory.IParticipantAsPerson;
+// export type IAgent = ActionFactory.IParticipantAsSeller | ActionFactory.IParticipantAsPerson; // IParticipantAsSellerに統一(2024-06-13~)
+export type IAgent = ActionFactory.IParticipantAsSeller;
 export type IRecipient = ActionFactory.IParticipant;
 export type IPaymentService = Omit<IPaymentServiceOnPay, 'paymentMethod'> & {
     refundFee?: number;
@@ -44,7 +45,12 @@ export interface IPurposeAsPlaceOrder {
     typeOf: TransactionType.PlaceOrder;
     id: string;
 }
-export type IPurpose = IOrderAsPayPurpose | IPurposeAsAssetTransaction | IPurposeAsReturnAction | IPurposeAsPlaceOrder;
+export type IPurpose =
+    IOrderAsPayPurpose | // 決済カードIF承認時の着券取消の場合
+    IPurposeAsReturnAction | // 注文返品の場合
+    IPurposeAsPlaceOrder | // 注文取引における発行済決済URL無効化の場合
+    IPurposeAsAssetTransaction // その他の場合
+    ;
 export interface IAttributes extends Pick<
     ActionFactory.IAttributes<ActionType.RefundAction, IObject, IResult>,
     'agent' | 'error' | 'object' | 'potentialActions' | 'purpose' | 'recipient' | 'result' | 'project' | 'sameAs' | 'typeOf'

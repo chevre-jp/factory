@@ -25,6 +25,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - optimize authorizeCOAOfferAction.result
 - optimize payTransaction.object
 - update @surfrock/sdk
+- optimize payTransaction.potentialActions
+- optimize refundAction.agent
+- optimize payTask.data
 
 ### Deprecated
 
