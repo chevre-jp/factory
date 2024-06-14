@@ -170,7 +170,15 @@ export interface IConfirmParams {
      */
     result?: IResultParams;
 }
-export type IOrderAsResult = OrderFactory.IOrder;
+export type IOrderAsResult = Pick<
+    OrderFactory.IOrder,
+    'broker' | 'confirmationNumber'
+    // | 'isGift' // optimize(2024-06-17~)
+    // | 'project' // optimize(2024-06-17~)
+    // | 'customer' // optimize(2024-06-17~)
+    | 'identifier' | 'name' | 'orderDate' | 'orderNumber' | 'orderStatus' | 'orderedItem'
+    | 'paymentMethods' | 'price' | 'priceCurrency' | 'seller' | 'typeOf' | 'url'
+>;
 export interface IAuthorizeActionAsResult { id: string; }
 /**
  * 取引結果
