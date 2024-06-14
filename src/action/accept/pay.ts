@@ -2,11 +2,13 @@ import * as ActionFactory from '../../action';
 import { ActionType } from '../../actionType';
 import { IAgent, IObjectWithoutDetail } from '../../assetTransaction/pay';
 import { AssetTransactionType } from '../../assetTransactionType';
+import { IExecTran3dsArgs, IExecTran3dsResult, IRecipe } from '../../recipe/publishPaymentUrl';
 import { TransactionType } from '../../transactionType';
 import * as AcceptActionFactory from '../accept';
 
 export {
-    IAgent
+    IExecTran3dsArgs, IExecTran3dsResult,
+    IAgent, IRecipe
 };
 export interface IObject { // 決済取引を受け入れる
     object: IObjectWithoutDetail;

@@ -4,7 +4,6 @@ import * as WebAPIFactory from '../service/webAPI';
 import * as TaskFactory from '../task';
 import { TaskName } from '../taskName';
 
-// export type IObject4COAOptimized = IObject4COA | Pick<IObject4COA, 'transactionNumber' | 'typeOf'>;
 export type IObject4COAOptimized = Pick<IObject4COA, 'transactionNumber' | 'typeOf'> & {
     optimized: boolean;
 };
@@ -12,7 +11,7 @@ export type IObject<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? IObject4COAOptimized :
     IObject4Chevre;
 
-export type IData = Omit<IConfirmReservationActionAttributes<WebAPIFactory.Identifier>, 'object'> & {
+export type IData = Pick<IConfirmReservationActionAttributes<WebAPIFactory.Identifier>, 'agent' | 'project' | 'purpose' | 'typeOf'> & {
     object: IObject<WebAPIFactory.Identifier>;
 };
 export interface IAttributes extends TaskFactory.IAttributes {

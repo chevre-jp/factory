@@ -14,6 +14,7 @@ import * as ActionFactory from './action';
 import * as AcceptCOAOfferActionFactory from './action/accept/coaOffer';
 import * as AcceptPayActionFactory from './action/accept/pay';
 import * as AuthorizeActionFactory from './action/authorize';
+import * as AuthorizeInvoiceActionFactory from './action/authorize/invoice';
 import * as AuthorizeEventServiceOfferActionFactory from './action/authorize/offer/eventService';
 import * as AuthorizeMoneyTransferOfferActionFactory from './action/authorize/offer/moneyTransfer';
 import * as AuthorizeProductOfferActionFactory from './action/authorize/offer/product';
@@ -115,6 +116,7 @@ import * as PropertyValueFactory from './propertyValue';
 import * as LocationFeatureSpecificationFactory from './propertyValue/locationFeatureSpecification';
 import * as QualitativeValueFactory from './qualitativeValue';
 import * as QuantitativeValueFactory from './quantitativeValue';
+import * as RecipeFactory from './recipe';
 import * as AccountingReportFactory from './report/accountingReport';
 import * as ReservationFactory from './reservation';
 import * as BusReservationFactory from './reservation/busReservation';
@@ -225,8 +227,8 @@ export namespace action {
     export import IPurpose = ActionFactory.IPurpose;
     export import ISortOrder = ActionFactory.ISortOrder;
     export import ISearchConditions = ActionFactory.ISearchConditions;
+    export import ISameAs = ActionFactory.ISameAs;
 
-    // export import accept = AcceptActionFactory;
     export namespace accept {
         export import coaOffer = AcceptCOAOfferActionFactory;
         export import pay = AcceptPayActionFactory;
@@ -248,6 +250,8 @@ export namespace action {
             // tslint:disable-next-line:no-shadowed-variable
             export import product = AuthorizeProductOfferActionFactory;
         }
+        // tslint:disable-next-line:no-shadowed-variable
+        export import invoice = AuthorizeInvoiceActionFactory;
     }
     export namespace cancel {
         // tslint:disable-next-line:no-shadowed-variable
@@ -472,6 +476,7 @@ export namespace propertyValue {
 
 export import qualitativeValue = QualitativeValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
+export import recipe = RecipeFactory;
 
 export namespace report {
     export import accountingReport = AccountingReportFactory;

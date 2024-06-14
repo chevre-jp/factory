@@ -4,7 +4,10 @@ import * as WebAPIFactory from '../service/webAPI';
 import * as TaskFactory from '../task';
 import { TaskName } from '../taskName';
 
-export type IData = IReturnActionAttributes<WebAPIFactory.Identifier>;
+export type IData = Pick<
+    IReturnActionAttributes<WebAPIFactory.Identifier>,
+    'agent' | 'instrument' | 'object' | 'project' | 'purpose' | 'recipient' | 'typeOf'
+>;
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.ReturnReserveTransaction;
     data: IData;

@@ -1,5 +1,3 @@
-import type { factory as GMOFactory } from '@motionpicture/gmo-service';
-
 import * as AccountFactory from '../../account';
 import * as ActionFactory from '../../action';
 import { IAttributes as IReturnOrderActionAttributes } from '../../action/transfer/return/order';
@@ -10,9 +8,16 @@ import { IPaymentServiceOutput } from '../../invoice';
 import { ITotalPaymentDue, OrderType } from '../../order';
 import { IMovieTicketPaymentCard } from '../../paymentMethod/paymentCard/movieTicket';
 import { IPropertyValue } from '../../propertyValue';
+import { IAlterTranResult, IRecipe as IPayCreditCardRecipe } from '../../recipe/payCreditCard';
+import { IRecipe as IPayMovieTicketRecipe, ISeatInfoSyncIn, ISeatInfoSyncResult } from '../../recipe/payMovieTicket';
 import { PaymentServiceType } from '../../service/paymentService';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 
+export {
+    IAlterTranResult,
+    ISeatInfoSyncIn, ISeatInfoSyncResult,
+    IPayCreditCardRecipe, IPayMovieTicketRecipe
+};
 export import IAgent = ActionFactory.IParticipantAsProject;
 export import IRecipient = ActionFactory.IParticipantAsSeller;
 export interface IOrderAsPayPurpose {
@@ -45,7 +50,6 @@ export interface IPendingTransaction {
         };
     };
 }
-export type ICreditCardSales = GMOFactory.credit.IAlterTranResult;
 /**
  * 決済方法インターフェース
  */
@@ -103,20 +107,16 @@ export interface IPotentialActions {
     informPayment?: IInformPayment[];
 }
 export interface IInstrument {
-    typeOf: string;
-    seatInfoSyncIn?: any;
+    // instrumentをpayTransaction化(2024-06-14~)
+    id: string;
+    transactionNumber: string;
+    typeOf: AssetTransactionType.Pay;
+    // seatInfoSyncIn?: ISeatInfoSyncIn; // discontinue(2024-06-10~)
 }
-/**
- * 決済結果
- */
+// tslint:disable-next-line:no-empty-interface
 export interface IResult {
-    /**
-     * クレジットカード売上結果
-     */
-    creditCardSales?: ICreditCardSales[];
-    // ↓instrumentへ完全移行(2022-05-02~)
-    // seatInfoSyncIn?: any;
-    seatInfoSyncResult?: any;
+    // creditCardSales?: ICreditCardSales[]; // discontinue(2024-06-10~)
+    // seatInfoSyncResult?: ISeatInfoSyncResult; // discontinue(2024-06-10~)
 }
 export interface ILocation {
     typeOf: CreativeWorkType.WebApplication;
@@ -125,17 +125,21 @@ export interface ILocation {
      */
     id: string;
 }
-export interface IAttributes extends Omit<
+export interface IAttributes extends Pick<
     ActionFactory.IAttributes<ActionType.PayAction, IObject, IResult>,
-    'description' | 'identifier' | 'location'
+    'agent' | 'error' | 'instrument' | 'location' | 'object' | 'potentialActions' | 'purpose' | 'recipient' | 'result' | 'project' | 'sameAs' | 'typeOf'
 > {
     agent: IAgent;
+    /**
+     * redefine IInstrument(2024-06-15~)
+     * 注文決済の場合、決済取引として存在(2024-06-15~)
+     * 返品手数料決済の場合、存在しない
+     */
     instrument?: IInstrument;
     potentialActions?: IPotentialActions;
     purpose: IPurpose;
     recipient: IRecipient;
-    // add location(2022-11-11~)
-    location?: ILocation;
+    location?: ILocation; // add location(2022-11-11~)
 }
 /**
  * 決済アクション

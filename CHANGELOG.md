@@ -18,6 +18,33 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.374.0 - 2024-06-14
+
+### Added
+
+- define action recipe
+- add confirmAction.sameAs
+- add authorizeCOAOffer.object.id
+- add authorizeInvoiceAction
+
+### Changed
+
+- optimize placeOrder.object.paymentMethods
+- optimize payAction(result,instrument)
+- optimize refundAction(result,agent)
+- optimize checkMovieTicketAction.result
+- optimize returnReserveTransaction task
+- optimize acceptCOAOfferAction.instrument
+- optimize authorizeCOAOfferAction.result
+- optimize payTransaction(object,potentialActions)
+- optimize payTask.data
+- update @surfrock/sdk
+- redefine payAction.instrument
+
+### Removed
+
+- discontinue useCheckMovieTicketBeforePay option on starting payTransaction
+
 ## v4.373.0 - 2024-05-30
 
 ### Added
@@ -37,7 +64,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済カード認証タスクを追加
 - 決済URL発行タスクを追加
 - define acceptPayAction
-- support async accpetCOAOffer
+- support async acceptCOAOffer
 - export IMkknInfo,IYkknInfo,IPurchaseNumberInfo on checkMovieTicketAction
 
 ### Changed

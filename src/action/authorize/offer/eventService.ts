@@ -71,7 +71,7 @@ export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IRes
 /**
  * 承認アクション結果
  */
-export interface IResult<T extends WebAPIFactory.Identifier> {
+export interface IResult {
     /**
      * 決済金額
      * オファー未指定の場合、金額非確定なので、この属性は存在しない
@@ -86,11 +86,11 @@ export interface IResult<T extends WebAPIFactory.Identifier> {
     /**
      * 外部サービスへのリクエスト
      */
-    requestBody: IRequestBody<T>;
+    // requestBody: IRequestBody<T>; // discontinue(2024-06-11~)
     /**
      * 外部サービスからのレスポンス
      */
-    responseBody: IResponseBody<T>;
+    // responseBody: IResponseBody<T>; // discontinue(2024-06-11~)
     acceptedOffers?: IResultAcceptedOffer[];
 }
 
@@ -230,6 +230,10 @@ export type IObject<T extends WebAPIFactory.Identifier> = {
     event?: IEvent;
     acceptedOffer: IAcceptedOffer<T>[];
     /**
+     * recipe有(仮予約時)のCOA興行オファー採用アクションID(2024-06-11~)
+     */
+    id?: string;
+    /**
      * 進行中取引
      */
     pendingTransaction: IPendingTransaction<T>;
@@ -245,7 +249,7 @@ export interface IPurpose {
 }
 export type IError = any;
 export interface IAttributes<T extends WebAPIFactory.Identifier>
-    extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult<T>> {
+    extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult> {
     typeOf: ActionType.AuthorizeAction;
     agent: IAgent;
     recipient: IRecipient;
