@@ -172,12 +172,15 @@ export interface IConfirmParams {
 }
 export type IOrderAsResult = Pick<
     OrderFactory.IOrder,
-    'broker' | 'confirmationNumber'
+    'confirmationNumber'
+    // | 'broker' // optimize(2024-06-17~)
+    // | 'name' // optimize(2024-06-17~)
+    // | 'seller' // optimize(2024-06-17~)
     // | 'isGift' // optimize(2024-06-17~)
     // | 'project' // optimize(2024-06-17~)
     // | 'customer' // optimize(2024-06-17~)
-    | 'identifier' | 'name' | 'orderDate' | 'orderNumber' | 'orderStatus' | 'orderedItem'
-    | 'paymentMethods' | 'price' | 'priceCurrency' | 'seller' | 'typeOf' | 'url'
+    | 'identifier' | 'orderDate' | 'orderNumber' | 'orderStatus' | 'orderedItem'
+    | 'paymentMethods' | 'price' | 'priceCurrency' | 'typeOf' | 'url'
 >;
 export interface IAuthorizeActionAsResult { id: string; }
 /**
