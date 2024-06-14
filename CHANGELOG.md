@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.374.0 - 2024-06-14
+
+### Added
+
 - define action recipe
 - add confirmAction.sameAs
 - add authorizeCOAOffer.object.id
@@ -16,29 +30,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - optimize placeOrder.object.paymentMethods
-- optimize payAction.result
-- optimize refundAction.result
-- optimize payAction.instrument
+- optimize payAction(result,instrument)
+- optimize refundAction(result,agent)
 - optimize checkMovieTicketAction.result
 - optimize returnReserveTransaction task
 - optimize acceptCOAOfferAction.instrument
 - optimize authorizeCOAOfferAction.result
-- optimize payTransaction.object
-- update @surfrock/sdk
-- optimize payTransaction.potentialActions
-- optimize refundAction.agent
+- optimize payTransaction(object,potentialActions)
 - optimize payTask.data
+- update @surfrock/sdk
 - redefine payAction.instrument
-
-### Deprecated
 
 ### Removed
 
 - discontinue useCheckMovieTicketBeforePay option on starting payTransaction
-
-### Fixed
-
-### Security
 
 ## v4.373.0 - 2024-05-30
 
