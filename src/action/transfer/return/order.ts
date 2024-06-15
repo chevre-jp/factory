@@ -1,6 +1,6 @@
 import * as ActionFactory from '../../../action';
 import * as OrderFactory from '../../../order';
-import { IAttributes as IReturnPaymentMethodActionAttributes } from '../../transfer/return/paymentMethod';
+import { IAttributes as IReturnInvoiceActionAttributes } from '../../transfer/return/invoice';
 import * as ReturnActionFactory from '../return';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../send/message/email';
 import * as ReturnPointAwardActionFactory from './pointAward';
@@ -17,12 +17,16 @@ export type IObject = OrderFactory.ISimpleOrder & {
     dateReturned: Date;
 };
 export type IResult = any;
+export type IPotentialReturnInvoiceAction = Pick<
+    IReturnInvoiceActionAttributes,
+    'agent' | 'project' | 'object' | 'potentialActions' | 'purpose' | 'recipient' | 'typeOf'
+>;
 export interface IPotentialActions {
     /**
      * 決済返却アクション
      * refundから移行(2022-08-10~)
      */
-    returnPaymentMethod: IReturnPaymentMethodActionAttributes[];
+    returnPaymentMethod: IPotentialReturnInvoiceAction[];
     // returnMoneyTransfer: ReturnMoneyTransferActionFactory.IAttributes[]; // 廃止(2024-02-04~)
     /**
      * ポイントインセンティブ返却アクション

@@ -37,9 +37,9 @@ import * as RefundActionFactory from './action/trade/refund';
 import * as GiveActionFactory from './action/transfer/give';
 import * as GivePointAwardActionFactory from './action/transfer/give/pointAward';
 import * as MoneyTransferActionFactory from './action/transfer/moneyTransfer';
+import * as ReturnInvoiceActionFactory from './action/transfer/return/invoice';
 import * as ReturnMoneyTransferActionFactory from './action/transfer/return/moneyTransfer';
 import * as ReturnOrderActionFactory from './action/transfer/return/order';
-import * as ReturnPaymentMethodActionFactory from './action/transfer/return/paymentMethod';
 import * as ReturnPointAwardActionFactory from './action/transfer/return/pointAward';
 import * as ReturnReserveTransactionActionFactory from './action/transfer/return/reserveTransaction';
 import * as SendEmailMessageActionFactory from './action/transfer/send/message/email';
@@ -309,11 +309,11 @@ export namespace action {
          */
         export namespace returnAction {
             // tslint:disable-next-line:no-shadowed-variable
+            export import invoice = ReturnInvoiceActionFactory;
+            // tslint:disable-next-line:no-shadowed-variable
             export import moneyTransfer = ReturnMoneyTransferActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
             export import order = ReturnOrderActionFactory;
-            // tslint:disable-next-line:no-shadowed-variable
-            export import paymentMethod = ReturnPaymentMethodActionFactory;
             export import pointAward = ReturnPointAwardActionFactory;
             export import reserveTransaction = ReturnReserveTransactionActionFactory;
         }
