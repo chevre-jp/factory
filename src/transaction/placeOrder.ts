@@ -179,8 +179,9 @@ export type IOrderAsResult = Pick<
     // | 'isGift' // optimize(2024-06-17~)
     // | 'project' // optimize(2024-06-17~)
     // | 'customer' // optimize(2024-06-17~)
+    // | 'paymentMethods' // optimize(2024-06-17~)
     | 'identifier' | 'orderDate' | 'orderNumber' | 'orderStatus' | 'orderedItem'
-    | 'paymentMethods' | 'price' | 'priceCurrency' | 'typeOf' | 'url'
+    | 'price' | 'priceCurrency' | 'typeOf' | 'url'
 >;
 export interface IAuthorizeActionAsResult { id: string; }
 /**
