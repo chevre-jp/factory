@@ -106,10 +106,12 @@ export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TSta
     tasksExportAction?: ITasksExportAction;
     /**
      * タスクエクスポート日時
+     * @deprecated use tasksExportAction
      */
     tasksExportedAt?: Date;
     /**
      * タスクエクスポート状態
+     * @deprecated use tasksExportAction
      */
     tasksExportationStatus: TransactionTasksExportationStatus;
     /**
@@ -145,8 +147,12 @@ export interface ISearchConditions<T extends AssetTransactionType> {
     ids?: string[];
     /**
      * ステータスリスト
+     * @deprecated use tasksExportAction
      */
     statuses?: TransactionStatusType[];
+    status?: {
+        $in?: TransactionStatusType[];
+    };
     /**
      * 開始日時(から)
      */
@@ -170,5 +176,11 @@ export interface ISearchConditions<T extends AssetTransactionType> {
         $eq?: string;
         $in?: string[];
     };
-    tasksExportationStatuses?: TransactionTasksExportationStatus[];
+    // tasksExportationStatuses?: TransactionTasksExportationStatus[]; // discontinue(2024-06-17~)
+    tasksExportAction?: {
+        actionStatus?: {
+            $eq?: ActionStatusType;
+            $in?: ActionStatusType[];
+        };
+    };
 }

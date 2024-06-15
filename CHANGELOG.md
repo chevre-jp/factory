@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - optimize placeOrder.result
+- extend assetTransaction.ISearchConditions
+- extend transaction.ISearchConditions
 
 ### Deprecated
 
