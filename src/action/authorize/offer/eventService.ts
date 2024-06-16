@@ -83,15 +83,9 @@ export interface IResult {
      * currencyを口座タイプとして扱う
      */
     amount: OrderFactory.ITotalPaymentDue[];
-    /**
-     * 外部サービスへのリクエスト
-     */
     // requestBody: IRequestBody<T>; // discontinue(2024-06-11~)
-    /**
-     * 外部サービスからのレスポンス
-     */
     // responseBody: IResponseBody<T>; // discontinue(2024-06-11~)
-    acceptedOffers?: IResultAcceptedOffer[];
+    // acceptedOffers?: IResultAcceptedOffer[]; // discontinue(2024-06-17~)
 }
 
 export type ExcludedFieldsFromTicketPriceComponent = 'accounting' | 'id' | 'name' | 'priceCurrency' | 'valueAddedTaxIncluded';

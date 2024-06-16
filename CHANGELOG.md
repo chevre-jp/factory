@@ -19,6 +19,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- discontinue authorizeOfferAction.result.acceptedOffers
+
 ### Fixed
 
 ### Security

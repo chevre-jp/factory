@@ -180,7 +180,8 @@ export type IOrderAsResult = Pick<
     // | 'project' // optimize(2024-06-17~)
     // | 'customer' // optimize(2024-06-17~)
     // | 'paymentMethods' // optimize(2024-06-17~)
-    | 'identifier' | 'orderDate' | 'orderNumber' | 'orderStatus' | 'orderedItem'
+    | 'orderedItem'
+    | 'identifier' | 'orderDate' | 'orderNumber' | 'orderStatus'
     | 'price' | 'priceCurrency' | 'typeOf' | 'url'
 >;
 export interface IAuthorizeActionAsResult { id: string; }

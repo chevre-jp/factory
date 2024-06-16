@@ -49,7 +49,7 @@ export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IPer
 export interface IResult {
     price: number;
     priceCurrency: PriceCurrency;
-    acceptedOffers: IResultAcceptedOffer;
+    // acceptedOffers: IResultAcceptedOffer; // discontinue(2024-06-17~)
     requestBody: RegisterServiceTransactionFactory.IStartParamsWithoutDetail;
     responseBody: RegisterServiceTransactionFactory.ITransaction;
 }

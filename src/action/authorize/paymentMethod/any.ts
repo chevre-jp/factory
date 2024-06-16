@@ -160,7 +160,7 @@ export interface IResultAsInvoice {
 // Array対応(2023-09-02~)
 export type IResult = IResultAsInvoice | IResultAsInvoice[];
 export interface IPurpose {
-    typeOf: TransactionType;
+    typeOf: TransactionType.PlaceOrder;
     id: string;
 }
 
