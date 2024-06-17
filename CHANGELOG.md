@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - extend assetTransaction.ISearchConditions
 - extend transaction.ISearchConditions
 - redefine returnPaymentMethodAction as returnInvoiceAction
+- optmize authorizeEventServiceOfferAction.object.acceptedOffer
+- redefine authorizeEventServiceOfferAction.result as AggregateOffer
 
 ### Deprecated
 

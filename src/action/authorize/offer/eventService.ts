@@ -6,8 +6,10 @@ import * as ReserveTransactionFactory from '../../../assetTransaction/reserve';
 import { AssetTransactionType } from '../../../assetTransactionType';
 import * as ScreeningEventFactory from '../../../event/screeningEvent';
 import * as OfferFactory from '../../../offer';
+import { OfferType } from '../../../offerType';
 import * as OrderFactory from '../../../order';
 import { PriceCurrency } from '../../../priceCurrency';
+import { IPriceSpecification as IUnitPriceSpecification } from '../../../priceSpecification/unitPriceSpecification';
 import {
     ICategoryCodeChargePriceComponent, IMovieTicketTypeChargePriceComponent,
     ITicketOffer, ITicketPriceSpecification, ITicketUnitPriceComponent
@@ -67,11 +69,24 @@ export type IResponseBody<T extends WebAPIFactory.Identifier> =
     never;
 
 export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IReservation>;
-
-/**
- * 承認アクション結果
- */
-export interface IResult {
+export interface IAcceptedOfferInResult extends Pick<ITicketOffer, 'acceptedPaymentMethod' | 'id' | 'typeOf'> {
+    typeOf: OfferType.Offer;
+    id: string;
+    includesObject: { amountOfThisGood: number };
+    /**
+     * 取引確定時の検証に必要な情報のみ保管する
+     */
+    priceSpecification?: Pick<IUnitPriceSpecification, 'eligibleQuantity' | 'eligibleTransactionVolume'>;
+}
+export interface IResultAsAggregateOffer {
+    typeOf?: OfferType.AggregateOffer;
+    /**
+     * オファーIDごとの集計
+     */
+    offers?: IAcceptedOfferInResult[];
+}
+// redefine as typeOf: AggregateOffer(2024-06-17~)
+export interface IResult extends IResultAsAggregateOffer {
     /**
      * 決済金額
      * オファー未指定の場合、金額非確定なので、この属性は存在しない
@@ -108,10 +123,11 @@ export type IAcceptedOfferPriceSpecification = Pick<ITicketPriceSpecification, '
  */
 export type IAcceptedOffer4chevre = Pick<
     ITicketOffer,
-    'acceptedPaymentMethod' | // add(2023-11-15~)
-    'id' | 'identifier' | 'typeOf' |
-    'priceCurrency' |
-    'itemOffered' | 'additionalProperty'
+    'acceptedPaymentMethod'  // add(2023-11-15~)
+    | 'id' | 'identifier' | 'typeOf'
+    | 'priceCurrency'
+    | 'itemOffered'
+    | 'additionalProperty'
 >
     & Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty'>
     & {
@@ -180,8 +196,20 @@ export interface IObjectWithoutDetail4COA {
 
 export type IAcceptedOffer<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? IAcceptedOffer4COA :
-    T extends WebAPIFactory.Identifier.Chevre ? IAcceptedOffer4chevre :
-    never;
+    T extends WebAPIFactory.Identifier.Chevre
+    ? Pick<
+        IAcceptedOffer4chevre,
+        'acceptedPaymentMethod'
+        // | 'addOn' // discontinue(2024-06-17~)
+        // | 'additionalProperty' // discontinue(2024-06-17~)
+        | 'id'
+        // | 'identifier' // discontinue(2024-06-17~)
+        // | 'itemOffered' // discontinue(2024-06-17~)
+        // | 'priceCurrency' // discontinue(2024-06-17~)
+        | 'priceSpecification'
+        | 'typeOf'
+    >
+    : never;
 
 export type IAcceptedOfferWithoutDetail<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? IAcceptedOfferWithoutDetail4COA :
