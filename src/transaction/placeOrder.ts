@@ -180,7 +180,7 @@ export type IOrderAsResult = Pick<
     // | 'project' // optimize(2024-06-17~)
     // | 'customer' // optimize(2024-06-17~)
     // | 'paymentMethods' // optimize(2024-06-17~)
-    | 'orderedItem'
+    // | 'orderedItem' // optimize(2024-06-18~)
     | 'identifier' | 'orderDate' | 'orderNumber' | 'orderStatus'
     | 'price' | 'priceCurrency' | 'typeOf' | 'url'
 >;
