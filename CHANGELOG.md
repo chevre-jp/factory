@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - optmize authorizeEventServiceOfferAction.object.acceptedOffer
 - redefine authorizeEventServiceOfferAction.result as AggregateOffer
 - optimize action.ISearchConditions
+- make authorizeEventServiceOfferAction.object.acceptedOffer optional
 
 ### Deprecated
 
