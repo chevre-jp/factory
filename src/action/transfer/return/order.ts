@@ -17,10 +17,12 @@ export type IObject = OrderFactory.ISimpleOrder & {
     dateReturned: Date;
 };
 export type IResult = any;
-export type IPotentialReturnInvoiceAction = Pick<
-    IReturnInvoiceActionAttributes,
-    'agent' | 'project' | 'object' | 'potentialActions' | 'purpose' | 'recipient' | 'typeOf'
->;
+// optimize(2024-06-19~)
+// export type IPotentialReturnInvoiceAction = Pick<
+//     IReturnInvoiceActionAttributes,
+//     'agent' | 'project' | 'object' | 'potentialActions' | 'purpose' | 'recipient' | 'typeOf'
+// >;
+export type IPotentialReturnInvoiceAction = Pick<IReturnInvoiceActionAttributes, 'object' | 'potentialActions'>;
 export interface IPotentialActions {
     /**
      * 決済返却アクション
