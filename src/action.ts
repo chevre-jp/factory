@@ -197,19 +197,19 @@ export interface ISearchConditions {
                 $in?: string[];
             };
         };
-        acceptedOffer?: {
-            itemOffered?: {
-                serviceOutput?: {
-                    reservedTicket?: {
-                        ticketedSeat?: {
-                            seatNumber?: {
-                                $in?: string[];
-                            };
-                        };
-                    };
-                };
-            };
-        };
+        // acceptedOffer?: { // discontinue(2024-06-18~)
+        //     itemOffered?: {
+        //         serviceOutput?: {
+        //             reservedTicket?: {
+        //                 ticketedSeat?: {
+        //                     seatNumber?: {
+        //                         $in?: string[];
+        //                     };
+        //                 };
+        //             };
+        //         };
+        //     };
+        // };
         typeOf?: {
             $eq?: string;
             $in?: string[];

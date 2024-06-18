@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - redefine returnPaymentMethodAction as returnInvoiceAction
 - optmize authorizeEventServiceOfferAction.object.acceptedOffer
 - redefine authorizeEventServiceOfferAction.result as AggregateOffer
+- optimize action.ISearchConditions
 
 ### Deprecated
 
