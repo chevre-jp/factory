@@ -25,6 +25,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Removed
 
 - discontinue authorizeOfferAction.result.acceptedOffers
+- discontinue assetTransaction.tasksExportedAt
+- discontinue assetTransaction.tasksExportationStatus
+- discontinue transaction.tasksExportedAt
+- discontinue transaction.tasksExportationStatus
 
 ### Fixed
 

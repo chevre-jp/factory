@@ -113,7 +113,7 @@ export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TSta
      * タスクエクスポート状態
      * @deprecated use tasksExportAction
      */
-    tasksExportationStatus: TransactionTasksExportationStatus;
+    tasksExportationStatus?: TransactionTasksExportationStatus;
     /**
      * 事後に発生するアクション
      */
