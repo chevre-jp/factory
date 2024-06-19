@@ -20,6 +20,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - make authorizeEventServiceOfferAction.object.acceptedOffer optional
 - optimize returnPayTransaction task
 - optimize authorizePaymentAction
+- optimize orderAction
+- optimize sendOrderAction
 
 ### Deprecated
 
