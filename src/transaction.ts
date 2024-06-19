@@ -10,7 +10,6 @@ import { IIdentifier, IPersonAttributes } from './person';
 import { PersonType } from './personType';
 import { SortType } from './sortType';
 import { TransactionStatusType } from './transactionStatusType';
-import { TransactionTasksExportationStatus } from './transactionTasksExportationStatus';
 import { TransactionType } from './transactionType';
 
 export interface IAgentAsWebApplication extends Pick<IWebApplication, 'id' | 'identifier' | 'typeOf'> {
@@ -120,16 +119,8 @@ export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TSta
      */
     endDate?: Date;
     tasksExportAction?: ITasksExportAction;
-    /**
-     * タスクエクスポート日時
-     * @deprecated use tasksExportAction
-     */
-    tasksExportedAt?: Date;
-    /**
-     * タスクエクスポート状態
-     * @deprecated use tasksExportAction
-     */
-    tasksExportationStatus?: TransactionTasksExportationStatus;
+    // tasksExportedAt?: Date; // discontinue(2024-06-20~)
+    // tasksExportationStatus?: TransactionTasksExportationStatus; // discontinue(2024-06-20~)
     /**
      * 事後に発生するアクション
      */

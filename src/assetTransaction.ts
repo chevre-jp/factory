@@ -5,7 +5,6 @@ import { OrganizationType } from './organizationType';
 import { PersonType } from './personType';
 import { SortType } from './sortType';
 import { TransactionStatusType } from './transactionStatusType';
-import { TransactionTasksExportationStatus } from './transactionTasksExportationStatus';
 
 /**
  * 販売者主体
@@ -104,16 +103,8 @@ export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TSta
      */
     endDate?: Date;
     tasksExportAction?: ITasksExportAction;
-    /**
-     * タスクエクスポート日時
-     * @deprecated use tasksExportAction
-     */
-    tasksExportedAt?: Date;
-    /**
-     * タスクエクスポート状態
-     * @deprecated use tasksExportAction
-     */
-    tasksExportationStatus?: TransactionTasksExportationStatus;
+    // tasksExportedAt?: Date; // discontinue(2024-06-20~)
+    // tasksExportationStatus?: TransactionTasksExportationStatus; // discontinue(2024-06-20~)
     /**
      * 事後に発生するアクション
      */

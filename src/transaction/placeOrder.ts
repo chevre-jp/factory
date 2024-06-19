@@ -205,12 +205,6 @@ export interface IResult {
      * オファー数(2024-01-17~)
      */
     numAcceptedOffers?: number;
-    options?: {
-        /**
-         * 取引resultの注文オファーを無視する(Orderに適用しない)
-         */
-        ignoreAccpetedOffersFromResult?: boolean;
-    };
 }
 /**
  * エラー

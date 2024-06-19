@@ -198,7 +198,6 @@ import * as RegisterServiceAssetTransactionFactory from './assetTransaction/regi
 import * as ReserveAssetTransactionFactory from './assetTransaction/reserve';
 import { AssetTransactionType } from './assetTransactionType';
 import { TransactionStatusType } from './transactionStatusType';
-import { TransactionTasksExportationStatus } from './transactionTasksExportationStatus';
 
 import * as TransactionFactory from './transaction';
 import * as MoneyTransferTransactionFactory from './transaction/moneyTransfer';
@@ -825,7 +824,7 @@ export namespace transaction {
 }
 export import transactionType = TransactionType;
 export import transactionStatusType = TransactionStatusType;
-export import transactionTasksExportationStatus = TransactionTasksExportationStatus;
+// export import transactionTasksExportationStatus = TransactionTasksExportationStatus; // discontinue(2024-06-20~)
 export import assetTransactionType = AssetTransactionType;
 export import unitCode = UnitCode;
 export import unitPriceOffer = UnitPriceOfferFactory;

@@ -29,6 +29,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - discontinue assetTransaction.tasksExportationStatus
 - discontinue transaction.tasksExportedAt
 - discontinue transaction.tasksExportationStatus
+- discontinue transactionTasksExportationStatus
+- discontinue placeOrder.result.options.ignoreAccpetedOffersFromResult
 
 ### Fixed
 
