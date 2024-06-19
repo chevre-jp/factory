@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - optimize action.ISearchConditions
 - make authorizeEventServiceOfferAction.object.acceptedOffer optional
 - optimize returnPayTransaction task
+- optimize authorizePaymentAction
 
 ### Deprecated
 

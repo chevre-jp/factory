@@ -171,6 +171,7 @@ export enum ServiceIdentifier {
 
 export interface IInstrumentAsService {
     typeOf: 'WebAPI';
+    transactionNumber: never;
     identifier: ServiceIdentifier;
 }
 export interface IInstrumentAsAssetTransaction {
