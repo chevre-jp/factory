@@ -31,10 +31,7 @@ export {
 
 export import IPurchaseNumberAuthResult = CheckMovieTicketActionFactory.IPurchaseNumberAuthResult;
 
-/**
- * 承認対象
- */
-export interface IObject {
+export interface IObjectIncludingPaymentMethodDetails {
     /**
      * The identifier for the account the payment will be applied to.
      * MovieTicket->購入管理番号
@@ -98,7 +95,7 @@ export interface IObject {
     movieTickets?: IMovieTicket[];
 }
 export type IObjectWithoutDetail = Pick<
-    IObject,
+    IObjectIncludingPaymentMethodDetails,
     'additionalProperty' | 'amount' | 'issuedThrough' | 'paymentMethod'
     | 'description' | 'name' | 'creditCard' | 'method' | 'movieTickets' | 'fromLocation'
 > & {
@@ -108,6 +105,12 @@ export type IObjectWithoutDetail = Pick<
      */
     paymentMethodId?: string;
 };
+// IObjectから決済方法詳細を除外(2024-06-20~)
+export type IObject = Pick<
+    IObjectIncludingPaymentMethodDetails,
+    'accountId' | 'additionalProperty' | 'amount' | 'description' | 'fromLocation'
+    | 'issuedThrough' | 'name' | 'paymentMethod' | 'paymentMethodId' | 'typeOf'
+>;
 export interface IResultPaymentMethod {
     /**
      * 決済方法区分
