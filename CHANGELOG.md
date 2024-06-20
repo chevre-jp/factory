@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - optimize authorizePaymentAction
 - optimize orderAction
 - optimize sendOrderAction
+- optimize authorizeEventServiceOfferAction
 
 ### Deprecated
 

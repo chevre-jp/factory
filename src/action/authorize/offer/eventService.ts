@@ -4,7 +4,7 @@ import * as ActionFactory from '../../../action';
 import { ActionType } from '../../../actionType';
 import * as ReserveTransactionFactory from '../../../assetTransaction/reserve';
 import { AssetTransactionType } from '../../../assetTransactionType';
-import * as ScreeningEventFactory from '../../../event/screeningEvent';
+import { IEvent } from '../../../event/screeningEvent';
 import * as OfferFactory from '../../../offer';
 import { OfferType } from '../../../offerType';
 import * as OrderFactory from '../../../order';
@@ -27,35 +27,31 @@ export enum ObjectType {
     SeatReservation = 'SeatReservation'
 }
 
-/**
- * IInstrumentAsAssetTransactionへ移行前のinstrument(~2024-03-08)
- * @deprecated use IInstrumentAsAssetTransaction
- */
-export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.IService<T> & {
-    /**
-     * Chevre->予約取引番号
-     * COA->仮予約番号
-     */
-    transactionNumber?: string;
-};
+// IInstrumentAsAssetTransactionへ移行前のinstrument(~2024-03-08)
+// 手動でIInstrumentAsAssetTransactionへmigrate済(2024-06-21)
+// export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.IService<T> & {
+//     /**
+//      * Chevre->予約取引番号
+//      * COA->仮予約番号
+//      */
+//     transactionNumber?: string;
+// };
 export type IInstrumentAsAssetTransaction<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? {
         typeOf: 'COAReserveTransaction';
         identifier: T;
         /**
-         * Chevre->予約取引番号
-         * COA->仮予約番号
+         * 仮予約番号
          */
-        transactionNumber?: string;
+        transactionNumber: string;
     } :
     T extends WebAPIFactory.Identifier.Chevre ? {
         typeOf: AssetTransactionType.Reserve;
         identifier: T;
         /**
-         * Chevre->予約取引番号
-         * COA->仮予約番号
+         * 予約取引番号
          */
-        transactionNumber?: string;
+        transactionNumber: string;
     } :
     never;
 
@@ -229,55 +225,52 @@ export type ICOAPendingTransaction = Pick<
     transactionNumber: string;
     typeOf: 'COAReserveTransaction';
 };
-export interface IChevrePendingTransaction {
-    transactionNumber: string;
-    typeOf: AssetTransactionType.Reserve;
-}
-export type IPendingTransaction<T extends WebAPIFactory.Identifier> =
-    T extends WebAPIFactory.Identifier.COA ? ICOAPendingTransaction :
-    T extends WebAPIFactory.Identifier.Chevre ? IChevrePendingTransaction :
-    never;
-
-export type IEvent = Pick<ScreeningEventFactory.IEvent, 'id' | 'typeOf'> & {
-    offers: {
-        // イベント提供サービスを識別できるようにするために追加(2022-06-03~)
-        offeredThrough: ScreeningEventFactory.IOfferedThrough;
-    };
+// export interface IChevrePendingTransaction {
+//     transactionNumber: string;
+//     typeOf: AssetTransactionType.Reserve;
+// }
+export type IEventInObject = Pick<IEvent, 'id' | 'typeOf'> & {
+    // offers: { // discontinue(2024-06-22~)
+    //     // イベント提供サービスを識別できるようにするために追加(2022-06-03~)
+    //     offeredThrough: ScreeningEventFactory.IOfferedThrough;
+    // };
 };
 /**
  * 興行オファー承認アクション対象
  */
-export type IObject<T extends WebAPIFactory.Identifier> = {
+export type IObject = {
     typeOf: ObjectType;
-    event?: IEvent;
+    event?: IEventInObject;
     // acceptedOffer?: IAcceptedOffer<T>[]; // discontinue(2024-06-21~)
     /**
      * recipe有(仮予約時)のCOA興行オファー採用アクションID(2024-06-11~)
      */
     id?: string;
     /**
-     * 進行中取引
+     * COA進行中取引(仮予約削除時に利用)
+     * discontinue on Chevre(2024-06-22~)
      */
-    pendingTransaction: IPendingTransaction<T>;
+    pendingTransaction?: ICOAPendingTransaction;
     /**
      * result.acceptedOffers廃止に際して使用有無を保管
      */
     useResultAcceptedOffers?: boolean;
-} & Omit<IObjectWithoutDetail<T>, 'acceptedOffer' | 'reservationFor'>;
+}
+    // & Omit<IObjectWithoutDetail<T>, 'acceptedOffer' | 'reservationFor'>
+    & Pick<IObjectWithoutDetail<WebAPIFactory.Identifier.Chevre>, 'broker'>;
 
 export interface IPurpose {
     typeOf: TransactionType.PlaceOrder;
     id: string;
 }
 export type IError = any;
-export interface IAttributes<T extends WebAPIFactory.Identifier>
-    extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult> {
+export interface IAttributes<T extends WebAPIFactory.Identifier> extends AuthorizeActionFactory.IAttributes<IObject, IResult> {
     typeOf: ActionType.AuthorizeAction;
     agent: IAgent;
     recipient: IRecipient;
-    object: IObject<T>;
+    object: IObject;
     purpose: IPurpose;
-    instrument: IInstrument<T> | IInstrumentAsAssetTransaction<T>;
+    instrument: IInstrumentAsAssetTransaction<T>;
 }
 /**
  * 興行オファー承認アクション
