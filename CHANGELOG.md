@@ -14,10 +14,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - extend assetTransaction.ISearchConditions
 - extend transaction.ISearchConditions
 - redefine returnPaymentMethodAction as returnInvoiceAction
-- optmize authorizeEventServiceOfferAction.object.acceptedOffer
 - redefine authorizeEventServiceOfferAction.result as AggregateOffer
 - optimize action.ISearchConditions
-- make authorizeEventServiceOfferAction.object.acceptedOffer optional
 - optimize returnPayTransaction task
 - optimize authorizePaymentAction
 - optimize orderAction
@@ -34,6 +32,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - discontinue transaction.tasksExportationStatus
 - discontinue transactionTasksExportationStatus
 - discontinue placeOrder.result.options.ignoreAccpetedOffersFromResult
+- discontinue authorizeEventServiceOfferAction.object.acceptedOffer
 
 ### Fixed
 

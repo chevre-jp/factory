@@ -250,7 +250,7 @@ export type IEvent = Pick<ScreeningEventFactory.IEvent, 'id' | 'typeOf'> & {
 export type IObject<T extends WebAPIFactory.Identifier> = {
     typeOf: ObjectType;
     event?: IEvent;
-    acceptedOffer?: IAcceptedOffer<T>[]; // make optional(2024-06-19~)
+    // acceptedOffer?: IAcceptedOffer<T>[]; // discontinue(2024-06-21~)
     /**
      * recipe有(仮予約時)のCOA興行オファー採用アクションID(2024-06-11~)
      */
