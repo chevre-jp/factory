@@ -26,5 +26,9 @@ export enum AssetTransactionType {
      * サービス登録
      * Service: MembershipService,PaymentCard...
      */
-    RegisterService = 'RegisterService'
+    RegisterService = 'RegisterService',
+    /**
+     * 資産取引docは存在しない
+     */
+    COAReserveTransaction = 'COAReserveTransaction'
 }

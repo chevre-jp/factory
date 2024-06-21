@@ -38,10 +38,11 @@ export enum ObjectType {
 // };
 export type IInstrumentAsAssetTransaction<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? {
-        typeOf: 'COAReserveTransaction';
+        typeOf: AssetTransactionType.COAReserveTransaction;
         identifier: T;
         /**
          * 仮予約番号
+         * ある時期(2023-09-12頃)以前では空文字のケースがあるので中止
          */
         transactionNumber: string;
     } :
@@ -223,7 +224,7 @@ export type ICOAPendingTransaction = Pick<
     'theaterCode' | 'dateJouei' | 'titleCode' | 'titleBranchNum' | 'timeBegin' | 'tmpReserveNum'
 > & {
     transactionNumber: string;
-    typeOf: 'COAReserveTransaction';
+    typeOf: AssetTransactionType.COAReserveTransaction;
 };
 // export interface IChevrePendingTransaction {
 //     transactionNumber: string;
@@ -238,7 +239,7 @@ export type IEventInObject = Pick<IEvent, 'id' | 'typeOf'> & {
 /**
  * 興行オファー承認アクション対象
  */
-export type IObject = {
+export interface IObject {
     typeOf: ObjectType;
     event?: IEventInObject;
     // acceptedOffer?: IAcceptedOffer<T>[]; // discontinue(2024-06-21~)
@@ -254,10 +255,10 @@ export type IObject = {
     /**
      * result.acceptedOffers廃止に際して使用有無を保管
      */
-    useResultAcceptedOffers?: boolean;
+    // useResultAcceptedOffers?: boolean; // discontinue(2024-06-24~)
 }
-    // & Omit<IObjectWithoutDetail<T>, 'acceptedOffer' | 'reservationFor'>
-    & Pick<IObjectWithoutDetail<WebAPIFactory.Identifier.Chevre>, 'broker'>;
+// & Omit<IObjectWithoutDetail<T>, 'acceptedOffer' | 'reservationFor'>
+// & Pick<IObjectWithoutDetail<WebAPIFactory.Identifier.Chevre>, 'broker'> // discontinue(2024-06-24~)
 
 export interface IPurpose {
     typeOf: TransactionType.PlaceOrder;

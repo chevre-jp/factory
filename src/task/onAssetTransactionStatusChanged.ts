@@ -21,7 +21,7 @@ export interface IObjectAsPayTransaction {
     };
 }
 export interface IObjectAsReserveTransaction {
-    typeOf: AssetTransactionType.Reserve | 'COAReserveTransaction';
+    typeOf: AssetTransactionType.Reserve | AssetTransactionType.COAReserveTransaction;
     transactionNumber: string;
     status: TransactionStatusType.Confirmed;
 }

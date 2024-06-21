@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- add assetTransactionType.COAReserveTransaction
+
 ### Changed
 
 - optimize placeOrder.result
