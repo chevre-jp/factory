@@ -108,8 +108,17 @@ export type IObjectWithoutDetail = Pick<
 // IObjectから決済方法詳細を除外(2024-06-20~)
 export type IObject = Pick<
     IObjectIncludingPaymentMethodDetails,
-    'accountId' | 'additionalProperty' | 'amount' | 'description' | 'fromLocation'
-    | 'issuedThrough' | 'name' | 'paymentMethod' | 'paymentMethodId' | 'typeOf'
+    'typeOf'
+    | 'paymentMethodId'
+    | 'accountId'
+
+// | 'fromLocation'
+// | 'additionalProperty'
+// | 'amount'
+// | 'description'
+// | 'issuedThrough'
+// | 'name'
+// | 'paymentMethod'
 >;
 export interface IResultPaymentMethod {
     /**
