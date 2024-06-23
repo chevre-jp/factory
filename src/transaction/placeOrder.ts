@@ -24,7 +24,8 @@ export type IAgent = TransactionFactory.IAgent & {
     memberOfToken?: string;
     memberOfPayload?: IMemberOfPayload;
 };
-export type ICustomer = OrderFactory.ICustomer;
+// export type ICustomer = OrderFactory.ICustomer;
+export type ICustomerInObject = Pick<OrderFactory.ICustomer, 'id' | 'identifier' | 'typeOf'>; // optimize(2024-06-24~)
 export interface IPaymentMethodByPaymentUrl {
     /**
      * 決済採用時に発行済の決済方法ID
@@ -49,8 +50,8 @@ export interface IAwardAccount {
 }
 export interface IObject {
     clientUser?: Omit<IClientUser, 'scope' | 'scopes'>;
-    broker?: OrderFactory.IBroker;
-    customer?: ICustomer;
+    broker?: Pick<OrderFactory.IBroker, 'id' | 'typeOf'>;
+    customer?: ICustomerInObject;
     identifier?: OrderFactory.IIdentifier;
     /**
      * 確認番号
@@ -88,7 +89,7 @@ export interface IStartParamsWithoutDetail {
     };
     object: {
         clientUser?: Omit<IClientUser, 'scope' | 'scopes'>;
-        customer?: ICustomer;
+        customer?: ICustomerInObject;
         passport?: TransactionFactory.IPassportBeforeStart;
         /**
          * 注文名称

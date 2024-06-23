@@ -12,7 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- optimize placeOrder.result
+- optimize placeOrder(object,result)
 - extend assetTransaction.ISearchConditions
 - extend transaction.ISearchConditions
 - redefine returnPaymentMethodAction as returnInvoiceAction
