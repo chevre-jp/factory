@@ -23,6 +23,8 @@ export type IResult = any;
 //     'agent' | 'project' | 'object' | 'potentialActions' | 'purpose' | 'recipient' | 'typeOf'
 // >;
 export type IPotentialReturnInvoiceAction = Pick<IReturnInvoiceActionAttributes, 'object' | 'potentialActions'>;
+export type IPotentialReturnPointAwardAction = ReturnPointAwardActionFactory.IAttributes;
+export type IPotentialSendEmailMessageAction = Pick<ISendEmailMessageActionAttributes, 'object'>;
 export interface IPotentialActions {
     /**
      * 決済返却アクション
@@ -33,11 +35,11 @@ export interface IPotentialActions {
     /**
      * ポイントインセンティブ返却アクション
      */
-    returnPointAward: ReturnPointAwardActionFactory.IAttributes[];
+    returnPointAward: IPotentialReturnPointAwardAction[];
     /**
      * Eメール送信アクション
      */
-    sendEmailMessage?: ISendEmailMessageActionAttributes[];
+    sendEmailMessage?: IPotentialSendEmailMessageAction[]; // optimize(2024-06-25~)
 }
 export interface IAttributes extends ReturnActionFactory.IAttributes<IObject, IResult> {
     agent: IAgent;
