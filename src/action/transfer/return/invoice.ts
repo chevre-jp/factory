@@ -17,11 +17,12 @@ export type IObject = Pick<
     & Pick<IInvoice, 'typeOf'>; // typeOfを定義(2024-03-06~)
 // tslint:disable-next-line:no-empty-interface
 export interface IResult { }
+export type IPotentialSendEmailMessageAction = Pick<ISendEmailMessageActionAttributes, 'object'>; // optimize(2024-06-26~)
 export interface IPotentialActions {
     /**
      * 返金処理完了を通知するEメール送信アクション
      */
-    sendEmailMessage?: ISendEmailMessageActionAttributes[];
+    sendEmailMessage?: IPotentialSendEmailMessageAction[];
 }
 export type IPurpose = ISimpleOrder;
 export interface IInstrument {
