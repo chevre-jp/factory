@@ -24,6 +24,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - optimize orderAction
 - optimize sendOrderAction
 - optimize authorizeEventServiceOfferAction
+- optimize checkMovieTicket task
 
 ### Deprecated
 

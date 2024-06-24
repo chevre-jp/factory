@@ -21,10 +21,8 @@ export type IMovieTicket =
     // | 'typeOf' // 廃止(2024-03-15~)
     >
     & {
-        // 最適化(2023-03-03~)
         serviceOutput: Pick<IMovieTicketServiceOutput, 'reservationFor'>;
     };
-// 最適化(2023-03-03~)
 export interface IPaymentService extends Pick<
     PayActionFactory.IPaymentService, 'id' | 'typeOf'
 // | 'paymentMethod' // 最適化(2024-03-15~)
@@ -33,7 +31,7 @@ export interface IPaymentService extends Pick<
      * 販売者
      */
     seller: { typeOf: OrganizationType.Corporation; id: string };
-    movieTickets?: IMovieTicket[];
+    movieTickets: IMovieTicket[];
     paymentMethod: {
         /**
          * 決済方法区分
