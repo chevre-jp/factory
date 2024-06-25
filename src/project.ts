@@ -78,7 +78,12 @@ export interface ISubscription {
     useOfferCatalogItem?: boolean;
 
 }
-export type IHasMerchantReturnPolicy = Pick<IMerchantReturnPolicy, 'sameAs' | 'typeOf'>;
+export type IHasMerchantReturnPolicy = Pick<IMerchantReturnPolicy, 'sameAs' | 'typeOf'> & {
+    /**
+     * ポリシー識別子(プロジェクト自動生成)
+     */
+    identifier?: string;
+};
 export interface IMakesOffer extends Pick<
     IOffer,
     'typeOf' | 'availableAtOrFrom'
