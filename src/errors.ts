@@ -13,6 +13,7 @@ import { NotImplementedError as NotImplemented } from './error/notImplemented';
 import { RateLimitExceededError as RateLimitExceeded } from './error/rateLimitExceeded';
 import { ServiceUnavailableError as ServiceUnavailable } from './error/serviceUnavailable';
 import { UnauthorizedError as Unauthorized } from './error/unauthorized';
+import { UnknownError as Unknown } from './error/unknown';
 
 export {
     AlreadyInUse,
@@ -26,5 +27,6 @@ export {
     NotImplemented,
     RateLimitExceeded,
     ServiceUnavailable,
-    Unauthorized
+    Unauthorized,
+    Unknown
 };

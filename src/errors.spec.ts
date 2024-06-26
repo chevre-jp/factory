@@ -16,7 +16,8 @@ import {
     NotImplemented,
     RateLimitExceeded,
     ServiceUnavailable,
-    Unauthorized
+    Unauthorized,
+    Unknown
 } from './errors';
 
 describe('new AlreadyInUseError()', () => {
@@ -261,6 +262,25 @@ describe('new InternalError()', () => {
     it('メッセージを指定しなくても、正しくインスタンス化できる', () => {
         const error = new Internal();
         assert(error instanceof Internal);
+        assert.equal(error.name, 'ChevreError');
+        assert.equal(typeof error.message, 'string');
+        assert.equal(typeof error.stack, 'string');
+    });
+});
+
+describe('new UnknownError()', () => {
+    it('正しくインスタンス化できる', () => {
+        const message = 'test message';
+        const error = new Unknown(message);
+        assert(error instanceof Unknown);
+        assert.equal(error.message, message);
+        assert.equal(error.name, 'ChevreError');
+        assert.equal(typeof error.stack, 'string');
+    });
+
+    it('メッセージを指定しなくても、正しくインスタンス化できる', () => {
+        const error = new Unknown();
+        assert(error instanceof Unknown);
         assert.equal(error.name, 'ChevreError');
         assert.equal(typeof error.message, 'string');
         assert.equal(typeof error.stack, 'string');

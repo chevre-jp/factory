@@ -12,5 +12,6 @@ export enum ErrorCode {
     NotImplemented = 'NotImplemented',
     RateLimitExceeded = 'RateLimitExceeded',
     ServiceUnavailable = 'ServiceUnavailable',
-    Unauthorized = 'Unauthorized'
+    Unauthorized = 'Unauthorized',
+    Unknown = 'Unknown'
 }
