@@ -8,7 +8,8 @@ import { TransactionType } from '../transactionType';
 
 export type IAgent = TransactionFactory.IAgent;
 export import ISeller = TransactionFactory.ISeller;
-export type IResult = any;
+// tslint:disable-next-line:no-empty-interface
+export interface IResult { }
 export type IError = any;
 /**
  * 返品理由

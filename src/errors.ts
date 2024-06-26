@@ -7,6 +7,7 @@ import { ArgumentNullError as ArgumentNull } from './error/argumentNull';
 import { ChevreError as Chevre } from './error/chevre';
 import { ForbiddenError as Forbidden } from './error/forbidden';
 import { GatewayTimeoutError as GatewayTimeout } from './error/gatewayTimeout';
+import { InternalError as Internal } from './error/internal';
 import { NotFoundError as NotFound } from './error/notFound';
 import { NotImplementedError as NotImplemented } from './error/notImplemented';
 import { RateLimitExceededError as RateLimitExceeded } from './error/rateLimitExceeded';
@@ -20,6 +21,7 @@ export {
     Chevre,
     Forbidden,
     GatewayTimeout,
+    Internal,
     NotFound,
     NotImplemented,
     RateLimitExceeded,
