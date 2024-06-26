@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.375.0 - 2024-06-26
+
+### Added
+
 - add assetTransactionType.COAReserveTransaction
 - add project.hasMerchantReturnPolicy.identifier
 - add seller.hasMerchantReturnPolicy.identifier
@@ -28,8 +42,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - optimize authorizeEventServiceOfferAction
 - optimize checkMovieTicket task
 
-### Deprecated
-
 ### Removed
 
 - discontinue authorizeOfferAction.result.acceptedOffers
@@ -40,10 +52,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - discontinue transactionTasksExportationStatus
 - discontinue placeOrder.result.options.ignoreAccpetedOffersFromResult
 - discontinue authorizeEventServiceOfferAction.object.acceptedOffer
-
-### Fixed
-
-### Security
 
 ## v4.374.0 - 2024-06-14
 
