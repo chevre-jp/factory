@@ -143,6 +143,7 @@ export interface IReturnFeesMovieTicket {
 export type IReturnPolicyItemCondition = IOfferItemCondition;
 /**
  * 取引に適用される返品ポリシー
+ * 販売者の返品ポリシー、あるいは、プロジェクトの返品ポリシーから選択される
  */
 export type IReturnPolicy = Pick<
     IMerchantReturnPolicy,
@@ -154,6 +155,10 @@ export type IReturnPolicy = Pick<
      */
     returnFeesMovieTicket?: IReturnFeesMovieTicket[];
     itemCondition?: IReturnPolicyItemCondition;
+    /**
+     * ポリシー識別子(プロジェクト自動生成)
+     */
+    identifier?: string; // add identifier(2024-06-26~)
 };
 /**
  * 取引対象物

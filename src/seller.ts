@@ -15,6 +15,10 @@ export type ISellerMerchantReturnPolicy = Pick<
     'itemCondition' | 'typeOf' | 'merchantReturnDays' | 'restockingFee' | 'url' | 'applicablePaymentMethod'
 > & {
     restockingFee: IRestockingFee;
+    /**
+     * ポリシー識別子(プロジェクト自動生成)
+     */
+    identifier?: string;
 };
 export type IHasMerchantReturnPolicy = ISellerMerchantReturnPolicy[];
 /**

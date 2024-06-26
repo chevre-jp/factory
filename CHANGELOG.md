@@ -18,6 +18,41 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.375.0 - 2024-06-26
+
+### Added
+
+- add assetTransactionType.COAReserveTransaction
+- add project.hasMerchantReturnPolicy.identifier
+- add seller.hasMerchantReturnPolicy.identifier
+
+### Changed
+
+- optimize placeOrder(object,result)
+- optimize returnOrder(potentialActions)
+- extend assetTransaction.ISearchConditions
+- extend transaction.ISearchConditions
+- redefine returnPaymentMethodAction as returnInvoiceAction
+- redefine authorizeEventServiceOfferAction.result as AggregateOffer
+- optimize action.ISearchConditions
+- optimize returnPayTransaction task
+- optimize authorizePaymentAction
+- optimize orderAction
+- optimize sendOrderAction
+- optimize authorizeEventServiceOfferAction
+- optimize checkMovieTicket task
+
+### Removed
+
+- discontinue authorizeOfferAction.result.acceptedOffers
+- discontinue assetTransaction.tasksExportedAt
+- discontinue assetTransaction.tasksExportationStatus
+- discontinue transaction.tasksExportedAt
+- discontinue transaction.tasksExportationStatus
+- discontinue transactionTasksExportationStatus
+- discontinue placeOrder.result.options.ignoreAccpetedOffersFromResult
+- discontinue authorizeEventServiceOfferAction.object.acceptedOffer
+
 ## v4.374.0 - 2024-06-14
 
 ### Added

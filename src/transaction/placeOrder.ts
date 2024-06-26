@@ -24,7 +24,8 @@ export type IAgent = TransactionFactory.IAgent & {
     memberOfToken?: string;
     memberOfPayload?: IMemberOfPayload;
 };
-export type ICustomer = OrderFactory.ICustomer;
+// export type ICustomer = OrderFactory.ICustomer;
+export type ICustomerInObject = Pick<OrderFactory.ICustomer, 'id' | 'identifier' | 'typeOf'>; // optimize(2024-06-24~)
 export interface IPaymentMethodByPaymentUrl {
     /**
      * 決済採用時に発行済の決済方法ID
@@ -49,8 +50,8 @@ export interface IAwardAccount {
 }
 export interface IObject {
     clientUser?: Omit<IClientUser, 'scope' | 'scopes'>;
-    broker?: OrderFactory.IBroker;
-    customer?: ICustomer;
+    broker?: Pick<OrderFactory.IBroker, 'id' | 'typeOf'>;
+    customer?: ICustomerInObject;
     identifier?: OrderFactory.IIdentifier;
     /**
      * 確認番号
@@ -88,7 +89,7 @@ export interface IStartParamsWithoutDetail {
     };
     object: {
         clientUser?: Omit<IClientUser, 'scope' | 'scopes'>;
-        customer?: ICustomer;
+        customer?: ICustomerInObject;
         passport?: TransactionFactory.IPassportBeforeStart;
         /**
          * 注文名称
@@ -170,7 +171,20 @@ export interface IConfirmParams {
      */
     result?: IResultParams;
 }
-export type IOrderAsResult = OrderFactory.IOrder;
+export type IOrderAsResult = Pick<
+    OrderFactory.IOrder,
+    'confirmationNumber'
+    // | 'broker' // optimize(2024-06-17~)
+    // | 'name' // optimize(2024-06-17~)
+    // | 'seller' // optimize(2024-06-17~)
+    // | 'isGift' // optimize(2024-06-17~)
+    // | 'project' // optimize(2024-06-17~)
+    // | 'customer' // optimize(2024-06-17~)
+    // | 'paymentMethods' // optimize(2024-06-17~)
+    // | 'orderedItem' // optimize(2024-06-18~)
+    | 'identifier' | 'orderDate' | 'orderNumber' | 'orderStatus'
+    | 'price' | 'priceCurrency' | 'typeOf' | 'url'
+>;
 export interface IAuthorizeActionAsResult { id: string; }
 /**
  * 取引結果
@@ -192,12 +206,6 @@ export interface IResult {
      * オファー数(2024-01-17~)
      */
     numAcceptedOffers?: number;
-    options?: {
-        /**
-         * 取引resultの注文オファーを無視する(Orderに適用しない)
-         */
-        ignoreAccpetedOffersFromResult?: boolean;
-    };
 }
 /**
  * エラー

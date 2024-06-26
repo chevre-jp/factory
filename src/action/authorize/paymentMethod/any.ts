@@ -31,10 +31,7 @@ export {
 
 export import IPurchaseNumberAuthResult = CheckMovieTicketActionFactory.IPurchaseNumberAuthResult;
 
-/**
- * 承認対象
- */
-export interface IObject {
+export interface IObjectIncludingPaymentMethodDetails {
     /**
      * The identifier for the account the payment will be applied to.
      * MovieTicket->購入管理番号
@@ -98,7 +95,7 @@ export interface IObject {
     movieTickets?: IMovieTicket[];
 }
 export type IObjectWithoutDetail = Pick<
-    IObject,
+    IObjectIncludingPaymentMethodDetails,
     'additionalProperty' | 'amount' | 'issuedThrough' | 'paymentMethod'
     | 'description' | 'name' | 'creditCard' | 'method' | 'movieTickets' | 'fromLocation'
 > & {
@@ -108,6 +105,21 @@ export type IObjectWithoutDetail = Pick<
      */
     paymentMethodId?: string;
 };
+// IObjectから決済方法詳細を除外(2024-06-20~)
+export type IObject = Pick<
+    IObjectIncludingPaymentMethodDetails,
+    'typeOf'
+    | 'paymentMethodId'
+    | 'accountId'
+
+// | 'fromLocation'
+// | 'additionalProperty'
+// | 'amount'
+// | 'description'
+// | 'issuedThrough'
+// | 'name'
+// | 'paymentMethod'
+>;
 export interface IResultPaymentMethod {
     /**
      * 決済方法区分
@@ -160,7 +172,7 @@ export interface IResultAsInvoice {
 // Array対応(2023-09-02~)
 export type IResult = IResultAsInvoice | IResultAsInvoice[];
 export interface IPurpose {
-    typeOf: TransactionType;
+    typeOf: TransactionType.PlaceOrder;
     id: string;
 }
 
@@ -171,6 +183,7 @@ export enum ServiceIdentifier {
 
 export interface IInstrumentAsService {
     typeOf: 'WebAPI';
+    transactionNumber: never;
     identifier: ServiceIdentifier;
 }
 export interface IInstrumentAsAssetTransaction {

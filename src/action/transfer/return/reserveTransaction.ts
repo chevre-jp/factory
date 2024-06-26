@@ -11,7 +11,7 @@ export {
 export type IAgent = ActionFactory.IParticipantAsProject;
 export type IRecipient = ActionFactory.IParticipantAsSeller;
 export type IObject4COA = IStateReserveArgs & {
-    typeOf: 'COAReserveTransaction';
+    typeOf: AssetTransactionType.COAReserveTransaction;
 };
 export interface IObject4Chevre {
     typeOf: AssetTransactionType.Reserve;

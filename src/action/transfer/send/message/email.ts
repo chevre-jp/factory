@@ -26,12 +26,15 @@ export interface IResult {
 }
 export type IPurpose = ISimpleOrder;
 // tslint:disable-next-line:no-empty-interface
-export interface IPotentialActions {
-}
-export interface IAttributes extends SendActionFactory.IAttributes<IObject, IResult> {
+// export interface IPotentialActions {
+// }
+export interface IAttributes extends Pick<
+    SendActionFactory.IAttributes<IObject, IResult>,
+    'typeOf' | 'sameAs' | 'result' | 'recipient' | 'purpose' | 'project' | 'object' | 'error' | 'agent'
+> {
     agent: IAgent;
     purpose: IPurpose;
-    potentialActions?: IPotentialActions;
+    // potentialActions?: IPotentialActions; // discontinue(2024-06-25~)
     recipient: IRecipient;
 }
 /**

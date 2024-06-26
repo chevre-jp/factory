@@ -4,10 +4,12 @@ import * as ActionFactory from '../../../action';
 import { ActionType } from '../../../actionType';
 import * as ReserveTransactionFactory from '../../../assetTransaction/reserve';
 import { AssetTransactionType } from '../../../assetTransactionType';
-import * as ScreeningEventFactory from '../../../event/screeningEvent';
+import { IEvent } from '../../../event/screeningEvent';
 import * as OfferFactory from '../../../offer';
+import { OfferType } from '../../../offerType';
 import * as OrderFactory from '../../../order';
 import { PriceCurrency } from '../../../priceCurrency';
+import { IPriceSpecification as IUnitPriceSpecification } from '../../../priceSpecification/unitPriceSpecification';
 import {
     ICategoryCodeChargePriceComponent, IMovieTicketTypeChargePriceComponent,
     ITicketOffer, ITicketPriceSpecification, ITicketUnitPriceComponent
@@ -25,35 +27,32 @@ export enum ObjectType {
     SeatReservation = 'SeatReservation'
 }
 
-/**
- * IInstrumentAsAssetTransactionへ移行前のinstrument(~2024-03-08)
- * @deprecated use IInstrumentAsAssetTransaction
- */
-export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.IService<T> & {
-    /**
-     * Chevre->予約取引番号
-     * COA->仮予約番号
-     */
-    transactionNumber?: string;
-};
+// IInstrumentAsAssetTransactionへ移行前のinstrument(~2024-03-08)
+// 手動でIInstrumentAsAssetTransactionへmigrate済(2024-06-21)
+// export type IInstrument<T extends WebAPIFactory.Identifier> = WebAPIFactory.IService<T> & {
+//     /**
+//      * Chevre->予約取引番号
+//      * COA->仮予約番号
+//      */
+//     transactionNumber?: string;
+// };
 export type IInstrumentAsAssetTransaction<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? {
-        typeOf: 'COAReserveTransaction';
+        typeOf: AssetTransactionType.COAReserveTransaction;
         identifier: T;
         /**
-         * Chevre->予約取引番号
-         * COA->仮予約番号
+         * 仮予約番号
+         * ある時期(2023-09-12頃)以前では空文字のケースがあるので中止
          */
-        transactionNumber?: string;
+        transactionNumber: string;
     } :
     T extends WebAPIFactory.Identifier.Chevre ? {
         typeOf: AssetTransactionType.Reserve;
         identifier: T;
         /**
-         * Chevre->予約取引番号
-         * COA->仮予約番号
+         * 予約取引番号
          */
-        transactionNumber?: string;
+        transactionNumber: string;
     } :
     never;
 
@@ -67,11 +66,24 @@ export type IResponseBody<T extends WebAPIFactory.Identifier> =
     never;
 
 export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IReservation>;
-
-/**
- * 承認アクション結果
- */
-export interface IResult {
+export interface IAcceptedOfferInResult extends Pick<ITicketOffer, 'acceptedPaymentMethod' | 'id' | 'typeOf'> {
+    typeOf: OfferType.Offer;
+    id: string;
+    includesObject: { amountOfThisGood: number };
+    /**
+     * 取引確定時の検証に必要な情報のみ保管する
+     */
+    priceSpecification?: Pick<IUnitPriceSpecification, 'eligibleQuantity' | 'eligibleTransactionVolume'>;
+}
+export interface IResultAsAggregateOffer {
+    typeOf?: OfferType.AggregateOffer;
+    /**
+     * オファーIDごとの集計
+     */
+    offers?: IAcceptedOfferInResult[];
+}
+// redefine as typeOf: AggregateOffer(2024-06-17~)
+export interface IResult extends IResultAsAggregateOffer {
     /**
      * 決済金額
      * オファー未指定の場合、金額非確定なので、この属性は存在しない
@@ -83,15 +95,9 @@ export interface IResult {
      * currencyを口座タイプとして扱う
      */
     amount: OrderFactory.ITotalPaymentDue[];
-    /**
-     * 外部サービスへのリクエスト
-     */
     // requestBody: IRequestBody<T>; // discontinue(2024-06-11~)
-    /**
-     * 外部サービスからのレスポンス
-     */
     // responseBody: IResponseBody<T>; // discontinue(2024-06-11~)
-    acceptedOffers?: IResultAcceptedOffer[];
+    // acceptedOffers?: IResultAcceptedOffer[]; // discontinue(2024-06-17~)
 }
 
 export type ExcludedFieldsFromTicketPriceComponent = 'accounting' | 'id' | 'name' | 'priceCurrency' | 'valueAddedTaxIncluded';
@@ -114,10 +120,11 @@ export type IAcceptedOfferPriceSpecification = Pick<ITicketPriceSpecification, '
  */
 export type IAcceptedOffer4chevre = Pick<
     ITicketOffer,
-    'acceptedPaymentMethod' | // add(2023-11-15~)
-    'id' | 'identifier' | 'typeOf' |
-    'priceCurrency' |
-    'itemOffered' | 'additionalProperty'
+    'acceptedPaymentMethod'  // add(2023-11-15~)
+    | 'id' | 'identifier' | 'typeOf'
+    | 'priceCurrency'
+    | 'itemOffered'
+    | 'additionalProperty'
 >
     & Pick<ReserveTransactionFactory.IAcceptedTicketOfferWithoutDetail, 'id' | 'addOn' | 'additionalProperty'>
     & {
@@ -186,8 +193,20 @@ export interface IObjectWithoutDetail4COA {
 
 export type IAcceptedOffer<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? IAcceptedOffer4COA :
-    T extends WebAPIFactory.Identifier.Chevre ? IAcceptedOffer4chevre :
-    never;
+    T extends WebAPIFactory.Identifier.Chevre
+    ? Pick<
+        IAcceptedOffer4chevre,
+        'acceptedPaymentMethod'
+        // | 'addOn' // discontinue(2024-06-17~)
+        // | 'additionalProperty' // discontinue(2024-06-17~)
+        | 'id'
+        // | 'identifier' // discontinue(2024-06-17~)
+        // | 'itemOffered' // discontinue(2024-06-17~)
+        // | 'priceCurrency' // discontinue(2024-06-17~)
+        | 'priceSpecification'
+        | 'typeOf'
+    >
+    : never;
 
 export type IAcceptedOfferWithoutDetail<T extends WebAPIFactory.Identifier> =
     T extends WebAPIFactory.Identifier.COA ? IAcceptedOfferWithoutDetail4COA :
@@ -205,57 +224,54 @@ export type ICOAPendingTransaction = Pick<
     'theaterCode' | 'dateJouei' | 'titleCode' | 'titleBranchNum' | 'timeBegin' | 'tmpReserveNum'
 > & {
     transactionNumber: string;
-    typeOf: 'COAReserveTransaction';
+    typeOf: AssetTransactionType.COAReserveTransaction;
 };
-export interface IChevrePendingTransaction {
-    transactionNumber: string;
-    typeOf: AssetTransactionType.Reserve;
-}
-export type IPendingTransaction<T extends WebAPIFactory.Identifier> =
-    T extends WebAPIFactory.Identifier.COA ? ICOAPendingTransaction :
-    T extends WebAPIFactory.Identifier.Chevre ? IChevrePendingTransaction :
-    never;
-
-export type IEvent = Pick<ScreeningEventFactory.IEvent, 'id' | 'typeOf'> & {
-    offers: {
-        // イベント提供サービスを識別できるようにするために追加(2022-06-03~)
-        offeredThrough: ScreeningEventFactory.IOfferedThrough;
-    };
+// export interface IChevrePendingTransaction {
+//     transactionNumber: string;
+//     typeOf: AssetTransactionType.Reserve;
+// }
+export type IEventInObject = Pick<IEvent, 'id' | 'typeOf'> & {
+    // offers: { // discontinue(2024-06-22~)
+    //     // イベント提供サービスを識別できるようにするために追加(2022-06-03~)
+    //     offeredThrough: ScreeningEventFactory.IOfferedThrough;
+    // };
 };
 /**
  * 興行オファー承認アクション対象
  */
-export type IObject<T extends WebAPIFactory.Identifier> = {
+export interface IObject {
     typeOf: ObjectType;
-    event?: IEvent;
-    acceptedOffer: IAcceptedOffer<T>[];
+    event?: IEventInObject;
+    // acceptedOffer?: IAcceptedOffer<T>[]; // discontinue(2024-06-21~)
     /**
      * recipe有(仮予約時)のCOA興行オファー採用アクションID(2024-06-11~)
      */
     id?: string;
     /**
-     * 進行中取引
+     * COA進行中取引(仮予約削除時に利用)
+     * discontinue on Chevre(2024-06-22~)
      */
-    pendingTransaction: IPendingTransaction<T>;
+    pendingTransaction?: ICOAPendingTransaction;
     /**
      * result.acceptedOffers廃止に際して使用有無を保管
      */
-    useResultAcceptedOffers?: boolean;
-} & Omit<IObjectWithoutDetail<T>, 'acceptedOffer' | 'reservationFor'>;
+    // useResultAcceptedOffers?: boolean; // discontinue(2024-06-24~)
+}
+// & Omit<IObjectWithoutDetail<T>, 'acceptedOffer' | 'reservationFor'>
+// & Pick<IObjectWithoutDetail<WebAPIFactory.Identifier.Chevre>, 'broker'> // discontinue(2024-06-24~)
 
 export interface IPurpose {
     typeOf: TransactionType.PlaceOrder;
     id: string;
 }
 export type IError = any;
-export interface IAttributes<T extends WebAPIFactory.Identifier>
-    extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult> {
+export interface IAttributes<T extends WebAPIFactory.Identifier> extends AuthorizeActionFactory.IAttributes<IObject, IResult> {
     typeOf: ActionType.AuthorizeAction;
     agent: IAgent;
     recipient: IRecipient;
-    object: IObject<T>;
+    object: IObject;
     purpose: IPurpose;
-    instrument: IInstrument<T> | IInstrumentAsAssetTransaction<T>;
+    instrument: IInstrumentAsAssetTransaction<T>;
 }
 /**
  * 興行オファー承認アクション

@@ -4,6 +4,7 @@ import {
     IObjectWithoutDetail, IPurpose
 } from '../../action/authorize/offer/eventService';
 import { ActionType } from '../../actionType';
+import { AssetTransactionType } from '../../assetTransactionType';
 import { OfferType } from '../../offerType';
 import { IRecipe, IUpdTmpReserveSeatArgs, IUpdTmpReserveSeatResult } from '../../recipe/acceptCOAOffer';
 import { Identifier } from '../../service/webAPI';
@@ -62,7 +63,7 @@ export interface IPotentialActions {
     typeOf: IAuthorizeOfferAction<Identifier.COA>['typeOf'];
 }
 export interface IInstrument {
-    typeOf: 'COAReserveTransaction';
+    typeOf: AssetTransactionType.COAReserveTransaction;
     /**
      * 仮予約実行時は存在する
      */

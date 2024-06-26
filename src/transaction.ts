@@ -10,7 +10,6 @@ import { IIdentifier, IPersonAttributes } from './person';
 import { PersonType } from './personType';
 import { SortType } from './sortType';
 import { TransactionStatusType } from './transactionStatusType';
-import { TransactionTasksExportationStatus } from './transactionTasksExportationStatus';
 import { TransactionType } from './transactionType';
 
 export interface IAgentAsWebApplication extends Pick<IWebApplication, 'id' | 'identifier' | 'typeOf'> {
@@ -120,14 +119,8 @@ export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TSta
      */
     endDate?: Date;
     tasksExportAction?: ITasksExportAction;
-    /**
-     * タスクエクスポート日時
-     */
-    tasksExportedAt?: Date;
-    /**
-     * タスクエクスポート状態
-     */
-    tasksExportationStatus: TransactionTasksExportationStatus;
+    // tasksExportedAt?: Date; // discontinue(2024-06-20~)
+    // tasksExportationStatus?: TransactionTasksExportationStatus; // discontinue(2024-06-20~)
     /**
      * 事後に発生するアクション
      */
@@ -158,8 +151,12 @@ export interface ISearchConditions<T extends TransactionType> {
     ids?: string[];
     /**
      * ステータスリスト
+     * @deprecated use tasksExportAction
      */
     statuses?: TransactionStatusType[];
+    status?: {
+        $in?: TransactionStatusType[];
+    };
     /**
      * 開始日時(から)
      */
@@ -177,16 +174,19 @@ export interface ISearchConditions<T extends TransactionType> {
      */
     endThrough?: Date;
     agent?: {
-        typeOf?: PersonType;
+        typeOf?: PersonType.Person | IWebApplication['typeOf'];
         ids?: string[];
         identifiers?: IIdentifier;
-        givenName?: string;
-        familyName?: string;
-        telephone?: string;
-        email?: string;
+        // givenName?: string; // discontinue(2024-06-17~)
+        // familyName?: string; // discontinue(2024-06-17~)
+        // telephone?: string; // discontinue(2024-06-17~)
+        // email?: string; // discontinue(2024-06-17~)
     };
-    tasksExportationStatuses?: TransactionTasksExportationStatus[];
+    // tasksExportationStatuses?: TransactionTasksExportationStatus[]; // discontinue(2024-06-17~)
     tasksExportAction?: {
-        actionStatus?: { $eq?: ActionStatusType };
+        actionStatus?: {
+            $eq?: ActionStatusType;
+            $in?: ActionStatusType[];
+        };
     };
 }

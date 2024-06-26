@@ -5,7 +5,6 @@ import { OrganizationType } from './organizationType';
 import { PersonType } from './personType';
 import { SortType } from './sortType';
 import { TransactionStatusType } from './transactionStatusType';
-import { TransactionTasksExportationStatus } from './transactionTasksExportationStatus';
 
 /**
  * 販売者主体
@@ -104,14 +103,8 @@ export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TSta
      */
     endDate?: Date;
     tasksExportAction?: ITasksExportAction;
-    /**
-     * タスクエクスポート日時
-     */
-    tasksExportedAt?: Date;
-    /**
-     * タスクエクスポート状態
-     */
-    tasksExportationStatus: TransactionTasksExportationStatus;
+    // tasksExportedAt?: Date; // discontinue(2024-06-20~)
+    // tasksExportationStatus?: TransactionTasksExportationStatus; // discontinue(2024-06-20~)
     /**
      * 事後に発生するアクション
      */
@@ -145,8 +138,12 @@ export interface ISearchConditions<T extends AssetTransactionType> {
     ids?: string[];
     /**
      * ステータスリスト
+     * @deprecated use tasksExportAction
      */
     statuses?: TransactionStatusType[];
+    status?: {
+        $in?: TransactionStatusType[];
+    };
     /**
      * 開始日時(から)
      */
@@ -170,5 +167,11 @@ export interface ISearchConditions<T extends AssetTransactionType> {
         $eq?: string;
         $in?: string[];
     };
-    tasksExportationStatuses?: TransactionTasksExportationStatus[];
+    // tasksExportationStatuses?: TransactionTasksExportationStatus[]; // discontinue(2024-06-17~)
+    tasksExportAction?: {
+        actionStatus?: {
+            $eq?: ActionStatusType;
+            $in?: ActionStatusType[];
+        };
+    };
 }

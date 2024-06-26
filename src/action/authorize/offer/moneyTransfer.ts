@@ -19,7 +19,7 @@ export interface IResult {
     priceCurrency: PriceCurrency;
     requestBody?: IRequestBody;
     responseBody: IResponseBody;
-    acceptedOffers: IResultAcceptedOffer[];
+    // acceptedOffers: IResultAcceptedOffer[]; // discontinue(2024-06-17~)
 }
 export import IItemOffered = OrderFactory.IMoneyTransfer;
 export interface IAcceptedOffer extends Omit<IOffer, 'addOn' | 'availability' | 'availableAtOrFrom'> {
