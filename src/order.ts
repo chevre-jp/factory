@@ -272,17 +272,11 @@ export interface ISimpleOrder {
      */
     orderNumber: string;
     /**
-     * The total price of the entire transaction.
-     */
-    price: number;
-    /**
-     * The currency (in 3 - letter ISO 4217 format) of the order price.
-     */
-    priceCurrency: PriceCurrency;
-    /**
      * Date order was placed.
      */
     orderDate: Date;
+    // price: number; // discontinue from ISimpleOrder
+    // priceCurrency: PriceCurrency; // discontinue from ISimpleOrder
     // seller: ISimpleSeller; // 廃止(2024-03-06~)
 }
 export interface IReservationFor4EventServiceOrderedItem {
@@ -373,6 +367,14 @@ export interface IOrder extends ISimpleOrder {
      */
     paymentMethods: IReferencedInvoice[];
     previousOrderStatus?: OrderStatus;
+    /**
+     * The total price of the entire transaction.
+     */
+    price: number;
+    /**
+     * The currency (in 3 - letter ISO 4217 format) of the order price.
+     */
+    priceCurrency: PriceCurrency;
     /**
      * Returner
      */

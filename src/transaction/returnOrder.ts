@@ -8,7 +8,8 @@ import { TransactionType } from '../transactionType';
 
 export type IAgent = TransactionFactory.IAgent;
 export import ISeller = TransactionFactory.ISeller;
-export type IResult = any;
+// tslint:disable-next-line:no-empty-interface
+export interface IResult { }
 export type IError = any;
 /**
  * 返品理由
@@ -91,18 +92,12 @@ export interface IReturnOrderActionParams {
      */
     potentialActions?: {
         /**
-         * クレジットカード返金アクションについてカスタマイズする場合に指定
+         * 返金アクションについてカスタマイズする場合に指定
          * 属性名称がrefundCreditCardであるが、全ての決済方法に適用可能
          */
-        // chevre/apiへ移行できるか
         refundCreditCard?: IRefundParams[];
         /**
-         * 決済カード着券取消を実行するかどうか
-         */
-        // 廃止(2022-06-08~)
-        // refundMovieTicket?: boolean;
-        /**
-         * Eメール送信アクション
+         * 返品時Eメール送信アクション
          */
         sendEmailMessage?: ISendEmailMessageParams[];
     };
@@ -140,7 +135,7 @@ export interface IReturnFeesMovieTicket {
         typeOf: string;
     };
 }
-export type IReturnPolicyItemCondition = IOfferItemCondition;
+export type IReturnPolicyItemCondition = Pick<IOfferItemCondition, 'id' | 'identifier' | 'itemOffered' | 'typeOf'>;
 /**
  * 取引に適用される返品ポリシー
  * 販売者の返品ポリシー、あるいは、プロジェクトの返品ポリシーから選択される
@@ -167,6 +162,7 @@ export interface IObject {
     order: IReturnableOrder[];
     reason: Reason;
     returnPolicy: IReturnPolicy;
+    usedReservationExists?: boolean;
 }
 export type IReturnOrderPotentialAction = Pick<IReturnOrderActionAttributes, 'agent' | 'object' | 'potentialActions' | 'typeOf'>;
 export interface IPotentialActions {

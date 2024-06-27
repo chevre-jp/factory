@@ -7,9 +7,11 @@ export enum ErrorCode {
     ArgumentNull = 'ArgumentNull',
     Forbidden = 'Forbidden',
     GatewayTimeout = 'GatewayTimeout',
+    Internal = 'Internal',
     NotFound = 'NotFound',
     NotImplemented = 'NotImplemented',
     RateLimitExceeded = 'RateLimitExceeded',
     ServiceUnavailable = 'ServiceUnavailable',
-    Unauthorized = 'Unauthorized'
+    Unauthorized = 'Unauthorized',
+    Unknown = 'Unknown'
 }

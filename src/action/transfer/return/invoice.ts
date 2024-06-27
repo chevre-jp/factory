@@ -20,7 +20,7 @@ export interface IResult { }
 export type IPotentialSendEmailMessageAction = Pick<ISendEmailMessageActionAttributes, 'object'>; // optimize(2024-06-26~)
 export interface IPotentialActions {
     /**
-     * 返金処理完了を通知するEメール送信アクション
+     * 返金取引確定を通知するEメール送信アクション
      */
     sendEmailMessage?: IPotentialSendEmailMessageAction[];
 }

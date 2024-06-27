@@ -18,6 +18,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.376.0 - 2024-06-28
+
+### Added
+
+- add errors.Internal
+- add errors.Unknown
+
+### Changed
+
+- optimize placeOrder.potentialActions
+- optimize ISimpleOrder
+
+### Removed
+
+- discontinue orderAction.potentialActions
+
 ## v4.375.0 - 2024-06-26
 
 ### Added
