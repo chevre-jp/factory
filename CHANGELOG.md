@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v4.376.0 - 2024-06-28
+
+### Added
+
 - add errors.Internal
 - add errors.Unknown
 
@@ -16,15 +30,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - optimize placeOrder.potentialActions
 - optimize ISimpleOrder
 
-### Deprecated
-
 ### Removed
 
 - discontinue orderAction.potentialActions
-
-### Fixed
-
-### Security
 
 ## v4.375.0 - 2024-06-26
 
