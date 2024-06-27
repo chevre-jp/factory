@@ -19,7 +19,12 @@ export type IOptimizedObject = Pick<IEmailMessage, 'identifier' | 'typeOf'> & {
     identifier: string;
     text?: never;
 };
-export type IObject = IObjectAsEmailMessage | IOptimizedObject;
+export type IObject =
+    /**
+     * @deprecated use IOptimizedObject
+     */
+    IObjectAsEmailMessage |
+    IOptimizedObject;
 export interface IResult {
     statusCode?: number;
     statusMessage?: string;

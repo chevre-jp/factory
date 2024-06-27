@@ -225,6 +225,9 @@ export interface IOrderPotentialActions {
 }
 export interface IPotentialActions {
     order: {
+        /**
+         * @deprecated use onOrderProcessing(already migrated 2024-06-29~)
+         */
         potentialActions?: IOrderPotentialActions; // optimize(2024-01-22~)
         onOrderProcessing?: { // add(2024-06-28~)
             sendEmailMessage?: IPotentialSendEmailMessageAction[];

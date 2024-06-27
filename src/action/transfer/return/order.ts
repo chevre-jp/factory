@@ -16,7 +16,8 @@ export type IObject = OrderFactory.ISimpleOrder & {
      */
     dateReturned: Date;
 };
-export type IResult = any;
+// tslint:disable-next-line:no-empty-interface
+export interface IResult { }
 // optimize(2024-06-19~)
 // export type IPotentialReturnInvoiceAction = Pick<
 //     IReturnInvoiceActionAttributes,
@@ -41,11 +42,13 @@ export interface IPotentialActions {
      */
     sendEmailMessage?: IPotentialSendEmailMessageAction[]; // optimize(2024-06-25~)
 }
-export interface IAttributes extends ReturnActionFactory.IAttributes<IObject, IResult> {
+export interface IAttributes extends Pick<
+    ReturnActionFactory.IAttributes<IObject, IResult>,
+    'typeOf' | 'sameAs' | 'result' | 'recipient' | 'project' | 'potentialActions' | 'object' | 'error' | 'agent'
+> {
     agent: IAgent;
     recipient: IRecipient;
     potentialActions?: IPotentialActions;
-    purpose?: never;
 }
 /**
  * 返品アクション
