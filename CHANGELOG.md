@@ -13,9 +13,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- optimize placeOrder.potentialActions
+
 ### Deprecated
 
 ### Removed
+
+- discontinue orderAction.potentialActions
 
 ### Fixed
 
