@@ -67,8 +67,11 @@ export interface IObject extends Pick<IReservationPackage, 'reservationNumber' |
 export interface IConfirmParams {
     id: string;
 }
+export interface IPotentialCancelAction extends ICancelReservationActionAttributes {
+    purpose: { id: string; typeOf: AssetTransactionType.CancelReservation };
+}
 export interface IPotentialActions {
-    cancelReservation: ICancelReservationActionAttributes[];
+    cancelReservation: IPotentialCancelAction[];
 }
 export type ITransaction = IExtendId<IAttributes>;
 /**

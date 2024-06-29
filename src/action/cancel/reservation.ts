@@ -8,7 +8,6 @@ import { ReservationType } from '../../reservationType';
 import { TripType } from '../../tripType';
 
 export type IAgent = ActionFactory.IParticipantAsProject;
-// ReservationPackageに拡張(2022-12-22~)
 export interface IReservationPackageAsObject {
     reservationFor: {
         typeOf: EventType.ScreeningEvent | TripType.BusTrip;
@@ -38,9 +37,6 @@ export interface IBusReservationAsObject {
     reservationStatus: IAvailableReservationStatusType;
     typeOf: ReservationType.BusReservation;
 }
-/**
- * 予約取消対象
- */
 export interface IEventReservationAsObject {
     id: string;
     issuedThrough?: {
@@ -58,29 +54,23 @@ export interface IEventReservationAsObject {
     typeOf: ReservationType.EventReservation;
 }
 export type IObject = IBusReservationAsObject | IEventReservationAsObject | IReservationPackageAsObject;
-/**
- * 予約取消結果
- */
-export type IResult = any;
-/**
- * 予約取消目的
- */
+// tslint:disable-next-line:no-empty-interface
+export interface IResult { }
 export interface IPurpose {
     /**
      * 取引タイプ
      */
-    typeOf: AssetTransactionType;
+    typeOf: AssetTransactionType.Reserve | AssetTransactionType.CancelReservation;
     /**
      * 取引ID
      */
     id: string;
 }
-/**
- * アクション属性
- */
-export interface IAttributes extends ActionFactory.IAttributes<ActionType.CancelAction, IObject, IResult> {
+export interface IAttributes extends Pick<
+    ActionFactory.IAttributes<ActionType.CancelAction, IObject, IResult>,
+    'typeOf' | 'result' | 'purpose' | 'project' | 'object' | 'agent'
+> {
     agent: IAgent;
-    // potentialActions?: IPotentialActions;
     purpose: IPurpose;
 }
 /**

@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - optimize reserve task
+- optimize cancelPendingReservation task
 
 ### Deprecated
 

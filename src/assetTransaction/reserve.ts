@@ -19,6 +19,7 @@ import {
     ISubReservation as ISubReservation4eventReservation
 } from '../reservation/event';
 import { IReservation as IReservationPackage } from '../reservation/reservationPackage';
+import { ReservationStatusType } from '../reservationStatusType';
 import { ReservationType } from '../reservationType';
 import { IUnitPriceOffer } from '../unitPriceOffer';
 
@@ -262,6 +263,7 @@ export interface IObject extends Pick<IReservationPackage, 'broker' | 'provider'
      * 予約番号
      */
     reservationNumber: string;
+    reservationStatus: ReservationStatusType.ReservationPending; // make required(2024-07-01~)
     subReservation?: IObjectSubReservation[];
     /**
      * trueで固定(2023-07-19~)
