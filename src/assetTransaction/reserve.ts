@@ -1,4 +1,4 @@
-import * as ReserveActionFactory from '../action/reserve';
+// import * as ReserveActionFactory from '../action/reserve';
 import { IPointAward } from '../action/transfer/moneyTransfer';
 import { ActionType } from '../actionType';
 import * as AssetTransactionFactory from '../assetTransaction';
@@ -271,8 +271,9 @@ export interface IObject extends Pick<IReservationPackage, 'broker' | 'provider'
     disablePendingReservations: true;
     useHoldStockByTransactionNumber?: boolean;
 }
+// tslint:disable-next-line:no-empty-interface
 export interface IPotentialActions {
-    reserve: ReserveActionFactory.IAttributes[];
+    // reserve: ReserveActionFactory.IAttributes[]; // discontinue(2024-07-01~)
 }
 export interface IAttributes extends AssetTransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
 }

@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - optimize reserve task
 - optimize cancelPendingReservation task
+- optimize reserveTransaction.potentialActions
 
 ### Deprecated
 
