@@ -9,10 +9,10 @@ export interface IPotentialReserveAction {
      */
     object: Pick<IObject, 'reservationNumber'>;
 }
-export interface IData {
-    // actionAttributes: IReserveActionAttributes[]; // optimize(2024-07-01~)
-    actionAttributes: IPotentialReserveAction[];
-}
+// export interface IData {
+//     actionAttributes: IReserveActionAttributes[];
+// }
+export type IData = IPotentialReserveAction; // optimize(2024-07-01~)
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.Reserve;
     data: IData;
