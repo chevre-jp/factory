@@ -36,7 +36,7 @@ export interface IResult {
      */
     accountTransaction?: { transactionNumber: string };
 }
-export type IInformPayment = IInformActionAttributes<{}, undefined>;
+export type IInformPayment = Pick<IInformActionAttributes<{}>, 'recipient' | 'purpose'>; // optimize(2024-07-01~)
 export interface IPotentialActions {
     add2report: boolean;
     informPayment?: IInformPayment[];
