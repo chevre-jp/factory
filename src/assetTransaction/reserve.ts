@@ -1,4 +1,3 @@
-// import * as ReserveActionFactory from '../action/reserve';
 import { IPointAward } from '../action/transfer/moneyTransfer';
 import { ActionType } from '../actionType';
 import * as AssetTransactionFactory from '../assetTransaction';
@@ -214,9 +213,9 @@ export interface IAcceptedTicketOfferWithoutDetail {
 export interface IAcceptedOffer4object {
     id: string;
     itemOffered: IAcceptedTicketOfferItemOffered4object;
-    priceSpecification?: {
-        appliesToMovieTicket?: IAcceptedAppliesToMovieTicket;
-    };
+    // priceSpecification?: { // discontinue(2024-07-02~)
+    //     appliesToMovieTicket?: IAcceptedAppliesToMovieTicket;
+    // };
 }
 export type IOrderAsReservePurpose = Pick<IOrder, 'confirmationNumber' | 'orderNumber' | 'typeOf'>;
 export interface IPotentialActionsParams {
@@ -246,29 +245,23 @@ export interface IObjectWithoutDetail {
     reservationFor?: { id: string };
 }
 export type IReservationFor = IBusReservationReservationFor | IEventReservationReservationFor;
-export type IOmittedReservationProperty = 'reservationFor' | 'broker' | 'issuedThrough' | 'provider' | 'reservationStatus'
-    // ↓さらに最適化(2024-04-08~)
-    | 'project' | 'reservationNumber' | 'bookingTime' | 'modifiedTime' | 'underName' | 'checkedIn' | 'attended';
-export type IObjectSubReservation =
-    Omit<IBusReservation, IOmittedReservationProperty> | Omit<IEventReservation, IOmittedReservationProperty>;
+// export type IOmittedReservationProperty = 'reservationFor' | 'broker' | 'issuedThrough' | 'provider' | 'reservationStatus'
+//     // ↓さらに最適化(2024-04-08~)
+//     | 'project' | 'reservationNumber' | 'bookingTime' | 'modifiedTime' | 'underName' | 'checkedIn' | 'attended';
+// export type IObjectSubReservation =
+//     Omit<IBusReservation, IOmittedReservationProperty> | Omit<IEventReservation, IOmittedReservationProperty>;
+export type IBusReservationAsSubReservation = Pick<IBusReservation, 'additionalProperty' | 'additionalTicketText' | 'id' | 'numSeats' | 'price' | 'priceCurrency' | 'programMembershipUsed' | 'reservedTicket' | 'subReservation' | 'typeOf'>;
+export type IEventReservationAsSubReservation = Pick<IEventReservation, 'additionalProperty' | 'additionalTicketText' | 'id' | 'numSeats' | 'price' | 'priceCurrency' | 'programMembershipUsed' | 'reservedTicket' | 'subReservation' | 'typeOf'>;
+export type IObjectSubReservation = IBusReservationAsSubReservation | IEventReservationAsSubReservation;
 export type IIssuedThrough = IBusReservationIssuedThrough | IEventReservationIssuedThrough;
-/**
- * 取引対象物
- */
 export interface IObject extends Pick<IReservationPackage, 'broker' | 'provider' | 'reservationStatus' | 'underName' | 'typeOf'> {
     acceptedOffer?: IAcceptedOffer4object[];
     issuedThrough?: IIssuedThrough;
     reservationFor?: IReservationFor;
-    /**
-     * 予約番号
-     */
     reservationNumber: string;
     reservationStatus: ReservationStatusType.ReservationPending; // make required(2024-07-01~)
     subReservation?: IObjectSubReservation[];
-    /**
-     * trueで固定(2023-07-19~)
-     */
-    disablePendingReservations: true;
+    disablePendingReservations: true; // trueで固定(2023-07-19~)
     useHoldStockByTransactionNumber?: boolean;
 }
 // tslint:disable-next-line:no-empty-interface
